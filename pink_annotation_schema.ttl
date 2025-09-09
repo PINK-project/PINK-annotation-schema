@@ -19,7 +19,8 @@
     dcterms:bibliographicCitation "xxx" ;
     dcterms:contributor :IseultLynch ;
     dcterms:created "2025-09-08" ;
-    dcterms:creator :JesperFriis ,
+    dcterms:creator
+        :JesperFriis ,
         :ThomasExner ,
         :FrancescaBleken ,
         :JohDokler ;
@@ -40,6 +41,26 @@
     foaf:homepage <https://github.com/PINK-project/PINK-annotation-schema> ;
     foaf:logo <https://tess.elixir-europe.org/system/content_providers/images/000/000/777/original/pink-logo-orange-colorB-500.png> .
 
+
+#################################################################
+#    Annotations inherited from existing vocabularies
+#################################################################
+
+dcat:hasVersion .
+dcat:landingPage .
+dcterms:accessRights .
+dcterms:creator .
+dcterms:description .
+dcterms:identifier .
+dcterms:license .
+dcterms:modified .
+dcterms:title .
+vann:usageNote .
+
+
+#################################################################
+#    Object properties
+#################################################################
 
 :conformance rdf:type owl:AnnotationProperty ;
     rdfs:subPropertyOf skos:note ;
