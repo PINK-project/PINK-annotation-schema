@@ -14,7 +14,9 @@
 
 <https://w3id.org/pink> rdf:type owl:Ontology ;
     owl:versionIRI <https://w3id.org/pink/0.0.1> ;
-    owl:imports <https://w3id.org/pink/0.0.1/contributors> ;
+    owl:imports
+        <https://w3id.org/pink/0.0.1/reused-terms> ,
+        <https://w3id.org/pink/0.0.1/contributors> ;
     dcterms:abstract """The PINK Annotation Schema provides the semantic basis for SSbD."""@en ;
     dcterms:bibliographicCitation "xxx" ;
     dcterms:contributor :IseultLynch ;
@@ -42,29 +44,13 @@
     foaf:logo <https://tess.elixir-europe.org/system/content_providers/images/000/000/777/original/pink-logo-orange-colorB-500.png> .
 
 
-#################################################################
-#    Annotations inherited from existing vocabularies
-#################################################################
-
-dcat:hasVersion .
-dcat:landingPage .
-dcterms:accessRights .
-dcterms:creator .
-dcterms:description .
-dcterms:identifier .
-dcterms:license .
-dcterms:modified .
-dcterms:title .
-vann:usageNote .
-
 
 #################################################################
 #    Object properties
 #################################################################
 
 :conformance rdf:type owl:AnnotationProperty ;
-    rdfs:subPropertyOf skos:note ;
-    skos:prefLabel "usageNote" ;
+    skos:prefLabel "conformance" ;
     rdfs:range xsd:string ;
     rdfs:isDefinedBy <https://w3id.org/pink> ;
     dcterms:description "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema"@en ;
