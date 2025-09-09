@@ -1,0 +1,61 @@
+@prefix : <https://w3id.org/pink/contributors#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix pink: <https://w3id.org/pink#> .
+
+<https://w3id.org/pink/contributors> rdf:type owl:Ontology ;
+    owl:versionIRI <https://w3id.org/pink/0.0.1/contributors> ;
+    dcterms:abstract "People and organisations who has contributed to the development of the PINK Annotation Schema."@en ;
+    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+    dcterms:publisher <https://pink-project.eu/> ;
+    dcterms:title "Contributors"@en ;
+    owl:versionInfo "0.0.1" .
+
+
+pink:hasORCID rdf:type owl:DatatypeProperty ;
+    skos:prefLabel "hasORCID"@en ;
+    skos:definition "Relates an individual to an ORCID that identifies the individual."@en ;
+    rdfs:domain foaf:Agent ;
+    rdfs:range xsd:anyURI .
+
+
+
+#################################################################
+#    Contributers
+#################################################################
+
+pink:JesperFriis rdf:type foaf:Person ;
+    pink:hasORCID "https://orcid.org/0000-0002-1560-809X"^^xsd:anyURI ;
+    skos:prefLabel "JesperFriis" ;
+    foaf:name "Jesper Friis" ;
+    foaf:workplaceHomepage <https://www.sintef.no/en/> .
+
+pink:FrancescaBleken rdf:type foaf:Person ;
+    pink:hasORCID "https://orcid.org/0000-0001-8869-3718"^^xsd:anyURI ;
+    skos:prefLabel "FrancescaLonstadBleken" ;
+    foaf:name "Francesca Lønstad Bleken" ;
+    foaf:workplaceHomepage <https://www.sintef.no/en/> .
+
+pink:ThomasExner rdf:type foaf:Person ;
+    pink:hasORCID "https://orcid.org/XXX"^^xsd:anyURI ;
+    skos:prefLabel "ThomasExner" ;
+    foaf:name "Thomas Exner" ;
+    foaf:workplaceHomepage <https://sevenpastnine.com/> .
+
+pink:JohDokler rdf:type foaf:Person ;
+    pink:hasORCID "https://orcid.org/XXX"^^xsd:anyURI ;
+    skos:prefLabel "JohDokler" ;
+    foaf:name "Joh Dokler" ;
+    foaf:workplaceHomepage <https://sevenpastnine.com/> .
+
+pink:IseultLynch rdf:type foaf:Person ;
+    pink:hasORCID "https://orcid.org/XXX"^^xsd:anyURI ;
+    skos:prefLabel "IseultLynch" ;
+    foaf:name "Iseult Lynch" ;
+    foaf:workplaceHomepage <https://www.birmingham.ac.uk/> .
