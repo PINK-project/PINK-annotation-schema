@@ -1,0 +1,63 @@
+@prefix : <https://w3id.org/pink#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@predic dcatap: <http://data.europa.eu/r5r/> .
+@base <https://w3id.org/pink#> .
+
+<https://w3id.org/pink> rdf:type owl:Ontology ;
+                         owl:versionIRI <https://w3id.org/pink/0.0.1> ;
+                         dcterms:abstract """The PINK Annotation Schema provides the semantic basis for SSbD."""@en ;
+                         dcterms:bibliographicCitation "xxx" ;
+                         dcterms:contributor :IseultLynch ;
+                         dcterms:created "2025-09-08" ;
+                         dcterms:creator :JesperFriis ,
+			                 :ThomasExner ,
+					 :FrancescaBleken ,
+					 :JohDokler ;
+                         dcterms:hasFormat <https://www.w3.org/TR/turtle/> ;
+                         dcterms:issued "xxxx-xx-xx" ;
+                         dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+                         dcterms:modified "xxxx-xx-xx" ;
+                         dcterms:publisher <https://emmc.eu> ;
+                         dcterms:source "Relevant PINK deliverable" ;
+                         dcterms:title "PINK Annotation Schema"@en ;
+                         bibo:doi "tbd" ;
+                         dcatap:status "Under Development" ;
+                         vann:preferredNamespacePrefix "pink" ;
+                         vann:preferredNamespaceUri "https://w3id.org/pink" ;
+                         rdfs:comment "This expands on the annotation schema provided by tripper, which again expands on the DCAT-AP."@en ;
+                         owl:priorVersion "0.0.0" ;
+                         owl:versionInfo "0.0.1" ;
+                         foaf:homepage <https://github.com/PINK-project/PINK-annotation-schema> ;
+                         foaf:logo "https://pink-project.eu/wp-content/uploads/2024/01/pink-logo-white_colorB-500-e1704133781349.png" .
+
+
+pink:conformance 
+    dcterms:description "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema" ;
+    
+
+
+dcterms:creator
+    dcam:rangeIncludes dcterms:Agent ;
+    dcterms:description "Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided."@en ;
+    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    a rdf:Property ;
+    rdfs:comment "An entity responsible for making the resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Creator"@en ;
+    owl:equivalentProperty <http://xmlns.com/foaf/0.1/maker> .
+
+
+dcterms:creator rdf:type owl:ObjectProperty .
+
+
+
+
