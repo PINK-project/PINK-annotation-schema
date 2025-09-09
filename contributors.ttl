@@ -19,9 +19,10 @@
 
 
 pink:hasORCID rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf dcterms:identifier ;
     skos:prefLabel "hasORCID"@en ;
     skos:definition "Relates an individual to an ORCID that identifies the individual."@en ;
-    rdfs:domain foaf:Agent ;
+    rdfs:domain foaf:Person ;
     rdfs:range xsd:anyURI .
 
 
