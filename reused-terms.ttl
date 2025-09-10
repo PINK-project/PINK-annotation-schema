@@ -9,13 +9,13 @@
     owl:versionIRI <https://w3id.org/pink/0.0.1/reused-terms> ;
     dcterms:abstract "Terms from standard vocabularies reused by the PINK Annotation Schema."@en .
 
-dcat:hasVersion .
-dcat:landingPage .
-dcterms:accessRights .
-dcterms:creator .
-dcterms:description .
-dcterms:identifier .
-dcterms:license .
-dcterms:modified .
-dcterms:title .
-vann:usageNote .
+dcat:hasVersion rdf:type owl:AnnotationProperty .
+dcat:landingPage rdf:type owl:ObjectProperty .
+dcterms:accessRights rdf:type owl:ObjectProperty .
+dcterms:creator rdf:type owl:ObjectProperty .
+dcterms:description rdf:type owl:AnnotationProperty .
+dcterms:identifier rdf:type owl:DataProperty .
+dcterms:license rdf:type owl:ObjectProperty .
+dcterms:modified rdf:type owl:DataProperty .
+dcterms:title rdf:type owl:AnnotationProperty .
+vann:usageNote rdf:type owl:AnnotationProperty .
