@@ -102,24 +102,19 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 
 ###  https://w3id.org/pink#conformance
-:conformance rdf:type owl:ObjectProperty ;
+:conformance rdf:type owl:AnnotationProperty ;
              dcterms:description "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema"@en ;
              vann:usageNote "It MUST take one of the values 'mandatory', 'recommended' or 'optional'."@en ;
              rdfs:isDefinedBy <https://w3id.org/pink> ;
              skos:prefLabel "conformance" ;
              rdfs:range :ConformanceValue .
 
-:ConformanceValue rdf:type owl:Class ;
-   owl:oneOf ( :madatory :recommended :optional ) .
-
-:mandatory rdf:type :ConformanceValue;
-   dcterms:description "A mandatory annotation in the PINK annotation schema"@en .
-
-:recommended rdf:type :ConformanceValue;
-   dcterms:description "A recommended annotation in the PINK annotation schema"@en .
-
-:optional rdf:type :ConformanceValue;
-   dcterms:description "An optional annotation in the PINK annotation schema"@en .
+:ConformanceValue rdf:type rdfs:Datatype ;
+   owl:oneOf (
+    "mandatory"^^xsd:string
+    "recommended"^^xsd:string
+    "optional"^^xsd:string
+  ) .
 
 
 :Item rdf:type owl:Class ;

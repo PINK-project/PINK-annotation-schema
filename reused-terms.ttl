@@ -10,25 +10,25 @@
     dcterms:abstract "Terms from standard vocabularies reused by the PINK Annotation Schema."@en .
 
 dcat:hasVersion rdf:type owl:AnnotationProperty ;
-	pink:conformance pink:mandatory .
+	pink:conformance "mandatory" .
 
 dcat:landingPage rdf:type owl:ObjectProperty .
 dcterms:accessRights rdf:type owl:ObjectProperty .
 dcterms:creator rdf:type owl:ObjectProperty ;
-	pink:conformance pink:mandatory .
+	pink:conformance "mandatory" .
 
 dcterms:description rdf:type owl:AnnotationProperty ;
-	pink:conformance pink:mandatory .
+	pink:conformance "mandatory" .
 	
 dcterms:identifier rdf:type owl:DataProperty ;
-	pink:conformance pink:optional ;
+	pink:conformance "optional" ;
         dcterms:description "Alternative identifier to the IRI"@en .	
 
 dcterms:license rdf:type owl:ObjectProperty ;
-	pink:conformance pink:mandatory .
+	pink:conformance "mandatory" .
 
 dcterms:modified rdf:type owl:DataProperty ;
-	pink:conformance pink:optional .
+	pink:conformance "optional" .
 
 dcterms:title rdf:type owl:AnnotationProperty .
 vann:usageNote rdf:type owl:AnnotationProperty .
