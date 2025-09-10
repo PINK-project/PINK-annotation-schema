@@ -44,13 +44,13 @@ pink:FrancescaBleken rdf:type foaf:Person ;
     foaf:workplaceHomepage <https://www.sintef.no/en/> .
 
 pink:ThomasExner rdf:type foaf:Person ;
-    pink:hasORCID "https://orcid.org/XXX"^^xsd:anyURI ;
+    pink:hasORCID "https://orcid.org/0000-0002-1849-5246"^^xsd:anyURI ;
     skos:prefLabel "ThomasExner" ;
     foaf:name "Thomas Exner" ;
     foaf:workplaceHomepage <https://sevenpastnine.com/> .
 
 pink:JohDokler rdf:type foaf:Person ;
-    pink:hasORCID "https://orcid.org/XXX"^^xsd:anyURI ;
+    pink:hasORCID "https://orcid.org/0000-0002-8053-8198"^^xsd:anyURI ;
     skos:prefLabel "JohDokler" ;
     foaf:name "Joh Dokler" ;
     foaf:workplaceHomepage <https://sevenpastnine.com/> .
