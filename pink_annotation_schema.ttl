@@ -131,10 +131,6 @@ foaf:logo rdf:type owl:AnnotationProperty .
 #    Classes
 #################################################################
 
-###  https://w3id.org/pink#ConformanceValue
-:ConformanceValue rdf:type owl:Class .
-
-
 ###  https://w3id.org/pink#Item
 :Item rdf:type owl:Class ;
       dcterms:description "Overarching class of stand-alone entities used in PINK." .
@@ -145,20 +141,17 @@ foaf:logo rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  https://w3id.org/pink#mandatory
-:mandatory rdf:type owl:NamedIndividual ,
-                    :ConformanceValue ;
+:mandatory rdf:type owl:NamedIndividual ;
            skos:prefLabel "mandatory"@en .
 
 
 ###  https://w3id.org/pink#optional
-:optional rdf:type owl:NamedIndividual ,
-                   :ConformanceValue ;
+:optional rdf:type owl:NamedIndividual ;
           skos:prefLabel "optional"@en .
 
 
 ###  https://w3id.org/pink#recommended
-:recommended rdf:type owl:NamedIndividual ,
-                      :ConformanceValue ;
+:recommended rdf:type owl:NamedIndividual ;
              skos:prefLabel "recommended"@en .
 
 
