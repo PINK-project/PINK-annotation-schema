@@ -9,26 +9,19 @@
     owl:versionIRI <https://w3id.org/pink/0.0.1/reused-terms> ;
     dcterms:abstract "Terms from standard vocabularies reused by the PINK Annotation Schema."@en .
 
-dcat:hasVersion rdf:type owl:AnnotationProperty ;
-	pink:conformance "mandatory" .
+dcat:hasVersion rdf:type owl:AnnotationProperty .
 
 dcat:landingPage rdf:type owl:ObjectProperty .
 dcterms:accessRights rdf:type owl:ObjectProperty .
-dcterms:creator rdf:type owl:ObjectProperty ;
-	pink:conformance "mandatory" .
+dcterms:creator rdf:type owl:ObjectProperty .
 
-dcterms:description rdf:type owl:AnnotationProperty ;
-	pink:conformance "mandatory" .
+dcterms:description rdf:type owl:AnnotationProperty .
 	
-dcterms:identifier rdf:type owl:DataProperty ;
-	pink:conformance "optional" ;
-        dcterms:description "Alternative identifier to the IRI"@en .	
+dcterms:identifier rdf:type owl:DataProperty .
 
-dcterms:license rdf:type owl:ObjectProperty ;
-	pink:conformance "mandatory" .
+dcterms:license rdf:type owl:ObjectProperty .
 
-dcterms:modified rdf:type owl:DataProperty ;
-	pink:conformance "optional" .
+dcterms:modified rdf:type owl:DataProperty .
 
 dcterms:title rdf:type owl:AnnotationProperty .
 vann:usageNote rdf:type owl:AnnotationProperty .
