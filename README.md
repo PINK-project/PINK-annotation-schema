@@ -73,6 +73,7 @@ Likewise is also how a material is changed during a process a part of a process.
 
 The figure below shows a material process (`p`) that changes a material (`m`).
 The input and output of the material process are the temporal parts (`m1` and `m2`) of the material, respectively.
+The material process is driven by an agent (a), who's temporal part (`a1`) is a participant (i.e. has an active role) in process.
 
 ![Material process](docs/figs/material-process.png)
 
