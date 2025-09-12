@@ -34,7 +34,8 @@ See the PINK Annotation Schema itself, for a description of all the other concep
 This taxonomy is intentionally weekly axiomated in order to make it easy to align it to different popular top-level ontologies, like EMMO, DOLCE and BFO.
 
 > [!NOTE]
-> Should we make `foaf:Agent` and `:Role` subclasses of `prov:Entity`.
+> Should we make `foaf:Agent` and `:Role` subclasses of `prov:Entity`?
+>
 > Logically it make sense and will simplify the taxonomy, making it more aligned with top-level ontologies like DOLCE and BFO and not break alignment with EMMO.
 > However, it implies that `prov:Agent` is a `prov:Entity`, which is no contradiction, but is a statement that is not expressed in [PROV-O].
 
