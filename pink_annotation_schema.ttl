@@ -114,7 +114,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  https://w3id.org/pink#conformance
-:conformance rdf:type owl:ObjectProperty ;
+:conformance rdf:type owl:AnnotationProperty ;
              rdfs:range [ rdf:type owl:Class ;
                           owl:oneOf ( :mandatory
                                       :optional
