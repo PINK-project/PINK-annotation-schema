@@ -63,6 +63,9 @@ The figure below shows an example of a simple provenance graph, that combines th
 
 ![Provenance](docs/figs/provenance.png)
 
+Given the network of `prov:used` and `prov:wasInformedBy` relations, can the `wasInformedBy` and `wasDerivedFrom` relations be inferred by a reasoner using [SWRL] rules.
+
+
 
 ### Complex workflows with spatial and temporal parts
 An important aspect of provenance is to keep track on how a sample e.g. is cut into several specimens and how the specimens later may be joined in new configurations.
@@ -87,3 +90,4 @@ These categorisations incorporates parthood and causal relations from [Dublin Co
 [dcatap-provenance]: https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-implementation-guidelines/release-5
 [PROV-O]: https://www.w3.org/TR/prov-o/
 [Dublin Core]: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/
+[SWRL]: https://www.w3.org/submissions/SWRL/
