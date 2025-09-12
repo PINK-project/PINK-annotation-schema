@@ -54,7 +54,7 @@ The basic building block of a provenance description is a `prov:Activity` with `
 
 As shown in the taxonomy, this general process can be sub-categorised according to its input and output:
 
-![Generalised activity](docs/figs/generalised-activity.png)
+![Categorised activity](docs/figs/categorised-activity.png)
 
 Traceability can be achieved by connecting a series (or network) of these basic building blocks.
 <!-- When two or more intentionally planned processes are connected this way, we call it a *workflow*. -->
