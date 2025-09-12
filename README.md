@@ -19,11 +19,9 @@ The taxonomy below shows a basic categorisation of the main concepts (OWL classe
 At the top-level, the PINK Annotation Schema has four root concepts:
 
 - **`prov:Entity`**: A physical, digital, conceptual, or other kind of thing with some fixed aspects.
-
   [PROV-O] lacks the accuracy of nominalism and allows entities may be real or imaginary.
 
 - **`prov:Activity`**: Something that occurs over a period of time and acts upon or with entities.
-
   Hence, its individuals have some temporal parts (that are not of the same type as the activity itself).
   An activity may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
 
