@@ -1,4 +1,4 @@
-<mxfile host="Electron" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/20.7.4 Chrome/106.0.5249.199 Electron/21.3.3 Safari/537.36" compressed="false" modified="2025-09-12T17:01:01.191Z" etag="_xvpStcRjROVMime-nni" version="20.7.4" type="device" pages="3">
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.5 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" compressed="false" version="27.0.5" pages="3">
   <diagram id="c_qGwFVzFrKK_DlR2sme" name="taxonomy">
     <mxGraphModel dx="1430" dy="1002" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -1140,7 +1140,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="1DEgKkaQRD3IM0PSCXbW" name="provenance">
-    <mxGraphModel dx="1430" dy="1002" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1403" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1150,13 +1150,13 @@
         <mxCell id="VpZ_ezBRkzsRSBUBsyVi-6" value="Object" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;horizontal=1;fillColor=#dae8fc;strokeColor=none;opacity=70;align=left;spacingLeft=4;" parent="1" vertex="1">
           <mxGeometry x="30" y="420" width="466.25" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="iGO-9x7rWf2-93G8NE2F-23" value="MaterialProcess" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="iGO-9x7rWf2-93G8NE2F-23" value="material process" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="117.5" y="1100" width="150" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="iGO-9x7rWf2-93G8NE2F-24" value="Object&lt;div&gt;(unprocessed&lt;/div&gt;&lt;div&gt;material)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" parent="1" vertex="1">
+        <mxCell id="iGO-9x7rWf2-93G8NE2F-24" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;material1&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" parent="1" vertex="1">
           <mxGeometry x="17.5" y="1110" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="iGO-9x7rWf2-93G8NE2F-25" value="Object&lt;div&gt;(processed&lt;/div&gt;&lt;div&gt;material)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" parent="1" vertex="1">
+        <mxCell id="iGO-9x7rWf2-93G8NE2F-25" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;material2&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" parent="1" vertex="1">
           <mxGeometry x="245" y="1110" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="LDGOH_s4x4PhpdWTtMFj-1" value="MaterialProcess" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
@@ -1220,13 +1220,13 @@
             <mxPoint x="127.5" y="1020" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="x5jVzFn_JSajMFhqYXZ_-10" value="Measurement" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="x5jVzFn_JSajMFhqYXZ_-10" value="measurement" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="531.25" y="1102" width="150" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="x5jVzFn_JSajMFhqYXZ_-11" value="Object&lt;div&gt;(&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;material)&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" parent="1" vertex="1">
+        <mxCell id="x5jVzFn_JSajMFhqYXZ_-11" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;material&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" parent="1" vertex="1">
           <mxGeometry x="431.25" y="1112" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="x5jVzFn_JSajMFhqYXZ_-12" value="Object&lt;div&gt;(dataset&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;)&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" parent="1" vertex="1">
+        <mxCell id="x5jVzFn_JSajMFhqYXZ_-12" value="&lt;div&gt;dataset&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" parent="1" vertex="1">
           <mxGeometry x="658.75" y="1112" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="x5jVzFn_JSajMFhqYXZ_-13" value="Measurement" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
@@ -1269,13 +1269,13 @@
             <mxPoint x="541.25" y="1022" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="x5jVzFn_JSajMFhqYXZ_-27" value="Simulation" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="x5jVzFn_JSajMFhqYXZ_-27" value="simulation" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="945" y="1102" width="150" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="x5jVzFn_JSajMFhqYXZ_-28" value="Object&lt;div&gt;(&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;input dataset)&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" parent="1" vertex="1">
+        <mxCell id="x5jVzFn_JSajMFhqYXZ_-28" value="dataset1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" parent="1" vertex="1">
           <mxGeometry x="845" y="1112" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="x5jVzFn_JSajMFhqYXZ_-29" value="Object&lt;div&gt;(output dataset&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;)&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" parent="1" vertex="1">
+        <mxCell id="x5jVzFn_JSajMFhqYXZ_-29" value="dataset2" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;opacity=50;" parent="1" vertex="1">
           <mxGeometry x="1072.5" y="1112" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="x5jVzFn_JSajMFhqYXZ_-30" value="Simulation" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
@@ -1739,7 +1739,7 @@
             <mxPoint x="887.5" y="1032" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ltbiqlUQF2D6OvBoY_7X-18" value="Data" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+        <mxCell id="ltbiqlUQF2D6OvBoY_7X-18" value="Dataset" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="901.25" y="1002" width="57.5" height="30" as="geometry" />
         </mxCell>
         <mxCell id="ltbiqlUQF2D6OvBoY_7X-19" value="Object" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
@@ -1756,7 +1756,7 @@
             <mxPoint x="718.75" y="1030" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ltbiqlUQF2D6OvBoY_7X-24" value="Data" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+        <mxCell id="ltbiqlUQF2D6OvBoY_7X-24" value="Dataset" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="667.5" y="1000" width="57.5" height="30" as="geometry" />
         </mxCell>
         <mxCell id="ltbiqlUQF2D6OvBoY_7X-25" value="Object" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
@@ -1773,7 +1773,7 @@
             <mxPoint x="1131.25" y="1032" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="ltbiqlUQF2D6OvBoY_7X-28" value="Data" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+        <mxCell id="ltbiqlUQF2D6OvBoY_7X-28" value="Dataset" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
           <mxGeometry x="1080" y="1002" width="57.5" height="30" as="geometry" />
         </mxCell>
         <mxCell id="ltbiqlUQF2D6OvBoY_7X-29" value="Object" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
