@@ -1,18 +1,23 @@
 # The PINK Annotation Schema
-The PINK Annotation Schema provides a semantic annotations for Safe and Sustainable by Design (SSbD) approach to guide the innovation process for chemicals and materials. It adhears to the recommendations specified by [DCAT-AP 3.0.1].
+The PINK Annotation Schema provides a semantic annotations for Safe and Sustainable by Design (SSbD) approach to guide the innovation process for chemicals and materials.
+It adhears to the recommendations specified by [DCAT-AP 3.0.1] and uses [PROV-O] for provenance.
 
-[DCAT-AP 3.0.1]: https://semiceu.github.io/DCAT-AP/releases/3.0.1/
 
 ## Repository Files
 - `catalog-v001.xml`: XML catalog mapping ontology files to their IRIs for semantic web tools.
 - `contributors.ttl`: Turtle file listing contributors to the PINK Annotation Schema for this repository.
 - `pink_annotation_schema.ttl`: Main ontology file for the PINK Annotation Schema.
 - `reused-terms.ttl`: Terms from standard vocabularies reused by the schema.
-- `LICENSE`: Creative Commons Attribution 4.0 International license
+- `LICENSE`: Creative Commons Attribution 4.0 International license.
+- `docs/`: Sub-directory with documentation.
 
 
 ## Taxonomy
 The taxonomy below shows a basic categorisation of the main concepts (OWL classes) in PINK Annotation Schema.
+It unifies concepts from common vocabularies, like [Dublin Core], [DCAT], [PROV-O] and [FOAF].
+This gives the adapted terms additional context.
+However, the taxonomy is still intentionally weekly axiomated in order to make it easy to align it to different popular top-level ontologies, like EMMO, DOLCE and BFO.
+
 
 ![Taxonomy](docs/figs/taxonomy.png)
 
@@ -28,10 +33,11 @@ At the top-level, the PINK Annotation Schema has four root concepts:
 - **`:Role`**: The class of all individuals that are defined through a parthood relation to an entity.
   The individual can be said to have a *role* in relation to the entity.
 
-- **`foaf:Agent`**: "An agent (eg. person, group, software or physical artifact)."
+- **`foaf:Agent`**: A thing that do stuff (like person, group, software or physical artifact).
+  The [FOAF] specification of a *agent* is very loose.
+  The subclass `prov:Agent` provides further context, but saying that a `prov:agent` has a role in an activity.
 
 See the PINK Annotation Schema itself, for a description of all the other concepts.
-This taxonomy is intentionally weekly axiomated in order to make it easy to align it to different popular top-level ontologies, like EMMO, DOLCE and BFO.
 
 > [!NOTE]
 > Should we make `foaf:Agent` and `:Role` subclasses of `prov:Entity`?
@@ -88,7 +94,10 @@ These categorisations incorporates parthood and causal relations from [Dublin Co
 
 
 
-[dcatap-provenance]: https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-implementation-guidelines/release-5
+[DCAT-AP 3.0.1]: https://semiceu.github.io/DCAT-AP/releases/3.0.1/
+[DCAT]: https://www.w3.org/TR/vocab-dcat-3/
+[FOAF]: http://xmlns.com/foaf/spec/
 [PROV-O]: https://www.w3.org/TR/prov-o/
 [Dublin Core]: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/
+[dcatap-provenance]: https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-implementation-guidelines/release-5
 [SWRL]: https://www.w3.org/submissions/SWRL/
