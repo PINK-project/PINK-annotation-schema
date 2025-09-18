@@ -1,0 +1,88 @@
+---
+#basedOn:
+
+
+prefixes:
+  adms: "http://www.w3.org/ns/adms#"
+  dcat: "http://www.w3.org/ns/dcat#"
+  dcatap: "http://data.europa.eu/r5r/"
+  dcterms: "http://purl.org/dc/terms/"
+  dctype: "http://purl.org/dc/dcmitype/"
+  eli: "http://data.europa.eu/eli/ontology#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  iana: "https://www.iana.org/assignments/media-types/"
+  locn: "http://www.w3.org/ns/locn#"
+  odrl: "http://www.w3.org/ns/odrl/2/"
+  owl: "http://www.w3.org/2002/07/owl#"
+  prov: "http://www.w3.org/ns/prov#"
+  rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+  schema: "https://schema.org/"
+  skos: "http://www.w3.org/2004/02/skos/core#"
+  spdx: "http://spdx.org/rdf/terms#"
+  vcard: "http://www.w3.org/2006/vcard/ns#"
+  xsd: "http://www.w3.org/2001/XMLSchema#"
+
+  emmo: "https://w3id.org/emmo#"
+  oteio: "https://w3id.org/emmo/domain/oteio#"
+  chameo: "https://w3id.org/emmo/domain/characterisation-methodology/chameo#"
+  pink: "https://w3id.org/pink#"
+
+
+#
+# Valid keys on resources:
+#   - iri: IRI of the resource
+#   - subClassOf: The IRI of class this resource is a subclass of
+#   - description: Description of the resource
+#   - keywords: List of keywords (properties) of this resource
+#
+# Valid keys on keywords:
+#   - iri: IRI of property that the keyword is mapped to
+#   - range: Range of property (IRI)
+#   - datatype: Datatype of the property (only for data properties)
+#   - inverse: If true, `iri` refer to the inverse of this property
+#   - conformance: One of "mandatory", "recommended", "optional" or not included
+#   - description: Description of keyword
+#   - usageNote: A note about how to use this keyword.
+#   - default: NOT IMPLEMENTED
+#
+resources:
+
+  Dataset:
+    iri: dcat:Dataset
+    subClassOf: ["dcat:Resource", "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"]
+    description: A collection of data, published or curated by an agent, and available for access or download in one or more representations.
+    keywords:
+      ssbdCategory:
+        iri: pink:ssbdCategory
+        range: pink:SSbDCategory # Should be named individuals 'functionality', 'safety', 'environmental sustainability', 'sosial sustainability' 'cost'
+        conformance: mandatory
+        description: The SSbD dimension that the dataset addresses. Question: can there be more?
+      ssbdSubCategory:
+        iri: pink:ssbdSubCategory
+        range: pink:SSbDSubCategory 
+        conformance: mandatory
+        description: Anther defined list, needs specification
+      tierLevel:
+        iri: pink:tierLevel
+        range: pink:TierLevel
+        conformance: mandatory
+        description: The tier levels defined in pink
+  
+  Tool:
+    iri: pink:Tool
+    subClassOf: ["dcat:Resource"]
+    description: Tools and models available in PINK
+    keywords:
+      ssbdSubCategory:
+        iri: pink:ssbdSubCategory
+        range: pink:ssbdSubCategory 
+        conformance: mandatory
+        description: Anther defined list, needs specification
+
+
+
+
+
+
+
