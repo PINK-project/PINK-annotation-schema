@@ -109,10 +109,6 @@ foaf:homepage rdf:type owl:AnnotationProperty .
 foaf:logo rdf:type owl:AnnotationProperty .
 
 
-#################################################################
-#    Object Properties
-#################################################################
-
 ###  https://w3id.org/pink#conformance
 :conformance rdf:type owl:AnnotationProperty ;
              rdfs:range [ rdf:type owl:Class ;

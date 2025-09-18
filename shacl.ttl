@@ -66,7 +66,7 @@
     shacl:path dcterms:modified ;
     shacl:datatype xsd:dateTime ;         # or xsd:date
     shacl:minCount 1 ;
-    shacl:severity shacl:Info ;
+    shacl:severity shacl:Info ;           # If it is not given will raise a soft warning as info.
     shacl:message "It is recommended to add the date of modification. Can be the same as creation date if never modified." ;
   ] ;
 
