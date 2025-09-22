@@ -127,10 +127,6 @@ foaf:logo rdf:type owl:AnnotationProperty .
 #    Classes
 #################################################################
 
-###  https://w3id.org/pink#Item
-:Item rdf:type owl:Class ;
-      dcterms:description "Overarching class of stand-alone entities used in PINK." .
-
 
 #################################################################
 #    Individuals
