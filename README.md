@@ -35,7 +35,7 @@ At the top-level, the PINK Annotation Schema has four root concepts:
 - **`:Role`**: The class of all individuals that are defined through a parthood relation to an entity.
   The individual can be said to have a *role* in relation to the entity.
 
-- **`foaf:Agent`**: A thing that do stuff (like person, group, software or physical artifact).
+- **`foaf:Agent`**: A thing that does stuff (like person, group, software or physical artifact).
   The [FOAF] specification of a *agent* is very loose.
   The subclass `prov:Agent` provides further context, but saying that a `prov:agent` has a role in an activity.
 
