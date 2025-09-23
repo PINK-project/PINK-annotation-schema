@@ -37,7 +37,7 @@ At the top-level, the PINK Annotation Schema has four root concepts:
 
 - **`foaf:Agent`**: A thing that does stuff (like person, group, software or physical artifact).
   The [FOAF] specification of a *agent* is very loose.
-  The subclass `prov:Agent` provides further context, but saying that a `prov:agent` has a role in an activity.
+  The subclass `prov:Agent` provides further context, by saying that a `prov:agent` bears some form of responsibility for an activity, the existence of an entity or the activity of another agent. 
 
 See the PINK Annotation Schema itself, for a description of all the other concepts.
 
