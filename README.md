@@ -98,7 +98,7 @@ These categorisations incorporate parthood and causal relations from [Dublin Cor
 > Parthood relation chracteristics are explained in the [Protégé documentation](https://protegeproject.github.io/protege/views/object-property-characteristics/).
 >
 > Antisymmetric is a weaker form of asymmetric: if `x -> y`, then `y -> x` if and only if `x = y`.
-> This is not the case for asymmtric relations, since they exclude the equality `x = y`.
+> This is not the case for asymmetric relations, since they exclude the equality `x = y`.
 
 
 ![Causal relations](docs/figs/causal-relations.png)
@@ -106,10 +106,10 @@ These categorisations incorporate parthood and causal relations from [Dublin Cor
 
 
 ## General description of activities
-Provenance (and therefore also [PROV-O]) is about what has happened.
-In PINK, however, we are want to describe what can happen.
+Provenance is about what has happened. [PROV-O] is intended to provenance information.
+In PINK we also want to describe what can happen.
 
-For instance, in PINK we want to express what kind of input and output a given type of computation takes and what software that is executed to run the computation.
+For instance, we want to express what kind of input and output a given type of computation takes and what software that is executed to run the computation.
 This is done by documenting the computation at the class level (TBox-level) using the following restrictions (in Manchester syntax):
 
     Class: app:MyComputation
