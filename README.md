@@ -94,17 +94,42 @@ These categorisations incorporate parthood and causal relations from [Dublin Cor
 
 ![Parthood relations](docs/figs/parthood-relations.png)
 
-Parthood relation chracteristics are explained in the [Protégé documentation](https://protegeproject.github.io/protege/views/object-property-characteristics/).
-
-Antisymmetric is a weaker form of asymmetric: if x -> y, then y -> x if and only if x = y. 
-This is not the case for asymmtric relations.
+> [!NOTE]
+> Parthood relation chracteristics are explained in the [Protégé documentation](https://protegeproject.github.io/protege/views/object-property-characteristics/).
+>
+> Antisymmetric is a weaker form of asymmetric: if `x -> y`, then `y -> x` if and only if `x = y`.
+> This is not the case for asymmtric relations, since they exclude the equality `x = y`.
 
 
 ![Causal relations](docs/figs/causal-relations.png)
 
 
-## General description of activities
 
+## General description of activities
+Provenance (and therefore also [PROV-O]) is about what has happened.
+In PINK, however, we are want to describe what can happen.
+
+For instance, in PINK we want to express what kind of input and output a given type of computation takes and what software that is executed to run the computation.
+This is done by documenting the computation at the class level (TBox-level) using the following restrictions (in Manchester syntax):
+
+    Class: app:MyComputation
+        subClassOf: pink:Computation
+        subClassOf: pink:hasInput some app:MyInput
+        subClassOf: pink:hasOutput some app:MyOutput
+        subClassOf: pink:hasSoftware some app:MySoftware
+
+where `app` is the prefix of the application ontology defining the computation, its input/output and software.
+
+> [!NOTE]
+> The `pink:hasSoftware` property is a subproperty of the inverse of `pink:participatesTo`.
+
+PINK provides tooling (based on [tripper]) to help providing class-level documentation.
+This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf`.
+For example, the above declaration of a computation could provided as follows:
+
+| @id               | subClassOf       | hasInput    | hasOutput    | hasSoftware    |
+|-------------------|------------------|-------------|--------------|----------------|
+| app:MyComputation | pink:Computation | app:MyInput | app:MyOutput | app:MySoftware |
 
 
 
