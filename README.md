@@ -79,7 +79,7 @@ Programmatically this can be done with a reasoner (based on [SWRL] rules).
 
 ### Complex workflows with spatial and temporal parts
 An important aspect of provenance is to keep track on how a sample e.g. is cut into several specimens and how the specimens later may be joined in new configurations.
-Likewise is also how a material is changed during a process a part of a process.
+Likewise, how a material is changed during a process or part of a process.
 
 The figure below shows a material process (`p`) that changes a material (`m`).
 The input and output of the material process are the temporal parts (`m1` and `m2`) of the material, respectively.
