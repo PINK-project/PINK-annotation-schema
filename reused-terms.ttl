@@ -10,26 +10,76 @@
     owl:versionIRI <https://w3id.org/pink/0.0.1/reused-terms> ;
     dcterms:abstract "Terms from standard vocabularies reused by the PINK Annotation Schema."@en .
 
-dcat:hasVersion rdf:type owl:AnnotationProperty ;
-	pink:conformance pink:mandatory .
 
-dcat:landingPage rdf:type owl:ObjectProperty .
-dcterms:accessRights rdf:type owl:ObjectProperty .
+dcat:keyword rdf:typeowl:DataProperty ;
+    rdfs:label "keyword"@en ;
+    rdfs:range rdf:langString ;
+    pink:conformance pink:recommended ;
+    dcterms:description "A keyword or tag describing the resource."@en .
+
+dcat:landingPage rdf:type owl:DataProperty ;
+    rdfs:label "landingPage"@en ;
+    rdfs:range xsd:anyURI ;
+    pink:conformance pink:optional ;
+    dcterms:description "A web page that provides access to the resource and/or additional information (e.g. the distribution for a dataset)."@en ;
+    vann:usageNote "It is intended to point to a landing page at the original data provider, not to a page on a site of a third party, such as an aggregator."@en .
+
+dcat:version rdf:type owl:AnnotationProperty ;
+    rdfs:label "version"@en ;
+    rdfs:range rdfs:Literal ;
+    pink:conformance pink:mandatory ;
+    dcterms:description "Version indicator (name or identifier) of a resource."@en .
+
+dcterms:accessRights rdf:type owl:ObjectProperty ;
+    rdfs:label "accessRights"@en ;
+    rdfs:range dcterms:RightsStatement ;
+    pink:conformance pink:optional ;
+    dcterms:description "Information about who can access the resource or an indication of its security status."@en .
+
 dcterms:creator rdf:type owl:ObjectProperty ;
-	pink:conformance pink:mandatory .
+    rdfs:label "creator"@en ;
+    rdfs:range foaf:Agent ;
+    pink:conformance pink:mandatory ;
+    dcterms:description "An entity responsible for producing the resource."@en .
 
 dcterms:description rdf:type owl:AnnotationProperty ;
-	pink:conformance pink:mandatory .
-	
+    rdfs:label "description"@en ;
+    rdfs:range rdf:langString ;
+    pink:conformance pink:mandatory ;
+    dcterms:description "A free-text account of the resource."@en ;
+    vann:usageNote "This property can be repeated for parallel language versions of the description."@en .
+
 dcterms:identifier rdf:type owl:DataProperty ;
-	pink:conformance pink:optional ;
-        dcterms:description "Alternative identifier to the IRI"@en .	
+    rdfs:label "identifier"@en ;
+    rdfs:range rdfs:Literal ;
+    pink:conformance pink:optional ;
+    dcterms:description "Alternative identifier to the IRI"@en .
 
 dcterms:license rdf:type owl:ObjectProperty ;
-	pink:conformance pink:mandatory .
+    rdfs:label "license"@en ;
+    rdfs:range dcterms:LicenseDocument ;
+    pink:conformance pink:mandatory ;
+    dcterms:description "A licence under which the resource is made available."@en .
 
 dcterms:modified rdf:type owl:DataProperty ;
-	pink:conformance pink:optional .
+    rdfs:label "modificationDate"@en ;
+    rdfs:range xsd:date ;
+    pink:conformance pink:optional ;
+    dcterms:description "The most recent date on which the resource was changed or modified."@en .
 
-dcterms:title rdf:type owl:AnnotationProperty .
-vann:usageNote rdf:type owl:AnnotationProperty .
+dcterms:title rdf:type owl:AnnotationProperty ;
+    rdfs:label "title"@en ;
+    rdfs:range rdf:langString ;
+    pink:conformance pink:mandatory ;
+    dcterms:description "A name given to the resource."@en ;
+    vann:usageNote "This property can be repeated for parallel language versions of the name."@en .
+
+pink:curator rdf:type owl:ObjectProperty ;
+    rdfs:label "curator"@en ;
+    rdfs:range foaf:Agent ;
+    dcterms:description "The agent that curated the resource."@en ;
+    dcterms:usageNote "Use `dcterms:issued` to refer to the date of curation."@en .
+
+vann:usageNote rdf:type owl:AnnotationProperty ;
+    rdfs:label "usageNote"@en ;
+    dcterms:description "A reference to a resource that provides information on how this resource is to be used."@en .
