@@ -90,7 +90,7 @@ The material process is driven by an agent (`a`), who's temporal part (`a1`) is 
 
 ### Enhanced parthood and causal formalism
 To formally describe workflows correctly, such as the above material process, the PINK Annotation Schema includes formalised categorisations of parthood and causal relations, shown in the figures below.
-These categorisations incorporates parthood and causal relations from [Dublin Core] and [PROV-O] and gives them an enhanced semantic meaning.
+These categorisations incorporate parthood and causal relations from [Dublin Core] and [PROV-O] and give them enhanced semantic meaning.
 
 ![Parthood relations](docs/figs/parthood-relations.png)
 
