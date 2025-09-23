@@ -71,7 +71,9 @@ The figure below shows an example of a simple provenance graph, that combines th
 
 ![Provenance](docs/figs/provenance.png)
 
-Given the network of `prov:used` and `prov:wasInformedBy` relations, can the `prov:wasInformedBy` and `prov:wasDerivedFrom` relations be inferred by a reasoner (based on [SWRL] rules).
+Given the network of `prov:used` and `prov:wasInformedBy` relations, it is possible to 
+infer `prov:wasInformedBy` and `prov:wasDerivedFrom` relations. 
+Programmatically this can be done with a reasoner (based on [SWRL] rules).
 
 
 
