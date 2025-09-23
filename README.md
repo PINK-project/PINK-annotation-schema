@@ -94,6 +94,12 @@ These categorisations incorporate parthood and causal relations from [Dublin Cor
 
 ![Parthood relations](docs/figs/parthood-relations.png)
 
+Parthood relation chracteristics are explained in the [Protégé documentation](https://protegeproject.github.io/protege/views/object-property-characteristics/).
+
+Antisymmetric is a weaker form of asymmetric: if x -> y, then y -> x if and only if x = y. 
+This is not the case for asymmtric relations.
+
+
 ![Causal relations](docs/figs/causal-relations.png)
 
 
