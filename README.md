@@ -51,7 +51,7 @@ See the PINK Annotation Schema itself, for a description of all the other concep
 ## Provenance
 The provenance description in PINK is based on [PROV-O].
 
-To more accurate describe complex workflows involving spatial and temporal parts, PINK suggests an enhanced formalism.
+For more accurate descriptions of complex workflows involving spatial and temporal parts, PINK suggests an enhanced formalism.
 
 A textual description of the provenance can be provided with `dcterms:provenance`.
 However, for a semantic provenance description [PROV-O] should be used (since `dcterms:provenance` has no agreed semantics as discussed by [DCAT-AP][dcatap-provenance]).
