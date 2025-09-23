@@ -26,7 +26,7 @@ However, the taxonomy is intentionally weekly axiomated in order to facilitate a
 At the top-level, the PINK Annotation Schema has four root concepts:
 
 - **`prov:Entity`**: A physical, digital, conceptual, or other kind of thing with some fixed aspects.
-  [PROV-O] lacks the accuracy of nominalism and allows entities may be real or imaginary.
+  [PROV-O] lacks the accuracy of nominalism and allows both real and imaginary entities.
 
 - **`prov:Activity`**: Something that occurs over a period of time and acts upon or with entities.
   Hence, its individuals have some temporal parts (that are not of the same type as the activity itself).
