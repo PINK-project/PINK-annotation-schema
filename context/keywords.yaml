@@ -1,32 +1,8 @@
 ---
-#basedOn:
-
+basedOn: default
 
 prefixes:
-  adms: "http://www.w3.org/ns/adms#"
-  dcat: "http://www.w3.org/ns/dcat#"
-  dcatap: "http://data.europa.eu/r5r/"
-  dcterms: "http://purl.org/dc/terms/"
-  dctype: "http://purl.org/dc/dcmitype/"
-  eli: "http://data.europa.eu/eli/ontology#"
-  foaf: "http://xmlns.com/foaf/0.1/"
-  iana: "https://www.iana.org/assignments/media-types/"
-  locn: "http://www.w3.org/ns/locn#"
-  odrl: "http://www.w3.org/ns/odrl/2/"
-  owl: "http://www.w3.org/2002/07/owl#"
-  prov: "http://www.w3.org/ns/prov#"
-  rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
-  schema: "https://schema.org/"
-  skos: "http://www.w3.org/2004/02/skos/core#"
-  spdx: "http://spdx.org/rdf/terms#"
-  vcard: "http://www.w3.org/2006/vcard/ns#"
-  xsd: "http://www.w3.org/2001/XMLSchema#"
-
-  emmo: "https://w3id.org/emmo#"
-  oteio: "https://w3id.org/emmo/domain/oteio#"
-  chameo: "https://w3id.org/emmo/domain/characterisation-methodology/chameo#"
-
+  pink: "https://w3id.org/pink#"
 
 #
 # Valid keys on resources:
@@ -46,183 +22,153 @@ prefixes:
 #   - default: NOT IMPLEMENTED
 #
 resources:
-  Resource:
-    iri: dcat:Resource
-    description: Resource published or curated by an agent.
-    subClassOf: rdfs:Resource
+  Dataset:
     keywords:
-      accessRights:
-        iri: dcterms:accessRights
-        range: dcterms:RightsStatement
-        conformance: optional
-        description: Information about who can access the resource or an indication of its security status.
-
-      creator:
-        iri: dcterms:creator
-        range: foaf:Agent
-        conformance: mandatory
-        description: An entity responsible for producing the resource.
-
-      curator:
-        iri: pink:curator
-        range: foaf:Agent
-        description: The agent that curated the resource.
-        usageNote: Use `issued` to refer to the date of curation.
-
-      description:
-        iri: dcterms:description
-        range: rdfs:Literal
-        datatype: rdf:langString
-        conformance: mandatory
-        description: A free-text account of the resource.
-        usageNote: This property can be repeated for parallel language versions of the description.
-
-      hasVersion:
-        iri: dcat:hasVersion
-        range: rdfs:Resource
-        conformance: optional
-        description: A related resource that is a version, edition, or adaptation of the described resource.
-        usageNote: This property is intended for relating a non-versioned or abstract resource to several versioned resources, e.g., snapshots.
-
       identifier:
-        iri: dcterms:identifier
-        range: rdfs:Literal
         conformance: optional
-        description: URI or other unique identifier of the resource being described or cataloged.
-
-      keyword:
-        iri: dcat:keyword
-        range: rdfs:Literal
-        datatype: rdf:langString
-        conformance: recommended
-        description: A keyword or tag describing the resource.
-
-      landingPage:
-        iri: dcat:landingPage
-        range: foaf:Document
-        datatype: xsd:anyURI
-        conformance: optional
-        description: A web page that provides access to the resource and/or additional information (e.g. the distribution for a dataset).
-        usageNote: It is intended to point to a landing page at the original data provider, not to a page on a site of a third party, such as an aggregator.
-
-      license:
-        iri: dcterms:license
-        range: dcterms:LicenseDocument
-        conformance: optional
-        description: A licence under which the resource is made available.
-
-      modificationDate:
-        iri: dcterms:modified
-        range: rdfs:Literal
-        #datatype: ["xsd:date", "xsd:dateTime"]
-        datatype: xsd:date
-        conformance: optional
-        description: The most recent date on which the resource was changed or modified.
-
-      publisher:
-        iri: dcterms:publisher
-        range: foaf:Agent
-        conformance: recommended
-        description: Agent responsible for making the resource available.
-
-      releaseDate:
-        iri: dcterms:issued
-        range: rdfs:Literal
-        #datatype: ["xsd:date", "xsd:dateTime"]
-        datatype: xsd:date
-        conformance: optional
-        description: The date of formal issuance (e.g., publication) of the resource.
-
-      theme:
-        iri: dcat:theme
-        range: skos:Concept
-        #datatype: xsd:anyURI
-        conformance: recommended
-        description: A category of the resource.  A resource may be associated with multiple themes.
-        usageNote: The set of themes used to categorize the resources are organized in a skos:ConceptScheme, skos:Collection, owl:Ontology or similar, describing all the categories and their relations in the catalog.
-
       title:
-        iri: dcterms:title
-        range: rdfs:Literal
-        datatype: rdf:langString
         conformance: mandatory
-        description: A name given to the resource.
-        usageNote: This property can be repeated for parallel language versions of the name.
-
+      description:
+        conformance: mandatory
+      keywords:
+        conformance: optional
+      theme:
+        conformance: optional
+      distribution:
+        conformance: mandatory
+      accessRights:
+        conformance: mandatory
+      license:
+        conformance: optional
+      creationDate:
+        conformance: mandatory
+      modificationDate:
+        conformance: optional
+      creator:
+        conformance: mandatory
       version:
-        iri: dcat:version
-        range: rdfs:Literal
-        conformance: optional
-        description: Version indicator (name or identifier) of a resource.
-
-      versionNotes:
-        iri: adms:versionNotes
-        range: rdfs:Literal
-        conformance: optional
-        description: A description of the differences between this version and a previous version of the resource.
-        usageNote: This property can be repeated for parallel language versions of the version notes.
-
-      # Additional keywords
-      # -------------------
-      abstract:
-        iri: dcterms:abstract
-        range: rdfs:Literal
-        datatype: rdf:langString
-        description: A summary of the resource.
-
-      bibliographicCitation:
-        iri: dcterms:bibliographicCitation
-        range: rdfs:Literal
-        description: A bibliographic reference for the resource.
-        usageNote: Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible.
-
-      comment:
-        iri: rdfs:comment
-        range: rdfs:Literal
-        description: A description of the subject resource. Use `description` instead.
-
-      deprecated:
-        iri: owl:deprecated
-        range: rdfs:Literal
-        datatype: xsd:boolean
-        description: The annotation property that indicates that a given entity has been deprecated. It should equal to `"true"^^xsd:boolean`.
-
-      isDefinedBy:
-        iri: rdfs:isDefinedBy
-        range: skos:Concept
-        description: Indicate a resource defining the subject resource. This property may be used to indicate an RDF vocabulary in which a resource is described.
-
-      label:
-        iri: rdfs:label
-        range: rdfs:Literal
-        description: Provides a human-readable version of a resource's name.
-
-      seeAlso:
-        iri: rdfs:seeAlso
-        range: skos:Concept
-        description: Indicates a resource that might provide additional information about the subject resource.
-
-
-
-  Agent:
-    iri: foaf:Agent
-    subClassOf: emmo:EMMO_2480b72b_db8d_460f_9a5f_c2912f979046
-    description: Any entity carrying out actions with respect to the entities Catalogue and the Catalogued Resources.
-    keywords:
-      name:
-        iri: foaf:name
-        range: rdfs:Literal
         conformance: mandatory
-        datatype: xsd:string
-        description: A name of the agent.
-      identifier:
-        iri: dcterms:identifier
-        range: rdfs:Literal
-        conformance: recommended
-        description: Identifier for the agent. E.g. organisation number.
-      type:
-        iri: dcterms:type
-        range: skos:Concept
+      wasDerivedFrom:
         conformance: optional
-        description: The nature of the agent.
-        usageNote: The value should be chosen from [ADMS publisher type](https://raw.githubusercontent.com/SEMICeu/ADMS-AP/master/purl.org/ADMS_SKOS_v1.00.rdf).
+
+      # PINK-specific keywords
+      ssbdCaterogy:
+        iri: pink:ssbdCategory
+        range: pink:SsbdCategory
+        conformance: mandatory
+        description: One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`, `pink:costing`
+
+      ssbdSubCaterogy:
+        iri: pink:ssbdSubCategory
+        range: xsd:string
+        conformance: optional
+        description: A subcategory string from a pre-defined list of strings.
+
+      method:
+        iri: pink:method
+        range: pink:Method
+        conformance: Mandatory
+        description: The method used to generate this dataset. Could be and experimental setup or a software or a model or an algorithm.
+        usageNote: It is most relevant to refer to (PINK) models that are documented in the Methods tab. But you can start with giving the name of the model that was used to generate this dataset.
+
+
+  Computation:
+    iri: pink:Computation
+    subClassOf: ["prov:Activity", "emmo:EMMO_eff42cb3_208e_4768_9a39_f8b6b3c3d7a2"]
+    description: A procedural activity that deals with quantitative symbols (i.e. symbols associated with a quantitative-oriented language).
+
+  Method:
+    iri: pink:Method
+    subClassOf: ["pink:Computation", "dcat:Resource"]
+    description: A computational method.
+    keywords:
+      label:
+        conformance: mandatory
+
+      identifier:
+        conformance: optional
+      title:
+        conformance: mandatory
+      description:
+        conformance: mandatory
+      keywords:
+        conformance: optional
+      documentation:
+        conformance: optional
+      accessRights:
+        conformance: mandatory
+      license:
+        conformance: optional
+      creator:
+        conformance: mandatory
+      version:
+        conformance: mandatory
+      wasDerivedFrom:
+        conformance: optional
+
+      # PINK-specific keywords
+      ssbdCaterogy:
+        iri: pink:ssbdCategory
+        range: pink:SsbdCategory
+        conformance: mandatory
+        description: One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`, `pink:costing`
+
+      ssbdSubCaterogy:
+        iri: pink:ssbdSubCategory
+        range: xsd:string
+        conformance: optional
+        description: A subcategory string from a pre-defined list of strings.
+
+      model:
+        iri: pink:model
+        range: pink:Model
+        conformance: mandatory
+        description: The model (aka software) that implements the method.
+
+      input:
+        iri: pink:input
+        # Range could be generalised to prov:Entity
+        range: dcat:Dataset
+        conformance: optional
+        description: A dataset subclass that is input to the model.
+
+      output:
+        iri: pink:output
+        # Range could be generalised to prov:Entity
+        range: dcat:Dataset
+        conformance: optional
+        description: A dataset subclass that is output from the model.
+
+      # XXX to be updated
+      indicatorName:
+        iri: pink:indicatorName
+      chemicalClass:
+        iri: pink:chemicalClass
+      tierLevel:
+        iri: pink:tierLevel
+
+  Software:
+    iri: pink:Software
+    subClassOf: ["dcat:Resource", "emmo:EMMO_8681074a_e225_4e38_b586_e85b0f43ce38"]
+
+
+  Model:
+    iri: pink:Model
+    subClassOf: pink:Software
+    description: An implemented model.
+    keywords:
+      label:
+        conformance: mandatory
+
+      # Not needed, since this is expressed by whether the distribution has accessService
+      hasAPI:
+        iri: pink:hasAPI
+        range: xsd:boolean
+        conformance: mandatory
+        description: Whether the model has an API.
+
+      distribution:
+        iri: dcat:distribution
+        range: dcat:Distribution
+        conformance: recommended
+        description: An available distribution for the model.
