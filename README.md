@@ -15,7 +15,7 @@ It is constructed to be easily aligned with EMMO.
 
 
 ## Taxonomy
-The taxonomy below shows a basic categorisation of the main concepts (OWL classes) in PINK Annotation Schema.
+The taxonomy below shows a basic categorisation of the main concepts (OWL classes) in the PINK Annotation Schema.
 It unifies concepts from common vocabularies, like [Dublin Core], [DCAT], [PROV-O] and [FOAF].
 This gives the adapted terms additional context.
 However, the taxonomy is still intentionally weekly axiomated in order to make it easy to align it to different popular top-level ontologies, like EMMO, DOLCE and BFO.
