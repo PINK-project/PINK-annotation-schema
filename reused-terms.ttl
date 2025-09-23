@@ -11,7 +11,7 @@
     dcterms:abstract "Terms from standard vocabularies reused by the PINK Annotation Schema."@en .
 
 
-dcat:keyword rdf:typeowl:DataProperty ;
+dcat:keyword rdf:type owl:DataProperty ;
     rdfs:label "keyword"@en ;
     rdfs:range rdf:langString ;
     pink:conformance pink:recommended ;
