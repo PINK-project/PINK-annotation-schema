@@ -1,8 +1,8 @@
 # The PINK Annotation Schema
 The PINK Annotation Schema provides semantic annotations for the Safe and Sustainable by Design (SSbD) approach to guide the innovation process for chemicals and materials.
-It adhears to the recommendations specified by [DCAT-AP 3.0.1] as implemented in tripper, 
+It adhears to the recommendations specified by [DCAT-AP 3.0.1] as implemented in tripper,
 and builds on [PROV-O] for provenance.
-It is constructed to be easily aligned with EMMO.
+It is constructed to be easily aligned with [EMMO].
 
 
 ## Repository Files
@@ -18,7 +18,7 @@ It is constructed to be easily aligned with EMMO.
 The taxonomy below shows a basic categorisation of the main concepts (OWL classes) in the PINK Annotation Schema.
 It unifies concepts from common vocabularies, like [Dublin Core], [DCAT], [PROV-O] and [FOAF].
 This gives the adapted terms additional context.
-However, the taxonomy is intentionally weekly axiomated in order to facilitate alignment to different popular top-level ontologies, like EMMO, DOLCE and BFO.
+However, the taxonomy is intentionally weekly axiomated in order to facilitate alignment to different popular top-level ontologies, like [EMMO], [DOLCE] and [BFO].
 
 
 ![Taxonomy](docs/figs/taxonomy.png)
@@ -37,7 +37,7 @@ At the top-level, the PINK Annotation Schema has four root concepts:
 
 - **`foaf:Agent`**: A thing that does stuff (like person, group, software or physical artifact).
   The [FOAF] specification of a *agent* is very loose.
-  The subclass `prov:Agent` provides further context, by saying that a `prov:agent` bears some form of responsibility for an activity, the existence of an entity or the activity of another agent. 
+  The subclass `prov:Agent` provides further context, by saying that a `prov:agent` bears some form of responsibility for an activity, the existence of an entity or the activity of another agent.
 
 See the PINK Annotation Schema itself, for a description of all the other concepts.
 
@@ -71,8 +71,8 @@ The figure below shows an example of a simple provenance graph, that combines th
 
 ![Provenance](docs/figs/provenance.png)
 
-Given the network of `prov:used` and `prov:wasInformedBy` relations, it is possible to 
-infer `prov:wasInformedBy` and `prov:wasDerivedFrom` relations. 
+Given the network of `prov:used` and `prov:wasInformedBy` relations, it is possible to
+infer `prov:wasInformedBy` and `prov:wasDerivedFrom` relations.
 Programmatically this can be done with a reasoner (based on [SWRL] rules).
 
 
@@ -97,6 +97,11 @@ These categorisations incorporate parthood and causal relations from [Dublin Cor
 ![Causal relations](docs/figs/causal-relations.png)
 
 
+## General description of activities
+
+
+
+
 
 [DCAT-AP 3.0.1]: https://semiceu.github.io/DCAT-AP/releases/3.0.1/
 [DCAT]: https://www.w3.org/TR/vocab-dcat-3/
@@ -105,3 +110,6 @@ These categorisations incorporate parthood and causal relations from [Dublin Cor
 [Dublin Core]: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/
 [dcatap-provenance]: https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-implementation-guidelines/release-5
 [SWRL]: https://www.w3.org/submissions/SWRL/
+[EMMO]: https://emmc.eu/emmo/
+[DOLCE]:https://www.loa.istc.cnr.it/dolce/overview.html
+[BFO]: https://basic-formal-ontology.org/
