@@ -4,6 +4,7 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix accr: <http://publications.europa.eu/resource/authority/access-right/> .
 @prefix pink: <https://w3id.org/pink#> .
 
 <https://w3id.org/pink/reused-terms> rdf:type owl:Ontology ;
@@ -83,3 +84,35 @@ pink:curator rdf:type owl:ObjectProperty ;
 vann:usageNote rdf:type owl:AnnotationProperty ;
     rdfs:label "usageNote"@en ;
     dcterms:description "A reference to a resource that provides information on how this resource is to be used."@en .
+
+
+
+### Right Statements
+accr:PUBLIC rdf:type dcterms:RightsStatement ;
+    skos:prefLabel "public"@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition: "Publicly accessible by everyone."@en ;
+    vann:usageNote: "Permissible obstacles include registration and request for API keys, as long as anyone can request such registration and/or API keys."@en .
+
+accr:NON_PUBLIC rdf:type dcterms:RightsStatement ;
+    skos:prefLabel "non-public"@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition: "Not publicly accessible for privacy, security or other reasons."@en ;
+    vann:usageNote: "This category may include resources that contain sensitive or personal information."@en .
+
+accr:CONFIDENTIAL rdf:type dcterms:RightsStatement ;
+    skos:prefLabel "confidential"@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition: "Information that is not disclosed."@en ;
+    vann:usageNote: "Disclosure of this data could cause damage to interested parties such as public administrations and businesses. It may refer to personal and professional information as well as to information in the context of business, commerce or trade."@en .
+
+accr:RESTRICTED rdf:type dcterms:RightsStatement ;
+    skos:prefLabel "restricted"@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition: "Only available under certain conditions."@en ;
+    vann:usageNote: "This category may include resources that require payment, resources shared under non-disclosure agreements, resources for which the publisher or owner has not yet decided if they can be publicly released."@en .
+
+accr:SENSITIVE rdf:type dcterms:RightsStatement ;
+    skos:prefLabel "sensitive"@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition: "Sensitive non-classified (SNC) information, information whose unauthorised disclosure could cause damage to the Commission or other interested parties such as businesses, companies, intellectual property or personal data but which is not EU classified information."@en .
