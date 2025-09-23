@@ -1,6 +1,8 @@
 # The PINK Annotation Schema
-The PINK Annotation Schema provides a semantic annotations for Safe and Sustainable by Design (SSbD) approach to guide the innovation process for chemicals and materials.
-It adhears to the recommendations specified by [DCAT-AP 3.0.1] and uses [PROV-O] for provenance.
+The PINK Annotation Schema provides semantic annotations for the Safe and Sustainable by Design (SSbD) approach to guide the innovation process for chemicals and materials.
+It adhears to the recommendations specified by [DCAT-AP 3.0.1] as implemented in tripper, 
+and builds on [PROV-O] for provenance.
+It is constructed to be easily aligned with EMMO.
 
 
 ## Repository Files
