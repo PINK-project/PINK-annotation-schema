@@ -123,7 +123,7 @@ where `app` is the prefix of the application ontology defining the computation, 
 > [!NOTE]
 > The `pink:hasSoftware` property is a subproperty of the inverse of `pink:participatesTo`.
 
-PINK provides tooling (based on [tripper]) to help providing class-level documentation.
+PINK provides tooling (based on [Tripper]) to help providing class-level documentation.
 This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf`.
 For example, the above declaration of a computation could provided as follows:
 
