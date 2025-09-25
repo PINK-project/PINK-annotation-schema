@@ -22,34 +22,34 @@ prefixes:
 #   - default: NOT IMPLEMENTED
 #
 resources:
-  Dataset:
+  Resource:
     keywords:
-      identifier:
-        conformance: optional
-      title:
+      accessRights:
+        conformance: mandatory
+      creator:
         conformance: mandatory
       description:
         conformance: mandatory
-      keywords:
+      identifier:
+        conformance: optional
+      keyword:
+        conformance: optional
+      license:
+        conformance: optional
+      modificationDate:
         conformance: optional
       theme:
         conformance: optional
-      distribution:
-        conformance: mandatory
-      accessRights:
-        conformance: mandatory
-      license:
-        conformance: optional
-      creationDate:
-        conformance: mandatory
-      modificationDate:
-        conformance: optional
-      creator:
+      title:
         conformance: mandatory
       version:
         conformance: mandatory
-      wasDerivedFrom:
-        conformance: optional
+      #wasDerivedFrom:
+      #  conformance: optional
+
+      # Can we use releaseDate instead of creationDate?
+      #creationDate:
+      #  conformance: mandatory
 
       # PINK-specific keywords
       ssbdCaterogy:
@@ -60,7 +60,8 @@ resources:
 
       ssbdSubCaterogy:
         iri: pink:ssbdSubCategory
-        range: xsd:string
+        range: rdfs:Literal
+        datatype: xsd:string
         conformance: optional
         description: A subcategory string from a pre-defined list of strings.
 
@@ -70,6 +71,11 @@ resources:
         conformance: Mandatory
         description: The method used to generate this dataset. Could be and experimental setup or a software or a model or an algorithm.
         usageNote: It is most relevant to refer to (PINK) models that are documented in the Methods tab. But you can start with giving the name of the model that was used to generate this dataset.
+
+  Dataset:
+    keywords:
+      distribution:
+        conformance: mandatory
 
 
   Computation:
@@ -91,7 +97,7 @@ resources:
         conformance: mandatory
       description:
         conformance: mandatory
-      keywords:
+      keyword:
         conformance: optional
       documentation:
         conformance: optional
@@ -115,7 +121,8 @@ resources:
 
       ssbdSubCaterogy:
         iri: pink:ssbdSubCategory
-        range: xsd:string
+        range: rdfs:Literal
+        datatype: xsd:string
         conformance: optional
         description: A subcategory string from a pre-defined list of strings.
 
@@ -140,12 +147,14 @@ resources:
         description: A dataset subclass that is output from the model.
 
       # XXX to be updated
-      indicatorName:
-        iri: pink:indicatorName
-      chemicalClass:
-        iri: pink:chemicalClass
-      tierLevel:
-        iri: pink:tierLevel
+      #indicatorName:
+      #  iri: pink:indicatorName
+      #  range: rdfs:Literal
+      #  datatype: xsd:string
+      #chemicalClass:
+      #  iri: pink:chemicalClass
+      #tierLevel:
+      #  iri: pink:tierLevel
 
   Software:
     iri: pink:Software
@@ -163,7 +172,8 @@ resources:
       # Not needed, since this is expressed by whether the distribution has accessService
       hasAPI:
         iri: pink:hasAPI
-        range: xsd:boolean
+        range: rdfs_Literal
+        datatype: xsd:boolean
         conformance: mandatory
         description: Whether the model has an API.
 
