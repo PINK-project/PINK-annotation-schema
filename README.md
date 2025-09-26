@@ -14,6 +14,17 @@ It is constructed to be easily aligned with [EMMO].
 - `docs/`: Sub-directory with documentation.
 
 
+## Extra PINK annotations of externally defined terms
+The PINK Annotation Schema never changes the semantics of existing terms defined externally (e.g. by W3C or DCAT-AP). 
+However, the PINK Annotation Schema can:
+- Make the documentation of externally defined terms explicit in the Knowledge Base (KB) without importing the whole vocabularies.
+- Add PINK-specific usage notes (using `pink:usageNote`, not `vann:usageNote`).
+- Add a `pink:conformance` relation that specifies whether the relation is "mandatory", "recommended" or "optional" in PINK.
+  PINK will never change the conformance described in the DCAT-AP documentation to something weaker. 
+
+The basic rule for such additions is that they can live hand-in-hand with similar annotations by other projects without creating confusion or inconsistencies. 
+
+
 ## Taxonomy
 The taxonomy below shows a basic categorisation of the main concepts (OWL classes) in the PINK Annotation Schema.
 It unifies concepts from common vocabularies, like [Dublin Core], [DCAT], [PROV-O] and [FOAF].
