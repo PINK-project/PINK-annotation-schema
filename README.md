@@ -4,6 +4,10 @@ It adhears to the recommendations specified by [DCAT-AP 3.0.1] as implemented in
 and builds on [PROV-O] for provenance.
 It is constructed to be easily aligned with [EMMO].
 
+> [!WARNING]
+> The PINK Annotation Schema is still under early and heavy development and may change without notice.
+> It is not intended for production at the current stage.
+
 
 ## Repository Files
 - `catalog-v001.xml`: XML catalog mapping ontology files to their IRIs for semantic web tools.
