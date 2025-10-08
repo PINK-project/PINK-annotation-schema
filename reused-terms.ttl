@@ -4,32 +4,115 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix accr: <http://publications.europa.eu/resource/authority/access-right/> .
 @prefix pink: <https://w3id.org/pink#> .
 
 <https://w3id.org/pink/reused-terms> rdf:type owl:Ontology ;
     owl:versionIRI <https://w3id.org/pink/0.0.1/reused-terms> ;
     dcterms:abstract "Terms from standard vocabularies reused by the PINK Annotation Schema."@en .
 
-dcat:hasVersion rdf:type owl:AnnotationProperty ;
-	pink:conformance pink:mandatory .
 
-dcat:landingPage rdf:type owl:ObjectProperty .
-dcterms:accessRights rdf:type owl:ObjectProperty .
+dcat:keyword rdf:type owl:DataProperty ;
+    rdfs:label "keyword"@en ;
+    rdfs:range rdf:langString ;
+    pink:conformance pink:recommended ;
+    dcterms:description "A keyword or tag describing the resource."@en .
+
+dcat:landingPage rdf:type owl:DataProperty ;
+    rdfs:label "landingPage"@en ;
+    rdfs:range xsd:anyURI ;
+    pink:conformance pink:optional ;
+    dcterms:description "A web page that provides access to the resource and/or additional information (e.g. the distribution for a dataset)."@en ;
+    vann:usageNote "It is intended to point to a landing page at the original data provider, not to a page on a site of a third party, such as an aggregator."@en .
+
+dcat:version rdf:type owl:AnnotationProperty ;
+    rdfs:label "version"@en ;
+    rdfs:range rdfs:Literal ;
+    pink:conformance pink:mandatory ;
+    dcterms:description "Version indicator (name or identifier) of a resource."@en .
+
+dcterms:accessRights rdf:type owl:ObjectProperty ;
+    rdfs:label "accessRights"@en ;
+    rdfs:range dcterms:RightsStatement ;
+    pink:conformance pink:optional ;
+    dcterms:description "Information about who can access the resource or an indication of its security status."@en .
+
 dcterms:creator rdf:type owl:ObjectProperty ;
-	pink:conformance pink:mandatory .
+    rdfs:label "creator"@en ;
+    rdfs:range foaf:Agent ;
+    pink:conformance pink:mandatory ;
+    dcterms:description "An entity responsible for producing the resource."@en .
 
 dcterms:description rdf:type owl:AnnotationProperty ;
-	pink:conformance pink:mandatory .
-	
+    rdfs:label "description"@en ;
+    rdfs:range rdf:langString ;
+    pink:conformance pink:mandatory ;
+    dcterms:description "A free-text account of the resource."@en ;
+    vann:usageNote "This property can be repeated for parallel language versions of the description."@en .
+
 dcterms:identifier rdf:type owl:DataProperty ;
-	pink:conformance pink:optional ;
-        dcterms:description "Alternative identifier to the IRI"@en .	
+    rdfs:label "identifier"@en ;
+    rdfs:range rdfs:Literal ;
+    pink:conformance pink:optional ;
+    dcterms:description "Alternative identifier to the IRI"@en .
 
 dcterms:license rdf:type owl:ObjectProperty ;
-	pink:conformance pink:mandatory .
+    rdfs:label "license"@en ;
+    rdfs:range dcterms:LicenseDocument ;
+    pink:conformance pink:mandatory ;
+    dcterms:description "A licence under which the resource is made available."@en .
 
 dcterms:modified rdf:type owl:DataProperty ;
-	pink:conformance pink:optional .
+    rdfs:label "modificationDate"@en ;
+    rdfs:range xsd:date ;
+    pink:conformance pink:optional ;
+    dcterms:description "The most recent date on which the resource was changed or modified."@en .
 
-dcterms:title rdf:type owl:AnnotationProperty .
-vann:usageNote rdf:type owl:AnnotationProperty .
+dcterms:title rdf:type owl:AnnotationProperty ;
+    rdfs:label "title"@en ;
+    rdfs:range rdf:langString ;
+    pink:conformance pink:mandatory ;
+    dcterms:description "A name given to the resource."@en ;
+    vann:usageNote "This property can be repeated for parallel language versions of the name."@en .
+
+pink:curator rdf:type owl:ObjectProperty ;
+    rdfs:label "curator"@en ;
+    rdfs:range foaf:Agent ;
+    dcterms:description "The agent that curated the resource."@en ;
+    dcterms:usageNote "Use `dcterms:issued` to refer to the date of curation."@en .
+
+vann:usageNote rdf:type owl:AnnotationProperty ;
+    rdfs:label "usageNote"@en ;
+    dcterms:description "A reference to a resource that provides information on how this resource is to be used."@en .
+
+
+
+### Right Statements
+accr:PUBLIC rdf:type dcterms:RightsStatement ;
+    skos:prefLabel "public"@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition: "Publicly accessible by everyone."@en ;
+    vann:usageNote: "Permissible obstacles include registration and request for API keys, as long as anyone can request such registration and/or API keys."@en .
+
+accr:NON_PUBLIC rdf:type dcterms:RightsStatement ;
+    skos:prefLabel "non-public"@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition: "Not publicly accessible for privacy, security or other reasons."@en ;
+    vann:usageNote: "This category may include resources that contain sensitive or personal information."@en .
+
+accr:CONFIDENTIAL rdf:type dcterms:RightsStatement ;
+    skos:prefLabel "confidential"@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition: "Information that is not disclosed."@en ;
+    vann:usageNote: "Disclosure of this data could cause damage to interested parties such as public administrations and businesses. It may refer to personal and professional information as well as to information in the context of business, commerce or trade."@en .
+
+accr:RESTRICTED rdf:type dcterms:RightsStatement ;
+    skos:prefLabel "restricted"@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition: "Only available under certain conditions."@en ;
+    vann:usageNote: "This category may include resources that require payment, resources shared under non-disclosure agreements, resources for which the publisher or owner has not yet decided if they can be publicly released."@en .
+
+accr:SENSITIVE rdf:type dcterms:RightsStatement ;
+    skos:prefLabel "sensitive"@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition: "Sensitive non-classified (SNC) information, information whose unauthorised disclosure could cause damage to the Commission or other interested parties such as businesses, companies, intellectual property or personal data but which is not EU classified information."@en .
