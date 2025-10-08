@@ -132,7 +132,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
     rdfs:range :SsbdCategory ;
     skos:prefLabel "ssbdCategory"@en ;
     dcterms:description "XXX"@en ;
-    vann:usageNote "One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`, `pink:costing`"@en .
+    vann:usageNote "One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`"@en .
 
 
 #################################################################
