@@ -1,0 +1,184 @@
+---
+basedOn: default
+
+prefixes:
+  pink: "https://w3id.org/pink#"
+
+#
+# Valid keys on resources:
+#   - iri: IRI of the resource
+#   - subClassOf: The IRI of class this resource is a subclass of
+#   - description: Description of the resource
+#   - keywords: List of keywords (properties) of this resource
+#
+# Valid keys on keywords:
+#   - iri: IRI of property that the keyword is mapped to
+#   - range: Range of property (IRI)
+#   - datatype: Datatype of the property (only for data properties)
+#   - inverse: If true, `iri` refer to the inverse of this property
+#   - conformance: One of "mandatory", "recommended", "optional" or not included
+#   - description: Description of keyword
+#   - usageNote: A note about how to use this keyword.
+#   - default: NOT IMPLEMENTED
+#
+resources:
+  Resource:
+    keywords:
+      accessRights:
+        conformance: mandatory
+      creator:
+        conformance: mandatory
+      description:
+        conformance: mandatory
+      identifier:
+        conformance: optional
+      keyword:
+        conformance: optional
+      license:
+        conformance: optional
+      modificationDate:
+        conformance: optional
+      theme:
+        conformance: optional
+      title:
+        conformance: mandatory
+      version:
+        conformance: mandatory
+      #wasDerivedFrom:
+      #  conformance: optional
+
+      # Can we use releaseDate instead of creationDate?
+      #creationDate:
+      #  conformance: mandatory
+
+      # PINK-specific keywords
+      ssbdCaterogy:
+        iri: pink:ssbdCategory
+        range: pink:SsbdCategory
+        conformance: mandatory
+        description: One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`, `pink:costing`
+
+      ssbdSubCaterogy:
+        iri: pink:ssbdSubCategory
+        range: rdfs:Literal
+        datatype: xsd:string
+        conformance: optional
+        description: A subcategory string from a pre-defined list of strings.
+
+      method:
+        iri: pink:method
+        range: pink:Method
+        conformance: Mandatory
+        description: The method used to generate this dataset. Could be and experimental setup or a software or a model or an algorithm.
+        usageNote: It is most relevant to refer to (PINK) models that are documented in the Methods tab. But you can start with giving the name of the model that was used to generate this dataset.
+
+  Dataset:
+    keywords:
+      distribution:
+        conformance: mandatory
+
+
+  Computation:
+    iri: pink:Computation
+    subClassOf: ["prov:Activity", "emmo:EMMO_eff42cb3_208e_4768_9a39_f8b6b3c3d7a2"]
+    description: A procedural activity that deals with quantitative symbols (i.e. symbols associated with a quantitative-oriented language).
+
+  Method:
+    iri: pink:Method
+    subClassOf: ["pink:Computation", "dcat:Resource"]
+    description: A computational method.
+    keywords:
+      label:
+        conformance: mandatory
+
+      identifier:
+        conformance: optional
+      title:
+        conformance: mandatory
+      description:
+        conformance: mandatory
+      keyword:
+        conformance: optional
+      documentation:
+        conformance: optional
+      accessRights:
+        conformance: mandatory
+      license:
+        conformance: optional
+      creator:
+        conformance: mandatory
+      version:
+        conformance: mandatory
+      wasDerivedFrom:
+        conformance: optional
+
+      # PINK-specific keywords
+      ssbdCaterogy:
+        iri: pink:ssbdCategory
+        range: pink:SsbdCategory
+        conformance: mandatory
+        description: One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`, `pink:costing`
+
+      ssbdSubCaterogy:
+        iri: pink:ssbdSubCategory
+        range: rdfs:Literal
+        datatype: xsd:string
+        conformance: optional
+        description: A subcategory string from a pre-defined list of strings.
+
+      model:
+        iri: pink:model
+        range: pink:Model
+        conformance: mandatory
+        description: The model (aka software) that implements the method.
+
+      input:
+        iri: pink:input
+        # Range could be generalised to prov:Entity
+        range: dcat:Dataset
+        conformance: optional
+        description: A dataset subclass that is input to the model.
+
+      output:
+        iri: pink:output
+        # Range could be generalised to prov:Entity
+        range: dcat:Dataset
+        conformance: optional
+        description: A dataset subclass that is output from the model.
+
+      # XXX to be updated
+      #indicatorName:
+      #  iri: pink:indicatorName
+      #  range: rdfs:Literal
+      #  datatype: xsd:string
+      #chemicalClass:
+      #  iri: pink:chemicalClass
+      #tierLevel:
+      #  iri: pink:tierLevel
+
+  Software:
+    iri: pink:Software
+    subClassOf: ["dcat:Resource", "emmo:EMMO_8681074a_e225_4e38_b586_e85b0f43ce38"]
+
+
+  Model:
+    iri: pink:Model
+    subClassOf: pink:Software
+    description: An implemented model.
+    keywords:
+      label:
+        conformance: mandatory
+
+      # Not needed, since this is expressed by whether the distribution has accessService
+      hasAPI:
+        iri: pink:hasAPI
+        range: rdfs_Literal
+        datatype: xsd:boolean
+        conformance: mandatory
+        description: Whether the model has an API.
+
+      distribution:
+        iri: dcat:distribution
+        range: dcat:Distribution
+        conformance: recommended
+        description: An available distribution for the model.
