@@ -1,118 +1,245 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 @prefix accr: <http://publications.europa.eu/resource/authority/access-right/> .
+@prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
 @prefix pink: <https://w3id.org/pink#> .
 
 <https://w3id.org/pink/reused-terms> rdf:type owl:Ontology ;
     owl:versionIRI <https://w3id.org/pink/0.0.1/reused-terms> ;
-    dcterms:abstract "Terms from standard vocabularies reused by the PINK Annotation Schema."@en .
+    dcterms:title "Terms from standard vocabularies reused by the PINK Annotation Schema."@en .
 
 
-dcat:keyword rdf:type owl:DataProperty ;
+### Properties
+dcat:keyword rdf:type owl:DatatypeProperty ;
     rdfs:label "keyword"@en ;
     rdfs:range rdf:langString ;
-    pink:conformance pink:recommended ;
+    pink:conformance ddoc:recommended ;
     dcterms:description "A keyword or tag describing the resource."@en .
 
-dcat:landingPage rdf:type owl:DataProperty ;
+dcat:landingPage rdf:type owl:DatatypeProperty ;
     rdfs:label "landingPage"@en ;
     rdfs:range xsd:anyURI ;
-    pink:conformance pink:optional ;
+    pink:conformance ddoc:optional ;
     dcterms:description "A web page that provides access to the resource and/or additional information (e.g. the distribution for a dataset)."@en ;
     vann:usageNote "It is intended to point to a landing page at the original data provider, not to a page on a site of a third party, such as an aggregator."@en .
 
 dcat:version rdf:type owl:AnnotationProperty ;
     rdfs:label "version"@en ;
     rdfs:range rdfs:Literal ;
-    pink:conformance pink:mandatory ;
+    pink:conformance ddoc:mandatory ;
     dcterms:description "Version indicator (name or identifier) of a resource."@en .
 
 dcterms:accessRights rdf:type owl:ObjectProperty ;
     rdfs:label "accessRights"@en ;
     rdfs:range dcterms:RightsStatement ;
-    pink:conformance pink:optional ;
+    pink:conformance ddoc:optional ;
     dcterms:description "Information about who can access the resource or an indication of its security status."@en .
 
 dcterms:creator rdf:type owl:ObjectProperty ;
     rdfs:label "creator"@en ;
     rdfs:range foaf:Agent ;
-    pink:conformance pink:mandatory ;
+    pink:conformance ddoc:mandatory ;
     dcterms:description "An entity responsible for producing the resource."@en .
 
 dcterms:description rdf:type owl:AnnotationProperty ;
     rdfs:label "description"@en ;
     rdfs:range rdf:langString ;
-    pink:conformance pink:mandatory ;
+    pink:conformance ddoc:mandatory ;
     dcterms:description "A free-text account of the resource."@en ;
     vann:usageNote "This property can be repeated for parallel language versions of the description."@en .
 
-dcterms:identifier rdf:type owl:DataProperty ;
+dcterms:identifier rdf:type owl:DatatypeProperty ;
     rdfs:label "identifier"@en ;
     rdfs:range rdfs:Literal ;
-    pink:conformance pink:optional ;
+    pink:conformance ddoc:optional ;
     dcterms:description "Alternative identifier to the IRI"@en .
 
 dcterms:license rdf:type owl:ObjectProperty ;
     rdfs:label "license"@en ;
     rdfs:range dcterms:LicenseDocument ;
-    pink:conformance pink:mandatory ;
+    pink:conformance ddoc:mandatory ;
     dcterms:description "A licence under which the resource is made available."@en .
 
-dcterms:modified rdf:type owl:DataProperty ;
+dcterms:modified rdf:type owl:DatatypeProperty ;
     rdfs:label "modificationDate"@en ;
     rdfs:range xsd:date ;
-    pink:conformance pink:optional ;
+    pink:conformance ddoc:optional ;
     dcterms:description "The most recent date on which the resource was changed or modified."@en .
 
 dcterms:title rdf:type owl:AnnotationProperty ;
     rdfs:label "title"@en ;
     rdfs:range rdf:langString ;
-    pink:conformance pink:mandatory ;
+    pink:conformance ddoc:mandatory ;
     dcterms:description "A name given to the resource."@en ;
     vann:usageNote "This property can be repeated for parallel language versions of the name."@en .
 
-pink:curator rdf:type owl:ObjectProperty ;
+ddoc:curator rdf:type owl:ObjectProperty ;
     rdfs:label "curator"@en ;
     rdfs:range foaf:Agent ;
+    pink:conformance ddoc:optional ;
     dcterms:description "The agent that curated the resource."@en ;
-    dcterms:usageNote "Use `dcterms:issued` to refer to the date of curation."@en .
+    vann:usageNote "Use `dcterms:issued` to refer to the date of curation."@en .
 
 vann:usageNote rdf:type owl:AnnotationProperty ;
     rdfs:label "usageNote"@en ;
     dcterms:description "A reference to a resource that provides information on how this resource is to be used."@en .
 
 
+### PROV-O annotations
+prov:category
+    a owl:AnnotationProperty ;
+    rdfs:comment "Classify prov-o terms into three categories, including 'starting-point', 'qualifed', and 'extended'. This classification is used by the prov-o html document to gently introduce prov-o terms to its users. "@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+
+prov:component
+    a owl:AnnotationProperty ;
+    rdfs:comment "Classify prov-o terms into six components according to prov-dm, including 'agents-responsibility', 'alternate', 'annotations', 'collections', 'derivations', and 'entities-activities'. This classification is used so that readers of prov-o specification can find its correspondence with the prov-dm specification."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+
+prov:constraints
+    a owl:AnnotationProperty ;
+    rdfs:comment "A reference to the principal section of the PROV-CONSTRAINTS document that describes this concept."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subPropertyOf rdfs:seeAlso .
+
+prov:definition
+    a owl:AnnotationProperty ;
+    rdfs:comment "A definition quoted from PROV-DM or PROV-CONSTRAINTS that describes the concept expressed with this OWL term."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+
+prov:dm
+    a owl:AnnotationProperty ;
+    rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subPropertyOf rdfs:seeAlso .
+
+prov:n
+    a owl:AnnotationProperty ;
+    rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subPropertyOf rdfs:seeAlso .
+
+
+### Classes
+
+foaf:Agent a owl:Class ;
+    rdfs:comment "An agent (eg. person, group, software or physical artifact)." ;
+    dcterms:description "An agent (eg. person, group, software or physical artifact)."@en ;
+    rdfs:label "Agent" ;
+    owl:equivalentClass <http://purl.org/dc/terms/Agent> .
+
+prov:Activity a owl:Class ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "Activity" ;
+    owl:disjointWith prov:Entity ;
+    prov:category "starting-point" ;
+    prov:component "entities-activities" ;
+    prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+    prov:definition "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." ;
+    dcterms:description "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." ;
+    prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Activity"^^xsd:anyURI ;
+    prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Activity"^^xsd:anyURI .
+
+prov:Agent a owl:Class ;
+    rdfs:subClassOf pink:Role, foaf:Agent ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "Agent" ;
+    owl:disjointWith prov:InstantaneousEvent ;
+    prov:category "starting-point" ;
+    prov:component "agents-responsibility" ;
+    prov:definition "An agent is something that bears some form of responsibility for anprov activity taking place, for the existence of an entity, or for another agent's aprovctivity. "@en ;
+    dcterms:description "An agent is something that bears some form of responsibility for anprov activity taking place, for the existence of an entity, or for another agent's aprovctivity. "@en ;
+    prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
+    prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent"^^xsd:anyURI .
+
+prov:Entity a owl:Class ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "Entity" ;
+    owl:disjointWith prov:InstantaneousEvent ;
+    prov:category "starting-point" ;
+    prov:component "entities-activities" ;
+    prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+    prov:definition "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
+    dcterms:description "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
+    prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity"^^xsd:anyURI ;
+    prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity"^^xsd:anyURI .
+
+foaf:Document a owl:Class ;
+    rdfs:subClassOf pink:Data ;
+    rdfs:comment "A document." ;
+    dcterms:description "A document." ;
+    rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/> ;
+    rdfs:label "Document" ;
+    owl:disjointWith foaf:Organization, foaf:Project ;
+    pink:usageNote "The Document class represents those things which are, broadly conceived, 'documents'. E.g. images."@en .
+
+dcterms:RightsStatement a owl:Class ;
+    rdfs:subClassOf foaf:Document ;
+    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
+    dcterms:description "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Rights Statement"@en ;
+    pink:usageNote "Use one of the pre-defined individuals of this class defined by EU: accr:PUBLIC, accr:NON_PUBLIC, accr:CONFIDENTIAL, accr:RESTRICTED, accr:SENSITIVE"@en .
+
+dcterms:LicenseDocument a owl:Class ;
+    rdfs:subClassOf dcterms:RightsStatement ;
+    rdfs:label "License Document"@en ;
+    rdfs:comment "A legal document giving official permission to do something with a resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    dcterms:description "A legal document giving official permission to do something with a resource."@en ;
+    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> .
+
+dcat:Dataset a owl:Class ;
+  rdfs:comment "A collection of data, published or curated by a single source, and available for access or download in one or more representations."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "Dataset"@en ;
+  rdfs:subClassOf dcat:Resource, pink:Data ;
+  skos:editorialNote "2020-03-16 A new scopenote added and need to be translated"@en ;
+  skos:changeNote "2018-02 - subclass of dctype:Dataset removed because scope of dcat:Dataset includes several other types from the dctype vocabulary."@en ;
+  skos:definition "A collection of data, published or curated by a single source, and available for access or download in one or more represenations."@en ;
+  skos:scopeNote "This class represents the actual dataset as published by the dataset provider. In cases where a distinction between the actual dataset and its entry in the catalog is necessary (because metadata such as modification date and maintainer might differ), the catalog record class can be used for the latter."@en .
+
 
 ### Right Statements
 accr:PUBLIC rdf:type dcterms:RightsStatement ;
     skos:prefLabel "public"@en ;
     rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
-    skos:definition: "Publicly accessible by everyone."@en ;
-    vann:usageNote: "Permissible obstacles include registration and request for API keys, as long as anyone can request such registration and/or API keys."@en .
+    skos:definition "Publicly accessible by everyone."@en ;
+    dcterms:description "Publicly accessible by everyone."@en ;
+    vann:usageNote "Permissible obstacles include registration and request for API keys, as long as anyone can request such registration and/or API keys."@en .
 
 accr:NON_PUBLIC rdf:type dcterms:RightsStatement ;
     skos:prefLabel "non-public"@en ;
     rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
-    skos:definition: "Not publicly accessible for privacy, security or other reasons."@en ;
-    vann:usageNote: "This category may include resources that contain sensitive or personal information."@en .
+    skos:definition "Not publicly accessible for privacy, security or other reasons."@en ;
+    dcterms:description "Not publicly accessible for privacy, security or other reasons."@en ;
+    vann:usageNote "This category may include resources that contain sensitive or personal information."@en .
 
 accr:CONFIDENTIAL rdf:type dcterms:RightsStatement ;
     skos:prefLabel "confidential"@en ;
     rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
-    skos:definition: "Information that is not disclosed."@en ;
-    vann:usageNote: "Disclosure of this data could cause damage to interested parties such as public administrations and businesses. It may refer to personal and professional information as well as to information in the context of business, commerce or trade."@en .
+    skos:definition "Information that is not disclosed."@en ;
+    dcterms:description "Information that is not disclosed."@en ;
+    vann:usageNote "Disclosure of this data could cause damage to interested parties such as public administrations and businesses. It may refer to personal and professional information as well as to information in the context of business, commerce or trade."@en .
 
 accr:RESTRICTED rdf:type dcterms:RightsStatement ;
     skos:prefLabel "restricted"@en ;
     rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
-    skos:definition: "Only available under certain conditions."@en ;
-    vann:usageNote: "This category may include resources that require payment, resources shared under non-disclosure agreements, resources for which the publisher or owner has not yet decided if they can be publicly released."@en .
+    skos:definition "Only available under certain conditions."@en ;
+    dcterms:description "Only available under certain conditions."@en ;
+    vann:usageNote "This category may include resources that require payment, resources shared under non-disclosure agreements, resources for which the publisher or owner has not yet decided if they can be publicly released."@en .
 
 accr:SENSITIVE rdf:type dcterms:RightsStatement ;
     skos:prefLabel "sensitive"@en ;
     rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
-    skos:definition: "Sensitive non-classified (SNC) information, information whose unauthorised disclosure could cause damage to the Commission or other interested parties such as businesses, companies, intellectual property or personal data but which is not EU classified information."@en .
+    skos:definition "Sensitive non-classified (SNC) information, information whose unauthorised disclosure could cause damage to the Commission or other interested parties such as businesses, companies, intellectual property or personal data but which is not EU classified information."@en ;
+    dcterms:description "Sensitive non-classified (SNC) information, information whose unauthorised disclosure could cause damage to the Commission or other interested parties such as businesses, companies, intellectual property or personal data but which is not EU classified information."@en .

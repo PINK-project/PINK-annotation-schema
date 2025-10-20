@@ -24,3 +24,8 @@ PINK Classes
 | pink:ReliabilityDocument | | |
 | prov:Agent               | An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. | |
 | pink:Participant         | An object which is a spatial part of a process. | Example: A student during an examination. The student exists both before and after the examination. |
+
+
+
+[FOAF]: http://xmlns.com/foaf/spec/
+[PROV-O]: https://www.w3.org/TR/prov-o/

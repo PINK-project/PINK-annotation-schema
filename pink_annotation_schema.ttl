@@ -7,9 +7,12 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
+
 @base <https://w3id.org/pink#> .
 
 <https://w3id.org/pink> rdf:type owl:Ontology ;
@@ -112,9 +115,9 @@ foaf:logo rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/pink#conformance
 :conformance rdf:type owl:AnnotationProperty ;
              rdfs:range [ rdf:type owl:Class ;
-                          owl:oneOf ( :mandatory
-                                      :optional
-                                      :recommended
+                          owl:oneOf ( ddoc:mandatory
+                                      ddoc:optional
+                                      ddoc:recommended
                                     )
                         ] ;
              dcterms:description "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema"@en ;
@@ -134,6 +137,9 @@ foaf:logo rdf:type owl:AnnotationProperty .
     dcterms:description "XXX"@en ;
     vann:usageNote "One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`"@en .
 
+# Parthood relations
+
+
 
 #################################################################
 #    Classes
@@ -143,25 +149,87 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "SsbdCategory"@en ;
     dcterms:description "XXX"@en .
 
+:Role rdf:type owl:Class ;
+    skos:prefLabel "Role"@en ;
+    dcterms:description "The class of all individuals that are defined through a parthood relation to an entity."@en ;
+    vann:usageNote "An individual can be said to have a role in relation to the entity."@en .
+
+:MaterialProcess rdf:type owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    skos:prefLabel "MaterialProcess"@en ;
+    dcterms:description "A process that has material as input and output."@en .
+
+:Measurement rdf:type owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    skos:prefLabel "Measurement"@en ;
+    dcterms:description "An observation that results in a quantitative comparison of a 'property' of an 'object' with a standard reference based on a well defined mesurement procedure."@en .
+
+:Computation rdf:type owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    skos:prefLabel "Computation"@en ;
+    dcterms:description "A procedure that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en .
+
+:Material rdf:type owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    skos:prefLabel "Material"@en ;
+    dcterms:description "The class of individuals standing for an amount of matter (ordinary, anti or hybrid) substance (or mixture of substances) in different states of matter or phases."@en .
+
+:Property rdf:type owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    skos:prefLabel "Property"@en ;
+    dcterms:description "A coventional semiotic sigh that stands for an physical interaction with an object using an atomic symbol."@en ;
+    vann:usageNote "A property is atomic in the sense that is aimed to deliver one and one only aspect of the object."@en .
+
+:Data rdf:type owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    skos:prefLabel "Data"@en ;
+    dcterms:description "Contrast from variation of properties that is encoded by an agent and that can be decoded by another agent according to a specific rule."@en .
+
+:Object rdf:type owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    skos:prefLabel "Object"@en ;
+    dcterms:description "The class of all individuals who's temporal parts are of the same type as the whole."@en .
+
+:Datum rdf:type owl:Class ;
+    rdfs:subClassOf :Data ;
+    skos:prefLabel "Datum"@en ;
+    dcterms:description "A self-consistent encoded data entity."@en ;
+    vann:usageNote "Datum are the building blocks of datasets."@en .
+
+:Software rdf:type owl:Class ;
+    rdfs:subClassOf :Data ;
+    skos:prefLabel "Software"@en ;
+    dcterms:description "All or part of the programs, procedures, rules, and associated documentation of an information processing system."@en ;
+    vann:usageNote "Software is usually used as a generic term for programs. However, in its broadest sense it can refer to all information (i.e., both programs and data) in electronic form and can provide a distinction from hardware, which refers to computers or other electronic systems on which software can exist and be use. Here we explicitly include in the definition also all the data (e.g. source code, script files) that takes part to the building of the executable, are necessary to the execution of a program or that document it for the users."@en .
+
+:ReliabilityDocument rdf:type owl:Class ;
+    rdfs:subClassOf foaf:Document ;
+    skos:prefLabel "ReliabilityDocument"@en ;
+    dcterms:description "xxx"@en ;
+    vann:usageNote "xxx"@en .
+
+:Participant rdf:type owl:Class ;
+    rdfs:subClassOf :Object, prov:Agent ;
+    skos:prefLabel "Participant"@en ;
+    dcterms:description "An object which is a spatial part of a process."@en ;
+    vann:usageNote "Example: A student during an examination. The student exists both before and after the examination."@en .
+
+
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  https://w3id.org/pink#mandatory
-:mandatory rdf:type owl:NamedIndividual ;
-           skos:prefLabel "mandatory"@en .
+### Conformance individuals
+ddoc:mandatory rdf:type owl:NamedIndividual ;
+    skos:prefLabel "mandatory"@en .
 
+ddoc:optional rdf:type owl:NamedIndividual ;
+    skos:prefLabel "optional"@en .
 
-###  https://w3id.org/pink#optional
-:optional rdf:type owl:NamedIndividual ;
-          skos:prefLabel "optional"@en .
-
-
-###  https://w3id.org/pink#recommended
-:recommended rdf:type owl:NamedIndividual ;
-             skos:prefLabel "recommended"@en .
+ddoc:recommended rdf:type owl:NamedIndividual ;
+    skos:prefLabel "recommended"@en .
 
 
 
