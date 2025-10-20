@@ -66,15 +66,16 @@ See the PINK Annotation Schema itself, for a description of all the other concep
 | prov:Activity | Something that occurs over a period of time and acts upon or with entities.      | Activity individuals have some temporal parts (that are not of the same type as the activity itself).<br> |
                                                                                                      An activity may include consuming, processing, transforming, modifying, relocating, using, or generating entities. |
 | :Role      | The class of all individuals that are defined through a parthood relation to an entity. | An individual can be said to have a *role* in relation to the entity. |
-| foaf:Agent | A thing that does stuff (like person, group, software or physical artifact).            | The [FOAF] specification of a *agent* is very loose.<br>
-                                                                                                         The subclass `prov:Agent` provides further context, by saying that a `prov:agent` bears some form of<br>
-                                                                                                         responsibility for an activity, the existence of an entity or the activity of another agent. |
-| :MaterialProcess | A process that has material as input and output. | |
-| :Measurement     | An observation that results in a quantitative comparison of a 'property' of an 'object' with a standard reference based on a well defined mesurement procedure. | |
-| :Computation     | A procedure that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language). | |
-| :Material        | The class of individuals standing for an amount of matter (ordinary, anti or hybrid) substance (or mixture of substances) in different states of matter or phases. | |
-| :Property        | A coventional semiotic sigh that stands for an physical interaction with an object using an atomic symbol. | A property is atomic in the sense that is aimed to deliver one and one only aspect of the object. |
-| :Data            | Contrast from variation of properties that is encoded by an agent and that can be decoded by another agent according to a specific rule. | |
+| foaf:Agent | A thing that does stuff (like person, group, software or physical artifact).            | The [FOAF] specification of a *agent* is very loose. The subclass `prov:Agent` provides further context, by saying that a `prov:agent` bears some form of responsibility for an activity, the existence of an entity or the activity of another agent. |
+
+| IRI           | Definition                                                                       | PINK usage note                                                                                           |
+|---------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| MaterialProcess | A process that has material as input and output. | |
+| Measurement     | An observation that results in a quantitative comparison of a 'property' of an 'object' with a standard reference based on a well defined mesurement procedure. | |
+| Computation     | A procedure that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language). | |
+| Material        | The class of individuals standing for an amount of matter (ordinary, anti or hybrid) substance (or mixture of substances) in different states of matter or phases. | |
+| Property        | A coventional semiotic sigh that stands for an physical interaction with an object using an atomic symbol. | A property is atomic in the sense that is aimed to deliver one and one only aspect of the object. |
+| Data            | Contrast from variation of properties that is encoded by an agent and that can be decoded by another agent according to a specific rule. | |
 
 
 
