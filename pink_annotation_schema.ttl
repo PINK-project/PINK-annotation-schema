@@ -150,7 +150,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :participatesTo rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :overcrosses ;
     skos:prefLabel "participatesTo"@en ;
-    dcterms:description "The relation between an object O that through overlaps a process P."@en
+    dcterms:description "The relation between an object O that through overlaps a process P."@en .
 
 
 

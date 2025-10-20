@@ -119,7 +119,7 @@ dcterms:title rdf:type owl:AnnotationProperty ;
 dcterms:hasPart a owl:ObjectProperty ;
     dcterms:description "This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of."@en ;
     dcterms:issued "2000-07-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    rdfs:subClassOf pink:overlaps ;
+    rdfs:subPropertyOf pink:overlaps ;
     rdfs:comment "A related resource that is included either physically or logically in the described resource."@en ;
     rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
     rdfs:label "hasPart"@en .
