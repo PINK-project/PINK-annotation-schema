@@ -19,14 +19,18 @@ It is constructed to be easily aligned with [EMMO].
 
 
 ## Extra PINK annotations of externally defined terms
-The PINK Annotation Schema never changes the semantics of existing terms defined externally (e.g. by W3C or DCAT-AP). 
+The PINK Annotation Schema never changes the semantics of existing terms defined externally (e.g. by W3C or DCAT-AP).
 However, the PINK Annotation Schema can:
 - Make the documentation of externally defined terms explicit in the Knowledge Base (KB) without importing the whole vocabularies.
 - Add PINK-specific usage notes (using `pink:usageNote`, not `vann:usageNote`).
-- Add a `pink:conformance` relation that specifies whether the relation is "mandatory", "recommended" or "optional" in PINK.
-  PINK will never change the conformance described in the DCAT-AP documentation to something weaker. 
+- Add a `ddoc:conformance` relation that specifies whether the relation is "mandatory", "recommended" or "optional" in PINK.
+  PINK will never change the conformance described in the DCAT-AP documentation to something weaker.
 
-The basic rule for such additions is that they can live hand-in-hand with similar annotations by other projects without creating confusion or inconsistencies. 
+The basic rule for such additions is that they can live hand-in-hand with similar annotations by other projects without creating confusion or inconsistencies.
+
+For any other additional specifications of an existing term, a PINK-specific subclass or subproperty will be created.
+Such subclasses/subproperties will normally keep the W3C name, but with the `pink` namespace (or the `ddoc` namespace if the concept is specific for the tripper data documentation).
+
 
 
 ## Taxonomy
@@ -56,11 +60,22 @@ At the top-level, the PINK Annotation Schema has four root concepts:
 
 See the PINK Annotation Schema itself, for a description of all the other concepts.
 
-> [!NOTE]
-> Should we make `foaf:Agent` and `:Role` subclasses of `prov:Entity`?
->
-> Logically it make sense and will simplify the taxonomy, making it more aligned with top-level ontologies like DOLCE and BFO and not break alignment with EMMO.
-> However, it implies that `prov:Agent` is a `prov:Entity`, which is no contradiction, but is a statement that is not expressed in [PROV-O].
+| IRI           | Definition                                                                       | PINK usage note                                                                                           |
+|---------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| prov:Entity   | A physical, digital, conceptual, or other kind of thing with some fixed aspects. | [PROV-O] lacks the accuracy of nominalism and allows both real and imaginary entities.                    |
+| prov:Activity | Something that occurs over a period of time and acts upon or with entities.      | Activity individuals have some temporal parts (that are not of the same type as the activity itself).<br> |
+                                                                                                     An activity may include consuming, processing, transforming, modifying, relocating, using, or generating entities. |
+| :Role      | The class of all individuals that are defined through a parthood relation to an entity. | An individual can be said to have a *role* in relation to the entity. |
+| foaf:Agent | A thing that does stuff (like person, group, software or physical artifact).            | The [FOAF] specification of a *agent* is very loose.<br>
+                                                                                                         The subclass `prov:Agent` provides further context, by saying that a `prov:agent` bears some form of<br>
+                                                                                                         responsibility for an activity, the existence of an entity or the activity of another agent. |
+| :MaterialProcess | A process that has material as input and output. | |
+| :Measurement     | An observation that results in a quantitative comparison of a 'property' of an 'object' with a standard reference based on a well defined mesurement procedure. | |
+| :Computation     | A procedure that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language). | |
+| :Material        | The class of individuals standing for an amount of matter (ordinary, anti or hybrid) substance (or mixture of substances) in different states of matter or phases. | |
+| :Property        | A coventional semiotic sigh that stands for an physical interaction with an object using an atomic symbol. | A property is atomic in the sense that is aimed to deliver one and one only aspect of the object. |
+| :Data            | Contrast from variation of properties that is encoded by an agent and that can be decoded by another agent according to a specific rule. | |
+
 
 
 ## Provenance
@@ -85,6 +100,8 @@ By providing additional knowledge to the various process steps we get *provenanc
 The figure below shows an example of a simple provenance graph, that combines three processes with some additional annotations.
 
 ![Provenance](docs/figs/provenance.png)
+
+To make it easier to see where concepts belong, have concepts belonging to the PINK namespace in the figure above been written in cursive.
 
 Given the network of `prov:used` and `prov:wasInformedBy` relations, it is possible to
 infer `prov:wasInformedBy` and `prov:wasDerivedFrom` relations.
