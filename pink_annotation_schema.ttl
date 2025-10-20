@@ -138,6 +138,19 @@ foaf:logo rdf:type owl:AnnotationProperty .
     vann:usageNote "One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`"@en .
 
 # Parthood relations
+:overlaps rdf:type owl:ObjectProperty, owl:SymmetricProperty, owl:ReflexiveProperty ;
+    skos:prefLabel "overlaps"@en ;
+    dcterms:description "The relation between two individuals representing entities that share at least one of their parts."@en .
+
+:overcrosses rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
+    rdfs:subPropertyOf :overlaps ;
+    skos:prefLabel "overcrosses"@en ;
+    dcterms:description "The relation between an entity that overlaps another without being its part."@en .
+
+:participatesTo rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :overcrosses ;
+    skos:prefLabel "participatesTo"@en ;
+    dcterms:description "The relation between an object O that through overlaps a process P."@en
 
 
 

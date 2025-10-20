@@ -16,6 +16,41 @@
     owl:versionIRI <https://w3id.org/pink/0.0.1/reused-terms> ;
     dcterms:title "Terms from standard vocabularies reused by the PINK Annotation Schema."@en .
 
+### PROV-O annotations
+prov:category
+    a owl:AnnotationProperty ;
+    rdfs:comment "Classify prov-o terms into three categories, including 'starting-point', 'qualifed', and 'extended'. This classification is used by the prov-o html document to gently introduce prov-o terms to its users. "@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+
+prov:component
+    a owl:AnnotationProperty ;
+    rdfs:comment "Classify prov-o terms into six components according to prov-dm, including 'agents-responsibility', 'alternate', 'annotations', 'collections', 'derivations', and 'entities-activities'. This classification is used so that readers of prov-o specification can find its correspondence with the prov-dm specification."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+
+prov:constraints
+    a owl:AnnotationProperty ;
+    rdfs:comment "A reference to the principal section of the PROV-CONSTRAINTS document that describes this concept."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subPropertyOf rdfs:seeAlso .
+
+prov:definition
+    a owl:AnnotationProperty ;
+    rdfs:comment "A definition quoted from PROV-DM or PROV-CONSTRAINTS that describes the concept expressed with this OWL term."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+
+prov:dm
+    a owl:AnnotationProperty ;
+    rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subPropertyOf rdfs:seeAlso .
+
+prov:n
+    a owl:AnnotationProperty ;
+    rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subPropertyOf rdfs:seeAlso .
+
+
 
 ### Properties
 dcat:keyword rdf:type owl:DatatypeProperty ;
@@ -81,6 +116,14 @@ dcterms:title rdf:type owl:AnnotationProperty ;
     dcterms:description "A name given to the resource."@en ;
     vann:usageNote "This property can be repeated for parallel language versions of the name."@en .
 
+dcterms:hasPart a owl:ObjectProperty ;
+    dcterms:description "This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of."@en ;
+    dcterms:issued "2000-07-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    rdfs:subClassOf pink:overlaps ;
+    rdfs:comment "A related resource that is included either physically or logically in the described resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "hasPart"@en .
+
 ddoc:curator rdf:type owl:ObjectProperty ;
     rdfs:label "curator"@en ;
     rdfs:range foaf:Agent ;
@@ -93,39 +136,86 @@ vann:usageNote rdf:type owl:AnnotationProperty ;
     dcterms:description "A reference to a resource that provides information on how this resource is to be used."@en .
 
 
-### PROV-O annotations
-prov:category
-    a owl:AnnotationProperty ;
-    rdfs:comment "Classify prov-o terms into three categories, including 'starting-point', 'qualifed', and 'extended'. This classification is used by the prov-o html document to gently introduce prov-o terms to its users. "@en ;
-    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
-
-prov:component
-    a owl:AnnotationProperty ;
-    rdfs:comment "Classify prov-o terms into six components according to prov-dm, including 'agents-responsibility', 'alternate', 'annotations', 'collections', 'derivations', and 'entities-activities'. This classification is used so that readers of prov-o specification can find its correspondence with the prov-dm specification."@en ;
-    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
-
-prov:constraints
-    a owl:AnnotationProperty ;
-    rdfs:comment "A reference to the principal section of the PROV-CONSTRAINTS document that describes this concept."@en ;
+prov:used a owl:ObjectProperty ;
+    rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
+    rdfs:domain :Activity ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-    rdfs:subPropertyOf rdfs:seeAlso .
+    rdfs:label "used" ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    owl:propertyChainAxiom (prov:qualifiedUsage
+        prov:entity
+    ) ;
+    prov:category "starting-point" ;
+    prov:component "entities-activities" ;
+    prov:inverse "wasUsedBy" ;
+    prov:qualifiedForm prov:Usage, prov:qualifiedUsage .
 
-prov:definition
-    a owl:AnnotationProperty ;
-    rdfs:comment "A definition quoted from PROV-DM or PROV-CONSTRAINTS that describes the concept expressed with this OWL term."@en ;
-    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
-
-prov:dm
-    a owl:AnnotationProperty ;
-    rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
+prov:wasGeneratedBy
+    a owl:ObjectProperty ;
+    rdfs:domain :Entity ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-    rdfs:subPropertyOf rdfs:seeAlso .
+    rdfs:label "wasGeneratedBy" ;
+    rdfs:range prov:Activity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    owl:propertyChainAxiom (prov:qualifiedGeneration
+        prov:activity
+    ) ;
+    prov:category "starting-point" ;
+    prov:component "entities-activities" ;
+    prov:inverse "generated" ;
+    prov:qualifiedForm prov:Generation, prov:qualifiedGeneration .
 
-prov:n
-    a owl:AnnotationProperty ;
-    rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
+prov:wasAssociatedWith
+    a owl:ObjectProperty ;
+    rdfs:comment "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en ;
+    rdfs:domain prov:Activity ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-    rdfs:subPropertyOf rdfs:seeAlso .
+    rdfs:label "wasAssociatedWith" ;
+    rdfs:range prov:Agent ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    owl:propertyChainAxiom (prov:qualifiedAssociation
+        prov:agent
+    ) ;
+    prov:category "starting-point" ;
+    prov:component "agents-responsibility" ;
+    prov:inverse "wasAssociateFor" ;
+    prov:qualifiedForm prov:Association, prov:qualifiedAssociation .
+
+prov:wasAttributedTo
+    a owl:ObjectProperty ;
+    rdfs:comment "Attribution is the ascribing of an entity to an agent."@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "wasAttributedTo" ;
+    rdfs:range prov:Agent ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    owl:propertyChainAxiom (prov:qualifiedAttribution
+        prov:agent
+    ) ;
+    prov:category "starting-point" ;
+    prov:component "agents-responsibility" ;
+    prov:definition "Attribution is the ascribing of an entity to an agent."@en ;
+    prov:inverse "contributed" ;
+    prov:qualifiedForm prov:Attribution, prov:qualifiedAttribution .
+
+prov:wasDerivedFrom
+    a owl:ObjectProperty ;
+    rdfs:comment "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."@en ;
+    rdfs:domain :Entity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "wasDerivedFrom" ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    owl:propertyChainAxiom (prov:qualifiedDerivation
+        prov:entity
+    ) ;
+    prov:category "starting-point" ;
+    prov:component "derivations" ;
+    prov:definition "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
+    prov:inverse "hadDerivation" ;
+    prov:qualifiedForm prov:Derivation, prov:qualifiedDerivation .
+
 
 
 ### Classes
