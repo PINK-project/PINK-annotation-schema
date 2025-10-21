@@ -216,10 +216,12 @@ Participation is not under direct parthood since a process is not strictly relat
     dcterms:description "The relation between an entity E that proper overlaps an agent A, where E causes A."@en .
 
 
-
 ### Equivalent relations
-:hasInput owl:EquivalentTo :used ;
-    skos:prefLabel "hasInput"@en .
+:hasInput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    owl:equivalentProperty :used ;
+    skos:prefLabel "hasInput"@en ;
+    dcterms:description "The relation between an activity A that proper overlaps an entity E, where the non-overlapping part of E causes A."@en ;
+    vann:usageNote "Relates an activity to its input."@en .
 
 
 ### Inverse parthood relations
@@ -246,6 +248,7 @@ Participation is not under direct parthood since a process is not strictly relat
     rdfs:comment "The computation process through overlaps the software, meaning that the software exists both before and after the computation."@en ;
     rdfs:domain :Computation ;
     rdfs:range :Software .
+
 
 ### Causal relations
 :causedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
@@ -277,6 +280,13 @@ Participation is not under direct parthood since a process is not strictly relat
     rdfs:domain prov:Entity ;
     rdfs:range prov:Entity .
 
+
+### Other relations
+:hasProperty rdf:type owl:ObjectProperty ;
+    skos:prefLabel "hasProperty"@en ;
+    dcterms:description "A semiotic relation that connects a semiotic object to a property in a declaration process."@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:range :Property .
 
 
 #################################################################
@@ -362,6 +372,11 @@ Participation is not under direct parthood since a process is not strictly relat
     dcterms:description "Encoded data made of more than one datum."@en ;
     vann:usageNote "A collection of (more than one) datum, published or curated by a single agent, and available for access or download in one or more representations."@en .
 
+
+### Include standard concepts into the PINK taxonomy
+### Question: should we duplicate these classes instead?
+foaf:Document rdfs:subClassOf :Data .
+prov:Agent rdfs:subClassOf :Role .
 
 
 #################################################################

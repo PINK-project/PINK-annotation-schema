@@ -124,8 +124,8 @@ Such semantically enhanced subclass relations of corresponding [PROV-O] and [Dub
 
 ### Other relations
 The PINK Annotation Schema includes currently one relation that is neither a parthood nor a causal relation.
-This is the `:hasProperty` relation that connects an entity to one of its properties (via a ([semiotic]) process involving an interpreter that assigns the property).
-The most important feature of the `:hasProperty` relation is that adhere to the scientific view that a property is not an intrinsic quality of an entity, but something that is measured or determined by an interpreter.
+This is the `:hasProperty` relation that connects an entity to one of its properties (via a [semiotic] process involving an interpreter that assigns the property).
+The most important feature of `:hasProperty` is that it adhere to the scientific view that a property is not an intrinsic quality of an entity, but something that is measured or determined by an interpreter.
 
 For example, to determine the toxicity of a chemical substance you have to measure (or calculate or estimate) it. And the result depends on how it is measured.
 
@@ -153,7 +153,7 @@ The figure below shows a few inverse parthood relations that must be introduced 
 
 ![Inverse parthood relations](docs/figs/inverse-parthood-relations.png)
 
-Below the new inverse relations, the corresponding non-inverse relations are shown in red.
+Below the new inverse relations, the corresponding above-defined relations are shown in red.
 
 > [!NOTE]
 > The new `:isOvercrossedBy` relation is disjoint with `:hasPart`.
