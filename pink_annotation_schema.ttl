@@ -115,22 +115,20 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 
 ###  https://w3id.org/pink#conformance
-:conformance rdf:type owl:AnnotationProperty ;
-             rdfs:range [ rdf:type owl:Class ;
-                          owl:oneOf ( ddoc:mandatory
-                                      ddoc:optional
-                                      ddoc:recommended
-                                    )
-                        ] ;
-             dcterms:description "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema"@en ;
-             vann:usageNote "It MUST take one of the values 'mandatory', 'recommended' or 'optional'."@en ;
-             rdfs:isDefinedBy <https://w3id.org/pink> ;
-             skos:prefLabel "conformance" .
+:conformance rdf:type owl:ObjectProperty ;
+    rdfs:range ddoc:ConformanceLevel ;
+    dcterms:description "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema"@en ;
+    vann:usageNote "It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended' or 'ddoc:optional'."@en ;
+    rdfs:isDefinedBy <https://w3id.org/pink> ;
+    skos:prefLabel "conformance" .
+
 
 
 #################################################################
 #    Object properties
 #################################################################
+
+### SSbD relations
 
 # TODO: Add rdfs:subPropertyOf
 :ssbdCategory rdf:type owl:ObjectProperty ;
@@ -138,6 +136,38 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "ssbdCategory"@en ;
     dcterms:description "XXX"@en ;
     vann:usageNote "One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`"@en .
+
+:ssbdSubCategory rdf:type owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    skos:prefLabel "ssbdSubCategory"@en ;
+    dcterms:description "XXX"@en .
+
+
+### Other PINK-specific relations
+:method a owl:ObjectProperty ;
+    rdfs:domain :Dataset ;
+    rdfs:range :Method ;
+    skos:prefLabel "method"@en ;
+    dcterms:description "Relates a dataset to the method that it was created with." .
+
+:model a owl:ObjectProperty ;
+    rdfs:domain :Method ;
+    rdfs:range :Model ;
+    skos:prefLabel "model"@en ;
+    dcterms:description "Relates a method to a model." .
+
+:documentation a owl:ObjectProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:range foaf:Document ;
+    skos:prefLabel "documentation"@en ;
+    dcterms:description "A page or document documenting this resource." .
+
+:hasAPI a owl:DatatypeProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:range xsd:boolean ;
+    skos:prefLabel "hasAPI"@en ;
+    dcterms:description "Whether the method has an API." .
+
 
 ### Parthood relations
 :overlaps rdf:type owl:ObjectProperty, owl:SymmetricProperty, owl:ReflexiveProperty ;
@@ -293,10 +323,22 @@ Participation is not under direct parthood since a process is not strictly relat
 #    Classes
 #################################################################
 
+### SSbD
 :SsbdCategory rdf:type owl:Class ;
     skos:prefLabel "SsbdCategory"@en ;
     dcterms:description "XXX"@en .
 
+:Method rdf:type owl:Class ;
+    rdfs:subClassOf prov:Activity ;
+    skos:prefLabel "Method"@en ;
+    dcterms:description "An activity subclass that is the superclass of PINK methods."@en .
+
+:Model rdf:type owl:Class ;
+    rdfs:subClassOf prov:Entity ;  # ??
+    skos:prefLabel "Model"@en ;
+    dcterms:description "xxx."@en .
+
+### General classes
 :Role rdf:type owl:Class ;
     skos:prefLabel "Role"@en ;
     dcterms:description "The class of all individuals that are defined through a parthood relation to an entity."@en ;
