@@ -12,7 +12,7 @@ PINK Classes
 | pink:Measurement     | An observation that results in a quantitative comparison of a 'property' of an 'object' with a standard reference based on a well defined mesurement procedure. | |
 | pink:Computation     | A procedure that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language). | |
 | pink:Material        | The class of individuals standing for an amount of matter (ordinary, anti or hybrid) substance (or mixture of substances) in different states of matter or phases. | |
-| pink:Property        | A coventional semiotic sigh that stands for an physical interaction with an object using an atomic symbol. | A property is atomic in the sense that is aimed to deliver one and one only aspect of the object. |
+| pink:Property        | A coventional semiotic sign that stands for a physical interaction with an object using an ´atomic symbol´. | A property is ´atomic´ in the sense that it is aimed to describe one and one only aspect of the object. |
 | pink:Data            | Contrast from variation of properties that is encoded by an agent and that can be decoded by another agent according to a specific rule. | |
 | pink:Object          | The class of all individuals who's temporal parts are of the same type as the whole. | |
 | dcat:Dataset         | A collection of data, published or curated by a single agent, and available for access or download in one or more representations. | A collection of (more than one) datum, published or curated by a single agent, and available for access or download in one or more representations. |
