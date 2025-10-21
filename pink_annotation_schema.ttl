@@ -303,7 +303,7 @@ prov:wasAttributedTo a owl:IrreflexiveProperty ;
     rdfs:subClassOf :Data ;
     skos:prefLabel "Datum"@en ;
     dcterms:description "A self-consistent encoded data entity."@en ;
-    vann:usageNote "Datum are the building blocks of datasets."@en .
+    vann:usageNote "Datum is the building block of datasets."@en .
 
 :Software rdf:type owl:Class ;
     rdfs:subClassOf :Data ;
