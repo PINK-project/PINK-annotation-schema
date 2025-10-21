@@ -84,6 +84,7 @@ The figure below shows an example of a simple provenance graph, that combines th
 
 ![Provenance](docs/figs/provenance.png)
 
+
 Concepts belonging to the PINK namespace in the figure above have been written in cursive.
 
 Given the network of `:used` and `:wasInformedBy` relations, it is possible to infer `:wasInformedBy` and `:wasDerivedFrom` relations.
@@ -108,15 +109,27 @@ These categorisations incorporate parthood and causal relations from [Dublin Cor
 
 ![Parthood relations](docs/figs/parthood-relations.png)
 
-> [!NOTE]
-> Parthood relation chracteristics are explained in the [Protégé documentation](https://protegeproject.github.io/protege/views/object-property-characteristics/).
->
-> Antisymmetric is a weaker form of asymmetric: if `x -> y`, then `y -> x` if and only if `x = y`.
-> This is not the case for asymmetric relations, since they exclude the equality `x = y`.
+For improved semantic expressiveness and to support logical validation, the PINK Annotation Schema adds characteristics to the standard [PROV-O] object properties.
+According to the [rules](#extra-pink-annotations-of-externally-defined-terms) defined above, the characteristics is added to PINK-specific subproperties of the [PROV-O] object properties.
+Such semantically enhanced subclass relations of corresponding [PROV-O] and [Dublin Core] relations are written in *cursive* in the figure above.
 
+> [!TIP]
+> Object property chracteristics is explained in the [Protégé documentation](https://protegeproject.github.io/protege/views/object-property-characteristics/).
+>
+> Antisymmetric (not included in OWL) is a weaker form of asymmetric: if `x -> y`, then `y -> x` if and only if `x = y`.
+> This is not the case for asymmetric relations, since they exclude the equality `x = y`.
 
 ![Causal relations](docs/figs/causal-relations.png)
 
+
+### Other relations
+The PINK Annotation Schema includes currently one relation that is neither a parthood nor a causal relation.
+This is the `:hasProperty` relation that connects an entity to one of its properties (via a ([semiotic]) process involving an interpreter that assigns the property).
+The most important feature of the `:hasProperty` relation is that adhere to the scientific view that a property is not an intrinsic quality of an entity, but something that is measured or determined by an interpreter.
+
+For example, to determine the toxicity of a chemical substance you have to measure (or calculate or estimate) it. And the result depends on how it is measured.
+
+![Other relations](docs/figs/other-relations.png)
 
 
 ## General description of activities
@@ -134,8 +147,16 @@ This is done by documenting the computation at the class level (TBox-level) usin
 
 where `app` is the prefix of the application ontology defining the computation, its input/output and software.
 
+For this, we have introduced three new relations: `:hasInput`, `hasOutput` and `hasSoftware`.
+These relations are closely connected to the parthood relations shown above, where `:hasInput` is equivalent to `:used` and where `:hasOutput` and `:hasSoftware` are subclasses of the inverse of `overcrosses`.
+The figure below shows a few inverse parthood relations that must be introduced in order to connect the previously defined parthood relations to `:hasOutput` and `:hasSoftware`.
+
+![Inverse parthood relations](docs/figs/inverse-parthood-relations.png)
+
+Below the new inverse relations, the corresponding non-inverse relations are shown in red.
+
 > [!NOTE]
-> The `pink:hasSoftware` property is a subproperty of the inverse of `pink:participatesTo`.
+> The new `:isOvercrossedBy` relation is disjoint with `:hasPart`.
 
 PINK provides tooling (based on [Tripper]) to help providing class-level documentation.
 This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf`.
@@ -149,6 +170,7 @@ For example, the above declaration of a computation could provided as follows:
 
 
 [PINK classes]: ./docs/classes.md
+[semiotic]: https://plato.stanford.edu/entries/peirce-semiotics/
 [DCAT-AP 3.0.1]: https://semiceu.github.io/DCAT-AP/releases/3.0.1/
 [DCAT]: https://www.w3.org/TR/vocab-dcat-3/
 [FOAF]: http://xmlns.com/foaf/spec/

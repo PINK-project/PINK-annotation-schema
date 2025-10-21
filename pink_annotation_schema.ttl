@@ -226,6 +226,7 @@ Participation is not under direct parthood since a process is not strictly relat
 :isOvercrossedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
     rdfs:subPropertyOf :overlaps ;
     skos:prefLabel "isOvercrossedBy"@en ;
+    owl:propertyDisjointWith :hasPart ;
     owl:inverseOf :overcrosses .
 
 :isParticipatedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
