@@ -152,6 +152,105 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "participatesTo"@en ;
     dcterms:description "The relation between an object O that through overlaps a process P."@en .
 
+:hasParticipant rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf dcterms:hasPart ;
+    skos:prefLabel "hasParticipant"@en ;
+    dcterms:description "The relation between a process and an object participating to it, i.e. that is relevant to the process itself."@en ;
+    vann:usageNote """Participation is a parthood relation: you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process.
+
+Participation is not under direct parthood since a process is not strictly related to reductionism, but it's a way to categorise temporal regions by the interpreters."""@en .
+
+:hasDatum rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf dcterms:hasPart ;
+    skos:prefLabel "hasDatum"@en ;
+    dcterms:description "Relates a dataset to one of its datum."@en .
+
+:hasSpatialPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf dcterms:hasPart, :overcrosses ;
+    skos:prefLabel "hasSpatialPart"@en ;
+    dcterms:description "A proper part of a whole, whose parts always cover the full temporal extension of the whole within a spatial interval."@en ;
+    rdfs:comment "The part is connected with the rest item or members with hasContact relations only (no hasNext)."@en .
+
+:hasTemporalPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf dcterms:hasPart, :overcrosses ;
+    skos:prefLabel "hasTemporalPart"@en ;
+    dcterms:description "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval." ;
+    rdfs:comment "A temporal part of an item cannot both cause and be caused by any other proper part of the item."@en .
+
+:hasJunctionPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf dcterms:hasPart, :overcrosses ;
+    skos:prefLabel "hasJunctionPart"@en ;
+    skos:altLabel "hasSpatioTemporalPart"@en ;
+    dcterms:description "The part is connected with the rest item or members with both hasNext (or its inverse) and hasContact relations."@en .
+
+# Inverse parthood relations
+:isOvercrossedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
+    rdfs:subPropertyOf :overlaps ;
+    skos:prefLabel "isOvercrossedBy"@en ;
+    owl:inverseOf :overcrosses .
+
+:isParticipatedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :isOvercrossedBy ;
+    skos:prefLabel "isParticipatedBy"@en ;
+    owl:inverseOf :participatesTo .
+
+:hasSoftware rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :isParticipatedBy ;
+    skos:prefLabel "hasSoftware"@en ;
+    dcterms:description "The relation between a computation process and a software participant."@en ;
+    rdfs:comment "The computation process through overlaps the software, meaning that the software exists both before and after the computation."@en ;
+    rdfs:domain :Computation ;
+    rdfs:range :Software .
+
+# Causal relations
+:causedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
+    skos:prefLabel "causedBy"@en ;
+    dcterms:description "A relation between an entity that causally affects the subject."@en ;
+    skos:example "John yesterday is the cause of John today, is an example of temporal-like causality. The desk supporting my laptop is a space-like causality."@en .
+
+:isAfter rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :causedBy ;
+    skos:prefLabel "isAfter"@en ;
+    dcterms:description "A one-directional relation between an entity that affects the subject."@en .
+
+:processedFrom rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :isAfter ;
+    skos:prefLabel "processedFrom"@en ;
+    dcterms:description "Indirect relation that relates the output of an activity to its input."@en .
+
+:wasInformedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :isAfter, prov:wasInformedBy ;
+    skos:prefLabel "wasInformedBy"@en ;
+    dcterms:description "A one-directional relation between an activity that affects the subject activity."@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:range prov:Activity .
+
+:wasDerivedFrom rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :processedFrom, prov:wasDerivedFrom ;
+    skos:prefLabel "wasDerivedFrom"@en ;
+    dcterms:description "Indirect relation that relates the output entity of an activity to its input entity."@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Entity .
+
+
+
+
+
+
+
+
+# Update reused properties
+dcterms:hasPart a owl:ReflexiveProperty, owl:TransitiveProperty ;
+    rdfs:subPropertyOf :overlaps .
+prov:used a owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :overcrosses .
+prov:wasGeneratedBy a owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :overcrosses .
+prov:wasAssociatedWith a owl:IrreflexiveProperty ;
+    rdfs:subPropertyOf :overcrosses .
+prov:wasAttributedTo a owl:IrreflexiveProperty ;
+    rdfs:subPropertyOf :overcrosses .
+
 
 
 #################################################################
