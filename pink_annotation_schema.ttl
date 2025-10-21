@@ -154,8 +154,14 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "participatesTo"@en ;
     dcterms:description "The relation between an object O that through overlaps a process P."@en .
 
+
+:hasPart rdf:type owl:ObjectProperty, owl:ReflexiveProperty, owl:TransitiveProperty ;
+    rdfs:subPropertyOf dcterms:hasPart, :overlaps ;
+    skos:prefLabel "hasPart"@en ;
+    dcterms:description "The primitive relation that express the concept of an entity being part of another one."@en .
+
 :hasParticipant rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf dcterms:hasPart ;
+    rdfs:subPropertyOf :hasPart ;
     skos:prefLabel "hasParticipant"@en ;
     dcterms:description "The relation between a process and an object participating to it, i.e. that is relevant to the process itself."@en ;
     vann:usageNote """Participation is a parthood relation: you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process.
@@ -163,27 +169,58 @@ foaf:logo rdf:type owl:AnnotationProperty .
 Participation is not under direct parthood since a process is not strictly related to reductionism, but it's a way to categorise temporal regions by the interpreters."""@en .
 
 :hasDatum rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf dcterms:hasPart ;
+    rdfs:subPropertyOf :hasPart ;
     skos:prefLabel "hasDatum"@en ;
     dcterms:description "Relates a dataset to one of its datum."@en .
 
 :hasSpatialPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf dcterms:hasPart, :overcrosses ;
+    rdfs:subPropertyOf :hasPart, :overcrosses ;
     skos:prefLabel "hasSpatialPart"@en ;
     dcterms:description "A proper part of a whole, whose parts always cover the full temporal extension of the whole within a spatial interval."@en ;
     rdfs:comment "The part is connected with the rest item or members with hasContact relations only (no hasNext)."@en .
 
 :hasTemporalPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf dcterms:hasPart, :overcrosses ;
+    rdfs:subPropertyOf :hasPart, :overcrosses ;
     skos:prefLabel "hasTemporalPart"@en ;
     dcterms:description "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval." ;
     rdfs:comment "A temporal part of an item cannot both cause and be caused by any other proper part of the item."@en .
 
 :hasJunctionPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf dcterms:hasPart, :overcrosses ;
+    rdfs:subPropertyOf :hasPart, :overcrosses ;
     skos:prefLabel "hasJunctionPart"@en ;
     skos:altLabel "hasSpatioTemporalPart"@en ;
     dcterms:description "The part is connected with the rest item or members with both hasNext (or its inverse) and hasContact relations."@en .
+
+:used rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf prov:used, :overcrosses ;
+    skos:prefLabel "used"@en ;
+    dcterms:description "The relation between an activity A that proper overlaps an entity E, where the non-overlapping part of E causes A."@en .
+
+:wasGeneratedFrom rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf prov:wasGeneratedFrom, :overcrosses ;
+    skos:prefLabel "wasGeneratedFrom"@en ;
+    dcterms:description "The relation between an activity A that proper overlaps an entity E, where the non-overlapping part of A causes E."@en .
+
+:wasAssociatedWith rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf prov:wasAssociatedWith, :overcrosses ;
+    skos:prefLabel "wasAssociatedWith"@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:range prov:Agent ;
+    dcterms:description "The relation between an activity A that proper overlaps an agent B, where A causes B."@en .
+
+:wasAttributedTo rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf prov:wasAttributedTo, :overcrosses ;
+    skos:prefLabel "wasAttributedTo"@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Agent ;
+    dcterms:description "The relation between an entity E that proper overlaps an agent A, where E causes A."@en .
+
+
+
+### Equivalent relations
+:hasInput owl:EquivalentTo :used ;
+    skos:prefLabel "hasInput"@en .
+
 
 ### Inverse parthood relations
 :isOvercrossedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
@@ -195,6 +232,11 @@ Participation is not under direct parthood since a process is not strictly relat
     rdfs:subPropertyOf :isOvercrossedBy ;
     skos:prefLabel "isParticipatedBy"@en ;
     owl:inverseOf :participatesTo .
+
+:hasOutput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :isOvercrossedBy ;
+    skos:prefLabel "hasOutput"@en ;
+    owl:inverseOf :wasGeneratedBy .
 
 :hasSoftware rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :isParticipatedBy ;
@@ -233,20 +275,6 @@ Participation is not under direct parthood since a process is not strictly relat
     dcterms:description "Indirect relation that relates the output entity of an activity to its input entity."@en ;
     rdfs:domain prov:Entity ;
     rdfs:range prov:Entity .
-
-
-
-### Update reused properties
-dcterms:hasPart a owl:ReflexiveProperty, owl:TransitiveProperty ;
-    rdfs:subPropertyOf :overlaps .
-prov:used a owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :overcrosses .
-prov:wasGeneratedBy a owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :overcrosses .
-prov:wasAssociatedWith a owl:IrreflexiveProperty ;
-    rdfs:subPropertyOf :overcrosses .
-prov:wasAttributedTo a owl:IrreflexiveProperty ;
-    rdfs:subPropertyOf :overcrosses .
 
 
 
@@ -323,14 +351,15 @@ prov:wasAttributedTo a owl:IrreflexiveProperty ;
     dcterms:description "An object which is a spatial part of a process."@en ;
     vann:usageNote "Example: A student during an examination. The student exists both before and after the examination."@en .
 
-
-
-### Update reused classes
-dcat:Dataset rdfs:subClassOf [
-    rdf:type owl:Restriction ;
-    owl:onProperty dcterms:hasPart ;
-    owl:someValuesFrom :Datum
-] .
+:Dataset rdf:type owl:Class ;
+    rdfs:subClassOf dcat:Dataset, :Data, [
+        rdf:type owl:Restriction ;
+        owl:onProperty :hasPart ;
+        owl:someValuesFrom :Datum
+    ] ;
+    skos:prefLabel "Dataset"@en ;
+    dcterms:description "Encoded data made of more than one datum."@en ;
+    vann:usageNote "A collection of (more than one) datum, published or curated by a single agent, and available for access or download in one or more representations."@en .
 
 
 
@@ -381,13 +410,13 @@ ddoc:recommended rdf:type owl:NamedIndividual ;
 [ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> prov:wasGeneratedBy ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :wasGeneratedBy ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> prov:used ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :used ;
                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                                 ] ;
@@ -407,13 +436,13 @@ ddoc:recommended rdf:type owl:NamedIndividual ;
 [ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> prov:wasGeneratedBy ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :wasGeneratedBy ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> prov:used ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :used ;
                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                                 ] ;
@@ -433,13 +462,13 @@ ddoc:recommended rdf:type owl:NamedIndividual ;
 [ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> prov:used ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :used ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> prov:wasGeneratedBy ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :wasGeneratedBy ;
                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                                 ] ;

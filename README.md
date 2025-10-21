@@ -87,7 +87,7 @@ The figure below shows an example of a simple provenance graph, that combines th
 Concepts belonging to the PINK namespace in the figure above have been written in cursive.
 
 Given the network of `prov:used` and `prov:wasInformedBy` relations, it is possible to infer `prov:wasInformedBy` and `prov:wasDerivedFrom` relations.
-Programmatically this can be done with a reasoner (based on [SWRL] rules).
+This is done by the reasoner (using [SWRL] rules).
 
 
 
