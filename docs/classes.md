@@ -1,5 +1,5 @@
-PINK Classes
-============
+PINK Classes defined in the PINK Annotation Schema
+==================================================
 
 
 | IRI                  | Definition                                                                       | PINK usage note                                                                                           |
