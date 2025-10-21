@@ -6,6 +6,7 @@
 @prefix bibo: <http://purl.org/ontology/bibo/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
@@ -15,34 +16,35 @@
 
 @base <https://w3id.org/pink#> .
 
-<https://w3id.org/pink> rdf:type owl:Ontology ;
-                         owl:versionIRI <https://w3id.org/pink/0.0.1> ;
-                         owl:imports <https://w3id.org/pink/0.0.1/contributors> ,
-                                     <https://w3id.org/pink/0.0.1/reused-terms> ;
-                         dcatap:status "Under Development" ;
-                         dcterms:abstract "The PINK Annotation Schema provides the semantic basis for SSbD."@en ;
-                         dcterms:bibliographicCitation "xxx" ;
-                         dcterms:contributor :IseultLynch ;
-                         dcterms:created "2025-09-08" ;
-                         dcterms:creator :FrancescaBleken ,
-                                         :JesperFriis ,
-                                         :JohDokler ,
-                                         :ThomasExner ;
-                         dcterms:hasFormat <https://www.w3.org/TR/turtle/> ;
-                         dcterms:issued "xxxx-xx-xx" ;
-                         dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-                         dcterms:modified "xxxx-xx-xx" ;
-                         dcterms:publisher <https://pink-project.eu/> ;
-                         dcterms:source "Relevant PINK deliverable" ;
-                         dcterms:title "PINK Annotation Schema"@en ;
-                         bibo:doi "tbd" ;
-                         vann:preferredNamespacePrefix "pink" ;
-                         vann:preferredNamespaceUri "https://w3id.org/pink" ;
-                         rdfs:comment "This expands on the annotation schema provided by tripper, which again expands on the DCAT-AP."@en ;
-                         owl:priorVersion "0.0.0" ;
-                         owl:versionInfo "0.0.1" ;
-                         foaf:homepage <https://github.com/PINK-project/PINK-annotation-schema> ;
-                         foaf:logo <https://tess.elixir-europe.org/system/content_providers/images/000/000/777/original/pink-logo-orange-colorB-500.png> .
+<https://w3id.org/pink>
+    rdf:type owl:Ontology ;
+    owl:versionIRI <https://w3id.org/pink/0.0.1> ;
+    owl:imports <https://w3id.org/pink/0.0.1/contributors> ,
+                <https://w3id.org/pink/0.0.1/reused-terms> ;
+    dcatap:status "Under Development" ;
+    dcterms:abstract "The PINK Annotation Schema provides the semantic basis for SSbD."@en ;
+    dcterms:bibliographicCitation "xxx" ;
+    dcterms:contributor :IseultLynch ;
+    dcterms:created "2025-09-08" ;
+    dcterms:creator :FrancescaBleken ,
+                    :JesperFriis ,
+                    :JohDokler ,
+                    :ThomasExner ;
+    dcterms:hasFormat <https://www.w3.org/TR/turtle/> ;
+    dcterms:issued "xxxx-xx-xx" ;
+    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
+    dcterms:modified "xxxx-xx-xx" ;
+    dcterms:publisher <https://pink-project.eu/> ;
+    dcterms:source "Relevant PINK deliverable" ;
+    dcterms:title "PINK Annotation Schema"@en ;
+    bibo:doi "tbd" ;
+    vann:preferredNamespacePrefix "pink" ;
+    vann:preferredNamespaceUri "https://w3id.org/pink" ;
+    rdfs:comment "This expands on the annotation schema provided by tripper, which again expands on the DCAT-AP."@en ;
+    owl:priorVersion "0.0.0" ;
+    owl:versionInfo "0.0.1" ;
+    foaf:homepage <https://github.com/PINK-project/PINK-annotation-schema> ;
+    foaf:logo <https://tess.elixir-europe.org/system/content_providers/images/000/000/777/original/pink-logo-orange-colorB-500.png> .
 
 #################################################################
 #    Annotation properties
@@ -130,14 +132,14 @@ foaf:logo rdf:type owl:AnnotationProperty .
 #    Object properties
 #################################################################
 
-# Add rdfs:subPropertyOf
+# TODO: Add rdfs:subPropertyOf
 :ssbdCategory rdf:type owl:ObjectProperty ;
     rdfs:range :SsbdCategory ;
     skos:prefLabel "ssbdCategory"@en ;
     dcterms:description "XXX"@en ;
     vann:usageNote "One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`"@en .
 
-# Parthood relations
+### Parthood relations
 :overlaps rdf:type owl:ObjectProperty, owl:SymmetricProperty, owl:ReflexiveProperty ;
     skos:prefLabel "overlaps"@en ;
     dcterms:description "The relation between two individuals representing entities that share at least one of their parts."@en .
@@ -183,7 +185,7 @@ Participation is not under direct parthood since a process is not strictly relat
     skos:altLabel "hasSpatioTemporalPart"@en ;
     dcterms:description "The part is connected with the rest item or members with both hasNext (or its inverse) and hasContact relations."@en .
 
-# Inverse parthood relations
+### Inverse parthood relations
 :isOvercrossedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
     rdfs:subPropertyOf :overlaps ;
     skos:prefLabel "isOvercrossedBy"@en ;
@@ -202,7 +204,7 @@ Participation is not under direct parthood since a process is not strictly relat
     rdfs:domain :Computation ;
     rdfs:range :Software .
 
-# Causal relations
+### Causal relations
 :causedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
     skos:prefLabel "causedBy"@en ;
     dcterms:description "A relation between an entity that causally affects the subject."@en ;
@@ -234,12 +236,7 @@ Participation is not under direct parthood since a process is not strictly relat
 
 
 
-
-
-
-
-
-# Update reused properties
+### Update reused properties
 dcterms:hasPart a owl:ReflexiveProperty, owl:TransitiveProperty ;
     rdfs:subPropertyOf :overlaps .
 prov:used a owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -326,6 +323,14 @@ prov:wasAttributedTo a owl:IrreflexiveProperty ;
     dcterms:description "An object which is a spatial part of a process."@en ;
     vann:usageNote "Example: A student during an examination. The student exists both before and after the examination."@en .
 
+
+
+### Update reused classes
+dcat:Dataset rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty dcterms:hasPart ;
+    owl:someValuesFrom :Datum
+] .
 
 
 
