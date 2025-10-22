@@ -152,7 +152,7 @@ For this, we have introduced three new relations: `:hasInput`, `hasOutput` and `
 These relations are closely connected to the parthood relations shown above, where `:hasInput` is equivalent to `:used` and where `:hasOutput` and `:hasSoftware` are subclasses of the inverse of `overcrosses`.
 The figure below shows a few inverse parthood relations that must be introduced in order to connect the previously defined parthood relations to `:hasOutput` and `:hasSoftware`.
 
-![Parthood relations for methods](docs/figs/parthood-relations-methods.png)
+![Parthood relations for methods](docs/figs/parthood-relations-method.png)
 
 Below the new inverse relations, the corresponding above-defined relations are shown in red.
 
