@@ -122,18 +122,19 @@ Such semantically enhanced subclass relations of corresponding [PROV-O] and [Dub
 ![Causal relations](docs/figs/causal-relations.png)
 
 
-### Other relations
+### Property relations
 The PINK Annotation Schema includes currently one relation that is neither a parthood nor a causal relation.
-This is the `:hasProperty` relation that connects an entity to one of its properties (via a [semiotic] process involving an interpreter that assigns the property).
+This is the `:hasProperty` relation that connects an entity or activity to one of its properties (via a [semiotic] process involving an interpreter that assigns the property).
 The most important feature of `:hasProperty` is that it adhere to the scientific view that a property is not an intrinsic quality of an entity, but something that is measured or determined by an interpreter.
 
 For example, to determine the toxicity of a chemical substance you have to measure (or calculate or estimate) it. And the result depends on how it is measured.
 
-![Other relations](docs/figs/other-relations.png)
+![Other relations](docs/figs/property-relations.png)
 
 
-## General description of activities
-Provenance is about what has happened. [PROV-O] is intended to provenance information.
+
+## General description of methods
+Provenance is about what has happened. [PROV-O] is intended to describe provenance information.
 In PINK we also want to describe what can happen.
 
 For instance, we want to express what kind of input and output a given type of computation takes and what software that is executed to run the computation.
@@ -151,12 +152,9 @@ For this, we have introduced three new relations: `:hasInput`, `hasOutput` and `
 These relations are closely connected to the parthood relations shown above, where `:hasInput` is equivalent to `:used` and where `:hasOutput` and `:hasSoftware` are subclasses of the inverse of `overcrosses`.
 The figure below shows a few inverse parthood relations that must be introduced in order to connect the previously defined parthood relations to `:hasOutput` and `:hasSoftware`.
 
-![Inverse parthood relations](docs/figs/inverse-parthood-relations.png)
+![Parthood relations for methods](docs/figs/parthood-relations-methods.png)
 
 Below the new inverse relations, the corresponding above-defined relations are shown in red.
-
-> [!NOTE]
-> The new `:isOvercrossedBy` relation is disjoint with `:hasPart`.
 
 PINK provides tooling (based on [Tripper]) to help providing class-level documentation.
 This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf`.
