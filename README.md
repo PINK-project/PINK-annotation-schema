@@ -19,14 +19,18 @@ It is constructed to be easily aligned with [EMMO].
 
 
 ## Extra PINK annotations of externally defined terms
-The PINK Annotation Schema never changes the semantics of existing terms defined externally (e.g. by W3C or DCAT-AP). 
+The PINK Annotation Schema never changes the semantics of existing terms defined externally (e.g. by W3C or DCAT-AP).
 However, the PINK Annotation Schema can:
 - Make the documentation of externally defined terms explicit in the Knowledge Base (KB) without importing the whole vocabularies.
 - Add PINK-specific usage notes (using `pink:usageNote`, not `vann:usageNote`).
-- Add a `pink:conformance` relation that specifies whether the relation is "mandatory", "recommended" or "optional" in PINK.
-  PINK will never change the conformance described in the DCAT-AP documentation to something weaker. 
+- Add a `ddoc:conformance` relation that specifies whether the relation is "mandatory", "recommended" or "optional" in PINK.
+  PINK will never change the conformance described in the DCAT-AP documentation to something weaker.
 
-The basic rule for such additions is that they can live hand-in-hand with similar annotations by other projects without creating confusion or inconsistencies. 
+The basic rule for such additions is that they can live hand-in-hand with similar annotations by other projects without creating confusion or inconsistencies.
+
+For any other additional specifications of an existing term, a PINK-specific subclass or subproperty will be created.
+Such subclasses/subproperties will normally keep the W3C name, but with the `pink` namespace (or the `ddoc` namespace if the concept is specific for the tripper data documentation).
+
 
 
 ## Taxonomy
@@ -54,13 +58,7 @@ At the top-level, the PINK Annotation Schema has four root concepts:
   The [FOAF] specification of a *agent* is very loose.
   The subclass `prov:Agent` provides further context, by saying that a `prov:agent` bears some form of responsibility for an activity, the existence of an entity or the activity of another agent.
 
-See the PINK Annotation Schema itself, for a description of all the other concepts.
-
-> [!NOTE]
-> Should we make `foaf:Agent` and `:Role` subclasses of `prov:Entity`?
->
-> Logically it make sense and will simplify the taxonomy, making it more aligned with top-level ontologies like DOLCE and BFO and not break alignment with EMMO.
-> However, it implies that `prov:Agent` is a `prov:Entity`, which is no contradiction, but is a statement that is not expressed in [PROV-O].
+See the [PINK classes] table and the PINK Annotation Schema itself, for a description of all the other concepts.
 
 
 ## Provenance
@@ -86,9 +84,11 @@ The figure below shows an example of a simple provenance graph, that combines th
 
 ![Provenance](docs/figs/provenance.png)
 
-Given the network of `prov:used` and `prov:wasInformedBy` relations, it is possible to
-infer `prov:wasInformedBy` and `prov:wasDerivedFrom` relations.
-Programmatically this can be done with a reasoner (based on [SWRL] rules).
+
+Concepts belonging to the PINK namespace in the figure above have been written in cursive.
+
+Given the network of `:used` and `:wasInformedBy` relations, it is possible to infer `:wasInformedBy` and `:wasDerivedFrom` relations.
+This is done by the reasoner (using [SWRL] rules that are added in the pink_annotation_schema.ttl).
 
 
 
@@ -109,15 +109,27 @@ These categorisations incorporate parthood and causal relations from [Dublin Cor
 
 ![Parthood relations](docs/figs/parthood-relations.png)
 
-> [!NOTE]
-> Parthood relation chracteristics are explained in the [Protégé documentation](https://protegeproject.github.io/protege/views/object-property-characteristics/).
->
-> Antisymmetric is a weaker form of asymmetric: if `x -> y`, then `y -> x` if and only if `x = y`.
-> This is not the case for asymmetric relations, since they exclude the equality `x = y`.
+For improved semantic expressiveness and to support logical validation, the PINK Annotation Schema adds characteristics to the standard [PROV-O] object properties.
+According to the [rules](#extra-pink-annotations-of-externally-defined-terms) defined above, the characteristics is added to PINK-specific subproperties of the [PROV-O] object properties.
+Such semantically enhanced subclass relations of corresponding [PROV-O] and [Dublin Core] relations are written in *cursive* in the figure above.
 
+> [!TIP]
+> Object property chracteristics is explained in the [Protégé documentation](https://protegeproject.github.io/protege/views/object-property-characteristics/).
+>
+> Antisymmetric (not included in OWL) is a weaker form of asymmetric: if `x -> y`, then `y -> x` if and only if `x = y`.
+> This is not the case for asymmetric relations, since they exclude the equality `x = y`.
 
 ![Causal relations](docs/figs/causal-relations.png)
 
+
+### Other relations
+The PINK Annotation Schema includes currently one relation that is neither a parthood nor a causal relation.
+This is the `:hasProperty` relation that connects an entity to one of its properties (via a [semiotic] process involving an interpreter that assigns the property).
+The most important feature of `:hasProperty` is that it adhere to the scientific view that a property is not an intrinsic quality of an entity, but something that is measured or determined by an interpreter.
+
+For example, to determine the toxicity of a chemical substance you have to measure (or calculate or estimate) it. And the result depends on how it is measured.
+
+![Other relations](docs/figs/other-relations.png)
 
 
 ## General description of activities
@@ -135,8 +147,16 @@ This is done by documenting the computation at the class level (TBox-level) usin
 
 where `app` is the prefix of the application ontology defining the computation, its input/output and software.
 
+For this, we have introduced three new relations: `:hasInput`, `hasOutput` and `hasSoftware`.
+These relations are closely connected to the parthood relations shown above, where `:hasInput` is equivalent to `:used` and where `:hasOutput` and `:hasSoftware` are subclasses of the inverse of `overcrosses`.
+The figure below shows a few inverse parthood relations that must be introduced in order to connect the previously defined parthood relations to `:hasOutput` and `:hasSoftware`.
+
+![Inverse parthood relations](docs/figs/inverse-parthood-relations.png)
+
+Below the new inverse relations, the corresponding above-defined relations are shown in red.
+
 > [!NOTE]
-> The `pink:hasSoftware` property is a subproperty of the inverse of `pink:participatesTo`.
+> The new `:isOvercrossedBy` relation is disjoint with `:hasPart`.
 
 PINK provides tooling (based on [Tripper]) to help providing class-level documentation.
 This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf`.
@@ -149,6 +169,8 @@ For example, the above declaration of a computation could provided as follows:
 
 
 
+[PINK classes]: ./docs/classes.md
+[semiotic]: https://plato.stanford.edu/entries/peirce-semiotics/
 [DCAT-AP 3.0.1]: https://semiceu.github.io/DCAT-AP/releases/3.0.1/
 [DCAT]: https://www.w3.org/TR/vocab-dcat-3/
 [FOAF]: http://xmlns.com/foaf/spec/
