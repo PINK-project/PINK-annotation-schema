@@ -183,9 +183,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
     rdfs:subPropertyOf :hasPart ;
     skos:prefLabel "hasParticipant"@en ;
     dcterms:description "The relation between a process and an object participating to it, i.e. that is relevant to the process itself."@en ;
-    vann:usageNote """Participation is a parthood relation: you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process.
-
-Participation is not under direct parthood since a process is not strictly related to reductionism, but it's a way to categorise temporal regions by the interpreters."""@en .
+    rdfs:comment "Participation is a parthood relation: you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process."@en .
 
 :hasDatum rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
@@ -216,97 +214,76 @@ Participation is not under direct parthood since a process is not strictly relat
     skos:prefLabel "participatesTo"@en ;
     rdfs:domain prov:Entity ;
     rdfs:range prov:Activity ;
-    dcterms:description "The relation between an entity E that through overlaps an activity A."@en .
+    rdfs:comment "The entity through overlaps the activity."@en ;
+    dcterms:description "Relation an entity to an activity that it interacts with."@en .
 
 :used rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf prov:used, :overcrosses ;
     skos:prefLabel "used"@en ;
     rdfs:domain prov:Activity ;
     rdfs:range prov:Entity ;
-    dcterms:description "The relation between an activity A that proper overlaps an entity E, where the non-overlapping part of E causes A."@en .
+    rdfs:comment "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."@en ;
+    dcterms:description "Relates an activity to an entity that it used."@en ;
+    skos:example "For example, :baking :used :spoon, :egg, :oven ." .
 
 :wasGeneratedFrom rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf prov:wasGeneratedFrom, :overcrosses ;
     skos:prefLabel "wasGeneratedFrom"@en ;
     rdfs:domain prov:Entity ;
     rdfs:range prov:Activity ;
-    dcterms:description "The relation between an activity A that proper overlaps an entity E, where the non-overlapping part of A causes E."@en .
+    rdfs:comment "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
+    dcterms:description "Relates an entity to the activity it was generated from."@en .
 
 :wasAssociatedWith rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf prov:wasAssociatedWith, :overcrosses ;
     skos:prefLabel "wasAssociatedWith"@en ;
     rdfs:domain prov:Activity ;
     rdfs:range prov:Agent ;
-    dcterms:description "The relation between an activity A that proper overlaps an agent B, where A causes B."@en .
+    rdfs:comment "The activity is through overlapped by the agent."@en .
+    dcterms:description "Relates an activity to an agent that had some (unspecified) responsibility for the occurence of this activity."@en .
 
 :wasAttributedTo rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf prov:wasAttributedTo, :overcrosses ;
     skos:prefLabel "wasAttributedTo"@en ;
     rdfs:domain prov:Entity ;
     rdfs:range prov:Agent ;
-    dcterms:description "The relation between an entity E that proper overlaps an agent A, where E causes A."@en .
+    rdfs:comment "The activity is through overlapped by the agent and overcrossed by the entity."@en ;
+    dcterms:description "Relates an entity to an agent via an activity that both the entity and agent participates to."@en ;
+    owl:inverseOf :attributed .
 
 :attributed rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :overcrosses ;
     skos:prefLabel "attributed"@en ;
     rdfs:domain prov:Agent ;
     rdfs:range prov:Entity ;
-    dcterms:description "The relation between an agent A that proper overlaps an entity E, where A causes E."@en ;
+    rdfs:comment "The activity is through overlapped by the agent and overcrossed by the entity."@en ;
+    dcterms:description "Relates an agent to an entity via an activity that both the agent and entity participates to."@en ;
     owl:inverseOf :wasAttributedTo .
 
-:isMethodFor rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+:process rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :participatesTo ;
-    skos:prefLabel "isMethodFor"@en ;
+    skos:prefLabel "process"@en ;
     rdfs:domain :Method ;
-    rdfs:range prov:Activity ;
-    dcterms:description "The relation between a method M that through overlaps an activity A."@en .
+    rdfs:range :Process ;
+    rdfs:comment "This is a subproperty of participatesTo, meaning that the process is overcrossed by the method."@en ;
+    rdfs:comment "The starting point for this relation is that it relates a method to an activity it describes. However, when an activity is described by a method is a process. Therefor is the range of this relation a process and not only an activity."@en ;
+    dcterms:description "Relates a method to the process that it describes."@en .
 
 :input rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :attributed ;
     skos:prefLabel "input"@en ;
     rdfs:domain :Method ;
     rdfs:range prov:Entity ;
-    dcterms:description "The relation between a method M that proper overlaps an entity E, where E causes an activity that M is an agent for."@en .
+    rdfs:comment "The process P is through overlapped by the agent A and overcrossed by the entity E, where the non-overlapping part of E causes P."@en ;
+    dcterms:description "Relates a method to an entity via a process that used the entity and that the method participates to."@en .
 
 :output rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :attributed ;
     skos:prefLabel "output"@en ;
     rdfs:domain prov:Method ;
     rdfs:range prov:Entity ;
-    dcterms:description "The relation between a method M that proper overlaps an entity E, where E caused by an activity that M is an agent for."@en .
-
-
-### Equivalent relations (remove?)
-:hasInput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    owl:equivalentProperty :used ;
-    skos:prefLabel "hasInput"@en ;
-    dcterms:description "The relation between an activity A that proper overlaps an entity E, where the non-overlapping part of E causes A."@en ;
-    vann:usageNote "Relates an activity to its input."@en .
-
-
-### Inverse parthood relations (remove?)
-:overcrosses rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
-    rdfs:subPropertyOf :overlaps ;
-    skos:prefLabel "overcrosses"@en ;
-    owl:inverseOf :overcrosses .
-
-:isParticipatedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :isOvercrossedBy ;
-    skos:prefLabel "isParticipatedBy"@en ;
-    owl:inverseOf :participatesTo .
-
-:hasOutput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :isOvercrossedBy ;
-    skos:prefLabel "hasOutput"@en ;
-    owl:inverseOf :wasGeneratedBy .
-
-:hasSoftware rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :isParticipatedBy ;
-    skos:prefLabel "hasSoftware"@en ;
-    dcterms:description "The relation between a computation process and a software participant."@en ;
-    rdfs:comment "The computation process through overlaps the software, meaning that the software exists both before and after the computation."@en ;
-    rdfs:domain :Computation ;
-    rdfs:range :Software .
+    rdfs:comment "The process P is through overlapped by the agent A and overcrossed by the entity E, where the non-overlapping part of E is caused by P."@en ;
+    dcterms:description "Relates a method to an entity via a process that was generated by the entity and that the method participates to."@en .
 
 
 ### Causal relations
@@ -423,12 +400,6 @@ Participation is not under direct parthood since a process is not strictly relat
     skos:prefLabel "Datum"@en ;
     dcterms:description "A self-consistent encoded data entity."@en ;
     vann:usageNote "Datum is the building block of datasets."@en .
-
-:Software rdf:type owl:Class ;
-    rdfs:subClassOf :Data ;
-    skos:prefLabel "Software"@en ;
-    dcterms:description "All or part of the programs, procedures, rules, and associated documentation of an information processing system."@en ;
-    vann:usageNote "Software is usually used as a generic term for programs. However, in its broadest sense it can refer to all information (i.e., both programs and data) in electronic form and can provide a distinction from hardware, which refers to computers or other electronic systems on which software can exist and be use. Here we explicitly include in the definition also all the data (e.g. source code, script files) that takes part to the building of the executable, are necessary to the execution of a program or that document it for the users."@en .
 
 :ReliabilityDocument rdf:type owl:Class ;
     rdfs:subClassOf foaf:Document ;
