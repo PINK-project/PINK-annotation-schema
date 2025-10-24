@@ -109,6 +109,10 @@ These categorisations incorporate parthood and causal relations from [Dublin Cor
 
 ![Parthood relations](docs/figs/parthood-relations.png)
 
+The above figure include graphical illustrations of the parthood relations.
+The colour scheme in these illustrations represent activities in red, entities in blue, agents in green and unspecified nature (activity/entity/agent) in gray.
+The arrow illustrates the direction of the relation.
+
 For improved semantic expressiveness and to support logical validation, the PINK Annotation Schema adds characteristics to the standard [PROV-O] object properties.
 According to the [rules](#extra-pink-annotations-of-externally-defined-terms) defined above, the characteristics is added to PINK-specific subproperties of the [PROV-O] object properties.
 Such semantically enhanced subclass relations of corresponding [PROV-O] and [Dublin Core] relations are written in *cursive* in the figure above.
