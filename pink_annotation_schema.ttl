@@ -150,12 +150,6 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "method"@en ;
     dcterms:description "Relates a dataset to the method that it was created with." .
 
-:model a owl:ObjectProperty ;
-    rdfs:domain :Method ;
-    rdfs:range :Model ;
-    skos:prefLabel "model"@en ;
-    dcterms:description "Relates a method to a model." .
-
 :documentation a owl:ObjectProperty ;
     rdfs:domain dcat:Resource ;
     rdfs:range foaf:Document ;
@@ -323,7 +317,7 @@ Participation is not under direct parthood since a process is not strictly relat
 #    Classes
 #################################################################
 
-### SSbD
+### SSbD-related classes
 :SsbdCategory rdf:type owl:Class ;
     skos:prefLabel "SsbdCategory"@en ;
     rdfs:comment "The pink:SsbdCategory is an extension of the 'sustainability dimensions' defined by JRC." ;
@@ -334,10 +328,6 @@ Participation is not under direct parthood since a process is not strictly relat
     skos:prefLabel "Method"@en ;
     dcterms:description "An activity that is the superclass of all PINK methods."@en .
 
-:Model rdf:type owl:Class ;
-    rdfs:subClassOf prov:Entity ;  # ??
-    skos:prefLabel "Model"@en ;
-    dcterms:description "xxx."@en .
 
 ### General classes
 :Role rdf:type owl:Class ;
