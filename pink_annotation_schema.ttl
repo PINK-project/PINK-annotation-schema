@@ -380,18 +380,21 @@ Participation is not under direct parthood since a process is not strictly relat
     vann:usageNote "An individual can be said to have a role in relation to the entity."@en .
 
 :MaterialProcess rdf:type owl:Class ;
-    rdfs:subClassOf prov:Activity ;
+    rdfs:subClassOf :Process ;
     skos:prefLabel "MaterialProcess"@en ;
+    rdfs:comment "Since MaterialProcess is a subclass of Process, we say that there must exist a method that describes the material process." ;
     dcterms:description "A process that has material as input and output."@en .
 
 :Measurement rdf:type owl:Class ;
-    rdfs:subClassOf prov:Activity ;
+    rdfs:subClassOf :Process ;
     skos:prefLabel "Measurement"@en ;
+    rdfs:comment "Since Measurement is a subclass of Process, we say that there must exist a method that describes the measurement." ;
     dcterms:description "An observation that results in a quantitative comparison of a 'property' of an 'object' with a standard reference based on a well defined mesurement procedure."@en .
 
 :Computation rdf:type owl:Class ;
-    rdfs:subClassOf prov:Activity ;
+    rdfs:subClassOf :Process ;
     skos:prefLabel "Computation"@en ;
+    rdfs:comment "Since Computation is a subclass of Process, we say that there must exist a method that describes the computation." ;
     dcterms:description "A procedure that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en .
 
 :Material rdf:type owl:Class ;
