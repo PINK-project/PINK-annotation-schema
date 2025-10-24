@@ -165,9 +165,9 @@ PINK provides tooling (based on [Tripper]) to help providing class-level documen
 This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf` (`@type` is implicit and would always be `owl:Class`).
 For example, the above declaration of a computation could provided as follows:
 
-| @id               | subClassOf       | description | isMethodOf     | input       | output       |
-|-------------------|------------------|-------------|----------------|-------------|--------------|
-| app:MyComputation | pink:Computation | ...         | app:MyActivity | app:MyInput | app:MyOutput |
+| @id          | subClassOf  | description | isMethodOf     | input       | output       |
+|--------------|-------------|-------------|----------------|-------------|--------------|
+| app:MyMethod | pink:Method | ...         | app:MyActivity | app:MyInput | app:MyOutput |
 
 
 
