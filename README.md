@@ -155,7 +155,7 @@ In Manchester syntax, this may be expressed as follows
         subClassOf: pink:input some app:MyInput
         subClassOf: pink:output some app:MyOutput
 
-where `app` is the prefix of the application ontology defining the method and its associated activity and input/output.
+where `app` is the prefix of the application ontology defining the method and its associated activity and input/output and `app:MyActivity`, `app:MyInput`/`app:MyOutput` are subclasses of `prov:Activity` and `prov:entity`, respectively.
 
 PINK provides tooling (based on [Tripper]) to help providing class-level documentation.
 This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf` (`@type` is implicit and would always be `owl:Class`).

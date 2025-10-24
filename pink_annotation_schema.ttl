@@ -359,9 +359,18 @@ Participation is not under direct parthood since a process is not strictly relat
     dcterms:description "XXX"@en .
 
 :Method rdf:type owl:Class ;
-    rdfs:subClassOf prov:Activity ;
+    rdfs:subClassOf :Data ;
     skos:prefLabel "Method"@en ;
-    dcterms:description "An activity that is the superclass of all PINK methods."@en .
+    dcterms:description "Data that describes how to perform an activity."@en .
+
+:Process rdf:type owl:Class ;
+    rdfs:subClassOf prov:Activity, [
+        rdf:type owl:Restriction ;
+        owl:onProperty [ owl:inverseOf :isMethodFor ] ;
+        owl:someValuesFrom :Method
+    ] ;
+    skos:prefLabel "Process"@en ;
+    dcterms:description "An activity that is described by a method."@en .
 
 
 ### General classes
@@ -371,17 +380,17 @@ Participation is not under direct parthood since a process is not strictly relat
     vann:usageNote "An individual can be said to have a role in relation to the entity."@en .
 
 :MaterialProcess rdf:type owl:Class ;
-    rdfs:subClassOf :Method ;
+    rdfs:subClassOf prov:Activity ;
     skos:prefLabel "MaterialProcess"@en ;
     dcterms:description "A process that has material as input and output."@en .
 
 :Measurement rdf:type owl:Class ;
-    rdfs:subClassOf :Method ;
+    rdfs:subClassOf prov:Activity ;
     skos:prefLabel "Measurement"@en ;
     dcterms:description "An observation that results in a quantitative comparison of a 'property' of an 'object' with a standard reference based on a well defined mesurement procedure."@en .
 
 :Computation rdf:type owl:Class ;
-    rdfs:subClassOf :Method ;
+    rdfs:subClassOf prov:Activity ;
     skos:prefLabel "Computation"@en ;
     dcterms:description "A procedure that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en .
 
