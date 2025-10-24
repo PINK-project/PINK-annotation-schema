@@ -168,16 +168,11 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "overlaps"@en ;
     dcterms:description "The relation between two individuals representing entities that share at least one of their parts."@en .
 
-:overcrosses rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
+:isOvercrossedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
     rdfs:subPropertyOf :overlaps ;
-    skos:prefLabel "overcrosses"@en ;
-    dcterms:description "The relation between an entity that overlaps another without being its part."@en .
-
-:participatesTo rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :overcrosses ;
-    skos:prefLabel "participatesTo"@en ;
-    dcterms:description "The relation between an object O that through overlaps a process P."@en .
-
+    skos:prefLabel "isOvercrossedBy"@en ;
+    owl:propertyDisjointWith :hasPart ;
+    dcterms:description "The relation between an entity that overlaps another without having it as part."@en .
 
 :hasPart rdf:type owl:ObjectProperty, owl:ReflexiveProperty, owl:TransitiveProperty ;
     rdfs:subPropertyOf dcterms:hasPart, :overlaps ;
@@ -215,14 +210,26 @@ Participation is not under direct parthood since a process is not strictly relat
     skos:altLabel "hasSpatioTemporalPart"@en ;
     dcterms:description "The part is connected with the rest item or members with both hasNext (or its inverse) and hasContact relations."@en .
 
+
+:participatesTo rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :overcrosses ;
+    skos:prefLabel "participatesTo"@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Activity ;
+    dcterms:description "The relation between an entity E that through overlaps an activity A."@en .
+
 :used rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf prov:used, :overcrosses ;
     skos:prefLabel "used"@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:range prov:Entity ;
     dcterms:description "The relation between an activity A that proper overlaps an entity E, where the non-overlapping part of E causes A."@en .
 
 :wasGeneratedFrom rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf prov:wasGeneratedFrom, :overcrosses ;
     skos:prefLabel "wasGeneratedFrom"@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Activity ;
     dcterms:description "The relation between an activity A that proper overlaps an entity E, where the non-overlapping part of A causes E."@en .
 
 :wasAssociatedWith rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -239,8 +246,37 @@ Participation is not under direct parthood since a process is not strictly relat
     rdfs:range prov:Agent ;
     dcterms:description "The relation between an entity E that proper overlaps an agent A, where E causes A."@en .
 
+:attributed rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :overcrosses ;
+    skos:prefLabel "attributed"@en ;
+    rdfs:domain prov:Agent ;
+    rdfs:range prov:Entity ;
+    dcterms:description "The relation between an agent A that proper overlaps an entity E, where A causes E."@en ;
+    owl:inverseOf :wasAttributedTo .
 
-### Equivalent relations
+:isMethodFor rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :participatesTo ;
+    skos:prefLabel "isMethodFor"@en ;
+    rdfs:domain :Method ;
+    rdfs:range prov:Activity ;
+    dcterms:description "The relation between a method M that through overlaps an activity A."@en .
+
+:input rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :attributed ;
+    skos:prefLabel "input"@en ;
+    rdfs:domain :Method ;
+    rdfs:range prov:Entity ;
+    dcterms:description "The relation between a method M that proper overlaps an entity E, where E causes an activity that M is an agent for."@en .
+
+:output rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :attributed ;
+    skos:prefLabel "output"@en ;
+    rdfs:domain prov:Method ;
+    rdfs:range prov:Entity ;
+    dcterms:description "The relation between a method M that proper overlaps an entity E, where E caused by an activity that M is an agent for."@en .
+
+
+### Equivalent relations (remove?)
 :hasInput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     owl:equivalentProperty :used ;
     skos:prefLabel "hasInput"@en ;
@@ -248,11 +284,10 @@ Participation is not under direct parthood since a process is not strictly relat
     vann:usageNote "Relates an activity to its input."@en .
 
 
-### Inverse parthood relations
-:isOvercrossedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
+### Inverse parthood relations (remove?)
+:overcrosses rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
     rdfs:subPropertyOf :overlaps ;
-    skos:prefLabel "isOvercrossedBy"@en ;
-    owl:propertyDisjointWith :hasPart ;
+    skos:prefLabel "overcrosses"@en ;
     owl:inverseOf :overcrosses .
 
 :isParticipatedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -435,6 +470,7 @@ ddoc:recommended rdf:type owl:NamedIndividual ;
 :safety a :SsbdCategory ;
     skos:prefLabel: "safety" ;
     dcterms:description "Human helth and environmental safety aspects of chemicals and materials."@en ;
+    dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
     rdfs:comment """In the context of chemicals assessment, safety could be referring to a
 certain condition where a stressor (e.g. a chemical) is unlikely to
 cause any adverse effect to a receptor (e.g. humans and other
@@ -449,6 +485,7 @@ assessment context."""@en .
 :environmental_systainability a :SsbdCategory ;
     skos:prefLabel: "environmental_systainability" ;
     dcterms:description "The ability to conserve natural resources and protect global ecosystems to support human health and wellbeing, within the limits of our Planet"@en ;
+    dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
     rdfs:comment """Assessing environmental sustainability implies to assess the environmental impacts generated by
 chemicals/materials along the entire life cycle to move towards:
 
@@ -468,6 +505,7 @@ chemicals/materials along the entire life cycle to move towards:
 :social_systainability a :SsbdCategory ;
     skos:prefLabel: "social_sustainability" ;
     dcterms:description "A globally agreed list of objectives and targets to be pursued for achieving sustainable development."@en ;
+    dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
     rdfs:comment """In the SDGs framework several Goals focus on social aspects,
 e.g. poverty eradication (SDG 1), food security (SDG 2), health (SDG 3),
 education (SDG 4), gender equality (SDG 5), decent work (SDG 8),
@@ -476,6 +514,7 @@ reduce inequalities (SDG 10), peace and justice (SDG 16)."""@en .
 :economic a :SsbdCategory ;
     skos:prefLabel: "economic" ;
     dcterms:description "Aspects related to techno-economic feasibility, to operational costs, etc."@en ;
+    dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
     rdfs:comment """There are important considerations to be made in the context of SSbD
 such as the 'availability' of raw materials, as chemicals/materials
 cannot be declared SSbD if the raw materials to produce them are not

@@ -129,40 +129,41 @@ The most important feature of `:hasProperty` is that it adhere to the scientific
 
 For example, to determine the toxicity of a chemical substance you have to measure (or calculate or estimate) it. And the result depends on how it is measured.
 
-![Other relations](docs/figs/property-relations.png)
+![Property relations](docs/figs/property-relations.png)
 
 
 
 ## General description of methods
 Provenance is about what has happened. [PROV-O] is intended to describe provenance information.
-In PINK we also want to describe what can happen.
+In PINK we also want to describe general workflows before they are executed.
+That is, to describe something that can happen.
 
-For instance, we want to express what kind of input and output a given type of computation takes and what software that is executed to run the computation.
-This is done by documenting the computation at the class level (TBox-level) using the following restrictions (in Manchester syntax):
+Since we don't know whether the workflow actually would be executed, we can't create individuals for it.
+Hence, description of what can happen must be done at class level (TBox-level).
 
-    Class: app:MyComputation
-        subClassOf: pink:Computation
-        subClassOf: pink:hasInput some app:MyInput
-        subClassOf: pink:hasOutput some app:MyOutput
-        subClassOf: pink:hasSoftware some app:MySoftware
+Another important difference from the provenance description above, is that while provenance places the activity in the centre, PINK places the *method* in centre when describing something that can happen.
+A method is data that describes how to perform an activity, like what type of activity will be performed, what type of input it takes, what type of output it produces, is there an API for performing the activity, etc...
+The figure below shows how a method relates to an Activity and its input and output.
 
-where `app` is the prefix of the application ontology defining the computation, its input/output and software.
+![Method](docs/figs/method.png)
 
-For this, we have introduced three new relations: `:hasInput`, `hasOutput` and `hasSoftware`.
-These relations are closely connected to the parthood relations shown above, where `:hasInput` is equivalent to `:used` and where `:hasOutput` and `:hasSoftware` are subclasses of the inverse of `overcrosses`.
-The figure below shows a few inverse parthood relations that must be introduced in order to connect the previously defined parthood relations to `:hasOutput` and `:hasSoftware`.
+In Manchester syntax, this may be expressed as follows
 
-![Parthood relations for methods](docs/figs/parthood-relations-method.png)
+    Class: app:MyMethod
+        subClassOf: pink:Method
+        subClassOf: pink:isMethodOf some app:MyActivity
+        subClassOf: pink:input some app:MyInput
+        subClassOf: pink:output some app:MyOutput
 
-Below the new inverse relations, the corresponding above-defined relations are shown in red.
+where `app` is the prefix of the application ontology defining the method and its associated activity and input/output.
 
 PINK provides tooling (based on [Tripper]) to help providing class-level documentation.
-This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf`.
+This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf` (`@type` is implicit and would always be `owl:Class`).
 For example, the above declaration of a computation could provided as follows:
 
-| @id               | subClassOf       | hasInput    | hasOutput    | hasSoftware    |
-|-------------------|------------------|-------------|--------------|----------------|
-| app:MyComputation | pink:Computation | app:MyInput | app:MyOutput | app:MySoftware |
+| @id               | subClassOf       | description | isMethodOf     | input       | output       |
+|-------------------|------------------|-------------|----------------|-------------|--------------|
+| app:MyComputation | pink:Computation | ...         | app:MyActivity | app:MyInput | app:MyOutput |
 
 
 

@@ -361,8 +361,8 @@ prov:Agent a owl:Class ;
     owl:disjointWith prov:InstantaneousEvent ;
     prov:category "starting-point" ;
     prov:component "agents-responsibility" ;
-    prov:definition "An agent is something that bears some form of responsibility for anprov activity taking place, for the existence of an entity, or for another agent's aprovctivity. "@en ;
-    dcterms:description "An agent is something that bears some form of responsibility for anprov activity taking place, for the existence of an entity, or for another agent's aprovctivity. "@en ;
+    prov:definition "An agent is something that bears some form of responsibility for a activity taking place, for the existence of an entity, or for another agent's aprovctivity. "@en ;
+    dcterms:description "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's aprovctivity. "@en ;
     prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
     prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent"^^xsd:anyURI .
 
