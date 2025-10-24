@@ -143,9 +143,13 @@ Hence, description of what can happen must be done at class level (TBox-level).
 
 Another important difference from the provenance description above, is that while provenance places the activity in the centre, PINK places the *method* in centre when describing something that can happen.
 A method is data that describes how to perform an activity, like what type of activity will be performed, what type of input it takes, what type of output it produces, is there an API for performing the activity, etc...
-The figure below shows how a method relates to an Activity and its input and output.
+The figure below shows how a method relates to an activity and its input and output.
 
 ![Method](docs/figs/method.png)
+
+> [!NOTE]
+> Note the use of "some" in the arrows in the above figure.
+> It indicates that the arrows does not represent relations between individuals, but existential restrictions between classes.
 
 In Manchester syntax, this may be expressed as follows
 
