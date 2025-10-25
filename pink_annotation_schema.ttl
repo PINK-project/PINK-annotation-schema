@@ -354,7 +354,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :Process rdf:type owl:Class ;
     rdfs:subClassOf prov:Activity, [
         rdf:type owl:Restriction ;
-        owl:onProperty [ owl:inverseOf :isMethodFor ] ;
+        owl:onProperty [ owl:inverseOf :hasProcess ] ;
         owl:someValuesFrom :Method
     ] ;
     skos:prefLabel "Process"@en ;

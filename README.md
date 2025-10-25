@@ -171,7 +171,7 @@ In Manchester syntax, this may be expressed as follows
 
     Class: app:MyMethod
         subClassOf: pink:Method
-        subClassOf: pink:isMethodOf some app:MyActivity
+        subClassOf: pink:hasProcess some app:MyActivity
         subClassOf: pink:input some app:MyInput
         subClassOf: pink:output some app:MyOutput
 
@@ -181,7 +181,7 @@ PINK provides tooling (based on [Tripper]) to help providing class-level documen
 This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf` (`@type` is implicit and would always be `owl:Class`).
 For example, the above declaration of a computation could provided as follows:
 
-| @id          | subClassOf  | description | isMethodOf     | input       | output       |
+| @id          | subClassOf  | description | hasProcess     | input       | output       |
 |--------------|-------------|-------------|----------------|-------------|--------------|
 | app:MyMethod | pink:Method | ...         | app:MyActivity | app:MyInput | app:MyOutput |
 
