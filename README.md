@@ -88,7 +88,7 @@ The figure below shows an example of a simple provenance graph, that combines th
 Concepts belonging to the PINK namespace in the figure above have been written in cursive.
 
 Given the network of `:used` and `:wasInformedBy` relations, it is possible to infer `:wasInformedBy` and `:wasDerivedFrom` relations.
-This is done by the reasoner (using [SWRL] rules that are added in the pink_annotation_schema.ttl).
+This is done by the reasoner (using [SWRL] rules that are added in [pink_annotation_schema.ttl]).
 
 
 
@@ -101,6 +101,7 @@ The input and output of the material process are the temporal parts (`m1` and `m
 The material process is driven by an agent (`a`), who's temporal part (`a1`) is a participant (i.e. has an active role) in the process.
 
 ![Material process](docs/figs/material-process.png)
+
 
 
 ### Enhanced parthood and causal formalism
@@ -123,7 +124,18 @@ Such semantically enhanced subclass relations of corresponding [PROV-O] and [Dub
 > Antisymmetric (not included in OWL) is a weaker form of asymmetric: if `x -> y`, then `y -> x` if and only if `x = y`.
 > This is not the case for asymmetric relations, since they exclude the equality `x = y`.
 
+Causal relations focuses on whether an individual is influenced by another.
+In [PROV-O] this is described by the fundamental relation `prov:wasInfluencedBy`.
+In PINK we introduce the toplevel subclass `:causedBy` as a subclass of `prov:wasInfluencedBy`.
+The causal currently included in the PINK Annotation Schema are shown in the figure below.
+Most of these relations are indirect causations mediated by an activity.
+These chains of causations have been expressed using [SWRL] rules.
+The relations starting with ":was" are subclasses of the corresponding relations in [PROV-O].
+The `:attributed` and `:wasAttributedTo` are the inverse of each other.
+
 ![Causal relations](docs/figs/causal-relations.png)
+
+
 
 
 ### Property relations
@@ -177,6 +189,7 @@ For example, the above declaration of a computation could provided as follows:
 
 
 [PINK classes]: ./docs/classes.md
+[pink_annotation_schema.ttl]: ./pink_annotation_schema.ttl
 [semiotic]: https://plato.stanford.edu/entries/peirce-semiotics/
 [DCAT-AP 3.0.1]: https://semiceu.github.io/DCAT-AP/releases/3.0.1/
 [DCAT]: https://www.w3.org/TR/vocab-dcat-3/
