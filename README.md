@@ -165,7 +165,7 @@ The figure below shows how a method relates to an activity and its input and out
 
 > [!NOTE]
 > Note the use of "some" in the arrows in the above figure.
-> It indicates that the arrows does not represent relations between individuals, but existential restrictions between classes.
+> It indicates that the arrows do not represent relations between individuals, but existential restrictions between classes.
 
 In Manchester syntax, this may be expressed as follows
 
