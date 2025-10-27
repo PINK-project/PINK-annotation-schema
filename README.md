@@ -111,8 +111,8 @@ It is based on the mereocausal theory by [Zaccarini *et. al.*], but simplified a
 
 ![Parthood relations](docs/figs/parthood-relations.png)
 
-The above figure include graphical illustrations of the parthood relations.
-The colour scheme in these illustrations represent activities in red, entities in blue, agents in green and unspecified nature (activity/entity/agent) in gray.
+The above figure includes graphical illustrations of the parthood relations.
+The colour scheme in these illustrations represents activities in red, entities in blue, agents in green and unspecified nature (activity/entity/agent) in gray.
 The arrow illustrates the direction of the relation.
 
 For improved semantic expressiveness and to support logical validation, the PINK Annotation Schema adds characteristics to the standard [PROV-O] object properties.
@@ -128,7 +128,7 @@ Such semantically enhanced subclass relations of corresponding [PROV-O] and [Dub
 Causal relations focuses on whether an individual is influenced by another.
 In [PROV-O] this is described by the fundamental relation `prov:wasInfluencedBy`.
 In PINK we introduce the toplevel subclass `:causedBy` as a subclass of `prov:wasInfluencedBy`.
-The causal currently included in the PINK Annotation Schema are shown in the figure below.
+The causal relations currently included in the PINK Annotation Schema are shown in the figure below.
 Most of these relations are indirect causations mediated by an activity.
 These chains of causations have been expressed using [SWRL] rules.
 The relations starting with ":was" are subclasses of the corresponding relations in [PROV-O].
@@ -155,18 +155,19 @@ Provenance is about what has happened. [PROV-O] is intended to describe provenan
 In PINK we also want to describe general workflows before they are executed.
 That is, to describe something that can happen.
 
-Since we don't know whether the workflow actually would be executed, we can't create individuals for it.
-Hence, description of what can happen must be done at class level (TBox-level).
+Since we don't know whether the workflow actually will be executed, we can't create individuals for it.
+Hence, what can happen must be described at class level (TBox-level).
 
-Another important difference from the provenance description above, is that while provenance places the activity in the centre, PINK places the *method* in centre when describing something that can happen.
+Another important difference from the provenance description above, is that while provenance places the activity in the centre, PINK places the *method* in the centre when describing something that can happen.
 A method is a subclass of data that describes how to perform an activity, like what type of activity will be performed, what type of input it takes, what type of output it produces, is there an API for performing the activity, etc...
+A method is therefore also an agent for the activity it describes.
 The figure below shows how a method relates to an activity and its input and output.
 
 ![Method](docs/figs/method.png)
 
 > [!NOTE]
 > Note the use of "some" in the arrows in the above figure.
-> It indicates that the arrows does not represent relations between individuals, but existential restrictions between classes.
+> It indicates that the arrows do not represent relations between individuals, but existential restrictions between classes.
 
 In Manchester syntax, this may be expressed as follows
 
