@@ -157,7 +157,7 @@ That is, to describe something that can happen.
 Since we don't know whether the workflow actually will be executed, we can't create individuals for it.
 Hence, what can happen must be described at class level (TBox-level).
 
-Another important difference from the provenance description above, is that while provenance places the activity in the centre, PINK places the *method* in centre when describing something that can happen.
+Another important difference from the provenance description above, is that while provenance places the activity in the centre, PINK places the *method* in the centre when describing something that can happen.
 A method is data that describes how to perform an activity, like what type of activity will be performed, what type of input it takes, what type of output it produces, is there an API for performing the activity, etc...
 The figure below shows how a method relates to an activity and its input and output.
 
