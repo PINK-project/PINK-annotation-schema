@@ -155,7 +155,7 @@ In PINK we also want to describe general workflows before they are executed.
 That is, to describe something that can happen.
 
 Since we don't know whether the workflow actually will be executed, we can't create individuals for it.
-Hence, description of what can happen must be done at class level (TBox-level).
+Hence, what can happen must be described at class level (TBox-level).
 
 Another important difference from the provenance description above, is that while provenance places the activity in the centre, PINK places the *method* in centre when describing something that can happen.
 A method is data that describes how to perform an activity, like what type of activity will be performed, what type of input it takes, what type of output it produces, is there an API for performing the activity, etc...
