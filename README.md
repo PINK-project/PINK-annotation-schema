@@ -88,7 +88,7 @@ The figure below shows an example of a simple provenance graph, that combines th
 Concepts belonging to the PINK namespace in the figure above have been written in cursive.
 
 Given the network of `:used` and `:wasInformedBy` relations, it is possible to infer `:wasInformedBy` and `:wasDerivedFrom` relations.
-This is done by the reasoner (using [SWRL] rules that are added in the pink_annotation_schema.ttl).
+This is done by the reasoner (using [SWRL] rules that are added in [pink_annotation_schema.ttl]).
 
 
 
@@ -103,11 +103,17 @@ The material process is driven by an agent (`a`), who's temporal part (`a1`) is 
 ![Material process](docs/figs/material-process.png)
 
 
+
 ### Enhanced parthood and causal formalism
 To formally describe workflows correctly, such as the above material process, the PINK Annotation Schema includes formalised categorisations of parthood and causal relations, shown in the figures below.
 These categorisations incorporate parthood and causal relations from [Dublin Core] and [PROV-O] and give them enhanced semantic meaning.
+It is based on the mereocausal theory by [Zaccarini *et. al.*], but simplified and adapted to the needs of PINK.
 
 ![Parthood relations](docs/figs/parthood-relations.png)
+
+The above figure includes graphical illustrations of the parthood relations.
+The colour scheme in these illustrations represents activities in red, entities in blue, agents in green and unspecified nature (activity/entity/agent) in gray.
+The arrow illustrates the direction of the relation.
 
 For improved semantic expressiveness and to support logical validation, the PINK Annotation Schema adds characteristics to the standard [PROV-O] object properties.
 According to the [rules](#extra-pink-annotations-of-externally-defined-terms) defined above, the characteristics is added to PINK-specific subproperties of the [PROV-O] object properties.
@@ -119,57 +125,74 @@ Such semantically enhanced subclass relations of corresponding [PROV-O] and [Dub
 > Antisymmetric (not included in OWL) is a weaker form of asymmetric: if `x -> y`, then `y -> x` if and only if `x = y`.
 > This is not the case for asymmetric relations, since they exclude the equality `x = y`.
 
+Causal relations focuses on whether an individual is influenced by another.
+In [PROV-O] this is described by the fundamental relation `prov:wasInfluencedBy`.
+In PINK we introduce the toplevel subclass `:causedBy` as a subclass of `prov:wasInfluencedBy`.
+The causal relations currently included in the PINK Annotation Schema are shown in the figure below.
+Most of these relations are indirect causations mediated by an activity.
+These chains of causations have been expressed using [SWRL] rules.
+The relations starting with ":was" are subclasses of the corresponding relations in [PROV-O].
+The `:attributed` and `:wasAttributedTo` are the inverse of each other.
+
 ![Causal relations](docs/figs/causal-relations.png)
 
 
-### Other relations
+
+
+### Property relations
 The PINK Annotation Schema includes currently one relation that is neither a parthood nor a causal relation.
-This is the `:hasProperty` relation that connects an entity to one of its properties (via a [semiotic] process involving an interpreter that assigns the property).
+This is the `:hasProperty` relation that connects an entity or activity to one of its properties (via a [semiotic] process involving an interpreter that assigns the property).
 The most important feature of `:hasProperty` is that it adhere to the scientific view that a property is not an intrinsic quality of an entity, but something that is measured or determined by an interpreter.
 
 For example, to determine the toxicity of a chemical substance you have to measure (or calculate or estimate) it. And the result depends on how it is measured.
 
-![Other relations](docs/figs/other-relations.png)
+![Property relations](docs/figs/property-relations.png)
 
 
-## General description of activities
-Provenance is about what has happened. [PROV-O] is intended to provenance information.
-In PINK we also want to describe what can happen.
 
-For instance, we want to express what kind of input and output a given type of computation takes and what software that is executed to run the computation.
-This is done by documenting the computation at the class level (TBox-level) using the following restrictions (in Manchester syntax):
+## General description of methods
+Provenance is about what has happened. [PROV-O] is intended to describe provenance information.
+In PINK we also want to describe general workflows before they are executed.
+That is, to describe something that can happen.
 
-    Class: app:MyComputation
-        subClassOf: pink:Computation
-        subClassOf: pink:hasInput some app:MyInput
-        subClassOf: pink:hasOutput some app:MyOutput
-        subClassOf: pink:hasSoftware some app:MySoftware
+Since we don't know whether the workflow actually will be executed, we can't create individuals for it.
+Hence, what can happen must be described at class level (TBox-level).
 
-where `app` is the prefix of the application ontology defining the computation, its input/output and software.
+Another important difference from the provenance description above, is that while provenance places the activity in the centre, PINK places the *method* in the centre when describing something that can happen.
+A method is a subclass of data that describes how to perform an activity, like what type of activity will be performed, what type of input it takes, what type of output it produces, is there an API for performing the activity, etc...
+A method is therefore also an agent for the activity it describes.
+The figure below shows how a method relates to an activity and its input and output.
 
-For this, we have introduced three new relations: `:hasInput`, `hasOutput` and `hasSoftware`.
-These relations are closely connected to the parthood relations shown above, where `:hasInput` is equivalent to `:used` and where `:hasOutput` and `:hasSoftware` are subclasses of the inverse of `overcrosses`.
-The figure below shows a few inverse parthood relations that must be introduced in order to connect the previously defined parthood relations to `:hasOutput` and `:hasSoftware`.
-
-![Inverse parthood relations](docs/figs/inverse-parthood-relations.png)
-
-Below the new inverse relations, the corresponding above-defined relations are shown in red.
+![Method](docs/figs/method.png)
 
 > [!NOTE]
-> The new `:isOvercrossedBy` relation is disjoint with `:hasPart`.
+> Note the use of "some" in the arrows in the above figure.
+> It indicates that the arrows do not represent relations between individuals, but existential restrictions between classes.
+
+In Manchester syntax, this may be expressed as follows
+
+    Class: app:MyMethod
+        subClassOf: pink:Method
+        subClassOf: pink:hasProcess some app:MyActivity
+        subClassOf: pink:input some app:MyInput
+        subClassOf: pink:output some app:MyOutput
+
+where `app` is the prefix of the application ontology defining the method and its associated activity and input/output and `app:MyActivity`, `app:MyInput`/`app:MyOutput` are subclasses of `prov:Activity` and `prov:entity`, respectively.
 
 PINK provides tooling (based on [Tripper]) to help providing class-level documentation.
-This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf`.
+This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf` (`@type` is implicit and would always be `owl:Class`).
 For example, the above declaration of a computation could provided as follows:
 
-| @id               | subClassOf       | hasInput    | hasOutput    | hasSoftware    |
-|-------------------|------------------|-------------|--------------|----------------|
-| app:MyComputation | pink:Computation | app:MyInput | app:MyOutput | app:MySoftware |
+| @id          | subClassOf  | description | hasProcess     | input       | output       |
+|--------------|-------------|-------------|----------------|-------------|--------------|
+| app:MyMethod | pink:Method | ...         | app:MyActivity | app:MyInput | app:MyOutput |
 
 
 
 
 [PINK classes]: ./docs/classes.md
+[pink_annotation_schema.ttl]: ./pink_annotation_schema.ttl
+[Zaccarini *et. al.*]: https://ebooks.iospress.nl/doi/10.3233/FAIA231120
 [semiotic]: https://plato.stanford.edu/entries/peirce-semiotics/
 [DCAT-AP 3.0.1]: https://semiceu.github.io/DCAT-AP/releases/3.0.1/
 [DCAT]: https://www.w3.org/TR/vocab-dcat-3/
