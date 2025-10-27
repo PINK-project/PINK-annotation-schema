@@ -107,6 +107,7 @@ The material process is driven by an agent (`a`), who's temporal part (`a1`) is 
 ### Enhanced parthood and causal formalism
 To formally describe workflows correctly, such as the above material process, the PINK Annotation Schema includes formalised categorisations of parthood and causal relations, shown in the figures below.
 These categorisations incorporate parthood and causal relations from [Dublin Core] and [PROV-O] and give them enhanced semantic meaning.
+It is based on the mereocausal theory by [Zaccarini *et. al.*], but simplified and adapted to the needs of PINK.
 
 ![Parthood relations](docs/figs/parthood-relations.png)
 
@@ -158,7 +159,7 @@ Since we don't know whether the workflow actually would be executed, we can't cr
 Hence, description of what can happen must be done at class level (TBox-level).
 
 Another important difference from the provenance description above, is that while provenance places the activity in the centre, PINK places the *method* in centre when describing something that can happen.
-A method is data that describes how to perform an activity, like what type of activity will be performed, what type of input it takes, what type of output it produces, is there an API for performing the activity, etc...
+A method is a subclass of data that describes how to perform an activity, like what type of activity will be performed, what type of input it takes, what type of output it produces, is there an API for performing the activity, etc...
 The figure below shows how a method relates to an activity and its input and output.
 
 ![Method](docs/figs/method.png)
@@ -190,6 +191,7 @@ For example, the above declaration of a computation could provided as follows:
 
 [PINK classes]: ./docs/classes.md
 [pink_annotation_schema.ttl]: ./pink_annotation_schema.ttl
+[Zaccarini *et. al.*]: https://ebooks.iospress.nl/doi/10.3233/FAIA231120
 [semiotic]: https://plato.stanford.edu/entries/peirce-semiotics/
 [DCAT-AP 3.0.1]: https://semiceu.github.io/DCAT-AP/releases/3.0.1/
 [DCAT]: https://www.w3.org/TR/vocab-dcat-3/
