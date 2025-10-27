@@ -127,7 +127,7 @@ Such semantically enhanced subclass relations of corresponding [PROV-O] and [Dub
 Causal relations focuses on whether an individual is influenced by another.
 In [PROV-O] this is described by the fundamental relation `prov:wasInfluencedBy`.
 In PINK we introduce the toplevel subclass `:causedBy` as a subclass of `prov:wasInfluencedBy`.
-The causal currently included in the PINK Annotation Schema are shown in the figure below.
+The causal relations currently included in the PINK Annotation Schema are shown in the figure below.
 Most of these relations are indirect causations mediated by an activity.
 These chains of causations have been expressed using [SWRL] rules.
 The relations starting with ":was" are subclasses of the corresponding relations in [PROV-O].
