@@ -154,7 +154,7 @@ Provenance is about what has happened. [PROV-O] is intended to describe provenan
 In PINK we also want to describe general workflows before they are executed.
 That is, to describe something that can happen.
 
-Since we don't know whether the workflow actually would be executed, we can't create individuals for it.
+Since we don't know whether the workflow actually will be executed, we can't create individuals for it.
 Hence, description of what can happen must be done at class level (TBox-level).
 
 Another important difference from the provenance description above, is that while provenance places the activity in the centre, PINK places the *method* in centre when describing something that can happen.
