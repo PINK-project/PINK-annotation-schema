@@ -21,21 +21,21 @@
     owl:versionIRI <https://w3id.org/pink/0.0.1> ;
     owl:imports <https://w3id.org/pink/0.0.1/contributors> ,
                 <https://w3id.org/pink/0.0.1/reused-terms> ;
-    dcatap:status "Under Development" ;
+    #dcatap:status "Under Development" ;
     dcterms:abstract "The PINK Annotation Schema provides the semantic basis for SSbD."@en ;
     dcterms:bibliographicCitation "xxx" ;
     dcterms:contributor :IseultLynch ;
     dcterms:created "2025-09-08" ;
-    dcterms:creator :FrancescaBleken ,
-                    :JesperFriis ,
-                    :JohDokler ,
-                    :ThomasExner ;
+    #dcterms:creator :FrancescaBleken ,
+    #                :JesperFriis ,
+    #                :JohDokler ,
+    #                :ThomasExner ;
     dcterms:hasFormat <https://www.w3.org/TR/turtle/> ;
     dcterms:issued "xxxx-xx-xx" ;
     dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
     dcterms:modified "xxxx-xx-xx" ;
     dcterms:publisher <https://pink-project.eu/> ;
-    dcterms:source "Relevant PINK deliverable" ;
+    #dcterms:source "Relevant PINK deliverable" ;
     dcterms:title "PINK Annotation Schema"@en ;
     bibo:doi "tbd" ;
     vann:preferredNamespacePrefix "pink" ;
@@ -51,7 +51,7 @@
 #################################################################
 
 ###  http://data.europa.eu/r5r/status
-dcatap:status rdf:type owl:AnnotationProperty .
+#dcatap:status rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/bibliographicCitation
@@ -67,7 +67,7 @@ dcterms:created rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/creator
-dcterms:creator rdf:type owl:AnnotationProperty .
+#dcterms:creator rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/description
@@ -87,7 +87,7 @@ dcterms:modified rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/terms/source
-dcterms:source rdf:type owl:AnnotationProperty .
+#dcterms:source rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/ontology/bibo/doi
@@ -115,12 +115,12 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 
 ###  https://w3id.org/pink#conformance
-:conformance rdf:type owl:ObjectProperty ;
-    rdfs:range ddoc:ConformanceLevel ;
-    dcterms:description "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema"@en ;
-    vann:usageNote "It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended' or 'ddoc:optional'."@en ;
-    rdfs:isDefinedBy <https://w3id.org/pink> ;
-    skos:prefLabel "conformance" .
+#:conformance rdf:type owl:ObjectProperty ;
+#    rdfs:range ddoc:ConformanceLevel ;
+#    dcterms:description "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema"@en ;
+#    vann:usageNote "It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended' or 'ddoc:optional'."@en ;
+#    rdfs:isDefinedBy <https://w3id.org/pink> ;
+#    skos:prefLabel "conformance" .
 
 
 
@@ -145,16 +145,16 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 ### Other PINK-specific relations
 :method a owl:ObjectProperty ;
-    rdfs:domain :Dataset ;
+    rdfs:domain dcat:Dataset ;
     rdfs:range :Method ;
     skos:prefLabel "method"@en ;
     dcterms:description "Relates a dataset to the method that it was created with." .
 
-:documentation a owl:ObjectProperty ;
-    rdfs:domain dcat:Resource ;
-    rdfs:range foaf:Document ;
-    skos:prefLabel "documentation"@en ;
-    dcterms:description "A page or document documenting this resource." .
+#:documentation a owl:ObjectProperty ;
+#    rdfs:domain dcat:Resource ;
+#    rdfs:range foaf:Document ;
+#    skos:prefLabel "documentation"@en ;
+#    dcterms:description "A page or document documenting this resource." .
 
 :hasAPI a owl:DatatypeProperty ;
     rdfs:domain dcat:Resource ;
@@ -180,10 +180,10 @@ foaf:logo rdf:type owl:AnnotationProperty .
     owl:propertyDisjointWith :hasPart ;
     dcterms:description "The relation between an entity that overlaps another without having it as part."@en .
 
-:hasPart rdf:type owl:ObjectProperty, owl:ReflexiveProperty, owl:TransitiveProperty ;
-    rdfs:subPropertyOf dcterms:hasPart, :overlaps ;
-    skos:prefLabel "hasPart"@en ;
-    dcterms:description "The primitive relation that express the concept of an entity being part of another one."@en .
+#:hasPart rdf:type owl:ObjectProperty, owl:ReflexiveProperty, owl:TransitiveProperty ;
+#    rdfs:subPropertyOf dcterms:hasPart, :overlaps ;
+#    skos:prefLabel "hasPart"@en ;
+#    dcterms:description "The primitive relation that express the concept of an entity being part of another one."@en .
 
 :hasParticipant rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
@@ -191,10 +191,10 @@ foaf:logo rdf:type owl:AnnotationProperty .
     dcterms:description "The relation between a process and an object participating to it, i.e. that is relevant to the process itself."@en ;
     rdfs:comment "Participation is a parthood relation: you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process."@en .
 
-:hasDatum rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :hasPart ;
-    skos:prefLabel "hasDatum"@en ;
-    dcterms:description "Relates a dataset to one of its datum."@en .
+#:hasDatum rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+#    rdfs:subPropertyOf :hasPart ;
+#    skos:prefLabel "hasDatum"@en ;
+#    dcterms:description "Relates a dataset to one of its datum."@en .
 
 :hasSpatialPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
@@ -232,13 +232,13 @@ foaf:logo rdf:type owl:AnnotationProperty .
     dcterms:description "Relates an activity to an entity that it used."@en ;
     skos:example "For example, :baking :used :spoon, :egg, :oven ." .
 
-:wasGeneratedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf prov:wasGeneratedBy, :isOvercrossedBy ;
-    skos:prefLabel "wasGeneratedBy"@en ;
-    rdfs:domain prov:Entity ;
-    rdfs:range prov:Activity ;
-    rdfs:comment "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
-    dcterms:description "Relates an entity to the activity it was generated from."@en .
+#:wasGeneratedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+#    rdfs:subPropertyOf prov:wasGeneratedBy, :isOvercrossedBy ;
+#    skos:prefLabel "wasGeneratedBy"@en ;
+#    rdfs:domain prov:Entity ;
+#    rdfs:range prov:Activity ;
+#    rdfs:comment "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
+#    dcterms:description "Relates an entity to the activity it was generated from."@en .
 
 :wasAssociatedWith rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf prov:wasAssociatedWith, :isOvercrossedBy ;
@@ -451,15 +451,15 @@ An architectural floor plan is a model of a house.
     dcterms:description "An object which is a spatial part of a process."@en ;
     vann:usageNote "Example: A student during an examination. The student exists both before and after the examination."@en .
 
-:Dataset rdf:type owl:Class ;
-    rdfs:subClassOf dcat:Dataset, :Data, [
-        rdf:type owl:Restriction ;
-        owl:onProperty :hasPart ;
-        owl:someValuesFrom :Datum
-    ] ;
-    skos:prefLabel "Dataset"@en ;
-    dcterms:description "Encoded data made of more than one datum."@en ;
-    vann:usageNote "A collection of (more than one) datum, published or curated by a single agent, and available for access or download in one or more representations."@en .
+#:Dataset rdf:type owl:Class ;
+#    rdfs:subClassOf dcat:Dataset, :Data, [
+#        rdf:type owl:Restriction ;
+#        owl:onProperty :hasPart ;
+#        owl:someValuesFrom :Datum
+#    ] ;
+#    skos:prefLabel "Dataset"@en ;
+#    dcterms:description "Encoded data made of more than one datum."@en ;
+#    vann:usageNote "A collection of (more than one) datum, published or curated by a single agent, and available for access or download in one or more representations."@en .
 
 
 ### Include standard concepts into the PINK taxonomy
