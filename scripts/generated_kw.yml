@@ -1,0 +1,1613 @@
+prefixes:
+  ddoc: https://w3id.org/emmo/application/datadoc#
+  accr: http://publications.europa.eu/resource/authority/access-right/
+  adms: http://www.w3.org/ns/adms#
+  dcat: http://www.w3.org/ns/dcat#
+  dcatap: http://data.europa.eu/r5r/
+  dcterms: http://purl.org/dc/terms/
+  dctype: http://purl.org/dc/dcmitype/
+  eli: http://data.europa.eu/eli/ontology#
+  foaf: http://xmlns.com/foaf/0.1/
+  iana: https://www.iana.org/assignments/media-types/
+  locn: http://www.w3.org/ns/locn#
+  odrl: http://www.w3.org/ns/odrl/2/
+  owl: http://www.w3.org/2002/07/owl#
+  prov: http://www.w3.org/ns/prov#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  schema: https://schema.org/
+  skos: http://www.w3.org/2004/02/skos/core#
+  spdx: http://spdx.org/rdf/terms#
+  vann: http://purl.org/vocab/vann/
+  vcard: http://www.w3.org/2006/vcard/ns#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  emmo: https://w3id.org/emmo#
+  oteio: https://w3id.org/emmo/domain/oteio#
+  chameo: https://w3id.org/emmo/domain/characterisation-methodology/chameo#
+  pink: https://w3id.org/pink#
+  xml: http://www.w3.org/XML/1998/namespace
+  brick: https://brickschema.org/schema/Brick#
+  csvw: http://www.w3.org/ns/csvw#
+  dc: http://purl.org/dc/elements/1.1/
+  dcmitype: http://purl.org/dc/dcmitype/
+  dcam: http://purl.org/dc/dcam/
+  doap: http://usefulinc.com/ns/doap#
+  geo: http://www.opengis.net/ont/geosparql#
+  org: http://www.w3.org/ns/org#
+  prof: http://www.w3.org/ns/dx/prof/
+  qb: http://purl.org/linked-data/cube#
+  sh: http://www.w3.org/ns/shacl#
+  sosa: http://www.w3.org/ns/sosa/
+  ssn: http://www.w3.org/ns/ssn/
+  time: http://www.w3.org/2006/time#
+  void: http://rdfs.org/ns/void#
+  wgs: https://www.w3.org/2003/01/geo/wgs84_pos#
+  bibo: http://purl.org/ontology/bibo/
+theme: ddoc:datadoc
+resources:
+  Resource:
+    iri: dcat:Resource
+    subClassOf: rdfs:Resource
+    description: Resource published or curated by an agent.
+    keywords:
+      accessRights:
+        iri: dcterms:accessRights
+        range: dcterms:RightsStatement
+        conformance: optional
+        description: Information about who can access the resource or an indication
+          of its security status.
+        name: accessRights
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      applicableLegislation:
+        iri: dcatap:applicableLegislation
+        range: eli:LegalResource
+        conformance: optional
+        description: The legislation that mandates the creation or management of the
+          resource.
+        name: applicableLegislation
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      conformsTo:
+        iri: dcterms:conformsTo
+        range: dcterms:Standard
+        conformance: optional
+        description: An implementing rule or other specification.
+        name: conformsTo
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      contactPoint:
+        iri: dcat:contactPoint
+        range: vcard:Kind
+        conformance: recommended
+        description: Contact information that can be used for sending comments about
+          the resource.
+        name: contactPoint
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      creator:
+        iri: dcterms:creator
+        range: foaf:Agent
+        conformance: optional
+        description: An entity responsible for producing the resource.
+        name: creator
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      curator:
+        iri: oteio:curator
+        range: foaf:Agent
+        description: The agent that curated the resource.
+        usageNote: Use `issued` to refer to the date of curation.
+        name: curator
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      description:
+        iri: dcterms:description
+        range: rdfs:Literal
+        datatype: rdf:langString
+        conformance: mandatory
+        description: A free-text account of the resource.
+        usageNote: This property can be repeated for parallel language versions of
+          the description.
+        name: description
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      documentation:
+        iri: pink:documentation
+        type: owl:ObjectProperty
+        domain: dcat:Resource
+        range: foaf:Document
+        prefLabel: documentation
+        description: A page or document documenting this resource.
+        name: documentation
+      hasPart:
+        iri: pink:hasPart
+        type:
+        - owl:ObjectProperty
+        - owl:ReflexiveProperty
+        - owl:TransitiveProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
+        - http://purl.org/dc/terms/hasPart
+        - https://w3id.org/pink#overlaps
+        prefLabel: hasPart
+        description: The primitive relation that express the concept of an entity
+          being part of another one.
+        name: hasPart
+      hasVersion:
+        iri: dcat:hasVersion
+        range: rdfs:Resource
+        conformance: optional
+        description: A related resource that is a version, edition, or adaptation
+          of the described resource.
+        usageNote: This property is intended for relating a non-versioned or abstract
+          resource to several versioned resources, e.g., snapshots.
+        name: hasVersion
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      identifier:
+        iri: dcterms:identifier
+        range: rdfs:Literal
+        conformance: optional
+        description: URI or other unique identifier of the resource being described.
+        name: identifier
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      isReferencedBy:
+        iri: dcterms:isReferencedBy
+        range: rdfs:Resource
+        conformance: optional
+        description: A related resource, such as a publication, that references, cites,
+          or otherwise points to the documented resource.
+        name: isReferencedBy
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      keyword:
+        iri: dcat:keyword
+        range: rdfs:Literal
+        datatype: rdf:langString
+        conformance: recommended
+        description: A keyword or tag describing the resource.
+        name: keyword
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      landingPage:
+        iri: dcat:landingPage
+        range: foaf:Document
+        conformance: optional
+        description: A web page that provides access to the resource and/or additional
+          information (e.g. the distribution for a dataset).
+        usageNote: It is intended to point to a landing page at the original data
+          provider, not to a page on a site of a third party, such as an aggregator.
+        name: landingPage
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      language:
+        iri: dcterms:language
+        range: rdfs:Literal
+        datatype: xsd:string
+        conformance: optional
+        description: A language of the resource.
+        usageNote: 'Recommended practice is to use either a non-literal value
+
+          representing a language from a controlled vocabulary such as
+
+          ISO 639-2 or ISO 639-3, or a literal value consisting of an
+
+          IETF Best Current Practice 47
+
+          [[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language
+
+          tag.
+
+
+          Example values: "en", "it", "no", "da"
+
+
+          This property can be repeated if the resource is expressed
+
+          with multiple languages.
+
+          '
+        name: language
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      license:
+        iri: dcterms:license
+        range: dcterms:LicenseDocument
+        conformance: optional
+        description: A licence under which the resource is made available.
+        name: license
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      modificationDate:
+        iri: dcterms:modified
+        range: rdfs:Literal
+        datatype: xsd:date
+        conformance: optional
+        description: The most recent date on which the resource was changed or modified.
+        name: modificationDate
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      publisher:
+        iri: dcterms:publisher
+        range: foaf:Agent
+        conformance: recommended
+        description: Agent responsible for making the resource available.
+        name: publisher
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      qualifiedAttribution:
+        iri: prov:qualifiedAttribution
+        range: prov:Attribution
+        conformance: optional
+        description: An Agent having some form of responsibility for the resource.
+        name: qualifiedAttribution
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      qualifiedRelation:
+        iri: dcat:qualifiedRelation
+        range: dcat:Relationship
+        conformance: optional
+        description: A description of a relationship with another resource.
+        name: qualifiedRelation
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      relatedResource:
+        iri: dcterms:relation
+        range: rdfs:Resource
+        conformance: optional
+        description: A resource with an unspecified relationship to the cataloged
+          resource.
+        name: relatedResource
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      releaseDate:
+        iri: dcterms:issued
+        range: rdfs:Literal
+        datatype: xsd:date
+        conformance: optional
+        description: The date of formal issuance (e.g., publication) of the resource.
+        name: releaseDate
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      theme:
+        iri: dcat:theme
+        range: skos:Concept
+        conformance: recommended
+        description: A category of the resource.  A resource may be associated with
+          multiple themes.
+        usageNote: The set of themes used to categorize the resources are organized
+          in a skos:ConceptScheme, skos:Collection, owl:Ontology or similar, describing
+          all the categories and their relations in the catalog.
+        name: theme
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      title:
+        iri: dcterms:title
+        range: rdfs:Literal
+        datatype: rdf:langString
+        conformance: mandatory
+        description: A name given to the resource.
+        usageNote: This property can be repeated for parallel language versions of
+          the name.
+        name: title
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      type:
+        iri: dcterms:type
+        range: skos:Concept
+        conformance: optional
+        description: A type of the resource.
+        usageNote: A recommended controlled vocabulary data-type is foreseen. For
+          agents, the value should be chosen from [ADMS publisher type](https://raw.githubusercontent.com/SEMICeu/ADMS-AP/master/purl.org/ADMS_SKOS_v1.00.rdf).
+        name: type
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      version:
+        iri: dcat:version
+        range: rdfs:Literal
+        conformance: optional
+        description: Version indicator (name or identifier) of a resource.
+        name: version
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      versionNotes:
+        iri: adms:versionNotes
+        range: rdfs:Literal
+        conformance: optional
+        description: A description of the differences between this version and a previous
+          version of the resource.
+        usageNote: This property can be repeated for parallel language versions of
+          the version notes.
+        name: versionNotes
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      abstract:
+        iri: dcterms:abstract
+        range: rdfs:Literal
+        datatype: rdf:langString
+        description: A summary of the resource.
+        name: abstract
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      bibliographicCitation:
+        iri: dcterms:bibliographicCitation
+        range: rdfs:Literal
+        description: A bibliographic reference for the resource.
+        usageNote: Recommended practice is to include sufficient bibliographic detail
+          to identify the resource as unambiguously as possible.
+        name: bibliographicCitation
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      comment:
+        iri: rdfs:comment
+        range: rdfs:Literal
+        description: A description of the subject resource. Use `description` instead.
+        name: comment
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      conformance:
+        iri: pink:conformance
+        type: owl:ObjectProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: ddoc:ConformanceLevel
+        description: Whether the annotation is mandatory, recommended or optional
+          as part of the PINK Annotation Schema
+        usageNote: It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended'
+          or 'ddoc:optional'.
+        isDefinedBy: https://w3id.org/pink
+        prefLabel: conformance
+        name: conformance
+      deprecated:
+        iri: owl:deprecated
+        range: rdfs:Literal
+        datatype: xsd:boolean
+        description: The annotation property that indicates that a given entity has
+          been deprecated. It should equal to `"true"^^xsd:boolean`.
+        name: deprecated
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      domain:
+        iri: rdfs:domain
+        range: rdfs:Resource
+        description: A domain of the subject property.
+        name: domain
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      isDefinedBy:
+        iri: rdfs:isDefinedBy
+        range: skos:Concept
+        description: Indicate a resource defining the subject resource. This property
+          may be used to indicate an RDF vocabulary in which a resource is described.
+        name: isDefinedBy
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      label:
+        iri: rdfs:label
+        range: rdfs:Literal
+        description: Provides a human-readable version of a resource's name.
+        name: label
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      range:
+        iri: rdfs:range
+        range: rdfs:Resource
+        description: A range of the subject property.
+        name: range
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      seeAlso:
+        iri: rdfs:seeAlso
+        range: skos:Concept
+        description: Indicates a resource that might provide additional information
+          about the subject resource.
+        name: seeAlso
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      statements:
+        iri: oteio:statement
+        range: rdfs:Literal
+        datatype: rdf:JSON
+        description: A list of subject-predicate-object triples with additional RDF
+          statements documenting the resource.
+        name: statements
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      usageNote:
+        iri: vann:usageNote
+        range: rdfs:Literal
+        datatype: rdf:langString
+        description: A reference that provides information on how this resource is
+          to be used.
+        name: usageNote
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+      ssbdSubDimension:
+        iri: pink:ssbdSubDimension
+        type: owl:DatatypeProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        datatype: xsd:string
+        prefLabel: ssbdSubDimension
+        description: XXX
+        name: ssbdSubDimension
+      hasAPI:
+        iri: pink:hasAPI
+        type: owl:DatatypeProperty
+        domain: dcat:Resource
+        range: rdfs:Literal
+        datatype: xsd:boolean
+        prefLabel: hasAPI
+        description: Whether the method has an API.
+        name: hasAPI
+      ssbdDimension:
+        iri: pink:ssbdDimension
+        type: owl:ObjectProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: pink:SsbdDimension
+        prefLabel: ssbdDimension
+        description: XXX
+        usageNote: One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`,
+          `pink:social_sustainability`
+        name: ssbdDimension
+      overlaps:
+        iri: pink:overlaps
+        type:
+        - owl:ObjectProperty
+        - owl:ReflexiveProperty
+        - owl:SymmetricProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        prefLabel: overlaps
+        http://www.w3.org/2002/07/owl#propertyDisjointWith: https://w3id.org/pink#nonOverlaps
+        description: The relation between two individuals representing entities that
+          share at least one of their parts.
+        name: overlaps
+      nonOverlaps:
+        iri: pink:nonOverlaps
+        type:
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        - owl:SymmetricProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        prefLabel: nonOverlaps
+        http://www.w3.org/2002/07/owl#propertyDisjointWith: https://w3id.org/pink#overlaps
+        description: The relation between two individuals that does not share any
+          parts.
+        name: nonOverlaps
+      isOvercrossedBy:
+        iri: pink:isOvercrossedBy
+        type:
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#overlaps
+        prefLabel: isOvercrossedBy
+        http://www.w3.org/2002/07/owl#propertyDisjointWith: https://w3id.org/pink#hasPart
+        description: The relation between an entity that overlaps another without
+          having it as part.
+        name: isOvercrossedBy
+      hasParticipant:
+        iri: pink:hasParticipant
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#hasPart
+        prefLabel: hasParticipant
+        description: The relation between a process and an object participating to
+          it, i.e. that is relevant to the process itself.
+        comment: 'Participation is a parthood relation: you must be part of the process
+          to contribute to it. A participant whose 4D extension is totally contained
+          within the process.'
+        name: hasParticipant
+      hasDatum:
+        iri: pink:hasDatum
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#hasPart
+        prefLabel: hasDatum
+        description: Relates a dataset to one of its datum.
+        name: hasDatum
+      hasSpatialPart:
+        iri: pink:hasSpatialPart
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#hasPart
+        prefLabel: hasSpatialPart
+        description: A proper part of a whole, whose parts always cover the full temporal
+          extension of the whole within a spatial interval.
+        comment: The part is connected with the rest item or members with hasContact
+          relations only (no hasNext).
+        name: hasSpatialPart
+      hasTemporalPart:
+        iri: pink:hasTemporalPart
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#hasPart
+        prefLabel: hasTemporalPart
+        description: A relation that identify a proper item part of the whole, whose
+          parts always cover the full spatial extension of the whole within a time
+          interval.
+        comment: A temporal part of an item cannot both cause and be caused by any
+          other proper part of the item.
+        name: hasTemporalPart
+      hasJunctionPart:
+        iri: pink:hasJunctionPart
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#hasPart
+        prefLabel: hasJunctionPart
+        altLabel: hasSpatioTemporalPart
+        description: The part is connected with the rest item or members with both
+          hasNext (or its inverse) and hasContact relations.
+        name: hasJunctionPart
+      causedBy:
+        iri: pink:causedBy
+        type:
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: http://www.w3.org/ns/prov#wasInfluencedBy
+        prefLabel: causedBy
+        description: A relation between an entity that causally affects the subject.
+        http://www.w3.org/2004/02/skos/core#example: John yesterday is the cause of
+          John today, is an example of temporal-like causality. The desk supporting
+          my laptop is a space-like causality.
+        name: causedBy
+      isAfter:
+        iri: pink:isAfter
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#causedBy
+        prefLabel: isAfter
+        description: A one-directional relation between an entity that affects the
+          subject.
+        name: isAfter
+      processedFrom:
+        iri: pink:processedFrom
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#isAfter
+        prefLabel: processedFrom
+        description: Indirect relation that relates the output of an activity to its
+          input.
+        name: processedFrom
+  Dataset:
+    iri: dcat:Dataset
+    subClassOf:
+    - dcat:Resource
+    - emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
+    description: A collection of data, published or curated by an agent, and available
+      for access or download in one or more representations.
+    keywords:
+      distribution:
+        iri: dcat:distribution
+        range: dcat:Distribution
+        conformance: recommended
+        description: An available distribution for the dataset.
+        name: distribution
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      frequency:
+        iri: dcterms:accrualPeriodicity
+        range: dcterms:Frequency
+        conformance: optional
+        description: The frequency at which the Dataset is updated.
+        name: frequency
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      geographicalCoverage:
+        iri: dcterms:spatial
+        range: dcterms:Location
+        conformance: recommended
+        description: A geographic region that is covered by the dataset.
+        name: geographicalCoverage
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      inSeries:
+        iri: dcat:inSeries
+        range: dcat:DatasetSeries
+        conformance: optional
+        description: A dataset series of which the dataset is part.
+        name: inSeries
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      otherIdentifier:
+        iri: adms:identifier
+        range: adms:Identifier
+        conformance: optional
+        description: A secondary identifier of the Dataset
+        name: otherIdentifier
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      sample:
+        iri: adms:sample
+        range: dcat:Distribution
+        conformance: optional
+        description: A sample distribution of the dataset.
+        name: sample
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      source:
+        iri: dcterms:source
+        range: dcat:Dataset
+        conformance: optional
+        description: A related Dataset from which the described Dataset is derived.
+        name: source
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      spatialResolution:
+        iri: dcat:spatialResolutionInMeters
+        range: rdfs:Literal
+        datatype: xsd:decimal
+        conformance: optional
+        description: The minimum spatial separation resolvable in a dataset, measured
+          in meters.
+        name: spatialResolution
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      temporalCoverage:
+        iri: dcterms:temporal
+        range: dcterms:PeriodOfTime
+        conformance: recommended
+        description: A temporal period that the Dataset covers.
+        name: temporalCoverage
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      temporalResolution:
+        iri: dcat:temporalResolution
+        range: rdfs:Literal
+        datatype: xsd:duration
+        conformance: optional
+        description: The minimum time period resolvable in the dataset.
+        name: temporalResolution
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      wasDerivedFrom:
+        iri: prov:wasDerivedFrom
+        range: dcat:Resource
+        conformance: optional
+        description: A derivation is a transformation of an entity into another, an
+          update of an entity resulting in a new one, or the construction of a new
+          entity based on a pre-existing entity.
+        usageNote: Relates a resource to another resource it was derived from.
+        name: wasDerivedFrom
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      wasGeneratedBy:
+        iri: prov:wasGeneratedBy
+        range: prov:Activity
+        conformance: optional
+        description: An activity that generated, or provides the business context
+          for, the creation of the dataset.
+        name: wasGeneratedBy
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      datamodel:
+        iri: oteio:hasDatamodel
+        range: oteio:Datamodel
+        description: URI of DLite datamodel for the dataset.
+        name: datamodel
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      datamodelStorage:
+        iri: oteio:hasDatamodelStorage
+        range: rdfs:Literal
+        datatype: xsd:anyURI
+        description: URL to DLite storage plugin where the datamodel is stored.
+        name: datamodelStorage
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      hasDatum:
+        iri: emmo:EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e
+        range: emmo:EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a
+        description: Relates a dataset to its datum parts.
+        usageNote: '`hasDatum` relations are normally NOT specified manually, since
+          they are generated from the DLite data model.'
+        name: hasDatum
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      isDescriptionFor:
+        iri: emmo:EMMO_f702bad4_fc77_41f0_a26d_79f6444fd4f3
+        range: dcat:Resource
+        description: An object (e.g. a material) that this dataset describes.
+        name: isDescriptionFor
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      isInputOf:
+        iri: emmo:EMMO_1494c1a9_00e1_40c2_a9cc_9bbf302a1cac
+        range: emmo:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
+        description: A process that this dataset is the input to.
+        name: isInputOf
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      isOutputOf:
+        iri: emmo:EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461
+        range: emmo:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce
+        description: A process that this dataset is the output to.
+        name: isOutputOf
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      mappings:
+        iri: oteio:mapping
+        range: rdfs:Literal
+        datatype: rdf:JSON
+        description: A list of subject-predicate-object triples mapping the datamodel
+          to ontological concepts.
+        name: mappings
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      mappingURL:
+        iri: oteio:mappingURL
+        range: rdfs:Literal
+        datatype: xsd:anyURI
+        description: URL to a document defining the mappings of the datamodel. The
+          file format is given by `mappingFormat`. Defaults to turtle.
+        name: mappingURL
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      mappingFormat:
+        iri: oteio:mappingFormat
+        range: rdfs:Literal
+        description: File format for `mappingURL`. Defaults to "turtle".
+        name: mappingFormat
+        theme: ddoc:datadoc
+        domain: dcat:Dataset
+      method:
+        iri: pink:method
+        type: owl:ObjectProperty
+        domain: dcat:Dataset
+        range: pink:Method
+        prefLabel: method
+        description: Relates a dataset to the method that it was created with.
+        name: method
+  Distribution:
+    iri: dcat:Distribution
+    subClassOf: dcat:Resource
+    description: A physical embodiment of the Dataset in a particular format.
+    usageNote: This represents a general availability of a dataset. It implies no
+      information about the actual access method of the data, i.e., whether by direct
+      download, API, or through a Web page. The use of dcat:downloadURL property indicates
+      directly downloadable distributions.
+    keywords:
+      accessService:
+        iri: dcat:accessService
+        range: dcat:DataService
+        conformance: optional
+        description: A data service that gives access to the distribution of the dataset.
+        name: accessService
+        theme: ddoc:datadoc
+        domain: dcat:Distribution
+      accessURL:
+        iri: dcat:accessURL
+        range: rdfs:Resource
+        conformance: mandatory
+        description: A URL that gives access to a Distribution of the Dataset.
+        usageNote: The resource at the access URL may contain information about how
+          to get the Dataset.
+        name: accessURL
+        theme: ddoc:datadoc
+        domain: dcat:Distribution
+      availability:
+        iri: dcatap:availability
+        range: rdfs:Literal
+        datatype: xsd:date
+        conformance: recommended
+        description: An indication how long it is planned to keep the Distribution
+          of the Dataset available.
+        name: availability
+        theme: ddoc:datadoc
+        domain: dcat:Distribution
+      byteSize:
+        iri: dcat:byteSize
+        range: rdfs:Literal
+        datatype: xsd:nonNegativeInteger
+        conformance: optional
+        description: The size of a Distribution in bytes.
+        name: byteSize
+        theme: ddoc:datadoc
+        domain: dcat:Distribution
+      checksum:
+        iri: spdx:checksum
+        range: spdx:Checksum
+        conformance: optional
+        description: A mechanism that can be used to verify that the contents of a
+          distribution have not changed.
+        usageNote: The checksum is related to the downloadURL.
+        name: checksum
+        theme: ddoc:datadoc
+        domain: dcat:Distribution
+      compressFormat:
+        iri: dcat:compressFormat
+        range: dcterms:MediaType
+        conformance: optional
+        description: The format of the file in which the data is contained in a compressed
+          form, e.g. to reduce the size of the downloadable file.
+        usageNote: It SHOULD be expressed using a media type as defined in the official
+          register of media types managed by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types).
+        name: compressFormat
+        theme: ddoc:datadoc
+        domain: dcat:Distribution
+      downloadURL:
+        iri: dcat:downloadURL
+        range: rdfs:Literal
+        datatype: xsd:anyURI
+        conformance: optional
+        description: A URL that is a direct link to a downloadable file in a given
+          format.
+        name: downloadURL
+        theme: ddoc:datadoc
+        domain: dcat:Distribution
+      format:
+        iri: dcterms:format
+        range: dcterms:MediaTypeOrExtent
+        conformance: optional
+        description: The file format of the Distribution.
+        usageNote: dcat:mediaType SHOULD be used if the type of the distribution is
+          defined by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types).
+        name: format
+        theme: ddoc:datadoc
+        domain: dcat:Distribution
+      generator:
+        iri: oteio:generator
+        range: oteio:Generator
+        description: A generator that can create the distribution.
+        name: generator
+        theme: ddoc:datadoc
+        domain: dcat:Distribution
+      mediaType:
+        iri: dcat:mediaType
+        range: dcterms:MediaType
+        conformance: recommended
+        description: The media type of the Distribution as defined in the official
+          register of media types managed by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types).
+        name: mediaType
+        theme: ddoc:datadoc
+        domain: dcat:Distribution
+      packageFormat:
+        iri: dcat:packageFormat
+        range: dcterms:MediaType
+        conformance: optional
+        description: The format of the file in which one or more data files are grouped
+          together, e.g. to enable a set of related files to be downloaded together.
+        usageNote: It SHOULD be expressed using a media type as defined in the official
+          register of media types managed by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)
+          and prefixed with `https://www.iana.org/assignments/media-types/`.
+        name: packageFormat
+        theme: ddoc:datadoc
+        domain: dcat:Distribution
+      parser:
+        iri: oteio:parser
+        range: oteio:Parser
+        description: A parser that can parse the distribution.
+        name: parser
+        theme: ddoc:datadoc
+        domain: dcat:Distribution
+      status:
+        iri: adms:status
+        range: rdfs:Literal
+        conformance: optional
+        description: The status of the distribution in the context of maturity lifecycle.
+        usageNote: 'It MUST take one of the values: ''Completed'', ''Deprecated'',
+          ''Under Development'', ''Withdrawn''.'
+        name: status
+        theme: ddoc:datadoc
+        domain: dcat:Distribution
+  Parser:
+    iri: oteio:Parser
+    description: A parser that can parse a distribution into an instance of a datamodel.
+    keywords:
+      configuration:
+        iri: oteio:hasConfiguration
+        range: rdfs:Literal
+        datatype: rdf:JSON
+        description: A JSON string with configurations specific to the parser or generator.
+        name: configuration
+        theme: ddoc:datadoc
+        domain: oteio:Parser
+      parserType:
+        iri: oteio:parserType
+        range: rdfs:Literal
+        description: 'Parser type. Ex: `application/vnd.dlite-parse`.'
+        name: parserType
+        theme: ddoc:datadoc
+        domain: oteio:Parser
+  Generator:
+    iri: oteio:Generator
+    subClassOf: oteio:Parser
+    description: A generator that can serialise an instance of a datamodel into a
+      distribution.
+    keywords:
+      generatorType:
+        iri: oteio:generatorType
+        range: rdfs:Literal
+        description: 'Generator type. Ex: `application/vnd.dlite-generate`.'
+        name: generatorType
+        theme: ddoc:datadoc
+        domain: oteio:Generator
+  Agent:
+    iri: prov:Agent
+    subClassOf:
+    - dcterms:Agent
+    - emmo:EMMO_2480b72b_db8d_460f_9a5f_c2912f979046
+    description: An agent (eg. person, group, software or physical artifact).
+    usageNote: A resource that acts or has the power to act.
+    keywords:
+      name:
+        iri: foaf:name
+        range: rdfs:Literal
+        conformance: mandatory
+        datatype: xsd:string
+        description: A name of the agent.
+        name: name
+        theme: ddoc:datadoc
+        domain: foaf:Agent
+      identifier:
+        iri: dcterms:identifier
+        range: rdfs:Literal
+        conformance: optional
+        description: URI or other unique identifier of the resource being described.
+        name: identifier
+        theme: ddoc:datadoc
+        domain: foaf:Agent
+      type:
+        iri: dcterms:type
+        range: skos:Concept
+        conformance: optional
+        description: A type of the resource.
+        usageNote: A recommended controlled vocabulary data-type is foreseen. For
+          agents, the value should be chosen from [ADMS publisher type](https://raw.githubusercontent.com/SEMICeu/ADMS-AP/master/purl.org/ADMS_SKOS_v1.00.rdf).
+        name: type
+        theme: ddoc:datadoc
+        domain: foaf:Agent
+      attributed:
+        iri: pink:attributed
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Agent
+        range: prov:Entity
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#causedBy
+        prefLabel: attributed
+        comment:
+        - The activity is through overlapped by the agent and overcrossed by the entity.
+        - There may or may not be a causal interaction between the agent and entity.
+        description: Relates an agent to an entity via an activity that both the agent
+          and entity participates to.
+        http://www.w3.org/2002/07/owl#inverseOf: https://w3id.org/pink#wasAttributedTo
+        name: attributed
+  Checksum:
+    iri: spdx:Checksum
+    description: A preferred label of the concept.
+    keywords:
+      algorithm:
+        iri: spdx:algorithm
+        range: spdx:ChecksumAlgorithm
+        description: The algorithm used to produce the subject Checksum.
+        name: algorithm
+        theme: ddoc:datadoc
+        domain: spdx:Checksum
+      checksumValue:
+        iri: spdx:checksumValue
+        range: rdfs:Literal
+        datatype: xsd:hexBinary
+        description: A lower case hexadecimal encoded digest value produced using
+          a specific algorithm.
+        name: checksumValue
+        theme: ddoc:datadoc
+        domain: spdx:Checksum
+  DataService:
+    iri: dcat:DataService
+    subClassOf: rdfs:Resource
+    description: A collection of operations that provides access to one or more datasets
+      or data processing functions.
+    keywords:
+      endpointDescription:
+        iri: dcat:endpointDescription
+        range: rdfs:Resource
+        conformance: recommended
+        description: A description of the services available via the end-points, including
+          their operations, parameters etc.
+        name: endpointDescription
+        theme: ddoc:datadoc
+        domain: dcat:DataService
+      endpointURL:
+        iri: dcat:endpointURL
+        range: rdfs:Literal
+        datatype: xsd:anyURI
+        conformance: mandatory
+        description: The root location or primary endpoint of the service (an IRI).
+        name: endpointURL
+        theme: ddoc:datadoc
+        domain: dcat:DataService
+      servesDataset:
+        iri: dcat:servesDataset
+        range: dcat:Dataset
+        conformance: recommended
+        description: This property refers to a collection of data that this data service
+          can distribute.
+        name: servesDataset
+        theme: ddoc:datadoc
+        domain: dcat:DataService
+      parser:
+        iri: oteio:parser
+        range: oteio:Parser
+        description: A parser that can parse the distribution.
+        name: parser
+        theme: ddoc:datadoc
+        domain: dcat:DataService
+  Kind:
+    iri: vcard:Kind
+    description: A description following the vCard specification, e.g. to provide
+      telephone number and e-mail address for a contact point.
+    usageNote: Note that the class Kind is the parent class for the four explicit
+      types of vCard (Individual, Organization, Location, Group).
+    keywords:
+      hasAddress:
+        iri: vcard:hasAddress
+        range: rdfs:Literal
+        name: hasAddress
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasCountryName:
+        iri: vcard:hasCountryName
+        range: rdfs:Literal
+        name: hasCountryName
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasEmail:
+        iri: vcard:hasEmail
+        range: rdfs:Literal
+        name: hasEmail
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasFamilyName:
+        iri: vcard:hasFamilyName
+        range: rdfs:Literal
+        name: hasFamilyName
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasGender:
+        iri: vcard:hasGender
+        range: rdfs:Literal
+        name: hasGender
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasGeo:
+        iri: vcard:hasGeo
+        range: rdfs:Literal
+        name: hasGeo
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasGivenName:
+        iri: vcard:hasGivenName
+        range: rdfs:Literal
+        name: hasGivenName
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasHonorificPrefix:
+        iri: vcard:hasHonorificPrefix
+        range: rdfs:Literal
+        name: hasHonorificPrefix
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasHonorificSuffix:
+        iri: vcard:hasHonorificSuffix
+        range: rdfs:Literal
+        name: hasHonorificSuffix
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasKey:
+        iri: vcard:hasKey
+        range: rdfs:Literal
+        name: hasKey
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasLanguage:
+        iri: vcard:hasLanguage
+        range: rdfs:Literal
+        name: hasLanguage
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasLogo:
+        iri: vcard:hasLogo
+        range: rdfs:Literal
+        name: hasLogo
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasMember:
+        iri: vcard:hasMember
+        range: rdfs:Literal
+        name: hasMember
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasInstantMessage:
+        iri: vcard:hasInstantMessage
+        range: rdfs:Literal
+        name: hasInstantMessage
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasName:
+        iri: vcard:hasName
+        range: rdfs:Literal
+        name: hasName
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasNickname:
+        iri: vcard:hasNickname
+        range: rdfs:Literal
+        name: hasNickname
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasNote:
+        iri: vcard:hasNote
+        range: rdfs:Literal
+        name: hasNote
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasOrganizationName:
+        iri: vcard:hasOrganizationName
+        range: rdfs:Literal
+        name: hasOrganizationName
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasOrganizationUnit:
+        iri: vcard:hasOrganizationUnit
+        range: rdfs:Literal
+        name: hasOrganizationUnit
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasPhoto:
+        iri: vcard:hasPhoto
+        range: rdfs:Literal
+        name: hasPhoto
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasPostalCode:
+        iri: vcard:hasPostalCode
+        range: rdfs:Literal
+        name: hasPostalCode
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasRegion:
+        iri: vcard:hasRegion
+        range: rdfs:Literal
+        name: hasRegion
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasStreetAddress:
+        iri: vcard:hasStreetAddress
+        range: rdfs:Literal
+        name: hasStreetAddress
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasTelephone:
+        iri: vcard:hasTelephone
+        range: rdfs:Literal
+        name: hasTelephone
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasUID:
+        iri: vcard:hasUID
+        range: rdfs:Literal
+        name: hasUID
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+      hasURL:
+        iri: vcard:hasURL
+        range: rdfs:Literal
+        name: hasURL
+        theme: ddoc:datadoc
+        domain: vcard:Kind
+  Location:
+    iri: dcterms:Location
+    description: A spatial region or named place.
+    usageNote: It can be represented using a controlled vocabulary or with geographic
+      coordinates. In the latter case, the use of the Core Location Vocabulary is
+      recommended, following the approach described in the GeoDCAT-AP specification.
+    keywords:
+      bbox:
+        iri: dcat:bbox
+        range: rdfs:Literal
+        conformance: recommended
+        description: The geographic bounding box of a resource.
+        name: bbox
+        theme: ddoc:datadoc
+        domain: dcterms:Location
+      centroid:
+        iri: dcat:centroid
+        range: rdfs:Literal
+        conformance: recommended
+        description: The geographic center (centroid) of a resource.
+        name: centroid
+        theme: ddoc:datadoc
+        domain: dcterms:Location
+      geometry:
+        iri: locn:geometry
+        range: locn:Geometry
+        conformance: optional
+        description: The geographic center (centroid) of a resource.
+        name: geometry
+        theme: ddoc:datadoc
+        domain: dcterms:Location
+  Relationship:
+    iri: dcat:Relationship
+    description: An association class for attaching additional information to a relationship
+      between DCAT Resources.
+    keywords:
+      hasRole:
+        iri: dcat:hasRole
+        range: dcat:Role
+        description: A function of an entity or agent with respect to another entity
+          or resource.
+        name: hasRole
+        theme: ddoc:datadoc
+        domain: dcat:Relationship
+      relatedResource:
+        iri: dcterms:relation
+        range: rdfs:Resource
+        conformance: optional
+        description: A resource with an unspecified relationship to the cataloged
+          resource.
+        name: relatedResource
+        theme: ddoc:datadoc
+        domain: dcat:Relationship
+  Class:
+    iri: rdfs:Class
+    description: The class of classes.
+    keywords:
+      altLabel:
+        iri: skos:altLabel
+        description: An alternative lexical label for a resource.
+        range: rdfs:Literal
+        datatype: rdf:langString
+        name: altLabel
+        theme: ddoc:datadoc
+        domain: rdfs:Class
+      conceptualisation:
+        iri: emmo:EMMO_31252f35_c767_4b97_a877_1235076c3e13
+        description: A comment that helps the reader to understand how the world has
+          been conceptualised by the ontology authors.
+        range: rdfs:Literal
+        datatype: rdf:langString
+        name: conceptualisation
+        theme: ddoc:datadoc
+        domain: rdfs:Class
+      elucidation:
+        iri: emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9
+        range: rdfs:Literal
+        datatype: rdf:langString
+        description: Short enlightening explanation aimed to facilitate the user in
+          drawing the connection (interpretation) between a OWL entity and the real
+          world object(s) for which it stands.  It should address the real world entities
+          using the concepts introduced by the conceptualisation.
+        name: elucidation
+        theme: ddoc:datadoc
+        domain: rdfs:Class
+      hiddenLabel:
+        iri: skos:hiddenLabel
+        range: rdfs:Literal
+        datatype: rdf:langString
+        description: A lexical label for a resource that should be hidden when generating
+          visual displays of the resource, but should still be accessible to free
+          text search operations.
+        name: hiddenLabel
+        theme: ddoc:datadoc
+        domain: rdfs:Class
+      prefLabel:
+        iri: skos:prefLabel
+        range: rdfs:Literal
+        datatype: rdf:langString
+        description: A preferred label of the concept.
+        name: prefLabel
+        theme: ddoc:datadoc
+        domain: rdfs:Class
+      subClassOf:
+        iri: rdfs:subClassOf
+        range: rdfs:Class
+        description: The subject is a subclass of a class.
+        name: subClassOf
+        theme: ddoc:datadoc
+        domain: rdfs:Class
+  GenericResource:
+    iri: rdfs:Resource
+    description: A generic resource defined by RDFS.
+    keywords:
+      datatype:
+        iri: ddoc:datatype
+        range: rdfs:Datatype
+        description: A datatype for annotations and data properties.
+        name: datatype
+        theme: ddoc:datadoc
+        domain: rdfs:Resource
+      usageNote:
+        iri: vann:usageNote
+        range: rdfs:Literal
+        datatype: rdf:langString
+        description: A reference that provides information on how this resource is
+          to be used.
+        name: usageNote
+        theme: ddoc:datadoc
+        domain: rdfs:Resource
+  Restriction:
+    iri: owl:Restriction
+    description: The class of property restrictions.
+    keywords:
+      qualifiedCardinality:
+        iri: owl:qualifiedCardinality
+        description: The property that determines the cardinality of an exact qualified
+          cardinality restriction.
+        range: rdfs:Literal
+        datatype: xsd:nonNegativeInteger
+        name: qualifiedCardinality
+        theme: ddoc:datadoc
+        domain: owl:Restriction
+      minQualifiedCardinality:
+        iri: owl:minQualifiedCardinality
+        description: The property that determines the cardinality of a minimum qualified
+          cardinality restriction.
+        range: rdfs:Literal
+        datatype: xsd:nonNegativeInteger
+        name: minQualifiedCardinality
+        theme: ddoc:datadoc
+        domain: owl:Restriction
+      maxQualifiedCardinality:
+        iri: owl:maxQualifiedCardinality
+        description: The property that determines the cardinality of a maximum qualified
+          cardinality restriction.
+        range: rdfs:Literal
+        datatype: xsd:nonNegativeInteger
+        name: maxQualifiedCardinality
+        theme: ddoc:datadoc
+        domain: owl:Restriction
+  Method:
+    iri: pink:Method
+    keywords:
+      hasProcess:
+        iri: pink:hasProcess
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: pink:Method
+        range: pink:Process
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#participatesTo
+        prefLabel: hasProcess
+        comment:
+        - The starting point for this relation is that it relates a method to an activity
+          it describes. However, when an activity is described by a method is a process.
+          Therefor is the range of this relation a process and not only an activity.
+        - This is a subproperty of participatesTo, meaning that the process is overcrossed
+          by the method.
+        description: Relates a method to the process that it describes.
+        name: hasProcess
+      hasModel:
+        iri: pink:hasModel
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: pink:Method
+        range: pink:Model
+        prefLabel: hasModel
+        description: Relates a method to the model it implements.
+        name: hasModel
+      input:
+        iri: pink:input
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: pink:Method
+        range: prov:Entity
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#attributed
+        prefLabel: input
+        comment: The process P is through overlapped by the agent A and overcrossed
+          by the entity E, where the non-overlapping part of E causes P.
+        description: Relates a method to an entity via a process that used the entity
+          and that the method participates to.
+        name: input
+      output:
+        iri: pink:output
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: pink:Method
+        range: prov:Entity
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#attributed
+        prefLabel: output
+        comment: The process P is through overlapped by the agent A and overcrossed
+          by the entity E, where the non-overlapping part of E is caused by P.
+        description: Relates a method to an entity via a process that was generated
+          by the entity and that the method participates to.
+        name: output
+  Entity:
+    iri: prov:Entity
+    keywords:
+      participatesTo:
+        iri: pink:participatesTo
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Entity
+        range: prov:Activity
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#isOvercrossedBy
+        prefLabel: participatesTo
+        comment: The entity through overlaps the activity.
+        description: Relation an entity to an activity that it interacts with.
+        name: participatesTo
+      wasGeneratedBy:
+        iri: pink:wasGeneratedBy
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Entity
+        range: prov:Activity
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
+        - http://www.w3.org/ns/prov#wasGeneratedBy
+        - https://w3id.org/pink#isOvercrossedBy
+        prefLabel: wasGeneratedBy
+        comment: The activity A proper overlaps the entity E, where the non-overlapping
+          part of E is caused by A.
+        description: Relates an entity to the activity it was generated from.
+        name: wasGeneratedBy
+      wasDerivedBy:
+        iri: pink:wasDerivedBy
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Entity
+        range: prov:Entity
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
+        - http://www.w3.org/ns/prov#wasDerivedBy
+        - https://w3id.org/pink#processedFrom
+        prefLabel: wasDerivedBy
+        description: Indirect relation that relates the output entity of an activity
+          to its input entity.
+        name: wasDerivedBy
+      wasAttributedTo:
+        iri: pink:wasAttributedTo
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Entity
+        range: prov:Agent
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
+        - http://www.w3.org/ns/prov#wasAttributedTo
+        - https://w3id.org/pink#causedBy
+        prefLabel: wasAttributedTo
+        comment: The activity is through overlapped by the agent and overcrossed by
+          the entity.
+        description: Relates an entity to an agent via an activity that both the entity
+          and agent participates to.
+        http://www.w3.org/2002/07/owl#inverseOf: https://w3id.org/pink#attributed
+        name: wasAttributedTo
+      hasProperty:
+        iri: pink:hasProperty
+        type: owl:ObjectProperty
+        domain: prov:Entity
+        range: pink:Property
+        prefLabel: hasProperty
+        description: A semiotic relation that connects a semiotic object to a property
+          in a declaration process.
+        name: hasProperty
+  Activity:
+    iri: prov:Activity
+    keywords:
+      used:
+        iri: pink:used
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Activity
+        range: prov:Entity
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
+        - http://www.w3.org/ns/prov#used
+        - https://w3id.org/pink#isOvercrossedBy
+        prefLabel: used
+        comment: The activity A proper overlaps the entity E, where the non-overlapping
+          part of E causes A.
+        description: Relates an activity to an entity that it used.
+        http://www.w3.org/2004/02/skos/core#example: For example, :baking :used :spoon,
+          :egg, :oven .
+        name: used
+      wasAssociatedWith:
+        iri: pink:wasAssociatedWith
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Activity
+        range: prov:Agent
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
+        - http://www.w3.org/ns/prov#wasAssociatedWith
+        - https://w3id.org/pink#isOvercrossedBy
+        prefLabel: wasAssociatedWith
+        comment: The activity is through overlapped by the agent.
+        description: Relates an activity to an agent that had some (unspecified) responsibility
+          for the occurence of this activity.
+        name: wasAssociatedWith
+      wasInformedBy:
+        iri: pink:wasInformedBy
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Activity
+        range: prov:Activity
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
+        - http://www.w3.org/ns/prov#wasInformedBy
+        - https://w3id.org/pink#isAfter
+        prefLabel: wasInformedBy
+        description: A one-directional relation between an activity that affects the
+          subject activity.
+        name: wasInformedBy
