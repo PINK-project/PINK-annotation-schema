@@ -4,5 +4,6 @@
     <uri name="https://w3id.org/pink/0.0.1"              uri="./pink_annotation_schema.ttl"/>
     <uri name="https://w3id.org/pink/0.0.1/contributors" uri="./contributors.ttl"/>
     <uri name="https://w3id.org/pink/0.0.1/reused-terms" uri="./reused-terms.ttl"/>
+    <uri name="https://w3id.org/pink/0.0.1/ssbd-dimensions" uri="./ssbd-dimensions.ttl"/>
   </group>
 </catalog>
