@@ -417,12 +417,10 @@ pink:EnvironmentalImpactMidpointCategorised a owl:Class ;
 pink:SsbdCategorisedByCategory a owl:Class ;
     rdfs:label "SSbD Categorized by Catetory" ;
     dcterms:description "The superclass of all individuals categorised by SSbD category." ;
-    rdfs:subClassOf pink:SsbdCategorisedByDimension ;
     skos:prefLabel "SsbdCategorisedByCategory" .
 
 pink:SsbdCategorisedBySubCategory a owl:Class ;
     rdfs:label "SSbD Categorized by SubCategory" ;
     dcterms:description "The superclass of all individuals categorised by SSbD subcategory." ;
-    rdfs:subClassOf pink:SsbdCategorisedByCategory ;
     skos:prefLabel "SsbdCategorisedBySubCategory" .
 
