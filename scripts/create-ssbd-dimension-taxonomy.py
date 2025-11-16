@@ -7,15 +7,15 @@ from tripper import DCTERMS, OWL, RDF, RDFS, Triplestore
 from tripper.datadoc import TableDoc
 from tripper.utils import en
 
+# Set constants
+ssbd = "https://w3id.org/pink/ssbd-dimensions"
+ver = "0.0.1"
 
 thisdir = Path(__file__).resolve().parent
 rootdir = thisdir.parent
 
-ssbd = "https://w3id.org/pink/ssbd-dimensions"
-ver = "0.0.1"
-
+# Create triplestore and load the SSbD taxonomy into it
 ts = Triplestore("rdflib")
-
 td = TableDoc.parse_csv(
     rootdir / "sources" / "ssbd_dimension_taxonomy.csv",
     type=None,
@@ -35,4 +35,5 @@ ts.add_triples(
 # Remove subClassOf rdfs:Class relations
 ts.remove(predicate=RDFS.subClassOf, object=RDFS.Class)
 
+# Save to file
 ts.serialize(rootdir/"ssbd-dimensions.ttl")
