@@ -163,6 +163,29 @@ foaf:logo rdf:type owl:AnnotationProperty .
     dcterms:description "Whether the method has an API." .
 
 
+
+:hasSMILE a owl:DatatypeProperty ;
+    rdfs:domain :ChemicalStructure ;
+    rdfs:range xsd:string ;
+    skos:prefLabel "hasSMILE"@en ;
+    dcterms:description "SMILE string for a chemical structure." .
+
+:hasCAS a owl:DatatypeProperty ;
+    rdfs:domain :ChemicalSubstance ;
+    rdfs:range xsd:string ;
+    skos:prefLabel "hasCAS"@en ;
+    dcterms:description "A unique numeric identifier assigned to a chemical substance by the Chemical Abstracts Service (CAS)." .
+
+:hasInChI a owl:DatatypeProperty ;
+    rdfs:domain :ChemicalSubstance ;
+    rdfs:range xsd:string ;
+    skos:prefLabel "hasInChI"@en ;
+    dcterms:description "A unique identifier representing a chemical substance." .
+
+
+
+
+
 ### Parthood relations
 :overlaps rdf:type owl:ObjectProperty, owl:SymmetricProperty, owl:ReflexiveProperty ;
     skos:prefLabel "overlaps"@en ;
@@ -193,6 +216,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 :hasDatum rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
+    rdfs:domain "dcat:Dataset" ;
     skos:prefLabel "hasDatum"@en ;
     dcterms:description "Relates a dataset to one of its datum."@en .
 
