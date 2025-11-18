@@ -151,6 +151,7 @@
     dcterms:description "Relates a dataset to the method that it was created with." .
 
 :documentation a owl:ObjectProperty ;
+    rdfs:subPropertyOf foaf:page;
     rdfs:domain dcat:Resource ;
     rdfs:range foaf:Document ;
     skos:prefLabel "documentation"@en ;
@@ -190,11 +191,6 @@
     skos:prefLabel "hasParticipant"@en ;
     dcterms:description "The relation between a process and an object participating to it, i.e. that is relevant to the process itself."@en ;
     rdfs:comment "Participation is a parthood relation: you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process."@en .
-
-:hasDatum rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :hasPart ;
-    skos:prefLabel "hasDatum"@en ;
-    dcterms:description "Relates a dataset to one of its datum."@en .
 
 :hasSpatialPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;

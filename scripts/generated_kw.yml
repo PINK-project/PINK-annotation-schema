@@ -117,6 +117,7 @@ resources:
         type: owl:ObjectProperty
         domain: dcat:Resource
         range: foaf:Document
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: http://xmlns.com/foaf/0.1/page
         prefLabel: documentation
         description: A page or document documenting this resource.
         name: documentation
@@ -523,20 +524,6 @@ resources:
           to contribute to it. A participant whose 4D extension is totally contained
           within the process.'
         name: hasParticipant
-      hasDatum:
-        iri: pink:hasDatum
-        type:
-        - owl:AsymmetricProperty
-        - owl:IrreflexiveProperty
-        - owl:ObjectProperty
-        domain:
-        - dcat:Resource
-        - rdfs:Resource
-        range: rdfs:Literal
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#hasPart
-        prefLabel: hasDatum
-        description: Relates a dataset to one of its datum.
-        name: hasDatum
       hasSpatialPart:
         iri: pink:hasSpatialPart
         type:

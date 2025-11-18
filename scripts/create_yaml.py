@@ -1,5 +1,9 @@
 from tripper import Triplestore
 from tripper.datadoc import get_keywords
+import logging
+
+# Note that logging to screen is nto always happening
+logging.getLogger().setLevel(logging.INFO)
 
 ts =  Triplestore('rdflib')
 
@@ -12,3 +16,4 @@ kw.add_prefix('pink', 'https://w3id.org/pink#')
 kw.load_rdf(ts, redefine='allow')
 
 kw.save_yaml('generated_kw.yml')
+

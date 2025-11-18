@@ -227,6 +227,8 @@ ddoc:curationDate a owl:DatatypeProperty ;
     dcterms:description "Date of curation."@en ;
     vann:usageNote "Use format: YYYY-MM-DD"@en .
 
+ddoc:hasDatum a owl:ObjectProperty ;
+
 vann:usageNote rdf:type owl:AnnotationProperty ;
     rdfs:label "usageNote"@en ;
     dcterms:description "A reference to a resource that provides information on how this resource is to be used."@en .

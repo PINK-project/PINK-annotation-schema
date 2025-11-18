@@ -16,6 +16,7 @@ It is constructed to be easily aligned with [EMMO].
 - `reused-terms.ttl`: Terms from standard vocabularies reused by the schema.
 - `LICENSE`: Creative Commons Attribution 4.0 International license.
 - `docs/`: Sub-directory with documentation.
+- `scripts/`: Sub-directory with scripts for generating keywords file for Tripper.
 
 
 ## Extra PINK annotations of externally defined terms
@@ -188,7 +189,26 @@ For example, the above declaration of a computation could provided as follows:
 | app:MyMethod | pink:Method | ...         | app:MyActivity | app:MyInput | app:MyOutput |
 
 
+# Generating keywords file for Tripper
+To generate the keywords file for [Tripper], run the file `scripts/create_yaml.py`.
 
+This requires that [Tripper] is installed in your python environment.
+
+A few considerations when running the script: 
+First and foremost, when the keyowrds are generated from the ontology the argument redefine is set to `allow`.
+This means that terms in the PINK Annotation Schema that have the same preflabel as terms already defined in Tripper's default keywords file will overwrite those.
+In addition, when turning on logging a few extra notifications are printed.
+ - Missing classes, i.e. classes that are not already defined, are added in the Keywords. This happens for `http://www.w3.org/ns/prov#Entity` and `http://www.w3.org/ns/prov#Entity`.
+ - `documentation` is redefined from `foaf:page` to `pink:documentation` because pink specified that this is the documentation of a Resource. Note that pink:documentation is a subproperty of foaf:page.
+ - `hasPart` is redefined from `dcterms:hasPart` to `pink:hasPart` because hasPar in pink is further refined to be a subproperty of `pink:overlaps`.
+ - `conformance` is redefined from `ddoc:conformance` to `pink:conformance` because additional requirements are added in PINK on top of dcat-ap, which is the default in Tripper.
+ - `wasGeneratedBy`is redefined from `prov:wasGeneratedBy` to `pink:wasGeneratedBy` because it is further refined in PINK as a subproperty of `prov:wasGeneratedBy`.
+
+
+
+
+
+# References
 
 [PINK classes]: ./docs/classes.md
 [pink_annotation_schema.ttl]: ./pink_annotation_schema.ttl
