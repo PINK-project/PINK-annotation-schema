@@ -621,6 +621,94 @@ resources:
         description: Indirect relation that relates the output of an activity to its
           input.
         name: processedFrom
+      status:
+        iri: dcatap:status
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: status
+      contributor:
+        iri: dcterms:contributor
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: contributor
+      created:
+        iri: dcterms:created
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: created
+      hasFormat:
+        iri: dcterms:hasFormat
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: hasFormat
+      issued:
+        iri: dcterms:issued
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: issued
+      modified:
+        iri: dcterms:modified
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: modified
+      doi:
+        iri: bibo:doi
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: doi
+      preferredNamespacePrefix:
+        iri: vann:preferredNamespacePrefix
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: preferredNamespacePrefix
+      preferredNamespaceUri:
+        iri: vann:preferredNamespaceUri
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: preferredNamespaceUri
+      homepage:
+        iri: foaf:homepage
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: homepage
+      logo:
+        iri: foaf:logo
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: logo
   Dataset:
     iri: dcat:Dataset
     subClassOf:
