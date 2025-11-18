@@ -202,6 +202,17 @@
     "causedBy": "pink:causedBy",
     "isAfter": "pink:isAfter",
     "processedFrom": "pink:processedFrom",
+    "status": "adms:status",
+    "contributor": "dcterms:contributor",
+    "created": "dcterms:created",
+    "hasFormat": "dcterms:hasFormat",
+    "issued": "dcterms:issued",
+    "modified": "dcterms:modified",
+    "doi": "bibo:doi",
+    "preferredNamespacePrefix": "vann:preferredNamespacePrefix",
+    "preferredNamespaceUri": "vann:preferredNamespaceUri",
+    "homepage": "foaf:homepage",
+    "logo": "foaf:logo",
     "distribution": {
       "@id": "dcat:distribution",
       "@type": "@id"
@@ -335,7 +346,6 @@
       "@id": "oteio:parser",
       "@type": "@id"
     },
-    "status": "adms:status",
     "configuration": {
       "@id": "oteio:hasConfiguration",
       "@type": "@json"

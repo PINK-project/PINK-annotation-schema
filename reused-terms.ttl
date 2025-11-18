@@ -137,17 +137,16 @@ dcterms:accessRights a rdf:Property ;
     rdfs:label "Access Rights"@en ;
     pink:conformance ddoc:mandatory .
 
-#dcterms:creator a rdf:Property ;
-#    #rdf:type owl:ObjectProperty ;
-#    rdfs:label "creator"@en ;
-#    #dcam:rangeIncludes dcterms:Agent ;
-#    #rdfs:range foaf:Agent ;
-#    #pink:conformance ddoc:mandatory ;
-#    #rdfs:comment "An entity responsible for producing the resource."@en ;
-#    #dcterms:description "Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided."@en ;
-#    #rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-#    #owl:equivalentProperty <http://xmlns.com/foaf/0.1/maker> ;
-#    pink:conformance ddoc:mandatory .
+dcterms:creator a rdf:Property ;
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "creator"@en ;
+    dcam:rangeIncludes dcterms:Agent ;
+    rdfs:range foaf:Agent ;
+    rdfs:comment "An entity responsible for producing the resource."@en ;
+    dcterms:description "Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    owl:equivalentProperty <http://xmlns.com/foaf/0.1/maker> ;
+    pink:conformance ddoc:mandatory .
 
 dcterms:description a rdf:Property ;
     #a owl:AnnotationProperty ;
