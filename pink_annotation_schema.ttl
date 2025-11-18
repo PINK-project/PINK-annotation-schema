@@ -66,10 +66,6 @@ dcterms:contributor rdf:type owl:AnnotationProperty .
 dcterms:created rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.org/dc/terms/creator
-# dcterms:creator rdf:type owl:AnnotationProperty .
-
-
 ###  http://purl.org/dc/terms/description
 # dcterms:description rdf:type owl:AnnotationProperty .
 
