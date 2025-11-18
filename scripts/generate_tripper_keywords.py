@@ -2,7 +2,7 @@ from tripper import Triplestore
 from tripper.datadoc import get_keywords
 import logging
 
-# Note that logging to screen is nto always happening
+# Note that logging to screen is not always happening
 logging.getLogger().setLevel(logging.INFO)
 
 ts =  Triplestore('rdflib')
