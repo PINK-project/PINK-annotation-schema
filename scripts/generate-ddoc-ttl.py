@@ -14,8 +14,7 @@ rootdir = thisdir.parent
 
 ts = Triplestore("rdflib")
 
-pink = "https://w3id.org/pink/ddoc"
-ver = "0.0.1"
+ddoc = "https://w3id.org/pink/ddoc"
 
 kw = get_keywords()
 kw.save_rdf(ts)
@@ -23,9 +22,9 @@ kw.save_rdf(ts)
 # Add Ontology
 ts.add_triples(
     [
-        (pink, RDF.type, OWL.Ontology),
-        (pink, OWL.versionIRI, f"https://w3id.org/pink/{ver}/ddoc"),
-        (pink, DCTERMS.title, en("Concepts defined in the ddoc vocabulary.")),
+        (ddoc, RDF.type, OWL.Ontology),
+        (ddoc, OWL.versionIRI, "https://w3id.org/pink/0.0.1/ddoc"),
+        (ddoc, DCTERMS.title, en("Concepts defined in the ddoc vocabulary.")),
     ]
 )
 
