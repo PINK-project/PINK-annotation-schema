@@ -190,7 +190,7 @@ For example, the above declaration of a computation could provided as follows:
 
 
 # Generating keywords file for Tripper
-To generate the keywords file for [Tripper], run the file `scripts/create_yaml.py`.
+To generate the keywords file for [Tripper], run the file `scripts/generate_tripper_keywords.py`.
 
 This requires that [Tripper] is installed in your python environment.
 
