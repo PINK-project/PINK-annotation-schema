@@ -18,6 +18,7 @@ prefixes:
   schema: https://schema.org/
   skos: http://www.w3.org/2004/02/skos/core#
   spdx: http://spdx.org/rdf/terms#
+  stat: http://purl.org/adms/status/
   vann: http://purl.org/vocab/vann/
   vcard: http://www.w3.org/2006/vcard/ns#
   xsd: http://www.w3.org/2001/XMLSchema#
@@ -56,6 +57,10 @@ resources:
         conformance: optional
         description: Information about who can access the resource or an indication
           of its security status.
+        usageNote: 'Access Rights may include information regarding access or restrictions
+          based on privacy, security, or other policies. The following preferred Rights
+          Statement individuals are defined: `accr:PUBLIC`, `accr:NON_PUBLIC`, `accr:CONFIDENTIAL`,
+          `accr:RESTRICTED`, `accr:SENSITIVE`'
         name: accessRights
         theme: ddoc:datadoc
         domain: dcat:Resource
@@ -93,11 +98,18 @@ resources:
         name: creator
         theme: ddoc:datadoc
         domain: dcat:Resource
+      curationDate:
+        iri: ddoc:curationDate
+        range: xsd:date
+        description: Date of curation.
+        name: curationDate
+        theme: ddoc:datadoc
+        domain: dcat:Resource
       curator:
-        iri: oteio:curator
+        iri: ddoc:curator
         range: foaf:Agent
         description: The agent that curated the resource.
-        usageNote: Use `issued` to refer to the date of curation.
+        usageNote: Use `ddoc:curationDate` to refer to the date of curation.
         name: curator
         theme: ddoc:datadoc
         domain: dcat:Resource
@@ -154,6 +166,11 @@ resources:
         range: rdfs:Literal
         conformance: optional
         description: URI or other unique identifier of the resource being described.
+        usageNote: Recommended practice is to identify the resource by means of a
+          string conforming to an identification system. Examples include International
+          Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform
+          Resource Name (URN).  Persistent identifiers should be provided as HTTP
+          URIs.
         name: identifier
         theme: ddoc:datadoc
         domain: dcat:Resource
@@ -181,8 +198,22 @@ resources:
         conformance: optional
         description: A web page that provides access to the resource and/or additional
           information (e.g. the distribution for a dataset).
-        usageNote: It is intended to point to a landing page at the original data
-          provider, not to a page on a site of a third party, such as an aggregator.
+        usageNote: 'It is intended to point to a landing page at the original
+
+          data provider, not to a page on a site of a third party,
+
+          such as an aggregator.
+
+
+          For distributions, if they are accessible only through a
+
+          landing page (i.e. direct download URLs are not known), then
+
+          the landing page link should be duplicated as accessURL on a
+
+          distribution.
+
+          '
         name: landingPage
         theme: ddoc:datadoc
         domain: dcat:Resource
@@ -313,6 +344,9 @@ resources:
         range: rdfs:Literal
         conformance: optional
         description: Version indicator (name or identifier) of a resource.
+        usageNote: 'DCAT does not prescribe how a version name / identifier should
+          be specified, and refers for guidance to [DWBP]''s Best Practice 7: Provide
+          a version indicator.'
         name: version
         theme: ddoc:datadoc
         domain: dcat:Resource
@@ -621,54 +655,6 @@ resources:
         description: Indirect relation that relates the output of an activity to its
           input.
         name: processedFrom
-      status:
-        iri: dcatap:status
-        type: owl:AnnotationProperty
-        domain:
-        - dcat:Resource
-        - rdfs:Resource
-        range: rdfs:Literal
-        name: status
-      contributor:
-        iri: dcterms:contributor
-        type: owl:AnnotationProperty
-        domain:
-        - dcat:Resource
-        - rdfs:Resource
-        range: rdfs:Literal
-        name: contributor
-      created:
-        iri: dcterms:created
-        type: owl:AnnotationProperty
-        domain:
-        - dcat:Resource
-        - rdfs:Resource
-        range: rdfs:Literal
-        name: created
-      hasFormat:
-        iri: dcterms:hasFormat
-        type: owl:AnnotationProperty
-        domain:
-        - dcat:Resource
-        - rdfs:Resource
-        range: rdfs:Literal
-        name: hasFormat
-      issued:
-        iri: dcterms:issued
-        type: owl:AnnotationProperty
-        domain:
-        - dcat:Resource
-        - rdfs:Resource
-        range: rdfs:Literal
-        name: issued
-      modified:
-        iri: dcterms:modified
-        type: owl:AnnotationProperty
-        domain:
-        - dcat:Resource
-        - rdfs:Resource
-        range: rdfs:Literal
-        name: modified
       doi:
         iri: bibo:doi
         type: owl:AnnotationProperty
@@ -710,12 +696,16 @@ resources:
         range: rdfs:Literal
         name: logo
   Dataset:
-    iri: dcat:Dataset
+    iri: pink:Dataset
     subClassOf:
     - dcat:Resource
     - emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
     description: A collection of data, published or curated by an agent, and available
       for access or download in one or more representations.
+    usageNote: This class represents the actual dataset as published by the dataset
+      provider. In cases where a distinction between the actual dataset and its entry
+      in the catalog is necessary (because metadata such as modification date and
+      maintainer might differ), the catalog record class can be used for the latter.
     keywords:
       distribution:
         iri: dcat:distribution
@@ -836,14 +826,20 @@ resources:
         theme: ddoc:datadoc
         domain: dcat:Dataset
       hasDatum:
-        iri: emmo:EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e
-        range: emmo:EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a
-        description: Relates a dataset to its datum parts.
+        iri: pink:hasDatum
+        range: pink:Datum
+        description: Relates a dataset to its datum.
         usageNote: '`hasDatum` relations are normally NOT specified manually, since
           they are generated from the DLite data model.'
         name: hasDatum
         theme: ddoc:datadoc
-        domain: dcat:Dataset
+        domain: pink:Dataset
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#hasPart
+        prefLabel: hasDatum
       isDescriptionFor:
         iri: emmo:EMMO_f702bad4_fc77_41f0_a26d_79f6444fd4f3
         range: dcat:Resource
@@ -893,7 +889,9 @@ resources:
       method:
         iri: pink:method
         type: owl:ObjectProperty
-        domain: dcat:Dataset
+        domain:
+        - dcat:Dataset
+        - pink:Dataset
         range: pink:Method
         prefLabel: method
         description: Relates a dataset to the method that it was created with.
@@ -919,7 +917,9 @@ resources:
         iri: dcat:accessURL
         range: rdfs:Resource
         conformance: mandatory
-        description: A URL that gives access to a Distribution of the Dataset.
+        description: A URL that gives access to a Distribution of the Dataset. E.g.
+          landing page, feed, SPARQL endpoint. Use for all cases except a simple download
+          link, in which case downloadURL is preferred.
         usageNote: The resource at the access URL may contain information about how
           to get the Dataset.
         name: accessURL
@@ -971,7 +971,8 @@ resources:
         datatype: xsd:anyURI
         conformance: optional
         description: A URL that is a direct link to a downloadable file in a given
-          format.
+          format. The format is indicated by the distribution's 'dterms:format' and/or
+          'dcat:mediaType'.
         name: downloadURL
         theme: ddoc:datadoc
         domain: dcat:Distribution
@@ -1021,12 +1022,12 @@ resources:
         theme: ddoc:datadoc
         domain: dcat:Distribution
       status:
-        iri: adms:status
-        range: rdfs:Literal
+        iri: dcatap:status
+        range: skos:Concept
         conformance: optional
         description: The status of the distribution in the context of maturity lifecycle.
-        usageNote: 'It MUST take one of the values: ''Completed'', ''Deprecated'',
-          ''Under Development'', ''Withdrawn''.'
+        usageNote: 'It MUST take one of the values: ''stat:Completed'', ''stat:Deprecated'',
+          ''stat:UnderDevelopment'', ''stat:Withdrawn''.'
         name: status
         theme: ddoc:datadoc
         domain: dcat:Distribution
@@ -1084,6 +1085,11 @@ resources:
         range: rdfs:Literal
         conformance: optional
         description: URI or other unique identifier of the resource being described.
+        usageNote: Recommended practice is to identify the resource by means of a
+          string conforming to an identification system. Examples include International
+          Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform
+          Resource Name (URN).  Persistent identifiers should be provided as HTTP
+          URIs.
         name: identifier
         theme: ddoc:datadoc
         domain: foaf:Agent

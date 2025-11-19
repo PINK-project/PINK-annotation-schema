@@ -50,41 +50,6 @@
 #    Annotation properties
 #################################################################
 
-###  http://data.europa.eu/r5r/status
-dcatap:status rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/bibliographicCitation
-dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/contributor
-dcterms:contributor rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/created
-dcterms:created rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/description
-# dcterms:description rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/hasFormat
-dcterms:hasFormat rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/issued
-dcterms:issued rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/modified
-dcterms:modified rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/source
-#dcterms:source rdf:type owl:AnnotationProperty .
-
 
 ###  http://purl.org/ontology/bibo/doi
 bibo:doi rdf:type owl:AnnotationProperty .
@@ -96,10 +61,6 @@ vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
 vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/vocab/vann/usageNote
-#vann:usageNote rdf:type owl:AnnotationProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/homepage
