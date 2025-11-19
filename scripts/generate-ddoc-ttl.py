@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # Generates ddoc.ttl
+# This will be obsolete once the tripper ddoc ontology is published in rdf.
 
 from pathlib import Path
 
