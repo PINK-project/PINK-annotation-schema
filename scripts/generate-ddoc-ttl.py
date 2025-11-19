@@ -6,6 +6,7 @@ from pathlib import Path
 from tripper import DCTERMS, OWL, RDF, Triplestore
 from tripper.utils import en
 from tripper.datadoc import get_keywords
+from tripper.datadoc.keywords import load_datadoc_schema
 
 
 thisdir = Path(__file__).resolve().parent
@@ -13,6 +14,7 @@ rootdir = thisdir.parent
 
 
 ts = Triplestore("rdflib")
+load_datadoc_schema(ts)
 
 ddoc = "https://w3id.org/pink/ddoc"
 

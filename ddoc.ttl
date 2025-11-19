@@ -1102,4 +1102,3 @@ owl:Class a owl:Class ;
     dcterms:description "The class of OWL classes." ;
     rdfs:subClassOf rdfs:Class,
         "rdfs:Class" .
-
