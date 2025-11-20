@@ -202,12 +202,6 @@
     "causedBy": "pink:causedBy",
     "isAfter": "pink:isAfter",
     "processedFrom": "pink:processedFrom",
-    "status": "adms:status",
-    "contributor": "dcterms:contributor",
-    "created": "dcterms:created",
-    "hasFormat": "dcterms:hasFormat",
-    "issued": "dcterms:issued",
-    "modified": "dcterms:modified",
     "doi": "bibo:doi",
     "preferredNamespacePrefix": "vann:preferredNamespacePrefix",
     "preferredNamespaceUri": "vann:preferredNamespaceUri",
@@ -270,7 +264,7 @@
       "@type": "xsd:anyURI"
     },
     "hasDatum": {
-      "@id": "emmo:EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e",
+      "@id": "pink:hasDatum",
       "@type": "@id"
     },
     "isDescriptionFor": {
@@ -346,6 +340,7 @@
       "@id": "oteio:parser",
       "@type": "@id"
     },
+    "status": "adms:status",
     "configuration": {
       "@id": "oteio:hasConfiguration",
       "@type": "@json"
@@ -501,7 +496,7 @@
       "@type": "@id"
     },
     "Resource": "dcat:Resource",
-    "Dataset": "dcat:Dataset",
+    "Dataset": "pink:Dataset",
     "Distribution": "dcat:Distribution",
     "Parser": "oteio:Parser",
     "Generator": "oteio:Generator",
@@ -529,6 +524,7 @@
     "SsbdDimension": "pink:SsbdDimension",
     "Method": "pink:Method",
     "Document": "foaf:Document",
+    "Datum": "pink:Datum",
     "Process": "pink:Process",
     "Model": "pink:Model",
     "Property": "pink:Property",

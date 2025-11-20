@@ -1,9 +1,9 @@
-@prefix : <https://w3id.org/emmo/application/datadoc#> .
 @prefix accr: <http://publications.europa.eu/resource/authority/access-right/> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
 @prefix eli: <http://data.europa.eu/eli/ontology#> .
 @prefix emmo: <https://w3id.org/emmo#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -30,7 +30,7 @@ dcatap:applicableLegislation a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "eli:LegalResource" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcatap:availability a owl:DatatypeProperty ;
     rdfs:label "availability" ;
@@ -38,7 +38,7 @@ dcatap:availability a owl:DatatypeProperty ;
     rdfs:domain "dcat:Distribution" ;
     rdfs:range "xsd:date" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:recommended" .
+    ddoc:conformance "ddoc:recommended" .
 
 accr:CONFIDENTIAL a dcterms:RightsStatement ;
     vann:usageNote "Disclosure of this data could cause damage to interested parties such as public administrations and businesses. It may refer to personal and professional information as well as to information in the context of business, commerce or trade."@en ;
@@ -100,7 +100,7 @@ dcterms:accessRights a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "dcterms:RightsStatement" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:accrualPeriodicity a owl:ObjectProperty ;
     rdfs:label "frequency" ;
@@ -108,7 +108,7 @@ dcterms:accrualPeriodicity a owl:ObjectProperty ;
     rdfs:domain "dcat:Dataset" ;
     rdfs:range "dcterms:Frequency" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:bibliographicCitation a owl:AnnotationProperty ;
     rdfs:label "bibliographicCitation" ;
@@ -123,7 +123,7 @@ dcterms:conformsTo a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "dcterms:Standard" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:creator a owl:ObjectProperty ;
     rdfs:label "creator" ;
@@ -131,7 +131,7 @@ dcterms:creator a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "foaf:Agent" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:description a owl:AnnotationProperty ;
     rdfs:label "description" ;
@@ -140,7 +140,7 @@ dcterms:description a owl:AnnotationProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "rdf:langString" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:mandatory" .
+    ddoc:conformance "ddoc:mandatory" .
 
 dcterms:format a owl:ObjectProperty ;
     rdfs:label "format" ;
@@ -149,7 +149,7 @@ dcterms:format a owl:ObjectProperty ;
     rdfs:domain "dcat:Distribution" ;
     rdfs:range "dcterms:MediaTypeOrExtent" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:hasPart a owl:ObjectProperty ;
     rdfs:label "hasPart" ;
@@ -157,14 +157,14 @@ dcterms:hasPart a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "rdfs:Resource" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:identifier a owl:AnnotationProperty ;
     rdfs:label "identifier" ;
     dcterms:description "URI or other unique identifier of the resource being described." ;
     rdfs:domain "foaf:Agent" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:isReferencedBy a owl:ObjectProperty ;
     rdfs:label "isReferencedBy" ;
@@ -172,7 +172,7 @@ dcterms:isReferencedBy a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "rdfs:Resource" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:issued a owl:DatatypeProperty ;
     rdfs:label "releaseDate" ;
@@ -180,7 +180,7 @@ dcterms:issued a owl:DatatypeProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "xsd:date" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:language a owl:DatatypeProperty ;
     rdfs:label "language" ;
@@ -200,7 +200,7 @@ with multiple languages.
     rdfs:domain "dcat:Resource" ;
     rdfs:range "xsd:string" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:license a owl:ObjectProperty ;
     rdfs:label "license" ;
@@ -208,7 +208,7 @@ dcterms:license a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "dcterms:LicenseDocument" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:modified a owl:DatatypeProperty ;
     rdfs:label "modificationDate" ;
@@ -216,7 +216,7 @@ dcterms:modified a owl:DatatypeProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "xsd:date" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:publisher a owl:ObjectProperty ;
     rdfs:label "publisher" ;
@@ -224,7 +224,7 @@ dcterms:publisher a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "foaf:Agent" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:recommended" .
+    ddoc:conformance "ddoc:recommended" .
 
 dcterms:relation a owl:ObjectProperty ;
     rdfs:label "relatedResource" ;
@@ -232,7 +232,7 @@ dcterms:relation a owl:ObjectProperty ;
     rdfs:domain "dcat:Relationship" ;
     rdfs:range "rdfs:Resource" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:source a owl:ObjectProperty ;
     rdfs:label "source" ;
@@ -240,7 +240,7 @@ dcterms:source a owl:ObjectProperty ;
     rdfs:domain "dcat:Dataset" ;
     rdfs:range "dcat:Dataset" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcterms:spatial a owl:ObjectProperty ;
     rdfs:label "geographicalCoverage" ;
@@ -248,7 +248,7 @@ dcterms:spatial a owl:ObjectProperty ;
     rdfs:domain "dcat:Dataset" ;
     rdfs:range "dcterms:Location" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:recommended" .
+    ddoc:conformance "ddoc:recommended" .
 
 dcterms:temporal a owl:ObjectProperty ;
     rdfs:label "temporalCoverage" ;
@@ -256,7 +256,7 @@ dcterms:temporal a owl:ObjectProperty ;
     rdfs:domain "dcat:Dataset" ;
     rdfs:range "dcterms:PeriodOfTime" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:recommended" .
+    ddoc:conformance "ddoc:recommended" .
 
 dcterms:title a owl:AnnotationProperty ;
     rdfs:label "title" ;
@@ -265,7 +265,7 @@ dcterms:title a owl:AnnotationProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "rdf:langString" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:mandatory" .
+    ddoc:conformance "ddoc:mandatory" .
 
 dcterms:type a owl:ObjectProperty ;
     rdfs:label "type" ;
@@ -274,7 +274,7 @@ dcterms:type a owl:ObjectProperty ;
     rdfs:domain "dcterms:LicenseDocument" ;
     rdfs:range "skos:Concept" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 vann:usageNote a owl:AnnotationProperty ;
     rdfs:label "usageNote" ;
@@ -306,7 +306,7 @@ spdx:checksum a owl:ObjectProperty ;
     rdfs:domain "dcat:Distribution" ;
     rdfs:range "spdx:Checksum" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 spdx:checksumValue a owl:DatatypeProperty ;
     rdfs:label "checksumValue" ;
@@ -556,7 +556,7 @@ adms:identifier a owl:ObjectProperty ;
     rdfs:domain "dcat:Dataset" ;
     rdfs:range "adms:Identifier" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 adms:sample a owl:ObjectProperty ;
     rdfs:label "sample" ;
@@ -564,7 +564,7 @@ adms:sample a owl:ObjectProperty ;
     rdfs:domain "dcat:Dataset" ;
     rdfs:range "dcat:Distribution" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 adms:status a owl:AnnotationProperty ;
     rdfs:label "status" ;
@@ -572,7 +572,7 @@ adms:status a owl:AnnotationProperty ;
     vann:usageNote "It MUST take one of the values: 'Completed', 'Deprecated', 'Under Development', 'Withdrawn'." ;
     rdfs:domain "dcat:Distribution" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 adms:versionNotes a owl:AnnotationProperty ;
     rdfs:label "versionNotes" ;
@@ -580,7 +580,7 @@ adms:versionNotes a owl:AnnotationProperty ;
     vann:usageNote "This property can be repeated for parallel language versions of the version notes." ;
     rdfs:domain "dcat:Resource" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcat:DataService a owl:Class ;
     dcterms:description "A collection of operations that provides access to one or more datasets or data processing functions." ;
@@ -614,7 +614,7 @@ dcat:accessService a owl:ObjectProperty ;
     rdfs:domain "dcat:Distribution" ;
     rdfs:range "dcat:DataService" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcat:accessURL a owl:ObjectProperty ;
     rdfs:label "accessURL" ;
@@ -623,14 +623,14 @@ dcat:accessURL a owl:ObjectProperty ;
     rdfs:domain "dcat:Distribution" ;
     rdfs:range "rdfs:Resource" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:mandatory" .
+    ddoc:conformance "ddoc:mandatory" .
 
 dcat:bbox a owl:AnnotationProperty ;
     rdfs:label "bbox" ;
     dcterms:description "The geographic bounding box of a resource." ;
     rdfs:domain "dcterms:Location" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:recommended" .
+    ddoc:conformance "ddoc:recommended" .
 
 dcat:byteSize a owl:DatatypeProperty ;
     rdfs:label "byteSize" ;
@@ -638,14 +638,14 @@ dcat:byteSize a owl:DatatypeProperty ;
     rdfs:domain "dcat:Distribution" ;
     rdfs:range "xsd:nonNegativeInteger" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcat:centroid a owl:AnnotationProperty ;
     rdfs:label "centroid" ;
     dcterms:description "The geographic center (centroid) of a resource." ;
     rdfs:domain "dcterms:Location" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:recommended" .
+    ddoc:conformance "ddoc:recommended" .
 
 dcat:compressFormat a owl:ObjectProperty ;
     rdfs:label "compressFormat" ;
@@ -654,7 +654,7 @@ dcat:compressFormat a owl:ObjectProperty ;
     rdfs:domain "dcat:Distribution" ;
     rdfs:range "dcterms:MediaType" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcat:contactPoint a owl:ObjectProperty ;
     rdfs:label "contactPoint" ;
@@ -662,7 +662,7 @@ dcat:contactPoint a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "vcard:Kind" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:recommended" .
+    ddoc:conformance "ddoc:recommended" .
 
 dcat:distribution a owl:ObjectProperty ;
     rdfs:label "distribution" ;
@@ -670,7 +670,7 @@ dcat:distribution a owl:ObjectProperty ;
     rdfs:domain "dcat:Dataset" ;
     rdfs:range "dcat:Distribution" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:recommended" .
+    ddoc:conformance "ddoc:recommended" .
 
 dcat:downloadURL a owl:DatatypeProperty ;
     rdfs:label "downloadURL" ;
@@ -678,7 +678,7 @@ dcat:downloadURL a owl:DatatypeProperty ;
     rdfs:domain "dcat:Distribution" ;
     rdfs:range "xsd:anyURI" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcat:endpointDescription a owl:ObjectProperty ;
     rdfs:label "endpointDescription" ;
@@ -686,7 +686,7 @@ dcat:endpointDescription a owl:ObjectProperty ;
     rdfs:domain "dcat:DataService" ;
     rdfs:range "rdfs:Resource" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:recommended" .
+    ddoc:conformance "ddoc:recommended" .
 
 dcat:endpointURL a owl:DatatypeProperty ;
     rdfs:label "endpointURL" ;
@@ -694,7 +694,7 @@ dcat:endpointURL a owl:DatatypeProperty ;
     rdfs:domain "dcat:DataService" ;
     rdfs:range "xsd:anyURI" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:mandatory" .
+    ddoc:conformance "ddoc:mandatory" .
 
 dcat:hasRole a owl:ObjectProperty ;
     rdfs:label "hasRole" ;
@@ -710,7 +710,7 @@ dcat:hasVersion a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "rdfs:Resource" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcat:inSeries a owl:ObjectProperty ;
     rdfs:label "inSeries" ;
@@ -718,7 +718,7 @@ dcat:inSeries a owl:ObjectProperty ;
     rdfs:domain "dcat:Dataset" ;
     rdfs:range "dcat:DatasetSeries" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcat:keyword a owl:AnnotationProperty ;
     rdfs:label "keyword" ;
@@ -726,7 +726,7 @@ dcat:keyword a owl:AnnotationProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "rdf:langString" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:recommended" .
+    ddoc:conformance "ddoc:recommended" .
 
 dcat:landingPage a owl:ObjectProperty ;
     rdfs:label "landingPage" ;
@@ -735,7 +735,7 @@ dcat:landingPage a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "foaf:Document" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcat:mediaType a owl:ObjectProperty ;
     rdfs:label "mediaType" ;
@@ -743,7 +743,7 @@ dcat:mediaType a owl:ObjectProperty ;
     rdfs:domain "dcat:Distribution" ;
     rdfs:range "dcterms:MediaType" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:recommended" .
+    ddoc:conformance "ddoc:recommended" .
 
 dcat:packageFormat a owl:ObjectProperty ;
     rdfs:label "packageFormat" ;
@@ -752,7 +752,7 @@ dcat:packageFormat a owl:ObjectProperty ;
     rdfs:domain "dcat:Distribution" ;
     rdfs:range "dcterms:MediaType" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcat:qualifiedRelation a owl:ObjectProperty ;
     rdfs:label "qualifiedRelation" ;
@@ -760,7 +760,7 @@ dcat:qualifiedRelation a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "dcat:Relationship" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcat:servesDataset a owl:ObjectProperty ;
     rdfs:label "servesDataset" ;
@@ -768,7 +768,7 @@ dcat:servesDataset a owl:ObjectProperty ;
     rdfs:domain "dcat:DataService" ;
     rdfs:range "dcat:Dataset" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:recommended" .
+    ddoc:conformance "ddoc:recommended" .
 
 dcat:spatialResolutionInMeters a owl:DatatypeProperty ;
     rdfs:label "spatialResolution" ;
@@ -776,7 +776,7 @@ dcat:spatialResolutionInMeters a owl:DatatypeProperty ;
     rdfs:domain "dcat:Dataset" ;
     rdfs:range "xsd:decimal" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcat:temporalResolution a owl:DatatypeProperty ;
     rdfs:label "temporalResolution" ;
@@ -784,7 +784,7 @@ dcat:temporalResolution a owl:DatatypeProperty ;
     rdfs:domain "dcat:Dataset" ;
     rdfs:range "xsd:duration" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 dcat:theme a owl:ObjectProperty ;
     rdfs:label "theme" ;
@@ -793,14 +793,14 @@ dcat:theme a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "skos:Concept" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:recommended" .
+    ddoc:conformance "ddoc:recommended" .
 
 dcat:version a owl:AnnotationProperty ;
     rdfs:label "version" ;
     dcterms:description "Version indicator (name or identifier) of a resource." ;
     rdfs:domain "dcat:Resource" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 locn:Geometry a owl:Class ;
     dcterms:description "The locn:Geometry class provides the means to identify a location as a point, line, polygon, etc. expressed using coordinates in some coordinate reference system." ;
@@ -813,7 +813,7 @@ locn:geometry a owl:ObjectProperty ;
     rdfs:domain "dcterms:Location" ;
     rdfs:range "locn:Geometry" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 prov:Attribution a owl:Class ;
     dcterms:description "An agent that has some form of responsibility for a resource, but which is not a publisher nor a creator of the resource." ;
@@ -827,7 +827,7 @@ prov:qualifiedAttribution a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "prov:Attribution" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 prov:wasDerivedFrom a owl:ObjectProperty ;
     rdfs:label "wasDerivedFrom" ;
@@ -836,7 +836,7 @@ prov:wasDerivedFrom a owl:ObjectProperty ;
     rdfs:domain "dcat:Dataset" ;
     rdfs:range "dcat:Resource" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 prov:wasGeneratedBy a owl:ObjectProperty ;
     rdfs:label "wasGeneratedBy" ;
@@ -844,7 +844,7 @@ prov:wasGeneratedBy a owl:ObjectProperty ;
     rdfs:domain "dcat:Dataset" ;
     rdfs:range "prov:Activity" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 foaf:name a owl:DatatypeProperty ;
     rdfs:label "name" ;
@@ -852,7 +852,7 @@ foaf:name a owl:DatatypeProperty ;
     rdfs:domain "foaf:Agent" ;
     rdfs:range "xsd:string" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:mandatory" .
+    ddoc:conformance "ddoc:mandatory" .
 
 foaf:page a owl:ObjectProperty ;
     rdfs:label "documentation" ;
@@ -860,7 +860,7 @@ foaf:page a owl:ObjectProperty ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "foaf:Document" ;
     dcat:theme "ddoc:datadoc" ;
-    :conformance "ddoc:optional" .
+    ddoc:conformance "ddoc:optional" .
 
 emmo:EMMO_1494c1a9_00e1_40c2_a9cc_9bbf302a1cac a owl:ObjectProperty ;
     rdfs:label "isInputOf" ;
@@ -905,46 +905,46 @@ emmo:EMMO_f702bad4_fc77_41f0_a26d_79f6444fd4f3 a owl:ObjectProperty ;
     rdfs:range "dcat:Resource" ;
     dcat:theme "ddoc:datadoc" .
 
-:conformance a owl:ObjectProperty ;
+ddoc:conformance a owl:ObjectProperty ;
     rdfs:label "conformance"@en ;
     dcterms:description "Whether the annotation is mandatory, recommended or optional."@en ;
     vann:usageNote "It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended' or 'ddoc:optional'."@en ;
     rdfs:domain dcat:Resource ;
     rdfs:isDefinedBy <https://w3id.org/emmo/application/datadoc> ;
-    rdfs:range :ConformanceLevel .
+    rdfs:range ddoc:ConformanceLevel .
 
-:curationDate a owl:DatatypeProperty ;
+ddoc:curationDate a owl:DatatypeProperty ;
     rdfs:label "creationDate"@en ;
     dcterms:description "Date of curation."@en ;
     vann:usageNote "Use format: YYYY-MM-DD"@en ;
     rdfs:domain dcat:Resource ;
     rdfs:range xsd:date .
 
-:curator a owl:ObjectProperty ;
+ddoc:curator a owl:ObjectProperty ;
     rdfs:label "curator"@en ;
     dcterms:description "The agent that curated the resource."@en ;
     vann:usageNote "Use `ddoc:curationDate` to refer to the date of curation."@en ;
     rdfs:domain dcat:Resource ;
     rdfs:range foaf:Agent ;
-    :conformance :optional .
+    ddoc:conformance ddoc:optional .
 
-:datadoc a skos:Concept ;
+ddoc:datadoc a skos:Concept ;
     rdfs:label "datadoc"@en ;
     vann:usageNote "Intended to be used as a theme individual for basic data documentation."@en ;
     rdfs:comment "Basic data documentation."@en .
 
-:datatype a owl:ObjectProperty ;
+ddoc:datatype a owl:ObjectProperty ;
     rdfs:label "datatype"@en ;
     dcterms:description "A datatype for annotations and data properties."@en ;
     rdfs:domain rdfs:Resource ;
     rdfs:range rdfs:Datatype .
 
-:process a skos:Concept ;
+ddoc:process a skos:Concept ;
     rdfs:label "process"@en ;
     vann:usageNote "Intended to be used as a theme individual for basic documentation of processes."@en ;
     rdfs:comment "Basic documentation of processes."@en .
 
-:unitSymbol a owl:AnnotationProperty ;
+ddoc:unitSymbol a owl:AnnotationProperty ;
     rdfs:label "unitSymbol"@en ;
     dcterms:description "A SI unit associated to a property."@en ;
     vann:usageNote "The unit should be written with standard SI unit symbols.  Examples: As, μm, J, m/s²"@en ;
@@ -1066,10 +1066,10 @@ foaf:Agent a owl:Class ;
     owl:versionIRI <https://w3id.org/emmo/application/datadoc/0.1> ;
     owl:versionInfo "0.0.1" .
 
-:mandatory a :ConformanceLevel ;
+ddoc:mandatory a ddoc:ConformanceLevel ;
     rdfs:label "mandatory"@en .
 
-:recommended a :ConformanceLevel ;
+ddoc:recommended a ddoc:ConformanceLevel ;
     rdfs:label "recommended"@en .
 
 skos:Concept a owl:Class ;
@@ -1077,7 +1077,7 @@ skos:Concept a owl:Class ;
     vann:usageNote "In DCAT-AP, a Concept is used to denote codes within a codelist. See [DCAT-AP](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#controlled-vocs) for expectations and more detail." ;
     rdfs:subClassOf rdfs:Class .
 
-:optional a :ConformanceLevel ;
+ddoc:optional a ddoc:ConformanceLevel ;
     rdfs:label "optional"@en .
 
 dcat:Resource a owl:Class ;
@@ -1085,10 +1085,10 @@ dcat:Resource a owl:Class ;
     rdfs:subClassOf rdfs:Class,
         "rdfs:Resource" .
 
-:ConformanceLevel a owl:Class ;
+ddoc:ConformanceLevel a owl:Class ;
     rdfs:label "ConformanceLevel"@en ;
     dcterms:description "The class of conformance levels. Includes the following individuals: `ddoc:mandatory`, `ddoc:recommended` and `ddoc:optional`."@en ;
-    owl:oneOf ( :mandatory :optional :recommended ) .
+    owl:oneOf ( ddoc:mandatory ddoc:optional ddoc:recommended ) .
 
 dcterms:RightsStatement a owl:Class ;
     dcterms:description "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights." ;

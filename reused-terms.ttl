@@ -54,16 +54,6 @@ prov:n
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
     rdfs:subPropertyOf rdfs:seeAlso .
 
-
-
-### Properties
-
-dcterms:creator a owl:ObjectProperty ;
-    pink:conformance ddoc:mandatory .
-
-dcterms:description a owl:AnnotationProperty ;
-    pink:conformance ddoc:mandatory .
-
 prov:used a owl:ObjectProperty ;
     rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
     rdfs:domain prov:Activity ;
@@ -128,10 +118,19 @@ prov:wasInformedBy
     prov:inverse "informed" ;
     prov:qualifiedForm prov:Communication, prov:qualifiedCommunication .
 
-
-
-
 ### Classes
+
+prov:Activity a owl:Class ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:label "Activity" ;
+    owl:disjointWith prov:Entity ;
+    prov:category "starting-point" ;
+    prov:component "entities-activities" ;
+    prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+    prov:definition "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." ;
+    dcterms:description "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." ;
+    prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Activity"^^xsd:anyURI ;
+    prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Activity"^^xsd:anyURI .
 
 prov:Agent a owl:Class ;
     rdfs:subClassOf foaf:Agent ;
@@ -156,17 +155,3 @@ prov:Entity a owl:Class ;
     dcterms:description "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
     prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity"^^xsd:anyURI ;
     prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity"^^xsd:anyURI .
-
-dcterms:RightsStatement a owl:Class ;
-    pink:usageNote "Use one of the pre-defined individuals of this class defined by EU: accr:PUBLIC, accr:NON_PUBLIC, accr:CONFIDENTIAL, accr:RESTRICTED, accr:SENSITIVE"@en .
-
-### Conformance individuals
-ddoc:mandatory a :ConformanceLevel ;
-    rdfs:label "mandatory"@en .
-
-ddoc:optional a :ConformanceLevel ;
-    rdfs:label "optional"@en .
-
-ddoc:recommended a :ConformanceLevel ;
-    rdfs:label "recommended"@en .
-

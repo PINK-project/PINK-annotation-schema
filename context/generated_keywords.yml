@@ -621,54 +621,6 @@ resources:
         description: Indirect relation that relates the output of an activity to its
           input.
         name: processedFrom
-      status:
-        iri: dcatap:status
-        type: owl:AnnotationProperty
-        domain:
-        - dcat:Resource
-        - rdfs:Resource
-        range: rdfs:Literal
-        name: status
-      contributor:
-        iri: dcterms:contributor
-        type: owl:AnnotationProperty
-        domain:
-        - dcat:Resource
-        - rdfs:Resource
-        range: rdfs:Literal
-        name: contributor
-      created:
-        iri: dcterms:created
-        type: owl:AnnotationProperty
-        domain:
-        - dcat:Resource
-        - rdfs:Resource
-        range: rdfs:Literal
-        name: created
-      hasFormat:
-        iri: dcterms:hasFormat
-        type: owl:AnnotationProperty
-        domain:
-        - dcat:Resource
-        - rdfs:Resource
-        range: rdfs:Literal
-        name: hasFormat
-      issued:
-        iri: dcterms:issued
-        type: owl:AnnotationProperty
-        domain:
-        - dcat:Resource
-        - rdfs:Resource
-        range: rdfs:Literal
-        name: issued
-      modified:
-        iri: dcterms:modified
-        type: owl:AnnotationProperty
-        domain:
-        - dcat:Resource
-        - rdfs:Resource
-        range: rdfs:Literal
-        name: modified
       doi:
         iri: bibo:doi
         type: owl:AnnotationProperty
@@ -710,7 +662,7 @@ resources:
         range: rdfs:Literal
         name: logo
   Dataset:
-    iri: dcat:Dataset
+    iri: pink:Dataset
     subClassOf:
     - dcat:Resource
     - emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
@@ -836,14 +788,20 @@ resources:
         theme: ddoc:datadoc
         domain: dcat:Dataset
       hasDatum:
-        iri: emmo:EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e
-        range: emmo:EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a
-        description: Relates a dataset to its datum parts.
+        iri: pink:hasDatum
+        range: pink:Datum
+        description: Relates a dataset to its datum.
         usageNote: '`hasDatum` relations are normally NOT specified manually, since
           they are generated from the DLite data model.'
         name: hasDatum
         theme: ddoc:datadoc
-        domain: dcat:Dataset
+        domain: pink:Dataset
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#hasPart
+        prefLabel: hasDatum
       isDescriptionFor:
         iri: emmo:EMMO_f702bad4_fc77_41f0_a26d_79f6444fd4f3
         range: dcat:Resource
@@ -893,7 +851,9 @@ resources:
       method:
         iri: pink:method
         type: owl:ObjectProperty
-        domain: dcat:Dataset
+        domain:
+        - dcat:Dataset
+        - pink:Dataset
         range: pink:Method
         prefLabel: method
         description: Relates a dataset to the method that it was created with.
