@@ -146,6 +146,13 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "method"@en ;
     dcterms:description "Relates a dataset to the method that it was created with." .
 
+:hasMethod a owl:ObjectProperty ;
+    rdfs:domain prov:Activity ;
+    rdfs:range :Method ;
+    skos:prefLabel "hasMethod"@en ;
+    dcterms:description "Relates an activity to the method that it is described by." .
+
+
 :documentation a owl:ObjectProperty ;
     rdfs:subPropertyOf foaf:page;
     rdfs:domain dcat:Resource ;
