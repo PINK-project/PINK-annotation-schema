@@ -18,6 +18,7 @@ prefixes:
   schema: https://schema.org/
   skos: http://www.w3.org/2004/02/skos/core#
   spdx: http://spdx.org/rdf/terms#
+  stat: http://purl.org/adms/status/
   vann: http://purl.org/vocab/vann/
   vcard: http://www.w3.org/2006/vcard/ns#
   xsd: http://www.w3.org/2001/XMLSchema#
@@ -56,6 +57,10 @@ resources:
         conformance: optional
         description: Information about who can access the resource or an indication
           of its security status.
+        usageNote: 'Access Rights may include information regarding access or restrictions
+          based on privacy, security, or other policies. The following preferred Rights
+          Statement individuals are defined: `accr:PUBLIC`, `accr:NON_PUBLIC`, `accr:CONFIDENTIAL`,
+          `accr:RESTRICTED`, `accr:SENSITIVE`'
         name: accessRights
         theme: ddoc:datadoc
         domain: dcat:Resource
@@ -85,6 +90,14 @@ resources:
         name: contactPoint
         theme: ddoc:datadoc
         domain: dcat:Resource
+      contributor:
+        iri: dcterms:contributor
+        range: foaf:Agent
+        conformance: optional
+        description: An entity responsible for making contributions to the resource.
+        name: contributor
+        theme: ddoc:datadoc
+        domain: dcat:Resource
       creator:
         iri: dcterms:creator
         range: foaf:Agent
@@ -93,11 +106,18 @@ resources:
         name: creator
         theme: ddoc:datadoc
         domain: dcat:Resource
+      curationDate:
+        iri: ddoc:curationDate
+        range: xsd:date
+        description: Date of curation.
+        name: curationDate
+        theme: ddoc:datadoc
+        domain: dcat:Resource
       curator:
-        iri: oteio:curator
+        iri: ddoc:curator
         range: foaf:Agent
         description: The agent that curated the resource.
-        usageNote: Use `issued` to refer to the date of curation.
+        usageNote: Use `ddoc:curationDate` to refer to the date of curation.
         name: curator
         theme: ddoc:datadoc
         domain: dcat:Resource
@@ -154,6 +174,11 @@ resources:
         range: rdfs:Literal
         conformance: optional
         description: URI or other unique identifier of the resource being described.
+        usageNote: Recommended practice is to identify the resource by means of a
+          string conforming to an identification system. Examples include International
+          Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform
+          Resource Name (URN).  Persistent identifiers should be provided as HTTP
+          URIs.
         name: identifier
         theme: ddoc:datadoc
         domain: dcat:Resource
@@ -181,8 +206,22 @@ resources:
         conformance: optional
         description: A web page that provides access to the resource and/or additional
           information (e.g. the distribution for a dataset).
-        usageNote: It is intended to point to a landing page at the original data
-          provider, not to a page on a site of a third party, such as an aggregator.
+        usageNote: 'It is intended to point to a landing page at the original
+
+          data provider, not to a page on a site of a third party,
+
+          such as an aggregator.
+
+
+          For distributions, if they are accessible only through a
+
+          landing page (i.e. direct download URLs are not known), then
+
+          the landing page link should be duplicated as accessURL on a
+
+          distribution.
+
+          '
         name: landingPage
         theme: ddoc:datadoc
         domain: dcat:Resource
@@ -313,6 +352,9 @@ resources:
         range: rdfs:Literal
         conformance: optional
         description: Version indicator (name or identifier) of a resource.
+        usageNote: 'DCAT does not prescribe how a version name / identifier should
+          be specified, and refers for guidance to [DWBP]''s Best Practice 7: Provide
+          a version indicator.'
         name: version
         theme: ddoc:datadoc
         domain: dcat:Resource
@@ -668,6 +710,10 @@ resources:
     - emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
     description: A collection of data, published or curated by an agent, and available
       for access or download in one or more representations.
+    usageNote: This class represents the actual dataset as published by the dataset
+      provider. In cases where a distinction between the actual dataset and its entry
+      in the catalog is necessary (because metadata such as modification date and
+      maintainer might differ), the catalog record class can be used for the latter.
     keywords:
       distribution:
         iri: dcat:distribution
@@ -879,7 +925,9 @@ resources:
         iri: dcat:accessURL
         range: rdfs:Resource
         conformance: mandatory
-        description: A URL that gives access to a Distribution of the Dataset.
+        description: A URL that gives access to a Distribution of the Dataset. E.g.
+          landing page, feed, SPARQL endpoint. Use for all cases except a simple download
+          link, in which case downloadURL is preferred.
         usageNote: The resource at the access URL may contain information about how
           to get the Dataset.
         name: accessURL
@@ -931,7 +979,8 @@ resources:
         datatype: xsd:anyURI
         conformance: optional
         description: A URL that is a direct link to a downloadable file in a given
-          format.
+          format. The format is indicated by the distribution's 'dterms:format' and/or
+          'dcat:mediaType'.
         name: downloadURL
         theme: ddoc:datadoc
         domain: dcat:Distribution
@@ -981,12 +1030,12 @@ resources:
         theme: ddoc:datadoc
         domain: dcat:Distribution
       status:
-        iri: adms:status
-        range: rdfs:Literal
+        iri: dcatap:status
+        range: skos:Concept
         conformance: optional
         description: The status of the distribution in the context of maturity lifecycle.
-        usageNote: 'It MUST take one of the values: ''Completed'', ''Deprecated'',
-          ''Under Development'', ''Withdrawn''.'
+        usageNote: 'It MUST take one of the values: ''stat:Completed'', ''stat:Deprecated'',
+          ''stat:UnderDevelopment'', ''stat:Withdrawn''.'
         name: status
         theme: ddoc:datadoc
         domain: dcat:Distribution
@@ -1044,6 +1093,11 @@ resources:
         range: rdfs:Literal
         conformance: optional
         description: URI or other unique identifier of the resource being described.
+        usageNote: Recommended practice is to identify the resource by means of a
+          string conforming to an identification system. Examples include International
+          Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform
+          Resource Name (URN).  Persistent identifiers should be provided as HTTP
+          URIs.
         name: identifier
         theme: ddoc:datadoc
         domain: foaf:Agent
@@ -1520,6 +1574,66 @@ resources:
         description: Relates a method to an entity via a process that was generated
           by the entity and that the method participates to.
         name: output
+  Activity:
+    iri: prov:Activity
+    keywords:
+      hasMethod:
+        iri: pink:hasMethod
+        type: owl:ObjectProperty
+        domain: prov:Activity
+        range: pink:Method
+        prefLabel: hasMethod
+        description: Relates an activity to the method that it is described by.
+        name: hasMethod
+      used:
+        iri: pink:used
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Activity
+        range: prov:Entity
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
+        - http://www.w3.org/ns/prov#used
+        - https://w3id.org/pink#isOvercrossedBy
+        prefLabel: used
+        comment: The activity A proper overlaps the entity E, where the non-overlapping
+          part of E causes A.
+        description: Relates an activity to an entity that it used.
+        http://www.w3.org/2004/02/skos/core#example: For example, :baking :used :spoon,
+          :egg, :oven .
+        name: used
+      wasAssociatedWith:
+        iri: pink:wasAssociatedWith
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Activity
+        range: prov:Agent
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
+        - http://www.w3.org/ns/prov#wasAssociatedWith
+        - https://w3id.org/pink#isOvercrossedBy
+        prefLabel: wasAssociatedWith
+        comment: The activity is through overlapped by the agent.
+        description: Relates an activity to an agent that had some (unspecified) responsibility
+          for the occurence of this activity.
+        name: wasAssociatedWith
+      wasInformedBy:
+        iri: pink:wasInformedBy
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Activity
+        range: prov:Activity
+        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
+        - http://www.w3.org/ns/prov#wasInformedBy
+        - https://w3id.org/pink#isAfter
+        prefLabel: wasInformedBy
+        description: A one-directional relation between an activity that affects the
+          subject activity.
+        name: wasInformedBy
   Entity:
     iri: prov:Entity
     keywords:
@@ -1594,55 +1708,3 @@ resources:
         description: A semiotic relation that connects a semiotic object to a property
           in a declaration process.
         name: hasProperty
-  Activity:
-    iri: prov:Activity
-    keywords:
-      used:
-        iri: pink:used
-        type:
-        - owl:AsymmetricProperty
-        - owl:IrreflexiveProperty
-        - owl:ObjectProperty
-        domain: prov:Activity
-        range: prov:Entity
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
-        - http://www.w3.org/ns/prov#used
-        - https://w3id.org/pink#isOvercrossedBy
-        prefLabel: used
-        comment: The activity A proper overlaps the entity E, where the non-overlapping
-          part of E causes A.
-        description: Relates an activity to an entity that it used.
-        http://www.w3.org/2004/02/skos/core#example: For example, :baking :used :spoon,
-          :egg, :oven .
-        name: used
-      wasAssociatedWith:
-        iri: pink:wasAssociatedWith
-        type:
-        - owl:AsymmetricProperty
-        - owl:IrreflexiveProperty
-        - owl:ObjectProperty
-        domain: prov:Activity
-        range: prov:Agent
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
-        - http://www.w3.org/ns/prov#wasAssociatedWith
-        - https://w3id.org/pink#isOvercrossedBy
-        prefLabel: wasAssociatedWith
-        comment: The activity is through overlapped by the agent.
-        description: Relates an activity to an agent that had some (unspecified) responsibility
-          for the occurence of this activity.
-        name: wasAssociatedWith
-      wasInformedBy:
-        iri: pink:wasInformedBy
-        type:
-        - owl:AsymmetricProperty
-        - owl:IrreflexiveProperty
-        - owl:ObjectProperty
-        domain: prov:Activity
-        range: prov:Activity
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
-        - http://www.w3.org/ns/prov#wasInformedBy
-        - https://w3id.org/pink#isAfter
-        prefLabel: wasInformedBy
-        description: A one-directional relation between an activity that affects the
-          subject activity.
-        name: wasInformedBy
