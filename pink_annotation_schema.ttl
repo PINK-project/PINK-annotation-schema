@@ -102,7 +102,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 ### Other PINK-specific relations
 :method a owl:ObjectProperty ;
-    rdfs:subPropertyOf :isAfter ;
+    rdfs:subPropertyOf :wasDerivedBy ;
     rdfs:domain dcat:Dataset ;
     rdfs:range :Method ;
     skos:prefLabel "method"@en ;
