@@ -184,9 +184,17 @@ PINK provides tooling (based on [Tripper]) to help providing class-level documen
 This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf` (`@type` is implicit and would always be `owl:Class`).
 For example, the above declaration of a computation could provided as follows:
 
-| @id          | subClassOf  | description | hasProcess     | input       | output       |
-|--------------|-------------|-------------|----------------|-------------|--------------|
-| app:MyMethod | pink:Method | ...         | app:MyActivity | app:MyInput | app:MyOutput |
+| @id          | @type     | subClassOf  | description | hasProcess     | input       | output       |
+|--------------|-----------|-------------|-------------|----------------|-------------|--------------|
+| app:MyMethod | owl:Class | pink:Method | ...         | app:MyActivity | app:MyInput | app:MyOutput |
+
+where `app:MyInput` and `app:MyOutput` refer to dataset classes.
+These dataset classes can be documented in a similar way as the method classes:
+
+| @id          | @type     | subClassOf   | description | ... |
+|--------------|-----------|--------------|-------------|-----|
+| app:MyInput  | owl:Class | pink:Dataset | ...         | ... |
+| app:MyOutput | owl:Class | pink:Dataset | ...         | ... |
 
 
 # Generating keywords file for Tripper
@@ -194,7 +202,7 @@ To generate the keywords file for [Tripper], run the file `scripts/generate_trip
 
 This requires that [Tripper] is installed in your python environment.
 
-A few considerations when running the script: 
+A few considerations when running the script:
 First and foremost, when the keyowrds are generated from the ontology the argument redefine is set to `allow`.
 This means that terms in the PINK Annotation Schema that have the same preflabel as terms already defined in Tripper's default keywords file will overwrite those.
 In addition, when turning on logging a few extra notifications are printed.
