@@ -102,12 +102,14 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 ### Other PINK-specific relations
 :method a owl:ObjectProperty ;
+    rdfs:subPropertyOf :isAfter ;
     rdfs:domain dcat:Dataset ;
     rdfs:range :Method ;
     skos:prefLabel "method"@en ;
-    dcterms:description "Relates a dataset to the method that it was created with." .
+    dcterms:description "Relates a dataset to the method that describes the activity it was created with." .
 
 :hasMethod a owl:ObjectProperty ;
+    rdfs:subPropertyOf :participatesTo ;
     rdfs:domain prov:Activity ;
     rdfs:range :Method ;
     skos:prefLabel "hasMethod"@en ;
