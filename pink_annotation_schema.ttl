@@ -323,11 +323,6 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 
 ### General classes
-:Role rdf:type owl:Class ;
-    skos:prefLabel "Role"@en ;
-    dcterms:description "The class of all individuals that are defined through a parthood relation to an entity."@en ;
-    vann:usageNote "An individual can be said to have a role in relation to the entity."@en .
-
 :MaterialProcess rdf:type owl:Class ;
     rdfs:subClassOf :Process ;
     skos:prefLabel "MaterialProcess"@en ;
@@ -381,10 +376,15 @@ An architectural floor plan is a model of a house.
     dcterms:description "An activity that is described by a method."@en .
 
 
-:Material rdf:type owl:Class ;
+:Matter rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
-    skos:prefLabel "Material"@en ;
-    dcterms:description "The class of individuals standing for an amount of matter (ordinary, anti or hybrid) substance (or mixture of substances) in different states of matter or phases."@en .
+    skos:prefLabel "Matter"@en ;
+    dcterms:description "The class of physical objects posess mass."@en ;
+    skos:note """The interpretation of the term "matter" is not univocal. Several concepts are labelled with this term, depending on the field of science. The concept mass is sometimes related to the term "matter", even if the former refers to a physical quantity (precisely defined by modern physics) while the latter is a type that qualifies a physical entity.
+It is possible to identify more than one concept that can be reasonably labelled with the term "matter". For example, it is possible to label as matter only the entities that are made up of atoms. Or more generally, we can be more fine-grained and call "matter" the entities that are made up of protons, neutrons or electrons, so that we can call matter also a neutron radiation or a cathode ray.
+A more fundamental approach taken here, considers matter as entities that are made of quarks and leptons, without excluding particles like the W and Z bosons that possess some mass, but are not fermions.
+Antimatter is a subclass of matter."""@en .
+
 
 :Property rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
@@ -434,7 +434,7 @@ An architectural floor plan is a model of a house.
 ### Include standard concepts into the PINK taxonomy
 ### Question: should we duplicate these classes instead?
 foaf:Document rdfs:subClassOf :Data .
-prov:Agent rdfs:subClassOf :Role .
+prov:Agent rdfs:subClassOf foaf:Agent .
 
 
 #################################################################
