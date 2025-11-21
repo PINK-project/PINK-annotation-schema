@@ -36,7 +36,7 @@
     dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
     dcterms:modified "xxxx-xx-xx" ;
     dcterms:publisher <https://pink-project.eu/> ;
-    dcterms:source "Relevant PINK deliverable" ;
+    #dcterms:source "Relevant PINK deliverable" ;
     dcterms:title "PINK Annotation Schema"@en ;
     bibo:doi "tbd" ;
     vann:preferredNamespacePrefix "pink" ;
@@ -51,45 +51,6 @@
 #    Annotation properties
 #################################################################
 
-###  http://data.europa.eu/r5r/status
-dcatap:status rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/bibliographicCitation
-dcterms:bibliographicCitation rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/contributor
-dcterms:contributor rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/created
-dcterms:created rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/creator
-dcterms:creator rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/description
-dcterms:description rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/hasFormat
-dcterms:hasFormat rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/issued
-dcterms:issued rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/modified
-dcterms:modified rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/dc/terms/source
-dcterms:source rdf:type owl:AnnotationProperty .
-
 
 ###  http://purl.org/ontology/bibo/doi
 bibo:doi rdf:type owl:AnnotationProperty .
@@ -101,10 +62,6 @@ vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/vocab/vann/preferredNamespaceUri
 vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.org/vocab/vann/usageNote
-vann:usageNote rdf:type owl:AnnotationProperty .
 
 
 ###  http://xmlns.com/foaf/0.1/homepage
@@ -132,12 +89,20 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 ### Other PINK-specific relations
 :method a owl:ObjectProperty ;
-    rdfs:domain :Dataset ;
+    rdfs:domain dcat:Dataset ;
     rdfs:range :Method ;
     skos:prefLabel "method"@en ;
     dcterms:description "Relates a dataset to the method that it was created with." .
 
+:hasMethod a owl:ObjectProperty ;
+    rdfs:domain prov:Activity ;
+    rdfs:range :Method ;
+    skos:prefLabel "hasMethod"@en ;
+    dcterms:description "Relates an activity to the method that it is described by." .
+
+
 :documentation a owl:ObjectProperty ;
+    rdfs:subPropertyOf foaf:page;
     rdfs:domain dcat:Resource ;
     rdfs:range foaf:Document ;
     skos:prefLabel "documentation"@en ;
@@ -181,7 +146,9 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :hasDatum rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
     skos:prefLabel "hasDatum"@en ;
-    dcterms:description "Relates a dataset to one of its datum."@en .
+    rdfs:domain :Dataset ;
+    rdfs:range :Datum ;
+    dcterms:description "Relates a dataset to its datum."@en .
 
 :hasSpatialPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;

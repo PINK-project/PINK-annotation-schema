@@ -16,6 +16,7 @@
 
 <https://w3id.org/pink/reused-terms> rdf:type owl:Ontology ;
     owl:versionIRI <https://w3id.org/pink/0.0.1/reused-terms> ;
+    owl:imports <https://w3id.org/pink/0.0.1/ddoc> ;
     dcterms:title "Standard vocabulary terms reused by PINK."@en ;
     dcterms:abstract "Terms from standard vocabularies reused by the PINK Annotation Schema. These are not changed in PINK. When additional semantics is desired, they are subclassed to new entities in the PINK Ontology."@en .
 
@@ -53,184 +54,6 @@ prov:n
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
     rdfs:subPropertyOf rdfs:seeAlso .
 
-
-
-### Properties
-dcat:keyword a owl:DatatypeProperty ;
-    rdfs:comment "A keyword or tag describing a resource."@en ;
-    rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
-    rdfs:label "keyword"@en ;
-    rdfs:range rdfs:Literal ;
-    skos:definition "A keyword or tag describing a resource."@en ;
-    pink:conformance ddoc:optional .
-
-dcat:landingPage rdf:type owl:ObjectProperty ;
-    rdfs:comment "A Web page that can be navigated to in a Web browser to gain access to the catalog, a dataset, its distributions and/or additional information."@en ;
-    rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
-    rdfs:label "landing page"@en ;
-    rdfs:range foaf:Document ;
-    rdfs:subPropertyOf foaf:page ;
-    skos:definition "A Web page that can be navigated to in a Web browser to gain access to the catalog, a dataset, its distributions and/or additional information."@en ;
-    skos:scopeNote "If the distribution(s) are accessible only through a landing page (i.e. direct download URLs are not known), then the landing page link should be duplicated as accessURL on a distribution."@en ;
-    pink:conformance ddoc:optional .
-
-dcat:version a owl:DatatypeProperty ;
-    owl:equivalentProperty pav:version ;
-    rdfs:comment "The version indicator (name or identifier) of a resource."@en ;
-    rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-3/> ;
-    rdfs:label "version"@en ;
-    skos:changeNote "New property added in DCAT 3."@en ;
-    skos:definition "The version indicator (name or identifier) of a resource."@en ;
-    skos:scopeNote "DCAT does not prescribe how a version name / identifier should be specified, and refers for guidance to [DWBP]'s Best Practice 7: Provide a version indicator."@en ;
-    dcterms:description "The version indicator (name or identifier) of a resource."@en ;
-    pink:conformance ddoc:mandatory .
-
-dcat:downloadURL rdf:type owl:ObjectProperty ;
-    rdfs:comment "The URL of the downloadable file in a given format. E.g. CSV file or RDF file. The format is indicated by the distribution's dct:format and/or dcat:mediaType."@en ;
-    rdfs:domain dcat:Distribution ;
-    rdfs:range rdfs:Resource ;
-    rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
-    rdfs:label "download URL"@en ;
-    skos:definition "The URL of the downloadable file in a given format. E.g. CSV file or RDF file. The format is indicated by the distribution's dct:format and/or dcat:mediaType."@en ;
-    skos:editorialNote "rdfs:label, rdfs:comment and/or skos:scopeNote have been modified. Non-english versions must be updated."@en ;
-    skos:scopeNote "dcat:downloadURL SHOULD be used for the address at which this distribution is available directly, typically through a HTTP Get request."@en ;
-    pink:conformance ddoc:optional .
-
-dcat:accessURL rdf:type owl:ObjectProperty ;
-    rdfs:comment "A URL of a resource that gives access to a distribution of the dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred."@en ;
-    rdfs:domain dcat:Distribution ;
-    rdfs:range rdfs:Resource ;
-    rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
-    rdfs:label "access address"@en ;
-    owl:propertyChainAxiom (
-        dcat:accessService
-        dcat:endpointURL
-    ) ;
-    skos:definition "A URL of a resource that gives access to a distribution of the dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred."@en ;
-    skos:editorialNote "Status: English Definition text modified by DCAT revision team, updated Italian and Czech translation provided, translations for other languages pending."@en ;
-    pink:conformance ddoc:optional .
-
-dcat:accessService a owl:ObjectProperty ;
-    rdfs:comment "A site or end-point that gives access to the distribution of the dataset."@en ;
-    rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/> ;
-    rdfs:label "data access service"@en ;
-    rdfs:range dcat:DataService ;
-    skos:changeNote "New property added in DCAT 2."@en ;
-    skos:definition "A site or end-point that gives access to the distribution of the dataset."@en .
-
-dcat:endpointURL a owl:ObjectProperty ;
-    rdfs:comment "The root location or primary endpoint of the service (a web-resolvable IRI)."@en ;
-    rdfs:domain dcat:DataService ;
-    rdfs:isDefinedBy <https://www.w3.org/TR/vocab-dcat-2/> ;
-    rdfs:label "service end-point"@en ;
-    rdfs:range rdfs:Resource ;
-    skos:changeNote "New property in DCAT 2."@en ;
-    skos:definition "The root location or primary endpoint of the service (a web-resolvable IRI)."@en .
-
-dcterms:accessRights a rdf:Property ;
-    dcam:rangeIncludes dcterms:RightsStatement ;
-    dcterms:description "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies."@en ;
-    dcterms:issued "2003-02-15"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    rdfs:comment "Information about who access the resource or an indication of its security status."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "Access Rights"@en ;
-    pink:conformance ddoc:mandatory .
-
-dcterms:creator a rdf:Property ;
-    #rdf:type owl:ObjectProperty ;
-    rdfs:label "creator"@en ;
-    dcam:rangeIncludes dcterms:Agent ;
-    #rdfs:range foaf:Agent ;
-    pink:conformance ddoc:mandatory ;
-    rdfs:comment "An entity responsible for producing the resource."@en ;
-    dcterms:description "Recommended practice is to identify the creator with a URI.  If this is not possible or feasible, a literal value that identifies the creator may be provided."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    owl:equivalentProperty <http://xmlns.com/foaf/0.1/maker> ;
-    pink:conformance ddoc:mandatory .
-
-dcterms:description a rdf:Property ;
-    #a owl:AnnotationProperty ;
-    dcterms:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
-    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    rdfs:comment "An account of the resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "Description"@en ;
-    pink:conformance ddoc:mandatory .
-
-dcterms:identifier a owl:DatatypeProperty ;
-    #a rdf:Property ;
-    dcterms:description "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs."@en ;
-    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    rdfs:comment "An unambiguous reference to the resource within a given context."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "Identifier"@en ;
-    rdfs:range rdfs:Literal ;
-    pink:conformance ddoc:optional .
-
-dcterms:license a rdf:Property ;
-    #a owl:ObjectProperty ;
-    dcam:rangeIncludes dcterms:LicenseDocument ;
-    dcterms:description "Recommended practice is to identify the license document with a URI. If this is not possible or feasible, a literal value that identifies the license may be provided."@en ;
-    dcterms:issued "2004-06-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    rdfs:comment "A legal document giving official permission to do something with the resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "License"@en ;
-    pink:conformance ddoc:optional .
-
-dcterms:modified a owl:DatatypeProperty ;
-    #a rdf:Property ;
-    dcterms:description "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en ;
-    dcterms:issued "2000-07-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    rdfs:comment "Date on which the resource was changed."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "Date Modified"@en ;
-    rdfs:range rdfs:Literal ;
-    ddoc:label "modificationDate"@en ;
-    pink:usageNote "Date of modification of the resource, if applicable. Use format: YYYY-MM-DD."@en ;
-    pink:conformance ddoc:optional .
-
-dcterms:issued a owl:DatatypeProperty ;
-    #a rdf:Property ;
-    dcterms:description "Recommended practice is to describe the date, date/time, or period of time as recommended for the property Date, of which this is a subproperty."@en ;
-    dcterms:issued "2000-07-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    rdfs:comment "Date of formal issuance of the resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "Date Issued"@en ;
-    rdfs:range rdfs:Literal ;
-    ddoc:label "creationDate"@en ;
-    pink:usageNote "The most recent date on which the resource was changed or modified."@en ;
-    pink:conformance ddoc:mandatory .
-
-dcterms:title rdf:type owl:AnnotationProperty ;
-    rdfs:label "title"@en ;
-    rdfs:range rdf:langString ;
-    dcterms:description "A name given to the resource."@en ;
-    vann:usageNote "This property can be repeated for parallel language versions of the name."@en ;
-    pink:conformance ddoc:mandatory .
-
-dcterms:hasPart a owl:ObjectProperty ;
-    dcterms:description "This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of."@en ;
-    dcterms:issued "2000-07-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    rdfs:comment "A related resource that is included either physically or logically in the described resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "hasPart"@en .
-
-ddoc:curator rdf:type owl:ObjectProperty ;
-    rdfs:label "curator"@en ;
-    rdfs:range foaf:Agent ;
-    dcterms:description "The agent that curated the resource."@en ;
-    vann:usageNote "Use `ddoc:curationDate` to refer to the date of curation."@en .
-
-ddoc:curationDate a owl:DatatypeProperty ;
-    rdfs:label "creationDate"@en ;
-    rdfs:range xsd:date ;
-    dcterms:description "Date of curation."@en ;
-    vann:usageNote "Use format: YYYY-MM-DD"@en .
-
-vann:usageNote rdf:type owl:AnnotationProperty ;
-    rdfs:label "usageNote"@en ;
-    dcterms:description "A reference to a resource that provides information on how this resource is to be used."@en .
-
 prov:used a owl:ObjectProperty ;
     rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
     rdfs:domain prov:Activity ;
@@ -245,21 +68,6 @@ prov:used a owl:ObjectProperty ;
     prov:component "entities-activities" ;
     prov:inverse "wasUsedBy" ;
     prov:qualifiedForm prov:Usage, prov:qualifiedUsage .
-
-prov:wasGeneratedBy
-    a owl:ObjectProperty ;
-    rdfs:domain prov:Entity ;
-    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-    rdfs:label "wasGeneratedBy" ;
-    rdfs:range prov:Activity ;
-    rdfs:subPropertyOf prov:wasInfluencedBy ;
-    owl:propertyChainAxiom (prov:qualifiedGeneration
-        prov:activity
-    ) ;
-    prov:category "starting-point" ;
-    prov:component "entities-activities" ;
-    prov:inverse "generated" ;
-    prov:qualifiedForm prov:Generation, prov:qualifiedGeneration .
 
 prov:wasAssociatedWith
     a owl:ObjectProperty ;
@@ -294,23 +102,6 @@ prov:wasAttributedTo
     prov:inverse "contributed" ;
     prov:qualifiedForm prov:Attribution, prov:qualifiedAttribution .
 
-prov:wasDerivedFrom
-    a owl:ObjectProperty ;
-    rdfs:comment "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."@en ;
-    rdfs:domain prov:Entity ;
-    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-    rdfs:label "wasDerivedFrom" ;
-    rdfs:range prov:Entity ;
-    rdfs:subPropertyOf prov:wasInfluencedBy ;
-    owl:propertyChainAxiom (prov:qualifiedDerivation
-        prov:entity
-    ) ;
-    prov:category "starting-point" ;
-    prov:component "derivations" ;
-    prov:definition "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
-    prov:inverse "hadDerivation" ;
-    prov:qualifiedForm prov:Derivation, prov:qualifiedDerivation .
-
 prov:wasInformedBy
     a owl:ObjectProperty ;
     rdfs:comment "An activity a2 is dependent on or informed by another activity a1, by way of some unspecified entity that is generated by a1 and used by a2."@en ;
@@ -327,20 +118,7 @@ prov:wasInformedBy
     prov:inverse "informed" ;
     prov:qualifiedForm prov:Communication, prov:qualifiedCommunication .
 
-
-
-
 ### Classes
-ddoc:ConformanceLevel a owl:Class ;
-    rdfs:label "ConformanceLevel" ;
-    dcterms:description "The class of conformance levels. Includes the following individuals: `ddoc:mandatory`, `ddoc:recommended` and `ddoc:optional`." ;
-    owl:oneOf ( ddoc:mandatory ddoc:optional ddoc:recommended ) .
-
-foaf:Agent a owl:Class ;
-    rdfs:comment "An agent (eg. person, group, software or physical artifact)." ;
-    dcterms:description "An agent (eg. person, group, software or physical artifact)."@en ;
-    rdfs:label "Agent" ;
-    owl:equivalentClass <http://purl.org/dc/terms/Agent> .
 
 prov:Activity a owl:Class ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
@@ -377,91 +155,3 @@ prov:Entity a owl:Class ;
     dcterms:description "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
     prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity"^^xsd:anyURI ;
     prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity"^^xsd:anyURI .
-
-foaf:Document a owl:Class ;
-    rdfs:comment "A document." ;
-    dcterms:description "A document." ;
-    rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/> ;
-    rdfs:label "Document" ;
-    owl:disjointWith foaf:Organization, foaf:Project ;
-    pink:usageNote "The Document class represents those things which are, broadly conceived, 'documents'. E.g. images."@en .
-
-dcterms:RightsStatement a owl:Class ;
-    rdfs:subClassOf foaf:Document ;
-    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-    rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
-    dcterms:description "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "Rights Statement"@en ;
-    pink:usageNote "Use one of the pre-defined individuals of this class defined by EU: accr:PUBLIC, accr:NON_PUBLIC, accr:CONFIDENTIAL, accr:RESTRICTED, accr:SENSITIVE"@en .
-
-dcterms:LicenseDocument a owl:Class ;
-    rdfs:subClassOf dcterms:RightsStatement ;
-    rdfs:label "License Document"@en ;
-    rdfs:comment "A legal document giving official permission to do something with a resource."@en ;
-    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    dcterms:description "A legal document giving official permission to do something with a resource."@en ;
-    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> .
-
-dcat:Dataset a owl:Class ;
-  rdfs:comment "A collection of data, published or curated by a single source, and available for access or download in one or more representations."@en ;
-  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
-  rdfs:label "Dataset"@en ;
-  rdfs:subClassOf dcat:Resource ;
-  skos:editorialNote "2020-03-16 A new scopenote added and need to be translated"@en ;
-  skos:changeNote "2018-02 - subclass of dctype:Dataset removed because scope of dcat:Dataset includes several other types from the dctype vocabulary."@en ;
-  skos:definition "A collection of data, published or curated by a single source, and available for access or download in one or more represenations."@en ;
-  skos:scopeNote "This class represents the actual dataset as published by the dataset provider. In cases where a distinction between the actual dataset and its entry in the catalog is necessary (because metadata such as modification date and maintainer might differ), the catalog record class can be used for the latter."@en .
-
-dcat:Distribution a owl:Class ;
-  rdfs:comment "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ;
-  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
-  rdfs:label "Distribution"@en ;
-  skos:definition "A specific representation of a dataset. A dataset might be available in multiple serializations that may differ in various ways, including natural language, media-type or format, schematic organization, temporal and spatial resolution, level of detail or profiles (which might specify any or all of the above)."@en ;
-  skos:scopeNote "This represents a general availability of a dataset it implies no information about the actual access method of the data, i.e. whether by direct download, API, or through a Web page. The use of dcat:downloadURL property indicates directly downloadable distributions."@en .
-
-
-### Conformance individuals
-ddoc:mandatory a :ConformanceLevel ;
-    rdfs:label "mandatory"@en .
-
-ddoc:optional a :ConformanceLevel ;
-    rdfs:label "optional"@en .
-
-ddoc:recommended a :ConformanceLevel ;
-    rdfs:label "recommended"@en .
-
-### Right Statements
-accr:PUBLIC rdf:type dcterms:RightsStatement ;
-    skos:prefLabel "public"@en ;
-    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
-    skos:definition "Publicly accessible by everyone."@en ;
-    dcterms:description "Publicly accessible by everyone."@en ;
-    vann:usageNote "Permissible obstacles include registration and request for API keys, as long as anyone can request such registration and/or API keys."@en .
-
-accr:NON_PUBLIC rdf:type dcterms:RightsStatement ;
-    skos:prefLabel "non-public"@en ;
-    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
-    skos:definition "Not publicly accessible for privacy, security or other reasons."@en ;
-    dcterms:description "Not publicly accessible for privacy, security or other reasons."@en ;
-    vann:usageNote "This category may include resources that contain sensitive or personal information."@en .
-
-accr:CONFIDENTIAL rdf:type dcterms:RightsStatement ;
-    skos:prefLabel "confidential"@en ;
-    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
-    skos:definition "Information that is not disclosed."@en ;
-    dcterms:description "Information that is not disclosed."@en ;
-    vann:usageNote "Disclosure of this data could cause damage to interested parties such as public administrations and businesses. It may refer to personal and professional information as well as to information in the context of business, commerce or trade."@en .
-
-accr:RESTRICTED rdf:type dcterms:RightsStatement ;
-    skos:prefLabel "restricted"@en ;
-    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
-    skos:definition "Only available under certain conditions."@en ;
-    dcterms:description "Only available under certain conditions."@en ;
-    vann:usageNote "This category may include resources that require payment, resources shared under non-disclosure agreements, resources for which the publisher or owner has not yet decided if they can be publicly released."@en .
-
-accr:SENSITIVE rdf:type dcterms:RightsStatement ;
-    skos:prefLabel "sensitive"@en ;
-    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
-    skos:definition "Sensitive non-classified (SNC) information, information whose unauthorised disclosure could cause damage to the Commission or other interested parties such as businesses, companies, intellectual property or personal data but which is not EU classified information."@en ;
-    dcterms:description "Sensitive non-classified (SNC) information, information whose unauthorised disclosure could cause damage to the Commission or other interested parties such as businesses, companies, intellectual property or personal data but which is not EU classified information."@en .
