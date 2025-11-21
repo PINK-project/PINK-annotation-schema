@@ -1,7 +1,7 @@
 name: Deploy on GitHub Pages
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 env:
   ONTOLOGY_NAME: pink_annotation_schema
