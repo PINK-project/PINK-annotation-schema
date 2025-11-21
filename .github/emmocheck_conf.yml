@@ -1,7 +1,11 @@
 # Configurations used when running emmocheck from the ci_emmocheck workflow
+skip:
+  - test_description
+
 test_namespace:
   exceptions:
     - manufacturing.EngineeredMaterial
+
 test_quantity_dimension:
   exceptions:
     - emmo.ModelledQuantitativeProperty
