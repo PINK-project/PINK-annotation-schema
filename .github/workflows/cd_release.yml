@@ -27,7 +27,6 @@ jobs:
           cp -f \
               README.md \
               ${ONTOLOGY_NAME}.ttl \
-              ${ONTOLOGY_NAME}-dependencies.ttl \
               ${ONTOLOGY_NAME}-inferred.ttl \
               versions/${TAG#v}/.
 
