@@ -45,13 +45,13 @@ jobs:
       run: |
         cp README.md build/.
         ontoconvert \
-            -sawe \
+            -saw \
             --base-iri="${ONTOLOGY_IRI}#" \
             --iri="${ONTOLOGY_IRI}" \
             ${ONTOLOGY_NAME}.ttl \
             build/${ONTOLOGY_NAME}.ttl
         ontoconvert \
-            -sawe \
+            -saw \
             --base-iri="${ONTOLOGY_IRI}#" \
             --iri="${ONTOLOGY_IRI}" \
             --infer=HermiT \
