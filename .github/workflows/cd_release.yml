@@ -24,10 +24,12 @@ jobs:
       - name: Create and copy generated files to versions/
         run: |
           mkdir -p versions/${TAG#v}
-          cp -f \
+          cp -rf \
               README.md \
+              keywords.md \
               ${ONTOLOGY_NAME}.ttl \
               ${ONTOLOGY_NAME}-inferred.ttl \
+              docs/ \
               versions/${TAG#v}/.
 
       - name: Push to gh-pages

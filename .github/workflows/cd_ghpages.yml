@@ -1,7 +1,8 @@
 name: Deploy on GitHub Pages
-on:
-  push:
-    branches: [main]
+on: push
+#on:
+#  push:
+#    branches: [main]
 
 env:
   ONTOLOGY_NAME: pink_annotation_schema
@@ -30,9 +31,18 @@ jobs:
         pip install --upgrade pip
         pip install git+https://github.com/emmo-repo/EMMOntoPy.git@master
 
-    - name: Create dependencies, squashed and inferred ontologies
+    - name: Install Tripper
+      run: |
+        pip install tripper[datadoc]
+        pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
+
+    - name: Copy documentation to gh-pages
       run: |
         mkdir -p build
+        cp -r docs/ build/.
+
+    - name: Create dependencies, squashed and inferred ontologies
+      run: |
         cp README.md build/.
         ontoconvert \
             -sawe \
@@ -47,11 +57,6 @@ jobs:
             --infer=HermiT \
             ${ONTOLOGY_NAME}.ttl \
             build/${ONTOLOGY_NAME}-inferred.ttl
-
-    - name: Install Tripper
-      run: |
-        pip install tripper[datadoc]
-        pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
 
     - name: Create markdown documentation of keywords
       run: keywords \
