@@ -13,6 +13,7 @@
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
+@prefix pink: <https://w3id.org/pink#> .
 
 @base <https://w3id.org/pink#> .
 
@@ -147,9 +148,10 @@ foaf:logo rdf:type owl:AnnotationProperty .
     owl:propertyDisjointWith :hasPart ;
     dcterms:description "The relation between an entity that overlaps another without having it as part."@en .
 
-:hasPart rdf:type owl:ObjectProperty, owl:ReflexiveProperty, owl:TransitiveProperty ;
+:hasPart rdf:type owl:ObjectProperty, owl:ReflexiveProperty ;
     rdfs:subPropertyOf dcterms:hasPart, :overlaps ;
     skos:prefLabel "hasPart"@en ;
+    rdfs:comment "OWL2 does not allow non-simple (e.g. transitive) properties to appear in disjoint property axioms. We therefore implement the transitivity of hasPart using SWRL rules instead of asserting it with owl:TransitiveProperty."@en ;
     dcterms:description "The primitive relation that express the concept of an entity being part of another one."@en .
 
 :hasParticipant rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -675,6 +677,32 @@ stake in a sustainability framework like the SSbD one."""@en .
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :input ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:hasPart ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:hasPart ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:hasPart ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                      ] ;

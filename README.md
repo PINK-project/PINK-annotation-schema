@@ -40,7 +40,6 @@ It unifies concepts from common vocabularies, like [Dublin Core], [DCAT], [PROV-
 This gives the adapted terms additional context.
 However, the taxonomy is intentionally weekly axiomated in order to facilitate alignment to different popular top-level ontologies, like [EMMO], [DOLCE] and [BFO].
 
-
 ![Taxonomy](docs/figs/taxonomy.png)
 
 At the top-level, the PINK Annotation Schema has four root concepts:
