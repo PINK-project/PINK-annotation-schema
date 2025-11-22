@@ -32,7 +32,7 @@ jobs:
 
     - name: Create dependencies, squashed and inferred ontologies
       run: |
-        mkdir build
+        mkdir -p build
         cp README.md build/.
         ontoconvert \
             -sawe \
@@ -47,6 +47,17 @@ jobs:
             --infer=HermiT \
             ${ONTOLOGY_NAME}.ttl \
             build/${ONTOLOGY_NAME}-inferred.ttl
+
+    - name: Install Tripper
+      run: |
+        pip install tripper[datadoc]
+        pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
+
+    - name: Create markdown documentation of keywords
+      run: keywords \
+        --input pink_annotation_schema.ttl \
+        --keywords=build/keywords.md \
+        --redefine=allow
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4

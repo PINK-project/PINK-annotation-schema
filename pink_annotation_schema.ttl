@@ -13,6 +13,7 @@
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
+@prefix pink: <https://w3id.org/pink#> .
 
 @base <https://w3id.org/pink#> .
 
