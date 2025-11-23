@@ -59,10 +59,11 @@ jobs:
             build/${ONTOLOGY_NAME}-inferred.ttl
 
     - name: Create markdown documentation of keywords
-      run: keywords \
-        --input pink_annotation_schema.ttl \
-        --keywords=build/keywords.md \
-        --redefine=allow
+      run: |
+        keywords \
+            --input=pink_annotation_schema.ttl \
+            --keywords=build/keywords.md \
+            --redefine=allow
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
