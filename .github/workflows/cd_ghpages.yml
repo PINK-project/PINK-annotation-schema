@@ -34,7 +34,8 @@ jobs:
     - name: Install Tripper
       run: |
         pip install tripper[datadoc]
-        pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
+        #pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
+        pip install -U git+https://github.com/EMMC-ASBL/tripper.git@fix-formatting-of-keywords-table
 
     - name: Copy documentation to gh-pages
       run: |
