@@ -28,3 +28,9 @@ td_classes.write_csv("classes.csv")
 
 td_properties = TableDoc.fromdicts(properties)
 td_properties.write_csv("properties.csv")
+
+
+print("")
+print("PINK concepts:")
+for c in pink_concepts:
+    print("  -", c)
