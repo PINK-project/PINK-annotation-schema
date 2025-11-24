@@ -64,7 +64,7 @@ jobs:
         keywords \
             --input=pink_annotation_schema.ttl \
             --keywords=build/keywords.md \
-            --filter-namespace=pink \
+            --namespace-filter=pink \
             --redefine=allow
 
     - name: Deploy to GitHub Pages
