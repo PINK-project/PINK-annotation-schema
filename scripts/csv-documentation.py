@@ -3,9 +3,8 @@
 
 from pathlib import Path
 
-from tripper import DCTERMS, OWL, RDF, Triplestore
+from tripper import DCTERMS, OWL, RDF, Namespace, Triplestore
 from tripper.datadoc import TableDoc, acquire
-
 
 
 thisdir = Path(__file__).resolve().parent
@@ -15,7 +14,8 @@ rootdir = thisdir.parent
 ts = Triplestore("rdflib")
 ts.parse("pink_annotation_schema.ttl")
 
-PINK = ts.namespaces["pink"]
+# PINK = ts.namespaces["pink"]
+PINK = Namespace('https://w3id.org/pink#')
 
 pink_concepts = set(s for s in ts.subjects() if s.startswith(str(PINK)))
 dicts = [acquire(ts, iri) for iri in pink_concepts]
