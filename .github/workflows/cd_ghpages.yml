@@ -67,6 +67,11 @@ jobs:
             --namespace-filter=pink \
             --redefine=allow
 
+    - name: Create csv tables
+      run: |
+        cd build
+        ../scripts/csv-documentation.py
+
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
