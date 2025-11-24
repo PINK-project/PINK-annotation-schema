@@ -70,7 +70,8 @@ jobs:
     - name: Create csv tables
       run: |
         cd build
-        ../scripts/csv-documentation.py
+        python ../scripts/csv-documentation.py
+        ls -l
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
