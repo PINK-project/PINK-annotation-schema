@@ -35,7 +35,7 @@ jobs:
       run: |
         pip install tripper[datadoc]
         #pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
-        pip install -U git+https://github.com/EMMC-ASBL/tripper.git@fix-formatting-of-keywords-table
+        pip install -U git+https://github.com/EMMC-ASBL/tripper.git@document-selected-namespace
 
     - name: Copy documentation to gh-pages
       run: |
@@ -64,6 +64,7 @@ jobs:
         keywords \
             --input=pink_annotation_schema.ttl \
             --keywords=build/keywords.md \
+            --filter-namespace=pink \
             --redefine=allow
 
     - name: Deploy to GitHub Pages
