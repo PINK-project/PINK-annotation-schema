@@ -39,7 +39,8 @@ jobs:
     #     pip install -U git+https://github.com/EMMC-ASBL/tripper.git@document-selected-namespace
 
     - name: Download Widoco
-      wget https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-17.jar
+      run: |
+        wget https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-17.jar
 
     - name: Copy documentation to gh-pages
       run: |
@@ -64,14 +65,15 @@ jobs:
             build/${ONTOLOGY_NAME}-inferred.ttl
 
     - name: Generate Widoco documentation
-      java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
-        -ontFile pink_annotation_schema.ttl \
-        -outFolder widoco \
-        -getOntologyMetadata \
-        -rewriteAll \
-        -includeImportedOntologies \
-        -licensius \
-        -includeAnnotationProperties
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile pink_annotation_schema.ttl \
+            -outFolder widoco \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
 
 
 
