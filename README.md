@@ -9,6 +9,12 @@ It is constructed to be easily aligned with [EMMO].
 > It is not intended for production at the current stage.
 
 
+## Resources
+- [Reference documentation] (for ontology experts).
+- [Turtle file] including all imported concepts.
+- [Inferred turtle file] reasoned with HermiT.
+
+
 ## Repository Files
 - `catalog-v001.xml`: XML catalog mapping ontology files to their IRIs for semantic web tools.
 - `contributors.ttl`: Turtle file listing contributors to the PINK Annotation Schema for this repository.
@@ -216,6 +222,10 @@ In addition, when turning on logging a few extra notifications are printed.
 
 
 # References
+
+[Reference documentation]: https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html
+[Turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema.ttl
+[Inferred turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema-inferred.ttl
 
 [PINK classes]: ./docs/classes.md
 [pink_annotation_schema.ttl]: ./pink_annotation_schema.ttl
