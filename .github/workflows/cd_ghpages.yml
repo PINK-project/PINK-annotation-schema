@@ -1,9 +1,9 @@
 name: Deploy on GitHub Pages
 
-on: push
-# on:
-#   push:
-#     branches: [main]
+# on: push
+on:
+  push:
+    branches: [main]
 
 env:
   ONTOLOGY_NAME: pink_annotation_schema
@@ -40,7 +40,7 @@ jobs:
 
     - name: Download Widoco
       run: |
-        wget https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-17.jar
+        wget --quiet https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-17.jar
 
     - name: Copy documentation to gh-pages
       run: |
