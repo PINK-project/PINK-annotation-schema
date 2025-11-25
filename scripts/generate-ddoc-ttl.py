@@ -23,12 +23,12 @@ kw = get_keywords()
 kw.save_rdf(ts)
 
 # Add Ontology
-ts.add_triples(
-    [
-        (ddoc, RDF.type, OWL.Ontology),
-        (ddoc, OWL.versionIRI, "https://w3id.org/pink/0.0.1/ddoc"),
-        (ddoc, DCTERMS.title, en("Concepts defined in the ddoc vocabulary.")),
-    ]
-)
+#ts.add_triples(
+#    [
+#        (ddoc, RDF.type, OWL.Ontology),
+#        (ddoc, OWL.versionIRI, "https://w3id.org/pink/0.0.1/ddoc"),
+#        (ddoc, DCTERMS.title, en("Concepts defined in the ddoc vocabulary.")),
+#    ]
+#)
 
 ts.serialize(rootdir/"ddoc.ttl")
