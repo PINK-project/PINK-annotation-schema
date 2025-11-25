@@ -25,12 +25,12 @@
     dcatap:status "Under Development" ;
     dcterms:abstract "The PINK Annotation Schema provides the semantic basis for SSbD."@en ;
     dcterms:bibliographicCitation "xxx" ;
-    dcterms:contributor :IseultLynch ;
+    dcterms:contributor https://orcid.org/0000-0003-4250-4584 ;
     dcterms:created "2025-09-08" ;
-    dcterms:creator :FrancescaBleken ,
-                    :JesperFriis ,
-                    :JohDokler ,
-                    :ThomasExner ;
+    dcterms:creator https://orcid.org/0000-0002-1560-809X ,
+                    https://orcid.org/0000-0001-8869-3718 ,
+                    https://orcid.org/0000-0002-1849-5246 ,
+                    https://orcid.org/0000-0002-8053-8198 ;
     dcterms:hasFormat <https://www.w3.org/TR/turtle/> ;
     dcterms:issued "xxxx-xx-xx" ;
     dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
