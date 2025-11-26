@@ -68,7 +68,7 @@ jobs:
       run: |
         java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
             -ontFile pink_annotation_schema.ttl \
-            -outFolder widoco \
+            -outFolder build/widoco \
             -getOntologyMetadata \
             -rewriteAll \
             -includeImportedOntologies \
