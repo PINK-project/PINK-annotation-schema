@@ -156,3 +156,10 @@ prov:Entity a owl:Class ;
     skos:definition "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
     prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity"^^xsd:anyURI ;
     prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity"^^xsd:anyURI .
+
+foaf:Document
+    a rdfs:Class, owl:Class ;
+    rdfs:comment "A document." ;
+    rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/> ;
+    rdfs:label "Document" ;
+    owl:disjointWith foaf:Organization, foaf:Project .

@@ -22,7 +22,12 @@
     owl:versionIRI <https://w3id.org/pink/0.0.1> ;
     owl:imports <https://w3id.org/pink/0.0.1/reused-terms> ;
     dcatap:status "Under Development" ;
-    dcterms:abstract "The PINK Annotation Schema provides the semantic basis for SSbD."@en ;
+    dcterms:abstract """The PINK Annotation Schema provides the semantic basis for SSbD.
+
+The PINK Annotation Schema expands on the annotation schema provided by tripper, which again expands on the DCAT-AP.
+
+A reference documentation of terms reused from standard W3C vocabularies can be found [here](https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html).
+"""@en ;
     dcterms:bibliographicCitation "xxx" ;
     dcterms:contributor <https://orcid.org/0000-0003-4250-4584> ;
     dcterms:created "2025-09-08" ;
@@ -40,7 +45,6 @@
     bibo:doi "tbd" ;
     vann:preferredNamespacePrefix "pink" ;
     vann:preferredNamespaceUri "https://w3id.org/pink" ;
-    rdfs:comment "This expands on the annotation schema provided by tripper, which again expands on the DCAT-AP."@en ;
     owl:priorVersion "0.0.0" ;
     owl:versionInfo "0.0.1" ;
     foaf:homepage <https://github.com/PINK-project/PINK-annotation-schema> ;

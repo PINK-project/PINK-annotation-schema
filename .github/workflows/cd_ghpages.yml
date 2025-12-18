@@ -64,7 +64,7 @@ jobs:
             ${ONTOLOGY_NAME}.ttl \
             build/${ONTOLOGY_NAME}-inferred.ttl
 
-    - name: Generate Widoco documentation
+    - name: Generate Widoco documentation for PINK Annotation Schema
       run: |
         java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
             -ontFile pink_annotation_schema.ttl \
@@ -75,6 +75,16 @@ jobs:
             -licensius \
             -includeAnnotationProperties
 
+    - name: Generate Widoco documentation for reused terms
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile reused-terms.ttl \
+            -outFolder build/widoco-reused-terms \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
 
 
     # - name: Create markdown documentation of keywords
