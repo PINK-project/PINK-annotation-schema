@@ -18,7 +18,7 @@
 <https://w3id.org/pink/reused-terms> rdf:type owl:Ontology ;
     owl:versionIRI <https://w3id.org/pink/0.0.1/reused-terms> ;
     owl:imports <https://w3id.org/pink/0.0.1/ddoc> ;
-    dcterms:title "Standard vocabulary terms reused by PINK."@en ;
+    dcterms:title "Standard vocabulary terms reused by PINK"@en ;
     dcterms:abstract "Terms from standard vocabularies reused by the PINK Annotation Schema. These are not changed in PINK. When additional semantics is desired, they are subclassed to new entities in the PINK Ontology."@en .
 
 ### PROV-O annotations
@@ -129,7 +129,6 @@ prov:Activity a owl:Class ;
     prov:component "entities-activities" ;
     prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
     prov:definition "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." ;
-    dcterms:description "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." ;
     prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Activity"^^xsd:anyURI ;
     prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Activity"^^xsd:anyURI .
 
@@ -141,7 +140,6 @@ prov:Agent a owl:Class ;
     prov:category "starting-point" ;
     prov:component "agents-responsibility" ;
     prov:definition "An agent is something that bears some form of responsibility for a activity taking place, for the existence of an entity, or for another agent's aprovctivity. "@en ;
-    dcterms:description "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's aprovctivity. "@en ;
     prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
     prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent"^^xsd:anyURI .
 
@@ -153,6 +151,29 @@ prov:Entity a owl:Class ;
     prov:component "entities-activities" ;
     prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
     prov:definition "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
-    dcterms:description "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
     prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity"^^xsd:anyURI ;
     prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity"^^xsd:anyURI .
+
+
+foaf:Document
+    a rdfs:Class, owl:Class ;
+    rdfs:comment "A document." ;
+    rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/> ;
+    rdfs:label "Document" ;
+    owl:disjointWith foaf:Organization, foaf:Project .
+
+
+dcterms:RightsStatement
+    dcterms:issued "2008-01-14" ;
+    a rdfs:Class, owl:Class ;
+    rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Rights Statement"@en .
+
+dcterms:LicenseDocument
+    dcterms:issued "2008-01-14" ;
+    a rdfs:Class, owl:Class ;
+    rdfs:comment "A legal document giving official permission to do something with a resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "License Document"@en ;
+    rdfs:subClassOf dcterms:RightsStatement .
