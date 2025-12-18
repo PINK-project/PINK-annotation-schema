@@ -10,7 +10,7 @@ It is constructed to be easily aligned with [EMMO].
 
 
 ## Resources
-- [Reference documentation] (for ontology experts).
+- Reference documentation for [PINK Annotation Schema] and [reused terms] (for ontology experts).
 - [Turtle file] including all imported concepts.
 - [Inferred turtle file] reasoned with HermiT.
 
@@ -222,7 +222,8 @@ In addition, when turning on logging a few extra notifications are printed.
 
 # References
 
-[Reference documentation]: https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html
+[PINK Annotation Schema]: https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html
+[reused terms]: https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html
 [Turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema.ttl
 [Inferred turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema-inferred.ttl
 

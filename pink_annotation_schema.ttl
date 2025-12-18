@@ -26,7 +26,7 @@
 
 The PINK Annotation Schema expands on the annotation schema provided by tripper, which again expands on the DCAT-AP.
 
-A reference documentation of terms reused from standard W3C vocabularies can be found [here](https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html).
+A reference documentation of terms reused from standard W3C vocabularies can be found https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html.
 """@en ;
     dcterms:bibliographicCitation "xxx" ;
     dcterms:contributor <https://orcid.org/0000-0003-4250-4584> ;
