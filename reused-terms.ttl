@@ -163,17 +163,17 @@ foaf:Document
     owl:disjointWith foaf:Organization, foaf:Project .
 
 
-#dcterms:RightsStatement
-#    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-#    a rdfs:Class, owl:Class ;
-#    rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
-#    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-#    rdfs:label "Rights Statement"@en .
-#
-#dcterms:LicenseDocument
-#    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
-#    a rdfs:Class, owl:Class ;
-#    rdfs:comment "A legal document giving official permission to do something with a resource."@en ;
-#    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-#    rdfs:label "License Document"@en ;
-#    rdfs:subClassOf dcterms:RightsStatement .
+dcterms:RightsStatement
+    dcterms:issued "2008-01-14" ;
+    a rdfs:Class, owl:Class ;
+    rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Rights Statement"@en .
+
+dcterms:LicenseDocument
+    dcterms:issued "2008-01-14" ;
+    a rdfs:Class, owl:Class ;
+    rdfs:comment "A legal document giving official permission to do something with a resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "License Document"@en ;
+    rdfs:subClassOf dcterms:RightsStatement .
