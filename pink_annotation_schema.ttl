@@ -124,13 +124,13 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :ssbdDimension rdf:type owl:ObjectProperty ;
     rdfs:range :SsbdDimension ;
     skos:prefLabel "ssbdDimension"@en ;
-    skos:definition "XXX"@en ;
+    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en ;
     vann:usageNote "One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`"@en .
 
 :ssbdSubDimension rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     skos:prefLabel "ssbdSubDimension"@en ;
-    skos:definition "XXX"@en .
+    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 
 ### Other PINK-specific relations
@@ -353,7 +353,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :SsbdDimension rdf:type owl:Class ;
     skos:prefLabel "SsbdDimension"@en ;
     skos:skopeNote "The pink:SsbdDimension is an extension of the 'sustainability dimensions' defined by JRC." ;
-    skos:definition "XXX"@en .
+    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 
 ### General classes
