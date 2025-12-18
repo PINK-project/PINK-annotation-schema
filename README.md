@@ -17,7 +17,6 @@ It is constructed to be easily aligned with [EMMO].
 
 ## Repository Files
 - `catalog-v001.xml`: XML catalog mapping ontology files to their IRIs for semantic web tools.
-- `contributors.ttl`: Turtle file listing contributors to the PINK Annotation Schema for this repository.
 - `pink_annotation_schema.ttl`: Main ontology file for the PINK Annotation Schema.
 - `reused-terms.ttl`: Terms from standard vocabularies reused by the schema.
 - `LICENSE`: Creative Commons Attribution 4.0 International license.

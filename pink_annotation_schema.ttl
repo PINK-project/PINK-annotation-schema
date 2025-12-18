@@ -20,8 +20,7 @@
 <https://w3id.org/pink>
     rdf:type owl:Ontology ;
     owl:versionIRI <https://w3id.org/pink/0.0.1> ;
-    owl:imports <https://w3id.org/pink/0.0.1/contributors> ,
-                <https://w3id.org/pink/0.0.1/reused-terms> ;
+    owl:imports <https://w3id.org/pink/0.0.1/reused-terms> ;
     dcatap:status "Under Development" ;
     dcterms:abstract "The PINK Annotation Schema provides the semantic basis for SSbD."@en ;
     dcterms:bibliographicCitation "xxx" ;
@@ -46,6 +45,35 @@
     owl:versionInfo "0.0.1" ;
     foaf:homepage <https://github.com/PINK-project/PINK-annotation-schema> ;
     foaf:logo <https://tess.elixir-europe.org/system/content_providers/images/000/000/777/original/pink-logo-orange-colorB-500.png> .
+
+
+## Contributors
+<https://orcid.org/0000-0002-1560-809X> a foaf:Person ;
+    skos:prefLabel "JesperFriis" ;
+    foaf:name "Jesper Friis" ;
+    foaf:workplaceHomepage <https://www.sintef.no/en/> .
+
+<https://orcid.org/0000-0001-8869-3718> a foaf:Person ;
+    skos:prefLabel "FrancescaLonstadBleken" ;
+    foaf:name "Francesca Lønstad Bleken" ;
+    foaf:workplaceHomepage <https://www.sintef.no/en/> .
+
+<https://orcid.org/0000-0002-1849-5246> a foaf:Person ;
+    skos:prefLabel "ThomasExner" ;
+    foaf:name "Thomas Exner" ;
+    foaf:workplaceHomepage <https://sevenpastnine.com/> .
+
+<https://orcid.org/0000-0002-8053-8198> a foaf:Person ;
+    skos:prefLabel "JohDokler" ;
+    foaf:name "Joh Dokler" ;
+    foaf:workplaceHomepage <https://sevenpastnine.com/> .
+
+<https://orcid.org/0000-0003-4250-4584> a foaf:Person ;
+    skos:prefLabel "IseultLynch" ;
+    foaf:name "Iseult Lynch" ;
+    foaf:workplaceHomepage <https://www.birmingham.ac.uk/> .
+
+
 
 #################################################################
 #    Annotation properties
