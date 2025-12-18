@@ -489,7 +489,7 @@ ddoc:recommended rdf:type owl:NamedIndividual ;
 ### SSbD categories
 :functionality a :SsbdDimension ;
     skos:prefLabel "functionality" ;
-    skos:definition "XXX"@en .
+    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 :safety a :SsbdDimension ;
     skos:prefLabel "safety" ;
@@ -504,7 +504,8 @@ control measures or mechanisms to minimise exposure to the
 stressor). In any case, the term safe involves receptors, and with
 that generally also requires the consideration of the contact
 (i.e. exposure) between stressors and receptors as addressed in a risk
-assessment context."""@en .
+assessment context."""@en ;
+    skos:scopeNote "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 :environmental_systainability a :SsbdDimension ;
     skos:prefLabel "environmental_systainability" ;
@@ -524,7 +525,8 @@ chemicals/materials along the entire life cycle to move towards:
     burdens) (EC, 2020b);
   · The reduction of biodiversity loss and the conservation of ecosystem functioning, addressing the
     main drivers of structural and functional biodiversity loss (e.g. land use, climate change) (EC, 2020c);
-"""@en .
+"""@en ;
+    skos:scopeNote "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 :social_systainability a :SsbdDimension ;
     skos:prefLabel "social_sustainability" ;
@@ -533,7 +535,8 @@ chemicals/materials along the entire life cycle to move towards:
     skos:skopeNote """In the SDGs framework several Goals focus on social aspects,
 e.g. poverty eradication (SDG 1), food security (SDG 2), health (SDG 3),
 education (SDG 4), gender equality (SDG 5), decent work (SDG 8),
-reduce inequalities (SDG 10), peace and justice (SDG 16)."""@en .
+reduce inequalities (SDG 10), peace and justice (SDG 16)."""@en ;
+    skos:scopeNote "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 :economic a :SsbdDimension ;
     skos:prefLabel "economic" ;
@@ -546,7 +549,8 @@ renewable or are (very) scarce and extracted and processed in an
 unsustainable manner. Economic aspects play a role when there is a
 need to rank chemicals and materials based on SSbD criteria (even if
 they are not SSbD). However, mainly externalities consideration is at
-stake in a sustainability framework like the SSbD one."""@en .
+stake in a sustainability framework like the SSbD one."""@en ;
+    skos:scopeNote "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 
 
