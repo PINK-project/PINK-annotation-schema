@@ -134,21 +134,6 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 
 ### Other PINK-specific relations
-:method a owl:ObjectProperty ;
-    rdfs:subPropertyOf :wasDerivedBy ;
-    rdfs:domain dcat:Dataset ;
-    rdfs:range :Method ;
-    skos:prefLabel "method"@en ;
-    skos:definition "Relates a dataset to the method that describes the activity it was created with." .
-
-:hasMethod a owl:ObjectProperty ;
-    rdfs:subPropertyOf :participatesTo ;
-    rdfs:domain prov:Activity ;
-    rdfs:range :Method ;
-    skos:prefLabel "hasMethod"@en ;
-    skos:definition "Relates an activity to the method that it is described by." .
-
-
 :documentation a owl:ObjectProperty ;
     rdfs:subPropertyOf foaf:page;
     rdfs:domain dcat:Resource ;
@@ -160,7 +145,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
     rdfs:domain dcat:Resource ;
     rdfs:range xsd:boolean ;
     skos:prefLabel "hasAPI"@en ;
-    skos:definition "Whether the method has an API." .
+    skos:definition "Whether the resource has an API." .
 
 
 ### Parthood relations
