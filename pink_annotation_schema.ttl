@@ -347,7 +347,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :semiotical rdf:type owl:ObjectProperty ;
     skos:prefLabel "semiotical"@en ;
     skos:definition "The base of all semiotic relations."@en ;
-    skos:skopeNote "Semiotic relations take part in a triadic semiotic meaning-making process, where an 'interpreter' connects a 'sign' (e.g. a property) to a real world object (called 'referent')."@en ;
+    skos:skopeNote "Semiotic relations take part in a triadic semiotic meaning-making process, where an 'interpreter' connects a 'sign' (e.g. a property) to an entity (called 'referent')."@en ;
     skos:skopeNote "The semiotic relations in the PINK Annotation Scheme are inspirred by EMMO, which in turn is based on the semiotic theory by Charles Sanders Peirce (1839-1914)."@en ;
     skos:skopeNote "Semiotic relations can be seen as shortcuts that replaces a series of complex causal relations with a single relation."@en .
 
@@ -358,29 +358,58 @@ foaf:logo rdf:type owl:AnnotationProperty .
     rdfs:domain :Sign ;
     rdfs:range :Interpreter .
 
-:standsFor rdf:type owl:ObjectProperty ;
-    rdfs:subPropertyOf :semiotical ;
-    owl:inverseOf :isRepresentedBy ;
-    skos:prefLabel "standsFor"@en ;
-    skos:definition "Connects a sign (e.g. a property) to a real world object (a 'referent')."@en ;
-    rdfs:domain :Sign ;
-    rdfs:range :Object .
-
 :isRepresentedBy rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf :semiotical ;
     owl:inverseOf :standsFor ;
     skos:prefLabel "isRepresentedBy"@en ;
-    skos:definition "Connects a real-world object to a sign that stands for the object."@en ;
+    skos:definition "Connects an entity to a sign that stands for the entity."@en ;
     rdfs:domain prov:Entity ;
-    rdfs:range :Property .
+    rdfs:range :Sign .
 
 :hasProperty rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf :isRepresentedBy ;
     skos:prefLabel "hasProperty"@en ;
-    skos:definition "Connects a real-world object to a property."@en ;
+    skos:definition "Connects an entity to a property."@en ;
     rdfs:domain prov:Entity ;
     rdfs:range :Property .
 
+:hasDescription rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf :isRepresentedBy ;
+    skos:prefLabel "hasDescription"@en ;
+    skos:definition "Connects an entity to a description."@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:range :Description .
+
+:hasUnit rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf :hasDescription ;
+    skos:prefLabel "hasUnit"@en ;
+    skos:definition "Connects a property to its unit."@en ;
+    rdfs:domain :Property ;
+    rdfs:range :Description .
+
+:standsFor rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf :semiotical ;
+    owl:inverseOf :isRepresentedBy ;
+    skos:prefLabel "standsFor"@en ;
+    skos:definition "Connects a sign (e.g. a property) to an entity (a 'referent')."@en ;
+    rdfs:domain :Sign ;
+    rdfs:range prop:Entity .
+
+:isDescriptionOf rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf :standsFor ;
+    owl:inverseOf :hasDescription ;
+    skos:prefLabel "isDescriptionOf"@en ;
+    skos:definition "Connects a description to an entity."@en ;
+    rdfs:domain :Description ;
+    rdfs:range prop:Entity .
+
+:isPropertyOf rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf :standsFor ;
+    owl:inverseOf :hasProperty ;
+    skos:prefLabel "isPropertyOf"@en ;
+    skos:definition "Connects a property to an entity."@en ;
+    rdfs:domain :Property ;
+    rdfs:range prop:Entity .
 
 
 
@@ -402,7 +431,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:altLabel "Occurent"@en ;
     skos:altLabel "Perdurant"@en ;
     skos:definition "An activity with temporal parts."@en ;
-    skos:usageNote "The temporal parts of a process are not of the same type as the process itself."@en .
+    skos:scopeNote "The temporal parts of a process are not of the same type as the process itself."@en .
 
 :MaterialProcess rdf:type owl:Class ;
     rdfs:subClassOf :Process ;
@@ -435,7 +464,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Matter"@en ;
     skos:definition "An entity that possess mass and occupies volume."@en ;
-    skos:usageNote "Matter objects contain fermions."@en .
+    skos:scopeNote "Matter objects contain fermions."@en .
 
 ## Data
 :Data rdf:type owl:Class ;
@@ -481,14 +510,14 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :Sign rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Sign"@en ;
-    skos:definition "A sign that stands for a real-world object."@en ;
-    skos:usageNote "A sign is a part of a triadic semiotic (meaning-making) process, where an 'interpreter' connects a 'sign' to a real world object (called 'referent')."@en .
+    skos:definition "A sign that stands for an entity."@en ;
+    skos:scopeNote "A sign is a part of a triadic semiotic (meaning-making) process, where an 'interpreter' connects a 'sign' to an entity (called 'referent')."@en .
 
 :Model rdf:type owl:Class ;
     rdfs:subClassOf :Sign ;
     skos:prefLabel "Model"@en ;
     skos:definition "A useful simplified description of a selected part of the world."@en ;
-    skos:usageNote "A model is a sign that resembles or imitates an object, in shape, function or by sharing a similar logical structure."@en ;
+    skos:scopeNote "A model is a sign that resembles or imitates an object, in shape, function or by sharing a similar logical structure."@en ;
     skos:example """Newton's law of motion is a model for how a body will move when subjected to forces.
 A mouse can be seen as a model for a human (e.g. in medicine).
 An architectural floor plan is a model of a house.
@@ -498,13 +527,13 @@ An architectural floor plan is a model of a house.
     rdfs:subClassOf :Sign ;
     skos:prefLabel "Property"@en ;
     skos:definition """An "atomic" sign that stands for an physical interaction with an object."""@en ;
-    skos:usageNote "A property is atomic in the sense that is aimed to deliver one and one only aspect of the object."@en .
+    skos:scopeNote "A property is atomic in the sense that is aimed to deliver one and one only aspect of the object."@en .
 
 :Description rdf:type owl:Class ;
     rdfs:subClassOf :Sign ;
     skos:prefLabel "Description"@en ;
     skos:definition "A collection of properties that depicts an object."@en ;
-    skos:usageNote "A description is not atomic in the sense that it is made of more than one property."@en .
+    skos:scopeNote "A description is not atomic in the sense that it is made of more than one property."@en .
 
 ## Object
 :Object rdf:type owl:Class ;
@@ -512,23 +541,24 @@ An architectural floor plan is a model of a house.
     skos:prefLabel "Object"@en ;
     skos:altLabel "Continuant"@en ;
     skos:altLabel "Endurant"@en ;
-    skos:definition "A real-world object that has a temporal extension."@en ;
-    skos:usageNote "Object is the class of all individuals who's temporal parts are of the same type as the whole."@en ;
-    skos:usageNote "Object individals will typically also be an individual of 'Matter'. However, when categorising something as an 'Object', the focus is on its existence (throughout one of more processes), while 'Matter' focuses on that it pocess mass and takes up volume and how it can further be categorised as "@en .
+    skos:definition "An entity that has a temporal extension."@en ;
+    skos:scopeNote "Object is the class of all individuals who's temporal parts are of the same type as the whole."@en ;
+    skos:scopeNote "Object individals will typically also be an individual of 'Matter'. However, when categorising something as an 'Object', the focus is on its existence (throughout one of more processes), while 'Matter' focuses on that it pocess mass and takes up volume and how it can further be categorised as "@en .
 
 
 ### Agent subclasses
 :Participant rdf:type owl:Class ;
     rdfs:subClassOf :Object, prov:Agent ;
     skos:prefLabel "Participant"@en ;
-    skos:definition "An object which is a spatial part of a process."@en ;
-    vann:usageNote "Example: A student during an examination. The student exists both before and after the examination."@en .
+    skos:definition "An object that participates to a process."@en ;
+    skos:scopeNote "Mereologically participation means that the object is a spatial part of the process."@en ;
+    skos:example "A student during an examination. The student exists both before and after the examination."@en .
 
 :Interpreter rdf:type owl:Class ;
     rdfs:subClassOf prov:Agent ;
     skos:prefLabel "Interpreter"@en ;
-    skos:definition "The agent that connects the sign to a real-world object in a semiotic (meaning-making) process."@en ;
-    vann:usageNote "Example: A person (interpreter) that measures the length (sign) of an pencil (object)."@en .
+    skos:definition "The agent that connects the sign to an entity in a semiotic (meaning-making) process."@en ;
+    skos:example "A person (interpreter) that measures the length (sign) of an pencil (object)."@en .
 
 
 ### Include standard concepts into the PINK taxonomy
