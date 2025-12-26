@@ -357,7 +357,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "standsFor"@en ;
     skos:definition "Connects a sign (e.g. a property) to an entity (a 'referent')."@en ;
     rdfs:domain :Sign ;
-    rdfs:range prop:Entity .
+    rdfs:range prov:Entity .
 
 :isDescriptionOf rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf :standsFor ;
@@ -365,7 +365,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "isDescriptionOf"@en ;
     skos:definition "Connects a description to an entity."@en ;
     rdfs:domain :Description ;
-    rdfs:range prop:Entity .
+    rdfs:range prov:Entity .
 
 :isPropertyOf rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf :standsFor ;
@@ -373,7 +373,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "isPropertyOf"@en ;
     skos:definition "Connects a property to an entity."@en ;
     rdfs:domain :Property ;
-    rdfs:range prop:Entity .
+    rdfs:range prov:Entity .
 
 
 
