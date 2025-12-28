@@ -348,8 +348,17 @@ foaf:logo rdf:type owl:AnnotationProperty .
     rdfs:subPropertyOf :hasDescription ;
     skos:prefLabel "hasUnit"@en ;
     skos:definition "Connects a property to its unit."@en ;
-    rdfs:domain :Property ;
-    rdfs:range :Description .
+    skos:scopeNote "`pink:hasUnit` is intended to refer to a unit in an existing unit ontology, like QUDT or EMMO."@en ;
+    vann:usageNote """A universal restriction should be used when referring to a unit in EMMO.  For example:
+
+    :LethalDose50
+        a pink:Toxicity , [
+            a owl:Restriction ;
+            owl:onProperty pink:hasUnit ;
+            owl:someValuesFrom emmo:MilliGramPerKiloGram
+        ] .
+"""@en ;
+    rdfs:domain :Property .
 
 :standsFor rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf :semiotical ;
@@ -459,6 +468,88 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:definition "xxx"@en ;
     vann:usageNote "xxx"@en .
 
+
+## Data
+:SymbolicData rdf:type owl:Class ;
+    rdfs:subClassOf :Data ;
+    rdfs:seeAlso <https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Datatype_Maps> ;
+    rdfs:seeAlso <https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#built-in-datatypes> ;
+    skos:prefLabel "SymbolicData"@en ;
+    skos:definition "The class for entities which stands for a specific data format expressed using a symbolic encoding."@en .
+
+:NumericalData rdf:type owl:Class ;
+    rdfs:subClassOf :SymbolicData ;
+    skos:prefLabel "NumericalData"@en ;
+    skos:definition "A symbolic data representing a numerical value."@en .
+
+:FloatData rdf:type owl:Class ;
+    rdfs:subClassOf :NumericalData ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#float> ;
+    skos:prefLabel "FloatData"@en ;
+    skos:definition "A symbolic data representing a 32-bit floating point numbers incl. ±Inf, ±0, NaN."@en .
+
+:DoubleData rdf:type owl:Class ;
+    rdfs:subClassOf :NumericalData ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#double> ;
+    skos:prefLabel "DoubleData"@en ;
+    skos:definition "A symbolic data representing a 64-bit floating point numbers incl. ±Inf, ±0, NaN."@en .
+
+:IntegerData rdf:type owl:Class ;
+    rdfs:subClassOf :NumericalData ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#integer> ;
+    skos:prefLabel "IntegerData"@en ;
+    skos:definition "A data representing an arbritrary sized integer number."@en .
+
+:LongData rdf:type owl:Class ;
+    rdfs:subClassOf :IntegerData ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#long> ;
+    skos:prefLabel "LongData"@en ;
+    skos:definition "A data representing a 64-bit integer number."@en .
+
+:IntData rdf:type owl:Class ;
+    rdfs:subClassOf :LongData ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#int> ;
+    skos:prefLabel "IntData"@en ;
+    skos:definition "A data representing a 32-bit integer number."@en .
+
+:ShortData rdf:type owl:Class ;
+    rdfs:subClassOf :IntData ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#short> ;
+    skos:prefLabel "ShortData"@en ;
+    skos:definition "A data representing a 16-bit integer number."@en .
+
+:ByteData rdf:type owl:Class ;
+    rdfs:subClassOf :ShortData ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#byte> ;
+    skos:prefLabel "ByteData"@en ;
+    skos:definition "A data representing a 8-bit integer number."@en .
+
+:BooleanData rdf:type owl:Class ;
+    rdfs:subClassOf :SymbolicData ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#boolean> ;
+    skos:prefLabel "BooleanData"@en ;
+    skos:definition "A symbolic data representing a boolean number."@en .
+
+:DateData rdf:type owl:Class ;
+    rdfs:subClassOf :SymbolicData ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#date> ;
+    skos:prefLabel "DateData"@en ;
+    skos:definition "A symbolic data representing date. Format: YYYY-MM-DD (followed by an optional time zone offset, e.g. +01:00 for Central Europe)."@en .
+
+:TimeData rdf:type owl:Class ;
+    rdfs:subClassOf :SymbolicData ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#time> ;
+    skos:prefLabel "TimeData"@en ;
+    skos:definition "A symbolic data representing time. Format: hh:mm:ss (followed by an optional time zone offset, e.g. +01:00 for Central Europe)."@en .
+
+:DateTimeData rdf:type owl:Class ;
+    rdfs:subClassOf :SymbolicData ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#dateTime> ;
+    skos:prefLabel "DateTimeData"@en ;
+    skos:definition "A symbolic data representing datetime. Format: YYYY-MM-DDThh:mm:ss (followed by an optional time zone offset, e.g. +01:00 for Central Europe)."@en .
+
+
+
 ## Sign
 :Sign rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
@@ -481,6 +572,13 @@ An architectural floor plan is a model of a house.
     skos:prefLabel "Property"@en ;
     skos:definition """An "atomic" sign that stands for an physical interaction with an object."""@en ;
     skos:scopeNote "A property is atomic in the sense that is aimed to deliver one and one only aspect of the object."@en .
+
+:Toxicity rdf:type owl:Class ;
+    rdfs:subClassOf :Sign ;
+    skos:prefLabel "Toxicity"@en ;
+    skos:definition "The property or ability of a substance to cause harmful health effects."@en ;
+    skos:scopeNote "The helth effects can strike a single cell, a group of cells, an organ system, or the entire body. A toxic effect may be visible damage, or a decrease in performance or function measurable only by a test."@en ;
+    skos:scopeNote "Toxicity is always related to a given measurement procedure. Hence, the user is expected to define spesific subclasses defining the measurement procedure that the toxicity is measured according to."@en .
 
 :Description rdf:type owl:Class ;
     rdfs:subClassOf :Sign ;
