@@ -91,8 +91,8 @@ jobs:
         keywords \
             --input=pink_annotation_schema.ttl \
             --context=build/context/pink_annotation_schema.jsonld \
-            --namespace-filter=pink \
             --redefine=allow
+            #--namespace-filter=pink
 
     - name: Generate keywords file
       run: |
@@ -100,8 +100,8 @@ jobs:
         keywords \
             --input=pink_annotation_schema.ttl \
             --yaml=build/context/keywords.yaml \
-            --namespace-filter=pink \
             --redefine=allow
+            #--namespace-filter=pink
 
     # - name: Create markdown documentation of keywords
     #   run: |
