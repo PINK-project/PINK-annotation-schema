@@ -35,7 +35,7 @@ jobs:
     - name: Install Tripper
       run: |
         pip install tripper[datadoc]
-        #pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
+        pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
 
     - name: Download Widoco
       run: |
