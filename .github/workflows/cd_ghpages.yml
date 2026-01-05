@@ -87,6 +87,14 @@ jobs:
             -includeAnnotationProperties
 
 
+    - name: Generate keywords file
+      run: |
+        keywords \
+            --input=pink_annotation_schema.ttl \
+            --yaml=build/keywords.yaml \
+            --namespace-filter=pink \
+            --redefine=allow
+
     # - name: Create markdown documentation of keywords
     #   run: |
     #     keywords \
