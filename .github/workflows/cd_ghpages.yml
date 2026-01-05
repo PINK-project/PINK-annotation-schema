@@ -1,9 +1,9 @@
 name: Deploy on GitHub Pages
 
-#on: push
-on:
-  push:
-    branches: [main]
+on: push
+#on:
+#  push:
+#    branches: [main]
 
 env:
   ONTOLOGY_NAME: pink_annotation_schema
@@ -86,12 +86,21 @@ jobs:
             -licensius \
             -includeAnnotationProperties
 
+    - name: Generate JSON-LD context
+      run: |
+        mkdir -p build/context
+        keywords \
+            --input=pink_annotation_schema.ttl \
+            --context=build/context/pink_annotation_schema.jsonld \
+            --namespace-filter=pink \
+            --redefine=allow
 
     - name: Generate keywords file
       run: |
+        mkdir -p build/context
         keywords \
             --input=pink_annotation_schema.ttl \
-            --yaml=build/keywords.yaml \
+            --yaml=build/context/keywords.yaml \
             --namespace-filter=pink \
             --redefine=allow
 
