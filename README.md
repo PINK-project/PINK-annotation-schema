@@ -9,9 +9,14 @@ It is constructed to be easily aligned with [EMMO].
 > It is not intended for production at the current stage.
 
 
+## Resources
+- Reference documentation for [PINK Annotation Schema] and [reused terms] (for ontology experts).
+- [Turtle file] including all imported concepts.
+- [Inferred turtle file] reasoned with HermiT.
+
+
 ## Repository Files
 - `catalog-v001.xml`: XML catalog mapping ontology files to their IRIs for semantic web tools.
-- `contributors.ttl`: Turtle file listing contributors to the PINK Annotation Schema for this repository.
 - `pink_annotation_schema.ttl`: Main ontology file for the PINK Annotation Schema.
 - `reused-terms.ttl`: Terms from standard vocabularies reused by the schema.
 - `LICENSE`: Creative Commons Attribution 4.0 International license.
@@ -39,7 +44,6 @@ The taxonomy below shows a basic categorisation of the main concepts (OWL classe
 It unifies concepts from common vocabularies, like [Dublin Core], [DCAT], [PROV-O] and [FOAF].
 This gives the adapted terms additional context.
 However, the taxonomy is intentionally weekly axiomated in order to facilitate alignment to different popular top-level ontologies, like [EMMO], [DOLCE] and [BFO].
-
 
 ![Taxonomy](docs/figs/taxonomy.png)
 
@@ -217,6 +221,11 @@ In addition, when turning on logging a few extra notifications are printed.
 
 
 # References
+
+[PINK Annotation Schema]: https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html
+[reused terms]: https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html
+[Turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema.ttl
+[Inferred turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema-inferred.ttl
 
 [PINK classes]: ./docs/classes.md
 [pink_annotation_schema.ttl]: ./pink_annotation_schema.ttl

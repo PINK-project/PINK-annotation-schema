@@ -13,23 +13,28 @@
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
+@prefix pink: <https://w3id.org/pink#> .
 
 @base <https://w3id.org/pink#> .
 
 <https://w3id.org/pink>
     rdf:type owl:Ontology ;
     owl:versionIRI <https://w3id.org/pink/0.0.1> ;
-    owl:imports <https://w3id.org/pink/0.0.1/contributors> ,
-                <https://w3id.org/pink/0.0.1/reused-terms> ;
+    owl:imports <https://w3id.org/pink/0.0.1/reused-terms> ;
     dcatap:status "Under Development" ;
-    dcterms:abstract "The PINK Annotation Schema provides the semantic basis for SSbD."@en ;
+    dcterms:abstract """The PINK Annotation Schema provides the semantic basis for SSbD.
+
+The PINK Annotation Schema expands on the annotation schema provided by tripper, which again expands on the DCAT-AP.
+
+A reference documentation of terms reused from standard W3C vocabularies can be found https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html.
+"""@en ;
     dcterms:bibliographicCitation "xxx" ;
-    dcterms:contributor :IseultLynch ;
+    dcterms:contributor <https://orcid.org/0000-0003-4250-4584> ;
     dcterms:created "2025-09-08" ;
-    dcterms:creator :FrancescaBleken ,
-                    :JesperFriis ,
-                    :JohDokler ,
-                    :ThomasExner ;
+    dcterms:creator <https://orcid.org/0000-0002-1560-809X> ,
+                    <https://orcid.org/0000-0001-8869-3718> ,
+                    <https://orcid.org/0000-0002-1849-5246> ,
+                    <https://orcid.org/0000-0002-8053-8198> ;
     dcterms:hasFormat <https://www.w3.org/TR/turtle/> ;
     dcterms:issued "xxxx-xx-xx" ;
     dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
@@ -40,11 +45,39 @@
     bibo:doi "tbd" ;
     vann:preferredNamespacePrefix "pink" ;
     vann:preferredNamespaceUri "https://w3id.org/pink" ;
-    rdfs:comment "This expands on the annotation schema provided by tripper, which again expands on the DCAT-AP."@en ;
     owl:priorVersion "0.0.0" ;
     owl:versionInfo "0.0.1" ;
     foaf:homepage <https://github.com/PINK-project/PINK-annotation-schema> ;
     foaf:logo <https://tess.elixir-europe.org/system/content_providers/images/000/000/777/original/pink-logo-orange-colorB-500.png> .
+
+
+## Contributors
+<https://orcid.org/0000-0002-1560-809X> a foaf:Person ;
+    skos:prefLabel "JesperFriis" ;
+    foaf:name "Jesper Friis" ;
+    foaf:workplaceHomepage <https://www.sintef.no/en/> .
+
+<https://orcid.org/0000-0001-8869-3718> a foaf:Person ;
+    skos:prefLabel "FrancescaLonstadBleken" ;
+    foaf:name "Francesca Lønstad Bleken" ;
+    foaf:workplaceHomepage <https://www.sintef.no/en/> .
+
+<https://orcid.org/0000-0002-1849-5246> a foaf:Person ;
+    skos:prefLabel "ThomasExner" ;
+    foaf:name "Thomas Exner" ;
+    foaf:workplaceHomepage <https://sevenpastnine.com/> .
+
+<https://orcid.org/0000-0002-8053-8198> a foaf:Person ;
+    skos:prefLabel "JohDokler" ;
+    foaf:name "Joh Dokler" ;
+    foaf:workplaceHomepage <https://sevenpastnine.com/> .
+
+<https://orcid.org/0000-0003-4250-4584> a foaf:Person ;
+    skos:prefLabel "IseultLynch" ;
+    foaf:name "Iseult Lynch" ;
+    foaf:workplaceHomepage <https://www.birmingham.ac.uk/> .
+
+
 
 #################################################################
 #    Annotation properties
@@ -74,7 +107,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 ###  https://w3id.org/pink#conformance
 :conformance rdf:type owl:ObjectProperty ;
     rdfs:range ddoc:ConformanceLevel ;
-    dcterms:description "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema"@en ;
+    skos:definition "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema"@en ;
     vann:usageNote "It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended' or 'ddoc:optional'."@en ;
     rdfs:isDefinedBy <https://w3id.org/pink> ;
     skos:prefLabel "conformance" .
@@ -91,97 +124,83 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :ssbdDimension rdf:type owl:ObjectProperty ;
     rdfs:range :SsbdDimension ;
     skos:prefLabel "ssbdDimension"@en ;
-    dcterms:description "XXX"@en ;
+    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en ;
     vann:usageNote "One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`"@en .
 
 :ssbdSubDimension rdf:type owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     skos:prefLabel "ssbdSubDimension"@en ;
-    dcterms:description "XXX"@en .
+    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 
 ### Other PINK-specific relations
-:method a owl:ObjectProperty ;
-    rdfs:subPropertyOf :wasDerivedBy ;
-    rdfs:domain dcat:Dataset ;
-    rdfs:range :Method ;
-    skos:prefLabel "method"@en ;
-    dcterms:description "Relates a dataset to the method that describes the activity it was created with." .
-
-:hasMethod a owl:ObjectProperty ;
-    rdfs:subPropertyOf :participatesTo ;
-    rdfs:domain prov:Activity ;
-    rdfs:range :Method ;
-    skos:prefLabel "hasMethod"@en ;
-    dcterms:description "Relates an activity to the method that it is described by." .
-
-
 :documentation a owl:ObjectProperty ;
     rdfs:subPropertyOf foaf:page;
     rdfs:domain dcat:Resource ;
     rdfs:range foaf:Document ;
     skos:prefLabel "documentation"@en ;
-    dcterms:description "A page or document documenting this resource." .
+    skos:definition "A page or document documenting this resource." .
 
 :hasAPI a owl:DatatypeProperty ;
     rdfs:domain dcat:Resource ;
     rdfs:range xsd:boolean ;
     skos:prefLabel "hasAPI"@en ;
-    dcterms:description "Whether the method has an API." .
+    skos:definition "Whether the resource has an API." .
 
 
 ### Parthood relations
 :overlaps rdf:type owl:ObjectProperty, owl:SymmetricProperty, owl:ReflexiveProperty ;
     skos:prefLabel "overlaps"@en ;
     owl:propertyDisjointWith :nonOverlaps ;
-    dcterms:description "The relation between two individuals representing entities that share at least one of their parts."@en .
+    skos:definition "The relation between two individuals representing entities that share at least one of their parts."@en .
 
 :nonOverlaps rdf:type owl:ObjectProperty, owl:SymmetricProperty, owl:IrreflexiveProperty ;
     skos:prefLabel "nonOverlaps"@en ;
     owl:propertyDisjointWith :overlaps ;
-    dcterms:description "The relation between two individuals that does not share any parts."@en .
+    skos:definition "The relation between two individuals that does not share any parts."@en .
 
 :isOvercrossedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
     rdfs:subPropertyOf :overlaps ;
     skos:prefLabel "isOvercrossedBy"@en ;
     owl:propertyDisjointWith :hasPart ;
-    dcterms:description "The relation between an entity that overlaps another without having it as part."@en .
+    skos:definition "The relation between an entity that overlaps another without having it as part."@en .
 
-:hasPart rdf:type owl:ObjectProperty, owl:ReflexiveProperty, owl:TransitiveProperty ;
+:hasPart rdf:type owl:ObjectProperty, owl:ReflexiveProperty ;
     rdfs:subPropertyOf dcterms:hasPart, :overlaps ;
     skos:prefLabel "hasPart"@en ;
-    dcterms:description "The primitive relation that express the concept of an entity being part of another one."@en .
+    skos:skopeNote "OWL2 does not allow non-simple (e.g. transitive) properties to appear in disjoint property axioms. We therefore implement the transitivity of hasPart using SWRL rules instead of asserting it with owl:TransitiveProperty."@en ;
+    skos:definition "The primitive relation that express the concept of an entity being part of another one."@en .
 
 :hasParticipant rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
     skos:prefLabel "hasParticipant"@en ;
-    dcterms:description "The relation between a process and an object participating to it, i.e. that is relevant to the process itself."@en ;
-    rdfs:comment "Participation is a parthood relation: you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process."@en .
+    skos:definition "The relation between a process and an object participating to it, i.e. that is relevant to the process itself."@en ;
+    skos:skopeNote "Participation is a parthood relation: you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process."@en .
 
 :hasDatum rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
     skos:prefLabel "hasDatum"@en ;
     rdfs:domain :Dataset ;
     rdfs:range :Datum ;
-    dcterms:description "Relates a dataset to its datum."@en .
+    skos:definition "Relates a dataset to its datum."@en .
 
 :hasSpatialPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
     skos:prefLabel "hasSpatialPart"@en ;
-    dcterms:description "A proper part of a whole, whose parts always cover the full temporal extension of the whole within a spatial interval."@en ;
-    rdfs:comment "The part is connected with the rest item or members with hasContact relations only (no hasNext)."@en .
+    skos:definition "A proper part of a whole, whose parts always cover the full temporal extension of the whole within a spatial interval."@en ;
+    skos:skopeNote "The part is connected with the rest item or members with hasContact relations only (no hasNext)."@en .
 
 :hasTemporalPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
     skos:prefLabel "hasTemporalPart"@en ;
-    dcterms:description "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval." ;
-    rdfs:comment "A temporal part of an item cannot both cause and be caused by any other proper part of the item."@en .
+    skos:definition "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval." ;
+    skos:skopeNote "A temporal part of an item cannot both cause and be caused by any other proper part of the item."@en .
 
 :hasJunctionPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
     skos:prefLabel "hasJunctionPart"@en ;
     skos:altLabel "hasSpatioTemporalPart"@en ;
-    dcterms:description "The part is connected with the rest item or members with both hasNext (or its inverse) and hasContact relations."@en .
+    skos:definition "The part is connected with the rest item or members with both hasNext (or its inverse) and hasContact relations."@en .
 
 
 :participatesTo rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -189,16 +208,16 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "participatesTo"@en ;
     rdfs:domain prov:Entity ;
     rdfs:range prov:Activity ;
-    rdfs:comment "The entity through overlaps the activity."@en ;
-    dcterms:description "Relation an entity to an activity that it interacts with."@en .
+    skos:skopeNote "The entity through overlaps the activity."@en ;
+    skos:definition "Relation an entity to an activity that it interacts with."@en .
 
 :used rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf prov:used, :isOvercrossedBy ;
     skos:prefLabel "used"@en ;
     rdfs:domain prov:Activity ;
     rdfs:range prov:Entity ;
-    rdfs:comment "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."@en ;
-    dcterms:description "Relates an activity to an entity that it used."@en ;
+    skos:skopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."@en ;
+    skos:definition "Relates an activity to an entity that it used."@en ;
     skos:example "For example, :baking :used :spoon, :egg, :oven ." .
 
 :wasGeneratedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -206,31 +225,27 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "wasGeneratedBy"@en ;
     rdfs:domain prov:Entity ;
     rdfs:range prov:Activity ;
-    rdfs:comment "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
-    dcterms:description "Relates an entity to the activity it was generated from."@en .
+    skos:skopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
+    skos:definition "Relates an entity to the activity it was generated from."@en .
+
+:hasInput owl:equivalentTo :used .
+
+:hasOutput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    owl:InverseOf :wasGeneratedBy .
 
 :wasAssociatedWith rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf prov:wasAssociatedWith, :isOvercrossedBy ;
     skos:prefLabel "wasAssociatedWith"@en ;
     rdfs:domain prov:Activity ;
     rdfs:range prov:Agent ;
-    rdfs:comment "The activity is through overlapped by the agent."@en ;
-    dcterms:description "Relates an activity to an agent that had some (unspecified) responsibility for the occurence of this activity."@en .
-
-:hasProcess rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :participatesTo ;
-    skos:prefLabel "hasProcess"@en ;
-    rdfs:domain :Method ;
-    rdfs:range :Process ;
-    rdfs:comment "This is a subproperty of participatesTo, meaning that the process is overcrossed by the method."@en ;
-    rdfs:comment "The starting point for this relation is that it relates a method to an activity it describes. However, when an activity is described by a method is a process. Therefor is the range of this relation a process and not only an activity."@en ;
-    dcterms:description "Relates a method to the process that it describes."@en .
+    skos:skopeNote "The activity is through overlapped by the agent."@en ;
+    skos:definition "Relates an activity to an agent that had some (unspecified) responsibility for the occurence of this activity."@en .
 
 :hasModel rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     skos:prefLabel "hasModel"@en ;
-    rdfs:domain :Method ;
+    rdfs:domain :Activity ;
     rdfs:range :Model ;
-    dcterms:description "Relates a method to the model it implements."@en .
+    skos:definition "Relates an activity to the model it implements."@en .
 
 
 
@@ -239,30 +254,30 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :causedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
     rdfs:subPropertyOf prov:wasInfluencedBy ;
     skos:prefLabel "causedBy"@en ;
-    dcterms:description "A relation between an entity that causally affects the subject."@en ;
+    skos:definition "A relation between an entity that causally affects the subject."@en ;
     skos:example "John yesterday is the cause of John today, is an example of temporal-like causality. The desk supporting my laptop is a space-like causality."@en .
 
 :isAfter rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :causedBy ;
     skos:prefLabel "isAfter"@en ;
-    dcterms:description "A one-directional relation between an entity that affects the subject."@en .
+    skos:definition "A one-directional relation between an entity that affects the subject."@en .
 
 :processedFrom rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :isAfter ;
     skos:prefLabel "processedFrom"@en ;
-    dcterms:description "Indirect relation that relates the output of an activity to its input."@en .
+    skos:definition "Indirect relation that relates the output of an activity to its input."@en .
 
 :wasInformedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :isAfter, prov:wasInformedBy ;
     skos:prefLabel "wasInformedBy"@en ;
-    dcterms:description "A one-directional relation between an activity that affects the subject activity."@en ;
+    skos:definition "A one-directional relation between an activity that affects the subject activity."@en ;
     rdfs:domain prov:Activity ;
     rdfs:range prov:Activity .
 
 :wasDerivedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :processedFrom, prov:wasDerivedBy ;
     skos:prefLabel "wasDerivedBy"@en ;
-    dcterms:description "Indirect relation that relates the output entity of an activity to its input entity."@en ;
+    skos:definition "Indirect relation that relates the output entity of an activity to its input entity."@en ;
     rdfs:domain prov:Entity ;
     rdfs:range prov:Entity .
 
@@ -271,8 +286,8 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "wasAttributedTo"@en ;
     rdfs:domain prov:Entity ;
     rdfs:range prov:Agent ;
-    rdfs:comment "The activity is through overlapped by the agent and overcrossed by the entity."@en ;
-    dcterms:description "Relates an entity to an agent via an activity that both the entity and agent participates to."@en ;
+    skos:skopeNote "The activity is through overlapped by the agent and overcrossed by the entity."@en ;
+    skos:definition "Relates an entity to an agent via an activity that both the entity and agent participates to."@en ;
     owl:inverseOf :attributed .
 
 :attributed rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -280,33 +295,17 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "attributed"@en ;
     rdfs:domain prov:Agent ;
     rdfs:range prov:Entity ;
-    rdfs:comment "There may or may not be a causal interaction between the agent and entity."@en ;
-    rdfs:comment "The activity is through overlapped by the agent and overcrossed by the entity."@en ;
-    dcterms:description "Relates an agent to an entity via an activity that both the agent and entity participates to."@en ;
+    skos:skopeNote "There may or may not be a causal interaction between the agent and entity."@en ;
+    skos:skopeNote "The activity is through overlapped by the agent and overcrossed by the entity."@en ;
+    skos:definition "Relates an agent to an entity via an activity that both the agent and entity participates to."@en ;
     owl:inverseOf :wasAttributedTo .
-
-:input rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :attributed ;
-    skos:prefLabel "input"@en ;
-    rdfs:domain :Method ;
-    rdfs:range prov:Entity ;
-    rdfs:comment "The process P is through overlapped by the agent A and overcrossed by the entity E, where the non-overlapping part of E causes P."@en ;
-    dcterms:description "Relates a method to an entity via a process that used the entity and that the method participates to."@en .
-
-:output rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :attributed ;
-    skos:prefLabel "output"@en ;
-    rdfs:domain :Method ;
-    rdfs:range prov:Entity ;
-    rdfs:comment "The process P is through overlapped by the agent A and overcrossed by the entity E, where the non-overlapping part of E is caused by P."@en ;
-    dcterms:description "Relates a method to an entity via a process that was generated by the entity and that the method participates to."@en .
 
 
 
 ### Property relations
 :hasProperty rdf:type owl:ObjectProperty ;
     skos:prefLabel "hasProperty"@en ;
-    dcterms:description "A semiotic relation that connects a semiotic object to a property in a declaration process."@en ;
+    skos:definition "A semiotic relation that connects a semiotic object to a property in a declaration process."@en ;
     rdfs:domain prov:Entity ;
     rdfs:range :Property .
 
@@ -318,53 +317,41 @@ foaf:logo rdf:type owl:AnnotationProperty .
 ### SSbD-related classes
 :SsbdDimension rdf:type owl:Class ;
     skos:prefLabel "SsbdDimension"@en ;
-    rdfs:comment "The pink:SsbdDimension is an extension of the 'sustainability dimensions' defined by JRC." ;
-    dcterms:description "XXX"@en .
+    skos:skopeNote "The pink:SsbdDimension is an extension of the 'sustainability dimensions' defined by JRC." ;
+    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 
 ### General classes
 :MaterialProcess rdf:type owl:Class ;
     rdfs:subClassOf :Process ;
     skos:prefLabel "MaterialProcess"@en ;
-    rdfs:comment "Since MaterialProcess is a subclass of Process, we say that there must exist a method that describes the material process." ;
-    dcterms:description "A process that has material as input and output."@en .
+    skos:definition "A process that has material as input and output."@en .
 
 :Measurement rdf:type owl:Class ;
     rdfs:subClassOf :Process ;
     skos:prefLabel "Measurement"@en ;
-    rdfs:comment "Since Measurement is a subclass of Process, we say that there must exist a method that describes the measurement." ;
-    dcterms:description "An observation that results in a quantitative comparison of a 'property' of an 'object' with a standard reference based on a well defined mesurement procedure."@en .
+    skos:definition "An observation that results in a quantitative comparison of a 'property' of an 'object' with a standard reference based on a well defined mesurement procedure."@en .
 
 :Computation rdf:type owl:Class ;
     rdfs:subClassOf :Process ;
     skos:prefLabel "Computation"@en ;
-    rdfs:comment "Since Computation is a subclass of Process, we say that there must exist a method that describes the computation." ;
-    dcterms:description "A procedure that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en .
+    skos:definition "A procedure that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en .
 
-
-:Method rdf:type owl:Class ;
-    rdfs:subClassOf :Data ;
-    skos:prefLabel "Method"@en ;
-    skos:altLabel "MethodImplementation"@en ;
-    dcterms:description "Data that describes how to perform an activity."@en .
 
 :ComputationalTool rdf:type owl:Class ;
-    rdfs:subClassOf :Method ;
+    rdfs:subClassOf :Software ;
     skos:prefLabel "ComputationalTool"@en ;
-    skos:altLabel "ComputationalMethod"@en ;
-    dcterms:description "A tool that describes how to run a computational model."@en ;
+    skos:definition "A software that performs a computation."@en ;
     skos:example "Gromacs is a computational tool that solves Newton's equations of motion."@en .
 
 :Model rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Model"@en ;
-    dcterms:description "A useful simplified description of a selected part of the world."@en ;
+    skos:definition "A useful simplified description of a selected part of the world."@en ;
     skos:example """Newton's law of motion is a model for how a body will move when subjected to forces.
 A mouse can be seen as a model for a human (e.g. in medicine).
 An architectural floor plan is a model of a house.
 """@en .
-
-
 
 :Process rdf:type owl:Class ;
     rdfs:subClassOf prov:Activity, [
@@ -389,35 +376,35 @@ Antimatter is a subclass of matter."""@en .
 :Property rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Property"@en ;
-    dcterms:description "A coventional semiotic sigh that stands for an physical interaction with an object using an atomic symbol."@en ;
+    skos:definition "A coventional semiotic sigh that stands for an physical interaction with an object using an atomic symbol."@en ;
     vann:usageNote "A property is atomic in the sense that is aimed to deliver one and one only aspect of the object."@en .
 
 :Data rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Data"@en ;
-    dcterms:description "Contrast from variation of properties that is encoded by an agent and that can be decoded by another agent according to a specific rule."@en .
+    skos:definition "Contrast from variation of properties that is encoded by an agent and that can be decoded by another agent according to a specific rule."@en .
 
 :Object rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Object"@en ;
-    dcterms:description "The class of all individuals who's temporal parts are of the same type as the whole."@en .
+    skos:definition "The class of all individuals who's temporal parts are of the same type as the whole."@en .
 
 :Datum rdf:type owl:Class ;
     rdfs:subClassOf :Data ;
     skos:prefLabel "Datum"@en ;
-    dcterms:description "A self-consistent encoded data entity."@en ;
+    skos:definition "A self-consistent encoded data entity."@en ;
     vann:usageNote "Datum is the building block of datasets."@en .
 
 :ReliabilityDocument rdf:type owl:Class ;
     rdfs:subClassOf foaf:Document ;
     skos:prefLabel "ReliabilityDocument"@en ;
-    dcterms:description "xxx"@en ;
+    skos:definition "xxx"@en ;
     vann:usageNote "xxx"@en .
 
 :Participant rdf:type owl:Class ;
     rdfs:subClassOf :Object, prov:Agent ;
     skos:prefLabel "Participant"@en ;
-    dcterms:description "An object which is a spatial part of a process."@en ;
+    skos:definition "An object which is a spatial part of a process."@en ;
     vann:usageNote "Example: A student during an examination. The student exists both before and after the examination."@en .
 
 :Dataset rdf:type owl:Class ;
@@ -427,7 +414,7 @@ Antimatter is a subclass of matter."""@en .
         owl:someValuesFrom :Datum
     ] ;
     skos:prefLabel "Dataset"@en ;
-    dcterms:description "Encoded data made of more than one datum."@en ;
+    skos:definition "Encoded data made of more than one datum."@en ;
     vann:usageNote "A collection of (more than one) datum, published or curated by a single agent, and available for access or download in one or more representations."@en .
 
 
@@ -455,13 +442,13 @@ ddoc:recommended rdf:type owl:NamedIndividual ;
 ### SSbD categories
 :functionality a :SsbdDimension ;
     skos:prefLabel "functionality" ;
-    dcterms:description "XXX"@en .
+    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 :safety a :SsbdDimension ;
     skos:prefLabel "safety" ;
-    dcterms:description "Human helth and environmental safety aspects of chemicals and materials."@en ;
+    skos:definition "Human helth and environmental safety aspects of chemicals and materials."@en ;
     dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
-    rdfs:comment """In the context of chemicals assessment, safety could be referring to a
+    skos:skopeNote """In the context of chemicals assessment, safety could be referring to a
 certain condition where a stressor (e.g. a chemical) is unlikely to
 cause any adverse effect to a receptor (e.g. humans and other
 organisms) (more related to intrinsic hazard properties of the
@@ -470,13 +457,14 @@ control measures or mechanisms to minimise exposure to the
 stressor). In any case, the term safe involves receptors, and with
 that generally also requires the consideration of the contact
 (i.e. exposure) between stressors and receptors as addressed in a risk
-assessment context."""@en .
+assessment context."""@en ;
+    skos:scopeNote "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 :environmental_systainability a :SsbdDimension ;
     skos:prefLabel "environmental_systainability" ;
-    dcterms:description "The ability to conserve natural resources and protect global ecosystems to support human health and wellbeing, within the limits of our Planet"@en ;
+    skos:definition "The ability to conserve natural resources and protect global ecosystems to support human health and wellbeing, within the limits of our Planet"@en ;
     dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
-    rdfs:comment """Assessing environmental sustainability implies to assess the environmental impacts generated by
+    skos:skopeNote """Assessing environmental sustainability implies to assess the environmental impacts generated by
 chemicals/materials along the entire life cycle to move towards:
 
   · A toxic-free environment as stated in the CSS (i.e. minimising the total toxicity footprint in terms
@@ -490,29 +478,32 @@ chemicals/materials along the entire life cycle to move towards:
     burdens) (EC, 2020b);
   · The reduction of biodiversity loss and the conservation of ecosystem functioning, addressing the
     main drivers of structural and functional biodiversity loss (e.g. land use, climate change) (EC, 2020c);
-"""@en .
+"""@en ;
+    skos:scopeNote "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 :social_systainability a :SsbdDimension ;
     skos:prefLabel "social_sustainability" ;
-    dcterms:description "A globally agreed list of objectives and targets to be pursued for achieving sustainable development."@en ;
+    skos:definition "A globally agreed list of objectives and targets to be pursued for achieving sustainable development."@en ;
     dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
-    rdfs:comment """In the SDGs framework several Goals focus on social aspects,
+    skos:skopeNote """In the SDGs framework several Goals focus on social aspects,
 e.g. poverty eradication (SDG 1), food security (SDG 2), health (SDG 3),
 education (SDG 4), gender equality (SDG 5), decent work (SDG 8),
-reduce inequalities (SDG 10), peace and justice (SDG 16)."""@en .
+reduce inequalities (SDG 10), peace and justice (SDG 16)."""@en ;
+    skos:scopeNote "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 :economic a :SsbdDimension ;
     skos:prefLabel "economic" ;
-    dcterms:description "Aspects related to techno-economic feasibility, to operational costs, etc."@en ;
+    skos:definition "Aspects related to techno-economic feasibility, to operational costs, etc."@en ;
     dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
-    rdfs:comment """There are important considerations to be made in the context of SSbD
+    skos:skopeNote """There are important considerations to be made in the context of SSbD
 such as the 'availability' of raw materials, as chemicals/materials
 cannot be declared SSbD if the raw materials to produce them are not
 renewable or are (very) scarce and extracted and processed in an
 unsustainable manner. Economic aspects play a role when there is a
 need to rank chemicals and materials based on SSbD criteria (even if
 they are not SSbD). However, mainly externalities consideration is at
-stake in a sustainability framework like the SSbD one."""@en .
+stake in a sustainability framework like the SSbD one."""@en ;
+    skos:scopeNote "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 
 
@@ -675,6 +666,32 @@ stake in a sustainability framework like the SSbD one."""@en .
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :input ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:hasPart ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:hasPart ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:hasPart ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                      ] ;
