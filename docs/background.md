@@ -135,7 +135,7 @@ In Manchester syntax, this may be expressed as follows
         subClassOf: pink:hasOutput some uob:ToxicityComputationOutput
         subClassOf: pink:hasSoftware some uob:ToxicitySoftware
 
-where `uob` is the prefix of the application ontology defining the computation. 
+where `uob` is the prefix of the application ontology defining the computation.
 
 PINK provides tooling (based on [Tripper]) to help providing class-level documentation.
 This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf` (`@type` is implicit and would always be `owl:Class`).
@@ -148,9 +148,11 @@ For example, the above declaration of a computation could provided as follows:
 where the entries under `hasInput` and `hasOutput` refer to dataset subclasses.
 These dataset classes can be documented in a similar way.
 
-| @id          | @type     | subClassOf   | description | ... |
-|--------------|-----------|--------------|-------------|-----|
-|              |           |              |             |     |
+| @id                           | @type     | subClassOf   | description | ... |
+|-------------------------------|-----------|--------------|-------------|-----|
+| uob:ToxicityComputationInput  | owl:Class | pink:Dataset | ...         | ... |
+| uob:ToxicityComputationOutput | owl:Class | pink:Dataset | ...         | ... |
+
 
 
 
