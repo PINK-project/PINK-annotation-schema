@@ -13,7 +13,7 @@ Content
 - [Background]
   - [Provenance]
   - [Taxonomy]
-  - [Relations]
+  - Relations
     - [Parthood relations]
     - [Causal relations]
     - [Semiotic relations]
@@ -28,6 +28,7 @@ Content
 
 [Background]: ./background.md
 [Taxonomy]: ./background.md#taxonomy
+[Provenance]: ./background.md#provenance
 [Parthood relations]: ./background.md#parthood-relations
 [Causal relations]: ./background.md#causal-relations
 [Semiotic relations]: ./background.md#semiotic-relations

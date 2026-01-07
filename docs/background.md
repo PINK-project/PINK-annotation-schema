@@ -124,43 +124,33 @@ That is, to describe something that can happen.
 
 Since we don't know whether the workflow actually will be executed, we can't create individuals for it.
 Hence, what can happen must be described at class level (TBox-level).
+Thus, specific subclasses of prov:Activity are made.
 
-Another important difference from the provenance description above, is that while provenance places the activity in the centre, PINK places the *method* in the centre when describing something that can happen.
-A method is a subclass of data that describes how to perform an activity, like what type of activity will be performed, what type of input it takes, what type of output it produces, is there an API for performing the activity, etc...
-A method is therefore also an agent for the activity it describes.
-The figure below shows how a method relates to an activity and its input and output.
-
-![Method](figs/method.png)
-
-> [!NOTE]
-> Note the use of "some" in the arrows in the above figure.
-> It indicates that the arrows do not represent relations between individuals, but existential restrictions between classes.
 
 In Manchester syntax, this may be expressed as follows
 
-    Class: app:MyMethod
-        subClassOf: pink:Method
-        subClassOf: pink:hasProcess some app:MyActivity
-        subClassOf: pink:input some app:MyInput
-        subClassOf: pink:output some app:MyOutput
+    Class: uob:SpecificToxicityComputation
+        subClassOf: pink:Computation
+        subClassOf: pink:hasInput some uob:ToxicityComputationInput
+        subClassOf: pink:hasOutput some uob:ToxicityComputationOutput
+        subClassOf: pink:hasSoftware some uob:ToxicitySoftware
 
-where `app` is the prefix of the application ontology defining the method and its associated activity and input/output and `app:MyActivity`, `app:MyInput`/`app:MyOutput` are subclasses of `prov:Activity` and `prov:entity`, respectively.
+where `uob` is the prefix of the application ontology defining the computation. 
 
 PINK provides tooling (based on [Tripper]) to help providing class-level documentation.
 This is done the normal way using spreadsheets, but with the `@type` keyword replaced by `subClassOf` (`@type` is implicit and would always be `owl:Class`).
 For example, the above declaration of a computation could provided as follows:
 
-| @id          | @type     | subClassOf  | description | hasProcess     | input       | output       |
-|--------------|-----------|-------------|-------------|----------------|-------------|--------------|
-| app:MyMethod | owl:Class | pink:Method | ...         | app:MyActivity | app:MyInput | app:MyOutput |
+| @id                             | @type     | subClassOf        | description | hasSoftware          | hasInput                     | hasOutput                     |
+|---------------------------------|-----------|-------------------|-------------|----------------------|------------------------------|-------------------------------|
+| uob:SpecificToxicityComputation | owl:Class | pink:Computiation | ...         | uob:ToxicitySoftware | uob:ToxicityComputationInput | uob:ToxicityComputationOutput |
 
-where `app:MyInput` and `app:MyOutput` refer to dataset classes.
-These dataset classes can be documented in a similar way as the method classes:
+where the entries under `hasInput` and `hasOutput` refer to dataset subclasses.
+These dataset classes can be documented in a similar way.
 
 | @id          | @type     | subClassOf   | description | ... |
 |--------------|-----------|--------------|-------------|-----|
-| app:MyInput  | owl:Class | pink:Dataset | ...         | ... |
-| app:MyOutput | owl:Class | pink:Dataset | ...         | ... |
+|              |           |              |             |     |
 
 
 
