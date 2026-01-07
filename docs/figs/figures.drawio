@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" compressed="false" version="29.2.7" pages="5">
   <diagram id="c_qGwFVzFrKK_DlR2sme" name="taxonomy">
-    <mxGraphModel dx="1345" dy="1562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="2032" dy="1588" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -628,7 +628,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Kwpnb9tWDBamJheVxzC_-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;" value=":NanoMaterial" vertex="1">
-          <mxGeometry height="36" width="150" x="328.7" y="1620" as="geometry" />
+          <mxGeometry height="36" width="150" x="326" y="1620" as="geometry" />
         </mxCell>
         <mxCell id="Kwpnb9tWDBamJheVxzC_-8" edge="1" parent="1" source="Kwpnb9tWDBamJheVxzC_-4" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=16;fontColor=default;labelBackgroundColor=default;endArrow=block;endFill=0;" target="Kwpnb9tWDBamJheVxzC_-1">
           <mxGeometry relative="1" as="geometry" />
@@ -640,10 +640,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Kwpnb9tWDBamJheVxzC_-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;" value=":MaterialByType" vertex="1">
-          <mxGeometry height="36" width="130" x="145.29999999999984" y="1740" as="geometry" />
-        </mxCell>
-        <mxCell id="Kwpnb9tWDBamJheVxzC_-11" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;" value=":CompositeMaterial" vertex="1">
-          <mxGeometry height="36" width="150" x="328.7" y="1810" as="geometry" />
+          <mxGeometry height="36" width="130" x="142.4999999999999" y="1740" as="geometry" />
         </mxCell>
         <mxCell id="Kwpnb9tWDBamJheVxzC_-14" edge="1" parent="1" source="Kwpnb9tWDBamJheVxzC_-12" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=16;fontColor=default;labelBackgroundColor=default;endArrow=block;endFill=0;" target="Kwpnb9tWDBamJheVxzC_-5">
           <mxGeometry relative="1" as="geometry" />
@@ -655,13 +652,10 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Kwpnb9tWDBamJheVxzC_-13" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=16;" value=":CeramicMaterial" vertex="1">
-          <mxGeometry height="36" width="150" x="328.7" y="1667" as="geometry" />
-        </mxCell>
-        <mxCell id="Kwpnb9tWDBamJheVxzC_-15" edge="1" parent="1" source="Kwpnb9tWDBamJheVxzC_-11" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=16;fontColor=default;labelBackgroundColor=default;endArrow=block;endFill=0;" target="Kwpnb9tWDBamJheVxzC_-5">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry height="36" width="150" x="326" y="1667" as="geometry" />
         </mxCell>
         <mxCell id="Kwpnb9tWDBamJheVxzC_-17" parent="1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=none;fontStyle=2" value="Materials possessing, at minimum, one external dimension measuring 1-100nm." vertex="1">
-          <mxGeometry height="30" width="250" x="501.4" y="1620" as="geometry" />
+          <mxGeometry height="30" width="250" x="499.4" y="1620" as="geometry" />
         </mxCell>
         <mxCell id="Kwpnb9tWDBamJheVxzC_-18" parent="1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=none;fontStyle=2" value="An inorganic non-metallic solid made from elements combined into compounds that are typically hard, strong, brittle, corrosion-resistant and good insulators." vertex="1">
           <mxGeometry height="30" width="430.6" x="499.4" y="1673" as="geometry" />
@@ -669,11 +663,8 @@
         <mxCell id="Kwpnb9tWDBamJheVxzC_-19" parent="1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=none;fontStyle=2" value="Inorganic substance, consisting of one or more metallic elements." vertex="1">
           <mxGeometry height="30" width="250" x="499.4" y="1719" as="geometry" />
         </mxCell>
-        <mxCell id="Kwpnb9tWDBamJheVxzC_-20" parent="1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=none;fontStyle=2" value="A material that contains two or more constituent materials." vertex="1">
-          <mxGeometry height="30" width="250" x="504.9" y="1813" as="geometry" />
-        </mxCell>
         <mxCell id="Kwpnb9tWDBamJheVxzC_-21" parent="1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=default;labelBackgroundColor=none;fontStyle=2" value="A substance made of macromolecules formed by linking many monomers into long chains or networks." vertex="1">
-          <mxGeometry height="30" width="298.9" x="501.1" y="1766" as="geometry" />
+          <mxGeometry height="30" width="298.9" x="499.4" y="1766" as="geometry" />
         </mxCell>
         <mxCell id="rEDqNE-ynQV7pWp6trtT-2" edge="1" parent="1" source="rEDqNE-ynQV7pWp6trtT-1" style="edgeStyle=none;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=16;fontColor=default;labelBackgroundColor=default;endArrow=block;endFill=0;" target="ZoGBShtaeo7Y2_I1q3a3-24">
           <mxGeometry relative="1" as="geometry" />

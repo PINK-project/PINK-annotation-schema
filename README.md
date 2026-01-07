@@ -10,22 +10,15 @@ It is constructed to be easily aligned with [EMMO].
 
 
 ## Resources
-- [Documentation overview]
-- Reference documentation for [PINK Annotation Schema] and [reused terms] (for ontology experts).
-- [Turtle file] including all imported concepts.
+- Reference documentation with interlinked definitions of classes and properties for:
+  - [PINK Annotation Schema]. 
+  - [Reused terms], i.e. terms reused from existing vocabularies (e.g. [PROV-O], [DCAT-AP 3.0.1]).
+- [Turtle file] including all imported concepts (source of truth).
 - [Inferred turtle file] reasoned with HermiT.
+- [Theoretical background].
 
 
-## Repository Files
-- `catalog-v001.xml`: XML catalog mapping ontology files to their IRIs for semantic web tools.
-- `pink_annotation_schema.ttl`: Main ontology file for the PINK Annotation Schema.
-- `reused-terms.ttl`: Terms from standard vocabularies reused by the schema.
-- `LICENSE`: Creative Commons Attribution 4.0 International license.
-- `docs/`: Sub-directory with documentation.
-- `scripts/`: Sub-directory with scripts for generating keywords file for Tripper.
-
-
-## Taxonomy
+## Top level taxonomy
 The taxonomy below shows a basic categorisation of the main concepts (OWL classes) in the PINK Annotation Schema.
 It unifies concepts from common vocabularies, like [Dublin Core], [PROV-O], [DCAT] and [FOAF].
 This gives the adapted terms additional context.
@@ -35,15 +28,15 @@ However, the taxonomy is intentionally weekly axiomated in order to facilitate a
 
 
 ## Usage example
-The example below shows how one can document a toxicity computation using the PINK Annotation Schema
+The example below shows how one can document a toxicity computation using the PINK Annotation Schema.
 
 ![Paracetamol-example](docs/figs/paracetamol-example.svg)
 
 
 
-[Documentation overview]: ./docs/overview.md
+[Theoretical background]: ./docs/overview.md
 [PINK Annotation Schema]: https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html
-[reused terms]: https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html
+[Reused terms]: https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html
 [Turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema.ttl
 [Inferred turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema-inferred.ttl
 
