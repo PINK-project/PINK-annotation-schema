@@ -11,7 +11,7 @@ It is constructed to be easily aligned with [EMMO].
 
 ## Resources
 - Reference documentation with interlinked definitions of classes and properties for:
-  - [PINK Annotation Schema]. 
+  - [PINK Annotation Schema].
   - [Reused terms], i.e. terms reused from existing vocabularies (e.g. [PROV-O], [DCAT-AP 3.0.1]).
 - [Turtle file] including all imported concepts (source of truth).
 - [Inferred turtle file] reasoned with HermiT.
@@ -34,7 +34,7 @@ The example below shows how one can document a toxicity computation using the PI
 
 
 
-[Theoretical background]: ./docs/overview.md
+[Theoretical background]: ./docs/index.md
 [PINK Annotation Schema]: https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html
 [Reused terms]: https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html
 [Turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema.ttl
