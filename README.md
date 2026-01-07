@@ -41,7 +41,7 @@ The example below shows how one can document a toxicity computation using the PI
 
 
 
-[Documentation overview]: https://github.com/PINK-project/PINK-annotation-schema/blob/main/docs/overview.md
+[Documentation overview]: ./docs/overview.md
 [PINK Annotation Schema]: https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html
 [reused terms]: https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html
 [Turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema.ttl
