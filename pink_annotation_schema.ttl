@@ -419,7 +419,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :Computation rdf:type owl:Class ;
     rdfs:subClassOf :Process ;
     skos:prefLabel "Computation"@en ;
-    skos:definition "A procedure that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en .
+    skos:definition "A process that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en .
 
 
 ### Entity subclasses
