@@ -1,9 +1,8 @@
 name: Deploy on GitHub Pages
 
-on: push
-#on:
-#  push:
-#    branches: [main]
+on:
+  push:
+    branches: [main]
 
 env:
   ONTOLOGY_NAME: pink_annotation_schema
@@ -32,11 +31,10 @@ jobs:
         pip install --upgrade pip
         pip install git+https://github.com/emmo-repo/EMMOntoPy.git@master
 
-    # - name: Install Tripper
-    #   run: |
-    #     pip install tripper[datadoc]
-    #     #pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
-    #     pip install -U git+https://github.com/EMMC-ASBL/tripper.git@document-selected-namespace
+    - name: Install Tripper
+      run: |
+        pip install tripper[datadoc]
+        pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
 
     - name: Download Widoco
       run: |
@@ -100,6 +98,24 @@ jobs:
     - name: Include Markdown documentation on gh-pages
       run: |
         cp -r docs build/.
+
+    - name: Generate JSON-LD context
+      run: |
+        mkdir -p build/context
+        keywords \
+            --input=pink_annotation_schema.ttl \
+            --context=build/context/pink_annotation_schema.jsonld \
+            --redefine=allow
+            #--namespace-filter=pink
+
+    - name: Generate keywords file
+      run: |
+        mkdir -p build/context
+        keywords \
+            --input=pink_annotation_schema.ttl \
+            --yaml=build/context/keywords.yaml \
+            --redefine=allow
+            #--namespace-filter=pink
 
     # - name: Create markdown documentation of keywords
     #   run: |
