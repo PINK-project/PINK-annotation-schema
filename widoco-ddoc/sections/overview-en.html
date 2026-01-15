@@ -1,0 +1,643 @@
+<h2 id="overv" class="list">Concepts defined in the ddoc vocabulary.: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://xmlns.com/foaf/0.1/Agent" title="http://xmlns.com/foaf/0.1/Agent">
+         <span>Agent</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#Attribution" title="http://www.w3.org/ns/prov#Attribution">
+         <span>Attribution</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://spdx.org/rdf/terms#Checksum" title="http://spdx.org/rdf/terms#Checksum">
+         <span>Checksum</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://spdx.org/rdf/terms#ChecksumAlgorithm" title="http://spdx.org/rdf/terms#ChecksumAlgorithm">
+         <span>Checksum Algorithm</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2000/01/rdf-schema#Class" title="http://www.w3.org/2000/01/rdf-schema#Class">
+         <span>Class</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#Class" title="http://www.w3.org/2002/07/owl#Class">
+         <span>Class</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">
+         <span>Concept</span>
+      </a>
+   </li>
+   <li>
+      <a href="#ConformanceLevel"
+         title="https://w3id.org/emmo/application/datadoc#ConformanceLevel">ConformanceLevel</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#DataService" title="http://www.w3.org/ns/dcat#DataService">
+         <span>Data Service</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#Dataset" title="http://www.w3.org/ns/dcat#Dataset">
+         <span>Dataset</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#DatasetSeries" title="http://www.w3.org/ns/dcat#DatasetSeries">
+         <span>Dataset Series</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#Distribution" title="http://www.w3.org/ns/dcat#Distribution">
+         <span>Distribution</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://xmlns.com/foaf/0.1/Document" title="http://xmlns.com/foaf/0.1/Document">
+         <span>Document</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/domain/oteio#Generator" title="https://w3id.org/emmo/domain/oteio#Generator">
+         <span>Generator</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/locn#Geometry" title="http://www.w3.org/ns/locn#Geometry">
+         <span>Geometry</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#Kind" title="http://www.w3.org/2006/vcard/ns#Kind">
+         <span>Kind</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://data.europa.eu/eli/ontology#LegalResource"
+         title="http://data.europa.eu/eli/ontology#LegalResource">
+         <span>Legal Resource</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/LicenseDocument" title="http://purl.org/dc/terms/LicenseDocument">
+         <span>License Document</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/Location" title="http://purl.org/dc/terms/Location">
+         <span>Location</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/MediaType" title="http://purl.org/dc/terms/MediaType">
+         <span>Media Type</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/domain/oteio#Parser" title="https://w3id.org/emmo/domain/oteio#Parser">
+         <span>Parser</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#Relationship" title="http://www.w3.org/ns/dcat#Relationship">
+         <span>Relationship</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2000/01/rdf-schema#Resource" title="http://www.w3.org/2000/01/rdf-schema#Resource">
+         <span>Resource</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#Resource" title="http://www.w3.org/ns/dcat#Resource">
+         <span>Resource</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#Restriction" title="http://www.w3.org/2002/07/owl#Restriction">
+         <span>Restriction</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/RightsStatement" title="http://purl.org/dc/terms/RightsStatement">
+         <span>Rights Statement</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/Standard" title="http://purl.org/dc/terms/Standard">
+         <span>Standard</span>
+      </a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://purl.org/dc/terms/accessRights" title="http://purl.org/dc/terms/accessRights">accessRights</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#accessService" title="http://www.w3.org/ns/dcat#accessService">accessService</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#accessURL" title="http://www.w3.org/ns/dcat#accessURL">accessURL</a>
+   </li>
+   <li>
+      <a href="#http://spdx.org/rdf/terms#algorithm" title="http://spdx.org/rdf/terms#algorithm">algorithm</a>
+   </li>
+   <li>
+      <a href="#http://data.europa.eu/r5r/applicableLegislation" title="http://data.europa.eu/r5r/applicableLegislation">applicableLegislation</a>
+   </li>
+   <li>
+      <a href="#http://spdx.org/rdf/terms#checksum" title="http://spdx.org/rdf/terms#checksum">checksum</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#compressFormat" title="http://www.w3.org/ns/dcat#compressFormat">compressFormat</a>
+   </li>
+   <li>
+      <a href="#conformance"
+         title="https://w3id.org/emmo/application/datadoc#conformance">
+         <span>conformance</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/conformsTo" title="http://purl.org/dc/terms/conformsTo">conformsTo</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#contactPoint" title="http://www.w3.org/ns/dcat#contactPoint">contactPoint</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/contributor" title="http://purl.org/dc/terms/contributor">contributor</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/creator" title="http://purl.org/dc/terms/creator">creator</a>
+   </li>
+   <li>
+      <a href="#curationDate"
+         title="https://w3id.org/emmo/application/datadoc#curationDate">curationDate</a>
+   </li>
+   <li>
+      <a href="#curator"
+         title="https://w3id.org/emmo/application/datadoc#curator">curator</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/domain/oteio#hasDatamodel" title="https://w3id.org/emmo/domain/oteio#hasDatamodel">datamodel</a>
+   </li>
+   <li>
+      <a href="#datatype"
+         title="https://w3id.org/emmo/application/datadoc#datatype">datatype</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#distribution" title="http://www.w3.org/ns/dcat#distribution">distribution</a>
+   </li>
+   <li>
+      <a href="#http://xmlns.com/foaf/0.1/page" title="http://xmlns.com/foaf/0.1/page">documentation</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#endpointDescription" title="http://www.w3.org/ns/dcat#endpointDescription">endpointDescription</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/format" title="http://purl.org/dc/terms/format">format</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/accrualPeriodicity" title="http://purl.org/dc/terms/accrualPeriodicity">frequency</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/domain/oteio#generator" title="https://w3id.org/emmo/domain/oteio#generator">generator</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/spatial" title="http://purl.org/dc/terms/spatial">geographicalCoverage</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/locn#geometry" title="http://www.w3.org/ns/locn#geometry">geometry</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo#EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e"
+         title="https://w3id.org/emmo#EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e">hasDatum</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/hasPart" title="http://purl.org/dc/terms/hasPart">hasPart</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#hasRole" title="http://www.w3.org/ns/dcat#hasRole">hasRole</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#hasVersion" title="http://www.w3.org/ns/dcat#hasVersion">hasVersion</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#inSeries" title="http://www.w3.org/ns/dcat#inSeries">inSeries</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+         title="http://www.w3.org/2000/01/rdf-schema#isDefinedBy">isDefinedBy</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo#EMMO_f702bad4_fc77_41f0_a26d_79f6444fd4f3"
+         title="https://w3id.org/emmo#EMMO_f702bad4_fc77_41f0_a26d_79f6444fd4f3">isDescriptionFor</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo#EMMO_1494c1a9_00e1_40c2_a9cc_9bbf302a1cac"
+         title="https://w3id.org/emmo#EMMO_1494c1a9_00e1_40c2_a9cc_9bbf302a1cac">isInputOf</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo#EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461"
+         title="https://w3id.org/emmo#EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461">isOutputOf</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/isReferencedBy" title="http://purl.org/dc/terms/isReferencedBy">isReferencedBy</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#landingPage" title="http://www.w3.org/ns/dcat#landingPage">landingPage</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/license" title="http://purl.org/dc/terms/license">license</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#mediaType" title="http://www.w3.org/ns/dcat#mediaType">mediaType</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/adms#identifier" title="http://www.w3.org/ns/adms#identifier">otherIdentifier</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#packageFormat" title="http://www.w3.org/ns/dcat#packageFormat">packageFormat</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/domain/oteio#parser" title="https://w3id.org/emmo/domain/oteio#parser">parser</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/publisher" title="http://purl.org/dc/terms/publisher">publisher</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#qualifiedAttribution" title="http://www.w3.org/ns/prov#qualifiedAttribution">qualifiedAttribution</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#qualifiedRelation" title="http://www.w3.org/ns/dcat#qualifiedRelation">qualifiedRelation</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/relation" title="http://purl.org/dc/terms/relation">relatedResource</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/adms#sample" title="http://www.w3.org/ns/adms#sample">sample</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2000/01/rdf-schema#seeAlso" title="http://www.w3.org/2000/01/rdf-schema#seeAlso">seeAlso</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#servesDataset" title="http://www.w3.org/ns/dcat#servesDataset">servesDataset</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/source" title="http://purl.org/dc/terms/source">source</a>
+   </li>
+   <li>
+      <a href="#http://data.europa.eu/r5r/status" title="http://data.europa.eu/r5r/status">status</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/temporal" title="http://purl.org/dc/terms/temporal">temporalCoverage</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/type" title="http://purl.org/dc/terms/type">type</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">wasDerivedFrom</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#wasGeneratedBy" title="http://www.w3.org/ns/prov#wasGeneratedBy">wasGeneratedBy</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://data.europa.eu/r5r/availability" title="http://data.europa.eu/r5r/availability">availability</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#byteSize" title="http://www.w3.org/ns/dcat#byteSize">byteSize</a>
+   </li>
+   <li>
+      <a href="#http://spdx.org/rdf/terms#checksumValue" title="http://spdx.org/rdf/terms#checksumValue">checksumValue</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/domain/oteio#hasConfiguration"
+         title="https://w3id.org/emmo/domain/oteio#hasConfiguration">configuration</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/domain/oteio#hasDatamodelStorage"
+         title="https://w3id.org/emmo/domain/oteio#hasDatamodelStorage">datamodelStorage</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#deprecated" title="http://www.w3.org/2002/07/owl#deprecated">deprecated</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#downloadURL" title="http://www.w3.org/ns/dcat#downloadURL">downloadURL</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#endpointURL" title="http://www.w3.org/ns/dcat#endpointURL">endpointURL</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/language" title="http://purl.org/dc/terms/language">language</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/domain/oteio#mapping" title="https://w3id.org/emmo/domain/oteio#mapping">mappings</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/domain/oteio#mappingURL" title="https://w3id.org/emmo/domain/oteio#mappingURL">mappingURL</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#maxQualifiedCardinality"
+         title="http://www.w3.org/2002/07/owl#maxQualifiedCardinality">maxQualifiedCardinality</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#minQualifiedCardinality"
+         title="http://www.w3.org/2002/07/owl#minQualifiedCardinality">minQualifiedCardinality</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/modified" title="http://purl.org/dc/terms/modified">modificationDate</a>
+   </li>
+   <li>
+      <a href="#http://xmlns.com/foaf/0.1/name" title="http://xmlns.com/foaf/0.1/name">name</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2002/07/owl#qualifiedCardinality"
+         title="http://www.w3.org/2002/07/owl#qualifiedCardinality">qualifiedCardinality</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/issued" title="http://purl.org/dc/terms/issued">releaseDate</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#spatialResolutionInMeters"
+         title="http://www.w3.org/ns/dcat#spatialResolutionInMeters">spatialResolution</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/domain/oteio#statement" title="https://w3id.org/emmo/domain/oteio#statement">statements</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#temporalResolution" title="http://www.w3.org/ns/dcat#temporalResolution">temporalResolution</a>
+   </li>
+</ul><h4>Annotation Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://purl.org/dc/terms/abstract" title="http://purl.org/dc/terms/abstract">abstract</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#altLabel" title="http://www.w3.org/2004/02/skos/core#altLabel">altLabel</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#bbox" title="http://www.w3.org/ns/dcat#bbox">bbox</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/bibliographicCitation" title="http://purl.org/dc/terms/bibliographicCitation">bibliographicCitation</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#centroid" title="http://www.w3.org/ns/dcat#centroid">centroid</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2000/01/rdf-schema#comment" title="http://www.w3.org/2000/01/rdf-schema#comment">comment</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo#EMMO_31252f35_c767_4b97_a877_1235076c3e13"
+         title="https://w3id.org/emmo#EMMO_31252f35_c767_4b97_a877_1235076c3e13">conceptualisation</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#definition" title="http://www.w3.org/2004/02/skos/core#definition">
+         <span>definition</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">description</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2000/01/rdf-schema#domain" title="http://www.w3.org/2000/01/rdf-schema#domain">domain</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9"
+         title="https://w3id.org/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9">elucidation</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/domain/oteio#generatorType" title="https://w3id.org/emmo/domain/oteio#generatorType">generatorType</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasAddress" title="http://www.w3.org/2006/vcard/ns#hasAddress">hasAddress</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasCountryName" title="http://www.w3.org/2006/vcard/ns#hasCountryName">hasCountryName</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasEmail" title="http://www.w3.org/2006/vcard/ns#hasEmail">hasEmail</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasFamilyName" title="http://www.w3.org/2006/vcard/ns#hasFamilyName">hasFamilyName</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasGender" title="http://www.w3.org/2006/vcard/ns#hasGender">hasGender</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasGeo" title="http://www.w3.org/2006/vcard/ns#hasGeo">hasGeo</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasGivenName" title="http://www.w3.org/2006/vcard/ns#hasGivenName">hasGivenName</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasHonorificPrefix"
+         title="http://www.w3.org/2006/vcard/ns#hasHonorificPrefix">hasHonorificPrefix</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasHonorificSuffix"
+         title="http://www.w3.org/2006/vcard/ns#hasHonorificSuffix">hasHonorificSuffix</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasInstantMessage"
+         title="http://www.w3.org/2006/vcard/ns#hasInstantMessage">hasInstantMessage</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasKey" title="http://www.w3.org/2006/vcard/ns#hasKey">hasKey</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasLanguage" title="http://www.w3.org/2006/vcard/ns#hasLanguage">hasLanguage</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasLogo" title="http://www.w3.org/2006/vcard/ns#hasLogo">hasLogo</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasMember" title="http://www.w3.org/2006/vcard/ns#hasMember">hasMember</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasName" title="http://www.w3.org/2006/vcard/ns#hasName">hasName</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasNickname" title="http://www.w3.org/2006/vcard/ns#hasNickname">hasNickname</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasNote" title="http://www.w3.org/2006/vcard/ns#hasNote">hasNote</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasOrganizationName"
+         title="http://www.w3.org/2006/vcard/ns#hasOrganizationName">hasOrganizationName</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasOrganizationUnit"
+         title="http://www.w3.org/2006/vcard/ns#hasOrganizationUnit">hasOrganizationUnit</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasPhoto" title="http://www.w3.org/2006/vcard/ns#hasPhoto">hasPhoto</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasPostalCode" title="http://www.w3.org/2006/vcard/ns#hasPostalCode">hasPostalCode</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasRegion" title="http://www.w3.org/2006/vcard/ns#hasRegion">hasRegion</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasStreetAddress" title="http://www.w3.org/2006/vcard/ns#hasStreetAddress">hasStreetAddress</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasTelephone" title="http://www.w3.org/2006/vcard/ns#hasTelephone">hasTelephone</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasUID" title="http://www.w3.org/2006/vcard/ns#hasUID">hasUID</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/vcard/ns#hasURL" title="http://www.w3.org/2006/vcard/ns#hasURL">hasURL</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#hiddenLabel" title="http://www.w3.org/2004/02/skos/core#hiddenLabel">hiddenLabel</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/identifier" title="http://purl.org/dc/terms/identifier">identifier</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#inScheme" title="http://www.w3.org/2004/02/skos/core#inScheme">
+         <span>in Scheme</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#keyword" title="http://www.w3.org/ns/dcat#keyword">keyword</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2000/01/rdf-schema#label" title="http://www.w3.org/2000/01/rdf-schema#label">label</a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/domain/oteio#mappingFormat" title="https://w3id.org/emmo/domain/oteio#mappingFormat">mappingFormat</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#notation" title="http://www.w3.org/2004/02/skos/core#notation">
+         <span>notation</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/domain/oteio#parserType" title="https://w3id.org/emmo/domain/oteio#parserType">parserType</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/vocab/vann/preferredNamespacePrefix"
+         title="http://purl.org/vocab/vann/preferredNamespacePrefix">
+         <span>preferred Namespace Prefix</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/vocab/vann/preferredNamespaceUri" title="http://purl.org/vocab/vann/preferredNamespaceUri">
+         <span>preferred Namespace Uri</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#prefLabel" title="http://www.w3.org/2004/02/skos/core#prefLabel">prefLabel</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2000/01/rdf-schema#range" title="http://www.w3.org/2000/01/rdf-schema#range">range</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#theme" title="http://www.w3.org/ns/dcat#theme">theme</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">
+         <span>title</span>
+      </a>
+   </li>
+   <li>
+      <a href="#unitSymbol"
+         title="https://w3id.org/emmo/application/datadoc#unitSymbol">unitSymbol</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/vocab/vann/usageNote" title="http://purl.org/vocab/vann/usageNote">usageNote</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/dcat#version" title="http://www.w3.org/ns/dcat#version">version</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/adms#versionNotes" title="http://www.w3.org/ns/adms#versionNotes">versionNotes</a>
+   </li>
+</ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://purl.org/adms/status/Completed" title="http://purl.org/adms/status/Completed">Completed</a>
+   </li>
+   <li>
+      <a href="#http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL"
+         title="http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL">confidential</a>
+   </li>
+   <li>
+      <a href="#conformance"
+         title="https://w3id.org/emmo/application/datadoc#conformance">
+         <span>conformance</span>
+      </a>
+   </li>
+   <li>
+      <a href="#https://w3id.org/emmo/application/datadoc" title="https://w3id.org/emmo/application/datadoc">
+         <span>datadoc</span>
+      </a>
+   </li>
+   <li>
+      <a href="#datadoc"
+         title="https://w3id.org/emmo/application/datadoc#datadoc">datadoc</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/adms/status/Deprecated" title="http://purl.org/adms/status/Deprecated">Deprecated</a>
+   </li>
+   <li>
+      <a href="#mandatory"
+         title="https://w3id.org/emmo/application/datadoc#mandatory">mandatory</a>
+   </li>
+   <li>
+      <a href="#http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC"
+         title="http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC">non-public</a>
+   </li>
+   <li>
+      <a href="#optional"
+         title="https://w3id.org/emmo/application/datadoc#optional">optional</a>
+   </li>
+   <li>
+      <a href="#process"
+         title="https://w3id.org/emmo/application/datadoc#process">process</a>
+   </li>
+   <li>
+      <a href="#http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+         title="http://publications.europa.eu/resource/authority/access-right/PUBLIC">public</a>
+   </li>
+   <li>
+      <a href="#recommended"
+         title="https://w3id.org/emmo/application/datadoc#recommended">recommended</a>
+   </li>
+   <li>
+      <a href="#http://publications.europa.eu/resource/authority/access-right/RESTRICTED"
+         title="http://publications.europa.eu/resource/authority/access-right/RESTRICTED">restricted</a>
+   </li>
+   <li>
+      <a href="#http://publications.europa.eu/resource/authority/access-right/SENSITIVE"
+         title="http://publications.europa.eu/resource/authority/access-right/SENSITIVE">sensitive</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/adms/status/UnderDevelopment" title="http://purl.org/adms/status/UnderDevelopment">UnderDevelopment</a>
+   </li>
+   <li>
+      <a href="#http://purl.org/adms/status/Withdrawn" title="http://purl.org/adms/status/Withdrawn">Withdrawn</a>
+   </li>
+</ul>

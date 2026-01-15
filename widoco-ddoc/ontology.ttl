@@ -1,0 +1,1559 @@
+@prefix : <https://w3id.org/pink/ddoc#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/pink/ddoc#> .
+
+<https://w3id.org/pink/ddoc> rdf:type owl:Ontology ;
+                              owl:versionIRI <https://w3id.org/pink/0.0.1/ddoc> ;
+                              <http://purl.org/dc/terms/title> "Concepts defined in the ddoc vocabulary."@en ,
+                                                               "Data documentation ontology" ;
+                              <http://purl.org/vocab/vann/preferredNamespacePrefix> "ddoc" ;
+                              <http://purl.org/vocab/vann/preferredNamespaceUri> "https://w3id.org/emmo/application/datadoc#" ;
+                              owl:priorVersion "0.0.0" ;
+                              owl:versionInfo "0.0.1" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/abstract
+<http://purl.org/dc/terms/abstract> rdf:type owl:AnnotationProperty ;
+                                    <http://purl.org/dc/terms/description> "A summary of the resource." ;
+                                    rdfs:domain "dcat:Resource" ;
+                                    rdfs:label "abstract" ;
+                                    rdfs:range "rdf:langString" ;
+                                    <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://purl.org/dc/terms/bibliographicCitation
+<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty ;
+                                                 <http://purl.org/dc/terms/description> "A bibliographic reference for the resource." ;
+                                                 <http://purl.org/vocab/vann/usageNote> "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible." ;
+                                                 rdfs:domain "dcat:Resource" ;
+                                                 rdfs:label "bibliographicCitation" ;
+                                                 <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty ;
+                                       <http://purl.org/dc/terms/description> "A free-text account of the resource." ;
+                                       <http://purl.org/vocab/vann/usageNote> "This property can be repeated for parallel language versions of the description." ;
+                                       rdfs:domain "dcat:Resource" ;
+                                       rdfs:label "description" ;
+                                       rdfs:range "rdf:langString" ;
+                                       <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                       <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:mandatory" .
+
+
+###  http://purl.org/dc/terms/identifier
+<http://purl.org/dc/terms/identifier> rdf:type owl:AnnotationProperty ;
+                                      <http://purl.org/dc/terms/description> "URI or other unique identifier of the resource being described." ;
+                                      <http://purl.org/vocab/vann/usageNote> "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs." ;
+                                      rdfs:domain "foaf:Agent" ;
+                                      rdfs:label "identifier" ;
+                                      <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                      <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/usageNote
+<http://purl.org/vocab/vann/usageNote> rdf:type owl:AnnotationProperty ;
+                                       <http://purl.org/dc/terms/description> "A reference that provides information on how this resource is to be used." ;
+                                       rdfs:domain "rdfs:Resource" ;
+                                       rdfs:label "usageNote" ;
+                                       rdfs:range "rdf:langString" ;
+                                       <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#comment
+rdfs:comment rdf:type owl:AnnotationProperty ;
+             <http://purl.org/dc/terms/description> "A description of the subject resource. Use `description` instead." ;
+             rdfs:domain "dcat:Resource" ;
+             rdfs:label "comment" ;
+             <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#label
+rdfs:label rdf:type owl:AnnotationProperty ;
+           <http://purl.org/dc/terms/description> "Provides a human-readable version of a resource's name." ;
+           rdfs:domain "dcat:Resource" ;
+           rdfs:label "label" ;
+           <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty ;
+                                               <http://purl.org/dc/terms/description> "An alternative lexical label for a resource." ;
+                                               rdfs:domain "rdfs:Class" ;
+                                               rdfs:label "altLabel" ;
+                                               rdfs:range "rdf:langString" ;
+                                               <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#hiddenLabel
+<http://www.w3.org/2004/02/skos/core#hiddenLabel> rdf:type owl:AnnotationProperty ;
+                                                  <http://purl.org/dc/terms/description> "A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations." ;
+                                                  rdfs:domain "rdfs:Class" ;
+                                                  rdfs:label "hiddenLabel" ;
+                                                  rdfs:range "rdf:langString" ;
+                                                  <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+<http://www.w3.org/2004/02/skos/core#inScheme> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#notation
+<http://www.w3.org/2004/02/skos/core#notation> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty ;
+                                                <http://purl.org/dc/terms/description> "A preferred label of the concept." ;
+                                                rdfs:domain "rdfs:Class" ;
+                                                rdfs:label "prefLabel" ;
+                                                rdfs:range "rdf:langString" ;
+                                                <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasAddress
+<http://www.w3.org/2006/vcard/ns#hasAddress> rdf:type owl:AnnotationProperty ;
+                                             rdfs:domain "vcard:Kind" ;
+                                             rdfs:label "hasAddress" ;
+                                             <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasCountryName
+<http://www.w3.org/2006/vcard/ns#hasCountryName> rdf:type owl:AnnotationProperty ;
+                                                 rdfs:domain "vcard:Kind" ;
+                                                 rdfs:label "hasCountryName" ;
+                                                 <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasEmail
+<http://www.w3.org/2006/vcard/ns#hasEmail> rdf:type owl:AnnotationProperty ;
+                                           rdfs:domain "vcard:Kind" ;
+                                           rdfs:label "hasEmail" ;
+                                           <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasFamilyName
+<http://www.w3.org/2006/vcard/ns#hasFamilyName> rdf:type owl:AnnotationProperty ;
+                                                rdfs:domain "vcard:Kind" ;
+                                                rdfs:label "hasFamilyName" ;
+                                                <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasGender
+<http://www.w3.org/2006/vcard/ns#hasGender> rdf:type owl:AnnotationProperty ;
+                                            rdfs:domain "vcard:Kind" ;
+                                            rdfs:label "hasGender" ;
+                                            <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasGeo
+<http://www.w3.org/2006/vcard/ns#hasGeo> rdf:type owl:AnnotationProperty ;
+                                         rdfs:domain "vcard:Kind" ;
+                                         rdfs:label "hasGeo" ;
+                                         <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasGivenName
+<http://www.w3.org/2006/vcard/ns#hasGivenName> rdf:type owl:AnnotationProperty ;
+                                               rdfs:domain "vcard:Kind" ;
+                                               rdfs:label "hasGivenName" ;
+                                               <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasHonorificPrefix
+<http://www.w3.org/2006/vcard/ns#hasHonorificPrefix> rdf:type owl:AnnotationProperty ;
+                                                     rdfs:domain "vcard:Kind" ;
+                                                     rdfs:label "hasHonorificPrefix" ;
+                                                     <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasHonorificSuffix
+<http://www.w3.org/2006/vcard/ns#hasHonorificSuffix> rdf:type owl:AnnotationProperty ;
+                                                     rdfs:domain "vcard:Kind" ;
+                                                     rdfs:label "hasHonorificSuffix" ;
+                                                     <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasInstantMessage
+<http://www.w3.org/2006/vcard/ns#hasInstantMessage> rdf:type owl:AnnotationProperty ;
+                                                    rdfs:domain "vcard:Kind" ;
+                                                    rdfs:label "hasInstantMessage" ;
+                                                    <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasKey
+<http://www.w3.org/2006/vcard/ns#hasKey> rdf:type owl:AnnotationProperty ;
+                                         rdfs:domain "vcard:Kind" ;
+                                         rdfs:label "hasKey" ;
+                                         <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasLanguage
+<http://www.w3.org/2006/vcard/ns#hasLanguage> rdf:type owl:AnnotationProperty ;
+                                              rdfs:domain "vcard:Kind" ;
+                                              rdfs:label "hasLanguage" ;
+                                              <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasLogo
+<http://www.w3.org/2006/vcard/ns#hasLogo> rdf:type owl:AnnotationProperty ;
+                                          rdfs:domain "vcard:Kind" ;
+                                          rdfs:label "hasLogo" ;
+                                          <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasMember
+<http://www.w3.org/2006/vcard/ns#hasMember> rdf:type owl:AnnotationProperty ;
+                                            rdfs:domain "vcard:Kind" ;
+                                            rdfs:label "hasMember" ;
+                                            <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasName
+<http://www.w3.org/2006/vcard/ns#hasName> rdf:type owl:AnnotationProperty ;
+                                          rdfs:domain "vcard:Kind" ;
+                                          rdfs:label "hasName" ;
+                                          <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasNickname
+<http://www.w3.org/2006/vcard/ns#hasNickname> rdf:type owl:AnnotationProperty ;
+                                              rdfs:domain "vcard:Kind" ;
+                                              rdfs:label "hasNickname" ;
+                                              <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasNote
+<http://www.w3.org/2006/vcard/ns#hasNote> rdf:type owl:AnnotationProperty ;
+                                          rdfs:domain "vcard:Kind" ;
+                                          rdfs:label "hasNote" ;
+                                          <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasOrganizationName
+<http://www.w3.org/2006/vcard/ns#hasOrganizationName> rdf:type owl:AnnotationProperty ;
+                                                      rdfs:domain "vcard:Kind" ;
+                                                      rdfs:label "hasOrganizationName" ;
+                                                      <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasOrganizationUnit
+<http://www.w3.org/2006/vcard/ns#hasOrganizationUnit> rdf:type owl:AnnotationProperty ;
+                                                      rdfs:domain "vcard:Kind" ;
+                                                      rdfs:label "hasOrganizationUnit" ;
+                                                      <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasPhoto
+<http://www.w3.org/2006/vcard/ns#hasPhoto> rdf:type owl:AnnotationProperty ;
+                                           rdfs:domain "vcard:Kind" ;
+                                           rdfs:label "hasPhoto" ;
+                                           <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasPostalCode
+<http://www.w3.org/2006/vcard/ns#hasPostalCode> rdf:type owl:AnnotationProperty ;
+                                                rdfs:domain "vcard:Kind" ;
+                                                rdfs:label "hasPostalCode" ;
+                                                <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasRegion
+<http://www.w3.org/2006/vcard/ns#hasRegion> rdf:type owl:AnnotationProperty ;
+                                            rdfs:domain "vcard:Kind" ;
+                                            rdfs:label "hasRegion" ;
+                                            <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasStreetAddress
+<http://www.w3.org/2006/vcard/ns#hasStreetAddress> rdf:type owl:AnnotationProperty ;
+                                                   rdfs:domain "vcard:Kind" ;
+                                                   rdfs:label "hasStreetAddress" ;
+                                                   <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasTelephone
+<http://www.w3.org/2006/vcard/ns#hasTelephone> rdf:type owl:AnnotationProperty ;
+                                               rdfs:domain "vcard:Kind" ;
+                                               rdfs:label "hasTelephone" ;
+                                               <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasUID
+<http://www.w3.org/2006/vcard/ns#hasUID> rdf:type owl:AnnotationProperty ;
+                                         rdfs:domain "vcard:Kind" ;
+                                         rdfs:label "hasUID" ;
+                                         <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2006/vcard/ns#hasURL
+<http://www.w3.org/2006/vcard/ns#hasURL> rdf:type owl:AnnotationProperty ;
+                                         rdfs:domain "vcard:Kind" ;
+                                         rdfs:label "hasURL" ;
+                                         <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/ns/adms#versionNotes
+<http://www.w3.org/ns/adms#versionNotes> rdf:type owl:AnnotationProperty ;
+                                         <http://purl.org/dc/terms/description> "A description of the differences between this version and a previous version of the resource." ;
+                                         <http://purl.org/vocab/vann/usageNote> "This property can be repeated for parallel language versions of the version notes." ;
+                                         rdfs:domain "dcat:Resource" ;
+                                         rdfs:label "versionNotes" ;
+                                         <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                         <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/dcat#bbox
+<http://www.w3.org/ns/dcat#bbox> rdf:type owl:AnnotationProperty ;
+                                 <http://purl.org/dc/terms/description> "The geographic bounding box of a resource." ;
+                                 rdfs:domain "dcterms:Location" ;
+                                 rdfs:label "bbox" ;
+                                 <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                 <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:recommended" .
+
+
+###  http://www.w3.org/ns/dcat#centroid
+<http://www.w3.org/ns/dcat#centroid> rdf:type owl:AnnotationProperty ;
+                                     <http://purl.org/dc/terms/description> "The geographic center (centroid) of a resource." ;
+                                     rdfs:domain "dcterms:Location" ;
+                                     rdfs:label "centroid" ;
+                                     <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                     <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:recommended" .
+
+
+###  http://www.w3.org/ns/dcat#keyword
+<http://www.w3.org/ns/dcat#keyword> rdf:type owl:AnnotationProperty ;
+                                    <http://purl.org/dc/terms/description> "A keyword or tag describing the resource." ;
+                                    rdfs:domain "dcat:Resource" ;
+                                    rdfs:label "keyword" ;
+                                    rdfs:range "rdf:langString" ;
+                                    <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                    <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:recommended" .
+
+
+###  http://www.w3.org/ns/dcat#version
+<http://www.w3.org/ns/dcat#version> rdf:type owl:AnnotationProperty ;
+                                    <http://purl.org/dc/terms/description> "Version indicator (name or identifier) of a resource." ;
+                                    <http://purl.org/vocab/vann/usageNote> "DCAT does not prescribe how a version name / identifier should be specified, and refers for guidance to [DWBP]'s Best Practice 7: Provide a version indicator." ;
+                                    rdfs:domain "dcat:Resource" ;
+                                    rdfs:label "version" ;
+                                    <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                    <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  https://w3id.org/emmo#EMMO_31252f35_c767_4b97_a877_1235076c3e13
+<https://w3id.org/emmo#EMMO_31252f35_c767_4b97_a877_1235076c3e13> rdf:type owl:AnnotationProperty ;
+                                                                  <http://purl.org/dc/terms/description> "A comment that helps the reader to understand how the world has been conceptualised by the ontology authors." ;
+                                                                  rdfs:domain "rdfs:Class" ;
+                                                                  rdfs:label "conceptualisation" ;
+                                                                  rdfs:range "rdf:langString" ;
+                                                                  <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9
+<https://w3id.org/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9> rdf:type owl:AnnotationProperty ;
+                                                                  <http://purl.org/dc/terms/description> "Short enlightening explanation aimed to facilitate the user in drawing the connection (interpretation) between a OWL entity and the real world object(s) for which it stands.  It should address the real world entities using the concepts introduced by the conceptualisation." ;
+                                                                  rdfs:domain "rdfs:Class" ;
+                                                                  rdfs:label "elucidation" ;
+                                                                  rdfs:range "rdf:langString" ;
+                                                                  <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo/application/datadoc#unitSymbol
+<https://w3id.org/emmo/application/datadoc#unitSymbol> rdf:type owl:AnnotationProperty ;
+                                                       <http://purl.org/dc/terms/description> "A SI unit associated to a property."@en ;
+                                                       <http://purl.org/vocab/vann/usageNote> "The unit should be written with standard SI unit symbols.  Examples: As, μm, J, m/s²"@en ;
+                                                       rdfs:label "unitSymbol"@en ;
+                                                       rdfs:range xsd:string ;
+                                                       rdfs:domain <http://www.w3.org/ns/dcat#Resource> .
+
+
+###  https://w3id.org/emmo/domain/oteio#generatorType
+<https://w3id.org/emmo/domain/oteio#generatorType> rdf:type owl:AnnotationProperty ;
+                                                   <http://purl.org/dc/terms/description> "Generator type. Ex: `application/vnd.dlite-generate`." ;
+                                                   rdfs:domain "oteio:Generator" ;
+                                                   rdfs:label "generatorType" ;
+                                                   <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo/domain/oteio#mappingFormat
+<https://w3id.org/emmo/domain/oteio#mappingFormat> rdf:type owl:AnnotationProperty ;
+                                                   <http://purl.org/dc/terms/description> "File format for `mappingURL`. Defaults to \"turtle\"." ;
+                                                   rdfs:domain "dcat:Dataset" ;
+                                                   rdfs:label "mappingFormat" ;
+                                                   <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo/domain/oteio#parserType
+<https://w3id.org/emmo/domain/oteio#parserType> rdf:type owl:AnnotationProperty ;
+                                                <http://purl.org/dc/terms/description> "Parser type. Ex: `application/vnd.dlite-parse`." ;
+                                                rdfs:domain "oteio:Parser" ;
+                                                rdfs:label "parserType" ;
+                                                <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://data.europa.eu/r5r/applicableLegislation
+<http://data.europa.eu/r5r/applicableLegislation> rdf:type owl:ObjectProperty ;
+                                                  <http://purl.org/dc/terms/description> "The legislation that mandates the creation or management of the resource." ;
+                                                  rdfs:domain "dcat:Resource" ;
+                                                  rdfs:label "applicableLegislation" ;
+                                                  rdfs:range "eli:LegalResource" ;
+                                                  <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                                  <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://data.europa.eu/r5r/status
+<http://data.europa.eu/r5r/status> rdf:type owl:ObjectProperty ;
+                                   <http://purl.org/dc/terms/description> "The status of the distribution in the context of maturity lifecycle." ;
+                                   <http://purl.org/vocab/vann/usageNote> "It MUST take one of the values: 'stat:Completed', 'stat:Deprecated', 'stat:UnderDevelopment', 'stat:Withdrawn'." ;
+                                   rdfs:domain "dcat:Distribution" ;
+                                   rdfs:label "status" ;
+                                   rdfs:range "skos:Concept" ;
+                                   <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                   <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/accessRights
+<http://purl.org/dc/terms/accessRights> rdf:type owl:ObjectProperty ;
+                                        <http://purl.org/dc/terms/description> "Information about who can access the resource or an indication of its security status." ;
+                                        <http://purl.org/vocab/vann/usageNote> "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies. The following preferred Rights Statement individuals are defined: `accr:PUBLIC`, `accr:NON_PUBLIC`, `accr:CONFIDENTIAL`, `accr:RESTRICTED`, `accr:SENSITIVE`" ;
+                                        rdfs:domain "dcat:Resource" ;
+                                        rdfs:label "accessRights" ;
+                                        rdfs:range "dcterms:RightsStatement" ;
+                                        <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                        <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/accrualPeriodicity
+<http://purl.org/dc/terms/accrualPeriodicity> rdf:type owl:ObjectProperty ;
+                                              <http://purl.org/dc/terms/description> "The frequency at which the Dataset is updated." ;
+                                              rdfs:domain "dcat:Dataset" ;
+                                              rdfs:label "frequency" ;
+                                              rdfs:range "dcterms:Frequency" ;
+                                              <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                              <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/conformsTo
+<http://purl.org/dc/terms/conformsTo> rdf:type owl:ObjectProperty ;
+                                      <http://purl.org/dc/terms/description> "An implementing rule or other specification." ;
+                                      rdfs:domain "dcat:Resource" ;
+                                      rdfs:label "conformsTo" ;
+                                      rdfs:range "dcterms:Standard" ;
+                                      <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                      <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> rdf:type owl:ObjectProperty ;
+                                       <http://purl.org/dc/terms/description> "An entity responsible for making contributions to the resource." ;
+                                       rdfs:domain "dcat:Resource" ;
+                                       rdfs:label "contributor" ;
+                                       rdfs:range "foaf:Agent" ;
+                                       <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                       <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:ObjectProperty ;
+                                   <http://purl.org/dc/terms/description> "An entity responsible for producing the resource." ;
+                                   rdfs:domain "dcat:Resource" ;
+                                   rdfs:label "creator" ;
+                                   rdfs:range "foaf:Agent" ;
+                                   <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                   <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/format
+<http://purl.org/dc/terms/format> rdf:type owl:ObjectProperty ;
+                                  <http://purl.org/dc/terms/description> "The file format of the Distribution." ;
+                                  <http://purl.org/vocab/vann/usageNote> "dcat:mediaType SHOULD be used if the type of the distribution is defined by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)." ;
+                                  rdfs:domain "dcat:Distribution" ;
+                                  rdfs:label "format" ;
+                                  rdfs:range "dcterms:MediaTypeOrExtent" ;
+                                  <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                  <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/hasPart
+<http://purl.org/dc/terms/hasPart> rdf:type owl:ObjectProperty ;
+                                   <http://purl.org/dc/terms/description> "A related resource that is included either physically or logically in the described resource." ;
+                                   rdfs:domain "dcat:Resource" ;
+                                   rdfs:label "hasPart" ;
+                                   rdfs:range "rdfs:Resource" ;
+                                   <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                   <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/isReferencedBy
+<http://purl.org/dc/terms/isReferencedBy> rdf:type owl:ObjectProperty ;
+                                          <http://purl.org/dc/terms/description> "A related resource, such as a publication, that references, cites, or otherwise points to the documented resource." ;
+                                          rdfs:domain "dcat:Resource" ;
+                                          rdfs:label "isReferencedBy" ;
+                                          rdfs:range "rdfs:Resource" ;
+                                          <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                          <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:ObjectProperty ;
+                                   <http://purl.org/dc/terms/description> "A licence under which the resource is made available." ;
+                                   rdfs:domain "dcat:Resource" ;
+                                   rdfs:label "license" ;
+                                   rdfs:range "dcterms:LicenseDocument" ;
+                                   <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                   <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:ObjectProperty ;
+                                     <http://purl.org/dc/terms/description> "Agent responsible for making the resource available." ;
+                                     rdfs:domain "dcat:Resource" ;
+                                     rdfs:label "publisher" ;
+                                     rdfs:range "foaf:Agent" ;
+                                     <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                     <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:recommended" .
+
+
+###  http://purl.org/dc/terms/relation
+<http://purl.org/dc/terms/relation> rdf:type owl:ObjectProperty ;
+                                    <http://purl.org/dc/terms/description> "A resource with an unspecified relationship to the cataloged resource." ;
+                                    rdfs:domain "dcat:Relationship" ;
+                                    rdfs:label "relatedResource" ;
+                                    rdfs:range "rdfs:Resource" ;
+                                    <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                    <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/source
+<http://purl.org/dc/terms/source> rdf:type owl:ObjectProperty ;
+                                  <http://purl.org/dc/terms/description> "A related Dataset from which the described Dataset is derived." ;
+                                  rdfs:domain "dcat:Dataset" ;
+                                  rdfs:label "source" ;
+                                  rdfs:range "dcat:Dataset" ;
+                                  <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                  <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/spatial
+<http://purl.org/dc/terms/spatial> rdf:type owl:ObjectProperty ;
+                                   <http://purl.org/dc/terms/description> "A geographic region that is covered by the dataset." ;
+                                   rdfs:domain "dcat:Dataset" ;
+                                   rdfs:label "geographicalCoverage" ;
+                                   rdfs:range "dcterms:Location" ;
+                                   <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                   <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:recommended" .
+
+
+###  http://purl.org/dc/terms/temporal
+<http://purl.org/dc/terms/temporal> rdf:type owl:ObjectProperty ;
+                                    <http://purl.org/dc/terms/description> "A temporal period that the Dataset covers." ;
+                                    rdfs:domain "dcat:Dataset" ;
+                                    rdfs:label "temporalCoverage" ;
+                                    rdfs:range "dcterms:PeriodOfTime" ;
+                                    <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                    <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:recommended" .
+
+
+###  http://purl.org/dc/terms/type
+<http://purl.org/dc/terms/type> rdf:type owl:ObjectProperty ;
+                                <http://purl.org/dc/terms/description> "A type of the resource." ;
+                                <http://purl.org/vocab/vann/usageNote> "A recommended controlled vocabulary data-type is foreseen. For agents, the value should be chosen from [ADMS publisher type](https://raw.githubusercontent.com/SEMICeu/ADMS-AP/master/purl.org/ADMS_SKOS_v1.00.rdf)." ;
+                                rdfs:domain "dcterms:LicenseDocument" ;
+                                rdfs:label "type" ;
+                                rdfs:range "skos:Concept" ;
+                                <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://spdx.org/rdf/terms#algorithm
+<http://spdx.org/rdf/terms#algorithm> rdf:type owl:ObjectProperty ;
+                                      <http://purl.org/dc/terms/description> "The algorithm used to produce the subject Checksum." ;
+                                      rdfs:domain "spdx:Checksum" ;
+                                      rdfs:label "algorithm" ;
+                                      rdfs:range "spdx:ChecksumAlgorithm" ;
+                                      <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://spdx.org/rdf/terms#checksum
+<http://spdx.org/rdf/terms#checksum> rdf:type owl:ObjectProperty ;
+                                     <http://purl.org/dc/terms/description> "A mechanism that can be used to verify that the contents of a distribution have not changed." ;
+                                     <http://purl.org/vocab/vann/usageNote> "The checksum is related to the downloadURL." ;
+                                     rdfs:domain "dcat:Distribution" ;
+                                     rdfs:label "checksum" ;
+                                     rdfs:range "spdx:Checksum" ;
+                                     <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                     <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#domain
+rdfs:domain rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#isDefinedBy
+rdfs:isDefinedBy rdf:type owl:ObjectProperty ;
+                 <http://purl.org/dc/terms/description> "Indicate a resource defining the subject resource. This property may be used to indicate an RDF vocabulary in which a resource is described." ;
+                 rdfs:domain "dcat:Resource" ;
+                 rdfs:label "isDefinedBy" ;
+                 rdfs:range "skos:Concept" ;
+                 <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#range
+rdfs:range rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#seeAlso
+rdfs:seeAlso rdf:type owl:ObjectProperty ;
+             <http://purl.org/dc/terms/description> "Indicates a resource that might provide additional information about the subject resource." ;
+             rdfs:domain "dcat:Resource" ;
+             rdfs:label "seeAlso" ;
+             rdfs:range "skos:Concept" ;
+             <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#subClassOf
+rdfs:subClassOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/adms#identifier
+<http://www.w3.org/ns/adms#identifier> rdf:type owl:ObjectProperty ;
+                                       <http://purl.org/dc/terms/description> "A secondary identifier of the Dataset" ;
+                                       rdfs:domain "dcat:Dataset" ;
+                                       rdfs:label "otherIdentifier" ;
+                                       rdfs:range "adms:Identifier" ;
+                                       <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                       <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/adms#sample
+<http://www.w3.org/ns/adms#sample> rdf:type owl:ObjectProperty ;
+                                   <http://purl.org/dc/terms/description> "A sample distribution of the dataset." ;
+                                   rdfs:domain "dcat:Dataset" ;
+                                   rdfs:label "sample" ;
+                                   rdfs:range "dcat:Distribution" ;
+                                   <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                   <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/dcat#accessService
+<http://www.w3.org/ns/dcat#accessService> rdf:type owl:ObjectProperty ;
+                                          <http://purl.org/dc/terms/description> "A data service that gives access to the distribution of the dataset." ;
+                                          rdfs:domain "dcat:Distribution" ;
+                                          rdfs:label "accessService" ;
+                                          rdfs:range "dcat:DataService" ;
+                                          <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                          <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/dcat#accessURL
+<http://www.w3.org/ns/dcat#accessURL> rdf:type owl:ObjectProperty ;
+                                      <http://purl.org/dc/terms/description> "A URL that gives access to a Distribution of the Dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred." ;
+                                      <http://purl.org/vocab/vann/usageNote> "The resource at the access URL may contain information about how to get the Dataset." ;
+                                      rdfs:domain "dcat:Distribution" ;
+                                      rdfs:label "accessURL" ;
+                                      rdfs:range "rdfs:Resource" ;
+                                      <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                      <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:mandatory" .
+
+
+###  http://www.w3.org/ns/dcat#compressFormat
+<http://www.w3.org/ns/dcat#compressFormat> rdf:type owl:ObjectProperty ;
+                                           <http://purl.org/dc/terms/description> "The format of the file in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file." ;
+                                           <http://purl.org/vocab/vann/usageNote> "It SHOULD be expressed using a media type as defined in the official register of media types managed by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)." ;
+                                           rdfs:domain "dcat:Distribution" ;
+                                           rdfs:label "compressFormat" ;
+                                           rdfs:range "dcterms:MediaType" ;
+                                           <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                           <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/dcat#contactPoint
+<http://www.w3.org/ns/dcat#contactPoint> rdf:type owl:ObjectProperty ;
+                                         <http://purl.org/dc/terms/description> "Contact information that can be used for sending comments about the resource." ;
+                                         rdfs:domain "dcat:Resource" ;
+                                         rdfs:label "contactPoint" ;
+                                         rdfs:range "vcard:Kind" ;
+                                         <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                         <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:recommended" .
+
+
+###  http://www.w3.org/ns/dcat#distribution
+<http://www.w3.org/ns/dcat#distribution> rdf:type owl:ObjectProperty ;
+                                         <http://purl.org/dc/terms/description> "An available distribution for the dataset." ;
+                                         rdfs:domain "dcat:Dataset" ;
+                                         rdfs:label "distribution" ;
+                                         rdfs:range "dcat:Distribution" ;
+                                         <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                         <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:recommended" .
+
+
+###  http://www.w3.org/ns/dcat#endpointDescription
+<http://www.w3.org/ns/dcat#endpointDescription> rdf:type owl:ObjectProperty ;
+                                                <http://purl.org/dc/terms/description> "A description of the services available via the end-points, including their operations, parameters etc." ;
+                                                rdfs:domain "dcat:DataService" ;
+                                                rdfs:label "endpointDescription" ;
+                                                rdfs:range "rdfs:Resource" ;
+                                                <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                                <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:recommended" .
+
+
+###  http://www.w3.org/ns/dcat#hasRole
+<http://www.w3.org/ns/dcat#hasRole> rdf:type owl:ObjectProperty ;
+                                    <http://purl.org/dc/terms/description> "A function of an entity or agent with respect to another entity or resource." ;
+                                    rdfs:domain "dcat:Relationship" ;
+                                    rdfs:label "hasRole" ;
+                                    rdfs:range "dcat:Role" ;
+                                    <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/ns/dcat#hasVersion
+<http://www.w3.org/ns/dcat#hasVersion> rdf:type owl:ObjectProperty ;
+                                       <http://purl.org/dc/terms/description> "A related resource that is a version, edition, or adaptation of the described resource." ;
+                                       <http://purl.org/vocab/vann/usageNote> "This property is intended for relating a non-versioned or abstract resource to several versioned resources, e.g., snapshots." ;
+                                       rdfs:domain "dcat:Resource" ;
+                                       rdfs:label "hasVersion" ;
+                                       rdfs:range "rdfs:Resource" ;
+                                       <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                       <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/dcat#inSeries
+<http://www.w3.org/ns/dcat#inSeries> rdf:type owl:ObjectProperty ;
+                                     <http://purl.org/dc/terms/description> "A dataset series of which the dataset is part." ;
+                                     rdfs:domain "dcat:Dataset" ;
+                                     rdfs:label "inSeries" ;
+                                     rdfs:range "dcat:DatasetSeries" ;
+                                     <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                     <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/dcat#landingPage
+<http://www.w3.org/ns/dcat#landingPage> rdf:type owl:ObjectProperty ;
+                                        <http://purl.org/dc/terms/description> "A web page that provides access to the resource and/or additional information (e.g. the distribution for a dataset)." ;
+                                        <http://purl.org/vocab/vann/usageNote> """It is intended to point to a landing page at the original
+data provider, not to a page on a site of a third party,
+such as an aggregator.
+
+For distributions, if they are accessible only through a
+landing page (i.e. direct download URLs are not known), then
+the landing page link should be duplicated as accessURL on a
+distribution.
+""" ;
+                                        rdfs:domain "dcat:Resource" ;
+                                        rdfs:label "landingPage" ;
+                                        rdfs:range "foaf:Document" ;
+                                        <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                        <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/dcat#mediaType
+<http://www.w3.org/ns/dcat#mediaType> rdf:type owl:ObjectProperty ;
+                                      <http://purl.org/dc/terms/description> "The media type of the Distribution as defined in the official register of media types managed by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)." ;
+                                      rdfs:domain "dcat:Distribution" ;
+                                      rdfs:label "mediaType" ;
+                                      rdfs:range "dcterms:MediaType" ;
+                                      <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                      <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:recommended" .
+
+
+###  http://www.w3.org/ns/dcat#packageFormat
+<http://www.w3.org/ns/dcat#packageFormat> rdf:type owl:ObjectProperty ;
+                                          <http://purl.org/dc/terms/description> "The format of the file in which one or more data files are grouped together, e.g. to enable a set of related files to be downloaded together." ;
+                                          <http://purl.org/vocab/vann/usageNote> "It SHOULD be expressed using a media type as defined in the official register of media types managed by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types) and prefixed with `https://www.iana.org/assignments/media-types/`." ;
+                                          rdfs:domain "dcat:Distribution" ;
+                                          rdfs:label "packageFormat" ;
+                                          rdfs:range "dcterms:MediaType" ;
+                                          <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                          <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/dcat#qualifiedRelation
+<http://www.w3.org/ns/dcat#qualifiedRelation> rdf:type owl:ObjectProperty ;
+                                              <http://purl.org/dc/terms/description> "A description of a relationship with another resource." ;
+                                              rdfs:domain "dcat:Resource" ;
+                                              rdfs:label "qualifiedRelation" ;
+                                              rdfs:range "dcat:Relationship" ;
+                                              <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                              <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/dcat#servesDataset
+<http://www.w3.org/ns/dcat#servesDataset> rdf:type owl:ObjectProperty ;
+                                          <http://purl.org/dc/terms/description> "This property refers to a collection of data that this data service can distribute." ;
+                                          rdfs:domain "dcat:DataService" ;
+                                          rdfs:label "servesDataset" ;
+                                          rdfs:range "dcat:Dataset" ;
+                                          <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                          <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:recommended" .
+
+
+###  http://www.w3.org/ns/dcat#theme
+<http://www.w3.org/ns/dcat#theme> rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/locn#geometry
+<http://www.w3.org/ns/locn#geometry> rdf:type owl:ObjectProperty ;
+                                     <http://purl.org/dc/terms/description> "The geographic center (centroid) of a resource." ;
+                                     rdfs:domain "dcterms:Location" ;
+                                     rdfs:label "geometry" ;
+                                     rdfs:range "locn:Geometry" ;
+                                     <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                     <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/prov#qualifiedAttribution
+<http://www.w3.org/ns/prov#qualifiedAttribution> rdf:type owl:ObjectProperty ;
+                                                 <http://purl.org/dc/terms/description> "An Agent having some form of responsibility for the resource." ;
+                                                 rdfs:domain "dcat:Resource" ;
+                                                 rdfs:label "qualifiedAttribution" ;
+                                                 rdfs:range "prov:Attribution" ;
+                                                 <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                                 <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:ObjectProperty ;
+                                           <http://purl.org/dc/terms/description> "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity." ;
+                                           <http://purl.org/vocab/vann/usageNote> "Relates a resource to another resource it was derived from." ;
+                                           rdfs:domain "dcat:Dataset" ;
+                                           rdfs:label "wasDerivedFrom" ;
+                                           rdfs:range "dcat:Resource" ;
+                                           <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                           <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/prov#wasGeneratedBy
+<http://www.w3.org/ns/prov#wasGeneratedBy> rdf:type owl:ObjectProperty ;
+                                           <http://purl.org/dc/terms/description> "An activity that generated, or provides the business context for, the creation of the dataset." ;
+                                           rdfs:domain "dcat:Dataset" ;
+                                           rdfs:label "wasGeneratedBy" ;
+                                           rdfs:range "prov:Activity" ;
+                                           <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                           <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://xmlns.com/foaf/0.1/page
+<http://xmlns.com/foaf/0.1/page> rdf:type owl:ObjectProperty ;
+                                 <http://purl.org/dc/terms/description> "A page or document about this resource." ;
+                                 rdfs:domain "dcat:Resource" ;
+                                 rdfs:label "documentation" ;
+                                 rdfs:range "foaf:Document" ;
+                                 <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                 <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  https://w3id.org/emmo#EMMO_1494c1a9_00e1_40c2_a9cc_9bbf302a1cac
+<https://w3id.org/emmo#EMMO_1494c1a9_00e1_40c2_a9cc_9bbf302a1cac> rdf:type owl:ObjectProperty ;
+                                                                  <http://purl.org/dc/terms/description> "A process that this dataset is the input to." ;
+                                                                  rdfs:domain "dcat:Dataset" ;
+                                                                  rdfs:label "isInputOf" ;
+                                                                  rdfs:range "emmo:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce" ;
+                                                                  <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo#EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461
+<https://w3id.org/emmo#EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461> rdf:type owl:ObjectProperty ;
+                                                                  <http://purl.org/dc/terms/description> "A process that this dataset is the output to." ;
+                                                                  rdfs:domain "dcat:Dataset" ;
+                                                                  rdfs:label "isOutputOf" ;
+                                                                  rdfs:range "emmo:EMMO_43e9a05d_98af_41b4_92f6_00f79a09bfce" ;
+                                                                  <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo#EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e
+<https://w3id.org/emmo#EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e> rdf:type owl:ObjectProperty ;
+                                                                  <http://purl.org/dc/terms/description> "Relates a dataset to its datum parts." ;
+                                                                  <http://purl.org/vocab/vann/usageNote> "`hasDatum` relations are normally NOT specified manually, since they are generated from the DLite data model." ;
+                                                                  rdfs:domain "dcat:Dataset" ;
+                                                                  rdfs:label "hasDatum" ;
+                                                                  rdfs:range "emmo:EMMO_50d6236a_7667_4883_8ae1_9bb5d190423a" ;
+                                                                  <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo#EMMO_f702bad4_fc77_41f0_a26d_79f6444fd4f3
+<https://w3id.org/emmo#EMMO_f702bad4_fc77_41f0_a26d_79f6444fd4f3> rdf:type owl:ObjectProperty ;
+                                                                  <http://purl.org/dc/terms/description> "An object (e.g. a material) that this dataset describes." ;
+                                                                  rdfs:domain "dcat:Dataset" ;
+                                                                  rdfs:label "isDescriptionFor" ;
+                                                                  rdfs:range "dcat:Resource" ;
+                                                                  <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo/application/datadoc#conformance
+<https://w3id.org/emmo/application/datadoc#conformance> rdf:type owl:ObjectProperty ;
+                                                        rdfs:domain <http://www.w3.org/ns/dcat#Resource> ;
+                                                        rdfs:range <https://w3id.org/emmo/application/datadoc#ConformanceLevel> .
+
+
+###  https://w3id.org/emmo/application/datadoc#curationDate
+<https://w3id.org/emmo/application/datadoc#curationDate> rdf:type owl:ObjectProperty ;
+                                                         <http://purl.org/dc/terms/description> "Date of curation." ;
+                                                         rdfs:domain "dcat:Resource" ;
+                                                         rdfs:label "curationDate" ;
+                                                         rdfs:range "xsd:date" ;
+                                                         <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo/application/datadoc#curator
+<https://w3id.org/emmo/application/datadoc#curator> rdf:type owl:ObjectProperty ;
+                                                    <http://purl.org/dc/terms/description> "The agent that curated the resource." ;
+                                                    <http://purl.org/vocab/vann/usageNote> "Use `ddoc:curationDate` to refer to the date of curation." ;
+                                                    rdfs:domain "dcat:Resource" ;
+                                                    rdfs:label "curator" ;
+                                                    rdfs:range "foaf:Agent" ;
+                                                    <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo/application/datadoc#datatype
+<https://w3id.org/emmo/application/datadoc#datatype> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain rdfs:Resource ;
+                                                     rdfs:range rdfs:Datatype ;
+                                                     <http://purl.org/dc/terms/description> "A datatype for annotations and data properties."@en ;
+                                                     rdfs:label "datatype"@en .
+
+
+###  https://w3id.org/emmo/domain/oteio#generator
+<https://w3id.org/emmo/domain/oteio#generator> rdf:type owl:ObjectProperty ;
+                                               <http://purl.org/dc/terms/description> "A generator that can create the distribution." ;
+                                               rdfs:domain "dcat:Distribution" ;
+                                               rdfs:label "generator" ;
+                                               rdfs:range "oteio:Generator" ;
+                                               <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo/domain/oteio#hasDatamodel
+<https://w3id.org/emmo/domain/oteio#hasDatamodel> rdf:type owl:ObjectProperty ;
+                                                  <http://purl.org/dc/terms/description> "URI of DLite datamodel for the dataset." ;
+                                                  rdfs:domain "dcat:Dataset" ;
+                                                  rdfs:label "datamodel" ;
+                                                  rdfs:range "oteio:Datamodel" ;
+                                                  <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo/domain/oteio#parser
+<https://w3id.org/emmo/domain/oteio#parser> rdf:type owl:ObjectProperty ;
+                                            <http://purl.org/dc/terms/description> "A parser that can parse the distribution." ;
+                                            rdfs:domain "dcat:DataService" ;
+                                            rdfs:label "parser" ;
+                                            rdfs:range "oteio:Parser" ;
+                                            <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://data.europa.eu/r5r/availability
+<http://data.europa.eu/r5r/availability> rdf:type owl:DatatypeProperty ;
+                                         <http://purl.org/dc/terms/description> "An indication how long it is planned to keep the Distribution of the Dataset available." ;
+                                         rdfs:domain "dcat:Distribution" ;
+                                         rdfs:label "availability" ;
+                                         rdfs:range "xsd:date" ;
+                                         <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                         <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:recommended" .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:DatatypeProperty ;
+                                  <http://purl.org/dc/terms/description> "The date of formal issuance (e.g., publication) of the resource." ;
+                                  rdfs:domain "dcat:Resource" ;
+                                  rdfs:label "releaseDate" ;
+                                  rdfs:range "xsd:date" ;
+                                  <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                  <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/language
+<http://purl.org/dc/terms/language> rdf:type owl:DatatypeProperty ;
+                                    <http://purl.org/dc/terms/description> "A language of the resource." ;
+                                    <http://purl.org/vocab/vann/usageNote> """Recommended practice is to use either a non-literal value
+representing a language from a controlled vocabulary such as
+ISO 639-2 or ISO 639-3, or a literal value consisting of an
+IETF Best Current Practice 47
+[[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language
+tag.
+
+Example values: \"en\", \"it\", \"no\", \"da\"
+
+This property can be repeated if the resource is expressed
+with multiple languages.
+""" ;
+                                    rdfs:domain "dcat:Resource" ;
+                                    rdfs:label "language" ;
+                                    rdfs:range "xsd:string" ;
+                                    <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                    <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:DatatypeProperty ;
+                                    <http://purl.org/dc/terms/description> "The most recent date on which the resource was changed or modified." ;
+                                    rdfs:domain "dcat:Resource" ;
+                                    rdfs:label "modificationDate" ;
+                                    rdfs:range "xsd:date" ;
+                                    <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                    <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://spdx.org/rdf/terms#checksumValue
+<http://spdx.org/rdf/terms#checksumValue> rdf:type owl:DatatypeProperty ;
+                                          <http://purl.org/dc/terms/description> "A lower case hexadecimal encoded digest value produced using a specific algorithm." ;
+                                          rdfs:domain "spdx:Checksum" ;
+                                          rdfs:label "checksumValue" ;
+                                          rdfs:range "xsd:hexBinary" ;
+                                          <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2002/07/owl#deprecated
+owl:deprecated rdf:type owl:DatatypeProperty ;
+               <http://purl.org/dc/terms/description> "The annotation property that indicates that a given entity has been deprecated. It should equal to `\"true\"^^xsd:boolean`." ;
+               rdfs:domain "dcat:Resource" ;
+               rdfs:label "deprecated" ;
+               rdfs:range "xsd:boolean" ;
+               <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2002/07/owl#maxQualifiedCardinality
+owl:maxQualifiedCardinality rdf:type owl:DatatypeProperty ;
+                            <http://purl.org/dc/terms/description> "The property that determines the cardinality of a maximum qualified cardinality restriction." ;
+                            rdfs:domain "owl:Restriction" ;
+                            rdfs:label "maxQualifiedCardinality" ;
+                            rdfs:range "xsd:nonNegativeInteger" ;
+                            <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2002/07/owl#minQualifiedCardinality
+owl:minQualifiedCardinality rdf:type owl:DatatypeProperty ;
+                            <http://purl.org/dc/terms/description> "The property that determines the cardinality of a minimum qualified cardinality restriction." ;
+                            rdfs:domain "owl:Restriction" ;
+                            rdfs:label "minQualifiedCardinality" ;
+                            rdfs:range "xsd:nonNegativeInteger" ;
+                            <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/2002/07/owl#qualifiedCardinality
+owl:qualifiedCardinality rdf:type owl:DatatypeProperty ;
+                         <http://purl.org/dc/terms/description> "The property that determines the cardinality of an exact qualified cardinality restriction." ;
+                         rdfs:domain "owl:Restriction" ;
+                         rdfs:label "qualifiedCardinality" ;
+                         rdfs:range "xsd:nonNegativeInteger" ;
+                         <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  http://www.w3.org/ns/dcat#byteSize
+<http://www.w3.org/ns/dcat#byteSize> rdf:type owl:DatatypeProperty ;
+                                     <http://purl.org/dc/terms/description> "The size of a Distribution in bytes." ;
+                                     rdfs:domain "dcat:Distribution" ;
+                                     rdfs:label "byteSize" ;
+                                     rdfs:range "xsd:nonNegativeInteger" ;
+                                     <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                     <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/dcat#downloadURL
+<http://www.w3.org/ns/dcat#downloadURL> rdf:type owl:DatatypeProperty ;
+                                        <http://purl.org/dc/terms/description> "A URL that is a direct link to a downloadable file in a given format. The format is indicated by the distribution's 'dterms:format' and/or 'dcat:mediaType'." ;
+                                        rdfs:domain "dcat:Distribution" ;
+                                        rdfs:label "downloadURL" ;
+                                        rdfs:range "xsd:anyURI" ;
+                                        <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                        <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/dcat#endpointURL
+<http://www.w3.org/ns/dcat#endpointURL> rdf:type owl:DatatypeProperty ;
+                                        <http://purl.org/dc/terms/description> "The root location or primary endpoint of the service (an IRI)." ;
+                                        rdfs:domain "dcat:DataService" ;
+                                        rdfs:label "endpointURL" ;
+                                        rdfs:range "xsd:anyURI" ;
+                                        <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                        <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:mandatory" .
+
+
+###  http://www.w3.org/ns/dcat#spatialResolutionInMeters
+<http://www.w3.org/ns/dcat#spatialResolutionInMeters> rdf:type owl:DatatypeProperty ;
+                                                      <http://purl.org/dc/terms/description> "The minimum spatial separation resolvable in a dataset, measured in meters." ;
+                                                      rdfs:domain "dcat:Dataset" ;
+                                                      rdfs:label "spatialResolution" ;
+                                                      rdfs:range "xsd:decimal" ;
+                                                      <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                                      <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://www.w3.org/ns/dcat#temporalResolution
+<http://www.w3.org/ns/dcat#temporalResolution> rdf:type owl:DatatypeProperty ;
+                                               <http://purl.org/dc/terms/description> "The minimum time period resolvable in the dataset." ;
+                                               rdfs:domain "dcat:Dataset" ;
+                                               rdfs:label "temporalResolution" ;
+                                               rdfs:range "xsd:duration" ;
+                                               <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                               <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:optional" .
+
+
+###  http://xmlns.com/foaf/0.1/name
+<http://xmlns.com/foaf/0.1/name> rdf:type owl:DatatypeProperty ;
+                                 <http://purl.org/dc/terms/description> "A name of the agent." ;
+                                 rdfs:domain "foaf:Agent" ;
+                                 rdfs:label "name" ;
+                                 rdfs:range "xsd:string" ;
+                                 <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                 <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:mandatory" .
+
+
+###  https://w3id.org/emmo/domain/oteio#hasConfiguration
+<https://w3id.org/emmo/domain/oteio#hasConfiguration> rdf:type owl:DatatypeProperty ;
+                                                      <http://purl.org/dc/terms/description> "A JSON string with configurations specific to the parser or generator." ;
+                                                      rdfs:domain "oteio:Parser" ;
+                                                      rdfs:label "configuration" ;
+                                                      rdfs:range "rdf:JSON" ;
+                                                      <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo/domain/oteio#hasDatamodelStorage
+<https://w3id.org/emmo/domain/oteio#hasDatamodelStorage> rdf:type owl:DatatypeProperty ;
+                                                         <http://purl.org/dc/terms/description> "URL to DLite storage plugin where the datamodel is stored." ;
+                                                         rdfs:domain "dcat:Dataset" ;
+                                                         rdfs:label "datamodelStorage" ;
+                                                         rdfs:range "xsd:anyURI" ;
+                                                         <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo/domain/oteio#mapping
+<https://w3id.org/emmo/domain/oteio#mapping> rdf:type owl:DatatypeProperty ;
+                                             <http://purl.org/dc/terms/description> "A list of subject-predicate-object triples mapping the datamodel to ontological concepts." ;
+                                             rdfs:domain "dcat:Dataset" ;
+                                             rdfs:label "mappings" ;
+                                             rdfs:range "rdf:JSON" ;
+                                             <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo/domain/oteio#mappingURL
+<https://w3id.org/emmo/domain/oteio#mappingURL> rdf:type owl:DatatypeProperty ;
+                                                <http://purl.org/dc/terms/description> "URL to a document defining the mappings of the datamodel. The file format is given by `mappingFormat`. Defaults to turtle." ;
+                                                rdfs:domain "dcat:Dataset" ;
+                                                rdfs:label "mappingURL" ;
+                                                rdfs:range "xsd:anyURI" ;
+                                                <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+###  https://w3id.org/emmo/domain/oteio#statement
+<https://w3id.org/emmo/domain/oteio#statement> rdf:type owl:DatatypeProperty ;
+                                               <http://purl.org/dc/terms/description> "A list of subject-predicate-object triples with additional RDF statements documenting the resource." ;
+                                               rdfs:domain "dcat:Resource" ;
+                                               rdfs:label "statements" ;
+                                               rdfs:range "rdf:JSON" ;
+                                               <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://data.europa.eu/eli/ontology#LegalResource
+<http://data.europa.eu/eli/ontology#LegalResource> rdf:type owl:Class ;
+                                                   rdfs:subClassOf rdfs:Class ;
+                                                   <http://purl.org/dc/terms/description> "This class represents the legislation, policy or policies that lie behind the Rules that govern the service." ;
+                                                   <http://purl.org/vocab/vann/usageNote> "The definition and properties of the Legal Resource class are aligned with the ontology included in \"Council conclusions inviting the introduction of the European Legislation Identifier (ELI)\". For describing the attributes of a Legal Resource (labels, preferred labels, alternative labels, definition, etc.) we refer to the (ELI) ontology. In this data specification the use is restricted to instances of this class that follow the (ELI) URI guidelines." .
+
+
+###  http://purl.org/dc/terms/LicenseDocument
+<http://purl.org/dc/terms/LicenseDocument> rdf:type owl:Class ;
+                                           rdfs:subClassOf rdfs:Class ;
+                                           <http://purl.org/dc/terms/description> "A legal document giving official permission to do something with a resource." .
+
+
+###  http://purl.org/dc/terms/Location
+<http://purl.org/dc/terms/Location> rdf:type owl:Class ;
+                                    rdfs:subClassOf rdfs:Class ;
+                                    <http://purl.org/dc/terms/description> "A spatial region or named place." ;
+                                    <http://purl.org/vocab/vann/usageNote> "It can be represented using a controlled vocabulary or with geographic coordinates. In the latter case, the use of the Core Location Vocabulary is recommended, following the approach described in the GeoDCAT-AP specification." .
+
+
+###  http://purl.org/dc/terms/MediaType
+<http://purl.org/dc/terms/MediaType> rdf:type owl:Class ;
+                                     rdfs:subClassOf rdfs:Class ;
+                                     <http://purl.org/dc/terms/description> "A media type, e.g. the format of a computer file." ;
+                                     <http://purl.org/vocab/vann/usageNote> "Media type instances follow the [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types) vocabulary using the <http://www.iana.org/assignments/media-types/> namespace. For example, the IRI of the media type `text/turtle` is <http://www.iana.org/assignments/media-types/text/turtle>." .
+
+
+###  http://purl.org/dc/terms/RightsStatement
+<http://purl.org/dc/terms/RightsStatement> rdf:type owl:Class ;
+                                           rdfs:subClassOf rdfs:Class ;
+                                           <http://purl.org/dc/terms/description> "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights." ;
+                                           <http://purl.org/vocab/vann/usageNote> "EU pre-defines the following individuals: accr:PUBLIC, accr:NON_PUBLIC, accr:CONFIDENTIAL, accr:RESTRICTED, accr:SENSITIVE." .
+
+
+###  http://purl.org/dc/terms/Standard
+<http://purl.org/dc/terms/Standard> rdf:type owl:Class ;
+                                    rdfs:subClassOf rdfs:Class ;
+                                    <http://purl.org/dc/terms/description> "A standard or other specification to which a resource conforms." .
+
+
+###  http://spdx.org/rdf/terms#Checksum
+<http://spdx.org/rdf/terms#Checksum> rdf:type owl:Class ;
+                                     rdfs:subClassOf rdfs:Class ;
+                                     <http://purl.org/dc/terms/description> "A preferred label of the concept." .
+
+
+###  http://spdx.org/rdf/terms#ChecksumAlgorithm
+<http://spdx.org/rdf/terms#ChecksumAlgorithm> rdf:type owl:Class ;
+                                              rdfs:subClassOf rdfs:Class ;
+                                              <http://purl.org/dc/terms/description> "Algorithm for Checksums." ;
+                                              <http://purl.org/vocab/vann/usageNote> "This specification does not impose any additional requirements to properties for this entity." .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Class
+rdfs:Class rdf:type owl:Class ;
+           rdfs:subClassOf rdfs:Class ;
+           <http://purl.org/dc/terms/description> "The class of classes." .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Datatype
+rdfs:Datatype rdf:type owl:Class .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#Resource
+rdfs:Resource rdf:type owl:Class ;
+              rdfs:subClassOf rdfs:Class ;
+              <http://purl.org/dc/terms/description> "A generic resource defined by RDFS." .
+
+
+###  http://www.w3.org/2002/07/owl#Class
+owl:Class rdf:type owl:Class ;
+          rdfs:subClassOf rdfs:Class ;
+          <http://purl.org/dc/terms/description> "The class of OWL classes." ;
+          rdfs:subClassOf "rdfs:Class" .
+
+
+###  http://www.w3.org/2002/07/owl#Restriction
+owl:Restriction rdf:type owl:Class ;
+                rdfs:subClassOf rdfs:Class ;
+                <http://purl.org/dc/terms/description> "The class of property restrictions." .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class ;
+                                              rdfs:subClassOf rdfs:Class ;
+                                              <http://purl.org/dc/terms/description> "An idea or notion; a unit of thought." ;
+                                              <http://purl.org/vocab/vann/usageNote> "In DCAT-AP, a Concept is used to denote codes within a codelist. See [DCAT-AP](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#controlled-vocs) for expectations and more detail." .
+
+
+###  http://www.w3.org/2006/vcard/ns#Kind
+<http://www.w3.org/2006/vcard/ns#Kind> rdf:type owl:Class ;
+                                       rdfs:subClassOf rdfs:Class ;
+                                       <http://purl.org/dc/terms/description> "A description following the vCard specification, e.g. to provide telephone number and e-mail address for a contact point." ;
+                                       <http://purl.org/vocab/vann/usageNote> "Note that the class Kind is the parent class for the four explicit types of vCard (Individual, Organization, Location, Group)." .
+
+
+###  http://www.w3.org/ns/dcat#DataService
+<http://www.w3.org/ns/dcat#DataService> rdf:type owl:Class ;
+                                        rdfs:subClassOf rdfs:Class ;
+                                        <http://purl.org/dc/terms/description> "A collection of operations that provides access to one or more datasets or data processing functions." ;
+                                        rdfs:subClassOf "rdfs:Resource" .
+
+
+###  http://www.w3.org/ns/dcat#Dataset
+<http://www.w3.org/ns/dcat#Dataset> rdf:type owl:Class ;
+                                    rdfs:subClassOf rdfs:Class ;
+                                    <http://purl.org/dc/terms/description> "A collection of data, published or curated by an agent, and available for access or download in one or more representations." ;
+                                    <http://purl.org/vocab/vann/usageNote> "This class represents the actual dataset as published by the dataset provider. In cases where a distinction between the actual dataset and its entry in the catalog is necessary (because metadata such as modification date and maintainer might differ), the catalog record class can be used for the latter." ;
+                                    rdfs:subClassOf "dcat:Resource" ,
+                                                    "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a" .
+
+
+###  http://www.w3.org/ns/dcat#DatasetSeries
+<http://www.w3.org/ns/dcat#DatasetSeries> rdf:type owl:Class ;
+                                          rdfs:subClassOf rdfs:Class ;
+                                          <http://purl.org/dc/terms/description> "A collection of datasets that are published separately, but share some characteristics that group them." ;
+                                          rdfs:subClassOf "dcat:Dataset" .
+
+
+###  http://www.w3.org/ns/dcat#Distribution
+<http://www.w3.org/ns/dcat#Distribution> rdf:type owl:Class ;
+                                         rdfs:subClassOf rdfs:Class ;
+                                         <http://purl.org/dc/terms/description> "A physical embodiment of the Dataset in a particular format." ;
+                                         <http://purl.org/vocab/vann/usageNote> "This represents a general availability of a dataset. It implies no information about the actual access method of the data, i.e., whether by direct download, API, or through a Web page. The use of dcat:downloadURL property indicates directly downloadable distributions." ;
+                                         rdfs:subClassOf "dcat:Resource" .
+
+
+###  http://www.w3.org/ns/dcat#Relationship
+<http://www.w3.org/ns/dcat#Relationship> rdf:type owl:Class ;
+                                         rdfs:subClassOf rdfs:Class ;
+                                         <http://purl.org/dc/terms/description> "An association class for attaching additional information to a relationship between DCAT Resources." .
+
+
+###  http://www.w3.org/ns/dcat#Resource
+<http://www.w3.org/ns/dcat#Resource> rdf:type owl:Class ;
+                                     rdfs:subClassOf rdfs:Class ;
+                                     <http://purl.org/dc/terms/description> "Resource published or curated by an agent." ;
+                                     rdfs:subClassOf "rdfs:Resource" .
+
+
+###  http://www.w3.org/ns/locn#Geometry
+<http://www.w3.org/ns/locn#Geometry> rdf:type owl:Class ;
+                                     rdfs:subClassOf rdfs:Class ;
+                                     <http://purl.org/dc/terms/description> "The locn:Geometry class provides the means to identify a location as a point, line, polygon, etc. expressed using coordinates in some coordinate reference system." ;
+                                     <http://purl.org/vocab/vann/usageNote> "This specification does not impose any additional requirements to properties for this entity." .
+
+
+###  http://www.w3.org/ns/prov#Attribution
+<http://www.w3.org/ns/prov#Attribution> rdf:type owl:Class ;
+                                        rdfs:subClassOf rdfs:Class ;
+                                        <http://purl.org/dc/terms/description> "An agent that has some form of responsibility for a resource, but which is not a publisher nor a creator of the resource." ;
+                                        <http://purl.org/vocab/vann/usageNote> "See [explanations and examples in W3C/DCAT](https://www.w3.org/TR/vocab-dcat-3/#qualified-attribution)." ;
+                                        rdfs:subClassOf "foaf:Agent" .
+
+
+###  http://xmlns.com/foaf/0.1/Agent
+<http://xmlns.com/foaf/0.1/Agent> rdf:type owl:Class ;
+                                  rdfs:subClassOf rdfs:Class ;
+                                  <http://purl.org/dc/terms/description> "An agent (eg. person, group, software or physical artifact)." ;
+                                  <http://purl.org/vocab/vann/usageNote> "A resource that acts or has the power to act." ;
+                                  rdfs:subClassOf "dcterms:Agent" ,
+                                                  "emmo:EMMO_2480b72b_db8d_460f_9a5f_c2912f979046" .
+
+
+###  http://xmlns.com/foaf/0.1/Document
+<http://xmlns.com/foaf/0.1/Document> rdf:type owl:Class ;
+                                     rdfs:subClassOf rdfs:Class ;
+                                     <http://purl.org/dc/terms/description> "A document." ;
+                                     <http://purl.org/vocab/vann/usageNote> "The Document class represents those things which are, broadly conceived, 'documents'. E.g. images." .
+
+
+###  https://w3id.org/emmo/application/datadoc#ConformanceLevel
+<https://w3id.org/emmo/application/datadoc#ConformanceLevel> rdf:type owl:Class ;
+                                                             owl:equivalentClass [ rdf:type owl:Class ;
+                                                                                   owl:oneOf ( <https://w3id.org/emmo/application/datadoc#mandatory>
+                                                                                               <https://w3id.org/emmo/application/datadoc#optional>
+                                                                                               <https://w3id.org/emmo/application/datadoc#recommended>
+                                                                                             )
+                                                                                 ] ;
+                                                             <http://purl.org/dc/terms/description> "The class of conformance levels. Includes the following individuals: `ddoc:mandatory`, `ddoc:recommended` and `ddoc:optional`."@en ;
+                                                             rdfs:label "ConformanceLevel"@en .
+
+
+###  https://w3id.org/emmo/domain/oteio#Generator
+<https://w3id.org/emmo/domain/oteio#Generator> rdf:type owl:Class ;
+                                               rdfs:subClassOf rdfs:Class ;
+                                               <http://purl.org/dc/terms/description> "A generator that can serialise an instance of a datamodel into a distribution." ;
+                                               rdfs:subClassOf "oteio:Parser" .
+
+
+###  https://w3id.org/emmo/domain/oteio#Parser
+<https://w3id.org/emmo/domain/oteio#Parser> rdf:type owl:Class ;
+                                            rdfs:subClassOf rdfs:Class ;
+                                            <http://purl.org/dc/terms/description> "A parser that can parse a distribution into an instance of a datamodel." .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL
+<http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL> rdf:type owl:NamedIndividual ,
+                                                                                      <http://purl.org/dc/terms/RightsStatement> ;
+                                                                             rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+                                                                             <http://purl.org/vocab/vann/usageNote> "Disclosure of this data could cause damage to interested parties such as public administrations and businesses. It may refer to personal and professional information as well as to information in the context of business, commerce or trade."@en ;
+                                                                             <http://www.w3.org/2004/02/skos/core#definition> "Information that is not disclosed."@en ;
+                                                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "confidential"@en .
+
+
+###  http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC
+<http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC> rdf:type owl:NamedIndividual ,
+                                                                                    <http://purl.org/dc/terms/RightsStatement> ;
+                                                                           rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+                                                                           <http://purl.org/vocab/vann/usageNote> "This category may include resources that contain sensitive or personal information."@en ;
+                                                                           <http://www.w3.org/2004/02/skos/core#definition> "Not publicly accessible for privacy, security or other reasons."@en ;
+                                                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "non-public"@en .
+
+
+###  http://publications.europa.eu/resource/authority/access-right/PUBLIC
+<http://publications.europa.eu/resource/authority/access-right/PUBLIC> rdf:type owl:NamedIndividual ,
+                                                                                <http://purl.org/dc/terms/RightsStatement> ;
+                                                                       rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+                                                                       <http://purl.org/vocab/vann/usageNote> "Permissible obstacles include registration and request for API keys, as long as anyone can request such registration and/or API keys."@en ;
+                                                                       <http://www.w3.org/2004/02/skos/core#definition> "Publicly accessible by everyone."@en ;
+                                                                       <http://www.w3.org/2004/02/skos/core#prefLabel> "public"@en .
+
+
+###  http://publications.europa.eu/resource/authority/access-right/RESTRICTED
+<http://publications.europa.eu/resource/authority/access-right/RESTRICTED> rdf:type owl:NamedIndividual ,
+                                                                                    <http://purl.org/dc/terms/RightsStatement> ;
+                                                                           rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+                                                                           <http://purl.org/vocab/vann/usageNote> "This category may include resources that require payment, resources shared under non-disclosure agreements, resources for which the publisher or owner has not yet decided if they can be publicly released."@en ;
+                                                                           <http://www.w3.org/2004/02/skos/core#definition> "Only available under certain conditions."@en ;
+                                                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "restricted"@en .
+
+
+###  http://publications.europa.eu/resource/authority/access-right/SENSITIVE
+<http://publications.europa.eu/resource/authority/access-right/SENSITIVE> rdf:type owl:NamedIndividual ,
+                                                                                   <http://purl.org/dc/terms/RightsStatement> ;
+                                                                          rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+                                                                          <http://www.w3.org/2004/02/skos/core#definition> "Sensitive non-classified (SNC) information, information whose unauthorised disclosure could cause damage to the Commission or other interested parties such as businesses, companies, intellectual property or personal data but which is not EU classified information."@en ;
+                                                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "sensitive"@en .
+
+
+###  http://purl.org/adms/status/Completed
+<http://purl.org/adms/status/Completed> rdf:type owl:NamedIndividual ,
+                                                 <http://www.w3.org/2004/02/skos/core#Concept> ;
+                                        <http://www.w3.org/2004/02/skos/core#inScheme> <http://purl.org/adms/status/1.0> ;
+                                        <http://www.w3.org/2004/02/skos/core#notation> "Completed" ;
+                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "Completed"@en .
+
+
+###  http://purl.org/adms/status/Deprecated
+<http://purl.org/adms/status/Deprecated> rdf:type owl:NamedIndividual ,
+                                                  <http://www.w3.org/2004/02/skos/core#Concept> ;
+                                         <http://www.w3.org/2004/02/skos/core#inScheme> <http://purl.org/adms/status/1.0> ;
+                                         <http://www.w3.org/2004/02/skos/core#notation> "Deprecated" ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "Deprecated"@en .
+
+
+###  http://purl.org/adms/status/UnderDevelopment
+<http://purl.org/adms/status/UnderDevelopment> rdf:type owl:NamedIndividual ,
+                                                        <http://www.w3.org/2004/02/skos/core#Concept> ;
+                                               <http://www.w3.org/2004/02/skos/core#inScheme> <http://purl.org/adms/status/1.0> ;
+                                               <http://www.w3.org/2004/02/skos/core#notation> "UnderDevelopment" ;
+                                               <http://www.w3.org/2004/02/skos/core#prefLabel> "UnderDevelopment"@en .
+
+
+###  http://purl.org/adms/status/Withdrawn
+<http://purl.org/adms/status/Withdrawn> rdf:type owl:NamedIndividual ,
+                                                 <http://www.w3.org/2004/02/skos/core#Concept> ;
+                                        <http://www.w3.org/2004/02/skos/core#inScheme> <http://purl.org/adms/status/1.0> ;
+                                        <http://www.w3.org/2004/02/skos/core#notation> "Withdrawn" ;
+                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "Withdrawn"@en .
+
+
+###  https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right
+<https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/emmo#EMMC_ASBL
+<https://w3id.org/emmo#EMMC_ASBL> rdf:type owl:NamedIndividual .
+
+
+###  https://w3id.org/emmo/application/datadoc
+<https://w3id.org/emmo/application/datadoc> rdf:type owl:NamedIndividual ;
+                                            <http://purl.org/dc/terms/publisher> <https://w3id.org/emmo#EMMC_ASBL> .
+
+
+###  https://w3id.org/emmo/application/datadoc#conformance
+<https://w3id.org/emmo/application/datadoc#conformance> rdf:type owl:NamedIndividual ;
+                                                        rdfs:isDefinedBy <https://w3id.org/emmo/application/datadoc> .
+
+
+###  https://w3id.org/emmo/application/datadoc#datadoc
+<https://w3id.org/emmo/application/datadoc#datadoc> rdf:type owl:NamedIndividual ,
+                                                             <http://www.w3.org/2004/02/skos/core#Concept> ;
+                                                    <http://purl.org/dc/terms/description> "Basic data documentation."@en ;
+                                                    <http://purl.org/vocab/vann/usageNote> "Intended to be used as a theme individual for basic data documentation."@en ;
+                                                    rdfs:label "datadoc"@en .
+
+
+###  https://w3id.org/emmo/application/datadoc#mandatory
+<https://w3id.org/emmo/application/datadoc#mandatory> rdf:type owl:NamedIndividual ,
+                                                               <https://w3id.org/emmo/application/datadoc#ConformanceLevel> ;
+                                                      rdfs:label "mandatory"@en .
+
+
+###  https://w3id.org/emmo/application/datadoc#optional
+<https://w3id.org/emmo/application/datadoc#optional> rdf:type owl:NamedIndividual ,
+                                                              <https://w3id.org/emmo/application/datadoc#ConformanceLevel> ;
+                                                     rdfs:label "optional"@en .
+
+
+###  https://w3id.org/emmo/application/datadoc#process
+<https://w3id.org/emmo/application/datadoc#process> rdf:type owl:NamedIndividual ,
+                                                             <http://www.w3.org/2004/02/skos/core#Concept> ;
+                                                    <http://purl.org/dc/terms/description> "Basic documentation of processes."@en ;
+                                                    <http://purl.org/vocab/vann/usageNote> "Intended to be used as a theme individual for basic documentation of processes."@en ;
+                                                    rdfs:label "process"@en .
+
+
+###  https://w3id.org/emmo/application/datadoc#recommended
+<https://w3id.org/emmo/application/datadoc#recommended> rdf:type owl:NamedIndividual ,
+                                                                 <https://w3id.org/emmo/application/datadoc#ConformanceLevel> ;
+                                                        rdfs:label "recommended"@en .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://purl.org/dc/terms/title> <http://purl.org/dc/terms/description> "A name given to the resource." ;
+                                 <http://purl.org/vocab/vann/usageNote> "This property can be repeated for parallel language versions of the name." ;
+                                 rdfs:domain "dcat:Resource" ;
+                                 rdfs:label "title" ;
+                                 rdfs:range "rdf:langString" ;
+                                 <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                 <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:mandatory" .
+
+
+rdfs:domain <http://purl.org/dc/terms/description> "A domain of the subject property." ;
+            rdf:type owl:AnnotationProperty ;
+            rdfs:domain "dcat:Resource" ;
+            rdfs:label "domain" ;
+            rdfs:range "rdfs:Resource" ;
+            <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+rdfs:range <http://purl.org/dc/terms/description> "A range of the subject property." ;
+           rdfs:domain "dcat:Resource" ;
+           rdfs:label "range" ;
+           rdf:type owl:AnnotationProperty ;
+           rdfs:range "rdfs:Resource" ;
+           <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+rdfs:subClassOf <http://purl.org/dc/terms/description> "The subject is a subclass of a class." ;
+                rdfs:domain "rdfs:Class" ;
+                rdfs:label "subClassOf" ;
+                rdfs:range "rdfs:Class" ;
+                <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" .
+
+
+<http://www.w3.org/ns/dcat#theme> <http://purl.org/dc/terms/description> "A category of the resource.  A resource may be associated with multiple themes." ;
+                                  <http://purl.org/vocab/vann/usageNote> "The set of themes used to categorize the resources are organized in a skos:ConceptScheme, skos:Collection, owl:Ontology or similar, describing all the categories and their relations in the catalog." ;
+                                  rdfs:domain "dcat:Resource" ;
+                                  rdfs:label "theme" ;
+                                  rdfs:range "skos:Concept" ;
+                                  rdf:type owl:AnnotationProperty ;
+                                  <http://www.w3.org/ns/dcat#theme> "ddoc:datadoc" ;
+                                  <https://w3id.org/emmo/application/datadoc#conformance> "ddoc:recommended" .
+
+
+<https://w3id.org/emmo/application/datadoc#conformance> <http://purl.org/dc/terms/description> "Whether the annotation is mandatory, recommended or optional."@en ;
+                                                        <http://purl.org/vocab/vann/usageNote> "It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended' or 'ddoc:optional'."@en ;
+                                                        rdfs:label "conformance"@en .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
