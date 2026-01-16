@@ -291,8 +291,8 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "wasAttributedTo"@en ;
     rdfs:domain prov:Entity ;
     rdfs:range prov:Agent ;
-    skos:skopeNote "The activity is through overlapped by the agent and overcrossed by the entity."@en ;
     skos:definition "Relates an entity to an agent via an activity that both the entity and agent participates to."@en ;
+    skos:skopeNote "The activity is through overlapped by the agent and overcrossed by the entity."@en ;
     owl:inverseOf :attributed .
 
 :attributed rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -300,11 +300,18 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:prefLabel "attributed"@en ;
     rdfs:domain prov:Agent ;
     rdfs:range prov:Entity ;
+    skos:definition "Relates an agent to an entity via an activity that both the agent and entity participates to."@en ;
     skos:skopeNote "There may or may not be a causal interaction between the agent and entity."@en ;
     skos:skopeNote "The activity is through overlapped by the agent and overcrossed by the entity."@en ;
-    skos:definition "Relates an agent to an entity via an activity that both the agent and entity participates to."@en ;
     owl:inverseOf :wasAttributedTo .
 
+:priorRelease rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :causedBy ;
+    skos:prefLabel "priorRelease"@en ;
+    rdfs:domain prov:Software ;
+    rdfs:range prov:Software ;
+    skos:definition "Direct relation that relates a software to the most resent earlier release of the software."@en ;
+    skos:skopeNote "Useful for tracking the provenance of software releases."@en .
 
 
 ### Property relations
