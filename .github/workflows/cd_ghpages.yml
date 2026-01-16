@@ -1,0 +1,139 @@
+name: Deploy on GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+env:
+  ONTOLOGY_NAME: pink_annotation_schema
+  ONTOLOGY_IRI: https://w3id.org/pink/pink_annotation_schema
+
+permissions:
+  contents: write
+
+
+jobs:
+  deploy-on-ghpages:
+    #concurrency: ci-${{ github.ref }}  # Recommended if you intend to make multiple deployments in quick succession.
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.11
+
+    - name: Install EMMOntoPy
+      run: |
+        pip install --upgrade pip
+        pip install git+https://github.com/emmo-repo/EMMOntoPy.git@master
+
+    - name: Install Tripper
+      run: |
+        pip install tripper[datadoc]
+        pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
+
+    - name: Download Widoco
+      run: |
+        wget --quiet https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-17.jar
+
+    - name: Copy documentation to gh-pages
+      run: |
+        mkdir -p build
+        cp -r docs/ build/.
+
+    - name: Create dependencies, squashed and inferred ontologies
+      run: |
+        cp README.md build/.
+        ontoconvert \
+            -saw \
+            --base-iri="${ONTOLOGY_IRI}#" \
+            --iri="${ONTOLOGY_IRI}" \
+            ${ONTOLOGY_NAME}.ttl \
+            build/${ONTOLOGY_NAME}.ttl
+        ontoconvert \
+            -saw \
+            --base-iri="${ONTOLOGY_IRI}#" \
+            --iri="${ONTOLOGY_IRI}" \
+            --infer=HermiT \
+            ${ONTOLOGY_NAME}.ttl \
+            build/${ONTOLOGY_NAME}-inferred.ttl
+
+    - name: Generate Widoco documentation for PINK Annotation Schema
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile pink_annotation_schema.ttl \
+            -outFolder build/widoco \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
+
+    - name: Generate Widoco documentation for reused terms
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile reused-terms.ttl \
+            -outFolder build/widoco-reused-terms \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
+
+    - name: Generate Widoco documentation for ddoc terms
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile ddoc.ttl \
+            -outFolder build/widoco-ddoc \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
+
+    - name: Include Markdown documentation on gh-pages
+      run: |
+        cp -r docs build/.
+
+    - name: Generate JSON-LD context
+      run: |
+        mkdir -p build/context
+        keywords \
+            --input=pink_annotation_schema.ttl \
+            --context=build/context/pink_annotation_schema.jsonld \
+            --redefine=allow
+            #--namespace-filter=pink
+
+    - name: Generate keywords file
+      run: |
+        mkdir -p build/context
+        keywords \
+            --input=pink_annotation_schema.ttl \
+            --yaml=build/context/keywords.yaml \
+            --redefine=allow
+            #--namespace-filter=pink
+
+    # - name: Create markdown documentation of keywords
+    #   run: |
+    #     keywords \
+    #         --input=pink_annotation_schema.ttl \
+    #         --keywords=build/keywords.md \
+    #         --namespace-filter=pink \
+    #         --redefine=allow
+
+    # - name: Create csv tables
+    #   run: |
+    #     python scripts/csv-documentation.py
+    #     mv classes.csv properties.csv build/.
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: build
+        branch: gh-pages
+        clean: false
+        single-commit: true

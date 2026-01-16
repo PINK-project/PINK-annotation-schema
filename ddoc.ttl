@@ -15,6 +15,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix stat: <http://purl.org/adms/status/> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -39,6 +40,15 @@ dcatap:availability a owl:DatatypeProperty ;
     rdfs:range "xsd:date" ;
     dcat:theme "ddoc:datadoc" ;
     ddoc:conformance "ddoc:recommended" .
+
+dcatap:status a owl:ObjectProperty ;
+    rdfs:label "status" ;
+    dcterms:description "The status of the distribution in the context of maturity lifecycle." ;
+    vann:usageNote "It MUST take one of the values: 'stat:Completed', 'stat:Deprecated', 'stat:UnderDevelopment', 'stat:Withdrawn'." ;
+    rdfs:domain "dcat:Distribution" ;
+    rdfs:range "skos:Concept" ;
+    dcat:theme "ddoc:datadoc" ;
+    ddoc:conformance "ddoc:optional" .
 
 accr:CONFIDENTIAL a dcterms:RightsStatement ;
     vann:usageNote "Disclosure of this data could cause damage to interested parties such as public administrations and businesses. It may refer to personal and professional information as well as to information in the context of business, commerce or trade."@en ;
@@ -69,6 +79,26 @@ accr:SENSITIVE a dcterms:RightsStatement ;
     skos:definition "Sensitive non-classified (SNC) information, information whose unauthorised disclosure could cause damage to the Commission or other interested parties such as businesses, companies, intellectual property or personal data but which is not EU classified information."@en ;
     skos:prefLabel "sensitive"@en .
 
+stat:Completed a skos:Concept ;
+    skos:inScheme stat:1.0 ;
+    skos:notation "Completed" ;
+    skos:prefLabel "Completed"@en .
+
+stat:Deprecated a skos:Concept ;
+    skos:inScheme stat:1.0 ;
+    skos:notation "Deprecated" ;
+    skos:prefLabel "Deprecated"@en .
+
+stat:UnderDevelopment a skos:Concept ;
+    skos:inScheme stat:1.0 ;
+    skos:notation "UnderDevelopment" ;
+    skos:prefLabel "UnderDevelopment"@en .
+
+stat:Withdrawn a skos:Concept ;
+    skos:inScheme stat:1.0 ;
+    skos:notation "Withdrawn" ;
+    skos:prefLabel "Withdrawn"@en .
+
 dcterms:LicenseDocument a owl:Class ;
     dcterms:description "A legal document giving official permission to do something with a resource." ;
     rdfs:subClassOf rdfs:Class .
@@ -97,6 +127,7 @@ dcterms:abstract a owl:AnnotationProperty ;
 dcterms:accessRights a owl:ObjectProperty ;
     rdfs:label "accessRights" ;
     dcterms:description "Information about who can access the resource or an indication of its security status." ;
+    vann:usageNote "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies. The following preferred Rights Statement individuals are defined: `accr:PUBLIC`, `accr:NON_PUBLIC`, `accr:CONFIDENTIAL`, `accr:RESTRICTED`, `accr:SENSITIVE`" ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "dcterms:RightsStatement" ;
     dcat:theme "ddoc:datadoc" ;
@@ -122,6 +153,14 @@ dcterms:conformsTo a owl:ObjectProperty ;
     dcterms:description "An implementing rule or other specification." ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "dcterms:Standard" ;
+    dcat:theme "ddoc:datadoc" ;
+    ddoc:conformance "ddoc:optional" .
+
+dcterms:contributor a owl:ObjectProperty ;
+    rdfs:label "contributor" ;
+    dcterms:description "An entity responsible for making contributions to the resource." ;
+    rdfs:domain "dcat:Resource" ;
+    rdfs:range "foaf:Agent" ;
     dcat:theme "ddoc:datadoc" ;
     ddoc:conformance "ddoc:optional" .
 
@@ -162,6 +201,7 @@ dcterms:hasPart a owl:ObjectProperty ;
 dcterms:identifier a owl:AnnotationProperty ;
     rdfs:label "identifier" ;
     dcterms:description "URI or other unique identifier of the resource being described." ;
+    vann:usageNote "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs." ;
     rdfs:domain "foaf:Agent" ;
     dcat:theme "ddoc:datadoc" ;
     ddoc:conformance "ddoc:optional" .
@@ -566,14 +606,6 @@ adms:sample a owl:ObjectProperty ;
     dcat:theme "ddoc:datadoc" ;
     ddoc:conformance "ddoc:optional" .
 
-adms:status a owl:AnnotationProperty ;
-    rdfs:label "status" ;
-    dcterms:description "The status of the distribution in the context of maturity lifecycle." ;
-    vann:usageNote "It MUST take one of the values: 'Completed', 'Deprecated', 'Under Development', 'Withdrawn'." ;
-    rdfs:domain "dcat:Distribution" ;
-    dcat:theme "ddoc:datadoc" ;
-    ddoc:conformance "ddoc:optional" .
-
 adms:versionNotes a owl:AnnotationProperty ;
     rdfs:label "versionNotes" ;
     dcterms:description "A description of the differences between this version and a previous version of the resource." ;
@@ -589,6 +621,7 @@ dcat:DataService a owl:Class ;
 
 dcat:Dataset a owl:Class ;
     dcterms:description "A collection of data, published or curated by an agent, and available for access or download in one or more representations." ;
+    vann:usageNote "This class represents the actual dataset as published by the dataset provider. In cases where a distinction between the actual dataset and its entry in the catalog is necessary (because metadata such as modification date and maintainer might differ), the catalog record class can be used for the latter." ;
     rdfs:subClassOf rdfs:Class,
         "dcat:Resource",
         "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a" .
@@ -618,7 +651,7 @@ dcat:accessService a owl:ObjectProperty ;
 
 dcat:accessURL a owl:ObjectProperty ;
     rdfs:label "accessURL" ;
-    dcterms:description "A URL that gives access to a Distribution of the Dataset." ;
+    dcterms:description "A URL that gives access to a Distribution of the Dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred." ;
     vann:usageNote "The resource at the access URL may contain information about how to get the Dataset." ;
     rdfs:domain "dcat:Distribution" ;
     rdfs:range "rdfs:Resource" ;
@@ -674,7 +707,7 @@ dcat:distribution a owl:ObjectProperty ;
 
 dcat:downloadURL a owl:DatatypeProperty ;
     rdfs:label "downloadURL" ;
-    dcterms:description "A URL that is a direct link to a downloadable file in a given format." ;
+    dcterms:description "A URL that is a direct link to a downloadable file in a given format. The format is indicated by the distribution's 'dterms:format' and/or 'dcat:mediaType'." ;
     rdfs:domain "dcat:Distribution" ;
     rdfs:range "xsd:anyURI" ;
     dcat:theme "ddoc:datadoc" ;
@@ -731,7 +764,15 @@ dcat:keyword a owl:AnnotationProperty ;
 dcat:landingPage a owl:ObjectProperty ;
     rdfs:label "landingPage" ;
     dcterms:description "A web page that provides access to the resource and/or additional information (e.g. the distribution for a dataset)." ;
-    vann:usageNote "It is intended to point to a landing page at the original data provider, not to a page on a site of a third party, such as an aggregator." ;
+    vann:usageNote """It is intended to point to a landing page at the original
+data provider, not to a page on a site of a third party,
+such as an aggregator.
+
+For distributions, if they are accessible only through a
+landing page (i.e. direct download URLs are not known), then
+the landing page link should be duplicated as accessURL on a
+distribution.
+""" ;
     rdfs:domain "dcat:Resource" ;
     rdfs:range "foaf:Document" ;
     dcat:theme "ddoc:datadoc" ;
@@ -798,6 +839,7 @@ dcat:theme a owl:ObjectProperty ;
 dcat:version a owl:AnnotationProperty ;
     rdfs:label "version" ;
     dcterms:description "Version indicator (name or identifier) of a resource." ;
+    vann:usageNote "DCAT does not prescribe how a version name / identifier should be specified, and refers for guidance to [DWBP]'s Best Practice 7: Provide a version indicator." ;
     rdfs:domain "dcat:Resource" ;
     dcat:theme "ddoc:datadoc" ;
     ddoc:conformance "ddoc:optional" .
@@ -845,6 +887,18 @@ prov:wasGeneratedBy a owl:ObjectProperty ;
     rdfs:range "prov:Activity" ;
     dcat:theme "ddoc:datadoc" ;
     ddoc:conformance "ddoc:optional" .
+
+foaf:Agent a owl:Class ;
+    dcterms:description "An agent (eg. person, group, software or physical artifact)." ;
+    vann:usageNote "A resource that acts or has the power to act." ;
+    rdfs:subClassOf rdfs:Class,
+        "dcterms:Agent",
+        "emmo:EMMO_2480b72b_db8d_460f_9a5f_c2912f979046" .
+
+foaf:Document a owl:Class ;
+    dcterms:description "A document." ;
+    vann:usageNote "The Document class represents those things which are, broadly conceived, 'documents'. E.g. images." ;
+    rdfs:subClassOf rdfs:Class .
 
 foaf:name a owl:DatatypeProperty ;
     rdfs:label "name" ;
@@ -913,25 +967,25 @@ ddoc:conformance a owl:ObjectProperty ;
     rdfs:isDefinedBy <https://w3id.org/emmo/application/datadoc> ;
     rdfs:range ddoc:ConformanceLevel .
 
-ddoc:curationDate a owl:DatatypeProperty ;
-    rdfs:label "creationDate"@en ;
-    dcterms:description "Date of curation."@en ;
-    vann:usageNote "Use format: YYYY-MM-DD"@en ;
-    rdfs:domain dcat:Resource ;
-    rdfs:range xsd:date .
+ddoc:curationDate a owl:ObjectProperty ;
+    rdfs:label "curationDate" ;
+    dcterms:description "Date of curation." ;
+    rdfs:domain "dcat:Resource" ;
+    rdfs:range "xsd:date" ;
+    dcat:theme "ddoc:datadoc" .
 
 ddoc:curator a owl:ObjectProperty ;
-    rdfs:label "curator"@en ;
-    dcterms:description "The agent that curated the resource."@en ;
-    vann:usageNote "Use `ddoc:curationDate` to refer to the date of curation."@en ;
-    rdfs:domain dcat:Resource ;
-    rdfs:range foaf:Agent ;
-    ddoc:conformance ddoc:optional .
+    rdfs:label "curator" ;
+    dcterms:description "The agent that curated the resource." ;
+    vann:usageNote "Use `ddoc:curationDate` to refer to the date of curation." ;
+    rdfs:domain "dcat:Resource" ;
+    rdfs:range "foaf:Agent" ;
+    dcat:theme "ddoc:datadoc" .
 
 ddoc:datadoc a skos:Concept ;
     rdfs:label "datadoc"@en ;
-    vann:usageNote "Intended to be used as a theme individual for basic data documentation."@en ;
-    rdfs:comment "Basic data documentation."@en .
+    dcterms:description "Basic data documentation."@en ;
+    vann:usageNote "Intended to be used as a theme individual for basic data documentation."@en .
 
 ddoc:datatype a owl:ObjectProperty ;
     rdfs:label "datatype"@en ;
@@ -941,8 +995,8 @@ ddoc:datatype a owl:ObjectProperty ;
 
 ddoc:process a skos:Concept ;
     rdfs:label "process"@en ;
-    vann:usageNote "Intended to be used as a theme individual for basic documentation of processes."@en ;
-    rdfs:comment "Basic documentation of processes."@en .
+    dcterms:description "Basic documentation of processes."@en ;
+    vann:usageNote "Intended to be used as a theme individual for basic documentation of processes."@en .
 
 ddoc:unitSymbol a owl:AnnotationProperty ;
     rdfs:label "unitSymbol"@en ;
@@ -959,14 +1013,6 @@ oteio:Generator a owl:Class ;
 oteio:Parser a owl:Class ;
     dcterms:description "A parser that can parse a distribution into an instance of a datamodel." ;
     rdfs:subClassOf rdfs:Class .
-
-oteio:curator a owl:ObjectProperty ;
-    rdfs:label "curator" ;
-    dcterms:description "The agent that curated the resource." ;
-    vann:usageNote "Use `issued` to refer to the date of curation." ;
-    rdfs:domain "dcat:Resource" ;
-    rdfs:range "foaf:Agent" ;
-    dcat:theme "ddoc:datadoc" .
 
 oteio:generator a owl:ObjectProperty ;
     rdfs:label "generator" ;
@@ -1050,13 +1096,6 @@ rdfs:Resource a owl:Class ;
     dcterms:description "A generic resource defined by RDFS." ;
     rdfs:subClassOf rdfs:Class .
 
-foaf:Agent a owl:Class ;
-    dcterms:description "An agent (eg. person, group, software or physical artifact)." ;
-    vann:usageNote "A resource that acts or has the power to act." ;
-    rdfs:subClassOf rdfs:Class,
-        "dcterms:Agent",
-        "emmo:EMMO_2480b72b_db8d_460f_9a5f_c2912f979046" .
-
 <https://w3id.org/emmo/application/datadoc> a owl:Ontology ;
     dcterms:publisher emmo:EMMC_ASBL ;
     dcterms:title "Data documentation ontology" ;
@@ -1069,16 +1108,11 @@ foaf:Agent a owl:Class ;
 ddoc:mandatory a ddoc:ConformanceLevel ;
     rdfs:label "mandatory"@en .
 
-ddoc:recommended a ddoc:ConformanceLevel ;
-    rdfs:label "recommended"@en .
-
-skos:Concept a owl:Class ;
-    dcterms:description "An idea or notion; a unit of thought." ;
-    vann:usageNote "In DCAT-AP, a Concept is used to denote codes within a codelist. See [DCAT-AP](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#controlled-vocs) for expectations and more detail." ;
-    rdfs:subClassOf rdfs:Class .
-
 ddoc:optional a ddoc:ConformanceLevel ;
     rdfs:label "optional"@en .
+
+ddoc:recommended a ddoc:ConformanceLevel ;
+    rdfs:label "recommended"@en .
 
 dcat:Resource a owl:Class ;
     dcterms:description "Resource published or curated by an agent." ;
@@ -1092,6 +1126,12 @@ ddoc:ConformanceLevel a owl:Class ;
 
 dcterms:RightsStatement a owl:Class ;
     dcterms:description "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights." ;
+    vann:usageNote "EU pre-defines the following individuals: accr:PUBLIC, accr:NON_PUBLIC, accr:CONFIDENTIAL, accr:RESTRICTED, accr:SENSITIVE." ;
+    rdfs:subClassOf rdfs:Class .
+
+skos:Concept a owl:Class ;
+    dcterms:description "An idea or notion; a unit of thought." ;
+    vann:usageNote "In DCAT-AP, a Concept is used to denote codes within a codelist. See [DCAT-AP](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#controlled-vocs) for expectations and more detail." ;
     rdfs:subClassOf rdfs:Class .
 
 rdfs:Class a owl:Class ;
