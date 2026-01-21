@@ -250,7 +250,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 :hasModel rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     skos:prefLabel "hasModel"@en ;
-    rdfs:domain :Activity ;
+    rdfs:domain prov:Activity ;
     rdfs:range :Model ;
     skos:definition "Relates an activity to the model it implements."@en .
 
@@ -308,8 +308,8 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :priorRelease rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :causedBy ;
     skos:prefLabel "priorRelease"@en ;
-    rdfs:domain prov:Software ;
-    rdfs:range prov:Software ;
+    rdfs:domain :Software ;
+    rdfs:range :Software ;
     skos:definition "Direct relation that relates a software to the most resent earlier release of the software."@en ;
     skos:skopeNote "Useful for tracking the provenance of software releases."@en .
 
@@ -626,6 +626,11 @@ An architectural floor plan is a model of a house.
 ### Question: should we duplicate these classes instead?
 foaf:Document rdfs:subClassOf :Data .
 prov:Agent rdfs:subClassOf foaf:Agent .
+ddoc:ConformanceLevel rdfs:subClassOf foaf:Document .
+foaf:Organization rdfs:subClassOf :Object .
+foaf:Person rdfs:subClassOf :Object .
+foaf:Project rdfs:subClassOf :Process .
+
 
 
 #################################################################
