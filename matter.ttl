@@ -24,7 +24,33 @@
                                 owl:versionIRI <https://w3id.org/pink/0.0.1/matter> ;
                                 dcterms:abstract "The Matter module of PINK Annotation Schema providing a taxonomy for physical matter (including nanomaterial, chemical compounds, etc...) with anchor points for links for CheBI."@en ;
     dcterms:title "The Matter module of PINK Annotation Schema"@en ;
-    widoco:introduction """See the graphical description of the [Matter module](https://github.com/PINK-project/PINK-annotation-schema/blob/matter-branch/docs/background.md)."""@en .
+    widoco:introduction """
+Matter is a physical entity that possess mass and occupies volume.
+This module provides a categorisation of different types of matter entities.
+
+At the top it categorise matter into molecular entities (discrete atoms or molecules) and different types of substances (homogenious properties).
+
+<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/matter.png" alt="Top-level of matter branch">
+<p>
+
+The following two figures shows the categorisation of molecular entities and substances, respectively.
+
+<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/molecular-entities.png" alt="Molecular entities.">
+<p>
+
+<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/substances.png" alt="Substances.">
+<p>
+
+Under substances we find materials
+
+<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/material.png" alt="Materials.">
+<p>
+
+and the different aggregation states of matter
+
+<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/state-of-matter.png" alt="State of matter.">
+<p>
+"""@en .
 
 
 #################################################################
