@@ -38,9 +38,6 @@ The following two figures shows the categorisation of molecular entities and sub
 
 <p>
 <img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/molecular-entity.png" alt="Molecular entities.">
-<p>
-
-<p>
 <img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/substances.png" alt="Substances.">
 <p>
 
