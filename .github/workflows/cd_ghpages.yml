@@ -84,6 +84,10 @@ jobs:
             -licensius \
             -includeAnnotationProperties
 
+    - name: Include Markdown documentation on gh-pages
+      run: |
+        cp -r docs build/.
+
     - name: Generate Widoco documentation for ddoc terms
       run: |
         java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
