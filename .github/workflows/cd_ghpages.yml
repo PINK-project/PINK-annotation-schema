@@ -25,17 +25,14 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
-        python-version: 3.11
+        python-version: 3.14
 
-    - name: Install EMMOntoPy
+    - name: Install EMMOntoPy and tripper
       run: |
         pip install --upgrade pip
-        pip install git+https://github.com/emmo-repo/EMMOntoPy.git@master
-
-    - name: Install Tripper
-      run: |
-        pip install tripper[datadoc]
-        pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
+        pip install \
+            "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@master" \
+            "tripper[datadoc] @ git+https://github.com/EMMC-ASBL/tripper.git@master"
 
     - name: Install ROBOT
       run: |
@@ -135,7 +132,8 @@ jobs:
         keywords \
             --input=pink_annotation_schema.ttl \
             --context=build/context/pink_annotation_schema.jsonld \
-            --redefine=allow
+            --redefine=allow \
+            --set-prefix=emmo:https://w3id.org/emmo/hume#
             #--namespace-filter=pink
 
     - name: Generate keywords file
@@ -144,7 +142,8 @@ jobs:
         keywords \
             --input=pink_annotation_schema.ttl \
             --yaml=build/context/keywords.yaml \
-            --redefine=allow
+            --redefine=allow \
+            --set-prefix=emmo:https://w3id.org/emmo/hume#
             #--namespace-filter=pink
 
     # - name: Create markdown documentation of keywords
@@ -153,7 +152,8 @@ jobs:
     #         --input=pink_annotation_schema.ttl \
     #         --keywords=build/keywords.md \
     #         --namespace-filter=pink \
-    #         --redefine=allow
+    #         --redefine=allow \
+    #        --set-prefix=emmo:https://w3id.org/emmo/hume#
 
     # - name: Create csv tables
     #   run: |
