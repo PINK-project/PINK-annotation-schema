@@ -75,7 +75,7 @@ jobs:
           --exclude-duplicate-axioms true \
           --input build/${ONTOLOGY_NAME}.ttl \
           --output build/${ONTOLOGY_NAME}-inferred.ttl
-        ontoconvert --iri={ONTOLOGY_IRI}/inferred build/emmo-inferred.ttl public/emmo-inferred.ttl
+        ontoconvert --iri=${ONTOLOGY_IRI}/inferred build/${ONTOLOGY_NAME}-inferred.ttl public/${ONTOLOGY_NAME}-inferred.ttl
 
     - name: Generate Widoco documentation for PINK Annotation Schema
       run: |
