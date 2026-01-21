@@ -105,6 +105,14 @@ foaf:homepage rdf:type owl:AnnotationProperty .
 foaf:logo rdf:type owl:AnnotationProperty .
 
 
+skos:prefLabel rdf:type owl:AnnotationProperty .
+skos:altLabel rdf:type owl:AnnotationProperty .
+skos:definition rdf:type owl:AnnotationProperty .
+skos:example rdf:type owl:AnnotationProperty .
+skos:scopeNote rdf:type owl:AnnotationProperty .
+vann:usageNote rdf:type owl:AnnotationProperty .
+
+
 ###  https://w3id.org/pink#conformance
 :conformance rdf:type owl:ObjectProperty ;
     rdfs:range ddoc:ConformanceLevel ;
@@ -251,7 +259,7 @@ foaf:logo rdf:type owl:AnnotationProperty .
 
 :hasModel rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     skos:prefLabel "hasModel"@en ;
-    rdfs:domain :Activity ;
+    rdfs:domain prov:Activity ;
     rdfs:range :Model ;
     skos:definition "Relates an activity to the model it implements."@en .
 
@@ -309,8 +317,8 @@ foaf:logo rdf:type owl:AnnotationProperty .
 :priorRelease rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :causedBy ;
     skos:prefLabel "priorRelease"@en ;
-    rdfs:domain prov:Software ;
-    rdfs:range prov:Software ;
+    rdfs:domain :Software ;
+    rdfs:range :Software ;
     skos:definition "Direct relation that relates a software to the most resent earlier release of the software."@en ;
     skos:skopeNote "Useful for tracking the provenance of software releases."@en .
 
@@ -435,7 +443,10 @@ foaf:logo rdf:type owl:AnnotationProperty .
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Matter"@en ;
     skos:definition "An entity that possess mass and occupies volume."@en ;
-    skos:scopeNote "Matter objects contain fermions."@en .
+    skos:scopeNote "From the definition it follows that matter is an object with fermionic parts."@en ,
+     """The interpretation of the term "matter" is not univocal. Several concepts are labelled with this term, depending on the field of science. The concept mass is sometimes related to the term "matter", even if the former refers to a physical quantity (precisely defined by modern physics) while the latter is a type that qualifies a physical entity.
+It is possible to identify more than one concept that can be reasonably labelled with the term "matter". For example, it is possible to label as matter only the entities that are made up of atoms. Or more generally, we can be more fine-grained and call "matter" the entities that are made up of protons, neutrons or electrons, so that we can call matter also a neutron radiation or a cathode ray.
+A more fundamental approach taken here, considers matter as entities that are made of quarks and leptons, without excluding particles like the W and Z bosons that possess some mass, but are not fermions. This definition also include antimatter."""@en .
 
 emmo:Substance rdfs:subClassOf :Matter .
 emmo:ChemicalEntity rdfs:subClassOf :Matter .
@@ -626,6 +637,11 @@ An architectural floor plan is a model of a house.
 ### Include standard concepts into the PINK taxonomy
 ### Question: should we duplicate these classes instead?
 foaf:Document rdfs:subClassOf :Data .
+prov:Agent rdfs:subClassOf foaf:Agent .
+ddoc:ConformanceLevel rdfs:subClassOf foaf:Document .
+foaf:Organization rdfs:subClassOf :Object .
+foaf:Person rdfs:subClassOf :Object .
+foaf:Project rdfs:subClassOf :Process .
 
 
 
