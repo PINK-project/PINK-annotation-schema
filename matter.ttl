@@ -31,22 +31,21 @@ This module provides a categorisation of different types of matter entities.
 
 At the top it categorise matter into molecular entities (discrete atoms or molecules) and different types of substances (homogenious properties).
 
-![Top-level of matter branch.](https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/matter.png)
+<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/matter.png" alt="Top-level of matter branch">
 
 The following two figures shows the categorisation of molecular entities and substances, respectively.
 
-![Molecular entities.](https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/molecular-entities.png)
+<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/molecular-entities.png" alt="Molecular entities.">
 
-![Substances.](https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/substances.png)
+<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/substances.png" alt="Substances.">
 
 Under substances we find materials
 
-![Materials.](https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/material.png)
+<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/material.png" alt="Materials.">
 
 and the different aggregation states of matter
 
-![State of matter.](https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/state-of-matter.png)
-
+<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/state-of-matter.png" alt="State of matter.">
 
 """@en .
 
