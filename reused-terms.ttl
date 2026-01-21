@@ -119,6 +119,15 @@ prov:wasInformedBy
     prov:inverse "informed" ;
     prov:qualifiedForm prov:Communication, prov:qualifiedCommunication .
 
+
+### Data properties
+
+dcterms:issued a owl:DatatypeProperty ;
+    rdfs:label "releaseDate" ;
+    rdfs:comment "The date of formal issuance (e.g., publication) of the resource." ;
+    rdfs:range xsd:date .
+
+
 ### Classes
 
 prov:Activity a owl:Class ;
@@ -136,7 +145,7 @@ prov:Agent a owl:Class ;
     rdfs:subClassOf foaf:Agent ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
     rdfs:label "Agent" ;
-    owl:disjointWith prov:InstantaneousEvent ;
+    #owl:disjointWith prov:InstantaneousEvent ;
     prov:category "starting-point" ;
     prov:component "agents-responsibility" ;
     prov:definition "An agent is something that bears some form of responsibility for a activity taking place, for the existence of an entity, or for another agent's aprovctivity. "@en ;
@@ -146,7 +155,7 @@ prov:Agent a owl:Class ;
 prov:Entity a owl:Class ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
     rdfs:label "Entity" ;
-    owl:disjointWith prov:InstantaneousEvent ;
+    #owl:disjointWith prov:InstantaneousEvent ;
     prov:category "starting-point" ;
     prov:component "entities-activities" ;
     prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
@@ -155,24 +164,21 @@ prov:Entity a owl:Class ;
     prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity"^^xsd:anyURI .
 
 
-foaf:Document
-    a rdfs:Class, owl:Class ;
+foaf:Document a owl:Class ;
     rdfs:comment "A document." ;
     rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/> ;
     rdfs:label "Document" ;
     owl:disjointWith foaf:Organization, foaf:Project .
 
 
-dcterms:RightsStatement
-    dcterms:issued "2008-01-14" ;
-    a rdfs:Class, owl:Class ;
+dcterms:RightsStatement a owl:Class ;
+    dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
     rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
     rdfs:label "Rights Statement"@en .
 
-dcterms:LicenseDocument
-    dcterms:issued "2008-01-14" ;
-    a rdfs:Class, owl:Class ;
+dcterms:LicenseDocument a owl:Class ;
+    dcterms:issued "2008-01-14"^^xsd:date ;
     rdfs:comment "A legal document giving official permission to do something with a resource."@en ;
     rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
     rdfs:label "License Document"@en ;

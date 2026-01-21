@@ -13,6 +13,7 @@
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
+@prefix emmo: <https://w3id.org/emmo#> .
 @prefix pink: <https://w3id.org/pink#> .
 
 @base <https://w3id.org/pink#> .
@@ -136,16 +137,16 @@ foaf:logo rdf:type owl:AnnotationProperty .
 ### Other PINK-specific relations
 :documentation a owl:ObjectProperty ;
     rdfs:subPropertyOf foaf:page;
-    rdfs:domain dcat:Resource ;
+    rdfs:domain :Software ;
     rdfs:range foaf:Document ;
     skos:prefLabel "documentation"@en ;
-    skos:definition "A page or document documenting this resource." .
+    skos:definition "A page or document documenting this software." .
 
 :hasAPI a owl:DatatypeProperty ;
-    rdfs:domain dcat:Resource ;
+    rdfs:domain :Software ;
     rdfs:range xsd:boolean ;
     skos:prefLabel "hasAPI"@en ;
-    skos:definition "Whether the resource has an API." .
+    skos:definition "Whether the software has an API." .
 
 
 ### Parthood relations
@@ -463,7 +464,7 @@ A more fundamental approach taken here, considers matter as entities that are ma
     vann:usageNote "Datum is the building block of datasets."@en .
 
 :Dataset rdf:type owl:Class ;
-    rdfs:subClassOf dcat:Dataset, :Data, [
+    rdfs:subClassOf :Data, [
         rdf:type owl:Restriction ;
         owl:onProperty :hasPart ;
         owl:someValuesFrom :Datum
@@ -622,6 +623,7 @@ An architectural floor plan is a model of a house.
     skos:example "A person (interpreter) that measures the length (sign) of an pencil (object)."@en .
 
 
+### Mappings
 ### Include standard concepts into the PINK taxonomy
 ### Question: should we duplicate these classes instead?
 foaf:Document rdfs:subClassOf :Data .
@@ -630,7 +632,8 @@ ddoc:ConformanceLevel rdfs:subClassOf foaf:Document .
 foaf:Organization rdfs:subClassOf :Object .
 foaf:Person rdfs:subClassOf :Object .
 foaf:Project rdfs:subClassOf :Process .
-
+dcterms:RightsStatement rdfs:subClassOf foaf:Document .
+:SsbdDimension  rdfs:subClassOf prov:Entity .
 
 
 #################################################################
