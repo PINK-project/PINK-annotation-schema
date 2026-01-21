@@ -33,7 +33,19 @@ At the top it categorise matter into molecular entities (discrete atoms or molec
 
 ![Top-level of matter branch.](https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/matter.png)
 
-At
+The following two figures shows the categorisation of molecular entities and substances, respectively.
+
+![Molecular entities.](https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/molecular-entities.png)
+
+![Substances.](https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/substances.png)
+
+Under substances we find materials
+
+![Materials.](https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/material.png)
+
+and the different aggregation states of matter
+
+![State of matter.](https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/state-of-matter.png)
 
 
 """@en .
