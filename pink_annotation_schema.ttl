@@ -437,8 +437,8 @@ foaf:logo rdf:type owl:AnnotationProperty .
     skos:definition "An entity that possess mass and occupies volume."@en ;
     skos:scopeNote "Matter objects contain fermions."@en .
 
-emmo:Substance rdfs:subClassOf :Matter ;
-emmo:ChemicalEntity rdfs:subClassOf :Matter ;
+emmo:Substance rdfs:subClassOf :Matter .
+emmo:ChemicalEntity rdfs:subClassOf :Matter .
 
 ## Data
 :Data rdf:type owl:Class ;
