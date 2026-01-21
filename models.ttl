@@ -28,6 +28,7 @@
 
 The PINK Annotation Schema categorise models as shown in the figure below.
 
+<p>
 <img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/model-branch/docs/figs/models.png" alt="Models.">
 
 """@en .
