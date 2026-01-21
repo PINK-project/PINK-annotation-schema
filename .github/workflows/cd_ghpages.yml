@@ -1,8 +1,9 @@
 name: Deploy on GitHub Pages
 
-on:
-  push:
-    branches: [main]
+on: push
+#on:
+#  push:
+#    branches: [main]
 
 env:
   ONTOLOGY_NAME: pink_annotation_schema
@@ -93,6 +94,17 @@ jobs:
         java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
             -ontFile ddoc.ttl \
             -outFolder build/widoco-ddoc \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
+
+    - name: Generate Widoco documentation for models
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile models.ttl \
+            -outFolder build/widoco-models \
             -getOntologyMetadata \
             -rewriteAll \
             -includeImportedOntologies \
