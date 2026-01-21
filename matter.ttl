@@ -1,0 +1,101 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix accr: <http://publications.europa.eu/resource/authority/access-right/> .
+@prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
+@prefix pink: <https://w3id.org/pink#> .
+@prefix emmo: <https://w3id.org/emmo/hume#> .
+
+
+<https://w3id.org/pink/matter> rdf:type owl:Ontology ;
+    owl:versionIRI <https://w3id.org/pink/0.0.1/matter> ;
+    dcterms:title "The Matter branch of PINK Annotation Schema"@en ;
+    dcterms:abstract "The Matter branch of PINK Annotation Schema providing a simple taxonomy for physical matter (including nanomaterial, chemical compounds, etc...) with anchor points for links for CheBI."@en .
+
+
+
+emmo:Substance a owl:Class .
+
+emmo:Material a owl:Class ;
+    rdfs:subClassOf emmo:Substance .
+
+emmo:MaterialBySize a owl:Class ;
+    rdfs:subClassOf emmo:Material .
+
+emmo:MaterialByForceResponse a owl:Class ;
+    rdfs:subClassOf emmo:Material .
+
+emmo:MaterialByClassicalMaterialsScience a owl:Class ;
+    rdfs:subClassOf emmo:Material .
+
+emmo:MaterialByCompactness a owl:Class ;
+    rdfs:subClassOf emmo:Material .
+
+emmo:MaterialByFunction a owl:Class ;
+    rdfs:subClassOf emmo:Material .
+
+emmo:MaterialByOrigin a owl:Class ;
+    rdfs:subClassOf emmo:Material .
+
+emmo:NanoMaterial a owl:Class ;
+    rdfs:subClassOf emmo:MaterialBySize .
+
+emmo:MaterialBy a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByClassicalMaterialsScience .
+
+emmo:MaterialByStructure a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByClassicalMaterialsScience .
+
+emmo:MaterialByType a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByClassicalMaterialsScience .
+
+emmo:AmorphousMaterial a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByStructure .
+
+emmo:CrystallineMaterial a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByStructure .
+
+emmo:MetallicMaterial a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByType .
+
+emmo:CompositeMaterial a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByType .
+
+emmo:CeramicMaterial a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByType .
+
+emmo:PolymericMaterial a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByType .
+
+emmo:CompactMaterial a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByCompactness .
+
+emmo:GranularMaterial a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByCompactness .
+
+emmo:Powder a owl:Class ;
+    rdfs:subClassOf emmo:GranularMaterial .
+
+emmo:ArtificialMaterial a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByOrigin .
+
+emmo:NaturalMaterial a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByOrigin .
+
+emmo:ManufacturedMaterial a owl:Class ;
+    rdfs:subClassOf emmo:ArtificialMaterial .
+
+# To be moved to EMMO?
+pink:AdvancedMaterial a owl:Class ;
+    rdfs:subClassOf emmo:MaterialByFunction, emmo:ArtificialMaterial ;
+    skos:definition "A designed material tailored to simultaneously meet two or more pre-defined criteria."@en .
