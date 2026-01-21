@@ -5,7 +5,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
 @prefix eli: <http://data.europa.eu/eli/ontology#> .
-@prefix emmo: <https://w3id.org/emmo/hume#> .
+#@prefix emmo: <https://w3id.org/emmo/hume#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix oteio: <https://w3id.org/emmo/domain/oteio#> .
@@ -524,9 +524,7 @@ dcat:DataService a owl:Class ;
 dcat:Dataset a owl:Class ;
     skos:definition "A collection of data, published or curated by an agent, and available for access or download in one or more representations." ;
     vann:usageNote "This class represents the actual dataset as published by the dataset provider. In cases where a distinction between the actual dataset and its entry in the catalog is necessary (because metadata such as modification date and maintainer might differ), the catalog record class can be used for the latter." ;
-    rdfs:subClassOf
-        dcat:Resource,
-        emmo:Dataset .
+    rdfs:subClassOf dcat:Resource .
 
 dcat:DatasetSeries a owl:Class ;
     skos:definition "A collection of datasets that are published separately, but share some characteristics that group them." ;
