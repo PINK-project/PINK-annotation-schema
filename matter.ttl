@@ -116,7 +116,10 @@ emmo:CeramicMaterial rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo/hume#ChemicalCompound
 emmo:ChemicalCompound rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:ChemicalSubstance .
+                      rdfs:subClassOf emmo:ChemicalSubstance ;
+    skos:prefLabel "ChemicalCompound"@en ;
+    skos:definition "A chemical substance composed of many identical molecules (or molecular entities) composed of atoms from more than one element held together by chemical bonds."^^xsd:string ;
+    rdfs:seeAlso "https://en.wikipedia.org/wiki/Chemical_compound"^^xsd:string .
 
 
 ###  https://w3id.org/emmo/hume#ChemicalEntity
@@ -135,14 +138,19 @@ The class Material hosts the subclasses for which a substance can be identified 
 emmo:ChemicalSubstance rdf:type owl:Class ;
                        rdfs:subClassOf emmo:ChemicalEntity ,
                                        emmo:Substance ;
-                       owl:disjointWith emmo:MolecularEntity .
+    owl:disjointWith emmo:MolecularEntity ;
+    skos:scopeNote "A substance is always composed of more than one molecular entity. It lays in the continuum or mesoscopic domain."@en ;
+    rdfs:subClassOf emmo:Substance ;
+    skos:prefLabel "ChemicalSubstance"@en ;
+    skos:definition "Matter of constant composition best characterized by the entities (molecules, formula units, atoms) it is composed of."^^xsd:string ;
+    rdfs:seeAlso "https://doi.org/10.1351/goldbook.C01039"^^xsd:string .
 
 
 ###  https://w3id.org/emmo/hume#CompactMaterial
 emmo:CompactMaterial rdf:type owl:Class ;
-                     rdfs:subClassOf emmo:MaterialByCompactness ;
-                     skos:prefLabel "CompactMaterial"@en .
-
+                     rdfs:subClassOf emmo:MaterialByCompactness, emmo:Solid ;
+                     skos:prefLabel "CompactMaterial"@en ;
+    skos:definition "A solid material whose particles are closely and firmly packed together, resulting in a high density, solid structure without significant internal voids or cavities."@en .
 
 ###  https://w3id.org/emmo/hume#CompositeMaterial
 emmo:CompositeMaterial rdf:type owl:Class ;
@@ -168,7 +176,7 @@ emmo:ContinuumSubstance rdf:type owl:Class ;
     skos:definition """A state that is a collection of sufficiently large number of other parts such that:
 - it is the bearer of qualities that can exists only by the fact that it is a sum of parts
 - the smallest partition dV of the state volume in which we are interested in, contains enough parts to be statistically consistent: n [#/m3] x dV [m3] >> 1"""@en ;
-    ns1:note "A continuum is made of a sufficient number of parts that it continues to exists as continuum individual even after the loss of one of them i.e. a continuum is a redundant."@en,
+    skos:scopeNote "A continuum is made of a sufficient number of parts that it continues to exists as continuum individual even after the loss of one of them i.e. a continuum is a redundant."@en,
         """A continuum is not necessarily small (i.e. composed by the minimum amount of sates to fulfill the definition).
 
 A single continuum individual can be the whole fluid in a pipe."""@en,
@@ -177,13 +185,18 @@ A single continuum individual can be the whole fluid in a pipe."""@en,
 
 ###  https://w3id.org/emmo/hume#CrystallineMaterial
 emmo:CrystallineMaterial rdf:type owl:Class ;
-                         rdfs:subClassOf emmo:MaterialByStructure ;
-    skos:prefLabel "CrystallineMaterial"@en .
+                         rdfs:subClassOf emmo:MaterialByStructure , emmo:Solid ;
+    skos:prefLabel "CrystallineMaterial"@en ;
+    skos:definition "A solid where atoms, ions, or molecules are arranged in a highly ordered, repeating, three-dimensional pattern, forming a crystal lattice that extends throughout the substance, giving it characteristic geometric shapes and distinct physical properties like sharp melting points, unlike amorphous solids with random structures."@en .
 
 
 ###  https://w3id.org/emmo/hume#ElementalSubstance
 emmo:ElementalSubstance rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:ChemicalSubstance .
+                        rdfs:subClassOf emmo:ChemicalSubstance ;
+    skos:altLabel "PureSubstance"@en ;
+    skos:prefLabel "ElementalSubstance"@en ;
+    skos:definition "A chemical substance composed of atoms with the same number of protons in the atomic nucleus."@en ;
+    rdfs:seeAlso "https://doi.org/10.1351/goldbook.C01022"^^xsd:string .
 
 
 ###  https://w3id.org/emmo/hume#Fluid
@@ -312,12 +325,28 @@ emmo:Mixture rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo/hume#MolecularEntity
 emmo:MolecularEntity rdf:type owl:Class ;
-                     rdfs:subClassOf emmo:ChemicalEntity .
+    rdfs:subClassOf emmo:ChemicalEntity ;
+    skos:prefLabel "MolecularEntity"@en ;
+    skos:scopeNote """Molecular entity is used as a general term for singular entities, irrespective of their nature, while chemical species stands for sets or ensembles of molecular entities.
+
+Note that the name of a compound may refer to the respective molecular entity or to the chemical species,"""@en ;
+    skos:example "Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule."@en ,
+    "Methane, may mean a single molecule of CH4 (molecular entity) or a molar amount, specified or not (chemical species), participating in a reaction. The degree of precision necessary to describe a molecular entity depends on the context."@en ;
+    skos:definition "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity that can undergo a chemical reaction."@en ;
+    rdfs:isDefinedBy "https://goldbook.iupac.org/terms/view/M03986"^^xsd:string .
 
 
 ###  https://w3id.org/emmo/hume#Molecule
 emmo:Molecule rdf:type owl:Class ;
-              rdfs:subClassOf emmo:MolecularEntity .
+              rdfs:subClassOf emmo:MolecularEntity ;
+    skos:example "H₂0, C₆H₁₂O₆, CH₄"@en ;
+    skos:prefLabel "Molecule"@en ;
+    skos:definition "An atom-based state defined by an exact number of e-bonded atomic species and an electron cloud made of the shared electrons."@en ;
+    skos:scopeNote """An entity is called essential if removing one direct part will lead to a change in entity class.
+An entity is called redundant if removing one direct part will not lead to a change in entity class."""@en,
+        """This definition states that this object is a non-periodic set of atoms or a set with a finite periodicity.
+Removing an atom from the state will result in another type of atom_based state.
+e.g. you cannot remove H from H₂0 without changing the molecule type (essential). However, you can remove a C from a nanotube (redundant). C60 fullerene is a molecule, since it has a finite periodicity and is made of a well defined number of atoms (essential). A C nanotube is not a molecule, since it has an infinite periodicity (redundant)."""@en .
 
 
 ###  https://w3id.org/emmo/hume#NanoMaterial
@@ -357,12 +386,13 @@ The term phase is sometimes used as a synonym for state of matter, but there can
 emmo:Plasma rdf:type owl:Class ;
     rdfs:subClassOf emmo:Fluid ;
     skos:prefLabel "Plasma"@en ;
-    ns1:elucidation "A fluid in which a gas is ionized to a level where its electrical conductivity allows long-range electric and magnetic fields to dominate its behaviour."@en .
+    skos:definition "A fluid in which a gas is ionized to a level where its electrical conductivity allows long-range electric and magnetic fields to dominate its behaviour."@en .
 
 
 ###  https://w3id.org/emmo/hume#PolymericEntity
-emmo:PolymericEntity rdf:type owl:Class ;
-                     rdfs:subClassOf emmo:MolecularEntity .
+emmo:PolyAtomicEntity rdf:type owl:Class ;
+    rdfs:subClassOf emmo:MolecularEntity ;
+    skos:definition "An entity made of two or more bonded atoms."@en .
 
 
 ###  https://w3id.org/emmo/hume#PolymericMaterial
@@ -406,14 +436,18 @@ emmo:StateOfMatter rdf:type owl:Class ;
 
 
 ###  https://w3id.org/emmo/hume#Substance
-emmo:Substance rdf:type owl:Class .
+emmo:Substance rdf:type owl:Class ;
+    skos:example "A litre of water."@en,
+        "A pen can be classified as a substance (although it has parts with different properties) since it can be identified as being solid."@en ;
+    skos:prefLabel "Substance"@en ;
+    skos:definition "A matter entity characterised by the fact that it possesses some homogeneous properties or identification criteria."@en .
 
 
 ###  https://w3id.org/pink#AdvancedMaterial
 pink:AdvancedMaterial rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:ArtificialMaterial ,
-                                      emmo:MaterialByFunction ;
-                      skos:definition "A designed material tailored to simultaneously meet two or more pre-defined criteria."@en .
+    rdfs:subClassOf emmo:ArtificialMaterial ,
+    emmo:MaterialByFunction ;
+    skos:definition "A designed material tailored to simultaneously meet two or more pre-defined criteria."@en .
 
 
 [] a owl:Axiom ;
