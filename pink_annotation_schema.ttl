@@ -434,7 +434,10 @@ foaf:logo rdf:type owl:AnnotationProperty .
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Matter"@en ;
     skos:definition "An entity that possess mass and occupies volume."@en ;
-    skos:scopeNote "Matter objects contain fermions."@en .
+    skos:scopeNote "From the definition it follows that matter is an object with fermionic parts."@en ,
+     """The interpretation of the term "matter" is not univocal. Several concepts are labelled with this term, depending on the field of science. The concept mass is sometimes related to the term "matter", even if the former refers to a physical quantity (precisely defined by modern physics) while the latter is a type that qualifies a physical entity.
+It is possible to identify more than one concept that can be reasonably labelled with the term "matter". For example, it is possible to label as matter only the entities that are made up of atoms. Or more generally, we can be more fine-grained and call "matter" the entities that are made up of protons, neutrons or electrons, so that we can call matter also a neutron radiation or a cathode ray.
+A more fundamental approach taken here, considers matter as entities that are made of quarks and leptons, without excluding particles like the W and Z bosons that possess some mass, but are not fermions. This definition also include antimatter."""@en .
 
 ## Data
 :Data rdf:type owl:Class ;
@@ -622,7 +625,7 @@ An architectural floor plan is a model of a house.
 ### Include standard concepts into the PINK taxonomy
 ### Question: should we duplicate these classes instead?
 foaf:Document rdfs:subClassOf :Data .
-
+prov:Agent rdfs:subClassOf foaf:Agent .
 
 
 #################################################################
