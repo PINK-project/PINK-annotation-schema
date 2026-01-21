@@ -5,7 +5,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
 @prefix eli: <http://data.europa.eu/eli/ontology#> .
-@prefix emmo: <https://w3id.org/emmo#> .
+@prefix emmo: <https://w3id.org/emmo/hume#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix oteio: <https://w3id.org/emmo/domain/oteio#> .
@@ -21,7 +21,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://w3id.org/emmo/application/datadoc> a owl:Ontology ;
-    dcterms:publisher emmo:EMMC_ASBL ;
     dcterms:title "Data documentation ontology" ;
     vann:preferredNamespacePrefix "ddoc" ;
     vann:preferredNamespaceUri "https://w3id.org/emmo/application/datadoc#" ;
@@ -527,7 +526,7 @@ dcat:Dataset a owl:Class ;
     vann:usageNote "This class represents the actual dataset as published by the dataset provider. In cases where a distinction between the actual dataset and its entry in the catalog is necessary (because metadata such as modification date and maintainer might differ), the catalog record class can be used for the latter." ;
     rdfs:subClassOf
         dcat:Resource,
-        emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a .
+        emmo:Dataset .
 
 dcat:DatasetSeries a owl:Class ;
     skos:definition "A collection of datasets that are published separately, but share some characteristics that group them." ;
