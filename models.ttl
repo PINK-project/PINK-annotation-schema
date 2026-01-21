@@ -26,7 +26,7 @@
                                 dcterms:title "The Models module of PINK Annotation Schema"@en ;
     widoco:introduction """# The Models module of the PINK Annotation Schema
 
-![Models.](https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/model-branch/docs/figs/models.png)
+<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/model-branch/docs/figs/models.png" alt="Models.">
 
 """@en .
 
