@@ -1,8 +1,9 @@
 name: Deploy on GitHub Pages
 
-on:
-  push:
-    branches: [main]
+on: push
+#on:
+#  push:
+#    branches: [main]
 
 env:
   ONTOLOGY_NAME: pink_annotation_schema
@@ -24,17 +25,27 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
-        python-version: 3.11
+        python-version: 3.13
 
-    - name: Install EMMOntoPy
+    - name: Install EMMOntoPy and tripper
       run: |
         pip install --upgrade pip
-        pip install git+https://github.com/emmo-repo/EMMOntoPy.git@master
+        pip install \
+            "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@master" \
+            "tripper[datadoc] @ git+https://github.com/EMMC-ASBL/tripper.git@master"
 
-    - name: Install Tripper
+    - name: List installed Python modules
       run: |
-        pip install tripper[datadoc]
-        pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
+        pip list
+
+    - name: Install ROBOT
+      run: |
+        mkdir bin
+        wget -nv https://github.com/ontodev/robot/releases/download/v1.9.6/robot.jar
+        mv robot.jar bin/.
+        curl https://raw.githubusercontent.com/ontodev/robot/master/bin/robot > bin/robot
+        chmod +x bin/robot
+        ls -l bin/
 
     - name: Download Widoco
       run: |
@@ -45,7 +56,7 @@ jobs:
         mkdir -p build
         cp -r docs/ build/.
 
-    - name: Create dependencies, squashed and inferred ontologies
+    - name: Create squashed ontologies
       run: |
         cp README.md build/.
         ontoconvert \
@@ -54,13 +65,18 @@ jobs:
             --iri="${ONTOLOGY_IRI}" \
             ${ONTOLOGY_NAME}.ttl \
             build/${ONTOLOGY_NAME}.ttl
-        ontoconvert \
-            -saw \
-            --base-iri="${ONTOLOGY_IRI}#" \
-            --iri="${ONTOLOGY_IRI}" \
-            --infer=HermiT \
-            ${ONTOLOGY_NAME}.ttl \
-            build/${ONTOLOGY_NAME}-inferred.ttl
+
+    #- name: Create inferred ontologies
+    #  run: |
+    #    bin/robot reason \
+    #      --reasoner HermiT \
+    #      --remove-redundant-subclass-axioms true \
+    #      --preserve-annotated-axioms true \
+    #      --exclude-owl-thing true \
+    #      --exclude-duplicate-axioms true \
+    #      --input build/${ONTOLOGY_NAME}.ttl \
+    #      --output build/${ONTOLOGY_NAME}-inferred.ttl
+    #    ontoconvert --iri=${ONTOLOGY_IRI}/inferred build/${ONTOLOGY_NAME}-inferred.ttl public/${ONTOLOGY_NAME}-inferred.ttl
 
     - name: Generate Widoco documentation for PINK Annotation Schema
       run: |
@@ -93,6 +109,17 @@ jobs:
         java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
             -ontFile ddoc.ttl \
             -outFolder build/widoco-ddoc \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
+
+    - name: Generate Widoco documentation for models
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile models.ttl \
+            -outFolder build/widoco-models \
             -getOntologyMetadata \
             -rewriteAll \
             -includeImportedOntologies \
