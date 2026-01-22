@@ -14,6 +14,7 @@ It is constructed to be easily aligned with [EMMO].
   - [PINK Annotation Schema].
   - [Reused terms], i.e. terms reused from existing vocabularies (e.g. [PROV-O], [DCAT-AP 3.0.1]).
   - [Matter], including categorisation of substances, materials, molecules, etc...
+  - [Models]
 - [Turtle file] including all imported concepts (source of truth).
 - [Inferred turtle file] reasoned with HermiT.
 - [Theoretical background].
@@ -39,6 +40,7 @@ The example below shows how one can document a toxicity computation using the PI
 [PINK Annotation Schema]: https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html
 [Reused terms]: https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html
 [Matter]: https://pink-project.github.io/PINK-annotation-schema/widoco-matter/index-en.html
+[Models]: https://pink-project.github.io/PINK-annotation-schema/widoco-models/index-en.html
 [Turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema.ttl
 [Inferred turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema-inferred.ttl
 

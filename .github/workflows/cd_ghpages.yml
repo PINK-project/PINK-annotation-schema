@@ -126,6 +126,17 @@ jobs:
             -licensius \
             -includeAnnotationProperties
 
+    - name: Generate Widoco documentation for models
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile models.ttl \
+            -outFolder build/widoco-models \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
+
     - name: Include Markdown documentation on gh-pages
       run: |
         cp -r docs build/.
