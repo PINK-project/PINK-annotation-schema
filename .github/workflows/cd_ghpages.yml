@@ -7,7 +7,7 @@ on: push
 
 env:
   ONTOLOGY_NAME: pink_annotation_schema
-  ONTOLOGY_IRI: https://w3id.org/pink/pink_annotation_schema
+  ONTOLOGY_IRI: https://w3id.org/pink
 
 permissions:
   contents: write
