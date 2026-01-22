@@ -16,24 +16,22 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcatap: <http://data.europa.eu/r5r/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix widoco: <https://w3id.org/widoco/vocab#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://w3id.org/pink/models#> .
 
 <https://w3id.org/pink/models> rdf:type owl:Ontology ;
                                 owl:versionIRI <https://w3id.org/pink/0.0.1/models> ;
                                 dcterms:abstract "The Models module of PINK Annotation Schema providing a taxonomy for models."@en ;
                                 dcterms:title "The Models module of PINK Annotation Schema"@en ;
-    widoco:introduction """A model is a useful simplified description of a selected part of the world.
+                                widoco:introduction """A model is a useful simplified description of a selected part of the world.
 
 The PINK Annotation Schema categorise models as shown in the figure below.
 
 <p>
-<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/model-branch/docs/figs/models.png" alt="Models.">
+<img src=\"https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/model-branch/docs/figs/models.png\" alt=\"Models.\">
 
 """@en .
-
-
 
 #################################################################
 #    Annotation properties
@@ -67,6 +65,10 @@ skos:prefLabel rdf:type owl:AnnotationProperty .
 skos:scopeNote rdf:type owl:AnnotationProperty .
 
 
+###  https://w3id.org/widoco/vocab#introduction
+widoco:introduction rdf:type owl:AnnotationProperty .
+
+
 #################################################################
 #    Object Properties
 #################################################################
@@ -85,7 +87,7 @@ pink:hasParticipant rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/emmo/hume#AIModel
 emmo:AIModel rdf:type owl:Class ;
-             rdfs:subClassOf emmo:MathematicalModel ;
+             rdfs:subClassOf emmo:DataBasedModel ;
              skos:altLabel "ArtificialIntelligenceModel"@en ;
              skos:definition "An AI-based model."@en ;
              skos:prefLabel "AIModel"@en .
@@ -111,13 +113,6 @@ emmo:DataBasedModel rdf:type owl:Class ;
                     skos:prefLabel "DataBasedModel"@en .
 
 
-###  https://w3id.org/emmo/hume#DataBasedSimulationSoftware
-emmo:DataBasedSimulationSoftware rdf:type owl:Class ;
-                                 rdfs:subClassOf emmo:SimulationSoftware ;
-                                 skos:definition "A computational application that uses existing data to predict the behaviour of a system without providing a identifiable analogy with the original object."@en ;
-                                 skos:prefLabel "DataBasedSimulationSoftware"@en .
-
-
 ###  https://w3id.org/emmo/hume#DataProcessing
 emmo:DataProcessing rdf:type owl:Class ;
                     rdfs:subClassOf pink:Computation ,
@@ -139,20 +134,6 @@ emmo:DataProcessingSoftware rdf:type owl:Class ;
                             skos:altLabel "DataProcessingApplication"@en ;
                             skos:definition "A software program aimed for data processing."@en ;
                             skos:prefLabel "DataProcessingSoftware"@en .
-
-
-###  https://w3id.org/emmo/hume#EmpiricalModel
-emmo:EmpiricalModel rdf:type owl:Class ;
-                    rdfs:subClassOf emmo:MathematicalModel ;
-                    skos:definition "A mathematical model that uses an empiric equation to predict the behaviour of a system without relying on the knowledge of the actual physical phenomena occurring in the object."@en ;
-                    skos:prefLabel "EmpiricalModel"@en .
-
-
-###  https://w3id.org/emmo/hume#EmpiricalSimulationSoftware
-emmo:EmpiricalSimulationSoftware rdf:type owl:Class ;
-                                 rdfs:subClassOf emmo:SimulationSoftware ;
-                                 skos:definition "A computational application that uses an empiric equation to predict the behaviour of a system without relying on the knowledge of the actual physical phenomena occurring in the object."@en ;
-                                 skos:prefLabel "EmpiricalSimulationSoftware"@en .
 
 
 ###  https://w3id.org/emmo/hume#FunctionalIcon
@@ -201,28 +182,12 @@ emmo:NaturalLanguageProcessingModel rdf:type owl:Class ;
                                     skos:prefLabel "NaturalLanguageProcessingModel"@en .
 
 
-###  https://w3id.org/emmo/hume#PhysicalBasedSimulationSoftware
-emmo:PhysicalBasedSimulationSoftware rdf:type owl:Class ;
-                                     rdfs:subClassOf emmo:SimulationSoftware ;
-                                     skos:definition "A computational application that uses a physical model to predict the behaviour of a system, providing a identifiable analogy with the original object."@en ;
-                                     skos:prefLabel "PhysicalBasedSimulationSoftware"@en .
-
-
 ###  https://w3id.org/emmo/hume#PhysicsBasedModel
 emmo:PhysicsBasedModel rdf:type owl:Class ;
                        rdfs:subClassOf emmo:MathematicalModel ;
                        rdfs:isDefinedBy "CEN Workshop Agreement, CWA 17284 Materials modelling - terminology, classification and metadata"@en ;
                        skos:definition "A mathematical model based on a fundamental physics theory which defines the relations between physics quantities of an entity."@en ;
                        skos:prefLabel "PhysicsBasedModel"@en .
-
-
-###  https://w3id.org/emmo/hume#PhysicsMathematicalModel
-emmo:PhysicsMathematicalModel rdf:type owl:Class ;
-                              rdfs:subClassOf emmo:FunctionalIcon ,
-                                              emmo:MathematicalModel ;
-                              skos:definition "A functional model that imitates the behaviour of the object through mathematical evaluations of some mathematical construct."@en ;
-                              skos:prefLabel "PhysicsMathematicalModel"@en ;
-                              skos:scopeNote "The equation that describes the velocity of a uniform accelerated body v = v0 + a*t is a functional icon. In general every analitical solution of a mathematical model can be considered an icon. A functional icon expresses its similarity with the object when is part of a process the makes it imitate the behavior of the object. In the case of v = v0 + a*t, plotting the velocity over time or listing their values at certain instants is when the icon expresses it functionality."@en .
 
 
 ###  https://w3id.org/emmo/hume#Replica
@@ -244,16 +209,6 @@ emmo:ResemblanceIcon rdf:type owl:Class ;
                      skos:prefLabel "ResemblanceModel"@en ;
                      skos:scopeNote "A model that focus on WHERE/WHEN the object is, in the sense of spatial or temporal shape."@en ,
                                     "The subclass of model inspired by Peirceian category a) the image, which depends on a simple quality (e.g. picture)."@en .
-
-
-###  https://w3id.org/emmo/hume#SimulationSoftware
-emmo:SimulationSoftware rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:FunctionalIcon ,
-                                        pink:Software ;
-                        skos:altLabel "SimulationApplication"@en ;
-                        skos:definition "An application program aimed to functionally reproduce an object."@en ;
-                        skos:example "An application program that predicts the pressure drop of a fluid in a pipe segment is aimed to functionally reproduce the outcome of a measurement of pressure before and after the segment."@en ;
-                        skos:prefLabel "SimulationSoftware"@en .
 
 
 ###  https://w3id.org/pink#Computation
