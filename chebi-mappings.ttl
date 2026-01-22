@@ -32,4 +32,4 @@ chebi:CHEBI_25367 rdfs:subClassOf emmo:Molecule .
 
 chebi:inchi owl:equivalentProperty emmo:inchi .  # Check EMMO
 chebi:inchikey owl:equivalentProperty emmo:inchiKey .
-chebi:BFO_0000051 rdfs:subPropertyOf emmo:hasPart .
+#chebi:BFO_0000051 rdfs:subPropertyOf emmo:hasPart .

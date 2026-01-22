@@ -198,7 +198,7 @@ dcterms:format a owl:ObjectProperty ;
 dcterms:hasPart a owl:ObjectProperty ;
     skos:prefLabel "hasPart" ;
     skos:definition "A related resource that is included either physically or logically in the described resource." ;
-    rdfs:domain dcat:Resource ;
+    rdfs:domain rdfs:Resource ;
     rdfs:range rdfs:Resource ;
     dcat:theme ddoc:datadoc ;
     ddoc:conformance ddoc:optional .

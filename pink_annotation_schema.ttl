@@ -454,7 +454,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:definition "A process that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en .
 
 
-### Entity subclasses
+## Entity subclasses
 :Matter rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Matter"@en ;
@@ -588,7 +588,7 @@ emmo:ChemicalEntity rdfs:subClassOf :Matter .
 
 
 
-## Sign
+# Sign
 :Sign rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Sign"@en ;
