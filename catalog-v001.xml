@@ -5,5 +5,6 @@
     <uri name="https://w3id.org/pink/0.0.1/reused-terms" uri="./reused-terms.ttl"/>
     <uri name="https://w3id.org/pink/0.0.1/ddoc"         uri="./ddoc.ttl"/>
     <uri name="https://w3id.org/pink/0.0.1/models"       uri="./models.ttl"/>
+    <uri name="https://w3id.org/pink/0.0.1/dcat-mappings"   uri="./dcat-mappings.ttl"/>
   </group>
 </catalog>
