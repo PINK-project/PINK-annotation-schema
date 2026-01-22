@@ -42,7 +42,7 @@ A reference documentation of terms reused from standard W3C vocabularies can be 
                     <https://orcid.org/0000-0002-1849-5246> ,
                     <https://orcid.org/0000-0002-8053-8198> ;
     dcterms:hasFormat <https://www.w3.org/TR/turtle/> ;
-    dcterms:issued "xxxx-xx-xx" ;
+    #dcterms:issued "xxxx-xx-xxT00:00:00"^^xsd:dateTime ;
     dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
     dcterms:modified "xxxx-xx-xx" ;
     dcterms:publisher <https://pink-project.eu/> ;
