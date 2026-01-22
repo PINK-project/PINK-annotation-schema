@@ -1,0 +1,25 @@
+@prefix : <https://w3id.org/pink/chebi-mappings#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix emmo: <https://w3id.org/emmo/hume#> .
+@prefix pink: <https://w3id.org/pink#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix chebi: <http://purl.obolibrary.org/obo/> .
+
+<https://w3id.org/pink/dcat-mappings> rdf:type owl:Ontology ;
+    owl:versionIRI <https://w3id.org/pink/0.0.1/dcat-mappings> ;
+    owl:imports
+        <https://w3id.org/pink/0.0.1> ;
+    dcterms:abstract "Mapping DCAT to PINK Annotation Schema."@en ;
+    dcterms:title "DCAT mappings"@en .
+
+
+
+dcat:Dataset rdfs:subClassOf pink:Data .
+pink:Dataset rdfs:subClassOf dcat:Dataset .
+dcat:Resource rdfs:subClassOf prov:Entity .
+#     skos:prefLabel "Resource" ;
+#     skos:definition "Resource published or curated by an agent." .
