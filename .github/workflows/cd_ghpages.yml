@@ -25,17 +25,27 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
-        python-version: 3.11
+        python-version: 3.13
 
-    - name: Install EMMOntoPy
+    - name: Install EMMOntoPy and tripper
       run: |
         pip install --upgrade pip
-        pip install git+https://github.com/emmo-repo/EMMOntoPy.git@master
+        pip install \
+            "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@master" \
+            "tripper[datadoc] @ git+https://github.com/EMMC-ASBL/tripper.git@master"
 
-    - name: Install Tripper
+    - name: List installed Python modules
       run: |
-        pip install tripper[datadoc]
-        pip install -U git+https://github.com/EMMC-ASBL/tripper.git@master
+        pip list
+
+    - name: Install ROBOT
+      run: |
+        mkdir bin
+        wget -nv https://github.com/ontodev/robot/releases/download/v1.9.6/robot.jar
+        mv robot.jar bin/.
+        curl https://raw.githubusercontent.com/ontodev/robot/master/bin/robot > bin/robot
+        chmod +x bin/robot
+        ls -l bin/
 
     - name: Download Widoco
       run: |
