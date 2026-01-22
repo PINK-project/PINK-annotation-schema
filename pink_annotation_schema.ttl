@@ -106,6 +106,14 @@ foaf:homepage rdf:type owl:AnnotationProperty .
 foaf:logo rdf:type owl:AnnotationProperty .
 
 
+skos:prefLabel rdf:type owl:AnnotationProperty .
+skos:altLabel rdf:type owl:AnnotationProperty .
+skos:definition rdf:type owl:AnnotationProperty .
+skos:example rdf:type owl:AnnotationProperty .
+skos:scopeNote rdf:type owl:AnnotationProperty .
+vann:usageNote rdf:type owl:AnnotationProperty .
+
+
 ###  https://w3id.org/pink#conformance
 :conformance rdf:type owl:ObjectProperty ;
     rdfs:range ddoc:ConformanceLevel ;
