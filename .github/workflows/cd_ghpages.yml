@@ -66,17 +66,17 @@ jobs:
             ${ONTOLOGY_NAME}.ttl \
             build/${ONTOLOGY_NAME}.ttl
 
-    - name: Create inferred ontologies
-      run: |
-        bin/robot reason \
-          --reasoner HermiT \
-          --remove-redundant-subclass-axioms true \
-          --preserve-annotated-axioms true \
-          --exclude-owl-thing true \
-          --exclude-duplicate-axioms true \
-          --input build/${ONTOLOGY_NAME}.ttl \
-          --output build/${ONTOLOGY_NAME}-inferred.ttl
-        ontoconvert --iri=${ONTOLOGY_IRI}/inferred build/${ONTOLOGY_NAME}-inferred.ttl public/${ONTOLOGY_NAME}-inferred.ttl
+    #- name: Create inferred ontologies
+    #  run: |
+    #    bin/robot reason \
+    #      --reasoner HermiT \
+    #      --remove-redundant-subclass-axioms true \
+    #      --preserve-annotated-axioms true \
+    #      --exclude-owl-thing true \
+    #      --exclude-duplicate-axioms true \
+    #      --input build/${ONTOLOGY_NAME}.ttl \
+    #      --output build/${ONTOLOGY_NAME}-inferred.ttl
+    #    ontoconvert --iri=${ONTOLOGY_IRI}/inferred build/${ONTOLOGY_NAME}-inferred.ttl public/${ONTOLOGY_NAME}-inferred.ttl
 
     - name: Generate Widoco documentation for PINK Annotation Schema
       run: |
