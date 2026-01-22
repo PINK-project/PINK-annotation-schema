@@ -25,6 +25,7 @@
     owl:versionIRI <https://w3id.org/pink/0.0.1> ;
     owl:imports
         <https://w3id.org/pink/0.0.1/reused-terms> ,
+        <https://w3id.org/pink/0.0.1/matter> ,
         <https://w3id.org/pink/0.0.1/models> ;
     dcatap:status "Under Development" ;
     dcterms:abstract """The PINK Annotation Schema provides the semantic basis for SSbD.
@@ -252,8 +253,8 @@ vann:usageNote rdf:type owl:AnnotationProperty .
 :hasOutput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf [ owl:inverseOf :wasGeneratedBy ] ;
     skos:prefLabel "hasOutput"@en ;
-    rdfs:domain prov:Entity ;
-    rdfs:range prov:Activity ;
+    rdfs:domain prov:Activity ;
+    rdfs:range prov:Entity ;
     skos:skopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
     skos:definition "Relates an activity to an entity that is the output of the activity."@en .
 
