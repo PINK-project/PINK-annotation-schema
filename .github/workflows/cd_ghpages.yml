@@ -7,7 +7,7 @@ on: push
 
 env:
   ONTOLOGY_NAME: pink_annotation_schema
-  ONTOLOGY_IRI: https://w3id.org/pink/pink_annotation_schema
+  ONTOLOGY_IRI: https://w3id.org/pink
 
 permissions:
   contents: write
@@ -66,17 +66,17 @@ jobs:
             ${ONTOLOGY_NAME}.ttl \
             build/${ONTOLOGY_NAME}.ttl
 
-    #- name: Create inferred ontologies
-    #  run: |
-    #    bin/robot reason \
-    #      --reasoner HermiT \
-    #      --remove-redundant-subclass-axioms true \
-    #      --preserve-annotated-axioms true \
-    #      --exclude-owl-thing true \
-    #      --exclude-duplicate-axioms true \
-    #      --input build/${ONTOLOGY_NAME}.ttl \
-    #      --output build/${ONTOLOGY_NAME}-inferred.ttl
-    #    ontoconvert --iri=${ONTOLOGY_IRI}/inferred build/${ONTOLOGY_NAME}-inferred.ttl public/${ONTOLOGY_NAME}-inferred.ttl
+    - name: Create inferred ontologies
+      run: |
+        bin/robot reason \
+          --reasoner HermiT \
+          --remove-redundant-subclass-axioms true \
+          --preserve-annotated-axioms true \
+          --exclude-owl-thing true \
+          --exclude-duplicate-axioms true \
+          --input build/${ONTOLOGY_NAME}.ttl \
+          --output build/${ONTOLOGY_NAME}-inferred.ttl
+        ontoconvert --iri=${ONTOLOGY_IRI}/inferred build/${ONTOLOGY_NAME}-inferred.ttl public/${ONTOLOGY_NAME}-inferred.ttl
 
     - name: Generate Widoco documentation for PINK Annotation Schema
       run: |
@@ -115,6 +115,17 @@ jobs:
             -licensius \
             -includeAnnotationProperties
 
+    - name: Generate Widoco documentation for matter taxonomy
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile matter.ttl \
+            -outFolder build/widoco-matter \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
+
     - name: Generate Widoco documentation for models
       run: |
         java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
@@ -136,7 +147,8 @@ jobs:
         keywords \
             --input=pink_annotation_schema.ttl \
             --context=build/context/pink_annotation_schema.jsonld \
-            --redefine=allow
+            --redefine=allow \
+            --set-prefix=emmo:https://w3id.org/emmo/hume#
             #--namespace-filter=pink
 
     - name: Generate keywords file
@@ -145,7 +157,8 @@ jobs:
         keywords \
             --input=pink_annotation_schema.ttl \
             --yaml=build/context/keywords.yaml \
-            --redefine=allow
+            --redefine=allow \
+            --set-prefix=emmo:https://w3id.org/emmo/hume#
             #--namespace-filter=pink
 
     # - name: Create markdown documentation of keywords
@@ -154,7 +167,8 @@ jobs:
     #         --input=pink_annotation_schema.ttl \
     #         --keywords=build/keywords.md \
     #         --namespace-filter=pink \
-    #         --redefine=allow
+    #         --redefine=allow \
+    #        --set-prefix=emmo:https://w3id.org/emmo/hume#
 
     # - name: Create csv tables
     #   run: |

@@ -16,6 +16,7 @@
 @prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
 @prefix emmo: <https://w3id.org/emmo#> .
 @prefix pink: <https://w3id.org/pink#> .
+@prefix emmo: <https://w3id.org/emmo/hume#> .
 
 @base <https://w3id.org/pink#> .
 
@@ -24,6 +25,7 @@
     owl:versionIRI <https://w3id.org/pink/0.0.1> ;
     owl:imports
         <https://w3id.org/pink/0.0.1/reused-terms> ,
+        <https://w3id.org/pink/0.0.1/matter> ,
         <https://w3id.org/pink/0.0.1/models> ;
     dcatap:status "Under Development" ;
     dcterms:abstract """The PINK Annotation Schema provides the semantic basis for SSbD.
@@ -40,9 +42,9 @@ A reference documentation of terms reused from standard W3C vocabularies can be 
                     <https://orcid.org/0000-0002-1849-5246> ,
                     <https://orcid.org/0000-0002-8053-8198> ;
     dcterms:hasFormat <https://www.w3.org/TR/turtle/> ;
-    dcterms:issued "xxxx-xx-xx" ;
+    #dcterms:issued "xxxx-xx-xxT00:00:00"^^xsd:dateTime ;
     dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-    dcterms:modified "xxxx-xx-xx" ;
+    #dcterms:modified "xxxx-xx-xx" ;
     dcterms:publisher <https://pink-project.eu/> ;
     #dcterms:source "Relevant PINK deliverable" ;
     dcterms:title "PINK Annotation Schema"@en ;
@@ -240,10 +242,21 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:skopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
     skos:definition "Relates an entity to the activity it was generated from."@en .
 
-:hasInput owl:equivalentTo :used .
+:hasInput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :used ;
+    skos:prefLabel "hasInput"@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:range prov:Entity ;
+    skos:skopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."@en ;
+    skos:definition "Relates an activity to an entity that is input to the activity."@en .
 
 :hasOutput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    owl:InverseOf :wasGeneratedBy .
+    rdfs:subPropertyOf [ owl:inverseOf :wasGeneratedBy ] ;
+    skos:prefLabel "hasOutput"@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:range prov:Entity ;
+    skos:skopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
+    skos:definition "Relates an activity to an entity that is the output of the activity."@en .
 
 :wasAssociatedWith rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf prov:wasAssociatedWith, :isOvercrossedBy ;
@@ -441,7 +454,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:definition "A process that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en .
 
 
-### Entity subclasses
+## Entity subclasses
 :Matter rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Matter"@en ;
@@ -450,6 +463,9 @@ vann:usageNote rdf:type owl:AnnotationProperty .
      """The interpretation of the term "matter" is not univocal. Several concepts are labelled with this term, depending on the field of science. The concept mass is sometimes related to the term "matter", even if the former refers to a physical quantity (precisely defined by modern physics) while the latter is a type that qualifies a physical entity.
 It is possible to identify more than one concept that can be reasonably labelled with the term "matter". For example, it is possible to label as matter only the entities that are made up of atoms. Or more generally, we can be more fine-grained and call "matter" the entities that are made up of protons, neutrons or electrons, so that we can call matter also a neutron radiation or a cathode ray.
 A more fundamental approach taken here, considers matter as entities that are made of quarks and leptons, without excluding particles like the W and Z bosons that possess some mass, but are not fermions. This definition also include antimatter."""@en .
+
+emmo:Substance rdfs:subClassOf :Matter .
+emmo:ChemicalEntity rdfs:subClassOf :Matter .
 
 ## Data
 :Data rdf:type owl:Class ;
@@ -572,7 +588,7 @@ A more fundamental approach taken here, considers matter as entities that are ma
 
 
 
-## Sign
+# Sign
 :Sign rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Sign"@en ;
@@ -649,7 +665,7 @@ dcat:Resource rdfs:subClassOf prov:Entity .
 ddoc:ConformanceLevel rdfs:subClassOf foaf:Document .
 foaf:Organization rdfs:subClassOf :Object .
 foaf:Person rdfs:subClassOf :Object .
-foaf:Project rdfs:subClassOf :Process .
+foaf:Project rdfs:subClassOf prov:Entity .
 dcterms:RightsStatement rdfs:subClassOf foaf:Document .
 :SsbdDimension  rdfs:subClassOf prov:Entity .
 
