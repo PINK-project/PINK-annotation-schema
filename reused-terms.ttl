@@ -125,7 +125,7 @@ prov:wasInformedBy
 dcterms:issued a owl:DatatypeProperty ;
     rdfs:label "releaseDate" ;
     rdfs:comment "The date of formal issuance (e.g., publication) of the resource." ;
-    rdfs:range xsd:date .
+    rdfs:range xsd:datetime .
 
 
 ### Classes
@@ -172,13 +172,13 @@ foaf:Document a owl:Class ;
 
 
 dcterms:RightsStatement a owl:Class ;
-    dcterms:issued "2008-01-14"^^xsd:date ;
+    dcterms:issued "2008-01-14T00:00:00"^^xsd:datetime ;
     rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
     rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
     rdfs:label "Rights Statement"@en .
 
 dcterms:LicenseDocument a owl:Class ;
-    dcterms:issued "2008-01-14"^^xsd:date ;
+    dcterms:issued "2008-01-14T00:00:00"^^xsd:datetime ;
     rdfs:comment "A legal document giving official permission to do something with a resource."@en ;
     rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
     rdfs:label "License Document"@en ;
