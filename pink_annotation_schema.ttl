@@ -44,7 +44,7 @@ A reference documentation of terms reused from standard W3C vocabularies can be 
     dcterms:hasFormat <https://www.w3.org/TR/turtle/> ;
     #dcterms:issued "xxxx-xx-xxT00:00:00"^^xsd:dateTime ;
     dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-    dcterms:modified "xxxx-xx-xx" ;
+    #dcterms:modified "xxxx-xx-xx" ;
     dcterms:publisher <https://pink-project.eu/> ;
     #dcterms:source "Relevant PINK deliverable" ;
     dcterms:title "PINK Annotation Schema"@en ;
