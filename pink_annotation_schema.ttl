@@ -12,6 +12,7 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
 @prefix emmo: <https://w3id.org/emmo#> .
 @prefix pink: <https://w3id.org/pink#> .
@@ -145,7 +146,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
 ### Other PINK-specific relations
 :documentation a owl:ObjectProperty ;
     rdfs:subPropertyOf foaf:page;
-    rdfs:domain :Software ;
+    rdfs:domain dcat:Resource ;
     rdfs:range foaf:Document ;
     skos:prefLabel "documentation"@en ;
     skos:definition "A page or document documenting this software." .
@@ -636,6 +637,7 @@ An architectural floor plan is a model of a house.
 ### Question: should we duplicate these classes instead?
 foaf:Document rdfs:subClassOf :Data .
 prov:Agent rdfs:subClassOf foaf:Agent .
+dcat:Resource rdfs:subClassOf prov:Entity .
 ddoc:ConformanceLevel rdfs:subClassOf foaf:Document .
 foaf:Organization rdfs:subClassOf :Object .
 foaf:Person rdfs:subClassOf :Object .

@@ -183,3 +183,8 @@ dcterms:LicenseDocument a owl:Class ;
     rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
     rdfs:label "License Document"@en ;
     rdfs:subClassOf dcterms:RightsStatement .
+
+dcat:Resource a owl:Class ;
+    rdfs:comment "Resource published or curated by a single agent."@en ;
+    rdfs:label "Resource"@en ;
+    skos:scopeNote "The class of all catalogued resources, the Superclass of dcat:Dataset, dcat:DataService, dcat:Catalog and any other member of a dcat:Catalog. This class carries properties common to all catalogued resources, including datasets and data services. The instances of this class SHOULD be included in a catalog. The instances of this class SHOULD be included in a catalog. It is strongly recommended to use a more specific sub-class. When describing a resource which is not a dcat:Dataset or dcat:DataService, it is recommended to create a suitable sub-class of dcat:Resource, or use dcat:Resource with the dcterms:type property to indicate the specific type."@en .
