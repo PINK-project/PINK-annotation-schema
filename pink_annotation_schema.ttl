@@ -13,6 +13,7 @@
 @prefix dcatap: <http://data.europa.eu/r5r/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix widoco: <https://w3id.org/widoco/vocab#> .
 @prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
 @prefix emmo: <https://w3id.org/emmo#> .
 @prefix pink: <https://w3id.org/pink#> .
@@ -44,17 +45,46 @@ A reference documentation of terms reused from standard W3C vocabularies can be 
     dcterms:hasFormat <https://www.w3.org/TR/turtle/> ;
     #dcterms:issued "xxxx-xx-xxT00:00:00"^^xsd:dateTime ;
     dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode" ;
-    #dcterms:modified "xxxx-xx-xx" ;
+    #dcterms:modified "xxxx-xx-xxT00:00:00"^^xsd:dateTime ;
     dcterms:publisher <https://pink-project.eu/> ;
     #dcterms:source "Relevant PINK deliverable" ;
     dcterms:title "PINK Annotation Schema"@en ;
     bibo:doi "tbd" ;
+    bibo:status <http://purl.org/ontology/bibo/status/forthcoming> ;
     vann:preferredNamespacePrefix "pink" ;
     vann:preferredNamespaceUri "https://w3id.org/pink" ;
     owl:priorVersion "0.0.0" ;
     owl:versionInfo "0.0.1" ;
     foaf:homepage <https://github.com/PINK-project/PINK-annotation-schema> ;
-    foaf:logo <https://tess.elixir-europe.org/system/content_providers/images/000/000/777/original/pink-logo-orange-colorB-500.png> .
+    foaf:logo <https://tess.elixir-europe.org/system/content_providers/images/000/000/777/original/pink-logo-orange-colorB-500.png> ;
+    widoco:introduction """
+The PINK Annotation Schema has a modular structure and aims to cover the following features:
+
+* Allow to categorise resources (datasets, models, software, etc) according to their SSbD dimensions and categories/sub-categories.
+* Provenance, based on the [PROV-O](https://www.w3.org/TR/prov-o/) ontology. PROV-O is fully adapted by the PINK Annotation Schema, having the three top-level PROV-O classes, *Activity*, *Entity* and *Agent* in root.
+* Extension of the basic PROV-O provenance to complex scientific workflows with spatial and temporal parts.
+* Allow documentation of workflows that have not (yet) been executed. Such documentation is done at class-level. When executed individuals should be created for the evaluated activities and their input and output providing a full PROV-O provenance graph.
+* Top-level taxonomy for (advanced) materials and chemicals based on [EMMO](https://emmc.eu/emmo/) with mappings to [ChEBI](https://www.ebi.ac.uk/chebi/) for chemicals.
+* Categorisation models.
+* Strong taxonomy for relations, which are grouped into:
+  - [parthood relations](https://pink-project.github.io/PINK-annotation-schema/docs/figs/parthood-relations.png), based on mereology
+  - [causal relations](https://pink-project.github.io/PINK-annotation-schema/docs/figs/causal-relations.png), based on causality
+  - [semiotic relations](https://pink-project.github.io/PINK-annotation-schema/docs/figs/semiotic-relations.svg), based on [Pierse semiotics](https://plato.stanford.edu/entries/peirce-semiotics/)
+
+Separate reference documentations exists for the following sub-modules:
+
+* [ddoc](https://pink-project.github.io/PINK-annotation-schema/widoco-ddoc/index-en.html): The Tripper data documentation vocabulary, with terms reused from other ontologies and vocabularies. Mainly [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), [FOAF](http://xmlns.com/foaf/spec/) and similar basic vocabularies.
+* [reused-terms](https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html): Additional reused terms by the PINK Annotation Schema ([DCAT](https://www.w3.org/TR/vocab-dcat-3/), [PROV-O](https://www.w3.org/TR/prov-o/), etc).
+* [matter](https://pink-project.github.io/PINK-annotation-schema/widoco-matter/index-en.html): Taxonomy for (advanced) materials and chemicals
+* [models](https://pink-project.github.io/PINK-annotation-schema/widoco-models/index-en.html): Taxonomy for models.
+
+The root of the PINK Annotation Schema is shown below. More information can be found in the [background](
+https://pink-project.github.io/PINK-annotation-schema/docs/background.html) section.
+
+<p>
+<img src="https://pink-project.github.io/PINK-annotation-schema/docs/figs/taxonomy.svg" alt="Root of the PINK Annotation Schema.">
+<p>
+"""@en .
 
 
 ## Contributors
