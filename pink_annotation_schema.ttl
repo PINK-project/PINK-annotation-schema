@@ -241,10 +241,21 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:skopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
     skos:definition "Relates an entity to the activity it was generated from."@en .
 
-:hasInput owl:equivalentTo :used .
+:hasInput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :used ;
+    skos:prefLabel "hasInput"@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:range prov:Entity ;
+    skos:skopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."@en ;
+    skos:definition "Relates an activity to an entity that is input to the activity."@en .
 
 :hasOutput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    owl:InverseOf :wasGeneratedBy .
+    rdfs:subPropertyOf [ owl:inverseOf :wasGeneratedBy ] ;
+    skos:prefLabel "hasOutput"@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:range prov:Activity ;
+    skos:skopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
+    skos:definition "Relates an activity to an entity that is the output of the activity."@en .
 
 :wasAssociatedWith rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf prov:wasAssociatedWith, :isOvercrossedBy ;
@@ -653,7 +664,7 @@ dcat:Resource rdfs:subClassOf prov:Entity .
 ddoc:ConformanceLevel rdfs:subClassOf foaf:Document .
 foaf:Organization rdfs:subClassOf :Object .
 foaf:Person rdfs:subClassOf :Object .
-foaf:Project rdfs:subClassOf :Process .
+foaf:Project rdfs:subClassOf prov:Entity .
 dcterms:RightsStatement rdfs:subClassOf foaf:Document .
 :SsbdDimension  rdfs:subClassOf prov:Entity .
 

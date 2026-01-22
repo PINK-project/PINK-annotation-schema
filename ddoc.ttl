@@ -159,7 +159,7 @@ dcterms:conformsTo a owl:ObjectProperty ;
     rdfs:domain dcat:Resource ;
     rdfs:range dcterms:Standard ;
     dcat:theme ddoc:datadoc ;
-    ddoc:conformance "ddoc:optional" .
+    ddoc:conformance ddoc:optional .
 
 dcterms:contributor a owl:ObjectProperty ;
     skos:prefLabel "contributor" ;
@@ -819,7 +819,7 @@ ddoc:conformance a owl:ObjectProperty ;
     rdfs:isDefinedBy <https://w3id.org/emmo/application/datadoc> ;
     rdfs:range ddoc:ConformanceLevel .
 
-ddoc:curationDate a owl:ObjectProperty ;
+ddoc:curationDate a owl:DatatypeProperty ;
     skos:prefLabel "curationDate" ;
     skos:definition "Date of curation." ;
     rdfs:domain dcat:Resource ;
