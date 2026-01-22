@@ -149,7 +149,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     rdfs:domain dcat:Resource ;
     rdfs:range foaf:Document ;
     skos:prefLabel "documentation"@en ;
-    skos:definition "A page or document documenting this software." .
+    skos:definition "A page or document documenting this resource." .
 
 :hasAPI a owl:DatatypeProperty ;
     rdfs:domain :Software ;
