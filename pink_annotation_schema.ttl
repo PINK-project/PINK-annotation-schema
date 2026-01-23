@@ -484,7 +484,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:definition "A process that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en .
 
 
-## Entity subclasses
+### Entity subclasses
 :Matter rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Matter"@en ;
@@ -618,7 +618,7 @@ emmo:ChemicalEntity rdfs:subClassOf :Matter .
 
 
 
-# Sign
+## Sign
 :Sign rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "Sign"@en ;
@@ -646,6 +646,13 @@ An architectural floor plan is a model of a house.
     skos:prefLabel "Property"@en ;
     skos:definition """An "atomic" sign that stands for an physical interaction with an object."""@en ;
     skos:scopeNote "A property is atomic in the sense that is aimed to deliver one and one only aspect of the object."@en .
+
+:Indicator rdf:type owl:Class ;
+    rdfs:subClassOf :Property ;
+    skos:prefLabel "Indicator"@en ;
+    skos:definition "A metric or signal that provides information about the state of a system. It simplifies complex realities into measurable values that can guide decisions."@en ;
+    skos:example "For a computation is an indicator a specific property/datum that is provided in the output."@en .
+
 
 :Toxicity rdf:type owl:Class ;
     rdfs:subClassOf :Sign ;
