@@ -1,0 +1,230 @@
+@prefix : <https://w3id.org/pink/models#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix accr: <http://publications.europa.eu/resource/authority/access-right/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
+@prefix emmo: <https://w3id.org/emmo/hume#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix pink: <https://w3id.org/pink#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix widoco: <https://w3id.org/widoco/vocab#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@base <https://w3id.org/pink/models#> .
+
+<https://w3id.org/pink/models> rdf:type owl:Ontology ;
+                                owl:versionIRI <https://w3id.org/pink/0.0.1/models> ;
+                                dcterms:abstract "The Models module of PINK Annotation Schema providing a taxonomy for models."@en ;
+                                dcterms:title "The Models module of PINK Annotation Schema"@en ;
+                                widoco:introduction """A model is a useful simplified description of a selected part of the world.
+
+The PINK Annotation Schema categorise models as shown in the figure below.
+
+<p>
+<img src=\"https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/model-branch/docs/figs/models.png\" alt=\"Models.\">
+
+"""@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/abstract
+dcterms:abstract rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+dcterms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+skos:scopeNote rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/widoco/vocab#introduction
+widoco:introduction rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/pink#hasModel
+pink:hasModel rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/pink#hasParticipant
+pink:hasParticipant rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/emmo/hume#AIModel
+emmo:AIModel rdf:type owl:Class ;
+             rdfs:subClassOf emmo:DataBasedModel ;
+             skos:altLabel "ArtificialIntelligenceModel"@en ;
+             skos:definition "An AI-based model."@en ;
+             skos:prefLabel "AIModel"@en .
+
+
+###  https://w3id.org/emmo/hume#AnalogicalIcon
+emmo:AnalogicalIcon rdf:type owl:Class ;
+                    rdfs:subClassOf pink:Model ;
+                    skos:altLabel "AnalogicalIcon"@en ;
+                    skos:definition "A model that represents the internal logical structure of the object."@en ;
+                    skos:example "A physics equation is replicating the mechanisms internal to the object."@en ,
+                                 "Electrical diagram is diagrammatic and resemblance"@en ,
+                                 "MODA and CHADA are diagrammatic representation of a simulation or a characterisation workflow."@en ;
+                    skos:prefLabel "AnalogicalModel"@en ;
+                    skos:scopeNote "A model that focus on HOW the object works."@en ,
+                                   "The subclass of model inspired by Peirceian category (b) the diagram, whose internal relations, mainly dyadic or so taken, represent by analogy (with the same logic) the relations in something (e.g. math formula, geometric flowchart)."@en .
+
+
+###  https://w3id.org/emmo/hume#DataBasedModel
+emmo:DataBasedModel rdf:type owl:Class ;
+                    rdfs:subClassOf emmo:MathematicalModel ;
+                    skos:definition "A mathematical model based on observed data, measurements, or experimental results."@en ;
+                    skos:prefLabel "DataBasedModel"@en .
+
+
+###  https://w3id.org/emmo/hume#DataProcessing
+emmo:DataProcessing rdf:type owl:Class ;
+                    rdfs:subClassOf pink:Computation ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty pink:hasModel ;
+                                      owl:someValuesFrom emmo:MathematicalModel
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty pink:hasParticipant ;
+                                      owl:someValuesFrom emmo:DataProcessingSoftware
+                                    ] ;
+                    skos:definition "A computation that provides a data output following the elaboration of some input data, using a data processing application."@en ;
+                    skos:prefLabel "DataProcessing"@en .
+
+
+###  https://w3id.org/emmo/hume#DataProcessingSoftware
+emmo:DataProcessingSoftware rdf:type owl:Class ;
+                            rdfs:subClassOf pink:Software ;
+                            skos:altLabel "DataProcessingApplication"@en ;
+                            skos:definition "A software program aimed for data processing."@en ;
+                            skos:prefLabel "DataProcessingSoftware"@en .
+
+
+###  https://w3id.org/emmo/hume#FunctionalIcon
+emmo:FunctionalIcon rdf:type owl:Class ;
+                    rdfs:subClassOf pink:Model ;
+                    skos:altLabel "FunctionalIcon"@en ;
+                    skos:definition "A model that imitates one representative character of the object. It share external similarities with the object, but not necessarily the same internal logical structure."@en ;
+                    skos:example "A data based model is only a functional model, since it provide the same relations between the properties of the object (e.g., it can predict some properties as function of others) but is not considering the internal mechanisms (i.e., it can ignore the physics)."@en ;
+                    skos:prefLabel "FunctionalModel"@en ;
+                    skos:scopeNote "A model that focusing WHAT the object does."@en ,
+                                   "This subclass of model inspired by Peirceian category (c) the metaphor, which represents the representative character of a sign by representing a parallelism in something else."@en .
+
+
+###  https://w3id.org/emmo/hume#GenerativeAIModel
+emmo:GenerativeAIModel rdf:type owl:Class ;
+                       rdfs:subClassOf emmo:AIModel ;
+                       skos:altLabel "GenerativeArtificialIntelligenceModel"@en ;
+                       skos:definition "An AI model that can generate new content, like text, images or code."@en ;
+                       skos:example "Chatbots"@en ;
+                       skos:prefLabel "GenerativeAIModel"@en .
+
+
+###  https://w3id.org/emmo/hume#MachineLearningModel
+emmo:MachineLearningModel rdf:type owl:Class ;
+                          rdfs:subClassOf emmo:AIModel ;
+                          skos:definition "An AI model using machine learning."@en ;
+                          skos:prefLabel "MachineLearningModel"@en .
+
+
+###  https://w3id.org/emmo/hume#MathematicalModel
+emmo:MathematicalModel rdf:type owl:Class ;
+                       rdfs:subClassOf emmo:AnalogicalIcon ,
+                                       pink:Information ;
+                       skos:definition "An analogical model expressed in mathematical language."@en ;
+                       skos:prefLabel "MathematicalModel"@en ;
+                       skos:scopeNote """A mathematical model can be defined as a description of a system using mathematical concepts and language to facilitate proper explanation of a system or to study the effects of different components and to make predictions on patterns of behaviour.
+
+Abramowitz and Stegun, 1968"""@en .
+
+
+###  https://w3id.org/emmo/hume#NaturalLanguageProcessingModel
+emmo:NaturalLanguageProcessingModel rdf:type owl:Class ;
+                                    rdfs:subClassOf emmo:AIModel ;
+                                    skos:definition "An AI model that understands and generates human language."@en ;
+                                    skos:example "Chatbots"@en ;
+                                    skos:prefLabel "NaturalLanguageProcessingModel"@en .
+
+
+###  https://w3id.org/emmo/hume#PhysicsBasedModel
+emmo:PhysicsBasedModel rdf:type owl:Class ;
+                       rdfs:subClassOf emmo:MathematicalModel ;
+                       rdfs:isDefinedBy "CEN Workshop Agreement, CWA 17284 Materials modelling - terminology, classification and metadata"@en ;
+                       skos:definition "A mathematical model based on a fundamental physics theory which defines the relations between physics quantities of an entity."@en ;
+                       skos:prefLabel "PhysicsBasedModel"@en .
+
+
+###  https://w3id.org/emmo/hume#Replica
+emmo:Replica rdf:type owl:Class ;
+             rdfs:subClassOf emmo:FunctionalIcon ,
+                             emmo:ResemblanceIcon ;
+             skos:definition "A model that not only resembles the object, but also can express some of the object's functions."@en ;
+             skos:example "A small scale replica of a plane tested in a wind gallery shares the same functionality in terms of aerodynamic behaviour of the bigger one."@en ,
+                          "Pinocchio is a functional model of a boy since it imitates the external behaviour without having the internal biological structure of a human being (it is made of magic wood...)."@en ;
+             skos:prefLabel "Replica"@en .
+
+
+###  https://w3id.org/emmo/hume#ResemblanceIcon
+emmo:ResemblanceIcon rdf:type owl:Class ;
+                     rdfs:subClassOf pink:Model ;
+                     skos:altLabel "ResemblanceIcon"@en ;
+                     skos:definition "A model that mimics the spatial or temporal shape of the object."@en ;
+                     skos:example "A geographical map that imitates the shape of the landscape and its properties at a specific historical time."@en ;
+                     skos:prefLabel "ResemblanceModel"@en ;
+                     skos:scopeNote "A model that focus on WHERE/WHEN the object is, in the sense of spatial or temporal shape."@en ,
+                                    "The subclass of model inspired by Peirceian category a) the image, which depends on a simple quality (e.g. picture)."@en .
+
+
+###  https://w3id.org/pink#Computation
+pink:Computation rdf:type owl:Class .
+
+
+###  https://w3id.org/pink#Information
+pink:Information rdf:type owl:Class .
+
+
+###  https://w3id.org/pink#Model
+pink:Model rdf:type owl:Class .
+
+
+###  https://w3id.org/pink#Software
+pink:Software rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
