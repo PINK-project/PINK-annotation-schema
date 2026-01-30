@@ -726,17 +726,6 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
 #    Individuals
 #################################################################
 
-### Conformance individuals
-#ddoc:mandatory rdf:type owl:NamedIndividual ;
-#    skos:prefLabel "mandatory"@en .
-#
-#ddoc:optional rdf:type owl:NamedIndividual ;
-#    skos:prefLabel "optional"@en .
-#
-#ddoc:recommended rdf:type owl:NamedIndividual ;
-#    skos:prefLabel "recommended"@en .
-
-
 ### TierLevel individuals
 :tierlevel1 a :TierLevel ;
     rdfs:label "ideation/design"@en .
