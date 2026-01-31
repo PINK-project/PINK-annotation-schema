@@ -303,12 +303,6 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     rdfs:range :Software ;
     skos:definition "Relates a computation to the software used to perform the computation."@en .
 
-:hasModel rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    skos:prefLabel "hasModel"@en ;
-    rdfs:domain prov:Activity ;
-    rdfs:range :Model ;
-    skos:definition "Relates an activity to the model it implements."@en .
-
 
 ### Causal relations
 :causedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
@@ -369,7 +363,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:skopeNote "Useful for tracking the provenance of software releases."@en .
 
 
-### Property relations
+### Semiotic relations
 :semiotical rdf:type owl:ObjectProperty ;
     skos:prefLabel "semiotical"@en ;
     skos:definition "The base of all semiotic relations."@en ;
@@ -445,6 +439,14 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:definition "Connects a property to an entity."@en ;
     rdfs:domain :Property ;
     rdfs:range prov:Entity .
+
+:hasModel rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :standsFor ;
+    skos:prefLabel "hasModel"@en ;
+    rdfs:domain :Software ;
+    rdfs:range :Model ;
+    skos:definition "Relates a software to the model it implements."@en ;
+    skos:scopeNote "Semiotically a software can be seen as an executable sign that stands for the model it implements."@en .
 
 
 
