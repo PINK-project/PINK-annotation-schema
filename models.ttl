@@ -117,10 +117,6 @@ emmo:DataBasedModel rdf:type owl:Class ;
 emmo:DataProcessing rdf:type owl:Class ;
                     rdfs:subClassOf pink:Computation ,
                                     [ rdf:type owl:Restriction ;
-                                      owl:onProperty pink:hasModel ;
-                                      owl:someValuesFrom emmo:MathematicalModel
-                                    ] ,
-                                    [ rdf:type owl:Restriction ;
                                       owl:onProperty pink:hasParticipant ;
                                       owl:someValuesFrom emmo:DataProcessingSoftware
                                     ] ;
@@ -130,7 +126,11 @@ emmo:DataProcessing rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo/hume#DataProcessingSoftware
 emmo:DataProcessingSoftware rdf:type owl:Class ;
-                            rdfs:subClassOf pink:Software ;
+                            rdfs:subClassOf pink:Software ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty pink:hasModel ;
+                                              owl:someValuesFrom emmo:MathematicalModel
+                                            ] ;
                             skos:altLabel "DataProcessingApplication"@en ;
                             skos:definition "A software program aimed for data processing."@en ;
                             skos:prefLabel "DataProcessingSoftware"@en .
