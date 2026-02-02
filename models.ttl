@@ -74,7 +74,7 @@ widoco:introduction rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  https://w3id.org/pink#hasModel
-pink:implements rdf:type owl:ObjectProperty .
+pink:implementsModel rdf:type owl:ObjectProperty .
 
 
 ###  https://w3id.org/pink#hasParticipant
@@ -128,7 +128,7 @@ emmo:DataProcessing rdf:type owl:Class ;
 emmo:DataProcessingSoftware rdf:type owl:Class ;
                             rdfs:subClassOf pink:Software ,
                                             [ rdf:type owl:Restriction ;
-                                              owl:onProperty pink:implements ;
+                                              owl:onProperty pink:implementsModel ;
                                               owl:someValuesFrom emmo:MathematicalModel
                                             ] ;
                             skos:altLabel "DataProcessingApplication"@en ;

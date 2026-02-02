@@ -440,9 +440,9 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     rdfs:domain :Property ;
     rdfs:range prov:Entity .
 
-:implements rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+:implementsModel rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :standsFor ;
-    skos:prefLabel "implements"@en ;
+    skos:prefLabel "implementsModel"@en ;
     rdfs:domain :Software ;
     rdfs:range :Model ;
     skos:definition "Relates a software to the model it implements."@en ;
