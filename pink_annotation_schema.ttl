@@ -176,6 +176,13 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:prefLabel "ssbdSubDimension"@en ;
     skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
+:tierLevel a owl:ObjectProperty ;
+    skos:prefLabel "tierLevel"@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:range :TierLevel ;
+    skos:definition "Relate an entity to an SSbD tier level."@en ;
+    vann:usageNote "One of `pink:tierlevel1` (ideation/design), `pink:tierlevel2` (lab phase/development), `pink:tierlevel3` (up-scaling/production)"@en .
+
 
 ### Other PINK-specific relations
 :documentation a owl:ObjectProperty ;
@@ -497,6 +504,7 @@ A more fundamental approach taken here, considers matter as entities that are ma
 emmo:Substance rdfs:subClassOf :Matter .
 emmo:ChemicalEntity rdfs:subClassOf :Matter .
 
+
 ## Data
 :Data rdf:type owl:Class ;
     rdfs:subClassOf prov:Entity ;
@@ -537,7 +545,6 @@ emmo:ChemicalEntity rdfs:subClassOf :Matter .
     vann:usageNote "xxx"@en .
 
 
-## Data
 :SymbolicData rdf:type owl:Class ;
     rdfs:subClassOf :Data ;
     rdfs:seeAlso <https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Datatype_Maps> ;
@@ -678,6 +685,14 @@ An architectural floor plan is a model of a house.
     skos:scopeNote "Object individals will typically also be an individual of 'Matter'. However, when categorising something as an 'Object', the focus is on its existence (throughout one of more processes), while 'Matter' focuses on that it pocess mass and takes up volume and how it can further be categorised as "@en .
 
 
+## Tier level
+:TierLevel rdf:type owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    skos:prefLabel "TierLevel"@en ;
+    skos:definition "Represent a tiered, iterative framework for evaluating chemical and material safety from early innovation to production."@en ;
+    skos:scopeNote "This approach typically involves a three-tier system-ranging from qualitative, early-stage, in silico, and in vitro screening to, finally, advanced, quantitative, in vivo testing."@en .
+
+
 ### Agent subclasses
 :Participant rdf:type owl:Class ;
     rdfs:subClassOf :Object, prov:Agent ;
@@ -711,15 +726,15 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
 #    Individuals
 #################################################################
 
-### Conformance individuals
-ddoc:mandatory rdf:type owl:NamedIndividual ;
-    skos:prefLabel "mandatory"@en .
+### TierLevel individuals
+:tierlevel1 a :TierLevel ;
+    rdfs:label "ideation/design"@en .
 
-ddoc:optional rdf:type owl:NamedIndividual ;
-    skos:prefLabel "optional"@en .
+:tierlevel2 a :TierLevel ;
+    rdfs:label "lab phase/development"@en .
 
-ddoc:recommended rdf:type owl:NamedIndividual ;
-    skos:prefLabel "recommended"@en .
+:tierlevel3 a :TierLevel ;
+    rdfs:label "up-scaling/production"@en .
 
 
 ### SSbD categories
