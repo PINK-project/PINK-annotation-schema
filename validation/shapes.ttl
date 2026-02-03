@@ -1,0 +1,83 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix pink: <https://w3id.org/pink#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+pink:DatasetShape a sh:NodeShape ;
+    sh:node pink:DataShape ;
+    sh:targetClass pink:Dataset .
+
+pink:DataShape a sh:NodeShape ;
+    sh:node pink:ResourceShape ;
+    sh:targetClass pink:Data .
+
+pink:ResourceShape a sh:NodeShape ;
+    sh:property [ sh:class foaf:Agent ;
+            sh:path dcterms:creator ],
+        [ sh:datatype rdf:langString ;
+            sh:minCount 1 ;
+            sh:path dcterms:title ],
+        [ sh:class foaf:Agent ;
+            sh:path dcterms:publisher ;
+            sh:severity sh:Warning ],
+        [ sh:class dcterms:LicenseDocument ;
+            sh:path dcterms:license ],
+        [ sh:class rdfs:Resource ;
+            sh:path dcat:hasVersion ],
+        [ sh:class foaf:Document ;
+            sh:path dcat:landingPage ],
+        [ sh:datatype rdf:langString ;
+            sh:path dcat:keyword ;
+            sh:severity sh:Warning ],
+        [ sh:class skos:Concept ;
+            sh:path dcat:theme ;
+            sh:severity sh:Warning ],
+        [ sh:class <http://www.w3.org/2006/vcard/ns#Kind> ;
+            sh:path dcat:contactPoint ;
+            sh:severity sh:Warning ],
+        [ sh:datatype rdf:langString ;
+            sh:minCount 1 ;
+            sh:path skos:definition ],
+        [ sh:datatype rdf:langString ;
+            sh:minCount 1 ;
+            sh:path skos:definition ],
+        [ sh:datatype xsd:dateTime ;
+            sh:path dcterms:issued ],
+        [ sh:class <http://data.europa.eu/eli/ontology#LegalResource> ;
+            sh:path <http://data.europa.eu/r5r/applicableLegislation> ],
+        [ sh:datatype xsd:string ;
+            sh:path dcterms:language ],
+        [ sh:datatype xsd:datetime ;
+            sh:path dcterms:issued ],
+        [ sh:class rdfs:Resource ;
+            sh:path dcterms:isReferencedBy ],
+        [ sh:class dcat:Relationship ;
+            sh:path dcat:qualifiedRelation ],
+        [ sh:path dcat:version ],
+        [ sh:datatype rdf:langString ;
+            sh:path dcat:keyword ;
+            sh:severity sh:Warning ],
+        [ sh:datatype rdf:langString ;
+            sh:minCount 1 ;
+            sh:path dcterms:title ],
+        [ sh:class foaf:Agent ;
+            sh:path dcterms:contributor ],
+        [ sh:path dcat:version ],
+        [ sh:class dcterms:Standard ;
+            sh:path dcterms:conformsTo ],
+        [ sh:class prov:Attribution ;
+            sh:path prov:qualifiedAttribution ],
+        [ sh:class dcterms:RightsStatement ;
+            sh:path dcterms:accessRights ],
+        [ sh:datatype xsd:datetime ;
+            sh:path dcterms:modified ],
+        [ sh:class foaf:Document ;
+            sh:path foaf:page ] ;
+    sh:targetClass dcat:Resource .
+

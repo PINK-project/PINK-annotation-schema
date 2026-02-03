@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "pink": "https://w3id.org/pink#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@id": "https://example.org/dataset/toxicity-study-2025",
+  "@type": "pink:Dataset",
+  "dcterms:title": {
+    "@value": "Nanomaterial Toxicity Study 2025",
+    "@language": "en"
+  },
+  "skos:definition": {
+    "@value": "Dataset containing toxicity measurements for various nanomaterials under SSbD framework.",
+    "@language": "en"
+  },
+  "pink:hasDatum": {
+    "@id": "https://example.org/datum/measurement-001",
+    "@type": "pink:Datum"
+  },
+  "dcterms:publisher": {
+    "@id": "https://orcid.org/0000-0002-1560-809X",
+    "@type": "foaf:Agent"
+  },
+  "pink:extraProperty": "This unknown property should be allowed in open mode"
+}
