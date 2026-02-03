@@ -23,7 +23,8 @@
   },
   "dcterms:publisher": {
     "@id": "https://orcid.org/0000-0002-1560-809X",
-    "@type": "foaf:Agent"
+    "@type": "foaf:Agent",
+    "foaf:name": "Frederik Karlson"
   },
   "pink:extraProperty": "This unknown property should be allowed in open mode"
 }
