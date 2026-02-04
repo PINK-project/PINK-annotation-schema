@@ -25,13 +25,14 @@
                                 dcterms:abstract "The Matter module of PINK Annotation Schema providing a taxonomy for physical matter (including nanomaterial, chemical compounds, etc...) with anchor points for links for CheBI."@en ;
     dcterms:title "The Matter module of PINK Annotation Schema"@en ;
     widoco:introduction """
-This module is a part of the [PINK Annotation Schema](https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html).
+This module is a part of the <a href="https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html">PINK Annotation Schema</a>.
 Matter is a physical entity that possess mass and occupies volume.
 
 This module provides a categorisation of different types of matter entities.
 At the top it categorise matter into molecular entities (discrete atoms or molecules) and different types of substances (homogenious properties).
 
-A page illustrating how the PINK Annotation Schema categorise matter can be found [here](https://pink-project.github.io/PINK-annotation-schema/docs/matter.html).
+A page illustrating showing how the PINK Annotation Schema categorise models can be found
+<a href="https://pink-project.github.io/PINK-annotation-schema/docs/matter.html">here</a>.
 """@en .
 
 
