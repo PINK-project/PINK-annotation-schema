@@ -84,6 +84,7 @@ jobs:
             -ontFile pink_annotation_schema.ttl \
             -outFolder build/widoco \
             -getOntologyMetadata \
+            -oops \
             -rewriteAll \
             -includeImportedOntologies \
             -licensius \
@@ -94,6 +95,7 @@ jobs:
         java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
             -ontFile reused-terms.ttl \
             -outFolder build/widoco-reused-terms \
+            -excludeIntroduction \
             -getOntologyMetadata \
             -rewriteAll \
             -includeImportedOntologies \
@@ -109,8 +111,8 @@ jobs:
         java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
             -ontFile ddoc.ttl \
             -outFolder build/widoco-ddoc \
+            -excludeIntroduction \
             -getOntologyMetadata \
-            -oops \
             -rewriteAll \
             -includeImportedOntologies \
             -licensius \
