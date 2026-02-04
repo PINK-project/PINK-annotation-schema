@@ -108,8 +108,12 @@ jobs:
 
     - name: Generate Widoco documentation for ddoc terms
       run: |
+        ontoconvert -awe \
+            ddoc.ttl \
+            build/ddoc-doc.ttl
+
         java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
-            -ontFile ddoc.ttl \
+            -ontFile build/ddoc-doc.ttl \
             -outFolder build/widoco-ddoc \
             -excludeIntroduction \
             -getOntologyMetadata \
