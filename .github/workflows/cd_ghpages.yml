@@ -153,7 +153,7 @@ jobs:
         mkdir -p build/context
         keywords \
             --input=pink_annotation_schema.ttl \
-            --context=build/context/pink_annotation_schema.jsonld \
+            --write-context=build/context/pink_annotation_schema.jsonld \
             --redefine=allow \
             --set-prefix=emmo:https://w3id.org/emmo/hume#
             #--namespace-filter=pink
@@ -163,7 +163,7 @@ jobs:
         mkdir -p build/context
         keywords \
             --input=pink_annotation_schema.ttl \
-            --yaml=build/context/keywords.yaml \
+            --write-kw-yaml=build/context/keywords.yaml \
             --redefine=allow \
             --set-prefix=emmo:https://w3id.org/emmo/hume#
             #--namespace-filter=pink
