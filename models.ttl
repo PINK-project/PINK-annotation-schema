@@ -27,9 +27,11 @@
                                 widoco:introduction """A model is a useful simplified description of a selected part of the world.
 
 The PINK Annotation Schema categorise models as shown in the figure below.
+https://github.com/PINK-project/PINK-annotation-schema/blob/main/docs/figs/models.png
 
 <p>
-<img src=\"https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/model-branch/docs/figs/models.png\" alt=\"Models.\">
+<img src=\"https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/main/docs/figs/models.png\" alt=\"Models.\">
+<p>
 
 """@en .
 
