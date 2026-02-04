@@ -100,7 +100,7 @@ An O 'atom' within an O₂ 'molecule' is an 'e-bonded_atom'.
 In this material branch, H atom is a particular case, with respect to higher atomic number atoms, since as soon as it shares its electron it has no nucleus entangled electron cloud.
 
 We cannot say that H₂ molecule has direct part two H atoms, but has direct part two H nucleus."""@en ;
-    skos:skos:scopeNote "An 'atom' is a 'nucleus' surrounded by an 'electron_cloud', i.e. a quantum system made of one or more bounded electrons."@en .
+    skos:scopeNote "An 'atom' is a 'nucleus' surrounded by an 'electron_cloud', i.e. a quantum system made of one or more bounded electrons."@en .
 
 
 ###  https://w3id.org/emmo/hume#BondedAtom
