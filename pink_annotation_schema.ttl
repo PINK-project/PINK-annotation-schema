@@ -78,12 +78,8 @@ Separate reference documentations exists for the following sub-modules:
 * [matter](https://pink-project.github.io/PINK-annotation-schema/widoco-matter/index-en.html): Taxonomy for (advanced) materials and chemicals
 * [models](https://pink-project.github.io/PINK-annotation-schema/widoco-models/index-en.html): Taxonomy for models.
 
-The root of the PINK Annotation Schema is shown below. More information can be found in the [background](
-https://pink-project.github.io/PINK-annotation-schema/docs/background.html) section.
+The root of the PINK Annotation Schema is shown below. More information can be found in the [background](https://pink-project.github.io/PINK-annotation-schema/docs/background.html) section.
 
-<p>
-<img src="https://pink-project.github.io/PINK-annotation-schema/docs/figs/taxonomy.svg" alt="Root of the PINK Annotation Schema.">
-<p>
 """@en .
 
 
