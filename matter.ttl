@@ -27,9 +27,11 @@
     widoco:introduction """
 This module is a part of the [PINK Annotation Schema](https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html).
 Matter is a physical entity that possess mass and occupies volume.
-This module provides a categorisation of different types of matter entities.
 
-A figure showing how the PINK Annotation Schema categorise matter can be found [here](https://pink-project.github.io/PINK-annotation-schema/docs/matter.html).
+This module provides a categorisation of different types of matter entities.
+At the top it categorise matter into molecular entities (discrete atoms or molecules) and different types of substances (homogenious properties).
+
+A page illustrating how the PINK Annotation Schema categorise matter can be found [here](https://pink-project.github.io/PINK-annotation-schema/docs/matter.html).
 """@en .
 
 

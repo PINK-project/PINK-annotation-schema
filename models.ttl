@@ -24,7 +24,8 @@
                                 owl:versionIRI <https://w3id.org/pink/0.0.1/models> ;
                                 dcterms:abstract "The Models module of PINK Annotation Schema providing a taxonomy for models."@en ;
                                 dcterms:title "The Models module of PINK Annotation Schema"@en ;
-                                widoco:introduction """This module is a part of the [PINK Annotation Schema](https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html).
+                                widoco:introduction """
+This module is a part of the [PINK Annotation Schema](https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html).
 A model is a useful simplified description of a selected part of the world.
 
 A figure showing how the PINK Annotation Schema categorise models can be found [here](https://pink-project.github.io/PINK-annotation-schema/docs/models.html).
