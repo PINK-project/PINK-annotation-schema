@@ -110,6 +110,7 @@ jobs:
             -ontFile ddoc.ttl \
             -outFolder build/widoco-ddoc \
             -getOntologyMetadata \
+            -oops \
             -rewriteAll \
             -includeImportedOntologies \
             -licensius \

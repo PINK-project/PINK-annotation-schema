@@ -9,7 +9,6 @@ At the top it categorise matter into molecular entities (discrete atoms or molec
 The following two figures shows the categorisation of molecular entities and substances, respectively.
 
 ![Molecular entities.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/molecular-entity.png)
-
 ![Substances.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/substances.png)
 
 Under substances we find materials
