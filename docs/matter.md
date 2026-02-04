@@ -8,17 +8,17 @@ At the top it categorise matter into molecular entities (discrete atoms or molec
 
 The following two figures shows the categorisation of molecular entities and substances, respectively.
 
-![Molecular entities.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/molecular-entity.png")
+![Molecular entities.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/molecular-entity.png)
 
-![Substances.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/substances.png")
+![Substances.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/substances.png)
 
 Under substances we find materials
 
-![Materials.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/material.png")
+![Materials.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/material.png)
 
 and the different aggregation states of matter
 
-![State of matter.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/state-of-matter.png")
+![State of matter.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/state-of-matter.png)
 
 
 See also the [reference documentation](https://pink-project.github.io/PINK-annotation-schema/widoco-matter/index-en.html)
