@@ -17,7 +17,7 @@
 @prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
 @prefix emmo: <https://w3id.org/emmo#> .
 @prefix pink: <https://w3id.org/pink#> .
-@prefix emmo: <https://w3id.org/emmo/hume#> .
+@prefix hume: <https://w3id.org/emmo/hume#> .
 
 @base <https://w3id.org/pink#> .
 

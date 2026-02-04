@@ -44,11 +44,15 @@ prefixes:
   void: http://rdfs.org/ns/void#
   wgs: https://www.w3.org/2003/01/geo/wgs84_pos#
   bibo: http://purl.org/ontology/bibo/
-theme: ddoc:datadoc
+  widoco: https://w3id.org/widoco/vocab#
+  hume: https://w3id.org/emmo/hume#
+theme:
+- ddoc:datadoc
+- ddoc:prefixes
 resources:
   Resource:
     iri: dcat:Resource
-    subClassOf: rdfs:Resource
+    subClassOf: prov:Entity
     description: Resource published or curated by an agent.
     keywords:
       accessRights:
@@ -134,30 +138,41 @@ resources:
         domain: dcat:Resource
       documentation:
         iri: pink:documentation
-        type: owl:ObjectProperty
-        domain: dcat:Resource
         range: foaf:Document
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: http://xmlns.com/foaf/0.1/page
-        prefLabel: documentation
-        description: A page or document documenting this resource.
+        conformance: optional
+        description: A page or document about this resource.
         name: documentation
+        theme: ddoc:datadoc
+        domain: dcat:Resource
+        type: owl:ObjectProperty
+        subPropertyOf: foaf:page
+        prefLabel: documentation
+        http://www.w3.org/2004/02/skos/core#definition: A page or document documenting
+          this resource.
       hasPart:
         iri: pink:hasPart
-        type:
-        - owl:ObjectProperty
-        - owl:ReflexiveProperty
-        - owl:TransitiveProperty
+        range: rdfs:Literal
+        conformance: optional
+        description: A related resource that is included either physically or logically
+          in the described resource.
+        name: hasPart
+        theme: ddoc:datadoc
         domain:
         - dcat:Resource
         - rdfs:Resource
-        range: rdfs:Literal
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
-        - http://purl.org/dc/terms/hasPart
-        - https://w3id.org/pink#overlaps
+        type:
+        - owl:ObjectProperty
+        - owl:ReflexiveProperty
+        subPropertyOf:
+        - dcterms:hasPart
+        - pink:overlaps
         prefLabel: hasPart
-        description: The primitive relation that express the concept of an entity
-          being part of another one.
-        name: hasPart
+        http://www.w3.org/2004/02/skos/core#skopeNote: OWL2 does not allow non-simple
+          (e.g. transitive) properties to appear in disjoint property axioms. We therefore
+          implement the transitivity of hasPart using SWRL rules instead of asserting
+          it with owl:TransitiveProperty.
+        http://www.w3.org/2004/02/skos/core#definition: The primitive relation that
+          express the concept of an entity being part of another one.
       hasVersion:
         iri: dcat:hasVersion
         range: rdfs:Resource
@@ -314,6 +329,13 @@ resources:
         name: releaseDate
         theme: ddoc:datadoc
         domain: dcat:Resource
+      subPropertyOf:
+        iri: rdfs:subPropertyOf
+        range: rdf:Property
+        description: The subject is a subproperty of a property.
+        name: subPropertyOf
+        theme: ddoc:datadoc
+        domain: dcat:Resource
       theme:
         iri: dcat:theme
         range: skos:Concept
@@ -395,18 +417,20 @@ resources:
         domain: dcat:Resource
       conformance:
         iri: pink:conformance
-        type: owl:ObjectProperty
+        range: ddoc:ConformanceLevel
+        description: Whether the annotation is mandatory, recommended or optional.
+        usageNote: It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended'
+          or 'ddoc:optional'.
+        name: conformance
+        theme: ddoc:datadoc
         domain:
         - dcat:Resource
         - rdfs:Resource
-        range: ddoc:ConformanceLevel
-        description: Whether the annotation is mandatory, recommended or optional
-          as part of the PINK Annotation Schema
-        usageNote: It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended'
-          or 'ddoc:optional'.
+        type: owl:ObjectProperty
+        http://www.w3.org/2004/02/skos/core#definition: Whether the annotation is
+          mandatory, recommended or optional as part of the PINK Annotation Schema
         isDefinedBy: https://w3id.org/pink
         prefLabel: conformance
-        name: conformance
       deprecated:
         iri: owl:deprecated
         range: rdfs:Literal
@@ -470,7 +494,10 @@ resources:
           to be used.
         name: usageNote
         theme: ddoc:datadoc
-        domain: dcat:Resource
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        type: owl:AnnotationProperty
       ssbdSubDimension:
         iri: pink:ssbdSubDimension
         type: owl:DatatypeProperty
@@ -480,17 +507,9 @@ resources:
         range: rdfs:Literal
         datatype: xsd:string
         prefLabel: ssbdSubDimension
-        description: XXX
+        http://www.w3.org/2004/02/skos/core#definition: Note this class redefined
+          in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15
         name: ssbdSubDimension
-      hasAPI:
-        iri: pink:hasAPI
-        type: owl:DatatypeProperty
-        domain: dcat:Resource
-        range: rdfs:Literal
-        datatype: xsd:boolean
-        prefLabel: hasAPI
-        description: Whether the method has an API.
-        name: hasAPI
       ssbdDimension:
         iri: pink:ssbdDimension
         type: owl:ObjectProperty
@@ -499,7 +518,8 @@ resources:
         - rdfs:Resource
         range: pink:SsbdDimension
         prefLabel: ssbdDimension
-        description: XXX
+        http://www.w3.org/2004/02/skos/core#definition: Note this class redefined
+          in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15
         usageNote: One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`,
           `pink:social_sustainability`
         name: ssbdDimension
@@ -515,8 +535,8 @@ resources:
         range: rdfs:Literal
         prefLabel: overlaps
         http://www.w3.org/2002/07/owl#propertyDisjointWith: https://w3id.org/pink#nonOverlaps
-        description: The relation between two individuals representing entities that
-          share at least one of their parts.
+        http://www.w3.org/2004/02/skos/core#definition: The relation between two individuals
+          representing entities that share at least one of their parts.
         name: overlaps
       nonOverlaps:
         iri: pink:nonOverlaps
@@ -530,8 +550,8 @@ resources:
         range: rdfs:Literal
         prefLabel: nonOverlaps
         http://www.w3.org/2002/07/owl#propertyDisjointWith: https://w3id.org/pink#overlaps
-        description: The relation between two individuals that does not share any
-          parts.
+        http://www.w3.org/2004/02/skos/core#definition: The relation between two individuals
+          that does not share any parts.
         name: nonOverlaps
       isOvercrossedBy:
         iri: pink:isOvercrossedBy
@@ -542,11 +562,11 @@ resources:
         - dcat:Resource
         - rdfs:Resource
         range: rdfs:Literal
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#overlaps
+        subPropertyOf: pink:overlaps
         prefLabel: isOvercrossedBy
         http://www.w3.org/2002/07/owl#propertyDisjointWith: https://w3id.org/pink#hasPart
-        description: The relation between an entity that overlaps another without
-          having it as part.
+        http://www.w3.org/2004/02/skos/core#definition: The relation between an entity
+          that overlaps another without having it as part.
         name: isOvercrossedBy
       hasParticipant:
         iri: pink:hasParticipant
@@ -558,13 +578,14 @@ resources:
         - dcat:Resource
         - rdfs:Resource
         range: rdfs:Literal
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#hasPart
+        subPropertyOf: pink:hasPart
         prefLabel: hasParticipant
-        description: The relation between a process and an object participating to
-          it, i.e. that is relevant to the process itself.
-        comment: 'Participation is a parthood relation: you must be part of the process
-          to contribute to it. A participant whose 4D extension is totally contained
-          within the process.'
+        http://www.w3.org/2004/02/skos/core#definition: The relation between a process
+          and an object participating to it, i.e. that is relevant to the process
+          itself.
+        http://www.w3.org/2004/02/skos/core#skopeNote: 'Participation is a parthood
+          relation: you must be part of the process to contribute to it. A participant
+          whose 4D extension is totally contained within the process.'
         name: hasParticipant
       hasSpatialPart:
         iri: pink:hasSpatialPart
@@ -576,12 +597,13 @@ resources:
         - dcat:Resource
         - rdfs:Resource
         range: rdfs:Literal
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#hasPart
+        subPropertyOf: pink:hasPart
         prefLabel: hasSpatialPart
-        description: A proper part of a whole, whose parts always cover the full temporal
-          extension of the whole within a spatial interval.
-        comment: The part is connected with the rest item or members with hasContact
-          relations only (no hasNext).
+        http://www.w3.org/2004/02/skos/core#definition: A proper part of a whole,
+          whose parts always cover the full temporal extension of the whole within
+          a spatial interval.
+        http://www.w3.org/2004/02/skos/core#skopeNote: The part is connected with
+          the rest item or members with hasContact relations only (no hasNext).
         name: hasSpatialPart
       hasTemporalPart:
         iri: pink:hasTemporalPart
@@ -593,13 +615,13 @@ resources:
         - dcat:Resource
         - rdfs:Resource
         range: rdfs:Literal
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#hasPart
+        subPropertyOf: pink:hasPart
         prefLabel: hasTemporalPart
-        description: A relation that identify a proper item part of the whole, whose
-          parts always cover the full spatial extension of the whole within a time
-          interval.
-        comment: A temporal part of an item cannot both cause and be caused by any
-          other proper part of the item.
+        http://www.w3.org/2004/02/skos/core#definition: A relation that identify a
+          proper item part of the whole, whose parts always cover the full spatial
+          extension of the whole within a time interval.
+        http://www.w3.org/2004/02/skos/core#skopeNote: A temporal part of an item
+          cannot both cause and be caused by any other proper part of the item.
         name: hasTemporalPart
       hasJunctionPart:
         iri: pink:hasJunctionPart
@@ -611,11 +633,12 @@ resources:
         - dcat:Resource
         - rdfs:Resource
         range: rdfs:Literal
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#hasPart
+        subPropertyOf: pink:hasPart
         prefLabel: hasJunctionPart
         altLabel: hasSpatioTemporalPart
-        description: The part is connected with the rest item or members with both
-          hasNext (or its inverse) and hasContact relations.
+        http://www.w3.org/2004/02/skos/core#definition: The part is connected with
+          the rest item or members with both hasNext (or its inverse) and hasContact
+          relations.
         name: hasJunctionPart
       causedBy:
         iri: pink:causedBy
@@ -626,9 +649,10 @@ resources:
         - dcat:Resource
         - rdfs:Resource
         range: rdfs:Literal
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: http://www.w3.org/ns/prov#wasInfluencedBy
+        subPropertyOf: prov:wasInfluencedBy
         prefLabel: causedBy
-        description: A relation between an entity that causally affects the subject.
+        http://www.w3.org/2004/02/skos/core#definition: A relation between an entity
+          that causally affects the subject.
         http://www.w3.org/2004/02/skos/core#example: John yesterday is the cause of
           John today, is an example of temporal-like causality. The desk supporting
           my laptop is a space-like causality.
@@ -643,10 +667,10 @@ resources:
         - dcat:Resource
         - rdfs:Resource
         range: rdfs:Literal
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#causedBy
+        subPropertyOf: pink:causedBy
         prefLabel: isAfter
-        description: A one-directional relation between an entity that affects the
-          subject.
+        http://www.w3.org/2004/02/skos/core#definition: A one-directional relation
+          between an entity that affects the subject.
         name: isAfter
       processedFrom:
         iri: pink:processedFrom
@@ -658,11 +682,30 @@ resources:
         - dcat:Resource
         - rdfs:Resource
         range: rdfs:Literal
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#isAfter
+        subPropertyOf: pink:isAfter
         prefLabel: processedFrom
-        description: Indirect relation that relates the output of an activity to its
-          input.
+        http://www.w3.org/2004/02/skos/core#definition: Indirect relation that relates
+          the output of an activity to its input.
         name: processedFrom
+      semiotical:
+        iri: pink:semiotical
+        type: owl:ObjectProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        prefLabel: semiotical
+        http://www.w3.org/2004/02/skos/core#definition: The base of all semiotic relations.
+        http://www.w3.org/2004/02/skos/core#skopeNote:
+        - Semiotic relations can be seen as shortcuts that replaces a series of complex
+          causal relations with a single relation.
+        - Semiotic relations take part in a triadic semiotic meaning-making process,
+          where an 'interpreter' connects a 'sign' (e.g. a property) to an entity
+          (called 'referent').
+        - The semiotic relations in the PINK Annotation Scheme are inspirred by EMMO,
+          which in turn is based on the semiotic theory by Charles Sanders Peirce
+          (1839-1914).
+        name: semiotical
       doi:
         iri: bibo:doi
         type: owl:AnnotationProperty
@@ -703,6 +746,46 @@ resources:
         - rdfs:Resource
         range: rdfs:Literal
         name: logo
+      prefLabel:
+        iri: skos:prefLabel
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: prefLabel
+      altLabel:
+        iri: skos:altLabel
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: altLabel
+      definition:
+        iri: skos:definition
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: definition
+      example:
+        iri: skos:example
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: example
+      scopeNote:
+        iri: skos:scopeNote
+        type: owl:AnnotationProperty
+        domain:
+        - dcat:Resource
+        - rdfs:Resource
+        range: rdfs:Literal
+        name: scopeNote
   Dataset:
     iri: pink:Dataset
     subClassOf:
@@ -710,10 +793,8 @@ resources:
     - emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a
     description: A collection of data, published or curated by an agent, and available
       for access or download in one or more representations.
-    usageNote: This class represents the actual dataset as published by the dataset
-      provider. In cases where a distinction between the actual dataset and its entry
-      in the catalog is necessary (because metadata such as modification date and
-      maintainer might differ), the catalog record class can be used for the latter.
+    usageNote: A collection of (more than one) datum, published or curated by a single
+      agent, and available for access or download in one or more representations.
     keywords:
       distribution:
         iri: dcat:distribution
@@ -836,7 +917,7 @@ resources:
       hasDatum:
         iri: pink:hasDatum
         range: pink:Datum
-        description: Relates a dataset to its datum.
+        description: Relates a dataset to its datum parts.
         usageNote: '`hasDatum` relations are normally NOT specified manually, since
           they are generated from the DLite data model.'
         name: hasDatum
@@ -846,8 +927,9 @@ resources:
         - owl:AsymmetricProperty
         - owl:IrreflexiveProperty
         - owl:ObjectProperty
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#hasPart
+        subPropertyOf: pink:hasPart
         prefLabel: hasDatum
+        http://www.w3.org/2004/02/skos/core#definition: Relates a dataset to its datum.
       isDescriptionFor:
         iri: emmo:EMMO_f702bad4_fc77_41f0_a26d_79f6444fd4f3
         range: dcat:Resource
@@ -894,16 +976,6 @@ resources:
         name: mappingFormat
         theme: ddoc:datadoc
         domain: dcat:Dataset
-      method:
-        iri: pink:method
-        type: owl:ObjectProperty
-        domain:
-        - dcat:Dataset
-        - pink:Dataset
-        range: pink:Method
-        prefLabel: method
-        description: Relates a dataset to the method that it was created with.
-        name: method
   Distribution:
     iri: dcat:Distribution
     subClassOf: dcat:Resource
@@ -1073,9 +1145,7 @@ resources:
         domain: oteio:Generator
   Agent:
     iri: prov:Agent
-    subClassOf:
-    - dcterms:Agent
-    - emmo:EMMO_2480b72b_db8d_460f_9a5f_c2912f979046
+    subClassOf: foaf:Agent
     description: An agent (eg. person, group, software or physical artifact).
     usageNote: A resource that acts or has the power to act.
     keywords:
@@ -1119,13 +1189,13 @@ resources:
         - owl:ObjectProperty
         domain: prov:Agent
         range: prov:Entity
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#causedBy
+        subPropertyOf: pink:causedBy
         prefLabel: attributed
-        comment:
+        http://www.w3.org/2004/02/skos/core#definition: Relates an agent to an entity
+          via an activity that both the agent and entity participates to.
+        http://www.w3.org/2004/02/skos/core#skopeNote:
         - The activity is through overlapped by the agent and overcrossed by the entity.
         - There may or may not be a causal interaction between the agent and entity.
-        description: Relates an agent to an entity via an activity that both the agent
-          and entity participates to.
         http://www.w3.org/2002/07/owl#inverseOf: https://w3id.org/pink#wasAttributedTo
         name: attributed
   Checksum:
@@ -1351,6 +1421,21 @@ resources:
         name: hasURL
         theme: ddoc:datadoc
         domain: vcard:Kind
+  LicenseDocument:
+    iri: dcterms:LicenseDocument
+    description: A legal document giving official permission to do something with
+      a resource.
+    keywords:
+      type:
+        iri: dcterms:type
+        range: skos:Concept
+        conformance: optional
+        description: A type of the resource.
+        usageNote: A recommended controlled vocabulary data-type is foreseen. For
+          agents, the value should be chosen from [ADMS publisher type](https://raw.githubusercontent.com/SEMICeu/ADMS-AP/master/purl.org/ADMS_SKOS_v1.00.rdf).
+        name: type
+        theme: ddoc:datadoc
+        domain: dcterms:LicenseDocument
   Location:
     iri: dcterms:Location
     description: A spatial region or named place.
@@ -1461,6 +1546,13 @@ resources:
         name: subClassOf
         theme: ddoc:datadoc
         domain: rdfs:Class
+      subPropertyOf:
+        iri: rdfs:subPropertyOf
+        range: rdf:Property
+        description: The subject is a subproperty of a property.
+        name: subPropertyOf
+        theme: ddoc:datadoc
+        domain: rdfs:Class
   GenericResource:
     iri: rdfs:Resource
     description: A generic resource defined by RDFS.
@@ -1512,131 +1604,153 @@ resources:
         name: maxQualifiedCardinality
         theme: ddoc:datadoc
         domain: owl:Restriction
-  Method:
-    iri: pink:Method
+  Software:
+    iri: pink:Software
+    subClassOf: pink:Data
     keywords:
-      hasProcess:
-        iri: pink:hasProcess
+      hasAPI:
+        iri: pink:hasAPI
+        type: owl:DatatypeProperty
+        domain: pink:Software
+        range: rdfs:Literal
+        datatype: xsd:boolean
+        prefLabel: hasAPI
+        http://www.w3.org/2004/02/skos/core#definition: Whether the software has an
+          API.
+        name: hasAPI
+      priorRelease:
+        iri: pink:priorRelease
         type:
         - owl:AsymmetricProperty
         - owl:IrreflexiveProperty
         - owl:ObjectProperty
-        domain: pink:Method
-        range: pink:Process
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#participatesTo
-        prefLabel: hasProcess
-        comment:
-        - The starting point for this relation is that it relates a method to an activity
-          it describes. However, when an activity is described by a method is a process.
-          Therefor is the range of this relation a process and not only an activity.
-        - This is a subproperty of participatesTo, meaning that the process is overcrossed
-          by the method.
-        description: Relates a method to the process that it describes.
-        name: hasProcess
-      hasModel:
-        iri: pink:hasModel
+        domain: pink:Software
+        range: pink:Software
+        subPropertyOf: pink:causedBy
+        prefLabel: priorRelease
+        http://www.w3.org/2004/02/skos/core#definition: Direct relation that relates
+          a software to the most resent earlier release of the software.
+        http://www.w3.org/2004/02/skos/core#skopeNote: Useful for tracking the provenance
+          of software releases.
+        name: priorRelease
+      implementsModel:
+        iri: pink:implementsModel
         type:
         - owl:AsymmetricProperty
         - owl:IrreflexiveProperty
         - owl:ObjectProperty
-        domain: pink:Method
+        domain: pink:Software
         range: pink:Model
-        prefLabel: hasModel
-        description: Relates a method to the model it implements.
-        name: hasModel
-      input:
-        iri: pink:input
-        type:
-        - owl:AsymmetricProperty
-        - owl:IrreflexiveProperty
-        - owl:ObjectProperty
-        domain: pink:Method
-        range: prov:Entity
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#attributed
-        prefLabel: input
-        comment: The process P is through overlapped by the agent A and overcrossed
-          by the entity E, where the non-overlapping part of E causes P.
-        description: Relates a method to an entity via a process that used the entity
-          and that the method participates to.
-        name: input
-      output:
-        iri: pink:output
-        type:
-        - owl:AsymmetricProperty
-        - owl:IrreflexiveProperty
-        - owl:ObjectProperty
-        domain: pink:Method
-        range: prov:Entity
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#attributed
-        prefLabel: output
-        comment: The process P is through overlapped by the agent A and overcrossed
-          by the entity E, where the non-overlapping part of E is caused by P.
-        description: Relates a method to an entity via a process that was generated
-          by the entity and that the method participates to.
-        name: output
-  Activity:
-    iri: prov:Activity
+        subPropertyOf: pink:standsFor
+        prefLabel: implementsModel
+        http://www.w3.org/2004/02/skos/core#definition: Relates a software to the
+          model it implements.
+        http://www.w3.org/2004/02/skos/core#scopeNote: Semiotically a software can
+          be seen as an executable sign that stands for the model it implements.
+        name: implementsModel
+  Computation:
+    iri: pink:Computation
+    subClassOf: pink:Process
     keywords:
-      hasMethod:
-        iri: pink:hasMethod
+      hasSoftware:
+        iri: pink:hasSoftware
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: pink:Computation
+        range: pink:Software
+        subPropertyOf: pink:wasAssociatedWith
+        prefLabel: hasSoftware
+        http://www.w3.org/2004/02/skos/core#definition: Relates a computation to the
+          software used to perform the computation.
+        name: hasSoftware
+  Sign:
+    iri: pink:Sign
+    subClassOf: prov:Entity
+    keywords:
+      isInterpretedBy:
+        iri: pink:isInterpretedBy
         type: owl:ObjectProperty
-        domain: prov:Activity
-        range: pink:Method
-        prefLabel: hasMethod
-        description: Relates an activity to the method that it is described by.
-        name: hasMethod
-      used:
-        iri: pink:used
-        type:
-        - owl:AsymmetricProperty
-        - owl:IrreflexiveProperty
-        - owl:ObjectProperty
-        domain: prov:Activity
+        domain: pink:Sign
+        range: pink:Interpreter
+        subPropertyOf: pink:semiotical
+        prefLabel: isInterpretedBy
+        http://www.w3.org/2004/02/skos/core#definition: Connects a sign (e.g. a property)
+          to an interpreter.
+        name: isInterpretedBy
+      standsFor:
+        iri: pink:standsFor
+        type: owl:ObjectProperty
+        domain: pink:Sign
         range: prov:Entity
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
-        - http://www.w3.org/ns/prov#used
-        - https://w3id.org/pink#isOvercrossedBy
-        prefLabel: used
-        comment: The activity A proper overlaps the entity E, where the non-overlapping
-          part of E causes A.
-        description: Relates an activity to an entity that it used.
-        http://www.w3.org/2004/02/skos/core#example: For example, :baking :used :spoon,
-          :egg, :oven .
-        name: used
-      wasAssociatedWith:
-        iri: pink:wasAssociatedWith
-        type:
-        - owl:AsymmetricProperty
-        - owl:IrreflexiveProperty
-        - owl:ObjectProperty
-        domain: prov:Activity
-        range: prov:Agent
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
-        - http://www.w3.org/ns/prov#wasAssociatedWith
-        - https://w3id.org/pink#isOvercrossedBy
-        prefLabel: wasAssociatedWith
-        comment: The activity is through overlapped by the agent.
-        description: Relates an activity to an agent that had some (unspecified) responsibility
-          for the occurence of this activity.
-        name: wasAssociatedWith
-      wasInformedBy:
-        iri: pink:wasInformedBy
-        type:
-        - owl:AsymmetricProperty
-        - owl:IrreflexiveProperty
-        - owl:ObjectProperty
-        domain: prov:Activity
-        range: prov:Activity
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
-        - http://www.w3.org/ns/prov#wasInformedBy
-        - https://w3id.org/pink#isAfter
-        prefLabel: wasInformedBy
-        description: A one-directional relation between an activity that affects the
-          subject activity.
-        name: wasInformedBy
+        subPropertyOf: pink:semiotical
+        http://www.w3.org/2002/07/owl#inverseOf: https://w3id.org/pink#isRepresentedBy
+        prefLabel: standsFor
+        http://www.w3.org/2004/02/skos/core#definition: Connects a sign (e.g. a property)
+          to an entity (a 'referent').
+        name: standsFor
+  Property:
+    iri: pink:Property
+    subClassOf: pink:Sign
+    keywords:
+      hasUnit:
+        iri: pink:hasUnit
+        type: owl:ObjectProperty
+        domain: pink:Property
+        range: rdfs:Literal
+        subPropertyOf: pink:hasDescription
+        prefLabel: hasUnit
+        http://www.w3.org/2004/02/skos/core#definition: Connects a property to its
+          unit.
+        http://www.w3.org/2004/02/skos/core#scopeNote: '`pink:hasUnit` is intended
+          to refer to a unit in an existing unit ontology, like QUDT or EMMO.'
+        usageNote: "A universal restriction should be used when referring to a unit\
+          \ in EMMO.  For example:\n\n    :LethalDose50\n        a pink:Toxicity ,\
+          \ [\n            a owl:Restriction ;\n            owl:onProperty pink:hasUnit\
+          \ ;\n            owl:someValuesFrom emmo:MilliGramPerKiloGram\n        ]\
+          \ .\n"
+        name: hasUnit
+      isPropertyOf:
+        iri: pink:isPropertyOf
+        type: owl:ObjectProperty
+        domain: pink:Property
+        range: prov:Entity
+        subPropertyOf: pink:standsFor
+        http://www.w3.org/2002/07/owl#inverseOf: https://w3id.org/pink#hasProperty
+        prefLabel: isPropertyOf
+        http://www.w3.org/2004/02/skos/core#definition: Connects a property to an
+          entity.
+        name: isPropertyOf
+  Description:
+    iri: pink:Description
+    subClassOf: pink:Sign
+    keywords:
+      isDescriptionOf:
+        iri: pink:isDescriptionOf
+        type: owl:ObjectProperty
+        domain: pink:Description
+        range: prov:Entity
+        subPropertyOf: pink:standsFor
+        http://www.w3.org/2002/07/owl#inverseOf: https://w3id.org/pink#hasDescription
+        prefLabel: isDescriptionOf
+        http://www.w3.org/2004/02/skos/core#definition: Connects a description to
+          an entity.
+        name: isDescriptionOf
   Entity:
     iri: prov:Entity
     keywords:
+      tierLevel:
+        iri: pink:tierLevel
+        type: owl:ObjectProperty
+        domain: prov:Entity
+        range: pink:TierLevel
+        prefLabel: tierLevel
+        http://www.w3.org/2004/02/skos/core#definition: Relate an entity to an SSbD
+          tier level.
+        usageNote: One of `pink:tierlevel1` (ideation/design), `pink:tierlevel2` (lab
+          phase/development), `pink:tierlevel3` (up-scaling/production)
+        name: tierLevel
       participatesTo:
         iri: pink:participatesTo
         type:
@@ -1645,10 +1759,12 @@ resources:
         - owl:ObjectProperty
         domain: prov:Entity
         range: prov:Activity
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf: https://w3id.org/pink#isOvercrossedBy
+        subPropertyOf: pink:isOvercrossedBy
         prefLabel: participatesTo
-        comment: The entity through overlaps the activity.
-        description: Relation an entity to an activity that it interacts with.
+        http://www.w3.org/2004/02/skos/core#skopeNote: The entity through overlaps
+          the activity.
+        http://www.w3.org/2004/02/skos/core#definition: Relation an entity to an activity
+          that it interacts with.
         name: participatesTo
       wasGeneratedBy:
         iri: pink:wasGeneratedBy
@@ -1658,13 +1774,14 @@ resources:
         - owl:ObjectProperty
         domain: prov:Entity
         range: prov:Activity
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
-        - http://www.w3.org/ns/prov#wasGeneratedBy
-        - https://w3id.org/pink#isOvercrossedBy
+        subPropertyOf:
+        - prov:wasGeneratedBy
+        - pink:isOvercrossedBy
         prefLabel: wasGeneratedBy
-        comment: The activity A proper overlaps the entity E, where the non-overlapping
-          part of E is caused by A.
-        description: Relates an entity to the activity it was generated from.
+        http://www.w3.org/2004/02/skos/core#skopeNote: The activity A proper overlaps
+          the entity E, where the non-overlapping part of E is caused by A.
+        http://www.w3.org/2004/02/skos/core#definition: Relates an entity to the activity
+          it was generated from.
         name: wasGeneratedBy
       wasDerivedBy:
         iri: pink:wasDerivedBy
@@ -1674,12 +1791,12 @@ resources:
         - owl:ObjectProperty
         domain: prov:Entity
         range: prov:Entity
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
-        - http://www.w3.org/ns/prov#wasDerivedBy
-        - https://w3id.org/pink#processedFrom
+        subPropertyOf:
+        - prov:wasDerivedBy
+        - pink:processedFrom
         prefLabel: wasDerivedBy
-        description: Indirect relation that relates the output entity of an activity
-          to its input entity.
+        http://www.w3.org/2004/02/skos/core#definition: Indirect relation that relates
+          the output entity of an activity to its input entity.
         name: wasDerivedBy
       wasAttributedTo:
         iri: pink:wasAttributedTo
@@ -1689,22 +1806,129 @@ resources:
         - owl:ObjectProperty
         domain: prov:Entity
         range: prov:Agent
-        http://www.w3.org/2000/01/rdf-schema#subPropertyOf:
-        - http://www.w3.org/ns/prov#wasAttributedTo
-        - https://w3id.org/pink#causedBy
+        subPropertyOf:
+        - prov:wasAttributedTo
+        - pink:causedBy
         prefLabel: wasAttributedTo
-        comment: The activity is through overlapped by the agent and overcrossed by
-          the entity.
-        description: Relates an entity to an agent via an activity that both the entity
-          and agent participates to.
+        http://www.w3.org/2004/02/skos/core#definition: Relates an entity to an agent
+          via an activity that both the entity and agent participates to.
+        http://www.w3.org/2004/02/skos/core#skopeNote: The activity is through overlapped
+          by the agent and overcrossed by the entity.
         http://www.w3.org/2002/07/owl#inverseOf: https://w3id.org/pink#attributed
         name: wasAttributedTo
+      isRepresentedBy:
+        iri: pink:isRepresentedBy
+        type: owl:ObjectProperty
+        domain: prov:Entity
+        range: pink:Sign
+        subPropertyOf: pink:semiotical
+        http://www.w3.org/2002/07/owl#inverseOf: https://w3id.org/pink#standsFor
+        prefLabel: isRepresentedBy
+        http://www.w3.org/2004/02/skos/core#definition: Connects an entity to a sign
+          that stands for the entity.
+        name: isRepresentedBy
       hasProperty:
         iri: pink:hasProperty
         type: owl:ObjectProperty
         domain: prov:Entity
         range: pink:Property
+        subPropertyOf: pink:isRepresentedBy
         prefLabel: hasProperty
-        description: A semiotic relation that connects a semiotic object to a property
-          in a declaration process.
+        http://www.w3.org/2004/02/skos/core#definition: Connects an entity to a property.
         name: hasProperty
+      hasDescription:
+        iri: pink:hasDescription
+        type: owl:ObjectProperty
+        domain: prov:Entity
+        range: pink:Description
+        subPropertyOf: pink:isRepresentedBy
+        prefLabel: hasDescription
+        http://www.w3.org/2004/02/skos/core#definition: Connects an entity to a description.
+        name: hasDescription
+  Activity:
+    iri: prov:Activity
+    keywords:
+      used:
+        iri: pink:used
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Activity
+        range: prov:Entity
+        subPropertyOf:
+        - prov:used
+        - pink:isOvercrossedBy
+        prefLabel: used
+        http://www.w3.org/2004/02/skos/core#skopeNote: The activity A proper overlaps
+          the entity E, where the non-overlapping part of E causes A.
+        http://www.w3.org/2004/02/skos/core#definition: Relates an activity to an
+          entity that it used.
+        http://www.w3.org/2004/02/skos/core#example: For example, :baking :used :spoon,
+          :egg, :oven .
+        name: used
+      hasInput:
+        iri: pink:hasInput
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Activity
+        range: prov:Entity
+        subPropertyOf: pink:used
+        prefLabel: hasInput
+        http://www.w3.org/2004/02/skos/core#skopeNote: The activity A proper overlaps
+          the entity E, where the non-overlapping part of E causes A.
+        http://www.w3.org/2004/02/skos/core#definition: Relates an activity to an
+          entity that is input to the activity.
+        name: hasInput
+      hasOutput:
+        iri: pink:hasOutput
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Activity
+        range: prov:Entity
+        subPropertyOf:
+        - '@id'
+        - owl:inverseOf
+        prefLabel: hasOutput
+        http://www.w3.org/2004/02/skos/core#skopeNote: The activity A proper overlaps
+          the entity E, where the non-overlapping part of E is caused by A.
+        http://www.w3.org/2004/02/skos/core#definition: Relates an activity to an
+          entity that is the output of the activity.
+        name: hasOutput
+      wasAssociatedWith:
+        iri: pink:wasAssociatedWith
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Activity
+        range: prov:Agent
+        subPropertyOf:
+        - prov:wasAssociatedWith
+        - pink:isOvercrossedBy
+        prefLabel: wasAssociatedWith
+        http://www.w3.org/2004/02/skos/core#skopeNote: The activity is through overlapped
+          by the agent.
+        http://www.w3.org/2004/02/skos/core#definition: Relates an activity to an
+          agent that had some (unspecified) responsibility for the occurence of this
+          activity.
+        name: wasAssociatedWith
+      wasInformedBy:
+        iri: pink:wasInformedBy
+        type:
+        - owl:AsymmetricProperty
+        - owl:IrreflexiveProperty
+        - owl:ObjectProperty
+        domain: prov:Activity
+        range: prov:Activity
+        subPropertyOf:
+        - prov:wasInformedBy
+        - pink:isAfter
+        prefLabel: wasInformedBy
+        http://www.w3.org/2004/02/skos/core#definition: A one-directional relation
+          between an activity that affects the subject activity.
+        name: wasInformedBy
