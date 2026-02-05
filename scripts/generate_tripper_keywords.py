@@ -26,5 +26,4 @@ kw.data.prefixes["emmo"] = "https://w3id.org/emmo/hume#"
 kw.load_rdf(ts, redefine="allow")
 
 kw.save_yaml(rootdir / "context/generated_keywords.yml")
-
 kw.save_context(rootdir / "context/pink_context.json")

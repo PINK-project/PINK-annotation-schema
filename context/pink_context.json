@@ -67,6 +67,7 @@
       "@id": "dcterms:contributor",
       "@type": "@id"
     },
+    "creationDate": "dcterms:created",
     "creator": {
       "@id": "dcterms:creator",
       "@type": "@id"
@@ -78,6 +79,10 @@
     "curator": {
       "@id": "ddoc:curator",
       "@type": "@id"
+    },
+    "definition": {
+      "@id": "skos:definition",
+      "@language": "en"
     },
     "description": {
       "@id": "dcterms:description",
@@ -226,7 +231,6 @@
       "@id": "skos:altLabel",
       "@language": "en"
     },
-    "definition": "skos:definition",
     "example": "skos:example",
     "scopeNote": "skos:scopeNote",
     "distribution": {
