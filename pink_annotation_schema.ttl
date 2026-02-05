@@ -179,6 +179,14 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:definition "Relate an entity to an SSbD tier level."@en ;
     vann:usageNote "One of `pink:tierlevel1` (ideation/design), `pink:tierlevel2` (lab phase/development), `pink:tierlevel3` (up-scaling/production)"@en .
 
+:chemicalClass rdf:type owl:ObjectProperty ;
+    rdfs:range xsd:string ;
+    rdfs:domain prov:Entity ;
+    skos:prefLabel "chemicalClass"@en ;
+    skos:definition ""Group of chemicals that and entity is relevant for."@en ;
+    vann:usageNote "Choose one of: polymers, organic compounds, metals, nanosturcture, inorganic compounds, or other. If other, please add an appropriate description."@en .
+
+
 
 ### Other PINK-specific relations
 :documentation a owl:ObjectProperty ;
