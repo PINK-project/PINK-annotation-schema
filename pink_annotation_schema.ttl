@@ -66,9 +66,9 @@ The PINK Annotation Schema has a modular structure and aims to cover the followi
 * Top-level taxonomy for (advanced) materials and chemicals based on [EMMO](https://emmc.eu/emmo/) with mappings to [ChEBI](https://www.ebi.ac.uk/chebi/) for chemicals.
 * Categorisation models.
 * Strong taxonomy for relations, which are grouped into:
-  - [parthood relations](https://pink-project.github.io/PINK-annotation-schema/docs/figs/parthood-relations.png), based on mereology
-  - [causal relations](https://pink-project.github.io/PINK-annotation-schema/docs/figs/causal-relations.png), based on causality
-  - [semiotic relations](https://pink-project.github.io/PINK-annotation-schema/docs/figs/semiotic-relations.svg), based on [Pierse semiotics](https://plato.stanford.edu/entries/peirce-semiotics/)
+  - [parthood relations](https://pink-project.github.io/PINK-annotation-schema/docs/background.html#parthood-relations), based on mereology
+  - [causal relations](https://pink-project.github.io/PINK-annotation-schema/docs/background.html#causal-relations), based on causality
+  - [semiotic relations](https://pink-project.github.io/PINK-annotation-schema/docs/background.html#semiotic-relations), based on [Pierse semiotics](https://plato.stanford.edu/entries/peirce-semiotics/)
 
 Separate reference documentations exists for the following sub-modules:
 
