@@ -63,6 +63,10 @@ jobs:
             -saw \
             --base-iri="${ONTOLOGY_IRI}#" \
             --iri="${ONTOLOGY_IRI}" \
+            --namespace="pink:${ONTOLOGY_IRI}#" \
+            --namespace="ddoc:https://w3id.org/emmo/application/datadoc#" \
+            --namespace="vidoco:https://w3id.org/widoco/vocab#" \
+            --namespace="dcatap:http://data.europa.eu/r5r/" \
             ${ONTOLOGY_NAME}.ttl \
             build/${ONTOLOGY_NAME}.ttl
 
@@ -108,8 +112,12 @@ jobs:
 
     - name: Generate Widoco documentation for ddoc terms
       run: |
+        ontoconvert -awe \
+            ddoc.ttl \
+            build/ddoc-doc.ttl
+
         java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
-            -ontFile ddoc.ttl \
+            -ontFile build/ddoc-doc.ttl \
             -outFolder build/widoco-ddoc \
             -excludeIntroduction \
             -getOntologyMetadata \
@@ -149,7 +157,7 @@ jobs:
         mkdir -p build/context
         keywords \
             --input=pink_annotation_schema.ttl \
-            --context=build/context/pink_annotation_schema.jsonld \
+            --write-context=build/context/pink_annotation_schema.jsonld \
             --redefine=allow \
             --set-prefix=emmo:https://w3id.org/emmo/hume#
             #--namespace-filter=pink
@@ -159,7 +167,7 @@ jobs:
         mkdir -p build/context
         keywords \
             --input=pink_annotation_schema.ttl \
-            --yaml=build/context/keywords.yaml \
+            --write-kw-yaml=build/context/keywords.yaml \
             --redefine=allow \
             --set-prefix=emmo:https://w3id.org/emmo/hume#
             #--namespace-filter=pink
