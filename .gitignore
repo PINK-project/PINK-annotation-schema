@@ -1,2 +1,5 @@
-widoco-1.4.25-jar-with-dependencies_JDK-17.jar
+build/
+public/
 widoco/
+widoco-*/
+widoco-1.4.25-jar-with-dependencies_JDK-17.jar

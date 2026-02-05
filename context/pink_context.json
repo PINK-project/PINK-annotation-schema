@@ -24,7 +24,7 @@
     "vann": "http://purl.org/vocab/vann/",
     "vcard": "http://www.w3.org/2006/vcard/ns#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "emmo": "https://w3id.org/emmo#",
+    "emmo": "https://w3id.org/emmo/hume#",
     "oteio": "https://w3id.org/emmo/domain/oteio#",
     "chameo": "https://w3id.org/emmo/domain/characterisation-methodology/chameo#",
     "pink": "https://w3id.org/pink#",
@@ -47,7 +47,6 @@
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
     "widoco": "https://w3id.org/widoco/vocab#",
-    "hume": "https://w3id.org/emmo/hume#",
     "accessRights": {
       "@id": "dcterms:accessRights",
       "@type": "@id"
@@ -68,6 +67,7 @@
       "@id": "dcterms:contributor",
       "@type": "@id"
     },
+    "creationDate": "dcterms:created",
     "creator": {
       "@id": "dcterms:creator",
       "@type": "@id"
@@ -79,6 +79,10 @@
     "curator": {
       "@id": "ddoc:curator",
       "@type": "@id"
+    },
+    "definition": {
+      "@id": "skos:definition",
+      "@language": "en"
     },
     "description": {
       "@id": "dcterms:description",
@@ -227,7 +231,6 @@
       "@id": "skos:altLabel",
       "@language": "en"
     },
-    "definition": "skos:definition",
     "example": "skos:example",
     "scopeNote": "skos:scopeNote",
     "distribution": {

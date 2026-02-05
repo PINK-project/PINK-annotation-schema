@@ -78,12 +78,8 @@ Separate reference documentations exists for the following sub-modules:
 * [matter](https://pink-project.github.io/PINK-annotation-schema/widoco-matter/index-en.html): Taxonomy for (advanced) materials and chemicals
 * [models](https://pink-project.github.io/PINK-annotation-schema/widoco-models/index-en.html): Taxonomy for models.
 
-The root of the PINK Annotation Schema is shown below. More information can be found in the [background](
-https://pink-project.github.io/PINK-annotation-schema/docs/background.html) section.
+The root of the PINK Annotation Schema is shown below. More information can be found in the [background](https://pink-project.github.io/PINK-annotation-schema/docs/background.html) section.
 
-<p>
-<img src="https://pink-project.github.io/PINK-annotation-schema/docs/figs/taxonomy.svg" alt="Root of the PINK Annotation Schema.">
-<p>
 """@en .
 
 
@@ -219,14 +215,14 @@ vann:usageNote rdf:type owl:AnnotationProperty .
 :hasPart rdf:type owl:ObjectProperty, owl:ReflexiveProperty ;
     rdfs:subPropertyOf dcterms:hasPart, :overlaps ;
     skos:prefLabel "hasPart"@en ;
-    skos:skopeNote "OWL2 does not allow non-simple (e.g. transitive) properties to appear in disjoint property axioms. We therefore implement the transitivity of hasPart using SWRL rules instead of asserting it with owl:TransitiveProperty."@en ;
+    skos:scopeNote "OWL2 does not allow non-simple (e.g. transitive) properties to appear in disjoint property axioms. We therefore implement the transitivity of hasPart using SWRL rules instead of asserting it with owl:TransitiveProperty."@en ;
     skos:definition "The primitive relation that express the concept of an entity being part of another one."@en .
 
 :hasParticipant rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
     skos:prefLabel "hasParticipant"@en ;
     skos:definition "The relation between a process and an object participating to it, i.e. that is relevant to the process itself."@en ;
-    skos:skopeNote "Participation is a parthood relation: you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process."@en .
+    skos:scopeNote "Participation is a parthood relation - you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process."@en .
 
 :hasDatum rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
@@ -239,13 +235,13 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     rdfs:subPropertyOf :hasPart ;
     skos:prefLabel "hasSpatialPart"@en ;
     skos:definition "A proper part of a whole, whose parts always cover the full temporal extension of the whole within a spatial interval."@en ;
-    skos:skopeNote "The part is connected with the rest item or members with hasContact relations only (no hasNext)."@en .
+    skos:scopeNote "The part is connected with the rest item or members with hasContact relations only (no hasNext)."@en .
 
 :hasTemporalPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
     skos:prefLabel "hasTemporalPart"@en ;
     skos:definition "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval." ;
-    skos:skopeNote "A temporal part of an item cannot both cause and be caused by any other proper part of the item."@en .
+    skos:scopeNote "A temporal part of an item cannot both cause and be caused by any other proper part of the item."@en .
 
 :hasJunctionPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
@@ -259,7 +255,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:prefLabel "participatesTo"@en ;
     rdfs:domain prov:Entity ;
     rdfs:range prov:Activity ;
-    skos:skopeNote "The entity through overlaps the activity."@en ;
+    skos:scopeNote "The entity through overlaps the activity."@en ;
     skos:definition "Relation an entity to an activity that it interacts with."@en .
 
 :used rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -267,7 +263,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:prefLabel "used"@en ;
     rdfs:domain prov:Activity ;
     rdfs:range prov:Entity ;
-    skos:skopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."@en ;
+    skos:scopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."@en ;
     skos:definition "Relates an activity to an entity that it used."@en ;
     skos:example "For example, :baking :used :spoon, :egg, :oven ." .
 
@@ -276,7 +272,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:prefLabel "wasGeneratedBy"@en ;
     rdfs:domain prov:Entity ;
     rdfs:range prov:Activity ;
-    skos:skopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
+    skos:scopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
     skos:definition "Relates an entity to the activity it was generated from."@en .
 
 :hasInput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -284,7 +280,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:prefLabel "hasInput"@en ;
     rdfs:domain prov:Activity ;
     rdfs:range prov:Entity ;
-    skos:skopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."@en ;
+    skos:scopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."@en ;
     skos:definition "Relates an activity to an entity that is input to the activity."@en .
 
 :hasOutput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -292,7 +288,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:prefLabel "hasOutput"@en ;
     rdfs:domain prov:Activity ;
     rdfs:range prov:Entity ;
-    skos:skopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
+    skos:scopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
     skos:definition "Relates an activity to an entity that is the output of the activity."@en .
 
 :wasAssociatedWith rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -300,7 +296,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:prefLabel "wasAssociatedWith"@en ;
     rdfs:domain prov:Activity ;
     rdfs:range prov:Agent ;
-    skos:skopeNote "The activity is through overlapped by the agent."@en ;
+    skos:scopeNote "The activity is through overlapped by the agent."@en ;
     skos:definition "Relates an activity to an agent that had some (unspecified) responsibility for the occurence of this activity."@en .
 
 :hasSoftware rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -348,7 +344,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     rdfs:domain prov:Entity ;
     rdfs:range prov:Agent ;
     skos:definition "Relates an entity to an agent via an activity that both the entity and agent participates to."@en ;
-    skos:skopeNote "The activity is through overlapped by the agent and overcrossed by the entity."@en ;
+    skos:scopeNote "The activity is through overlapped by the agent and overcrossed by the entity."@en ;
     owl:inverseOf :attributed .
 
 :attributed rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -357,8 +353,8 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     rdfs:domain prov:Agent ;
     rdfs:range prov:Entity ;
     skos:definition "Relates an agent to an entity via an activity that both the agent and entity participates to."@en ;
-    skos:skopeNote "There may or may not be a causal interaction between the agent and entity."@en ;
-    skos:skopeNote "The activity is through overlapped by the agent and overcrossed by the entity."@en ;
+    skos:scopeNote "There may or may not be a causal interaction between the agent and entity."@en ;
+    skos:scopeNote "The activity is through overlapped by the agent and overcrossed by the entity."@en ;
     owl:inverseOf :wasAttributedTo .
 
 :priorRelease rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
@@ -367,16 +363,16 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     rdfs:domain :Software ;
     rdfs:range :Software ;
     skos:definition "Direct relation that relates a software to the most resent earlier release of the software."@en ;
-    skos:skopeNote "Useful for tracking the provenance of software releases."@en .
+    skos:scopeNote "Useful for tracking the provenance of software releases."@en .
 
 
 ### Semiotic relations
 :semiotical rdf:type owl:ObjectProperty ;
     skos:prefLabel "semiotical"@en ;
     skos:definition "The base of all semiotic relations."@en ;
-    skos:skopeNote "Semiotic relations take part in a triadic semiotic meaning-making process, where an 'interpreter' connects a 'sign' (e.g. a property) to an entity (called 'referent')."@en ;
-    skos:skopeNote "The semiotic relations in the PINK Annotation Scheme are inspirred by EMMO, which in turn is based on the semiotic theory by Charles Sanders Peirce (1839-1914)."@en ;
-    skos:skopeNote "Semiotic relations can be seen as shortcuts that replaces a series of complex causal relations with a single relation."@en .
+    skos:scopeNote "Semiotic relations take part in a triadic semiotic meaning-making process, where an 'interpreter' connects a 'sign' (e.g. a property) to an entity (called 'referent')."@en ;
+    skos:scopeNote "The semiotic relations in the PINK Annotation Scheme are inspirred by EMMO, which in turn is based on the semiotic theory by Charles Sanders Peirce (1839-1914)."@en ;
+    skos:scopeNote "Semiotic relations can be seen as shortcuts that replaces a series of complex causal relations with a single relation."@en .
 
 :isInterpretedBy rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf :semiotical ;
@@ -464,7 +460,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
 ### SSbD-related classes
 :SsbdDimension rdf:type owl:Class ;
     skos:prefLabel "SsbdDimension"@en ;
-    skos:skopeNote "The pink:SsbdDimension is an extension of the 'sustainability dimensions' defined by JRC." ;
+    skos:scopeNote "The pink:SsbdDimension is an extension of the 'sustainability dimensions' defined by JRC." ;
     skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
 
@@ -748,7 +744,7 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
     skos:prefLabel "safety" ;
     skos:definition "Human helth and environmental safety aspects of chemicals and materials."@en ;
     dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
-    skos:skopeNote """In the context of chemicals assessment, safety could be referring to a
+    skos:scopeNote """In the context of chemicals assessment, safety could be referring to a
 certain condition where a stressor (e.g. a chemical) is unlikely to
 cause any adverse effect to a receptor (e.g. humans and other
 organisms) (more related to intrinsic hazard properties of the
@@ -764,7 +760,7 @@ assessment context."""@en ;
     skos:prefLabel "environmental_systainability" ;
     skos:definition "The ability to conserve natural resources and protect global ecosystems to support human health and wellbeing, within the limits of our Planet"@en ;
     dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
-    skos:skopeNote """Assessing environmental sustainability implies to assess the environmental impacts generated by
+    skos:scopeNote """Assessing environmental sustainability implies to assess the environmental impacts generated by
 chemicals/materials along the entire life cycle to move towards:
 
   · A toxic-free environment as stated in the CSS (i.e. minimising the total toxicity footprint in terms
@@ -785,7 +781,7 @@ chemicals/materials along the entire life cycle to move towards:
     skos:prefLabel "social_sustainability" ;
     skos:definition "A globally agreed list of objectives and targets to be pursued for achieving sustainable development."@en ;
     dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
-    skos:skopeNote """In the SDGs framework several Goals focus on social aspects,
+    skos:scopeNote """In the SDGs framework several Goals focus on social aspects,
 e.g. poverty eradication (SDG 1), food security (SDG 2), health (SDG 3),
 education (SDG 4), gender equality (SDG 5), decent work (SDG 8),
 reduce inequalities (SDG 10), peace and justice (SDG 16)."""@en ;
@@ -795,7 +791,7 @@ reduce inequalities (SDG 10), peace and justice (SDG 16)."""@en ;
     skos:prefLabel "economic" ;
     skos:definition "Aspects related to techno-economic feasibility, to operational costs, etc."@en ;
     dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
-    skos:skopeNote """There are important considerations to be made in the context of SSbD
+    skos:scopeNote """There are important considerations to be made in the context of SSbD
 such as the 'availability' of raw materials, as chemicals/materials
 cannot be declared SSbD if the raw materials to produce them are not
 renewable or are (very) scarce and extracted and processed in an

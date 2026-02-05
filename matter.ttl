@@ -25,33 +25,13 @@
                                 dcterms:abstract "The Matter module of PINK Annotation Schema providing a taxonomy for physical matter (including nanomaterial, chemical compounds, etc...) with anchor points for links for CheBI."@en ;
     dcterms:title "The Matter module of PINK Annotation Schema"@en ;
     widoco:introduction """
+This module is a part of the [PINK Annotation Schema](https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html).
 Matter is a physical entity that possess mass and occupies volume.
-This module provides a categorisation of different types of matter entities.
 
+This module provides a categorisation of different types of matter entities.
 At the top it categorise matter into molecular entities (discrete atoms or molecules) and different types of substances (homogenious properties).
 
-<p>
-<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/matter.png" alt="Top-level of matter branch">
-<p>
-
-The following two figures shows the categorisation of molecular entities and substances, respectively.
-
-<p>
-<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/molecular-entity.png" alt="Molecular entities.">
-<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/substances.png" alt="Substances.">
-<p>
-
-Under substances we find materials
-
-<p>
-<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/material.png" alt="Materials.">
-<p>
-
-and the different aggregation states of matter
-
-<p>
-<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/state-of-matter.png" alt="State of matter.">
-<p>
+A page illustrating showing how the PINK Annotation Schema categorise models can be found [here](https://pink-project.github.io/PINK-annotation-schema/docs/matter.html).
 """@en .
 
 
@@ -120,7 +100,7 @@ An O 'atom' within an O₂ 'molecule' is an 'e-bonded_atom'.
 In this material branch, H atom is a particular case, with respect to higher atomic number atoms, since as soon as it shares its electron it has no nucleus entangled electron cloud.
 
 We cannot say that H₂ molecule has direct part two H atoms, but has direct part two H nucleus."""@en ;
-    skos:skos:scopeNote "An 'atom' is a 'nucleus' surrounded by an 'electron_cloud', i.e. a quantum system made of one or more bounded electrons."@en .
+    skos:scopeNote "An 'atom' is a 'nucleus' surrounded by an 'electron_cloud', i.e. a quantum system made of one or more bounded electrons."@en .
 
 
 ###  https://w3id.org/emmo/hume#BondedAtom
