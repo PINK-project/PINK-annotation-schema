@@ -121,6 +121,12 @@ prov:wasInformedBy
     prov:inverse "informed" ;
     prov:qualifiedForm prov:Communication, prov:qualifiedCommunication .
 
+dcterms:description a owl:AnnotationProperty ;
+    dcterms:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
+    dcterms:issued "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    rdfs:comment "An account of the resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Description"@en .
 
 ### Data properties
 
@@ -128,6 +134,7 @@ dcterms:issued a owl:DatatypeProperty ;
     rdfs:label "releaseDate" ;
     rdfs:range xsd:dateTime ;
     rdfs:comment "The date of formal issuance (e.g., publication) of the resource." .
+
 
 #
 # ### Classes

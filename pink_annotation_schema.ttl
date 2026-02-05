@@ -15,9 +15,8 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix widoco: <https://w3id.org/widoco/vocab#> .
 @prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
-@prefix emmo: <https://w3id.org/emmo#> .
-@prefix pink: <https://w3id.org/pink#> .
 @prefix emmo: <https://w3id.org/emmo/hume#> .
+@prefix pink: <https://w3id.org/pink#> .
 
 @base <https://w3id.org/pink#> .
 
