@@ -195,6 +195,13 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:definition "Whether the software has an API." .
 
 
+:hasGUI a owl:DatatypeProperty ;
+    rdfs:domain :Software ;
+    rdfs:range xsd:boolean ;
+    skos:prefLabel "hasGUI"@en ;
+    skos:definition "Whether the software has a GUI." .
+
+
 ### Parthood relations
 :overlaps rdf:type owl:ObjectProperty, owl:SymmetricProperty, owl:ReflexiveProperty ;
     skos:prefLabel "overlaps"@en ;
