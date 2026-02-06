@@ -183,7 +183,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     rdfs:domain prov:Entity ;
     skos:prefLabel "chemicalClass"@en ;
     skos:definition "Group of chemicals that and entity is relevant for."@en ;
-    vann:usageNote "Choose one of: polymers, organic compounds, metals, nanosturcture, inorganic compounds, or other. If other, please add an appropriate description."@en .
+    vann:usageNote "Choose one of subclasses of pink:Matter."@en .
 
 
 
