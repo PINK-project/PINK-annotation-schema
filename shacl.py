@@ -6,12 +6,7 @@ from tripper.datadoc.tabledoc import TableDoc
 from pandas import read_csv
 
 
-#keywords = get_keywords('keywords.yaml')
-kw = get_keywords()
-
-kw.add_prefix('emmo','https://w3id.org/emmo/hume#', replace=True) 
-
-
+kw = get_keywords(theme=None)
 kw.load_yaml('https://pink-project.github.io/PINK-annotation-schema/context/keywords.yaml', redefine='allow')
 
 
@@ -38,21 +33,16 @@ sw = sw.drop(columns=["inputDatasetType", "outputDatasetType"])
 sw = sw.drop(columns=["indicator", "SsbdDescription", "hasGUI", "chemicalClass"])
 #sw.rename(columns={"indicator": "Indicator"}, inplace=True)  
 
-
 sw.rename(columns={"modelType": "implementsModel", "SsbdDimension": "ssbdDimension", "identifier": "@id"}, inplace=True)
 
+# A bit cumbersome to write file, I am sure there are better ways
 sw.to_csv('sw_clean.csv', index=False)
+
 
 datadocumentation = TableDoc.parse_csv(
         'sw_clean.csv',
         keywords=kw,
         )
-
-#datadocumentation = TableDoc.fromdicts(
-#        sw.to_dict(), 
-#        #prefixes={},
-#        keywords=kw,
-#)
 
 
 datadocumentation.save(ts)
