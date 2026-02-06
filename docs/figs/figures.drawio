@@ -754,12 +754,16 @@
         <mxCell id="U__jxI8TlzRfbw5ZVV6E-109" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=16;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=0" value="&lt;span&gt;&lt;span&gt;:wasDerivedBy&lt;/span&gt;&lt;/span&gt;" vertex="1">
           <mxGeometry height="36" width="137.5" x="124.5" y="244" as="geometry" />
         </mxCell>
-        <mxCell id="MsgE9_sognX5KZbsv21s-11" parent="1" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=16;" value="prov:startedAtTime" vertex="1">
-          <mxGeometry height="30" width="160" x="694.29" y="864.5" as="geometry" />
-        </mxCell>
-        <mxCell id="MsgE9_sognX5KZbsv21s-12" parent="1" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=16;" value="prov:endedAtTime" vertex="1">
-          <mxGeometry height="30" width="160" x="524.29" y="864.5" as="geometry" />
-        </mxCell>
+        <UserObject label="prov:startedAtTime" link="http://www.w3.org/ns/prov#startedAtTime" id="MsgE9_sognX5KZbsv21s-11">
+          <mxCell parent="1" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=16;" vertex="1">
+            <mxGeometry height="30" width="160" x="694.29" y="864.5" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="prov:endedAtTime" link="http://www.w3.org/ns/prov#endedAtTime" id="MsgE9_sognX5KZbsv21s-12">
+          <mxCell parent="1" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=16;" vertex="1">
+            <mxGeometry height="30" width="160" x="524.29" y="864.5" as="geometry" />
+          </mxCell>
+        </UserObject>
         <mxCell id="Ji1VOxMkKlF5iQnc6PrW-100" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=16;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;span&gt;:overlaps&lt;/span&gt;" vertex="1">
           <mxGeometry height="36" width="90" x="2816.75" y="-445.79999999999995" as="geometry" />
         </mxCell>
@@ -4405,7 +4409,7 @@
         </UserObject>
         <UserObject label="&lt;font style=&quot;font-size: 12px; color: rgb(204, 0, 0);&quot;&gt;(:isPropertyOf)&lt;/font&gt;" link="data:page/id,c_qGwFVzFrKK_DlR2sme" linkTarget="_blank" id="W3el2rTcvLV5ZB6Vv5sA-121">
           <mxCell parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=16;fontColor=default;labelBackgroundColor=none;" vertex="1">
-            <mxGeometry height="14" width="77" x="731.52" y="816.25" as="geometry" />
+            <mxGeometry height="14" width="77" x="733.52" y="816.25" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="&lt;font style=&quot;font-size: 12px; color: rgb(204, 0, 0);&quot;&gt;(:isDescriptionOf)&lt;/font&gt;" link="https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html#isDescriptionOf" linkTarget="_blank" id="W3el2rTcvLV5ZB6Vv5sA-122">

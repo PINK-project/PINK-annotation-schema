@@ -108,7 +108,7 @@ stat:Withdrawn a skos:Concept ;
     skos:prefLabel "Withdrawn"@en .
 
 dcterms:LicenseDocument a owl:Class ;
-    skos:definition "A legal document giving official permission to do something with a resource." .
+    rdfs:comment "A legal document giving official permission to do something with a resource." .
 
 dcterms:Location a owl:Class ;
     skos:definition "A spatial region or named place." ;
