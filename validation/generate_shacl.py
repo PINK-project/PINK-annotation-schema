@@ -220,47 +220,6 @@ def get_properties_for_class(
     ]
 
 
-def get_annotation_properties_for_class(
-    graph: Graph,
-    target_class: URIRef
-) -> List[Tuple[URIRef, Optional[URIRef], Optional[URIRef]]]:
-    """
-    Find annotation properties with rdfs:domain matching target class.
-
-    Some properties like dcterms:title are annotation properties.
-
-    Parameters:
-        graph: Ontology graph.
-        target_class: Class URI to find properties for.
-
-    Returns:
-        List of tuples (property_uri, conformance_level or None, range_uri or None).
-    """
-    query = """
-    SELECT DISTINCT ?prop ?conformance ?range
-    WHERE {
-        ?prop a owl:AnnotationProperty .
-        ?prop rdfs:domain ?domain .
-        OPTIONAL { ?prop ddoc:conformance ?conformance . }
-        OPTIONAL { ?prop rdfs:range ?range . }
-        FILTER (?domain = ?target)
-    }
-    """
-    results = graph.query(
-        query,
-        initNs={"rdfs": RDFS, "ddoc": DDOC, "owl": OWL},
-        initBindings={"target": target_class}
-    )
-    return [
-        (
-            URIRef(row.prop),  # type: ignore[union-attr]
-            URIRef(row.conformance) if row.conformance else None,  # type: ignore[union-attr]
-            URIRef(row.range) if row.range else None  # type: ignore[union-attr]
-        )
-        for row in results
-    ]
-
-
 def is_datatype(range_uri: Optional[URIRef]) -> bool:
     """
     Check if range URI is an XSD datatype.
@@ -367,12 +326,8 @@ def generate_shapes(onto_dir: Path, output_path: Path) -> None:
                 parent_shape = generated_shapes[parent_class]
                 shapes.add((shape_uri, SH.node, parent_shape))
 
-        # Get object/datatype properties for this class
+        # Get properties for this class
         properties = get_properties_for_class(ontology, target_class)
-
-        # Get annotation properties for this class
-        annotation_props = get_annotation_properties_for_class(ontology, target_class)
-        properties.extend(annotation_props)
 
         # Create property shapes
         for prop_uri, conformance, range_uri in properties:
