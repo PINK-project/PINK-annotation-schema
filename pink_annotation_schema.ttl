@@ -1,0 +1,2733 @@
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pink: <https://w3id.org/pink#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vidoco: <https://w3id.org/widoco/vocab#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcatap:applicableLegislation a owl:ObjectProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range <http://data.europa.eu/eli/ontology#LegalResource> ;
+    skos:definition "The legislation that mandates the creation or management of the resource."^^xsd:string ;
+    skos:prefLabel "applicableLegislation"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcatap:availability a owl:DatatypeProperty ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:datetime ;
+    skos:definition "An indication how long it is planned to keep the Distribution of the Dataset available."^^xsd:string ;
+    skos:prefLabel "availability"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:recommended .
+
+dcatap:status a owl:ObjectProperty ;
+    vann:usageNote "It MUST take one of the values: 'stat:Completed', 'stat:Deprecated', 'stat:UnderDevelopment', 'stat:Withdrawn'."^^xsd:string ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range skos:Concept ;
+    skos:definition "The status of the distribution in the context of maturity lifecycle."^^xsd:string ;
+    skos:prefLabel "status"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+<http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL> a dcterms:RightsStatement ;
+    vann:usageNote "Disclosure of this data could cause damage to interested parties such as public administrations and businesses. It may refer to personal and professional information as well as to information in the context of business, commerce or trade."@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Information that is not disclosed."@en ;
+    skos:prefLabel "confidential"@en .
+
+<http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC> a dcterms:RightsStatement ;
+    vann:usageNote "This category may include resources that contain sensitive or personal information."@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Not publicly accessible for privacy, security or other reasons."@en ;
+    skos:prefLabel "non-public"@en .
+
+<http://publications.europa.eu/resource/authority/access-right/PUBLIC> a dcterms:RightsStatement ;
+    vann:usageNote "Permissible obstacles include registration and request for API keys, as long as anyone can request such registration and/or API keys."@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Publicly accessible by everyone."@en ;
+    skos:prefLabel "public"@en .
+
+<http://publications.europa.eu/resource/authority/access-right/RESTRICTED> a dcterms:RightsStatement ;
+    vann:usageNote "This category may include resources that require payment, resources shared under non-disclosure agreements, resources for which the publisher or owner has not yet decided if they can be publicly released."@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Only available under certain conditions."@en ;
+    skos:prefLabel "restricted"@en .
+
+<http://publications.europa.eu/resource/authority/access-right/SENSITIVE> a dcterms:RightsStatement ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Sensitive non-classified (SNC) information, information whose unauthorised disclosure could cause damage to the Commission or other interested parties such as businesses, companies, intellectual property or personal data but which is not EU classified information."@en ;
+    skos:prefLabel "sensitive"@en .
+
+<http://purl.org/adms/status/Completed> a skos:Concept ;
+    skos:inScheme <http://purl.org/adms/status/1.0> ;
+    skos:notation "Completed"^^xsd:string ;
+    skos:prefLabel "Completed"@en .
+
+<http://purl.org/adms/status/Deprecated> a skos:Concept ;
+    skos:inScheme <http://purl.org/adms/status/1.0> ;
+    skos:notation "Deprecated"^^xsd:string ;
+    skos:prefLabel "Deprecated"@en .
+
+<http://purl.org/adms/status/UnderDevelopment> a skos:Concept ;
+    skos:inScheme <http://purl.org/adms/status/1.0> ;
+    skos:notation "UnderDevelopment"^^xsd:string ;
+    skos:prefLabel "UnderDevelopment"@en .
+
+<http://purl.org/adms/status/Withdrawn> a skos:Concept ;
+    skos:inScheme <http://purl.org/adms/status/1.0> ;
+    skos:notation "Withdrawn"^^xsd:string ;
+    skos:prefLabel "Withdrawn"@en .
+
+dcterms:abstract a owl:AnnotationProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range rdf:langString ;
+    skos:definition "A summary of the resource."^^xsd:string ;
+    skos:prefLabel "abstract"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+dcterms:accessRights a owl:ObjectProperty ;
+    vann:usageNote "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies. The following preferred Rights Statement individuals are defined: `accr:PUBLIC`, `accr:NON_PUBLIC`, `accr:CONFIDENTIAL`, `accr:RESTRICTED`, `accr:SENSITIVE`"^^xsd:string ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcterms:RightsStatement ;
+    skos:definition "Information about who can access the resource or an indication of its security status."^^xsd:string ;
+    skos:prefLabel "accessRights"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:accrualPeriodicity a owl:ObjectProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcterms:Frequency ;
+    skos:definition "The frequency at which the Dataset is updated."^^xsd:string ;
+    skos:prefLabel "frequency"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:bibliographicCitation a owl:AnnotationProperty ;
+    vann:usageNote "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible."^^xsd:string ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "A bibliographic reference for the resource."^^xsd:string ;
+    skos:prefLabel "bibliographicCitation"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+dcterms:conformsTo a owl:ObjectProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcterms:Standard ;
+    skos:definition "An implementing rule or other specification."^^xsd:string ;
+    skos:prefLabel "conformsTo"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:contributor a owl:ObjectProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range foaf:Agent ;
+    skos:definition "An entity responsible for making contributions to the resource."^^xsd:string ;
+    skos:prefLabel "contributor"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:creator a owl:ObjectProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range foaf:Agent ;
+    skos:definition "An entity responsible for producing the resource."^^xsd:string ;
+    skos:prefLabel "creator"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:description a owl:AnnotationProperty ;
+    rdfs:label "Description"@en ;
+    dcterms:description "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
+    dcterms:issued "2008-01-14"^^xsd:date ;
+    rdfs:comment "An account of the resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms>,
+        <https://w3id.org/pink/reused-terms#> .
+
+dcterms:format a owl:ObjectProperty ;
+    vann:usageNote "dcat:mediaType SHOULD be used if the type of the distribution is defined by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)."^^xsd:string ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcterms:MediaTypeOrExtent ;
+    skos:definition "The file format of the Distribution."^^xsd:string ;
+    skos:prefLabel "format"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:identifier a owl:AnnotationProperty ;
+    vann:usageNote "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs."^^xsd:string ;
+    rdfs:domain foaf:Agent ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "URI or other unique identifier of the resource being described."^^xsd:string ;
+    skos:prefLabel "identifier"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:isReferencedBy a owl:ObjectProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range rdfs:Resource ;
+    skos:definition "A related resource, such as a publication, that references, cites, or otherwise points to the documented resource."^^xsd:string ;
+    skos:prefLabel "isReferencedBy"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:issued a owl:DatatypeProperty ;
+    rdfs:label "releaseDate"^^xsd:string ;
+    rdfs:comment "The date of formal issuance (e.g., publication) of the resource."^^xsd:string ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy <https://w3id.org/pink/reused-terms#> ;
+    rdfs:range xsd:dateTime,
+        xsd:datetime ;
+    skos:definition "The date of formal issuance (e.g., publication) of the resource."^^xsd:string ;
+    skos:prefLabel "releaseDate"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:language a owl:DatatypeProperty ;
+    vann:usageNote """Recommended practice is to use either a non-literal value
+representing a language from a controlled vocabulary such as
+ISO 639-2 or ISO 639-3, or a literal value consisting of an
+IETF Best Current Practice 47
+[[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language
+tag.
+
+Example values: "en", "it", "no", "da"
+
+This property can be repeated if the resource is expressed
+with multiple languages.
+"""^^xsd:string ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:string ;
+    skos:definition "A language of the resource."^^xsd:string ;
+    skos:prefLabel "language"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:license a owl:ObjectProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcterms:LicenseDocument ;
+    skos:definition "A licence under which the resource is made available."^^xsd:string ;
+    skos:prefLabel "license"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:modified a owl:DatatypeProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:datetime ;
+    skos:definition "The most recent date on which the resource was changed or modified."^^xsd:string ;
+    skos:prefLabel "modificationDate"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:publisher a owl:ObjectProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range foaf:Agent ;
+    skos:definition "Agent responsible for making the resource available."^^xsd:string ;
+    skos:prefLabel "publisher"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:recommended .
+
+dcterms:relation a owl:ObjectProperty ;
+    rdfs:domain dcat:Relationship ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range rdfs:Resource ;
+    skos:definition "A resource with an unspecified relationship to the cataloged resource."^^xsd:string ;
+    skos:prefLabel "relatedResource"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:source a owl:ObjectProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcat:Dataset ;
+    skos:definition "A related Dataset from which the described Dataset is derived."^^xsd:string ;
+    skos:prefLabel "source"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:spatial a owl:ObjectProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcterms:Location ;
+    skos:definition "A geographic region that is covered by the dataset."^^xsd:string ;
+    skos:prefLabel "geographicalCoverage"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:recommended .
+
+dcterms:temporal a owl:ObjectProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcterms:PeriodOfTime ;
+    skos:definition "A temporal period that the Dataset covers."^^xsd:string ;
+    skos:prefLabel "temporalCoverage"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:recommended .
+
+dcterms:title a owl:AnnotationProperty ;
+    vann:usageNote "This property can be repeated for parallel language versions of the name."^^xsd:string ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range rdf:langString ;
+    skos:definition "A name given to the resource."^^xsd:string ;
+    skos:prefLabel "title"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:mandatory .
+
+dcterms:type a owl:ObjectProperty ;
+    vann:usageNote "A recommended controlled vocabulary data-type is foreseen. For agents, the value should be chosen from [ADMS publisher type](https://raw.githubusercontent.com/SEMICeu/ADMS-AP/master/purl.org/ADMS_SKOS_v1.00.rdf)."^^xsd:string ;
+    rdfs:domain "dcterms:LicenseDocument"^^xsd:string ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range skos:Concept ;
+    skos:definition "A type of the resource."^^xsd:string ;
+    skos:prefLabel "type"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+bibo:doi a owl:AnnotationProperty ;
+    rdfs:isDefinedBy pink: .
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty ;
+    rdfs:isDefinedBy pink: .
+
+vann:preferredNamespaceUri a owl:AnnotationProperty ;
+    rdfs:isDefinedBy pink: .
+
+vann:usageNote a owl:AnnotationProperty ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range rdf:langString ;
+    skos:definition "A reference that provides information on how this resource is to be used."^^xsd:string ;
+    skos:prefLabel "usageNote"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://spdx.org/rdf/terms#algorithm> a owl:ObjectProperty ;
+    rdfs:domain <http://spdx.org/rdf/terms#Checksum> ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range <http://spdx.org/rdf/terms#ChecksumAlgorithm> ;
+    skos:definition "The algorithm used to produce the subject Checksum."^^xsd:string ;
+    skos:prefLabel "algorithm"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://spdx.org/rdf/terms#checksum> a owl:ObjectProperty ;
+    vann:usageNote "The checksum is related to the downloadURL."^^xsd:string ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range <http://spdx.org/rdf/terms#Checksum> ;
+    skos:definition "A mechanism that can be used to verify that the contents of a distribution have not changed."^^xsd:string ;
+    skos:prefLabel "checksum"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+<http://spdx.org/rdf/terms#checksumValue> a owl:DatatypeProperty ;
+    rdfs:domain <http://spdx.org/rdf/terms#Checksum> ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:hexBinary ;
+    skos:definition "A lower case hexadecimal encoded digest value produced using a specific algorithm."^^xsd:string ;
+    skos:prefLabel "checksumValue"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+skos:altLabel a owl:AnnotationProperty ;
+    rdfs:isDefinedBy pink: .
+
+skos:definition a owl:AnnotationProperty ;
+    vann:usageNote "This property can be repeated for parallel language versions of the description."^^xsd:string ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range rdf:langString ;
+    skos:definition "A free-text account of the resource."^^xsd:string ;
+    skos:prefLabel "description"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:mandatory .
+
+skos:example a owl:AnnotationProperty ;
+    rdfs:isDefinedBy pink: .
+
+skos:prefLabel a owl:AnnotationProperty ;
+    rdfs:isDefinedBy pink: .
+
+<http://www.w3.org/2006/vcard/ns#hasAddress> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasAddress"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasCountryName> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasCountryName"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasEmail> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasEmail"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasFamilyName> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasFamilyName"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasGender> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasGender"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasGeo> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasGeo"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasGivenName> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasGivenName"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasHonorificPrefix> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasHonorificPrefix"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasHonorificSuffix> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasHonorificSuffix"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasInstantMessage> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasInstantMessage"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasKey> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasKey"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasLanguage> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasLanguage"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasLogo> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasLogo"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasMember> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasMember"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasName> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasName"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasNickname> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasNickname"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasNote> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasNote"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasOrganizationName> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasOrganizationName"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasOrganizationUnit> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasOrganizationUnit"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasPhoto> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasPhoto"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasPostalCode> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasPostalCode"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasRegion> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasRegion"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasStreetAddress> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasStreetAddress"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasTelephone> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasTelephone"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasUID> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasUID"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/2006/vcard/ns#hasURL> a owl:AnnotationProperty ;
+    rdfs:domain <http://www.w3.org/2006/vcard/ns#Kind> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:prefLabel "hasURL"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<http://www.w3.org/ns/adms#identifier> a owl:ObjectProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range <http://www.w3.org/ns/adms#Identifier> ;
+    skos:definition "A secondary identifier of the Dataset"^^xsd:string ;
+    skos:prefLabel "otherIdentifier"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+<http://www.w3.org/ns/adms#sample> a owl:ObjectProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcat:Distribution ;
+    skos:definition "A sample distribution of the dataset."^^xsd:string ;
+    skos:prefLabel "sample"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+<http://www.w3.org/ns/adms#versionNotes> a owl:AnnotationProperty ;
+    vann:usageNote "This property can be repeated for parallel language versions of the version notes."^^xsd:string ;
+    rdfs:domain "dcat:Resource"^^xsd:string ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "A description of the differences between this version and a previous version of the resource."^^xsd:string ;
+    skos:prefLabel "versionNotes"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:accessService a owl:ObjectProperty ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcat:DataService ;
+    skos:definition "A data service that gives access to the distribution of the dataset."^^xsd:string ;
+    skos:prefLabel "accessService"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:accessURL a owl:ObjectProperty ;
+    vann:usageNote "The resource at the access URL may contain information about how to get the Dataset."^^xsd:string ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range rdfs:Resource ;
+    skos:definition "A URL that gives access to a Distribution of the Dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred."^^xsd:string ;
+    skos:prefLabel "accessURL"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:mandatory .
+
+dcat:bbox a owl:AnnotationProperty ;
+    rdfs:domain dcterms:Location ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "The geographic bounding box of a resource."^^xsd:string ;
+    skos:prefLabel "bbox"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:recommended .
+
+dcat:byteSize a owl:DatatypeProperty ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:nonNegativeInteger ;
+    skos:definition "The size of a Distribution in bytes."^^xsd:string ;
+    skos:prefLabel "byteSize"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:centroid a owl:AnnotationProperty ;
+    rdfs:domain dcterms:Location ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "The geographic center (centroid) of a resource."^^xsd:string ;
+    skos:prefLabel "centroid"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:recommended .
+
+dcat:compressFormat a owl:ObjectProperty ;
+    vann:usageNote "It SHOULD be expressed using a media type as defined in the official register of media types managed by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)."^^xsd:string ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcterms:MediaType ;
+    skos:definition "The format of the file in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file."^^xsd:string ;
+    skos:prefLabel "compressFormat"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:contactPoint a owl:ObjectProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range <http://www.w3.org/2006/vcard/ns#Kind> ;
+    skos:definition "Contact information that can be used for sending comments about the resource."^^xsd:string ;
+    skos:prefLabel "contactPoint"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:recommended .
+
+dcat:distribution a owl:ObjectProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcat:Distribution ;
+    skos:definition "An available distribution for the dataset."^^xsd:string ;
+    skos:prefLabel "distribution"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:recommended .
+
+dcat:downloadURL a owl:DatatypeProperty ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "A URL that is a direct link to a downloadable file in a given format. The format is indicated by the distribution's 'dterms:format' and/or 'dcat:mediaType'."^^xsd:string ;
+    skos:prefLabel "downloadURL"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:endpointDescription a owl:ObjectProperty ;
+    rdfs:domain dcat:DataService ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range rdfs:Resource ;
+    skos:definition "A description of the services available via the end-points, including their operations, parameters etc."^^xsd:string ;
+    skos:prefLabel "endpointDescription"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:recommended .
+
+dcat:endpointURL a owl:DatatypeProperty ;
+    rdfs:domain dcat:DataService ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "The root location or primary endpoint of the service (an IRI)."^^xsd:string ;
+    skos:prefLabel "endpointURL"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:mandatory .
+
+dcat:hasRole a owl:ObjectProperty ;
+    rdfs:domain dcat:Relationship ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcat:Role ;
+    skos:definition "A function of an entity or agent with respect to another entity or resource."^^xsd:string ;
+    skos:prefLabel "hasRole"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+dcat:hasVersion a owl:ObjectProperty ;
+    vann:usageNote "This property is intended for relating a non-versioned or abstract resource to several versioned resources, e.g., snapshots."^^xsd:string ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range rdfs:Resource ;
+    skos:definition "A related resource that is a version, edition, or adaptation of the described resource."^^xsd:string ;
+    skos:prefLabel "hasVersion"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:inSeries a owl:ObjectProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcat:DatasetSeries ;
+    skos:definition "A dataset series of which the dataset is part."^^xsd:string ;
+    skos:prefLabel "inSeries"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:keyword a owl:AnnotationProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range rdf:langString ;
+    skos:definition "A keyword or tag describing the resource."^^xsd:string ;
+    skos:prefLabel "keyword"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:recommended .
+
+dcat:landingPage a owl:ObjectProperty ;
+    vann:usageNote """It is intended to point to a landing page at the original
+data provider, not to a page on a site of a third party,
+such as an aggregator.
+
+For distributions, if they are accessible only through a
+landing page (i.e. direct download URLs are not known), then
+the landing page link should be duplicated as accessURL on a
+distribution.
+"""^^xsd:string ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range foaf:Document ;
+    skos:definition "A web page that provides access to the resource and/or additional information (e.g. the distribution for a dataset)."^^xsd:string ;
+    skos:prefLabel "landingPage"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:mediaType a owl:ObjectProperty ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcterms:MediaType ;
+    skos:definition "The media type of the Distribution as defined in the official register of media types managed by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)."^^xsd:string ;
+    skos:prefLabel "mediaType"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:recommended .
+
+dcat:packageFormat a owl:ObjectProperty ;
+    vann:usageNote "It SHOULD be expressed using a media type as defined in the official register of media types managed by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types) and prefixed with `https://www.iana.org/assignments/media-types/`."^^xsd:string ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcterms:MediaType ;
+    skos:definition "The format of the file in which one or more data files are grouped together, e.g. to enable a set of related files to be downloaded together."^^xsd:string ;
+    skos:prefLabel "packageFormat"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:qualifiedRelation a owl:ObjectProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcat:Relationship ;
+    skos:definition "A description of a relationship with another resource."^^xsd:string ;
+    skos:prefLabel "qualifiedRelation"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:servesDataset a owl:ObjectProperty ;
+    rdfs:domain dcat:DataService ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcat:Dataset ;
+    skos:definition "This property refers to a collection of data that this data service can distribute."^^xsd:string ;
+    skos:prefLabel "servesDataset"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:recommended .
+
+dcat:spatialResolutionInMeters a owl:DatatypeProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:decimal ;
+    skos:definition "The minimum spatial separation resolvable in a dataset, measured in meters."^^xsd:string ;
+    skos:prefLabel "spatialResolution"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:temporalResolution a owl:DatatypeProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:duration ;
+    skos:definition "The minimum time period resolvable in the dataset."^^xsd:string ;
+    skos:prefLabel "temporalResolution"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:theme a owl:ObjectProperty ;
+    vann:usageNote "The set of themes used to categorize the resources are organized in a skos:ConceptScheme, skos:Collection, owl:Ontology or similar, describing all the categories and their relations in the catalog."^^xsd:string ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range skos:Concept ;
+    skos:definition "A category of the resource.  A resource may be associated with multiple themes."^^xsd:string ;
+    skos:prefLabel "theme"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:recommended .
+
+dcat:version a owl:AnnotationProperty ;
+    vann:usageNote "DCAT does not prescribe how a version name / identifier should be specified, and refers for guidance to [DWBP]'s Best Practice 7: Provide a version indicator."^^xsd:string ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "Version indicator (name or identifier) of a resource."^^xsd:string ;
+    skos:prefLabel "version"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+locn:geometry a owl:ObjectProperty ;
+    rdfs:domain dcterms:Location ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range locn:Geometry ;
+    skos:definition "The geographic center (centroid) of a resource."^^xsd:string ;
+    skos:prefLabel "geometry"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+prov:category a owl:AnnotationProperty ;
+    rdfs:comment "Classify prov-o terms into three categories, including 'starting-point', 'qualifed', and 'extended'. This classification is used by the prov-o html document to gently introduce prov-o terms to its users. "@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#>,
+        <https://w3id.org/pink/reused-terms#> .
+
+prov:component a owl:AnnotationProperty ;
+    rdfs:comment "Classify prov-o terms into six components according to prov-dm, including 'agents-responsibility', 'alternate', 'annotations', 'collections', 'derivations', and 'entities-activities'. This classification is used so that readers of prov-o specification can find its correspondence with the prov-dm specification."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#>,
+        <https://w3id.org/pink/reused-terms#> .
+
+prov:constraints a owl:AnnotationProperty ;
+    rdfs:comment "A reference to the principal section of the PROV-CONSTRAINTS document that describes this concept."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#>,
+        <https://w3id.org/pink/reused-terms#> ;
+    rdfs:subPropertyOf rdfs:seeAlso .
+
+prov:definition a owl:AnnotationProperty ;
+    rdfs:comment "A definition quoted from PROV-DM or PROV-CONSTRAINTS that describes the concept expressed with this OWL term."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#>,
+        <https://w3id.org/pink/reused-terms#> .
+
+prov:dm a owl:AnnotationProperty ;
+    rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#>,
+        <https://w3id.org/pink/reused-terms#> ;
+    rdfs:subPropertyOf rdfs:seeAlso .
+
+prov:n a owl:AnnotationProperty ;
+    rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#>,
+        <https://w3id.org/pink/reused-terms#> ;
+    rdfs:subPropertyOf rdfs:seeAlso .
+
+prov:wasDerivedFrom a owl:ObjectProperty ;
+    vann:usageNote "Relates a resource to another resource it was derived from."^^xsd:string ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range dcat:Resource ;
+    skos:definition "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."^^xsd:string ;
+    skos:prefLabel "wasDerivedFrom"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+foaf:homepage a owl:AnnotationProperty ;
+    rdfs:isDefinedBy pink: .
+
+foaf:logo a owl:AnnotationProperty ;
+    rdfs:isDefinedBy pink: .
+
+foaf:name a owl:DatatypeProperty ;
+    rdfs:domain foaf:Agent ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:string ;
+    skos:definition "A name of the agent."^^xsd:string ;
+    skos:prefLabel "name"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:mandatory .
+
+ddoc:conformance a owl:ObjectProperty ;
+    vann:usageNote "It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended' or 'ddoc:optional'."@en ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy <https://w3id.org/emmo/application/datadoc>,
+        ddoc: ;
+    rdfs:range ddoc:ConformanceLevel ;
+    skos:definition "Whether the annotation is mandatory, recommended or optional."@en ;
+    skos:prefLabel "conformance"@en .
+
+ddoc:curationDate a owl:DatatypeProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:datetime ;
+    skos:definition "Date of curation."^^xsd:string ;
+    skos:prefLabel "curationDate"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+ddoc:curator a owl:ObjectProperty ;
+    vann:usageNote "Use `ddoc:curationDate` to refer to the date of curation."^^xsd:string ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range foaf:Agent ;
+    skos:definition "The agent that curated the resource."^^xsd:string ;
+    skos:prefLabel "curator"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+ddoc:datatype a owl:ObjectProperty ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range rdfs:Datatype ;
+    skos:definition "A datatype for annotations and data properties."@en ;
+    skos:prefLabel "datatype"@en .
+
+ddoc:process a skos:Concept ;
+    vann:usageNote "Intended to be used as a theme individual for basic documentation of processes."@en ;
+    skos:definition "Basic documentation of processes."@en ;
+    skos:prefLabel "process"@en .
+
+ddoc:unitSymbol a owl:AnnotationProperty ;
+    vann:usageNote "The unit should be written with standard SI unit symbols.  Examples: As, μm, J, m/s²"@en ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:string ;
+    skos:definition "A SI unit associated to a property."@en ;
+    skos:prefLabel "unitSymbol"@en .
+
+<https://w3id.org/emmo/domain/oteio#generator> a owl:ObjectProperty ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range <https://w3id.org/emmo/domain/oteio#Generator> ;
+    skos:definition "A generator that can create the distribution."^^xsd:string ;
+    skos:prefLabel "generator"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<https://w3id.org/emmo/domain/oteio#generatorType> a owl:AnnotationProperty ;
+    rdfs:domain <https://w3id.org/emmo/domain/oteio#Generator> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "Generator type. Ex: `application/vnd.dlite-generate`."^^xsd:string ;
+    skos:prefLabel "generatorType"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<https://w3id.org/emmo/domain/oteio#hasConfiguration> a owl:DatatypeProperty ;
+    rdfs:domain <https://w3id.org/emmo/domain/oteio#Parser> ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range rdf:JSON ;
+    skos:definition "A JSON string with configurations specific to the parser or generator."^^xsd:string ;
+    skos:prefLabel "configuration"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<https://w3id.org/emmo/domain/oteio#hasDatamodel> a owl:ObjectProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range <https://w3id.org/emmo/domain/oteio#Datamodel> ;
+    skos:definition "URI of DLite datamodel for the dataset."^^xsd:string ;
+    skos:prefLabel "datamodel"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<https://w3id.org/emmo/domain/oteio#hasDatamodelStorage> a owl:DatatypeProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "URL to DLite storage plugin where the datamodel is stored."^^xsd:string ;
+    skos:prefLabel "datamodelStorage"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<https://w3id.org/emmo/domain/oteio#mapping> a owl:DatatypeProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range rdf:JSON ;
+    skos:definition "A list of subject-predicate-object triples mapping the datamodel to ontological concepts."^^xsd:string ;
+    skos:prefLabel "mappings"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<https://w3id.org/emmo/domain/oteio#mappingFormat> a owl:AnnotationProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "File format for `mappingURL`. Defaults to \"turtle\"."^^xsd:string ;
+    skos:prefLabel "mappingFormat"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<https://w3id.org/emmo/domain/oteio#mappingURL> a owl:DatatypeProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "URL to a document defining the mappings of the datamodel. The file format is given by `mappingFormat`. Defaults to turtle."^^xsd:string ;
+    skos:prefLabel "mappingURL"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<https://w3id.org/emmo/domain/oteio#parser> a owl:ObjectProperty ;
+    rdfs:domain dcat:DataService ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range <https://w3id.org/emmo/domain/oteio#Parser> ;
+    skos:definition "A parser that can parse the distribution."^^xsd:string ;
+    skos:prefLabel "parser"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<https://w3id.org/emmo/domain/oteio#parserType> a owl:AnnotationProperty ;
+    rdfs:domain <https://w3id.org/emmo/domain/oteio#Parser> ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "Parser type. Ex: `application/vnd.dlite-parse`."^^xsd:string ;
+    skos:prefLabel "parserType"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<https://w3id.org/emmo/domain/oteio#statement> a owl:DatatypeProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range rdf:JSON ;
+    skos:definition "A list of subject-predicate-object triples with additional RDF statements documenting the resource."^^xsd:string ;
+    skos:prefLabel "statements"^^xsd:string ;
+    dcat:theme ddoc:datadoc .
+
+<https://w3id.org/emmo/hume#AmorphousMaterial> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialByStructure> ;
+    skos:altLabel "NonCrystallineMaterial"@en ;
+    skos:definition "A solid lacking a repeating, ordered atomic structure (long-range order)."@en ;
+    skos:prefLabel "AmorphousMaterial"@en ;
+    skos:scopeNote "A amorphous material resembles a frozen liquid with atoms arranged randomly, unlike crystalline solids with periodic patterns, leading to properties like no sharp melting point, irregular shapes, and isotropic characteristics (uniform properties in all directions)."@en .
+
+<https://w3id.org/emmo/hume#BondedAtom> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#Atom> ;
+    skos:definition "A bonded atom that shares at least one electron to the atom-based entity of which is part of."@en ;
+    skos:prefLabel "BondedAtom"@en ;
+    skos:scopeNote """A real bond between atoms is always something hybrid between covalent, metallic and ionic.
+
+In general, metallic and ionic bonds have atoms sharing electrons."""@en,
+        "The bond types that are covered by this definition are the strong electronic bonds: covalent, metallic and ionic."@en,
+        "This class can be used to represent molecules as simplified quantum systems, in which outer molecule shared electrons are un-entangled with the inner shells of the atoms composing the molecule."@en .
+
+<https://w3id.org/emmo/hume#CeramicMaterial> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialByType> ;
+    skos:altLabel "Ceramic"@en ;
+    skos:definition "An inorganic non-metallic solid made from elements (metals, non-metals, semi-metals like silicon) combined into compounds (oxides, carbides, nitrides) that are typically hard, strong, brittle, corrosion-resistant, and good insulators."@en ;
+    skos:prefLabel "CeramicMaterial"@en ;
+    skos:scopeNote "Ceramic materials are hardened by intense heat and typically used from pottery and tiles to advanced electronics and aerospace parts."@en .
+
+<https://w3id.org/emmo/hume#CompactMaterial> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialByCompactness>,
+        <https://w3id.org/emmo/hume#Solid> ;
+    skos:definition "A solid material whose particles are closely and firmly packed together, resulting in a high density, solid structure without significant internal voids or cavities."@en ;
+    skos:prefLabel "CompactMaterial"@en .
+
+<https://w3id.org/emmo/hume#CompositeMaterial> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialByType> ;
+    skos:altLabel "Composite"@en ;
+    skos:definition "A material that contains two or more constituent materials."@en ;
+    skos:prefLabel "CompositeMaterial"@en .
+
+<https://w3id.org/emmo/hume#CrystallineMaterial> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialByStructure>,
+        <https://w3id.org/emmo/hume#Solid> ;
+    skos:definition "A solid where atoms, ions, or molecules are arranged in a highly ordered, repeating, three-dimensional pattern, forming a crystal lattice that extends throughout the substance, giving it characteristic geometric shapes and distinct physical properties like sharp melting points, unlike amorphous solids with random structures."@en ;
+    skos:prefLabel "CrystallineMaterial"@en .
+
+<https://w3id.org/emmo/hume#DataProcessing> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pink:hasParticipant ;
+            owl:someValuesFrom <https://w3id.org/emmo/hume#DataProcessingSoftware> ],
+        pink:Computation ;
+    skos:definition "A computation that provides a data output following the elaboration of some input data, using a data processing application."@en ;
+    skos:prefLabel "DataProcessing"@en .
+
+<https://w3id.org/emmo/hume#ElementalSubstance> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:seeAlso "https://doi.org/10.1351/goldbook.C01022"@en ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#ChemicalSubstance> ;
+    skos:altLabel "PureSubstance"@en ;
+    skos:definition "A chemical substance composed of atoms with the same number of protons in the atomic nucleus."@en ;
+    skos:prefLabel "ElementalSubstance"@en .
+
+<https://w3id.org/emmo/hume#Gas> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#Fluid> ;
+    skos:definition "Gas is a compressible fluid, a state of matter that has no fixed shape and no fixed volume."@en ;
+    skos:prefLabel "Gas"@en .
+
+<https://w3id.org/emmo/hume#GenerativeAIModel> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#AIModel> ;
+    skos:altLabel "GenerativeArtificialIntelligenceModel"@en ;
+    skos:definition "An AI model that can generate new content, like text, images or code."@en ;
+    skos:example "Chatbots"@en ;
+    skos:prefLabel "GenerativeAIModel"@en .
+
+<https://w3id.org/emmo/hume#InorganicCompound> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:seeAlso "https://en.wikipedia.org/wiki/Inorganic_compound"@en ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#ChemicalCompound> ;
+    skos:definition "A chemical compound that is not organic."@en ;
+    skos:prefLabel "InorganicCompound"@en .
+
+<https://w3id.org/emmo/hume#Liquid> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#CondensedMatter>,
+        <https://w3id.org/emmo/hume#Fluid> ;
+    skos:definition "A liquid is a nearly incompressible fluid that conforms to the shape of its container but retains a (nearly) constant volume independent of pressure."@en ;
+    skos:prefLabel "Liquid"@en .
+
+<https://w3id.org/emmo/hume#MachineLearningModel> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#AIModel> ;
+    skos:definition "An AI model using machine learning."@en ;
+    skos:prefLabel "MachineLearningModel"@en .
+
+<https://w3id.org/emmo/hume#ManufacturedMaterial> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#ArtificialMaterial> .
+
+<https://w3id.org/emmo/hume#MaterialByForceResponse> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#Material> .
+
+<https://w3id.org/emmo/hume#MetallicMaterial> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialByType> ;
+    skos:definition "Inorganic substance, consisting of one or more metallic elements."@en ;
+    skos:prefLabel "MetallicMaterial"@en ;
+    skos:scopeNote "Metallic materials are known for their shiny luster, excellent electrical/thermal conductivity, malleability (shapable by hammering), and ductility (can be drawn into wires), due to metallic bonding (shared electrons); they often form alloys (like steel from iron/carbon) to enhance these properties for diverse applications."@en .
+
+<https://w3id.org/emmo/hume#Mixture> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#ContinuumSubstance> ;
+    skos:definition "A continuum substance made up of two or more different substances which are physically (not chemically) combined."@en ;
+    skos:prefLabel "Mixture"@en .
+
+<https://w3id.org/emmo/hume#Molecule> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MolecularEntity> ;
+    skos:definition "An atom-based state defined by an exact number of e-bonded atomic species and an electron cloud made of the shared electrons."@en ;
+    skos:example "H₂0, C₆H₁₂O₆, CH₄"@en ;
+    skos:prefLabel "Molecule"@en ;
+    skos:scopeNote """An entity is called essential if removing one direct part will lead to a change in entity class.
+An entity is called redundant if removing one direct part will not lead to a change in entity class."""@en,
+        """This definition states that this object is a non-periodic set of atoms or a set with a finite periodicity.
+Removing an atom from the state will result in another type of atom_based state.
+e.g. you cannot remove H from H₂0 without changing the molecule type (essential). However, you can remove a C from a nanotube (redundant). C60 fullerene is a molecule, since it has a finite periodicity and is made of a well defined number of atoms (essential). A C nanotube is not a molecule, since it has an infinite periodicity (redundant)."""@en .
+
+<https://w3id.org/emmo/hume#NanoMaterial> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialBySize> ;
+    skos:definition "Nanomaterials are Materials possessing, at minimum, one external dimension measuring 1-100nm"@en ;
+    skos:prefLabel "NanoMaterial"@en .
+
+<https://w3id.org/emmo/hume#NaturalLanguageProcessingModel> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#AIModel> ;
+    skos:definition "An AI model that understands and generates human language."@en ;
+    skos:example "Chatbots"@en ;
+    skos:prefLabel "NaturalLanguageProcessingModel"@en .
+
+<https://w3id.org/emmo/hume#NaturalMaterial> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialByOrigin> ;
+    skos:definition "A Material occurring in nature, without the need of human intervention."@en ;
+    skos:prefLabel "NaturalMaterial"@en .
+
+<https://w3id.org/emmo/hume#NeutralAtom> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#StandaloneAtom> ;
+    owl:disjointWith <https://w3id.org/emmo/hume#IonAtom> ;
+    skos:definition "A standalone atom that has no net charge."@en ;
+    skos:prefLabel "NeutralAtom"@en .
+
+<https://w3id.org/emmo/hume#OrganicCompound> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:seeAlso "https://en.wikipedia.org/wiki/Organic_compound"@en ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#ChemicalCompound> ;
+    skos:definition "A chemical compound containing carbon atoms."@en ;
+    skos:prefLabel "OrganicCompound"@en ;
+    skos:scopeNote "The definition of organic compound is based on the IUPAC Gold Book. However, sometimes an organic compound is defined as a chemical compound that contains a carbon-hydrogen or carbon-carbon bond. Also, some carbon-containing compounds are typically not classified as organic, like carbides, carbonates, and cyanides."@en .
+
+<https://w3id.org/emmo/hume#PhysicsBasedModel> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#>,
+        "CEN Workshop Agreement, CWA 17284 Materials modelling - terminology, classification and metadata"@en ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MathematicalModel> ;
+    skos:definition "A mathematical model based on a fundamental physics theory which defines the relations between physics quantities of an entity."@en ;
+    skos:prefLabel "PhysicsBasedModel"@en .
+
+<https://w3id.org/emmo/hume#Plasma> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#Fluid> ;
+    skos:definition "A fluid in which a gas is ionized to a level where its electrical conductivity allows long-range electric and magnetic fields to dominate its behaviour."@en ;
+    skos:prefLabel "Plasma"@en .
+
+<https://w3id.org/emmo/hume#PolyAtomicEntity> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MolecularEntity> ;
+    skos:definition "An entity made of two or more bonded atoms."@en .
+
+<https://w3id.org/emmo/hume#PolymericMaterial> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialByType> ;
+    skos:definition "A substance made of macromolecules formed by linking many smaller, repeating chemical units called monomers into long chains or networks, resulting in unique properties like toughness, elasticity, or flexibility, found in both natural forms (like DNA, protein) and synthetic plastics, rubbers, and fibers."@en ;
+    skos:prefLabel "PolymericMaterial"@en .
+
+<https://w3id.org/emmo/hume#Powder> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#>,
+        "Duran, J., Reisinger A., Sands, Powders, and Grains: An Introduction to the Physics of Granular Materials. November 1999, Springer-Verlag New York, Inc., New York, ISBN 0-387-98656-1."@en ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#GranularMaterial> ;
+    skos:definition "A powder is a granular material composed of many very fine dry solid particles that may flow freely when shaken or tilted."@en ;
+    skos:prefLabel "Powder"@en .
+
+<https://w3id.org/emmo/hume#Replica> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#FunctionalIcon>,
+        <https://w3id.org/emmo/hume#ResemblanceIcon> ;
+    skos:definition "A model that not only resembles the object, but also can express some of the object's functions."@en ;
+    skos:example "A small scale replica of a plane tested in a wind gallery shares the same functionality in terms of aerodynamic behaviour of the bigger one."@en,
+        "Pinocchio is a functional model of a boy since it imitates the external behaviour without having the internal biological structure of a human being (it is made of magic wood...)."@en ;
+    skos:prefLabel "Replica"@en .
+
+pink:AdvancedMaterial a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#ArtificialMaterial>,
+        <https://w3id.org/emmo/hume#MaterialByFunction> ;
+    skos:definition "A designed material tailored to simultaneously meet two or more pre-defined criteria."@en .
+
+pink:BooleanData a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#boolean> ;
+    rdfs:subClassOf pink:SymbolicData ;
+    skos:definition "A symbolic data representing a boolean number."@en ;
+    skos:prefLabel "BooleanData"@en .
+
+pink:ByteData a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#byte> ;
+    rdfs:subClassOf pink:ShortData ;
+    skos:definition "A data representing a 8-bit integer number."@en ;
+    skos:prefLabel "ByteData"@en .
+
+pink:ComputationalTool a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf pink:Software ;
+    skos:definition "A software that performs a computation."@en ;
+    skos:example "Gromacs is a computational tool that solves Newton's equations of motion."@en ;
+    skos:prefLabel "ComputationalTool"@en .
+
+pink:DateData a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#date> ;
+    rdfs:subClassOf pink:SymbolicData ;
+    skos:definition "A symbolic data representing date. Format: YYYY-MM-DD (followed by an optional time zone offset, e.g. +01:00 for Central Europe)."@en ;
+    skos:prefLabel "DateData"@en .
+
+pink:DateTimeData a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#dateTime> ;
+    rdfs:subClassOf pink:SymbolicData ;
+    skos:definition "A symbolic data representing datetime. Format: YYYY-MM-DDThh:mm:ss (followed by an optional time zone offset, e.g. +01:00 for Central Europe)."@en ;
+    skos:prefLabel "DateTimeData"@en .
+
+pink:DoubleData a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#double> ;
+    rdfs:subClassOf pink:NumericalData ;
+    skos:definition "A symbolic data representing a 64-bit floating point numbers incl. ±Inf, ±0, NaN."@en ;
+    skos:prefLabel "DoubleData"@en .
+
+pink:FloatData a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#float> ;
+    rdfs:subClassOf pink:NumericalData ;
+    skos:definition "A symbolic data representing a 32-bit floating point numbers incl. ±Inf, ±0, NaN."@en ;
+    skos:prefLabel "FloatData"@en .
+
+pink:Indicator a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf pink:Property ;
+    skos:definition "A metric or signal that provides information about the state of a system. It simplifies complex realities into measurable values that can guide decisions."@en ;
+    skos:example "For a computation is an indicator a specific property/datum that is provided in the output."@en ;
+    skos:prefLabel "Indicator"@en .
+
+pink:MaterialProcess a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf pink:Process ;
+    skos:definition "A process that has material as input and output."@en ;
+    skos:prefLabel "MaterialProcess"@en .
+
+pink:Measurement a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf pink:Process ;
+    skos:definition "An observation that results in a quantitative comparison of a 'property' of an 'object' with a standard reference based on a well defined mesurement procedure."@en ;
+    skos:prefLabel "Measurement"@en .
+
+pink:Participant a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf prov:Agent,
+        pink:Object ;
+    skos:definition "An object that participates to a process."@en ;
+    skos:example "A student during an examination. The student exists both before and after the examination."@en ;
+    skos:prefLabel "Participant"@en ;
+    skos:scopeNote "Mereologically participation means that the object is a spatial part of the process."@en .
+
+pink:ReliabilityDocument a owl:Class ;
+    vann:usageNote "xxx"@en ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf foaf:Document ;
+    skos:definition "xxx"@en ;
+    skos:prefLabel "ReliabilityDocument"@en .
+
+pink:TimeData a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#time> ;
+    rdfs:subClassOf pink:SymbolicData ;
+    skos:definition "A symbolic data representing time. Format: hh:mm:ss (followed by an optional time zone offset, e.g. +01:00 for Central Europe)."@en ;
+    skos:prefLabel "TimeData"@en .
+
+pink:Toxicity a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf pink:Sign ;
+    skos:definition "The property or ability of a substance to cause harmful health effects."@en ;
+    skos:prefLabel "Toxicity"@en ;
+    skos:scopeNote "The helth effects can strike a single cell, a group of cells, an organ system, or the entire body. A toxic effect may be visible damage, or a decrease in performance or function measurable only by a test."@en,
+        "Toxicity is always related to a given measurement procedure. Hence, the user is expected to define spesific subclasses defining the measurement procedure that the toxicity is measured according to."@en .
+
+pink:chemicalClass a owl:ObjectProperty ;
+    vann:usageNote "Choose one of subclasses of pink:Matter."@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range pink:Matter ;
+    skos:definition "Group of chemicals that and entity is relevant for."@en ;
+    skos:prefLabel "chemicalClass"@en .
+
+pink:conformance a owl:ObjectProperty ;
+    vann:usageNote "It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended' or 'ddoc:optional'."@en ;
+    rdfs:isDefinedBy <https://w3id.org/pink>,
+        pink: ;
+    rdfs:range ddoc:ConformanceLevel ;
+    skos:definition "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema"@en ;
+    skos:prefLabel "conformance"^^xsd:string .
+
+pink:documentation a owl:ObjectProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range foaf:Document ;
+    rdfs:subPropertyOf foaf:page ;
+    skos:definition "A page or document documenting this resource."^^xsd:string ;
+    skos:prefLabel "documentation"@en .
+
+pink:economic a pink:SsbdDimension ;
+    dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022"^^xsd:string ;
+    skos:definition "Aspects related to techno-economic feasibility, to operational costs, etc."@en ;
+    skos:prefLabel "economic"^^xsd:string ;
+    skos:scopeNote "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en,
+        """There are important considerations to be made in the context of SSbD
+such as the 'availability' of raw materials, as chemicals/materials
+cannot be declared SSbD if the raw materials to produce them are not
+renewable or are (very) scarce and extracted and processed in an
+unsustainable manner. Economic aspects play a role when there is a
+need to rank chemicals and materials based on SSbD criteria (even if
+they are not SSbD). However, mainly externalities consideration is at
+stake in a sustainability framework like the SSbD one."""@en .
+
+pink:environmental_systainability a pink:SsbdDimension ;
+    dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022"^^xsd:string ;
+    skos:definition "The ability to conserve natural resources and protect global ecosystems to support human health and wellbeing, within the limits of our Planet"@en ;
+    skos:prefLabel "environmental_systainability"^^xsd:string ;
+    skos:scopeNote """Assessing environmental sustainability implies to assess the environmental impacts generated by
+chemicals/materials along the entire life cycle to move towards:
+
+  · A toxic-free environment as stated in the CSS (i.e. minimising the total toxicity footprint in terms
+    of ecotoxicity and human toxicity13 - at each stage of the production and consumption life cycle,
+    originated not only by the assessed chemical or material, but also by all the chemicals that are emitted
+    along the life cycle14) (EC, 2020a);
+  · A climate-neutral economy (i.e. minimising the emission of greenhouse gases along the life cycle)
+    (EC, 2019b);
+  · A resource efficient economy and a regenerative economy (i.e. using natural resources in a
+    sustainable manner, minimising inputs and waste generation, and providing more benefits than
+    burdens) (EC, 2020b);
+  · The reduction of biodiversity loss and the conservation of ecosystem functioning, addressing the
+    main drivers of structural and functional biodiversity loss (e.g. land use, climate change) (EC, 2020c);
+"""@en,
+        "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
+
+pink:functionality a pink:SsbdDimension ;
+    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en ;
+    skos:prefLabel "functionality"^^xsd:string .
+
+pink:hasAPI a owl:DatatypeProperty ;
+    rdfs:domain pink:Software ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range xsd:boolean ;
+    skos:definition "Whether the software has an API."^^xsd:string ;
+    skos:prefLabel "hasAPI"@en .
+
+pink:hasDatum a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain pink:Dataset ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range pink:Datum ;
+    rdfs:subPropertyOf pink:hasPart ;
+    skos:definition "Relates a dataset to its datum."@en ;
+    skos:prefLabel "hasDatum"@en .
+
+pink:hasGUI a owl:DatatypeProperty ;
+    rdfs:domain pink:Software ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range xsd:boolean ;
+    skos:definition "Whether the software has a GUI."^^xsd:string ;
+    skos:prefLabel "hasGUI"@en .
+
+pink:hasInput a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain prov:Activity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf pink:used ;
+    skos:definition "Relates an activity to an entity that is input to the activity."@en ;
+    skos:prefLabel "hasInput"@en ;
+    skos:scopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."@en .
+
+pink:hasJunctionPart a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subPropertyOf pink:hasPart ;
+    skos:altLabel "hasSpatioTemporalPart"@en ;
+    skos:definition "The part is connected with the rest item or members with both hasNext (or its inverse) and hasContact relations."@en ;
+    skos:prefLabel "hasJunctionPart"@en .
+
+pink:hasOutput a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain prov:Activity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf [ owl:inverseOf pink:wasGeneratedBy ] ;
+    skos:definition "Relates an activity to an entity that is the output of the activity."@en ;
+    skos:prefLabel "hasOutput"@en ;
+    skos:scopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en .
+
+pink:hasSoftware a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain pink:Computation ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range pink:Software ;
+    rdfs:subPropertyOf pink:wasAssociatedWith ;
+    skos:definition "Relates a computation to the software used to perform the computation."@en ;
+    skos:prefLabel "hasSoftware"@en .
+
+pink:hasSpatialPart a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subPropertyOf pink:hasPart ;
+    skos:definition "A proper part of a whole, whose parts always cover the full temporal extension of the whole within a spatial interval."@en ;
+    skos:prefLabel "hasSpatialPart"@en ;
+    skos:scopeNote "The part is connected with the rest item or members with hasContact relations only (no hasNext)."@en .
+
+pink:hasTemporalPart a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subPropertyOf pink:hasPart ;
+    skos:definition "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval."^^xsd:string ;
+    skos:prefLabel "hasTemporalPart"@en ;
+    skos:scopeNote "A temporal part of an item cannot both cause and be caused by any other proper part of the item."@en .
+
+pink:hasUnit a owl:ObjectProperty ;
+    vann:usageNote """A universal restriction should be used when referring to a unit in EMMO.  For example:
+
+    :LethalDose50
+        a pink:Toxicity , [
+            a owl:Restriction ;
+            owl:onProperty pink:hasUnit ;
+            owl:someValuesFrom emmo:MilliGramPerKiloGram
+        ] .
+"""@en ;
+    rdfs:domain pink:Property ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subPropertyOf pink:hasDescription ;
+    skos:definition "Connects a property to its unit."@en ;
+    skos:prefLabel "hasUnit"@en ;
+    skos:scopeNote "`pink:hasUnit` is intended to refer to a unit in an existing unit ontology, like QUDT or EMMO."@en .
+
+pink:isDescriptionOf a owl:ObjectProperty ;
+    rdfs:domain pink:Description ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf pink:standsFor ;
+    owl:inverseOf pink:hasDescription ;
+    skos:definition "Connects a description to an entity."@en ;
+    skos:prefLabel "isDescriptionOf"@en .
+
+pink:isInterpretedBy a owl:ObjectProperty ;
+    rdfs:domain pink:Sign ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range pink:Interpreter ;
+    rdfs:subPropertyOf pink:semiotical ;
+    skos:definition "Connects a sign (e.g. a property) to an interpreter."@en ;
+    skos:prefLabel "isInterpretedBy"@en .
+
+pink:isPropertyOf a owl:ObjectProperty ;
+    rdfs:domain pink:Property ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf pink:standsFor ;
+    owl:inverseOf pink:hasProperty ;
+    skos:definition "Connects a property to an entity."@en ;
+    skos:prefLabel "isPropertyOf"@en .
+
+pink:participatesTo a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range prov:Activity ;
+    rdfs:subPropertyOf pink:isOvercrossedBy ;
+    skos:definition "Relation an entity to an activity that it interacts with."@en ;
+    skos:prefLabel "participatesTo"@en ;
+    skos:scopeNote "The entity through overlaps the activity."@en .
+
+pink:priorRelease a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain pink:Software ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range pink:Software ;
+    rdfs:subPropertyOf pink:causedBy ;
+    skos:definition "Direct relation that relates a software to the most resent earlier release of the software."@en ;
+    skos:prefLabel "priorRelease"@en ;
+    skos:scopeNote "Useful for tracking the provenance of software releases."@en .
+
+pink:safety a pink:SsbdDimension ;
+    dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022"^^xsd:string ;
+    skos:definition "Human helth and environmental safety aspects of chemicals and materials."@en ;
+    skos:prefLabel "safety"^^xsd:string ;
+    skos:scopeNote """In the context of chemicals assessment, safety could be referring to a
+certain condition where a stressor (e.g. a chemical) is unlikely to
+cause any adverse effect to a receptor (e.g. humans and other
+organisms) (more related to intrinsic hazard properties of the
+stressor) or where a receptor is protected from risk (more related to
+control measures or mechanisms to minimise exposure to the
+stressor). In any case, the term safe involves receptors, and with
+that generally also requires the consideration of the contact
+(i.e. exposure) between stressors and receptors as addressed in a risk
+assessment context."""@en,
+        "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
+
+pink:social_systainability a pink:SsbdDimension ;
+    dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022"^^xsd:string ;
+    skos:definition "A globally agreed list of objectives and targets to be pursued for achieving sustainable development."@en ;
+    skos:prefLabel "social_sustainability"^^xsd:string ;
+    skos:scopeNote """In the SDGs framework several Goals focus on social aspects,
+e.g. poverty eradication (SDG 1), food security (SDG 2), health (SDG 3),
+education (SDG 4), gender equality (SDG 5), decent work (SDG 8),
+reduce inequalities (SDG 10), peace and justice (SDG 16)."""@en,
+        "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
+
+pink:ssbdDimension a owl:ObjectProperty ;
+    vann:usageNote "One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`"@en ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range pink:SsbdDimension ;
+    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en ;
+    skos:prefLabel "ssbdDimension"@en .
+
+pink:ssbdSubDimension a owl:DatatypeProperty ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range xsd:string ;
+    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en ;
+    skos:prefLabel "ssbdSubDimension"@en .
+
+pink:tierLevel a owl:ObjectProperty ;
+    vann:usageNote "One of `pink:tierlevel1` (ideation/design), `pink:tierlevel2` (lab phase/development), `pink:tierlevel3` (up-scaling/production)"@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range pink:TierLevel ;
+    skos:definition "Relate an entity to an SSbD tier level."@en ;
+    skos:prefLabel "tierLevel"@en .
+
+pink:tierlevel1 a pink:TierLevel ;
+    rdfs:label "ideation/design"@en .
+
+pink:tierlevel2 a pink:TierLevel ;
+    rdfs:label "lab phase/development"@en .
+
+pink:tierlevel3 a pink:TierLevel ;
+    rdfs:label "up-scaling/production"@en .
+
+vidoco:introduction a owl:AnnotationProperty ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#> .
+
+<http://data.europa.eu/eli/ontology#LegalResource> a owl:Class ;
+    vann:usageNote "The definition and properties of the Legal Resource class are aligned with the ontology included in \"Council conclusions inviting the introduction of the European Legislation Identifier (ELI)\". For describing the attributes of a Legal Resource (labels, preferred labels, alternative labels, definition, etc.) we refer to the (ELI) ontology. In this data specification the use is restricted to instances of this class that follow the (ELI) URI guidelines."^^xsd:string ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:subClassOf foaf:Document ;
+    skos:definition "This class represents the legislation, policy or policies that lie behind the Rules that govern the service."^^xsd:string .
+
+dcterms:LicenseDocument a owl:Class ;
+    rdfs:label "License Document"@en ;
+    dcterms:issued "2008-01-14T00:00:00"^^xsd:dateTime ;
+    rdfs:comment "A legal document giving official permission to do something with a resource."^^xsd:string,
+        "A legal document giving official permission to do something with a resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms>,
+        <https://w3id.org/pink/reused-terms#> ;
+    rdfs:subClassOf dcterms:RightsStatement .
+
+dcterms:Standard a owl:Class ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "A standard or other specification to which a resource conforms."^^xsd:string .
+
+dcterms:hasPart a owl:ObjectProperty ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range rdfs:Resource ;
+    skos:definition "A related resource that is included either physically or logically in the described resource."^^xsd:string ;
+    skos:prefLabel "hasPart"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+<http://spdx.org/rdf/terms#ChecksumAlgorithm> a owl:Class ;
+    vann:usageNote "This specification does not impose any additional requirements to properties for this entity."^^xsd:string ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "Algorithm for Checksums."^^xsd:string .
+
+dcat:DatasetSeries a owl:Class ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:subClassOf dcat:Dataset ;
+    skos:definition "A collection of datasets that are published separately, but share some characteristics that group them."^^xsd:string .
+
+locn:Geometry a owl:Class ;
+    vann:usageNote "This specification does not impose any additional requirements to properties for this entity."^^xsd:string ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "The locn:Geometry class provides the means to identify a location as a point, line, polygon, etc. expressed using coordinates in some coordinate reference system."^^xsd:string .
+
+prov:used a owl:ObjectProperty ;
+    rdfs:label "used"^^xsd:string ;
+    rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#>,
+        <https://w3id.org/pink/reused-terms#> ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    owl:propertyChainAxiom ( prov:qualifiedUsage prov:entity ) ;
+    prov:category "starting-point"^^xsd:string ;
+    prov:component "entities-activities"^^xsd:string ;
+    prov:inverse "wasUsedBy"^^xsd:string ;
+    prov:qualifiedForm prov:Usage,
+        prov:qualifiedUsage .
+
+prov:wasAssociatedWith a owl:ObjectProperty ;
+    rdfs:label "wasAssociatedWith"^^xsd:string ;
+    rdfs:comment "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#>,
+        <https://w3id.org/pink/reused-terms#> ;
+    rdfs:range prov:Agent ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    owl:propertyChainAxiom ( prov:qualifiedAssociation prov:agent ) ;
+    prov:category "starting-point"^^xsd:string ;
+    prov:component "agents-responsibility"^^xsd:string ;
+    prov:inverse "wasAssociateFor"^^xsd:string ;
+    prov:qualifiedForm prov:Association,
+        prov:qualifiedAssociation .
+
+prov:wasAttributedTo a owl:ObjectProperty ;
+    rdfs:label "wasAttributedTo"^^xsd:string ;
+    rdfs:comment "Attribution is the ascribing of an entity to an agent."@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#>,
+        <https://w3id.org/pink/reused-terms#> ;
+    rdfs:range prov:Agent ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    owl:propertyChainAxiom ( prov:qualifiedAttribution prov:agent ) ;
+    prov:category "starting-point"^^xsd:string ;
+    prov:component "agents-responsibility"^^xsd:string ;
+    prov:definition "Attribution is the ascribing of an entity to an agent."@en ;
+    prov:inverse "contributed"^^xsd:string ;
+    prov:qualifiedForm prov:Attribution,
+        prov:qualifiedAttribution .
+
+prov:wasGeneratedBy a owl:ObjectProperty ;
+    rdfs:domain dcat:Dataset ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range prov:Activity ;
+    skos:definition "An activity that generated, or provides the business context for, the creation of the dataset."^^xsd:string ;
+    skos:prefLabel "wasGeneratedBy"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+prov:wasInformedBy a owl:ObjectProperty ;
+    rdfs:label "wasInformedBy"^^xsd:string ;
+    rdfs:comment "An activity a2 is dependent on or informed by another activity a1, by way of some unspecified entity that is generated by a1 and used by a2."@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#>,
+        <https://w3id.org/pink/reused-terms#> ;
+    rdfs:range prov:Activity ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    owl:propertyChainAxiom ( prov:qualifiedCommunication prov:activity ) ;
+    prov:category "starting-point"^^xsd:string ;
+    prov:component "entities-activities"^^xsd:string ;
+    prov:inverse "informed"^^xsd:string ;
+    prov:qualifiedForm prov:Communication,
+        prov:qualifiedCommunication .
+
+foaf:Organization rdfs:subClassOf pink:Object .
+
+foaf:Project rdfs:subClassOf prov:Entity .
+
+foaf:page a owl:ObjectProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range foaf:Document ;
+    skos:definition "A page or document about this resource."^^xsd:string ;
+    skos:prefLabel "documentation"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+<https://orcid.org/0000-0001-8869-3718> a foaf:Person ;
+    skos:prefLabel "FrancescaLonstadBleken"^^xsd:string ;
+    foaf:name "Francesca Lønstad Bleken"^^xsd:string ;
+    foaf:workplaceHomepage <https://www.sintef.no/en> .
+
+<https://orcid.org/0000-0002-1560-809X> a foaf:Person ;
+    skos:prefLabel "JesperFriis"^^xsd:string ;
+    foaf:name "Jesper Friis"^^xsd:string ;
+    foaf:workplaceHomepage <https://www.sintef.no/en> .
+
+<https://orcid.org/0000-0002-1849-5246> a foaf:Person ;
+    skos:prefLabel "ThomasExner"^^xsd:string ;
+    foaf:name "Thomas Exner"^^xsd:string ;
+    foaf:workplaceHomepage <https://sevenpastnine.com> .
+
+<https://orcid.org/0000-0002-8053-8198> a foaf:Person ;
+    skos:prefLabel "JohDokler"^^xsd:string ;
+    foaf:name "Joh Dokler"^^xsd:string ;
+    foaf:workplaceHomepage <https://sevenpastnine.com> .
+
+<https://orcid.org/0000-0003-4250-4584> a foaf:Person ;
+    skos:prefLabel "IseultLynch"^^xsd:string ;
+    foaf:name "Iseult Lynch"^^xsd:string ;
+    foaf:workplaceHomepage <https://www.birmingham.ac.uk> .
+
+<https://w3id.org/emmo/hume#AnalogicalIcon> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#> ;
+    rdfs:subClassOf pink:Model ;
+    skos:altLabel "AnalogicalIcon"@en ;
+    skos:definition "A model that represents the internal logical structure of the object."@en ;
+    skos:example "A physics equation is replicating the mechanisms internal to the object."@en,
+        "Electrical diagram is diagrammatic and resemblance"@en,
+        "MODA and CHADA are diagrammatic representation of a simulation or a characterisation workflow."@en ;
+    skos:prefLabel "AnalogicalModel"@en ;
+    skos:scopeNote "A model that focus on HOW the object works."@en,
+        "The subclass of model inspired by Peirceian category (b) the diagram, whose internal relations, mainly dyadic or so taken, represent by analogy (with the same logic) the relations in something (e.g. math formula, geometric flowchart)."@en .
+
+<https://w3id.org/emmo/hume#DataBasedModel> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MathematicalModel> ;
+    skos:definition "A mathematical model based on observed data, measurements, or experimental results."@en ;
+    skos:prefLabel "DataBasedModel"@en .
+
+<https://w3id.org/emmo/hume#DataProcessingSoftware> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pink:implementsModel ;
+            owl:someValuesFrom <https://w3id.org/emmo/hume#MathematicalModel> ],
+        pink:Software ;
+    skos:altLabel "DataProcessingApplication"@en ;
+    skos:definition "A software program aimed for data processing."@en ;
+    skos:prefLabel "DataProcessingSoftware"@en .
+
+<https://w3id.org/emmo/hume#FunctionalIcon> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#> ;
+    rdfs:subClassOf pink:Model ;
+    skos:altLabel "FunctionalIcon"@en ;
+    skos:definition "A model that imitates one representative character of the object. It share external similarities with the object, but not necessarily the same internal logical structure."@en ;
+    skos:example "A data based model is only a functional model, since it provide the same relations between the properties of the object (e.g., it can predict some properties as function of others) but is not considering the internal mechanisms (i.e., it can ignore the physics)."@en ;
+    skos:prefLabel "FunctionalModel"@en ;
+    skos:scopeNote "A model that focusing WHAT the object does."@en,
+        "This subclass of model inspired by Peirceian category (c) the metaphor, which represents the representative character of a sign by representing a parallelism in something else."@en .
+
+<https://w3id.org/emmo/hume#GranularMaterial> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialByCompactness> ;
+    skos:definition "A granular material is a conglomeration of discrete solid, macroscopic particles that are  large enough to avoid thermal motion fluctuations, and characterized by a loss of energy whenever the particles interact."@en ;
+    skos:prefLabel "GranularMaterial"@en .
+
+<https://w3id.org/emmo/hume#IonAtom> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#StandaloneAtom> ;
+    skos:definition "A standalone atom with an unbalanced number of electrons with respect to its atomic number."@en ;
+    skos:prefLabel "IonAtom"@en .
+
+<https://w3id.org/emmo/hume#MaterialByFunction> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#Material> .
+
+<https://w3id.org/emmo/hume#MaterialBySize> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#Material> ;
+    skos:prefLabel "MaterialBySize"@en .
+
+<https://w3id.org/emmo/hume#MesoscopicSubstance> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#Substance> ;
+    skos:definition "A matter that is not a particulate matter and that does not fullfill the criteria of being a continuum substance."@en ;
+    skos:example """nanoparticle,
+quantum dot,
+carbon nanotupe"""@en ;
+    skos:prefLabel "MesoscopicSubstance"@en ;
+    skos:scopeNote "Mesoscopic substances typically exist on a length scale between atoms and molecules and macroscopic (bulk) substances. They are typically in the range of some nanometers to about a micrometer and often exhibit unique physical properties due to their size and shape."@en .
+
+<https://w3id.org/emmo/hume#PhaseOfMatter> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#ContinuumSubstance> ;
+    skos:altLabel "Phase"@en ;
+    skos:definition "A matter object throughout which all physical properties of a material are essentially uniform."@en ;
+    skos:prefLabel "PhaseOfMatter"@en ;
+    skos:scopeNote """In the physical sciences, a phase is a region of space (a thermodynamic system), throughout which all physical properties of a material are essentially uniform. Examples of physical properties include density, index of refraction, magnetization and chemical composition. A simple description is that a phase is a region of material that is chemically uniform, physically distinct, and (often) mechanically separable. In a system consisting of ice and water in a glass jar, the ice cubes are one phase, the water is a second phase, and the humid air is a third phase over the ice and water. The glass of the jar is another separate phase.
+
+The term phase is sometimes used as a synonym for state of matter, but there can be several immiscible phases of the same state of matter. Also, the term phase is sometimes used to refer to a set of equilibrium states demarcated in terms of state variables such as pressure and temperature by a phase boundary on a phase diagram. Because phase boundaries relate to changes in the organization of matter, such as a change from liquid to solid or a more subtle change from one crystal structure to another, this latter usage is similar to the use of "phase" as a synonym for state of matter. However, the state of matter and phase diagram usages are not commensurate with the formal definition given above and the intended meaning must be determined in part from the context in which the term is used."""@en .
+
+<https://w3id.org/emmo/hume#ResemblanceIcon> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#> ;
+    rdfs:subClassOf pink:Model ;
+    skos:altLabel "ResemblanceIcon"@en ;
+    skos:definition "A model that mimics the spatial or temporal shape of the object."@en ;
+    skos:example "A geographical map that imitates the shape of the landscape and its properties at a specific historical time."@en ;
+    skos:prefLabel "ResemblanceModel"@en ;
+    skos:scopeNote "A model that focus on WHERE/WHEN the object is, in the sense of spatial or temporal shape."@en,
+        "The subclass of model inspired by Peirceian category a) the image, which depends on a simple quality (e.g. picture)."@en .
+
+<https://w3id.org/pink> a owl:Ontology ;
+    dcatap:status "Under Development"^^xsd:string ;
+    dcterms:abstract """The PINK Annotation Schema provides the semantic basis for SSbD.
+
+The PINK Annotation Schema expands on the annotation schema provided by tripper, which again expands on the DCAT-AP.
+
+A reference documentation of terms reused from standard W3C vocabularies can be found https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html.
+"""@en ;
+    dcterms:bibliographicCitation "xxx"^^xsd:string ;
+    dcterms:contributor <https://orcid.org/0000-0003-4250-4584> ;
+    dcterms:created "2025-09-08"^^xsd:string ;
+    dcterms:creator <https://orcid.org/0000-0001-8869-3718>,
+        <https://orcid.org/0000-0002-1560-809X>,
+        <https://orcid.org/0000-0002-1849-5246>,
+        <https://orcid.org/0000-0002-8053-8198> ;
+    dcterms:hasFormat <https://www.w3.org/TR/turtle> ;
+    dcterms:license "https://creativecommons.org/licenses/by/4.0/legalcode"^^xsd:string ;
+    dcterms:publisher <https://pink-project.eu> ;
+    dcterms:title "PINK Annotation Schema"@en ;
+    bibo:doi "tbd"^^xsd:string ;
+    bibo:status <http://purl.org/ontology/bibo/status/forthcoming> ;
+    vann:preferredNamespacePrefix "pink"^^xsd:string ;
+    vann:preferredNamespaceUri "https://w3id.org/pink"^^xsd:string ;
+    owl:priorVersion "0.0.0"^^xsd:string ;
+    owl:versionIRI <https://w3id.org/0.0.1/pink> ;
+    owl:versionInfo "0.0.1"^^xsd:string ;
+    foaf:homepage <https://github.com/PINK-project/PINK-annotation-schema> ;
+    foaf:logo <https://tess.elixir-europe.org/system/content_providers/images/000/000/777/original/pink-logo-orange-colorB-500.png> ;
+    vidoco:introduction """
+The PINK Annotation Schema has a modular structure and aims to cover the following features:
+
+* Allow to categorise resources (datasets, models, software, etc) according to their SSbD dimensions and categories/sub-categories.
+* Provenance, based on the [PROV-O](https://www.w3.org/TR/prov-o/) ontology. PROV-O is fully adapted by the PINK Annotation Schema, having the three top-level PROV-O classes, *Activity*, *Entity* and *Agent* in root.
+* Extension of the basic PROV-O provenance to complex scientific workflows with spatial and temporal parts.
+* Allow documentation of workflows that have not (yet) been executed. Such documentation is done at class-level. When executed individuals should be created for the evaluated activities and their input and output providing a full PROV-O provenance graph.
+* Top-level taxonomy for (advanced) materials and chemicals based on [EMMO](https://emmc.eu/emmo/) with mappings to [ChEBI](https://www.ebi.ac.uk/chebi/) for chemicals.
+* Categorisation models.
+* Strong taxonomy for relations, which are grouped into:
+  - [parthood relations](https://pink-project.github.io/PINK-annotation-schema/docs/background.html#parthood-relations), based on mereology
+  - [causal relations](https://pink-project.github.io/PINK-annotation-schema/docs/background.html#causal-relations), based on causality
+  - [semiotic relations](https://pink-project.github.io/PINK-annotation-schema/docs/background.html#semiotic-relations), based on [Pierse semiotics](https://plato.stanford.edu/entries/peirce-semiotics/)
+
+Separate reference documentations exists for the following sub-modules:
+
+* [ddoc](https://pink-project.github.io/PINK-annotation-schema/widoco-ddoc/index-en.html): The Tripper data documentation vocabulary, with terms reused from other ontologies and vocabularies. Mainly [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), [FOAF](http://xmlns.com/foaf/spec/) and similar basic vocabularies.
+* [reused-terms](https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html): Additional reused terms by the PINK Annotation Schema ([DCAT](https://www.w3.org/TR/vocab-dcat-3/), [PROV-O](https://www.w3.org/TR/prov-o/), etc).
+* [matter](https://pink-project.github.io/PINK-annotation-schema/widoco-matter/index-en.html): Taxonomy for (advanced) materials and chemicals
+* [models](https://pink-project.github.io/PINK-annotation-schema/widoco-models/index-en.html): Taxonomy for models.
+
+The root of the PINK Annotation Schema is shown below. More information can be found in the [background](https://pink-project.github.io/PINK-annotation-schema/docs/background.html) section.
+
+"""@en .
+
+pink:Dataset a owl:Class ;
+    vann:usageNote "A collection of (more than one) datum, published or curated by a single agent, and available for access or download in one or more representations."@en ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty pink:hasPart ;
+            owl:someValuesFrom pink:Datum ],
+        pink:Data ;
+    skos:definition "Encoded data made of more than one datum."@en ;
+    skos:prefLabel "Dataset"@en .
+
+pink:Information a owl:Class ;
+    rdfs:isDefinedBy pink:,
+        "Luciano Floridi, Information - A Very Short Introduction, Oxford University Press (2010) ISBN: 9780199551378"@en ;
+    rdfs:subClassOf pink:Data,
+        pink:Sign ;
+    skos:Definition "Data with meaning (semiotic sign)."@en ;
+    skos:prefLabel "Information"@en .
+
+pink:IntData a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#int> ;
+    rdfs:subClassOf pink:LongData ;
+    skos:definition "A data representing a 32-bit integer number."@en ;
+    skos:prefLabel "IntData"@en .
+
+pink:IntegerData a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#integer> ;
+    rdfs:subClassOf pink:NumericalData ;
+    skos:definition "A data representing an arbritrary sized integer number."@en ;
+    skos:prefLabel "IntegerData"@en .
+
+pink:Interpreter a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf prov:Agent ;
+    skos:definition "The agent that connects the sign to an entity in a semiotic (meaning-making) process."@en ;
+    skos:example "A person (interpreter) that measures the length (sign) of an pencil (object)."@en ;
+    skos:prefLabel "Interpreter"@en .
+
+pink:LongData a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#long> ;
+    rdfs:subClassOf pink:IntegerData ;
+    skos:definition "A data representing a 64-bit integer number."@en ;
+    skos:prefLabel "LongData"@en .
+
+pink:ShortData a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:seeAlso <https://www.w3.org/TR/xmlschema11-2/#short> ;
+    rdfs:subClassOf pink:IntData ;
+    skos:definition "A data representing a 16-bit integer number."@en ;
+    skos:prefLabel "ShortData"@en .
+
+pink:hasParticipant a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subPropertyOf pink:hasPart ;
+    skos:definition "The relation between a process and an object participating to it, i.e. that is relevant to the process itself."@en ;
+    skos:prefLabel "hasParticipant"@en ;
+    skos:scopeNote "Participation is a parthood relation - you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process."@en .
+
+pink:hasProperty a owl:ObjectProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range pink:Property ;
+    rdfs:subPropertyOf pink:isRepresentedBy ;
+    skos:definition "Connects an entity to a property."@en ;
+    skos:prefLabel "hasProperty"@en .
+
+pink:implementsModel a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain pink:Software ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range pink:Model ;
+    rdfs:subPropertyOf pink:standsFor ;
+    skos:definition "Relates a software to the model it implements."@en ;
+    skos:prefLabel "implementsModel"@en ;
+    skos:scopeNote "Semiotically a software can be seen as an executable sign that stands for the model it implements."@en .
+
+pink:nonOverlaps a owl:IrreflexiveProperty,
+        owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:isDefinedBy pink: ;
+    owl:propertyDisjointWith pink:overlaps ;
+    skos:definition "The relation between two individuals that does not share any parts."@en ;
+    skos:prefLabel "nonOverlaps"@en .
+
+pink:wasDerivedBy a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf prov:wasDerivedBy,
+        pink:processedFrom ;
+    skos:definition "Indirect relation that relates the output entity of an activity to its input entity."@en ;
+    skos:prefLabel "wasDerivedBy"@en .
+
+pink:wasInformedBy a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain prov:Activity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range prov:Activity ;
+    rdfs:subPropertyOf prov:wasInformedBy,
+        pink:isAfter ;
+    skos:definition "A one-directional relation between an activity that affects the subject activity."@en ;
+    skos:prefLabel "wasInformedBy"@en .
+
+skos:scopeNote a owl:AnnotationProperty ;
+    rdfs:isDefinedBy pink: .
+
+prov:Attribution a owl:Class ;
+    vann:usageNote "See [explanations and examples in W3C/DCAT](https://www.w3.org/TR/vocab-dcat-3/#qualified-attribution)."^^xsd:string ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:subClassOf prov:Agent ;
+    skos:definition "An agent that has some form of responsibility for a resource, but which is not a publisher nor a creator of the resource."^^xsd:string .
+
+prov:qualifiedAttribution a owl:ObjectProperty ;
+    rdfs:domain dcat:Resource ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:range prov:Attribution ;
+    skos:definition "An Agent having some form of responsibility for the resource."^^xsd:string ;
+    skos:prefLabel "qualifiedAttribution"^^xsd:string ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+<https://w3id.org/emmo/domain/oteio#Generator> a owl:Class ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:subClassOf <https://w3id.org/emmo/domain/oteio#Parser> ;
+    skos:definition "A generator that can serialise an instance of a datamodel into a distribution."^^xsd:string .
+
+<https://w3id.org/emmo/hume#ArtificialMaterial> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialByOrigin> ;
+    skos:definition "Any substance engineered or created by humans, often to mimic or improve upon natural materials."@en ;
+    skos:prefLabel "ArtificialMaterial"@en ;
+    skos:scopeNote "Artificial materials are typically engineered through chemical synthesis from natural raw materials like oil or coal, resulting in polymers such as plastics, nylon, or polyester, designed for specific, enhanced properties like strength, durability, or moldability not found in nature."@en .
+
+<https://w3id.org/emmo/hume#Atom> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MolecularEntity> ;
+    skos:altLabel "ChemicalElement"@en ;
+    skos:definition """A standalone atom has direct part one 'nucleus' and one 'electron_cloud'.
+
+An O 'atom' within an O₂ 'molecule' is an 'e-bonded_atom'.
+
+In this material branch, H atom is a particular case, with respect to higher atomic number atoms, since as soon as it shares its electron it has no nucleus entangled electron cloud.
+
+We cannot say that H₂ molecule has direct part two H atoms, but has direct part two H nucleus."""@en ;
+    skos:prefLabel "Atom"@en ;
+    skos:scopeNote "An 'atom' is a 'nucleus' surrounded by an 'electron_cloud', i.e. a quantum system made of one or more bounded electrons."@en .
+
+<https://w3id.org/emmo/hume#ChemicalCompound> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:seeAlso "https://en.wikipedia.org/wiki/Chemical_compound"@en ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#ChemicalSubstance> ;
+    skos:definition "A chemical substance composed of many identical molecules (or molecular entities) composed of atoms from more than one element held together by chemical bonds."@en ;
+    skos:prefLabel "ChemicalCompound"@en .
+
+<https://w3id.org/emmo/hume#ChemicalEntity> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf pink:Matter ;
+    skos:definition "The union of ChemicalSubstance and MolecularEntity."@en ;
+    skos:prefLabel "ChemicalEntity"@en ;
+    skos:scopeNote """A chemical entity comprises the two different ways to represents matter: as single recognizable particle entity (molecular entity) and as a composition of particle entities (substance).
+
+This distinction is not well assessed in actual chemical nomenclature, in which an element name refers to both the pure elemental substance or the atom.
+
+In the EMMO we force the adoption of a more strict categorization based on mereotopology.
+
+The class Material hosts the subclasses for which a substance can be identified without necessarily considering its nature of molecule/atom or substance (e.g. hydrocarbon is the class of both hydrocarbon molecules or gases)."""@en .
+
+<https://w3id.org/emmo/hume#ChemicalSubstance> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:seeAlso "https://doi.org/10.1351/goldbook.C01039"@en ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#ChemicalEntity>,
+        <https://w3id.org/emmo/hume#Substance> ;
+    owl:disjointWith <https://w3id.org/emmo/hume#MolecularEntity> ;
+    skos:definition "Matter of constant composition best characterized by the entities (molecules, formula units, atoms) it is composed of."@en ;
+    skos:prefLabel "ChemicalSubstance"@en ;
+    skos:scopeNote "A chemical substance is always composed of more than one molecular entity. It lays in the continuum or mesoscopic domain."@en .
+
+<https://w3id.org/emmo/hume#MaterialByClassicalMaterialsScience> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#Material> .
+
+<https://w3id.org/emmo/hume#MaterialByCompactness> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#Material> ;
+    skos:prefLabel "MaterialByCompactness"@en .
+
+<https://w3id.org/emmo/hume#MaterialByOrigin> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#Material> ;
+    skos:prefLabel "MaterialByOrigin"@en .
+
+<https://w3id.org/emmo/hume#MaterialByStructure> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialByClassicalMaterialsScience> ;
+    skos:prefLabel "MaterialByStructure"@en .
+
+<https://w3id.org/emmo/hume#Solid> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#CondensedMatter> ;
+    skos:definition "A continuum characterized by structural rigidity and resistance to changes of shape or volume, that retains its shape and density when not confined."@en ;
+    skos:prefLabel "Solid"@en .
+
+<https://w3id.org/emmo/hume#StandaloneAtom> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#Atom> ;
+    skos:definition "An atom that does not share electrons with other atoms."@en ;
+    skos:prefLabel "StandaloneAtom"@en .
+
+<https://w3id.org/emmo/hume#StateOfMatter> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#ContinuumSubstance> ;
+    owl:seeAlso "https://en.wikipedia.org/wiki/State_of_matter"@en ;
+    skos:definition "A superclass made as the disjoint union of all the form under which matter can exist."@en ;
+    skos:prefLabel "StateOfMatter"@en ;
+    skos:scopeNote "In physics, a state of matter is one of the distinct forms in which matter can exist. Four states of matter are observable in everyday life: solid, liquid, gas, and plasma."@en .
+
+pink:Computation a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf pink:Process ;
+    skos:definition "A process that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."@en ;
+    skos:prefLabel "Computation"@en .
+
+pink:Datum a owl:Class ;
+    vann:usageNote "Datum is the building block of datasets."@en ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf pink:Data ;
+    skos:definition "A self-consistent encoded data entity."@en ;
+    skos:prefLabel "Datum"@en .
+
+pink:Description a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf pink:Sign ;
+    skos:definition "A collection of properties that depicts an object."@en ;
+    skos:prefLabel "Description"@en ;
+    skos:scopeNote "A description is not atomic in the sense that it is made of more than one property."@en .
+
+pink:attributed a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain prov:Agent ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf pink:causedBy ;
+    owl:inverseOf pink:wasAttributedTo ;
+    skos:definition "Relates an agent to an entity via an activity that both the agent and entity participates to."@en ;
+    skos:prefLabel "attributed"@en ;
+    skos:scopeNote "The activity is through overlapped by the agent and overcrossed by the entity."@en,
+        "There may or may not be a causal interaction between the agent and entity."@en .
+
+pink:hasDescription a owl:ObjectProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range pink:Description ;
+    rdfs:subPropertyOf pink:isRepresentedBy ;
+    skos:definition "Connects an entity to a description."@en ;
+    skos:prefLabel "hasDescription"@en .
+
+pink:isAfter a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subPropertyOf pink:causedBy ;
+    skos:definition "A one-directional relation between an entity that affects the subject."@en ;
+    skos:prefLabel "isAfter"@en .
+
+pink:processedFrom a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subPropertyOf pink:isAfter ;
+    skos:definition "Indirect relation that relates the output of an activity to its input."@en ;
+    skos:prefLabel "processedFrom"@en .
+
+pink:wasAttributedTo a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range prov:Agent ;
+    rdfs:subPropertyOf prov:wasAttributedTo,
+        pink:causedBy ;
+    owl:inverseOf pink:attributed ;
+    skos:definition "Relates an entity to an agent via an activity that both the entity and agent participates to."@en ;
+    skos:prefLabel "wasAttributedTo"@en ;
+    skos:scopeNote "The activity is through overlapped by the agent and overcrossed by the entity."@en .
+
+dcterms:MediaType a owl:Class ;
+    vann:usageNote "Media type instances follow the [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types) vocabulary using the <http://www.iana.org/assignments/media-types/> namespace. For example, the IRI of the media type `text/turtle` is <http://www.iana.org/assignments/media-types/text/turtle>."^^xsd:string ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "A media type, e.g. the format of a computer file."^^xsd:string .
+
+<http://spdx.org/rdf/terms#Checksum> a owl:Class ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "A preferred label of the concept."^^xsd:string .
+
+dcat:Relationship a owl:Class ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "An association class for attaching additional information to a relationship between DCAT Resources."^^xsd:string .
+
+<https://w3id.org/emmo/hume#AIModel> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#DataBasedModel> ;
+    skos:altLabel "ArtificialIntelligenceModel"@en ;
+    skos:definition "An AI-based model."@en ;
+    skos:prefLabel "AIModel"@en .
+
+<https://w3id.org/emmo/hume#CondensedMatter> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#StateOfMatter> ;
+    skos:definition "Solid or liquid matter."@en ;
+    skos:prefLabel "CondensedMatter"@en ;
+    skos:scopeNote "The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with \"condensed\" phases of matter: systems of many constituents with strong interactions between them."@en .
+
+<https://w3id.org/emmo/hume#ContinuumSubstance> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#Substance> ;
+    owl:disjointWith <https://w3id.org/emmo/hume#MesoscopicSubstance> ;
+    skos:definition """A state that is a collection of sufficiently large number of other parts such that:
+- it is the bearer of qualities that can exists only by the fact that it is a sum of parts
+- the smallest partition dV of the state volume in which we are interested in, contains enough parts to be statistically consistent: n [#/m3] x dV [m3] >> 1"""@en ;
+    skos:prefLabel "ContinuumSubstance"@en ;
+    skos:scopeNote "A continuum is made of a sufficient number of parts that it continues to exists as continuum individual even after the loss of one of them i.e. a continuum is a redundant."@en,
+        """A continuum is not necessarily small (i.e. composed by the minimum amount of sates to fulfill the definition).
+
+A single continuum individual can be the whole fluid in a pipe."""@en,
+        "A continuum is the bearer of properties that are generated by the interactions of parts such as viscosity and thermal or electrical conductivity."@en .
+
+<https://w3id.org/emmo/hume#Fluid> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#StateOfMatter> ;
+    skos:definition "A continuum that has no fixed shape and yields easily to external pressure."@en ;
+    skos:example "Gas, liquid, plasma,"@en ;
+    skos:prefLabel "Fluid"@en .
+
+<https://w3id.org/emmo/hume#MathematicalModel> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/models#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#AnalogicalIcon>,
+        pink:Information ;
+    skos:definition "An analogical model expressed in mathematical language."@en ;
+    skos:prefLabel "MathematicalModel"@en ;
+    skos:scopeNote """A mathematical model can be defined as a description of a system using mathematical concepts and language to facilitate proper explanation of a system or to study the effects of different components and to make predictions on patterns of behaviour.
+
+Abramowitz and Stegun, 1968"""@en .
+
+pink:Matter a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf prov:Entity ;
+    skos:definition "An entity that possess mass and occupies volume."@en ;
+    skos:prefLabel "Matter"@en ;
+    skos:scopeNote "From the definition it follows that matter is an object with fermionic parts."@en,
+        """The interpretation of the term "matter" is not univocal. Several concepts are labelled with this term, depending on the field of science. The concept mass is sometimes related to the term "matter", even if the former refers to a physical quantity (precisely defined by modern physics) while the latter is a type that qualifies a physical entity.
+It is possible to identify more than one concept that can be reasonably labelled with the term "matter". For example, it is possible to label as matter only the entities that are made up of atoms. Or more generally, we can be more fine-grained and call "matter" the entities that are made up of protons, neutrons or electrons, so that we can call matter also a neutron radiation or a cathode ray.
+A more fundamental approach taken here, considers matter as entities that are made of quarks and leptons, without excluding particles like the W and Z bosons that possess some mass, but are not fermions. This definition also include antimatter."""@en .
+
+pink:NumericalData a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf pink:SymbolicData ;
+    skos:definition "A symbolic data representing a numerical value."@en ;
+    skos:prefLabel "NumericalData"@en .
+
+pink:Object a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf prov:Entity ;
+    skos:altLabel "Continuant"@en,
+        "Endurant"@en ;
+    skos:definition "An entity that has a temporal extension."@en ;
+    skos:prefLabel "Object"@en ;
+    skos:scopeNote "Object individals will typically also be an individual of 'Matter'. However, when categorising something as an 'Object', the focus is on its existence (throughout one of more processes), while 'Matter' focuses on that it pocess mass and takes up volume and how it can further be categorised as "@en,
+        "Object is the class of all individuals who's temporal parts are of the same type as the whole."@en .
+
+pink:Process a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf prov:Activity ;
+    skos:altLabel "Occurent"@en,
+        "Perdurant"@en ;
+    skos:definition "An activity with temporal parts."@en ;
+    skos:prefLabel "Process"@en ;
+    skos:scopeNote "The temporal parts of a process are not of the same type as the process itself."@en .
+
+pink:isRepresentedBy a owl:ObjectProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range pink:Sign ;
+    rdfs:subPropertyOf pink:semiotical ;
+    owl:inverseOf pink:standsFor ;
+    skos:definition "Connects an entity to a sign that stands for the entity."@en ;
+    skos:prefLabel "isRepresentedBy"@en .
+
+pink:overlaps a owl:ObjectProperty,
+        owl:ReflexiveProperty,
+        owl:SymmetricProperty ;
+    rdfs:isDefinedBy pink: ;
+    owl:propertyDisjointWith pink:nonOverlaps ;
+    skos:definition "The relation between two individuals representing entities that share at least one of their parts."@en ;
+    skos:prefLabel "overlaps"@en .
+
+pink:semiotical a owl:ObjectProperty ;
+    rdfs:isDefinedBy pink: ;
+    skos:definition "The base of all semiotic relations."@en ;
+    skos:prefLabel "semiotical"@en ;
+    skos:scopeNote "Semiotic relations can be seen as shortcuts that replaces a series of complex causal relations with a single relation."@en,
+        "Semiotic relations take part in a triadic semiotic meaning-making process, where an 'interpreter' connects a 'sign' (e.g. a property) to an entity (called 'referent')."@en,
+        "The semiotic relations in the PINK Annotation Scheme are inspirred by EMMO, which in turn is based on the semiotic theory by Charles Sanders Peirce (1839-1914)."@en .
+
+pink:wasAssociatedWith a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain prov:Activity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range prov:Agent ;
+    rdfs:subPropertyOf prov:wasAssociatedWith,
+        pink:isOvercrossedBy ;
+    skos:definition "Relates an activity to an agent that had some (unspecified) responsibility for the occurence of this activity."@en ;
+    skos:prefLabel "wasAssociatedWith"@en ;
+    skos:scopeNote "The activity is through overlapped by the agent."@en .
+
+dcterms:Location a owl:Class ;
+    vann:usageNote "It can be represented using a controlled vocabulary or with geographic coordinates. In the latter case, the use of the Core Location Vocabulary is recommended, following the approach described in the GeoDCAT-AP specification."^^xsd:string ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "A spatial region or named place."^^xsd:string .
+
+<https://w3id.org/emmo/domain/oteio#Parser> a owl:Class ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "A parser that can parse a distribution into an instance of a datamodel."^^xsd:string .
+
+<https://w3id.org/emmo/hume#MaterialByType> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialByClassicalMaterialsScience> ;
+    skos:definition "Categorisation of matter by its type."@en .
+
+<https://w3id.org/emmo/hume#MolecularEntity> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#>,
+        "https://goldbook.iupac.org/terms/view/M03986"@en ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#ChemicalEntity> ;
+    skos:definition "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity that can undergo a chemical reaction."@en ;
+    skos:example "Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule."@en,
+        "Methane, may mean a single molecule of CH4 (molecular entity) or a molar amount, specified or not (chemical species), participating in a reaction. The degree of precision necessary to describe a molecular entity depends on the context."@en ;
+    skos:prefLabel "MolecularEntity"@en ;
+    skos:scopeNote """Molecular entity is used as a general term for singular entities, irrespective of their nature, while chemical species stands for sets or ensembles of molecular entities.
+
+Note that the name of a compound may refer to the respective molecular entity or to the chemical species,"""@en .
+
+<https://w3id.org/emmo/hume#Substance> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf pink:Matter ;
+    skos:definition "A matter entity characterised by the fact that it possesses some homogeneous properties or identification criteria."@en ;
+    skos:example "A litre of water."@en,
+        "A pen can be classified as a substance (although it has parts with different properties) since it can be identified as being solid."@en ;
+    skos:prefLabel "Substance"@en .
+
+pink:Model a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf pink:Sign ;
+    skos:definition "A useful simplified description of a selected part of the world."@en ;
+    skos:example """Newton's law of motion is a model for how a body will move when subjected to forces.
+A mouse can be seen as a model for a human (e.g. in medicine).
+An architectural floor plan is a model of a house.
+"""@en ;
+    skos:prefLabel "Model"@en ;
+    skos:scopeNote "A model is a sign that resembles or imitates an object, in shape, function or by sharing a similar logical structure."@en .
+
+pink:Property a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf pink:Sign ;
+    skos:definition "An \"atomic\" sign that stands for an physical interaction with an object."@en ;
+    skos:prefLabel "Property"@en ;
+    skos:scopeNote "A property is atomic in the sense that is aimed to deliver one and one only aspect of the object."@en .
+
+pink:TierLevel a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf prov:Entity ;
+    skos:definition "Represent a tiered, iterative framework for evaluating chemical and material safety from early innovation to production."@en ;
+    skos:prefLabel "TierLevel"@en ;
+    skos:scopeNote "This approach typically involves a three-tier system-ranging from qualitative, early-stage, in silico, and in vitro screening to, finally, advanced, quantitative, in vivo testing."@en .
+
+pink:causedBy a owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    skos:definition "A relation between an entity that causally affects the subject."@en ;
+    skos:example "John yesterday is the cause of John today, is an example of temporal-like causality. The desk supporting my laptop is a space-like causality."@en ;
+    skos:prefLabel "causedBy"@en .
+
+pink:isOvercrossedBy a owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subPropertyOf pink:overlaps ;
+    owl:propertyDisjointWith pink:hasPart ;
+    skos:definition "The relation between an entity that overlaps another without having it as part."@en ;
+    skos:prefLabel "isOvercrossedBy"@en .
+
+pink:standsFor a owl:ObjectProperty ;
+    rdfs:domain pink:Sign ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf pink:semiotical ;
+    owl:inverseOf pink:isRepresentedBy ;
+    skos:definition "Connects a sign (e.g. a property) to an entity (a 'referent')."@en ;
+    skos:prefLabel "standsFor"@en .
+
+dcat:DataService a owl:Class ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:subClassOf dcat:Resource ;
+    skos:definition "A collection of operations that provides access to one or more datasets or data processing functions."^^xsd:string .
+
+foaf:Person rdfs:subClassOf pink:Object .
+
+ddoc:ConformanceLevel a owl:Class ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:subClassOf foaf:Document ;
+    owl:oneOf ( ddoc:mandatory ddoc:optional ddoc:recommended ) ;
+    skos:definition "The class of conformance levels. Includes the following individuals: `ddoc:mandatory`, `ddoc:recommended` and `ddoc:optional`."@en ;
+    skos:prefLabel "ConformanceLevel"@en .
+
+pink:SymbolicData a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:seeAlso <https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Datatype_Maps>,
+        <https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#built-in-datatypes> ;
+    rdfs:subClassOf pink:Data ;
+    skos:definition "The class for entities which stands for a specific data format expressed using a symbolic encoding."@en ;
+    skos:prefLabel "SymbolicData"@en .
+
+ddoc:mandatory a ddoc:ConformanceLevel ;
+    skos:prefLabel "mandatory"@en .
+
+<https://w3id.org/emmo/hume#Material> a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/matter#> ;
+    rdfs:subClassOf <https://w3id.org/emmo/hume#Substance> ;
+    skos:definition "The class of individuals standing for an amount of ordinary matter substance."@en ;
+    skos:prefLabel "Material"@en ;
+    skos:scopeNote "A instance of a material (e.g. nitrogen) can represent any state of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found."@en,
+        "A material may be either a mesoscopic or a continuum substance."@en,
+        "Material usually means some definite kind, quality, or quantity of matter, especially as intended for use."@en .
+
+pink:Data a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/pink/reused-terms#> ;
+    rdfs:subClassOf prov:Entity ;
+    skos:definition "Contrast from variation of properties that is encoded by an agent and that can be decoded by another agent according to a specific rule."@en ;
+    skos:prefLabel "Data"@en .
+
+pink:SsbdDimension a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf prov:Entity ;
+    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en ;
+    skos:prefLabel "SsbdDimension"@en ;
+    skos:scopeNote "The pink:SsbdDimension is an extension of the 'sustainability dimensions' defined by JRC."^^xsd:string .
+
+pink:used a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain prov:Activity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range prov:Entity ;
+    rdfs:subPropertyOf prov:used,
+        pink:isOvercrossedBy ;
+    skos:definition "Relates an activity to an entity that it used."@en ;
+    skos:example "For example, :baking :used :spoon, :egg, :oven ."^^xsd:string ;
+    skos:prefLabel "used"@en ;
+    skos:scopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."@en .
+
+pink:wasGeneratedBy a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:domain prov:Entity ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:range prov:Activity ;
+    rdfs:subPropertyOf prov:wasGeneratedBy,
+        pink:isOvercrossedBy ;
+    skos:definition "Relates an entity to the activity it was generated from."@en ;
+    skos:prefLabel "wasGeneratedBy"@en ;
+    skos:scopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en .
+
+dcterms:RightsStatement a owl:Class ;
+    rdfs:label "Rights Statement"@en ;
+    dcterms:issued "2008-01-14T00:00:00"^^xsd:dateTime ;
+    vann:usageNote "EU pre-defines the following individuals: accr:PUBLIC, accr:NON_PUBLIC, accr:CONFIDENTIAL, accr:RESTRICTED, accr:SENSITIVE."^^xsd:string ;
+    rdfs:comment "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms>,
+        <https://w3id.org/pink/reused-terms#> ;
+    rdfs:subClassOf foaf:Document ;
+    skos:definition "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."^^xsd:string .
+
+foaf:Agent a owl:Class ;
+    vann:usageNote "A resource that acts or has the power to act."^^xsd:string ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "An agent (eg. person, group, software or physical artifact)."^^xsd:string .
+
+foaf:Document a owl:Class ;
+    rdfs:label "Document"^^xsd:string ;
+    vann:usageNote "The Document class represents those things which are, broadly conceived, 'documents'. E.g. images."^^xsd:string ;
+    rdfs:comment "A document."^^xsd:string ;
+    rdfs:isDefinedBy <http://xmlns.com/foaf/0.1>,
+        <https://w3id.org/pink/reused-terms#> ;
+    rdfs:subClassOf pink:Data ;
+    owl:disjointWith foaf:Organization,
+        foaf:Project ;
+    skos:definition "A document."^^xsd:string .
+
+prov:Agent a owl:Class ;
+    rdfs:label "Agent"^^xsd:string ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#>,
+        ddoc: ;
+    rdfs:subClassOf foaf:Agent ;
+    prov:category "starting-point"^^xsd:string ;
+    prov:component "agents-responsibility"^^xsd:string ;
+    prov:definition "An agent is something that bears some form of responsibility for a activity taking place, for the existence of an entity, or for another agent's aprovctivity. "@en ;
+    prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
+    prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent"^^xsd:anyURI .
+
+pink:Sign a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf prov:Entity ;
+    skos:definition "A sign that stands for an entity."@en ;
+    skos:prefLabel "Sign"@en ;
+    skos:scopeNote "A sign is a part of a triadic semiotic (meaning-making) process, where an 'interpreter' connects a 'sign' to an entity (called 'referent')."@en .
+
+pink:Software a owl:Class ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subClassOf pink:Data ;
+    skos:definition "All or part of the programs, procedures, rules, and associated documentation of an information processing system."@en ;
+    skos:prefLabel "Software"@en .
+
+rdfs:Resource a owl:Class ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "A generic resource defined by RDFS."^^xsd:string .
+
+skos:Concept a owl:Class ;
+    vann:usageNote "In DCAT-AP, a Concept is used to denote codes within a codelist. See [DCAT-AP](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#controlled-vocs) for expectations and more detail."^^xsd:string ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "An idea or notion; a unit of thought."^^xsd:string .
+
+pink:hasPart a owl:ObjectProperty,
+        owl:ReflexiveProperty ;
+    rdfs:isDefinedBy pink: ;
+    rdfs:subPropertyOf dcterms:hasPart,
+        pink:overlaps ;
+    skos:definition "The primitive relation that express the concept of an entity being part of another one."@en ;
+    skos:prefLabel "hasPart"@en ;
+    skos:scopeNote "OWL2 does not allow non-simple (e.g. transitive) properties to appear in disjoint property axioms. We therefore implement the transitivity of hasPart using SWRL rules instead of asserting it with owl:TransitiveProperty."@en .
+
+dcat:Distribution a owl:Class ;
+    vann:usageNote "This represents a general availability of a dataset. It implies no information about the actual access method of the data, i.e., whether by direct download, API, or through a Web page. The use of dcat:downloadURL property indicates directly downloadable distributions."^^xsd:string ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:subClassOf dcat:Resource ;
+    skos:definition "A physical embodiment of the Dataset in a particular format."^^xsd:string .
+
+prov:Activity a owl:Class ;
+    rdfs:label "Activity"^^xsd:string ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#>,
+        pink: ;
+    owl:disjointWith prov:Entity ;
+    prov:category "starting-point"^^xsd:string ;
+    prov:component "entities-activities"^^xsd:string ;
+    prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+    prov:definition "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities."^^xsd:string ;
+    prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Activity"^^xsd:anyURI ;
+    prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Activity"^^xsd:anyURI .
+
+ddoc:recommended a ddoc:ConformanceLevel ;
+    skos:prefLabel "recommended"@en .
+
+<urn:swrl:var#x> a swrl:Variable .
+
+<urn:swrl:var#y> a swrl:Variable .
+
+<urn:swrl:var#z> a swrl:Variable .
+
+dcat:Dataset a owl:Class ;
+    vann:usageNote "This class represents the actual dataset as published by the dataset provider. In cases where a distinction between the actual dataset and its entry in the catalog is necessary (because metadata such as modification date and maintainer might differ), the catalog record class can be used for the latter."^^xsd:string ;
+    rdfs:isDefinedBy ddoc: ;
+    rdfs:subClassOf dcat:Resource ;
+    skos:definition "A collection of data, published or curated by an agent, and available for access or download in one or more representations."^^xsd:string .
+
+<http://www.w3.org/2006/vcard/ns#Kind> a owl:Class ;
+    vann:usageNote "Note that the class Kind is the parent class for the four explicit types of vCard (Individual, Organization, Location, Group)."^^xsd:string ;
+    rdfs:isDefinedBy ddoc: ;
+    skos:definition "A description following the vCard specification, e.g. to provide telephone number and e-mail address for a contact point."^^xsd:string .
+
+prov:Entity a owl:Class ;
+    rdfs:label "Entity"^^xsd:string ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#>,
+        <https://w3id.org/pink/matter#> ;
+    owl:disjointWith prov:InstantaneousEvent ;
+    prov:category "starting-point"^^xsd:string ;
+    prov:component "entities-activities"^^xsd:string ;
+    prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+    prov:definition "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
+    prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity"^^xsd:anyURI ;
+    prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity"^^xsd:anyURI .
+
+dcat:Resource a owl:Class ;
+    rdfs:label "Resource"@en ;
+    rdfs:comment "Resource published or curated by a single agent."@en ;
+    rdfs:isDefinedBy <https://w3id.org/pink/reused-terms#> ;
+    rdfs:subClassOf prov:Entity ;
+    skos:definition "Resource published or curated by an agent."^^xsd:string ;
+    skos:scopeNote "The class of all catalogued resources, the Superclass of dcat:Dataset, dcat:DataService, dcat:Catalog and any other member of a dcat:Catalog. This class carries properties common to all catalogued resources, including datasets and data services. The instances of this class SHOULD be included in a catalog. The instances of this class SHOULD be included in a catalog. It is strongly recommended to use a more specific sub-class. When describing a resource which is not a dcat:Dataset or dcat:DataService, it is recommended to create a suitable sub-class of dcat:Resource, or use dcat:Resource with the dcterms:type property to indicate the specific type."@en .
+
+ddoc:optional a ddoc:ConformanceLevel ;
+    skos:prefLabel "optional"@en .
+
+ddoc:datadoc a skos:Concept ;
+    vann:usageNote "Intended to be used as a theme individual for basic data documentation."@en ;
+    skos:definition "Basic data documentation."@en ;
+    skos:prefLabel "datadoc"@en .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#y> ;
+                    swrl:propertyPredicate pink:wasGeneratedBy ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:IndividualPropertyAtom ;
+                            swrl:argument1 <urn:swrl:var#y> ;
+                            swrl:argument2 <urn:swrl:var#z> ;
+                            swrl:propertyPredicate pink:used ] ;
+                    rdf:rest () ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#z> ;
+                    swrl:propertyPredicate pink:processedFrom ] ;
+            rdf:rest () ] .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#y> ;
+                    swrl:propertyPredicate pink:hasProcess ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:IndividualPropertyAtom ;
+                            swrl:argument1 <urn:swrl:var#y> ;
+                            swrl:argument2 <urn:swrl:var#z> ;
+                            swrl:propertyPredicate pink:used ] ;
+                    rdf:rest () ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#z> ;
+                    swrl:propertyPredicate pink:input ] ;
+            rdf:rest () ] .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#y> ;
+                    swrl:argument2 <urn:swrl:var#x> ;
+                    swrl:propertyPredicate pink:wasAssociatedWith ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:IndividualPropertyAtom ;
+                            swrl:argument1 <urn:swrl:var#y> ;
+                            swrl:argument2 <urn:swrl:var#z> ;
+                            swrl:propertyPredicate pink:used ] ;
+                    rdf:rest () ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#z> ;
+                    swrl:propertyPredicate pink:attributed ] ;
+            rdf:rest () ] .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#y> ;
+                    swrl:propertyPredicate pink:wasGeneratedBy ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:IndividualPropertyAtom ;
+                            swrl:argument1 <urn:swrl:var#y> ;
+                            swrl:argument2 <urn:swrl:var#z> ;
+                            swrl:propertyPredicate pink:wasAssociatedWith ] ;
+                    rdf:rest () ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#z> ;
+                    swrl:propertyPredicate pink:wasAttributedTo ] ;
+            rdf:rest () ] .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#y> ;
+                    swrl:propertyPredicate pink:wasGeneratedBy ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:IndividualPropertyAtom ;
+                            swrl:argument1 <urn:swrl:var#y> ;
+                            swrl:argument2 <urn:swrl:var#z> ;
+                            swrl:propertyPredicate pink:used ] ;
+                    rdf:rest () ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#z> ;
+                    swrl:propertyPredicate pink:wasDerivedBy ] ;
+            rdf:rest () ] .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#y> ;
+                    swrl:propertyPredicate pink:hasProcess ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:IndividualPropertyAtom ;
+                            swrl:argument1 <urn:swrl:var#z> ;
+                            swrl:argument2 <urn:swrl:var#y> ;
+                            swrl:propertyPredicate pink:wasGeneratedBy ] ;
+                    rdf:rest () ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#z> ;
+                    swrl:propertyPredicate pink:output ] ;
+            rdf:rest () ] .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#y> ;
+                    swrl:propertyPredicate pink:used ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:IndividualPropertyAtom ;
+                            swrl:argument1 <urn:swrl:var#y> ;
+                            swrl:argument2 <urn:swrl:var#z> ;
+                            swrl:propertyPredicate pink:wasGeneratedBy ] ;
+                    rdf:rest () ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#z> ;
+                    swrl:propertyPredicate pink:wasInformedBy ] ;
+            rdf:rest () ] .
+
+[] a swrl:Imp ;
+    swrl:body [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#y> ;
+                    swrl:propertyPredicate pink:hasPart ] ;
+            rdf:rest [ a swrl:AtomList ;
+                    rdf:first [ a swrl:IndividualPropertyAtom ;
+                            swrl:argument1 <urn:swrl:var#y> ;
+                            swrl:argument2 <urn:swrl:var#z> ;
+                            swrl:propertyPredicate pink:hasPart ] ;
+                    rdf:rest () ] ] ;
+    swrl:head [ a swrl:AtomList ;
+            rdf:first [ a swrl:IndividualPropertyAtom ;
+                    swrl:argument1 <urn:swrl:var#x> ;
+                    swrl:argument2 <urn:swrl:var#z> ;
+                    swrl:propertyPredicate pink:hasPart ] ;
+            rdf:rest () ] .
+
+[] a owl:Axiom ;
+    rdfs:seeAlso "https://en.wikipedia.org/wiki/Phase_(matter)"@en ;
+    owl:annotatedProperty skos:scopeNote ;
+    owl:annotatedSource <https://w3id.org/emmo/hume#PhaseOfMatter> ;
+    owl:annotatedTarget """In the physical sciences, a phase is a region of space (a thermodynamic system), throughout which all physical properties of a material are essentially uniform. Examples of physical properties include density, index of refraction, magnetization and chemical composition. A simple description is that a phase is a region of material that is chemically uniform, physically distinct, and (often) mechanically separable. In a system consisting of ice and water in a glass jar, the ice cubes are one phase, the water is a second phase, and the humid air is a third phase over the ice and water. The glass of the jar is another separate phase.
+
+The term phase is sometimes used as a synonym for state of matter, but there can be several immiscible phases of the same state of matter. Also, the term phase is sometimes used to refer to a set of equilibrium states demarcated in terms of state variables such as pressure and temperature by a phase boundary on a phase diagram. Because phase boundaries relate to changes in the organization of matter, such as a change from liquid to solid or a more subtle change from one crystal structure to another, this latter usage is similar to the use of "phase" as a synonym for state of matter. However, the state of matter and phase diagram usages are not commensurate with the formal definition given above and the intended meaning must be determined in part from the context in which the term is used."""@en .
+
+[] a owl:Axiom ;
+    rdfs:seeAlso "https://en.wikipedia.org/wiki/Condensed_matter_physics"@en ;
+    owl:annotatedProperty skos:scopeNote ;
+    owl:annotatedSource <https://w3id.org/emmo/hume#CondensedMatter> ;
+    owl:annotatedTarget "The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with \"condensed\" phases of matter: systems of many constituents with strong interactions between them."@en .
+
