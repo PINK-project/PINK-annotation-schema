@@ -6,7 +6,9 @@ extracts class hierarchy and property constraints, and generates
 SHACL shapes with inheritance for comprehensive validation.
 """
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from dataclasses import dataclass, field
+
+from typing import Dict, List, Optional, Tuple, Set
 
 from rdflib import Graph, Namespace, URIRef, Literal, BNode
 from rdflib import RDF, RDFS, OWL, XSD
@@ -180,6 +182,32 @@ def topological_sort_classes(
     return sorted_classes
 
 
+@dataclass
+class PropertyConstraints:
+    """Aggregated constraints for a property from multiple sources."""
+    prop_uri: URIRef
+    conformance: Optional[URIRef] = None
+    range_uri: Optional[URIRef] = None
+    value_constraints: Set[URIRef] = field(default_factory=set)
+    min_cardinality: Optional[int] = None
+    max_cardinality: Optional[int] = None
+
+    def merge_from_restriction(self, range_uri: Optional[URIRef],
+                               min_card: Optional[int] = None,
+                               max_card: Optional[int] = None) -> None:
+        """Merge constraints from OWL restriction."""
+        if range_uri:
+            self.value_constraints.add(range_uri)
+            # Use restriction range if domain-based range not set
+            if not self.range_uri:
+                self.range_uri = range_uri
+
+        if min_card is not None:
+            self.min_cardinality = min_card
+        if max_card is not None:
+            self.max_cardinality = max_card
+
+
 def get_properties_for_class(
     graph: Graph,
     target_class: URIRef
@@ -220,6 +248,83 @@ def get_properties_for_class(
     ]
 
 
+def get_restriction_properties_for_class(
+    graph: Graph,
+    target_class: URIRef
+) -> List[Tuple[URIRef, Optional[URIRef], Optional[int], Optional[int]]]:
+    """
+    Find properties constrained via OWL restrictions on the class.
+
+    Extracts property constraints from anonymous restriction blank nodes
+    in rdfs:subClassOf statements.
+
+    Parameters:
+        graph: Ontology graph.
+        target_class: Class URI to find restrictions for.
+
+    Returns:
+        List of tuples (property_uri, value_constraint, min_cardinality, max_cardinality).
+    """
+    query = """
+    SELECT DISTINCT ?prop ?valueConstraint ?minCard ?maxCard ?exactCard ?hasSome
+    WHERE {
+        ?class rdfs:subClassOf ?restriction .
+        ?restriction a owl:Restriction ;
+                     owl:onProperty ?prop .
+
+        # Value constraints (someValuesFrom, allValuesFrom)
+        OPTIONAL {
+            ?restriction owl:someValuesFrom ?valueConstraint .
+            BIND(true AS ?hasSome)
+        }
+        OPTIONAL { ?restriction owl:allValuesFrom ?valueConstraint . }
+
+        # Cardinality constraints
+        OPTIONAL { ?restriction owl:minCardinality ?minCard . }
+        OPTIONAL { ?restriction owl:maxCardinality ?maxCard . }
+        OPTIONAL { ?restriction owl:cardinality ?exactCard . }
+        OPTIONAL { ?restriction owl:minQualifiedCardinality ?minCard . }
+        OPTIONAL { ?restriction owl:maxQualifiedCardinality ?maxCard . }
+        OPTIONAL { ?restriction owl:qualifiedCardinality ?exactCard . }
+
+        FILTER (?class = ?target)
+    }
+    """
+    results = graph.query(
+        query,
+        initNs={"rdfs": RDFS, "owl": OWL},
+        initBindings={"target": target_class}
+    )
+
+    restrictions = []
+    for row in results:
+        prop = URIRef(row.prop)  # type: ignore[union-attr]
+        value_constraint = URIRef(row.valueConstraint) if row.valueConstraint else None  # type: ignore[union-attr]
+
+        # Handle cardinality
+        min_card = None
+        max_card = None
+
+        if row.exactCard is not None:  # type: ignore[union-attr]
+            # owl:cardinality sets both min and max
+            exact = int(row.exactCard)  # type: ignore[union-attr]
+            min_card = exact
+            max_card = exact
+        else:
+            if row.minCard is not None:  # type: ignore[union-attr]
+                min_card = int(row.minCard)  # type: ignore[union-attr]
+            if row.maxCard is not None:  # type: ignore[union-attr]
+                max_card = int(row.maxCard)  # type: ignore[union-attr]
+
+        # someValuesFrom implies at least one value
+        if value_constraint and row.hasSome and not min_card:  # type: ignore[union-attr]
+            min_card = 1
+
+        restrictions.append((prop, value_constraint, min_card, max_card))
+
+    return restrictions
+
+
 def is_datatype(range_uri: Optional[URIRef]) -> bool:
     """
     Check if range URI is an XSD datatype.
@@ -237,9 +342,7 @@ def is_datatype(range_uri: Optional[URIRef]) -> bool:
 
 def create_property_shape(
     shapes_graph: Graph,
-    prop_uri: URIRef,
-    conformance: Optional[URIRef],
-    range_uri: Optional[URIRef]
+    constraints: PropertyConstraints
 ) -> BNode:
     """
     Create a sh:property blank node for a property constraint.
@@ -248,30 +351,34 @@ def create_property_shape(
 
     Parameters:
         shapes_graph: Graph to add triples to.
-        prop_uri: Property URI (sh:path).
-        conformance: Conformance level (mandatory/recommended/optional) or None.
-        range_uri: Range of property (for sh:class or sh:datatype).
+        constraints: Aggregated property constraints.
 
     Returns:
         Blank node representing the property shape.
     """
     prop_shape = BNode()
-    shapes_graph.add((prop_shape, SH.path, prop_uri))
+    shapes_graph.add((prop_shape, SH.path, constraints.prop_uri))
 
-    # Set cardinality based on conformance (skip if None - treated as optional)
-    if conformance == DDOC.mandatory:
+    # Set cardinality based on conformance or restriction cardinality
+    # Restriction cardinality takes precedence
+    if constraints.min_cardinality is not None:
+        shapes_graph.add((prop_shape, SH.minCount, Literal(constraints.min_cardinality)))
+    elif constraints.conformance == DDOC.mandatory:
         shapes_graph.add((prop_shape, SH.minCount, Literal(1)))
-    elif conformance == DDOC.recommended:
-        # Add as warning severity
+
+    if constraints.max_cardinality is not None:
+        shapes_graph.add((prop_shape, SH.maxCount, Literal(constraints.max_cardinality)))
+
+    # Set severity for recommended properties (if no explicit cardinality)
+    if constraints.conformance == DDOC.recommended and constraints.min_cardinality is None:
         shapes_graph.add((prop_shape, SH.severity, SH.Warning))
-    # If conformance is None or optional, no minCount constraint
 
     # Set type constraint from range
-    if range_uri is not None:
-        if is_datatype(range_uri):
-            shapes_graph.add((prop_shape, SH.datatype, range_uri))
+    if constraints.range_uri is not None:
+        if is_datatype(constraints.range_uri):
+            shapes_graph.add((prop_shape, SH.datatype, constraints.range_uri))
         else:
-            shapes_graph.add((prop_shape, SH["class"], range_uri))
+            shapes_graph.add((prop_shape, SH["class"], constraints.range_uri))
 
     return prop_shape
 
@@ -282,7 +389,9 @@ def generate_shapes(onto_dir: Path, output_path: Path) -> None:
 
     Dynamically discovers all classes from TARGET_NAMESPACES,
     creates shapes with sh:node inheritance mirroring class hierarchy.
-    Properties are assigned to shapes based on rdfs:domain.
+    Properties are assigned to shapes based on:
+    - rdfs:domain declarations
+    - OWL restrictions (owl:someValuesFrom, owl:allValuesFrom, cardinalities)
 
     Parameters:
         onto_dir: Path to ontology directory.
@@ -326,14 +435,35 @@ def generate_shapes(onto_dir: Path, output_path: Path) -> None:
                 parent_shape = generated_shapes[parent_class]
                 shapes.add((shape_uri, SH.node, parent_shape))
 
-        # Get properties for this class
-        properties = get_properties_for_class(ontology, target_class)
+        # Get properties from rdfs:domain
+        domain_properties = get_properties_for_class(ontology, target_class)
+
+        # Get properties from OWL restrictions
+        restriction_properties = get_restriction_properties_for_class(ontology, target_class)
+
+        # Merge constraints by property URI
+        property_constraints: Dict[URIRef, PropertyConstraints] = {}
+
+        # Add domain-based properties
+        for prop_uri, conformance, range_uri in domain_properties:
+            property_constraints[prop_uri] = PropertyConstraints(
+                prop_uri=prop_uri,
+                conformance=conformance,
+                range_uri=range_uri
+            )
+
+        # Merge restriction-based constraints
+        for prop_uri, value_constraint, min_card, max_card in restriction_properties:
+            if prop_uri not in property_constraints:
+                property_constraints[prop_uri] = PropertyConstraints(prop_uri=prop_uri)
+
+            property_constraints[prop_uri].merge_from_restriction(
+                value_constraint, min_card, max_card
+            )
 
         # Create property shapes
-        for prop_uri, conformance, range_uri in properties:
-            prop_shape = create_property_shape(
-                shapes, prop_uri, conformance, range_uri
-            )
+        for constraints in property_constraints.values():
+            prop_shape = create_property_shape(shapes, constraints)
             shapes.add((shape_uri, SH.property, prop_shape))
 
         # Track this shape for child class inheritance

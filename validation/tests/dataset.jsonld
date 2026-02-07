@@ -17,7 +17,7 @@
     "@value": "Dataset containing toxicity measurements for various nanomaterials under SSbD framework.",
     "@language": "en"
   },
-  "pink:hasDatum": {
+  "pink:hasPart": {
     "@id": "https://example.org/datum/measurement-001",
     "@type": "pink:Datum"
   },
