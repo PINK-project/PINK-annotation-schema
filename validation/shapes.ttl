@@ -39,17 +39,17 @@ pink:ConceptShape a sh:NodeShape ;
 
 pink:DataServiceShape a sh:NodeShape ;
     sh:node pink:ResourceShape ;
-    sh:property [ sh:class rdfs:Resource ;
-            sh:path dcat:endpointDescription ;
-            sh:severity sh:Warning ],
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:minCount 1 ;
+            sh:path dcat:endpointURL ],
+        [ sh:class <https://w3id.org/emmo/domain/oteio#Parser> ;
+            sh:path <https://w3id.org/emmo/domain/oteio#parser> ],
         [ sh:class dcat:Dataset ;
             sh:path dcat:servesDataset ;
             sh:severity sh:Warning ],
-        [ sh:class <https://w3id.org/emmo/domain/oteio#Parser> ;
-            sh:path <https://w3id.org/emmo/domain/oteio#parser> ],
-        [ sh:datatype xsd:anyURI ;
-            sh:minCount 1 ;
-            sh:path dcat:endpointURL ] ;
+        [ sh:class rdfs:Resource ;
+            sh:path dcat:endpointDescription ;
+            sh:severity sh:Warning ] ;
     sh:targetClass dcat:DataService .
 
 pink:DatasetSeriesShape a sh:NodeShape ;
@@ -76,33 +76,33 @@ pink:DescriptionShape a sh:NodeShape ;
 
 pink:DistributionShape a sh:NodeShape ;
     sh:node pink:ResourceShape ;
-    sh:property [ sh:class rdfs:Resource ;
-            sh:minCount 1 ;
-            sh:path dcat:accessURL ],
-        [ sh:class <https://w3id.org/emmo/domain/oteio#Generator> ;
-            sh:path <https://w3id.org/emmo/domain/oteio#generator> ],
-        [ sh:class dcterms:MediaType ;
-            sh:path dcat:compressFormat ],
-        [ sh:class skos:Concept ;
-            sh:path <http://data.europa.eu/r5r/status> ],
+    sh:property [ sh:class dcterms:MediaType ;
+            sh:path dcat:packageFormat ],
         [ sh:class dcterms:MediaTypeOrExtent ;
             sh:path dcterms:format ],
         [ sh:datatype xsd:datetime ;
             sh:path <http://data.europa.eu/r5r/availability> ;
             sh:severity sh:Warning ],
-        [ sh:class dcterms:MediaType ;
-            sh:path dcat:mediaType ;
-            sh:severity sh:Warning ],
-        [ sh:class dcat:DataService ;
-            sh:path dcat:accessService ],
+        [ sh:class skos:Concept ;
+            sh:path <http://data.europa.eu/r5r/status> ],
+        [ sh:class <https://w3id.org/emmo/domain/oteio#Generator> ;
+            sh:path <https://w3id.org/emmo/domain/oteio#generator> ],
         [ sh:datatype xsd:nonNegativeInteger ;
             sh:path dcat:byteSize ],
         [ sh:class <http://spdx.org/rdf/terms#Checksum> ;
             sh:path <http://spdx.org/rdf/terms#checksum> ],
-        [ sh:class dcterms:MediaType ;
-            sh:path dcat:packageFormat ],
         [ sh:datatype xsd:anyURI ;
-            sh:path dcat:downloadURL ] ;
+            sh:path dcat:downloadURL ],
+        [ sh:class rdfs:Resource ;
+            sh:minCount 1 ;
+            sh:path dcat:accessURL ],
+        [ sh:class dcat:DataService ;
+            sh:path dcat:accessService ],
+        [ sh:class dcterms:MediaType ;
+            sh:path dcat:compressFormat ],
+        [ sh:class dcterms:MediaType ;
+            sh:path dcat:mediaType ;
+            sh:severity sh:Warning ] ;
     sh:targetClass dcat:Distribution .
 
 pink:DoubleDataShape a sh:NodeShape ;
@@ -131,11 +131,11 @@ pink:LicenseDocumentShape a sh:NodeShape ;
     sh:targetClass dcterms:LicenseDocument .
 
 pink:LocationShape a sh:NodeShape ;
-    sh:property [ sh:path dcat:bbox ;
-            sh:severity sh:Warning ],
-        [ sh:class <http://www.w3.org/ns/locn#Geometry> ;
+    sh:property [ sh:class <http://www.w3.org/ns/locn#Geometry> ;
             sh:path <http://www.w3.org/ns/locn#geometry> ],
         [ sh:path dcat:centroid ;
+            sh:severity sh:Warning ],
+        [ sh:path dcat:bbox ;
             sh:severity sh:Warning ] ;
     sh:targetClass dcterms:Location .
 
@@ -164,10 +164,10 @@ pink:ParticipantShape a sh:NodeShape ;
     sh:targetClass pink:Participant .
 
 pink:RelationshipShape a sh:NodeShape ;
-    sh:property [ sh:class dcat:Role ;
-            sh:path dcat:hasRole ],
-        [ sh:class rdfs:Resource ;
-            sh:path dcterms:relation ] ;
+    sh:property [ sh:class rdfs:Resource ;
+            sh:path dcterms:relation ],
+        [ sh:class dcat:Role ;
+            sh:path dcat:hasRole ] ;
     sh:targetClass dcat:Relationship .
 
 pink:ReliabilityDocumentShape a sh:NodeShape ;
@@ -195,21 +195,21 @@ pink:ToxicityShape a sh:NodeShape ;
 
 pink:ActivityShape a sh:NodeShape ;
     sh:property [ sh:class prov:Entity ;
-            sh:path pink:hasInput ],
-        [ sh:class prov:Entity ;
             sh:path pink:used ],
         [ sh:class prov:Activity ;
             sh:path pink:wasInformedBy ],
+        [ sh:class prov:Agent ;
+            sh:path prov:wasAssociatedWith ],
         [ sh:class prov:Entity ;
             sh:path pink:hasOutput ],
+        [ sh:class prov:Agent ;
+            sh:path pink:wasAssociatedWith ],
+        [ sh:class prov:Entity ;
+            sh:path prov:used ],
         [ sh:class prov:Activity ;
             sh:path prov:wasInformedBy ],
         [ sh:class prov:Entity ;
-            sh:path prov:used ],
-        [ sh:class prov:Agent ;
-            sh:path pink:wasAssociatedWith ],
-        [ sh:class prov:Agent ;
-            sh:path prov:wasAssociatedWith ] ;
+            sh:path pink:hasInput ] ;
     sh:targetClass prov:Activity .
 
 pink:IntDataShape a sh:NodeShape ;
@@ -230,9 +230,9 @@ pink:ObjectShape a sh:NodeShape ;
 
 pink:PropertyShape a sh:NodeShape ;
     sh:node pink:SignShape ;
-    sh:property [ sh:class prov:Entity ;
-            sh:path pink:isPropertyOf ],
-        [ sh:path pink:hasUnit ] ;
+    sh:property [ sh:path pink:hasUnit ],
+        [ sh:class prov:Entity ;
+            sh:path pink:isPropertyOf ] ;
     sh:targetClass pink:Property .
 
 pink:RightsStatementShape a sh:NodeShape ;
@@ -247,12 +247,12 @@ pink:SoftwareShape a sh:NodeShape ;
     sh:node pink:DataShape ;
     sh:property [ sh:class pink:Software ;
             sh:path pink:priorRelease ],
-        [ sh:datatype xsd:boolean ;
-            sh:path pink:hasAPI ],
+        [ sh:class pink:Model ;
+            sh:path pink:implementsModel ],
         [ sh:datatype xsd:boolean ;
             sh:path pink:hasGUI ],
-        [ sh:class pink:Model ;
-            sh:path pink:implementsModel ] ;
+        [ sh:datatype xsd:boolean ;
+            sh:path pink:hasAPI ] ;
     sh:targetClass pink:Software .
 
 pink:DatasetShape a sh:NodeShape ;
@@ -261,45 +261,45 @@ pink:DatasetShape a sh:NodeShape ;
         pink:ResourceShape ;
     sh:property [ sh:class <http://www.w3.org/ns/adms#Identifier> ;
             sh:path <http://www.w3.org/ns/adms#identifier> ],
-        [ sh:class pink:Datum ;
-            sh:path pink:hasDatum ],
-        [ sh:path <https://w3id.org/emmo/domain/oteio#mappingFormat> ],
-        [ sh:datatype xsd:anyURI ;
-            sh:path <https://w3id.org/emmo/domain/oteio#mappingURL> ],
         [ sh:class dcat:Distribution ;
             sh:path dcat:distribution ;
             sh:severity sh:Warning ],
         [ sh:class pink:Datum ;
             sh:minCount 1 ;
             sh:path pink:hasPart ],
-        [ sh:class dcat:Distribution ;
-            sh:path <http://www.w3.org/ns/adms#sample> ],
-        [ sh:class dcat:Dataset ;
-            sh:path dcterms:source ],
-        [ sh:class dcat:DatasetSeries ;
-            sh:path dcat:inSeries ],
-        [ sh:datatype xsd:anyURI ;
-            sh:path <https://w3id.org/emmo/domain/oteio#hasDatamodelStorage> ],
-        [ sh:class dcat:Resource ;
-            sh:path prov:wasDerivedFrom ],
-        [ sh:class dcterms:Location ;
-            sh:path dcterms:spatial ;
-            sh:severity sh:Warning ],
-        [ sh:class <https://w3id.org/emmo/domain/oteio#Datamodel> ;
-            sh:path <https://w3id.org/emmo/domain/oteio#hasDatamodel> ],
         [ sh:class dcterms:PeriodOfTime ;
             sh:path dcterms:temporal ;
             sh:severity sh:Warning ],
-        [ sh:datatype xsd:decimal ;
-            sh:path dcat:spatialResolutionInMeters ],
+        [ sh:path <https://w3id.org/emmo/domain/oteio#mappingFormat> ],
         [ sh:class rdf:JSON ;
             sh:path <https://w3id.org/emmo/domain/oteio#mapping> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:path <https://w3id.org/emmo/domain/oteio#mappingURL> ],
+        [ sh:class pink:Datum ;
+            sh:path pink:hasDatum ],
+        [ sh:class dcat:Dataset ;
+            sh:path dcterms:source ],
+        [ sh:datatype xsd:anyURI ;
+            sh:path <https://w3id.org/emmo/domain/oteio#hasDatamodelStorage> ],
+        [ sh:class dcat:DatasetSeries ;
+            sh:path dcat:inSeries ],
         [ sh:class dcterms:Frequency ;
             sh:path dcterms:accrualPeriodicity ],
+        [ sh:class dcat:Distribution ;
+            sh:path <http://www.w3.org/ns/adms#sample> ],
+        [ sh:class dcat:Resource ;
+            sh:path prov:wasDerivedFrom ],
         [ sh:datatype xsd:duration ;
             sh:path dcat:temporalResolution ],
         [ sh:class prov:Activity ;
-            sh:path prov:wasGeneratedBy ] ;
+            sh:path prov:wasGeneratedBy ],
+        [ sh:class <https://w3id.org/emmo/domain/oteio#Datamodel> ;
+            sh:path <https://w3id.org/emmo/domain/oteio#hasDatamodel> ],
+        [ sh:datatype xsd:decimal ;
+            sh:path dcat:spatialResolutionInMeters ],
+        [ sh:class dcterms:Location ;
+            sh:path dcterms:spatial ;
+            sh:severity sh:Warning ] ;
     sh:targetClass dcat:Dataset,
         pink:Dataset .
 
@@ -317,70 +317,70 @@ pink:ProcessShape a sh:NodeShape ;
 
 pink:ResourceShape a sh:NodeShape ;
     sh:node pink:EntityShape ;
-    sh:property [ sh:class dcterms:LicenseDocument ;
-            sh:path dcterms:license ],
-        [ sh:datatype xsd:dateTime ;
-            sh:path dcterms:issued ],
-        [ sh:class prov:Attribution ;
-            sh:path prov:qualifiedAttribution ],
-        [ sh:class foaf:Document ;
-            sh:path pink:documentation ],
-        [ sh:datatype xsd:datetime ;
-            sh:path <https://w3id.org/emmo/application/datadoc#curationDate> ],
-        [ sh:class <http://data.europa.eu/eli/ontology#LegalResource> ;
-            sh:path <http://data.europa.eu/r5r/applicableLegislation> ],
-        [ sh:class rdfs:Resource ;
-            sh:path dcat:hasVersion ],
+    sh:property [ sh:path dcat:version ],
         [ sh:class dcat:Relationship ;
             sh:path dcat:qualifiedRelation ],
-        [ sh:datatype rdf:langString ;
-            sh:path dcterms:abstract ],
-        [ sh:class <https://w3id.org/emmo/application/datadoc#ConformanceLevel> ;
-            sh:path <https://w3id.org/emmo/application/datadoc#conformance> ],
-        [ sh:datatype xsd:datetime ;
-            sh:path dcterms:modified ],
-        [ sh:datatype rdf:langString ;
-            sh:minCount 1 ;
-            sh:path dcterms:title ],
-        [ sh:class skos:Concept ;
-            sh:path dcat:theme ;
-            sh:severity sh:Warning ],
-        [ sh:class dcterms:RightsStatement ;
-            sh:path dcterms:accessRights ],
         [ sh:path dcterms:bibliographicCitation ],
-        [ sh:path dcat:version ],
-        [ sh:class foaf:Agent ;
-            sh:path <https://w3id.org/emmo/application/datadoc#curator> ],
-        [ sh:class rdf:JSON ;
-            sh:path <https://w3id.org/emmo/domain/oteio#statement> ],
-        [ sh:datatype rdf:langString ;
-            sh:path dcat:keyword ;
-            sh:severity sh:Warning ],
+        [ sh:class foaf:Document ;
+            sh:path dcat:landingPage ],
+        [ sh:class dcterms:LicenseDocument ;
+            sh:path dcterms:license ],
+        [ sh:datatype xsd:string ;
+            sh:path dcterms:language ],
+        [ sh:class dcterms:Standard ;
+            sh:path dcterms:conformsTo ],
         [ sh:datatype xsd:string ;
             sh:path <https://w3id.org/emmo/application/datadoc#unitSymbol> ],
         [ sh:class foaf:Document ;
-            sh:path dcat:landingPage ],
+            sh:path pink:documentation ],
+        [ sh:class <https://w3id.org/emmo/application/datadoc#ConformanceLevel> ;
+            sh:path <https://w3id.org/emmo/application/datadoc#conformance> ],
+        [ sh:class rdfs:Resource ;
+            sh:path dcat:hasVersion ],
+        [ sh:datatype xsd:dateTime ;
+            sh:path dcterms:issued ],
+        [ sh:class foaf:Document ;
+            sh:path foaf:page ],
+        [ sh:class prov:Attribution ;
+            sh:path prov:qualifiedAttribution ],
         [ sh:class foaf:Agent ;
-            sh:path dcterms:contributor ],
+            sh:path <https://w3id.org/emmo/application/datadoc#curator> ],
+        [ sh:class dcterms:RightsStatement ;
+            sh:path dcterms:accessRights ],
+        [ sh:datatype rdf:langString ;
+            sh:path dcterms:abstract ],
         [ sh:class foaf:Agent ;
             sh:path dcterms:creator ],
+        [ sh:class <http://data.europa.eu/eli/ontology#LegalResource> ;
+            sh:path <http://data.europa.eu/r5r/applicableLegislation> ],
+        [ sh:datatype rdf:langString ;
+            sh:path dcat:keyword ;
+            sh:severity sh:Warning ],
+        [ sh:datatype xsd:datetime ;
+            sh:path <https://w3id.org/emmo/application/datadoc#curationDate> ],
+        [ sh:class rdf:JSON ;
+            sh:path <https://w3id.org/emmo/domain/oteio#statement> ],
         [ sh:class foaf:Agent ;
             sh:path dcterms:publisher ;
+            sh:severity sh:Warning ],
+        [ sh:class foaf:Agent ;
+            sh:path dcterms:contributor ],
+        [ sh:class skos:Concept ;
+            sh:path dcat:theme ;
             sh:severity sh:Warning ],
         [ sh:datatype rdf:langString ;
             sh:minCount 1 ;
             sh:path skos:definition ],
-        [ sh:class rdfs:Resource ;
-            sh:path dcterms:isReferencedBy ],
-        [ sh:class foaf:Document ;
-            sh:path foaf:page ],
-        [ sh:datatype xsd:string ;
-            sh:path dcterms:language ],
+        [ sh:datatype rdf:langString ;
+            sh:minCount 1 ;
+            sh:path dcterms:title ],
         [ sh:class <http://www.w3.org/2006/vcard/ns#Kind> ;
             sh:path dcat:contactPoint ;
             sh:severity sh:Warning ],
-        [ sh:class dcterms:Standard ;
-            sh:path dcterms:conformsTo ] ;
+        [ sh:datatype xsd:datetime ;
+            sh:path dcterms:modified ],
+        [ sh:class rdfs:Resource ;
+            sh:path dcterms:isReferencedBy ] ;
     sh:targetClass dcat:Resource .
 
 pink:AgentShape a sh:NodeShape ;
@@ -396,10 +396,10 @@ pink:AgentShape a sh:NodeShape ;
 
 pink:SignShape a sh:NodeShape ;
     sh:node pink:EntityShape ;
-    sh:property [ sh:class prov:Entity ;
-            sh:path pink:standsFor ],
-        [ sh:class pink:Interpreter ;
-            sh:path pink:isInterpretedBy ] ;
+    sh:property [ sh:class pink:Interpreter ;
+            sh:path pink:isInterpretedBy ],
+        [ sh:class prov:Entity ;
+            sh:path pink:standsFor ] ;
     sh:targetClass pink:Sign .
 
 pink:SymbolicDataShape a sh:NodeShape ;
@@ -412,24 +412,24 @@ pink:DataShape a sh:NodeShape ;
 
 pink:EntityShape a sh:NodeShape ;
     sh:property [ sh:class prov:Agent ;
-            sh:path pink:wasAttributedTo ],
-        [ sh:class prov:Agent ;
             sh:path prov:wasAttributedTo ],
-        [ sh:class pink:Matter ;
-            sh:path pink:chemicalClass ],
-        [ sh:class prov:Activity ;
-            sh:path pink:participatesTo ],
-        [ sh:class prov:Entity ;
-            sh:path pink:wasDerivedBy ],
-        [ sh:class pink:TierLevel ;
-            sh:path pink:tierLevel ],
-        [ sh:class pink:Sign ;
-            sh:path pink:isRepresentedBy ],
-        [ sh:class pink:Description ;
-            sh:path pink:hasDescription ],
         [ sh:class prov:Activity ;
             sh:path pink:wasGeneratedBy ],
         [ sh:class pink:Property ;
-            sh:path pink:hasProperty ] ;
+            sh:path pink:hasProperty ],
+        [ sh:class pink:Matter ;
+            sh:path pink:chemicalClass ],
+        [ sh:class prov:Entity ;
+            sh:path pink:wasDerivedBy ],
+        [ sh:class pink:Description ;
+            sh:path pink:hasDescription ],
+        [ sh:class prov:Agent ;
+            sh:path pink:wasAttributedTo ],
+        [ sh:class pink:Sign ;
+            sh:path pink:isRepresentedBy ],
+        [ sh:class prov:Activity ;
+            sh:path pink:participatesTo ],
+        [ sh:class pink:TierLevel ;
+            sh:path pink:tierLevel ] ;
     sh:targetClass prov:Entity .
 

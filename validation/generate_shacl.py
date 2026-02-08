@@ -12,6 +12,7 @@ from typing import Dict, List, Optional, Tuple, Set
 
 from rdflib import Graph, Namespace, URIRef, Literal, BNode
 from rdflib import RDF, RDFS, OWL, XSD
+from rdflib.namespace import split_uri
 
 
 # Namespace definitions
@@ -38,20 +39,14 @@ TARGET_NAMESPACES = [
 ]
 
 
-def get_local_name(uri: URIRef) -> str:
-    """Extract local name from URI (after # or last /)."""
-    uri_str = str(uri)
-    if "#" in uri_str:
-        return uri_str.split("#")[-1]
-    return uri_str.split("/")[-1]
-
-
 def get_namespace(uri: URIRef) -> str:
-    """Extract namespace from URI (before local name)."""
-    uri_str = str(uri)
-    if "#" in uri_str:
-        return uri_str.rsplit("#", 1)[0] + "#"
-    return uri_str.rsplit("/", 1)[0] + "/"
+    """Extract namespace from URI."""
+    return split_uri(uri)[0]
+
+
+def get_local_name(uri: URIRef) -> str:
+    """Extract local name from URI."""
+    return split_uri(uri)[1]
 
 
 def generate_shape_uri(class_uri: URIRef) -> URIRef:
