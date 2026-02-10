@@ -143,16 +143,6 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
 vann:usageNote rdf:type owl:AnnotationProperty .
 
 
-###  https://w3id.org/pink#conformance
-:conformance rdf:type owl:ObjectProperty ;
-    rdfs:range ddoc:ConformanceLevel ;
-    skos:definition "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema"@en ;
-    vann:usageNote "It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended' or 'ddoc:optional'."@en ;
-    rdfs:isDefinedBy <https://w3id.org/pink> ;
-    skos:prefLabel "conformance" .
-
-
-
 #################################################################
 #    Object properties
 #################################################################
@@ -726,7 +716,6 @@ An architectural floor plan is a model of a house.
 foaf:Document rdfs:subClassOf :Data .
 prov:Agent rdfs:subClassOf foaf:Agent .
 dcat:Resource rdfs:subClassOf prov:Entity .
-ddoc:ConformanceLevel rdfs:subClassOf foaf:Document .
 foaf:Organization rdfs:subClassOf :Object .
 foaf:Person rdfs:subClassOf :Object .
 foaf:Project rdfs:subClassOf prov:Entity .
