@@ -179,8 +179,8 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     vann:usageNote "One of `pink:tierlevel1` (ideation/design), `pink:tierlevel2` (lab phase/development), `pink:tierlevel3` (up-scaling/production)"@en .
 
 :chemicalClass rdf:type owl:ObjectProperty ;
-    rdfs:range pink:Matter ;
     rdfs:domain prov:Entity ;
+    rdfs:range pink:Matter ;
     skos:prefLabel "chemicalClass"@en ;
     skos:definition "Group of chemicals that and entity is relevant for."@en ;
     vann:usageNote "Choose one of subclasses of pink:Matter."@en .
