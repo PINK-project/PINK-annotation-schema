@@ -42,6 +42,7 @@ sw.to_csv('sw_clean.csv', index=False)
 datadocumentation = TableDoc.parse_csv(
         'sw_clean.csv',
         keywords=kw,
+        baseiri='https://w3id.org/pink/'
         )
 
 
