@@ -8,6 +8,9 @@ It is fully aligned with EMMO, even reusing the IRIs from the [HUMan readable EM
 ## Taxonomy
 At the top it categorise matter into molecular entities (discrete atoms or molecules) and different types of substances (homogenious properties).
 
+Chemical entities are the union of molecular entities and chemical substances (specified composition).
+They comprises the two different ways to represents matter: as single recognizable particle entity (molecular entity) and as a composition of particle entities (substance).
+
 ![Top-level of matter branch](https://pink-project.github.io/PINK-annotation-schema/docs/figs/matter.png)
 
 The following two figures shows the categorisation of molecular entities and substances, respectively.
