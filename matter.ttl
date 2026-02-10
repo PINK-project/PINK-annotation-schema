@@ -490,44 +490,44 @@ pink:MicroMolecule rdf:type owl:Class ;
     owl:seeAlso <https://en.wikipedia.org/wiki/Small_molecule> .
 
 ###  https://w3id.org/pink#Protein
-pink:MicroMolecule rdf:type owl:Class ;
+pink:Protein rdf:type owl:Class ;
     rdfs:subClassOf emmo:Molecule ;
     skos:prefLabel "Protein"@en ;
     skos:definition "A large molecule made of long chains of amino acids."@en ;
     owl:seeAlso <https://en.wikipedia.org/wiki/Protein> .
 
 ###  https://w3id.org/pink#StructuralMaterial
-pink:MicroMolecule rdf:type owl:Class ;
+pink:StructuralMaterial rdf:type owl:Class ;
     rdfs:subClassOf emmo:MaterialByFunction ;
     skos:prefLabel "StructuralMaterial"@en ;
     skos:definition "A material Designed to bear loads and provide mechanical strength, stiffness, and durability (e.g., steel for bridges, concrete for buildings, aerospace alloys)."@en .
 
 ###  https://w3id.org/pink#ElectronicMaterial
-pink:MicroMolecule rdf:type owl:Class ;
+pink:ElectronicMaterial rdf:type owl:Class ;
     rdfs:subClassOf emmo:MaterialByFunction ;
     skos:prefLabel "ElectronicMaterial"@en ;
     skos:definition "A material for electronic applications, like silicon used in computer chips, solar cells, and circuits."@en .
 
 ###  https://w3id.org/pink#MagneticMaterial
-pink:MicroMolecule rdf:type owl:Class ;
+pink:MagneticMaterial rdf:type owl:Class ;
     rdfs:subClassOf emmo:MaterialByFunction ;
     skos:prefLabel "MagneticMaterial"@en ;
     skos:definition "A material for magnetic applications, like for data storage, motors, and transformers (e.g., iron, ferrite)."@en .
 
 ###  https://w3id.org/pink#OpticalMaterial
-pink:MicroMolecule rdf:type owl:Class ;
+pink:OpticalMaterial rdf:type owl:Class ;
     rdfs:subClassOf emmo:MaterialByFunction ;
     skos:prefLabel "OpticalMaterial"@en ;
     skos:definition "A material for optical applications. Designed for specific interactions with light, such as fiber optics, lasers, or transparent coatings."@en .
 
 ###  https://w3id.org/pink#EnergyMaterial
-pink:MicroMolecule rdf:type owl:Class ;
+pink:EnergyMaterial rdf:type owl:Class ;
     rdfs:subClassOf emmo:MaterialByFunction ;
     skos:prefLabel "EnergyMaterial"@en ;
     skos:definition "A material for energy applications, including energy generation, storage, and conversion, such as batteries, supercapacitors, and fuel cells."@en .
 
 ###  https://w3id.org/pink#BiocompatibleMaterial
-pink:MicroMolecule rdf:type owl:Class ;
+pink:BiocompatibleMaterial rdf:type owl:Class ;
     rdfs:subClassOf emmo:MaterialByFunction ;
     skos:prefLabel "BiocompatibleMaterial"@en ;
     skos:definition "Material designed to be biocompatible for implantation in the body, such as artificial joints or tissue scaffolds."@en .
