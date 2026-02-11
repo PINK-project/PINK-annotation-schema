@@ -482,12 +482,13 @@ pink:MacroMolecule rdf:type owl:Class ;
     rdfs:subClassOf emmo:Molecule ;
     skos:prefLabel "MacroMolecule"@en ;
     skos:definition "A molecule with a specific weight larger than 5000 dalton."@en ;
-    owl:seeAlso <https://en.wikipedia.org/wiki/Macromolecule> .
+    owl:seeAlso <https://en.wikipedia.org/wiki/Macromolecule> , <https://doi.org/10.1351/goldbook.M03667> .
 
 ###  https://w3id.org/pink#MicroMolecule
 pink:MicroMolecule rdf:type owl:Class ;
     rdfs:subClassOf emmo:Molecule ;
-    skos:prefLabel "MicroMolecule"@en ;
+    skos:prefLabel "SmallMolecule"@en ;
+    skos:altLabel "MicroMolecule"@en ;
     skos:definition "A molecule with a specific weight smaller than 1000 dalton."@en ;
     owl:seeAlso <https://en.wikipedia.org/wiki/Small_molecule> .
 
