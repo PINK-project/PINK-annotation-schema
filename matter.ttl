@@ -379,7 +379,9 @@ e.g. you cannot remove H from H₂0 without changing the molecule type (essentia
 emmo:NanoMaterial rdf:type owl:Class ;
                   rdfs:subClassOf emmo:MaterialBySize ;
     skos:prefLabel "NanoMaterial"@en ;
-    skos:definition "Nanomaterials are Materials possessing, at minimum, one external dimension measuring 1-100nm"@en .
+    skos:definition "Material with any external dimension in the nanoscale or having internal structure or surface structure in the nanoscale, i.e. in the range of 1-100 nm."@en ;
+    skos:scopeNote "The above definition comes from ISO 80004-1:2023."@en ;
+    owl:seeAlso <https://www.iso.org/obp/ui/en/#iso:std:iso:80004:-1:ed-1:v1:en> .
 
 
 ###  https://w3id.org/emmo/hume#NaturalMaterial
@@ -531,6 +533,70 @@ pink:BiocompatibleMaterial rdf:type owl:Class ;
     rdfs:subClassOf emmo:MaterialByFunction ;
     skos:prefLabel "BiocompatibleMaterial"@en ;
     skos:definition "Material designed to be biocompatible for implantation in the body, such as artificial joints or tissue scaffolds."@en .
+
+###  https://w3id.org/pink#NanoObject
+pink:NanoObject rdf:type owl:Class ;
+    rdfs:subClassOf emmo:NanoMaterial ;
+    skos:prefLabel "NanoObject"@en ;
+    skos:definition "Material with any external dimension in the nanoscale, i.e. in the range of 1-100 nm."@en ;
+    owl:seeAlso <https://www.iso.org/obp/ui/en/#iso:std:iso:80004:-1:ed-1:v1:en> .
+
+###  https://w3id.org/pink#NanoParticle
+pink:NanoParticle rdf:type owl:Class ;
+    rdfs:subClassOf emmo:NanoObject ;
+    skos:prefLabel "NanoParticle"@en ;
+    skos:definition "A material with all dimensions in the range of 1-100 nm."@en ;
+    skos:scopeNote "Nanoparticles are often considered to be 0-dimensional nanomaterials."@en ;
+    owl:seeAlso <https://doi.org/10.3390/membranes10100297>, <https://en.wikipedia.org/wiki/Nanoparticle> ,
+        <https://www.iso.org/obp/ui/en/#iso:std:iso:80004:-1:ed-1:v1:en> .
+
+###  https://w3id.org/pink#NanoFiber
+pink:NanoFiber rdf:type owl:Class ;
+    rdfs:subClassOf emmo:NanoObject ;
+    skos:prefLabel "NanoFiber"@en ;
+    skos:definition "A material with two dimensions in the range of 1-100 nm."@en ;
+    skos:scopeNote "Nanofibers are often considered to be 1-dimensional nanomaterials."@en ;
+    owl:seeAlso <https://doi.org/10.3390/membranes10100297>, <https://en.wikipedia.org/wiki/Nanofiber> ,
+        <https://www.iso.org/obp/ui/en/#iso:std:iso:80004:-1:ed-1:v1:en> .
+
+###  https://w3id.org/pink#NanoPlate
+pink:NanoPlate rdf:type owl:Class ;
+    rdfs:subClassOf emmo:NanoObject ;
+    skos:prefLabel "NanoPlate"@en ;
+    skos:definition "A material with one dimension in the range of 1-100 nm."@en ;
+    skos:scopeNote "Nanoplates are often considered to be 2-dimensional nanomaterials."@en ;
+    owl:seeAlso <https://doi.org/10.3390/membranes10100297> ,
+        <https://www.iso.org/obp/ui/en/#iso:std:iso:80004:-1:ed-1:v1:en> .
+
+###  https://w3id.org/pink#NanoStructuredMaterial
+pink:NanoStructuredMaterial rdf:type owl:Class ;
+    rdfs:subClassOf emmo:NanoMaterial ;
+    skos:prefLabel "NanoStructuredMaterial"@en ;
+    skos:definition "A material with at least one physically or chemically distinct region with at least one dimension in the range of 1-100 nm."@en ;
+    skos:scopeNote "Nanostructured materials are considered to be 3-dimensional nanomaterials."@en ;
+    owl:seeAlso <https://doi.org/10.3390/membranes10100297> ,
+        <https://www.iso.org/obp/ui/en/#iso:std:iso:80004:-1:ed-1:v1:en> .
+
+###  https://w3id.org/pink#NanoTube
+pink:NanoTube rdf:type owl:Class ;
+    rdfs:subClassOf pink:NanoFiber ;
+    skos:prefLabel "NanoTube"@en ;
+    skos:definition "A hollow nanofiber."@en ;
+    owl:seeAlso <https://en.wikipedia.org/wiki/Nanotube> .
+
+###  https://w3id.org/pink#NanoRod
+pink:NanoRod rdf:type owl:Class ;
+    rdfs:subClassOf pink:NanoFiber ;
+    skos:prefLabel "NanoRod"@en ;
+    skos:definition "A solid nanofiber."@en ;
+    owl:seeAlso <https://en.wikipedia.org/wiki/Nanorod> .
+
+###  https://w3id.org/pink#NanoComposite
+pink:NanoComposite rdf:type owl:Class ;
+    rdfs:subClassOf pink:NanoStructuredMaterial , emmo:CompositeMaterial ;
+    skos:prefLabel "NanoComposite"@en ;
+    skos:definition "A composite material with at least one physically or chemically distinct region or collection of regions having at least one dimension in the range of 1-100 nm."@en ;
+    owl:seeAlso <https://en.wikipedia.org/wiki/Nanocomposite> .
 
 
 
