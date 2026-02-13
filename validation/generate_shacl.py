@@ -431,35 +431,35 @@ def generate_shapes(onto_dir: Path, output_path: Path) -> None:
                 shapes.add((shape_uri, SH.node, parent_shape))
 
         # Get properties from rdfs:domain
-        domain_properties = get_properties_for_class(ontology, target_class)
+        # domain_properties = get_properties_for_class(ontology, target_class)
 
         # Get properties from OWL restrictions
-        restriction_properties = get_restriction_properties_for_class(ontology, target_class)
+        # restriction_properties = get_restriction_properties_for_class(ontology, target_class)
 
         # Merge constraints by property URI
-        property_constraints: Dict[URIRef, PropertyConstraints] = {}
+        # property_constraints: Dict[URIRef, PropertyConstraints] = {}
 
         # Add domain-based properties
-        for prop_uri, conformance, range_uri in domain_properties:
-            property_constraints[prop_uri] = PropertyConstraints(
-                prop_uri=prop_uri,
-                conformance=conformance,
-                range_uri=range_uri
-            )
+        # for prop_uri, conformance, range_uri in domain_properties:
+        #    property_constraints[prop_uri] = PropertyConstraints(
+        #        prop_uri=prop_uri,
+        #        conformance=conformance,
+        #        range_uri=range_uri
+        #    )
 
         # Merge restriction-based constraints
-        for prop_uri, value_constraint, min_card, max_card in restriction_properties:
-            if prop_uri not in property_constraints:
-                property_constraints[prop_uri] = PropertyConstraints(prop_uri=prop_uri)
-
-            property_constraints[prop_uri].merge_from_restriction(
-                value_constraint, min_card, max_card
-            )
+        # for prop_uri, value_constraint, min_card, max_card in restriction_properties:
+        #    if prop_uri not in property_constraints:
+        #        property_constraints[prop_uri] = PropertyConstraints(prop_uri=prop_uri)
+        #
+        #    property_constraints[prop_uri].merge_from_restriction(
+        #        value_constraint, min_card, max_card
+        #    )
 
         # Create property shapes
-        for constraints in property_constraints.values():
-            prop_shape = create_property_shape(shapes, constraints)
-            shapes.add((shape_uri, SH.property, prop_shape))
+        # for constraints in property_constraints.values():
+        #   prop_shape = create_property_shape(shapes, constraints)
+        #    shapes.add((shape_uri, SH.property, prop_shape))
 
         # Track this shape for child class inheritance
         generated_shapes[target_class] = shape_uri
