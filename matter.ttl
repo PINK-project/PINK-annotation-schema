@@ -544,7 +544,7 @@ pink:NanoObject rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#NanoParticle
 pink:NanoParticle rdf:type owl:Class ;
-    rdfs:subClassOf emmo:NanoObject ;
+    rdfs:subClassOf pink:NanoObject ;
     skos:prefLabel "NanoParticle"@en ;
     skos:definition "A material with all dimensions in the range of 1-100 nm."@en ;
     skos:scopeNote "Nanoparticles are often considered to be 0-dimensional nanomaterials."@en ;
@@ -553,7 +553,7 @@ pink:NanoParticle rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#NanoFiber
 pink:NanoFiber rdf:type owl:Class ;
-    rdfs:subClassOf emmo:NanoObject ;
+    rdfs:subClassOf pink:NanoObject ;
     skos:prefLabel "NanoFiber"@en ;
     skos:definition "A material with two dimensions in the range of 1-100 nm."@en ;
     skos:scopeNote "Nanofibers are often considered to be 1-dimensional nanomaterials."@en ;
@@ -562,7 +562,7 @@ pink:NanoFiber rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#NanoPlate
 pink:NanoPlate rdf:type owl:Class ;
-    rdfs:subClassOf emmo:NanoObject ;
+    rdfs:subClassOf pink:NanoObject ;
     skos:prefLabel "NanoPlate"@en ;
     skos:definition "A material with one dimension in the range of 1-100 nm."@en ;
     skos:scopeNote "Nanoplates are often considered to be 2-dimensional nanomaterials."@en ;
