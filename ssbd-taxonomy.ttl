@@ -99,9 +99,9 @@ pink:ThermalPropertiesAssessment a owl:Class ;
 pink:FunctionalityAssessment a owl:Class ;
     rdfs:label "Functionality Assessment" ;
     dcterms:description "The superclass of all SSbD Assessments within the dimenstion functionality." ;
-    rdfs:subClassOf [ a "owl:Restriction" ;
-            owl:hasValue "pink:FunctionalityDimension" ;
-            owl:onProperty "https://w3id.org/pink#assesses" ],
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:someValuesFrom pink:FunctionalityDimension ;
+            owl:onProperty pink:assesses ],
         pink:SpecifiedAssessment ;
     skos:prefLabel "FunctionalityAssessment" .
 
@@ -116,4 +116,3 @@ pink:SsbdDimension a owl:Class ;
     dcterms:description "The superclass of all dimensions relevant for SSbD assessments." ;
     rdfs:subClassOf prov:Entity ;
     skos:prefLabel "SsbdDimension" .
-
