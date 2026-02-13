@@ -25,33 +25,13 @@
                                 dcterms:abstract "The Matter module of PINK Annotation Schema providing a taxonomy for physical matter (including nanomaterial, chemical compounds, etc...) with anchor points for links for CheBI."@en ;
     dcterms:title "The Matter module of PINK Annotation Schema"@en ;
     widoco:introduction """
+This module is a part of the [PINK Annotation Schema](https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html).
 Matter is a physical entity that possess mass and occupies volume.
-This module provides a categorisation of different types of matter entities.
 
+This module provides a categorisation of different types of matter entities.
 At the top it categorise matter into molecular entities (discrete atoms or molecules) and different types of substances (homogenious properties).
 
-<p>
-<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/matter.png" alt="Top-level of matter branch">
-<p>
-
-The following two figures shows the categorisation of molecular entities and substances, respectively.
-
-<p>
-<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/molecular-entity.png" alt="Molecular entities.">
-<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/substances.png" alt="Substances.">
-<p>
-
-Under substances we find materials
-
-<p>
-<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/material.png" alt="Materials.">
-<p>
-
-and the different aggregation states of matter
-
-<p>
-<img src="https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/matter-branch/docs/figs/state-of-matter.png" alt="State of matter.">
-<p>
+A page illustrating showing how the PINK Annotation Schema categorise models can be found [here](https://pink-project.github.io/PINK-annotation-schema/docs/matter.html).
 """@en .
 
 
@@ -120,7 +100,7 @@ An O 'atom' within an O₂ 'molecule' is an 'e-bonded_atom'.
 In this material branch, H atom is a particular case, with respect to higher atomic number atoms, since as soon as it shares its electron it has no nucleus entangled electron cloud.
 
 We cannot say that H₂ molecule has direct part two H atoms, but has direct part two H nucleus."""@en ;
-    skos:skos:scopeNote "An 'atom' is a 'nucleus' surrounded by an 'electron_cloud', i.e. a quantum system made of one or more bounded electrons."@en .
+    skos:scopeNote "An 'atom' is a 'nucleus' surrounded by an 'electron_cloud', i.e. a quantum system made of one or more bounded electrons."@en .
 
 
 ###  https://w3id.org/emmo/hume#BondedAtom
@@ -147,10 +127,25 @@ emmo:CeramicMaterial rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo/hume#ChemicalCompound
 emmo:ChemicalCompound rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:ChemicalSubstance ;
+    rdfs:subClassOf emmo:ChemicalSubstance ;
     skos:prefLabel "ChemicalCompound"@en ;
-    skos:definition "A chemical substance composed of many identical molecules (or molecular entities) composed of atoms from more than one element held together by chemical bonds."^^xsd:string ;
-    rdfs:seeAlso "https://en.wikipedia.org/wiki/Chemical_compound"^^xsd:string .
+    skos:definition "A chemical substance composed of many identical molecules (or molecular entities) composed of atoms from more than one element held together by chemical bonds."@en ;
+    rdfs:seeAlso "https://en.wikipedia.org/wiki/Chemical_compound"@en .
+
+###  https://w3id.org/emmo/hume#InorganicCompound
+emmo:InorganicCompound rdf:type owl:Class ;
+    rdfs:subClassOf emmo:ChemicalCompound ;
+    skos:prefLabel "InorganicCompound"@en ;
+    skos:definition "A chemical compound that is not organic."@en ;
+    rdfs:seeAlso "https://en.wikipedia.org/wiki/Inorganic_compound"@en .
+
+###  https://w3id.org/emmo/hume#OrganicCompound
+emmo:OrganicCompound rdf:type owl:Class ;
+    rdfs:subClassOf emmo:ChemicalCompound ;
+    skos:prefLabel "OrganicCompound"@en ;
+    skos:definition "A chemical compound containing carbon atoms."@en ;
+    skos:scopeNote "The definition of organic compound is based on the IUPAC Gold Book. However, sometimes an organic compound is defined as a chemical compound that contains a carbon-hydrogen or carbon-carbon bond. Also, some carbon-containing compounds are typically not classified as organic, like carbides, carbonates, and cyanides."@en ;
+    rdfs:seeAlso "https://en.wikipedia.org/wiki/Organic_compound"@en .
 
 
 ###  https://w3id.org/emmo/hume#ChemicalEntity
@@ -161,7 +156,7 @@ This distinction is not well assessed in actual chemical nomenclature, in which 
 
 In the EMMO we force the adoption of a more strict categorization based on mereotopology.
 
-The class Material hosts the subclasses for which a substance can be identified without necessarily considering its nature of molecule/atom or substance (e.g. hydrocarbon is the class of both hydrocarbon molecules or gases)."""^^xsd:string ;
+The class Material hosts the subclasses for which a substance can be identified without necessarily considering its nature of molecule/atom or substance (e.g. hydrocarbon is the class of both hydrocarbon molecules or gases)."""@en ;
     skos:definition "The union of ChemicalSubstance and MolecularEntity."@en ;
     skos:prefLabel "ChemicalEntity"@en .
 
@@ -170,11 +165,11 @@ emmo:ChemicalSubstance rdf:type owl:Class ;
                        rdfs:subClassOf emmo:ChemicalEntity ,
                                        emmo:Substance ;
     owl:disjointWith emmo:MolecularEntity ;
-    skos:scopeNote "A substance is always composed of more than one molecular entity. It lays in the continuum or mesoscopic domain."@en ;
+    skos:scopeNote "A chemical substance is always composed of more than one molecular entity. It lays in the continuum or mesoscopic domain."@en ;
     rdfs:subClassOf emmo:Substance ;
     skos:prefLabel "ChemicalSubstance"@en ;
-    skos:definition "Matter of constant composition best characterized by the entities (molecules, formula units, atoms) it is composed of."^^xsd:string ;
-    rdfs:seeAlso "https://doi.org/10.1351/goldbook.C01039"^^xsd:string .
+    skos:definition "Matter of constant composition best characterized by the entities (molecules, formula units, atoms) it is composed of."@en ;
+    rdfs:seeAlso "https://doi.org/10.1351/goldbook.C01039"@en .
 
 
 ###  https://w3id.org/emmo/hume#CompactMaterial
@@ -227,7 +222,7 @@ emmo:ElementalSubstance rdf:type owl:Class ;
     skos:altLabel "PureSubstance"@en ;
     skos:prefLabel "ElementalSubstance"@en ;
     skos:definition "A chemical substance composed of atoms with the same number of protons in the atomic nucleus."@en ;
-    rdfs:seeAlso "https://doi.org/10.1351/goldbook.C01022"^^xsd:string .
+    rdfs:seeAlso "https://doi.org/10.1351/goldbook.C01022"@en .
 
 
 ###  https://w3id.org/emmo/hume#Fluid
@@ -364,7 +359,7 @@ Note that the name of a compound may refer to the respective molecular entity or
     skos:example "Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule."@en ,
     "Methane, may mean a single molecule of CH4 (molecular entity) or a molar amount, specified or not (chemical species), participating in a reaction. The degree of precision necessary to describe a molecular entity depends on the context."@en ;
     skos:definition "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity that can undergo a chemical reaction."@en ;
-    rdfs:isDefinedBy "https://goldbook.iupac.org/terms/view/M03986"^^xsd:string .
+    rdfs:isDefinedBy "https://goldbook.iupac.org/terms/view/M03986"@en .
 
 
 ###  https://w3id.org/emmo/hume#Molecule
@@ -384,7 +379,9 @@ e.g. you cannot remove H from H₂0 without changing the molecule type (essentia
 emmo:NanoMaterial rdf:type owl:Class ;
                   rdfs:subClassOf emmo:MaterialBySize ;
     skos:prefLabel "NanoMaterial"@en ;
-    skos:definition "Nanomaterials are Materials possessing, at minimum, one external dimension measuring 1-100nm"@en .
+    skos:definition "Material with any external dimension in the nanoscale or having internal structure or surface structure in the nanoscale, i.e. in the range of 1-100 nm."@en ;
+    skos:scopeNote "The above definition comes from ISO 80004-1:2023."@en ;
+    owl:seeAlso <https://www.iso.org/obp/ui/en/#iso:std:iso:80004:-1:ed-1:v1:en> .
 
 
 ###  https://w3id.org/emmo/hume#NaturalMaterial
@@ -463,7 +460,7 @@ emmo:StateOfMatter rdf:type owl:Class ;
     skos:prefLabel "StateOfMatter"@en ;
     skos:definition "A superclass made as the disjoint union of all the form under which matter can exist."@en ;
     skos:scopeNote "In physics, a state of matter is one of the distinct forms in which matter can exist. Four states of matter are observable in everyday life: solid, liquid, gas, and plasma."@en ;
-    owl:seeAlso "https://en.wikipedia.org/wiki/State_of_matter"@en .
+    owl:seeAlso <https://en.wikipedia.org/wiki/State_of_matter> .
 
 
 ###  https://w3id.org/emmo/hume#Substance
@@ -476,9 +473,132 @@ emmo:Substance rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#AdvancedMaterial
 pink:AdvancedMaterial rdf:type owl:Class ;
-    rdfs:subClassOf emmo:ArtificialMaterial ,
-    emmo:MaterialByFunction ;
+    rdfs:subClassOf emmo:ArtificialMaterial , emmo:MaterialByFunction ;
+    skos:prefLabel "AdvancedMaterial"@en ;
     skos:definition "A designed material tailored to simultaneously meet two or more pre-defined criteria."@en .
+
+###  https://w3id.org/pink#MacroMolecule
+pink:MacroMolecule rdf:type owl:Class ;
+    rdfs:subClassOf emmo:Molecule ;
+    skos:prefLabel "MacroMolecule"@en ;
+    skos:definition "A molecule with a specific weight larger than 5000 dalton."@en ;
+    owl:seeAlso <https://en.wikipedia.org/wiki/Macromolecule> , <https://doi.org/10.1351/goldbook.M03667> .
+
+###  https://w3id.org/pink#MicroMolecule
+pink:MicroMolecule rdf:type owl:Class ;
+    rdfs:subClassOf emmo:Molecule ;
+    skos:prefLabel "SmallMolecule"@en ;
+    skos:altLabel "MicroMolecule"@en ;
+    skos:definition "A molecule with a specific weight smaller than 1000 dalton."@en ;
+    owl:seeAlso <https://en.wikipedia.org/wiki/Small_molecule> .
+
+###  https://w3id.org/pink#Protein
+pink:Protein rdf:type owl:Class ;
+    rdfs:subClassOf emmo:Molecule ;
+    skos:prefLabel "Protein"@en ;
+    skos:definition "A large molecule made of long chains of amino acids."@en ;
+    owl:seeAlso <https://en.wikipedia.org/wiki/Protein> .
+
+###  https://w3id.org/pink#StructuralMaterial
+pink:StructuralMaterial rdf:type owl:Class ;
+    rdfs:subClassOf emmo:MaterialByFunction ;
+    skos:prefLabel "StructuralMaterial"@en ;
+    skos:definition "A material Designed to bear loads and provide mechanical strength, stiffness, and durability (e.g., steel for bridges, concrete for buildings, aerospace alloys)."@en .
+
+###  https://w3id.org/pink#ElectronicMaterial
+pink:ElectronicMaterial rdf:type owl:Class ;
+    rdfs:subClassOf emmo:MaterialByFunction ;
+    skos:prefLabel "ElectronicMaterial"@en ;
+    skos:definition "A material for electronic applications, like silicon used in computer chips, solar cells, and circuits."@en .
+
+###  https://w3id.org/pink#MagneticMaterial
+pink:MagneticMaterial rdf:type owl:Class ;
+    rdfs:subClassOf emmo:MaterialByFunction ;
+    skos:prefLabel "MagneticMaterial"@en ;
+    skos:definition "A material for magnetic applications, like for data storage, motors, and transformers (e.g., iron, ferrite)."@en .
+
+###  https://w3id.org/pink#OpticalMaterial
+pink:OpticalMaterial rdf:type owl:Class ;
+    rdfs:subClassOf emmo:MaterialByFunction ;
+    skos:prefLabel "OpticalMaterial"@en ;
+    skos:definition "A material for optical applications. Designed for specific interactions with light, such as fiber optics, lasers, or transparent coatings."@en .
+
+###  https://w3id.org/pink#EnergyMaterial
+pink:EnergyMaterial rdf:type owl:Class ;
+    rdfs:subClassOf emmo:MaterialByFunction ;
+    skos:prefLabel "EnergyMaterial"@en ;
+    skos:definition "A material for energy applications, including energy generation, storage, and conversion, such as batteries, supercapacitors, and fuel cells."@en .
+
+###  https://w3id.org/pink#BiocompatibleMaterial
+pink:BiocompatibleMaterial rdf:type owl:Class ;
+    rdfs:subClassOf emmo:MaterialByFunction ;
+    skos:prefLabel "BiocompatibleMaterial"@en ;
+    skos:definition "Material designed to be biocompatible for implantation in the body, such as artificial joints or tissue scaffolds."@en .
+
+###  https://w3id.org/pink#NanoObject
+pink:NanoObject rdf:type owl:Class ;
+    rdfs:subClassOf emmo:NanoMaterial ;
+    skos:prefLabel "NanoObject"@en ;
+    skos:definition "Material with any external dimension in the nanoscale, i.e. in the range of 1-100 nm."@en ;
+    owl:seeAlso <https://www.iso.org/obp/ui/en/#iso:std:iso:80004:-1:ed-1:v1:en> .
+
+###  https://w3id.org/pink#NanoParticle
+pink:NanoParticle rdf:type owl:Class ;
+    rdfs:subClassOf emmo:NanoObject ;
+    skos:prefLabel "NanoParticle"@en ;
+    skos:definition "A material with all dimensions in the range of 1-100 nm."@en ;
+    skos:scopeNote "Nanoparticles are often considered to be 0-dimensional nanomaterials."@en ;
+    owl:seeAlso <https://doi.org/10.3390/membranes10100297>, <https://en.wikipedia.org/wiki/Nanoparticle> ,
+        <https://www.iso.org/obp/ui/en/#iso:std:iso:80004:-1:ed-1:v1:en> .
+
+###  https://w3id.org/pink#NanoFiber
+pink:NanoFiber rdf:type owl:Class ;
+    rdfs:subClassOf emmo:NanoObject ;
+    skos:prefLabel "NanoFiber"@en ;
+    skos:definition "A material with two dimensions in the range of 1-100 nm."@en ;
+    skos:scopeNote "Nanofibers are often considered to be 1-dimensional nanomaterials."@en ;
+    owl:seeAlso <https://doi.org/10.3390/membranes10100297>, <https://en.wikipedia.org/wiki/Nanofiber> ,
+        <https://www.iso.org/obp/ui/en/#iso:std:iso:80004:-1:ed-1:v1:en> .
+
+###  https://w3id.org/pink#NanoPlate
+pink:NanoPlate rdf:type owl:Class ;
+    rdfs:subClassOf emmo:NanoObject ;
+    skos:prefLabel "NanoPlate"@en ;
+    skos:definition "A material with one dimension in the range of 1-100 nm."@en ;
+    skos:scopeNote "Nanoplates are often considered to be 2-dimensional nanomaterials."@en ;
+    owl:seeAlso <https://doi.org/10.3390/membranes10100297> ,
+        <https://www.iso.org/obp/ui/en/#iso:std:iso:80004:-1:ed-1:v1:en> .
+
+###  https://w3id.org/pink#NanoStructuredMaterial
+pink:NanoStructuredMaterial rdf:type owl:Class ;
+    rdfs:subClassOf emmo:NanoMaterial ;
+    skos:prefLabel "NanoStructuredMaterial"@en ;
+    skos:definition "A material with at least one physically or chemically distinct region with at least one dimension in the range of 1-100 nm."@en ;
+    skos:scopeNote "Nanostructured materials are considered to be 3-dimensional nanomaterials."@en ;
+    owl:seeAlso <https://doi.org/10.3390/membranes10100297> ,
+        <https://www.iso.org/obp/ui/en/#iso:std:iso:80004:-1:ed-1:v1:en> .
+
+###  https://w3id.org/pink#NanoTube
+pink:NanoTube rdf:type owl:Class ;
+    rdfs:subClassOf pink:NanoFiber ;
+    skos:prefLabel "NanoTube"@en ;
+    skos:definition "A hollow nanofiber."@en ;
+    owl:seeAlso <https://en.wikipedia.org/wiki/Nanotube> .
+
+###  https://w3id.org/pink#NanoRod
+pink:NanoRod rdf:type owl:Class ;
+    rdfs:subClassOf pink:NanoFiber ;
+    skos:prefLabel "NanoRod"@en ;
+    skos:definition "A solid nanofiber."@en ;
+    owl:seeAlso <https://en.wikipedia.org/wiki/Nanorod> .
+
+###  https://w3id.org/pink#NanoComposite
+pink:NanoComposite rdf:type owl:Class ;
+    rdfs:subClassOf pink:NanoStructuredMaterial , emmo:CompositeMaterial ;
+    skos:prefLabel "NanoComposite"@en ;
+    skos:definition "A composite material with at least one physically or chemically distinct region or collection of regions having at least one dimension in the range of 1-100 nm."@en ;
+    owl:seeAlso <https://en.wikipedia.org/wiki/Nanocomposite> .
+
 
 
 [] a owl:Axiom ;
