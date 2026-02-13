@@ -474,18 +474,6 @@ vann:usageNote rdf:type owl:AnnotationProperty .
 #    Classes
 #################################################################
 
-### SSbD-related classes
-:SsbdDimension rdf:type owl:Class ;
-    rdfs:subClassOf prov:Entity ;
-    skos:prefLabel "SsbdDimension"@en ;
-    skos:scopeNote "The pink:SsbdDimension is the superclass of an extension of the 'sustainability dimensions' defined by JRC." ;
-    skos:definition "TODO"@en .
-
-:Assessment rdf:type owl:Class ;
-    rdfs:subClassOf :Process ;
-    skos:prefLabel "Assessment"@en ;
-    skos:definition "xxx "@en .
-
 ### Activity subclasses
 :Process rdf:type owl:Class ;
     rdfs:subClassOf prov:Activity ;
