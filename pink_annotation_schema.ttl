@@ -310,6 +310,13 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     rdfs:range :Software ;
     skos:definition "Relates a computation to the software used to perform the computation."@en .
 
+:hasSubProcess rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :hasPart ;
+    skos:prefLabel "hasSubProcess"@en ;
+    rdfs:domain :Process ;
+    rdfs:range :Process ;
+    skos:definition "The relation between a process and one of its process parts."@en .
+
 
 ### Causal relations
 :causedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
