@@ -26,7 +26,7 @@
     owl:imports <https://w3id.org/pink/0.0.1/reused-terms> ,
                 <https://w3id.org/pink/0.0.1/matter> ,
                 <https://w3id.org/pink/0.0.1/models> ,
-                <https://w3id.org/pink/0.0.1/ssbd-dimensions> ;
+                <https://w3id.org/pink/0.0.1/ssbd-taxonomy> ;
     dcatap:status "Under Development" ;
     dcterms:abstract """The PINK Annotation Schema provides the semantic basis for SSbD.
 
