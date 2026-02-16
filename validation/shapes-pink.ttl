@@ -1,0 +1,42 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix pink: <https://w3id.org/pink#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# PINK Project specific SHACL constraints
+# This file contains validation rules specific to the PINK project,
+# separate from the auto-generated shapes.ttl derived from the ontology.
+
+# Dataset constraints
+pink:PinkDatasetShape a sh:NodeShape ;
+    sh:targetClass pink:Dataset ;
+    sh:property [
+        sh:path dcterms:title ;
+        sh:minCount 1 ;
+        sh:datatype rdf:langString ;
+        sh:message "A PINK Dataset must have at least one dcterms:title"
+    ] ;
+    sh:property [
+        sh:path dcterms:description ;
+        sh:minCount 1 ;
+        sh:datatype rdf:langString ;
+        sh:message "A PINK Dataset must have at least one dcterms:description"
+    ] .
+
+# Software constraints
+pink:PinkSoftwareShape a sh:NodeShape ;
+    sh:targetClass pink:Software ;
+    sh:property [
+        sh:path dcterms:title ;
+        sh:minCount 1 ;
+        sh:datatype rdf:langString ;
+        sh:message "A PINK Software must have at least one dcterms:title"
+    ] ;
+    sh:property [
+        sh:path dcterms:description ;
+        sh:minCount 1 ;
+        sh:datatype rdf:langString ;
+        sh:message "A PINK Software must have at least one dcterms:description"
+    ] .

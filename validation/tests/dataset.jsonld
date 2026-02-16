@@ -13,7 +13,7 @@
     "@value": "Nanomaterial Toxicity Study 2025",
     "@language": "en"
   },
-  "skos:definition": {
+  "dcterms:description": {
     "@value": "Dataset containing toxicity measurements for various nanomaterials under SSbD framework.",
     "@language": "en"
   },

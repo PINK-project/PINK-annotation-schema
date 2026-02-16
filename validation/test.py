@@ -18,7 +18,12 @@ TEST_CASES = [
     },
     {
         "filename": "tests/dataset-invalid.jsonld",
-        "description": "Invalid Dataset (missing title)",
+        "description": "Invalid Dataset (wrong type for hasDatum)",
+        "should_conform": False,
+    },
+    {
+        "filename": "tests/dataset-no-title.jsonld",
+        "description": "Invalid Dataset (missing required title)",
         "should_conform": False,
     },
 ]

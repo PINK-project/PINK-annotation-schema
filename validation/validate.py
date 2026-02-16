@@ -45,6 +45,9 @@ def validate_jsonld(jsonld_path: str, shapes_path: Optional[str] = None) -> Tupl
     """
     Validate JSON-LD file against SHACL shapes.
 
+    Loads both auto-generated shapes (shapes.ttl) and project-specific
+    constraints (shapes-pink.ttl) for validation.
+
     Parameters:
         jsonld_path: Path to JSON-LD file to validate.
         shapes_path: Path to SHACL shapes file. Defaults to shapes.ttl
@@ -67,6 +70,9 @@ def validate_jsonld(jsonld_path: str, shapes_path: Optional[str] = None) -> Tupl
     if not shapes_file.exists():
         return False, f"Shapes file not found: {shapes_file}. Run generate_shacl.py first."
 
+    # Project-specific shapes
+    pink_shapes_file = Path(__file__).parent / "shapes-pink.ttl"
+
     # Load data and shapes
     try:
         data_graph = load_jsonld(jsonld_file)
@@ -74,6 +80,10 @@ def validate_jsonld(jsonld_path: str, shapes_path: Optional[str] = None) -> Tupl
         return False, f"Failed to parse JSON-LD: {e}"
 
     shapes_graph = load_shapes(shapes_file)
+
+    # Merge project-specific shapes if available
+    if pink_shapes_file.exists():
+        shapes_graph.parse(pink_shapes_file, format="turtle")
 
     # Run SHACL validation
     conforms, results_graph, results_text = shacl_validate(

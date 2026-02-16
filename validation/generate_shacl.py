@@ -17,7 +17,6 @@ from rdflib.namespace import split_uri
 
 # Namespace definitions
 PINK = Namespace("https://w3id.org/pink#")
-DDOC = Namespace("https://w3id.org/emmo/application/datadoc#")
 DCAT = Namespace("http://www.w3.org/ns/dcat#")
 DCTERMS = Namespace("http://purl.org/dc/terms/")
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
@@ -181,7 +180,6 @@ def topological_sort_classes(
 class PropertyConstraints:
     """Aggregated constraints for a property from multiple sources."""
     prop_uri: URIRef
-    conformance: Optional[URIRef] = None
     range_uri: Optional[URIRef] = None
     value_constraints: Set[URIRef] = field(default_factory=set)
     min_cardinality: Optional[int] = None
@@ -206,37 +204,33 @@ class PropertyConstraints:
 def get_properties_for_class(
     graph: Graph,
     target_class: URIRef
-) -> List[Tuple[URIRef, Optional[URIRef], Optional[URIRef]]]:
+) -> List[Tuple[URIRef, Optional[URIRef]]]:
     """
     Find properties with rdfs:domain matching target class.
-
-    Includes properties with and without ddoc:conformance set.
 
     Parameters:
         graph: Ontology graph.
         target_class: Class URI to find properties for.
 
     Returns:
-        List of tuples (property_uri, conformance_level or None, range_uri or None).
+        List of tuples (property_uri, range_uri or None).
     """
     query = """
-    SELECT DISTINCT ?prop ?conformance ?range
+    SELECT DISTINCT ?prop ?range
     WHERE {
         ?prop rdfs:domain ?domain .
-        OPTIONAL { ?prop ddoc:conformance ?conformance . }
         OPTIONAL { ?prop rdfs:range ?range . }
         FILTER (?domain = ?target)
     }
     """
     results = graph.query(
         query,
-        initNs={"rdfs": RDFS, "ddoc": DDOC},
+        initNs={"rdfs": RDFS},
         initBindings={"target": target_class}
     )
     return [
         (
             URIRef(row.prop),  # type: ignore[union-attr]
-            URIRef(row.conformance) if row.conformance else None,  # type: ignore[union-attr]
             URIRef(row.range) if row.range else None  # type: ignore[union-attr]
         )
         for row in results
@@ -311,9 +305,9 @@ def get_restriction_properties_for_class(
             if row.maxCard is not None:  # type: ignore[union-attr]
                 max_card = int(row.maxCard)  # type: ignore[union-attr]
 
-        # someValuesFrom implies at least one value
-        if value_constraint and row.hasSome and not min_card:  # type: ignore[union-attr]
-            min_card = 1
+        # Note: someValuesFrom only constrains the type of values,
+        # not their presence (OWL open-world vs SHACL closed-world).
+        # Only explicit cardinality should make properties required.
 
         restrictions.append((prop, value_constraint, min_card, max_card))
 
@@ -342,8 +336,6 @@ def create_property_shape(
     """
     Create a sh:property blank node for a property constraint.
 
-    Properties without conformance are treated as optional (no sh:minCount).
-
     Parameters:
         shapes_graph: Graph to add triples to.
         constraints: Aggregated property constraints.
@@ -354,19 +346,12 @@ def create_property_shape(
     prop_shape = BNode()
     shapes_graph.add((prop_shape, SH.path, constraints.prop_uri))
 
-    # Set cardinality based on conformance or restriction cardinality
-    # Restriction cardinality takes precedence
+    # Set cardinality from OWL restrictions
     if constraints.min_cardinality is not None:
         shapes_graph.add((prop_shape, SH.minCount, Literal(constraints.min_cardinality)))
-    elif constraints.conformance == DDOC.mandatory:
-        shapes_graph.add((prop_shape, SH.minCount, Literal(1)))
 
     if constraints.max_cardinality is not None:
         shapes_graph.add((prop_shape, SH.maxCount, Literal(constraints.max_cardinality)))
-
-    # Set severity for recommended properties (if no explicit cardinality)
-    if constraints.conformance == DDOC.recommended and constraints.min_cardinality is None:
-        shapes_graph.add((prop_shape, SH.severity, SH.Warning))
 
     # Set type constraint from range
     if constraints.range_uri is not None:
@@ -440,10 +425,9 @@ def generate_shapes(onto_dir: Path, output_path: Path) -> None:
         property_constraints: Dict[URIRef, PropertyConstraints] = {}
 
         # Add domain-based properties
-        for prop_uri, conformance, range_uri in domain_properties:
+        for prop_uri, range_uri in domain_properties:
             property_constraints[prop_uri] = PropertyConstraints(
                 prop_uri=prop_uri,
-                conformance=conformance,
                 range_uri=range_uri
             )
 
