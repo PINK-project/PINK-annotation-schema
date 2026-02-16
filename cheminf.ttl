@@ -22,6 +22,9 @@ This module is intended to be extended as needed. To include a new terms from CH
 
 Check changes in cheminf.ttl before comitting to git.
 
+Available chemical and physical CHEMINF descriptors can be browsed on
+https://ontobee.org/ontology/CHEMINF?iri=http://semanticscience.org/resource/CHEMINF_000083
+
 Before running the above script, you should install tripper:
 
     pip install tripper
