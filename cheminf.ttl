@@ -20,6 +20,11 @@ This module is intended to be extended as needed. To include a new terms from CH
 
     scripts/cheminf.py TERM_IRI
 
+Check changes in cheminf.ttl before comitting to git.
+
+Before running the above script, you should install tripper:
+
+    pip install tripper
 """@en ;
     dcterms:title "CHEMINF concepts"@en ;
     owl:versionIRI <https://w3id.org/pink/0.0.1/cheminf> .
@@ -33,4 +38,3 @@ obo:IAO_0000136 a owl:ObjectProperty ;
 
 :CHEMINF_000266 a owl:Class ;
     rdfs:label "chemical substance" .
-
