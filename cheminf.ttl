@@ -1,0 +1,36 @@
+# This file is generated/rewritten by scripts/cheminf.py
+@prefix : <http://semanticscience.org/resource/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:CHEMINF_000256 a owl:Class ;
+    rdfs:label "melting point descriptor" ;
+    rdfs:comment "Melting point descriptor specifies the temperature at which a chemical substance undergoes the transition from solid to liquid state under standard conditions." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000136 ;
+            owl:someValuesFrom :CHEMINF_000266 ],
+        :CHEMINF_000025 .
+
+<https://w3id.org/pink/cheminf> a owl:Ontology ;
+    dcterms:abstract "Extraction of CHEMINF concepts to be included in the PINK Annotation Schema."@en ;
+    dcterms:comment """
+This module is intended to be extended as needed. To include a new terms from CHEMINF to this file, please run
+
+    scripts/cheminf.py TERM_IRI
+
+"""@en ;
+    dcterms:title "CHEMINF concepts"@en ;
+    owl:versionIRI <https://w3id.org/pink/0.0.1/cheminf> .
+
+obo:IAO_0000136 a owl:ObjectProperty ;
+    rdfs:label "is about",
+        "is about"@en .
+
+:CHEMINF_000025 a owl:Class ;
+    rdfs:label "physical descriptor" .
+
+:CHEMINF_000266 a owl:Class ;
+    rdfs:label "chemical substance" .
+

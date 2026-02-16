@@ -2,13 +2,15 @@
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
   <group id="Folder Repository, directory=, recursive=true, Auto-Update=false, version=2" prefer="public" xml:base="">
 
-    <uri name="https://w3id.org/pink/0.0.1"                 uri="./pink_annotation_schema.ttl"/>
-    <uri name="https://w3id.org/pink/0.0.1/reused-terms"    uri="./reused-terms.ttl"/>
-    <uri name="https://w3id.org/pink/0.0.1/ddoc"            uri="./ddoc.ttl"/>
-    <uri name="https://w3id.org/pink/0.0.1/matter"          uri="./matter.ttl"/>
-    <uri name="https://w3id.org/pink/0.0.1/chebi-mappings"  uri="./chebi-mappings.ttl"/>
-    <uri name="https://w3id.org/pink/0.0.1/models"          uri="./models.ttl"/>
-    <uri name="https://w3id.org/pink/0.0.1/dcat-mappings"   uri="./dcat-mappings.ttl"/>
+    <uri name="https://w3id.org/pink/0.0.1"                   uri="./pink_annotation_schema.ttl"/>
+    <uri name="https://w3id.org/pink/0.0.1/reused-terms"      uri="./reused-terms.ttl"/>
+    <uri name="https://w3id.org/pink/0.0.1/ddoc"              uri="./ddoc.ttl"/>
+    <uri name="https://w3id.org/pink/0.0.1/matter"            uri="./matter.ttl"/>
+    <uri name="https://w3id.org/pink/0.0.1/chebi-mappings"    uri="./chebi-mappings.ttl"/>
+    <uri name="https://w3id.org/pink/0.0.1/models"            uri="./models.ttl"/>
+    <uri name="https://w3id.org/pink/0.0.1/dcat-mappings"     uri="./dcat-mappings.ttl"/>
+    <uri name="https://w3id.org/pink/0.0.1/cheminf"           uri="./cheminf.ttl"/>
+    <uri name="https://w3id.org/pink/0.0.1/cheminf-mappings"  uri="./cheminf-mappings.ttl"/>
 
   </group>
 </catalog>
