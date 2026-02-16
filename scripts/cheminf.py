@@ -17,20 +17,27 @@ ignored_terms = [
     ":CHEMINF_000238",  # meltability
 ]
 
+
 rootdir = Path(__file__).resolve().parent.parent
 
+# Command-line arguments
 parser = argparse.ArgumentParser(
     description="Add CHEMINF term to the PINK Annotation Schema."
 )
 parser.add_argument("term_iri")
 args = parser.parse_args()
 
-
+# Create triplestore and load cheminf
 ts = Triplestore(backend="rdflib")
 CHEMINF = ts.bind("", "http://semanticscience.org/resource/")
 ts.parse(rootdir / "cheminf.ttl", format="turtle")
-if not ts.expand_iri(args.term_iri) in ts.subjects():
-    ts.parse(args.term_iri)
+
+# Add term if it doesn't already exists
+newiri = ts.expand_iri(
+    args.term_iri if ":" in args.term_iri else CHEMINF[args.term_iri]
+)
+if not newiri in ts.subjects():
+    ts.parse(newiri)
 
 # Completely remove ignored terms from definitions and restrictions
 for term in ignored_terms:
@@ -53,6 +60,7 @@ for term in ignored_terms:
         }}"""
     )
 
+# Update cheminf.ttl
 ttl = ts.serialize(format="turtle")
 with open(rootdir / "cheminf.ttl", "wt") as f:
     f.write("# This file is generated/rewritten by scripts/cheminf.py\n")
