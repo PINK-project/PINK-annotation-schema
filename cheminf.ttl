@@ -12,19 +12,6 @@
 @prefix semonto: <http://www.semanticweb.org/ontologies/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-obo:RO_0000056 a owl:ObjectProperty ;
-    rdfs:label "participates in"@en,
-        "participates_in"@en ;
-    obo:IAO_0000111 "participates in"@en ;
-    obo:IAO_0000112 "this blood clot participates in this blood coagulation"@en,
-        "this input material (or this output material) participates in this process"@en,
-        "this investigator participates in this investigation"@en ;
-    obo:IAO_0000115 "a relation between a continuant and a process, in which the continuant is somehow involved in the process"@en ;
-    obo:IAO_0000118 "participates_in"@en ;
-    oboowl:hasAlternativeId "OBO_REL:0000020"^^xsd:string ;
-    oboowl:hasOBONamespace "relationship"^^xsd:string ;
-    owl:inverseOf obo:RO_0000057 .
-
 :CHEMINF_000002 a owl:Class ;
     rdfs:label "atomic polarizability sum"^^xsd:string ;
     dc:description "atomic polarizability sum is the sum of the atomic polarizabilities (including implicit hydrogens)."^^xsd:string ;
@@ -1288,6 +1275,11 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     obo:IAO_0000117 "Person: Colin Batchelor"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000464 .
 
+:CHEMINF_000476 a owl:Class ;
+    rdfs:label "ChemSpider title"^^xsd:string ;
+    obo:IAO_0000115 "A ChemSpider validated synonym that has been identified as a title by the ChemSpider software."^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000465 .
+
 :CHEMINF_000484 a owl:Class ;
     rdfs:label "average molecular weight descriptor calculated by ACD/Labs PhysChem software library version 12.01"^^xsd:string ;
     obo:IAO_0000117 "Person: Colin Batchelor"^^xsd:string ;
@@ -1363,6 +1355,11 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     dc:description "An InChI descriptor that is not the standard and that is created with the fixedH layer option. The fixedH layer is appended to the standard InChI and lists the exact position of the tautomeric hydrogen atoms. It is useful when one wants to represent a specific tautomer of a given structure, because if the InChIs for the tautomers were created without the fixedH layer option, the normalization performed by the InChI generation program would result in these InChIs being identical."^^xsd:string ;
     dc:source "https://doi.org/10.1186%2Fs13321-015-0068-4"^^xsd:anyURI ;
     rdfs:subClassOf :CHEMINF_000113 .
+
+:CHEMINF_000550 a owl:Class ;
+    rdfs:label "ChEBI name"^^xsd:string ;
+    obo:IAO_0000115 "A ChEBI name is a preferred name annotated by the ChEBI database.  The ChEBI name has the additional feature that it is unique within the ChEBI dataset. "^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000044 .
 
 :CHEMINF_000561 a owl:Class ;
     rdfs:label "drug trade name"^^xsd:string ;
@@ -1748,6 +1745,19 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     rdfs:comment "Pi electronegativity is given by X = a + b q + c ( q 2 ) , where a, b and c are Gasteiger Marsili parameters, and q is the sigma charge. Other short_name: elecPiA."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000087 .
 
+obo:RO_0000056 a owl:ObjectProperty ;
+    rdfs:label "participates in"@en,
+        "participates_in"@en ;
+    obo:IAO_0000111 "participates in"@en ;
+    obo:IAO_0000112 "this blood clot participates in this blood coagulation"@en,
+        "this input material (or this output material) participates in this process"@en,
+        "this investigator participates in this investigation"@en ;
+    obo:IAO_0000115 "a relation between a continuant and a process, in which the continuant is somehow involved in the process"@en ;
+    obo:IAO_0000118 "participates_in"@en ;
+    oboowl:hasAlternativeId "OBO_REL:0000020"^^xsd:string ;
+    oboowl:hasOBONamespace "relationship"^^xsd:string ;
+    owl:inverseOf obo:RO_0000057 .
+
 :CHEMINF_000001 a owl:Class ;
     rdfs:label "molar refractivity"^^xsd:string ;
     dc:description "Molar refractviity is a measure of the total polarizability of a mole of a substance and is dependent on the temperature, the index of refraction, and the pressure."^^xsd:string ;
@@ -1957,6 +1967,12 @@ HBA>=10
     dc:description "A descriptor of the disposition of a portion of liquid to resist a force."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000025 .
 
+:CHEMINF_000465 a owl:Class ;
+    rdfs:label "ChemSpider validated synonym"^^xsd:string ;
+    obo:IAO_0000115 "A preferred name in ChemSpider by virtue of having been validated by a curator."^^xsd:string ;
+    obo:IAO_0000117 "Person: Colin Batchelor"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000044 .
+
 :CHEMINF_000519 a owl:Class ;
     rdfs:label "absolute configuration stereochemical descriptor"@en ;
     dc:creator <http://orcid.org/0000-0002-4378-6061> ;
@@ -1980,6 +1996,11 @@ HBA>=10
     rdfs:label "stereochemical descriptor"^^xsd:string ;
     dc:description "A stereochemical descriptor is a chemical descriptor which describes some aspect of the three dimensional structure of a chemical entity."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000123 .
+
+:CHEMINF_000044 a owl:Class ;
+    rdfs:label "preferred name"^^xsd:string ;
+    dc:description "A preferred name is a molecular entity name which is preferred, or recommended, for usage in textual annotations referring to that molecular entity."^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000043 .
 
 :CHEMINF_000048 a owl:Class ;
     rdfs:label "+/- stereochemical descriptor"^^xsd:string ;
@@ -2183,9 +2204,19 @@ HBA>=10
             owl:someValuesFrom xsd:int ],
         :CHEMINF_000209 .
 
+:CHEMINF_000000 a owl:Class ;
+    rdfs:label "chemical entity"^^xsd:string ;
+    dc:description "A chemical entity is any molecular entity or chemical substance."^^xsd:string ;
+    oboowl:hasAlternativeId "CHEBI:24431"^^xsd:string,
+        "obo:24431"^^xsd:string .
+
 :CHEMINF_000094 a owl:Class ;
     rdfs:label "charge delocalization descriptor"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000087 .
+
+:CHEMINF_000136 a owl:Class ;
+    rdfs:label "constitutional descriptor"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000123 .
 
 :CHEMINF_000043 a owl:Class ;
     rdfs:label "molecular entity name"^^xsd:string ;
@@ -2194,10 +2225,6 @@ HBA>=10
             owl:onProperty obo:IAO_0000136 ;
             owl:someValuesFrom obo:CHEBI_23367 ],
         :CHEMINF_000061 .
-
-:CHEMINF_000136 a owl:Class ;
-    rdfs:label "constitutional descriptor"^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000123 .
 
 :CHEMINF_000093 a owl:Class ;
     rdfs:label "geometric descriptor"^^xsd:string ;
@@ -2271,6 +2298,11 @@ obo:CHEBI_23367 a owl:Class ;
     rdfs:label "molecular entity"^^xsd:string ;
     oboowl:hasAlternativeId "CHEBI:23367"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000000 .
+
+semonto:is_output_of a owl:ObjectProperty ;
+    rdfs:label "is output of"^^xsd:string ;
+    rdfs:subPropertyOf obo:RO_0000056 ;
+    owl:inverseOf :CHEMINF_000145 .
 
 obo:IAO_0000136 a owl:ObjectProperty ;
     rdfs:label "is about"^^xsd:string,

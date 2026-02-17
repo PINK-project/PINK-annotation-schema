@@ -14,21 +14,22 @@ from tripper.datadoc.utils import iriname
 
 # Mapped terms that we want to add
 mapped_terms = [
-    "cheminf:CHEMINF_0000000",  # chemical entity
+    # Classes
+    "cheminf:CHEMINF_000000",  # chemical entity
     "cheminf:CHEMINF_000266",  # chemical substance
     "obo:CHEBI_23367",  # molecular entity
     "obo:CHEBI_33250",  # atom
 
-    "obo:IAO_0000136",
-    "semonto:is_output_or",
-    "obo:RO_0000056",
-    "cheminf:CHEMINF_000012",
+    # Properties
+    "obo:IAO_0000136",  # is about
+    "semonto:is_output_of",  # is output of
+    "obo:RO_0000056",  # participates in
+    "cheminf:CHEMINF_000012",  # has value
 ]
 
 # Terms we don't want to add to the PINK Annotation Schema
 ignored_terms = [
     ":CHEMINF_000017",  # information about a chemical entity
-    ":CHEMINF_000044",  # preferred name
     ":CHEMINF_000047",  # conforms to
     ":CHEMINF_000063",  # chemical bond
     ":CHEMINF_000143",  # is descriptor of
@@ -70,12 +71,9 @@ ignored_terms = [
     ":CHEMINF_000395",  #
     ":CHEMINF_000396",  #
     ":CHEMINF_000399",  #
-    ":CHEMINF_000465",  #
     ":CHEMINF_000469",  # CRID validation
-    ":CHEMINF_000476",  #
     ":CHEMINF_000511",  #
     ":CHEMINF_000512",  #
-    ":CHEMINF_000550",  #
     ":CHEMINF_000802",  #
     ":CHEMINF_000803",  #
     ":CHEMINF_000804",  #
@@ -86,6 +84,7 @@ ignored_terms = [
     "obo:BFO_0000002",  # continuant
     "obo:BFO_0000003",  # occurant
     "obo:BFO_0000020",  # specifically dependent continuant
+    "obo:BFO_0000040",  # material entity
     "obo:IAO_0000027",  #
     "obo:IAO_0000030",  #
     "obo:IAO_0000310",  #
@@ -181,6 +180,7 @@ for term in ignored_terms:
     ts.remove(subject=iri)
     ts.remove(predicate=iri)
     ts.remove(object=iri)
+    ts.remove(CHEMINF.CHEMINF_000044, OWL.equivalentClass)
     ts.remove(CHEMINF.CHEMINF_000513, OWL.equivalentClass)
 
 
