@@ -9,8 +9,20 @@
 @prefix oboowl: <http://www.geneontology.org/formats/oboInOwl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix semonto: <http://www.semanticweb.org/ontologies/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+obo:RO_0000056 a owl:ObjectProperty ;
+    rdfs:label "participates in"@en,
+        "participates_in"@en ;
+    obo:IAO_0000111 "participates in"@en ;
+    obo:IAO_0000112 "this blood clot participates in this blood coagulation"@en,
+        "this input material (or this output material) participates in this process"@en,
+        "this investigator participates in this investigation"@en ;
+    obo:IAO_0000115 "a relation between a continuant and a process, in which the continuant is somehow involved in the process"@en ;
+    obo:IAO_0000118 "participates_in"@en ;
+    oboowl:hasAlternativeId "OBO_REL:0000020"^^xsd:string ;
+    oboowl:hasOBONamespace "relationship"^^xsd:string ;
+    owl:inverseOf obo:RO_0000057 .
 
 :CHEMINF_000002 a owl:Class ;
     rdfs:label "atomic polarizability sum"^^xsd:string ;
@@ -33,11 +45,6 @@
     rdfs:label "R stereochemical descriptor"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000005 ;
     owl:disjointWith :CHEMINF_000034 .
-
-:CHEMINF_000007 a owl:Class ;
-    rdfs:label "canonical SMILES descriptor"^^xsd:string ;
-    dc:description "A canonical SMILES descriptor is a SMILES descriptor that is produced using a canonicalization algorithm which results in one special generic SMILES among all valid possibilities."^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000018 .
 
 :CHEMINF_000008 a owl:Class ;
     rdfs:label "charge weighted partial positive surface area"^^xsd:string ;
@@ -103,13 +110,6 @@
     rdfs:label "MOLfile"^^xsd:string ;
     dc:description "A MOLfile is a file which contains a MOLfile encoding of a chemical structure representation. It is the concretization of a MOLfile descriptor."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000057 .
-
-:CHEMINF_000059 a owl:Class ;
-    rdfs:label "InChIKey"^^xsd:string ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty obo:IAO_0000136 ;
-            owl:someValuesFrom obo:CHEBI_36357 ],
-        :CHEMINF_000061 .
 
 :CHEMINF_000062 a owl:Class ;
     rdfs:label "bond order descriptor"^^xsd:string ;
@@ -199,11 +199,6 @@
     rdfs:label "cycle basis"^^xsd:string ;
     dc:description "The cycle basis of a molecular structure is the smallest set of cycles (closed paths) formed in the graph representation of the structure, from which all other cycles can be computed."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000085 .
-
-:CHEMINF_000107 a owl:Class ;
-    rdfs:label "IUPAC name"^^xsd:string ;
-    dc:description "An IUPAC name is a systematic name which is formulated according to the rules and recommendations for chemical nomenclature set out by the International Union of Pure and Applied Chemistry (IUPAC)."^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000106 .
 
 :CHEMINF_000109 a owl:Class ;
     rdfs:label "trivial name"^^xsd:string ;
@@ -422,12 +417,6 @@ The formal charge of any atom in a molecule can be calculated by the following e
     chemcore:short_name "THSA"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 .
 
-:CHEMINF_000174 a owl:Class ;
-    rdfs:label "TPSA"^^xsd:string ;
-    dc:description "sum of solvent accessible surface areas of atoms with absolute value of partial charges greater than or equal 0.2"^^xsd:string ;
-    chemcore:short_name "TPSA"^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000229 .
-
 :CHEMINF_000175 a owl:Class ;
     rdfs:label "RHSA"^^xsd:string ;
     dc:description "THSA / total molecular surface area"^^xsd:string ;
@@ -479,12 +468,6 @@ The formal charge of any atom in a molecule can be calculated by the following e
     chemcore:short_name "petitjeanNumber"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000092 .
 
-:CHEMINF_000186 a owl:Class ;
-    rdfs:label "XLogP descriptor"@en ;
-    dc:description "A LogP descriptor based on the atom-type method described in Wang, R., Fu, Y., and Lai, L.. A New Atom-Additive Method for Calculating Partition Coefficients, Journal of Chemical Information and Computer Sciences. vol. 37. 1997, pp. 615-621."^^xsd:string ;
-    chemcore:short_name "XLogP"^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000251 .
-
 :CHEMINF_000187 a owl:Class ;
     rdfs:label "MLogP descriptor"@en ;
     dc:description "A LogP descriptor based on a simple equation using the number of carbons and hetero atoms."^^xsd:string ;
@@ -522,36 +505,15 @@ The term 'ionization potential' has historically been used but is now no longer 
     chemcore:short_name "Ka"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000193 .
 
+:CHEMINF_000198 a owl:Class ;
+    rdfs:label "molecular weight calculated by pipeline pilot"^^xsd:string ;
+    obo:IAO_0000115 "A molecular weight descriptor calculated by a relevant module of the Pipeline Pilot software tool. "^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000216 .
+
 :CHEMINF_000199 a owl:Class ;
     rdfs:label "absolute SMILES descriptor"@en ;
     dc:description "An absolute SMILES descriptor is an isomeric SMILES descriptor that is produced using a canonicalization algorithm. "^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000032 .
-
-:CHEMINF_000202 a owl:Class ;
-    rdfs:label "tautomer count"@en ;
-    dc:description "a count descriptor that denotes the number of tautomers."^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000209 .
-
-:CHEMINF_000206 a owl:Class ;
-    rdfs:label "defined atom stereocenter count"@en ;
-    rdfs:subClassOf :CHEMINF_000205 .
-
-:CHEMINF_000212 a owl:Class ;
-    rdfs:label "undefined atom stereocenter count"@en ;
-    rdfs:subClassOf :CHEMINF_000205 .
-
-:CHEMINF_000214 a owl:Class ;
-    rdfs:label "defined bond stereocenter count"@en ;
-    rdfs:subClassOf :CHEMINF_000213 .
-
-:CHEMINF_000215 a owl:Class ;
-    rdfs:label "undefined bond stereocenter count"@en ;
-    rdfs:subClassOf :CHEMINF_000213 .
-
-:CHEMINF_000217 a owl:Class ;
-    rdfs:label "exact mass descriptor"@en ;
-    dc:description "an exact mass descriptor corresponds to the mass of the most intense molecule/ion peak in an MS spec, and when calculated denotes the mass of an ion or a molecule containing most likely isotopic composition for a single random molecule."^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000088 .
 
 :CHEMINF_000223 a owl:Class ;
     rdfs:label "pi-system size"^^xsd:string ;
@@ -645,28 +607,6 @@ The term 'ionization potential' has historically been used but is now no longer 
             owl:someValuesFrom xsd:int ],
         :CHEMINF_000233 .
 
-:CHEMINF_000244 a owl:Class ;
-    rdfs:label "hydrogen bond donor count"^^xsd:string ;
-    dc:description "A descriptor that reflects the integer number of hydrogen bond donors in a given molecular entity, as determined by a given method. In highly simplified terms, this is usually the count of all negatively or partially negatively charged heteroatoms (e.g. alcohol oxygen) that have covalently attached to them partially positively charged hydrogen atoms that are capable of participating in a hydrogen bond."^^xsd:string ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty obo:IAO_0000136 ;
-            owl:someValuesFrom obo:CHEBI_23367 ],
-        [ a owl:Restriction ;
-            owl:onProperty :CHEMINF_000012 ;
-            owl:someValuesFrom xsd:int ],
-        :CHEMINF_000209 .
-
-:CHEMINF_000245 a owl:Class ;
-    rdfs:label "hydrogen bond acceptor count"^^xsd:string ;
-    dc:description "A descriptor that reflects the integer number of hydrogen bond acceptors in a given molecular entity, as determined by a given method. In highly simplified terms, this is usually the count of all negatively or partially negatively charged heteroatoms (e.g. alcohol oxygen) capable of accepting a hydrogen bond."^^xsd:string ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty obo:IAO_0000136 ;
-            owl:someValuesFrom obo:CHEBI_23367 ],
-        [ a owl:Restriction ;
-            owl:onProperty :CHEMINF_000012 ;
-            owl:someValuesFrom xsd:int ],
-        :CHEMINF_000209 .
-
 :CHEMINF_000249 a owl:Class ;
     rdfs:label "solvation entropy descriptor"^^xsd:string ;
     dc:description "The molecular entity solvation entropy descriptor reflects the entropy associated with the solvation of the molecular entity in question. This could be measured or calculated in vacuo or in a specific solvent, at a particular temperature and pressure. Depends on molecular conformation when computed."^^xsd:string ;
@@ -729,14 +669,6 @@ The term 'ionization potential' has historically been used but is now no longer 
     dc:description "A count descriptor that takes into account flexibility of rings and rotatable bonds."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000209 .
 
-:CHEMINF_000268 a owl:Class ;
-    rdfs:label "total formal charge descriptor"@en ;
-    dc:description "A charge descriptor that gives the total charge for a molecule"^^xsd:string ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty obo:IAO_0000136 ;
-            owl:someValuesFrom obo:CHEBI_23367 ],
-        :CHEMINF_000131 .
-
 :CHEMINF_000269 a owl:Class ;
     rdfs:label "conformer volume descriptor"@en ;
     rdfs:subClassOf :CHEMINF_000242 .
@@ -776,13 +708,6 @@ The term 'ionization potential' has historically been used but is now no longer 
 :CHEMINF_000279 a owl:Class ;
     rdfs:label "glycine count"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000270 .
-
-:CHEMINF_000280 a owl:Class ;
-    rdfs:label "histidine count"^^xsd:string,
-        "covalent unit count"@en ;
-    dc:description "The number of covalent units (molecule / ion) in a chemical structure"^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000209,
-        :CHEMINF_000270 .
 
 :CHEMINF_000281 a owl:Class ;
     rdfs:label "isoleucine count"^^xsd:string ;
@@ -862,12 +787,6 @@ The term 'ionization potential' has historically been used but is now no longer 
             owl:someValuesFrom obo:CHEBI_23367 ],
         :CHEMINF_000209 .
 
-:CHEMINF_000295 a owl:Class ;
-    rdfs:label "ALogP descriptor"@en ;
-    dc:description "The ALogP descriptor described by Ghose and Crippen in 1986 and 1987."^^xsd:string ;
-    chemcore:short_name "ALogP"^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000251 .
-
 :CHEMINF_000296 a owl:Class ;
     rdfs:label "hybridization descriptor (VSEPR)"@en ;
     rdfs:subClassOf :CHEMINF_000095 .
@@ -884,16 +803,6 @@ The term 'ionization potential' has historically been used but is now no longer 
     rdfs:label "VABC volume descriptor"@en ;
     rdfs:subClassOf :CHEMINF_000242 .
 
-:CHEMINF_000300 a owl:Class ;
-    rdfs:label "heavy atom count"@en ;
-    dc:description "The number of non-hydrogen atoms"^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000263 .
-
-:CHEMINF_000301 a owl:Class ;
-    rdfs:label "isotope atom count"@en ;
-    dc:description "The sum of all atoms enriched with respect to a particular atom isotope"^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000263 .
-
 :CHEMINF_000303 a owl:Class ;
     rdfs:label "GenBank Protein Identifier"@en ;
     rdfs:subClassOf :CHEMINF_000464 .
@@ -902,45 +811,37 @@ The term 'ionization potential' has historically been used but is now no longer 
     rdfs:label "GenBank Nucleotide Identifier"@en ;
     rdfs:subClassOf :CHEMINF_000464 .
 
-:CHEMINF_000315 a owl:Class ;
-    rdfs:label "rule of three passes descriptor"^^xsd:string ;
-    obo:IAO_0000115 """Rule of 3 passes.  It is suggested that compounds that pass all these criteria are more likely to be hits in fragment screening.
-molecular weight <=300, 
-number of hydrogen bond donors <=3, 
-number of hydrogen bond acceptors <=3 
-AlogP <=3. 
-RTB <=3
-PSA<=60
-"""^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000025 .
+:CHEMINF_000305 a owl:Class ;
+    rdfs:label "ALogP calculated by Pipeline Pilot"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000295 .
 
-:CHEMINF_000318 a owl:Class ;
-    rdfs:label "medchem friendly descriptor"^^xsd:string ;
-    obo:IAO_0000115 """MedChem Friendly
-These are functional groups that may not be desirable from a medicinal chemistry perspective.  For example reactive groups will be flagged as “N” (not MedChem Friendly).  Molecules which do not contain any of these groups will be flagged as “Y” (MedChem Friendly).
-The groups are defined by the following list of SMARTS:
-[N+]([O-])=O
-[C;!R](-[C;!R]=O)=[C;!R]
-C(-N)=S
-P
-O-N=C
-OS(=O)=O
-O1-CC-O-C-1
-C(-N)=C
-[C;H2]-[C;H2]-[C;H2]-[C;H2]-[C;H2]-[C;H2]-[C;H2]
-OC1OCC(O)C1
-C=N-C(-O)
-[N;H]-[C;H]-[N;H]
-[C;!R]=[C;!R]-N-[C;D1&H3,D2&H2,D3&H1,D4]
-[S;!R]-[C;!R]-[O;!R]
-[O;D2]-[C;!H0](([F,Br,I,Cl])([F,Br,I,Cl])([!F,!Br,!I,!Cl]))
-CC([O;!R])([O;!R])
-C1-C-O1
-C(=O)-S-C(=S)
-[S;H]
-SC#N
-"""^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000025 .
+:CHEMINF_000308 a owl:Class ;
+    rdfs:label "polar surface area descriptor calculated by Pipeline Pilot"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000307 .
+
+:CHEMINF_000309 a owl:Class ;
+    rdfs:label "hydrogen bond acceptor count calculated by pipeline pilot"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000245 .
+
+:CHEMINF_000310 a owl:Class ;
+    rdfs:label "hydrogen bond donor count calculated by pipeline pilot"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000244 .
+
+:CHEMINF_000311 a owl:Class ;
+    rdfs:label "rotatable bond count calculated by pipeline pilot"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000254 .
+
+:CHEMINF_000314 a owl:Class ;
+    rdfs:label "rule of five violations calculated by pipeline pilot"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000312 .
+
+:CHEMINF_000317 a owl:Class ;
+    rdfs:label "rule of three passes calculated by pipeline pilot"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000315 .
+
+:CHEMINF_000319 a owl:Class ;
+    rdfs:label "medchem friendly descriptor calculated by pipeline pilot"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000318 .
 
 :CHEMINF_000321 a owl:Class ;
     rdfs:label "logP calculated by ACD/Labs PhysChem software"^^xsd:string ;
@@ -951,6 +852,12 @@ SC#N
     obo:IAO_0000115 """ACD_LogD(pH7.4)
 Distribution Coefficient calculated at pH7.4"""^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000322 .
+
+:CHEMINF_000324 a owl:Class ;
+    rdfs:label "most acidic pKa calculated by ACD/Labs PhysChem software library"^^xsd:string ;
+    obo:IAO_0000115 """Most acidic pKa of the molecule
+"""^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000195 .
 
 :CHEMINF_000325 a owl:Class ;
     rdfs:label "most basic pKa calculated by ACD/Labs PhysChem software library"^^xsd:string ;
@@ -968,6 +875,26 @@ Zwitterion (ZW)	ACD_MOST_ApKa <6.5 and ACD_MOST_BpKa>8.5
 """^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000326 .
 
+:CHEMINF_000334 a owl:Class ;
+    rdfs:label "molecular weight calculated by the pubchem software library"@en ;
+    rdfs:subClassOf :CHEMINF_000216 .
+
+:CHEMINF_000335 a owl:Class ;
+    rdfs:label "molecular formula calculated by the pubchem software library"@en ;
+    rdfs:subClassOf :CHEMINF_000042 .
+
+:CHEMINF_000336 a owl:Class ;
+    rdfs:label "total formal charge calculated by the pubchem software library"@en ;
+    rdfs:subClassOf :CHEMINF_000268 .
+
+:CHEMINF_000337 a owl:Class ;
+    rdfs:label "monoisotopic mass calculated by the pubchem software library"@en ;
+    rdfs:subClassOf :CHEMINF_000218 .
+
+:CHEMINF_000338 a owl:Class ;
+    rdfs:label "exact mass calculated by pubchem software library"@en ;
+    rdfs:subClassOf :CHEMINF_000217 .
+
 :CHEMINF_000339 a owl:Class ;
     rdfs:label "pubchem depositor-supplied molecular entity name"@en ;
     obo:IAO_0000115 "A molecular entity name that has been supplied by a depositor to the PubChem database. This is just a molecular entity name with additional provenance associated. "^^xsd:string ;
@@ -977,6 +904,16 @@ Zwitterion (ZW)	ACD_MOST_ApKa <6.5 and ACD_MOST_BpKa>8.5
     rdfs:label "logD calculated at pH 5.5 by ACD/Labs PhysChem software library version 12.01"^^xsd:string ;
     dc:description "Octanol-water distribution coefficient calculated at pH 5.5 by ACD/Labs PhysChem software library version 12.01."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000322 .
+
+:CHEMINF_000345 a owl:Class ;
+    rdfs:label "hydrogen bond acceptor count calculated by ACD/Labs PhysChem software library version 12.01"^^xsd:string ;
+    dc:description "Hydrogen bond acceptor count that has been calculated by ACD/Labs PhysChem software library version 12.01."^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000245 .
+
+:CHEMINF_000346 a owl:Class ;
+    rdfs:label "hydrogen bond donor count calculated by ACD/Labs PhysChem software library version 12.01"^^xsd:string ;
+    dc:description "Hydrogen bond donor count that has been calculated by ACD/Labs PhysChem software library version 12.01."^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000244 .
 
 :CHEMINF_000347 a owl:Class ;
     rdfs:label "Boiling point at 760 mmHg pressure calculated by ACD/Labs PhysChem software library version 12.01"^^xsd:string ;
@@ -1063,11 +1000,87 @@ Zwitterion (ZW)	ACD_MOST_ApKa <6.5 and ACD_MOST_BpKa>8.5
     dc:description "Surface tension, in dyne per centimetre, that has been calculated by ACD/Labs PhysChem software library version 12.01."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000420 .
 
+:CHEMINF_000369 a owl:Class ;
+    rdfs:label "covalent unit count generated by pubchem software library"@en ;
+    rdfs:subClassOf :CHEMINF_000280 .
+
+:CHEMINF_000370 a owl:Class ;
+    rdfs:label "defined atom stereocenter count generated by the pubchem software library"@en ;
+    rdfs:subClassOf :CHEMINF_000206 .
+
+:CHEMINF_000371 a owl:Class ;
+    rdfs:label "defined bond stereocenter count generated by pubchem software library"@en ;
+    rdfs:subClassOf :CHEMINF_000214 .
+
+:CHEMINF_000372 a owl:Class ;
+    rdfs:label "isotope atom count generated by pubchem software library"@en ;
+    rdfs:subClassOf :CHEMINF_000301 .
+
+:CHEMINF_000373 a owl:Class ;
+    rdfs:label "heavy atom count generated by pubchem software library"@en ;
+    rdfs:subClassOf :CHEMINF_000300 .
+
+:CHEMINF_000374 a owl:Class ;
+    rdfs:label "undefined atom stereocenter count generated by the pubchem software library"@en ;
+    rdfs:subClassOf :CHEMINF_000212 .
+
+:CHEMINF_000375 a owl:Class ;
+    rdfs:label "undefined bond stereocenter count generated by the pubchem software library"@en ;
+    rdfs:subClassOf :CHEMINF_000215 .
+
+:CHEMINF_000376 a owl:Class ;
+    rdfs:label "canonical smiles generated by OEChem"@en ;
+    rdfs:subClassOf :CHEMINF_000007 .
+
+:CHEMINF_000379 a owl:Class ;
+    rdfs:label "isomeric SMILES generated by OEChem"@en ;
+    rdfs:subClassOf :CHEMINF_000032 .
+
 :CHEMINF_000381 a owl:Class ;
     rdfs:label "aromatic cycle count"@en ;
     obo:IAO_0000115 "A descriptor that specifies the integer count of aromatic cycles in a given molecular entity."^^xsd:string ;
     obo:IAO_0000118 "aromatic rings"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000380 .
+
+:CHEMINF_000382 a owl:Class ;
+    rdfs:label "IUPAC Name generated by LexiChem"@en ;
+    rdfs:subClassOf :CHEMINF_000107 .
+
+:CHEMINF_000387 a owl:Class ;
+    rdfs:label "hydrogen bond donor count calculated by cactvs"@en ;
+    rdfs:subClassOf :CHEMINF_000244 .
+
+:CHEMINF_000388 a owl:Class ;
+    rdfs:label "hydrogen bond acceptor count calculated by cactvs"@en ;
+    rdfs:subClassOf :CHEMINF_000245 .
+
+:CHEMINF_000389 a owl:Class ;
+    rdfs:label "rotatable bond count calculated by cactvs"@en ;
+    rdfs:subClassOf :CHEMINF_000254 .
+
+:CHEMINF_000390 a owl:Class ;
+    rdfs:label "structure complexity calculated by cactvs"@en ;
+    rdfs:subClassOf :CHEMINF_000219 .
+
+:CHEMINF_000391 a owl:Class ;
+    rdfs:label "tautomer count calculated by cactvs"@en ;
+    rdfs:subClassOf :CHEMINF_000202 .
+
+:CHEMINF_000392 a owl:Class ;
+    rdfs:label "TPSA calculated by cactvs"@en ;
+    rdfs:subClassOf :CHEMINF_000174 .
+
+:CHEMINF_000395 a owl:Class ;
+    rdfs:label "xlogp3 calculated by the xlogp3 software"@en ;
+    rdfs:subClassOf :CHEMINF_000186 .
+
+:CHEMINF_000396 a owl:Class ;
+    rdfs:label "InChI calculated by library version 1.0.4"@en ;
+    rdfs:subClassOf :CHEMINF_000113 .
+
+:CHEMINF_000399 a owl:Class ;
+    rdfs:label "InChIKey generated by software version 1.0.4"@en ;
+    rdfs:subClassOf :CHEMINF_000059 .
 
 :CHEMINF_000400 a owl:Class ;
     rdfs:label "chemical graph"^^xsd:string ;
@@ -1313,6 +1326,14 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     obo:IAO_0000115 "The ratio of a dissolved substance in a two-phase system, giving a measure of the difference in solubility of the substance in the two phases."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000025 .
 
+:CHEMINF_000511 a owl:Class ;
+    rdfs:label "numeric chemical descriptor"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000123 .
+
+:CHEMINF_000512 a owl:Class ;
+    rdfs:label "textual chemical descriptor"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000123 .
+
 :CHEMINF_000513 a owl:Class ;
     rdfs:label "chemical substance descriptor"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000123 .
@@ -1415,6 +1436,34 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     rdfs:label "PDB structure identifier"@en ;
     chemowl:short_name "PDB identifier"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000464 .
+
+:CHEMINF_000802 a owl:Class ;
+    rdfs:label "number of rule of five violations calculated by RDKit software library version 2015_09_2"@en ;
+    rdfs:subClassOf :CHEMINF_000312 .
+
+:CHEMINF_000803 a owl:Class ;
+    rdfs:label "hydrogen bond acceptor count calculated by RDKit software library version 2015_09_2"@en ;
+    rdfs:subClassOf :CHEMINF_000245 .
+
+:CHEMINF_000804 a owl:Class ;
+    rdfs:label "hydrogen bond donor count calculated by RDKit software library version 2015_09_2"@en ;
+    rdfs:subClassOf :CHEMINF_000244 .
+
+:CHEMINF_000805 a owl:Class ;
+    rdfs:label "logP descriptor calculated by RDKit software library version 2015_09_2"@en ;
+    rdfs:subClassOf :CHEMINF_000251 .
+
+:CHEMINF_000806 a owl:Class ;
+    rdfs:label "molecular formula calculated by RDKit software library version 2015_09_2"@en ;
+    rdfs:subClassOf :CHEMINF_000042 .
+
+:CHEMINF_000807 a owl:Class ;
+    rdfs:label "average molecular weight calculated by RDKit software library version 2015_09_2"@en ;
+    rdfs:subClassOf :CHEMINF_000216 .
+
+:CHEMINF_000808 a owl:Class ;
+    rdfs:label "total polar surface area calculated by RDKit software library version 2015_09_2"@en ;
+    rdfs:subClassOf :CHEMINF_000307 .
 
 :CHEMINF_001100 a owl:Class ;
     rdfs:label "Bond Polarizabilities"^^xsd:string ;
@@ -1745,27 +1794,14 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     rdfs:comment "Pi electronegativity is given by X = a + b q + c ( q 2 ) , where a, b and c are Gasteiger Marsili parameters, and q is the sigma charge. Other short_name: elecPiA."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000087 .
 
-obo:RO_0000056 a owl:ObjectProperty ;
-    rdfs:label "participates in"@en,
-        "participates_in"@en ;
-    obo:IAO_0000111 "participates in"@en ;
-    obo:IAO_0000112 "this blood clot participates in this blood coagulation"@en,
-        "this input material (or this output material) participates in this process"@en,
-        "this investigator participates in this investigation"@en ;
-    obo:IAO_0000115 "a relation between a continuant and a process, in which the continuant is somehow involved in the process"@en ;
-    obo:IAO_0000118 "participates_in"@en ;
-    oboowl:hasAlternativeId "OBO_REL:0000020"^^xsd:string ;
-    oboowl:hasOBONamespace "relationship"^^xsd:string ;
-    owl:inverseOf obo:RO_0000057 .
-
 :CHEMINF_000001 a owl:Class ;
     rdfs:label "molar refractivity"^^xsd:string ;
     dc:description "Molar refractviity is a measure of the total polarizability of a mole of a substance and is dependent on the temperature, the index of refraction, and the pressure."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000094 .
 
-:CHEMINF_000032 a owl:Class ;
-    rdfs:label "isomeric SMILES descriptor"^^xsd:string ;
-    dc:description "an isomeric SMILES descriptor is a SMILES descriptor that written with isotopic and chiral specifications."^^xsd:string ;
+:CHEMINF_000007 a owl:Class ;
+    rdfs:label "canonical SMILES descriptor"^^xsd:string ;
+    dc:description "A canonical SMILES descriptor is a SMILES descriptor that is produced using a canonicalization algorithm which results in one special generic SMILES among all valid possibilities."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000018 .
 
 :CHEMINF_000034 a owl:Class ;
@@ -1776,14 +1812,6 @@ obo:RO_0000056 a owl:ObjectProperty ;
     rdfs:label "positional descriptor"^^xsd:string ;
     dc:description "A positional descriptor is a chemical descriptor which describes some aspect of the position, or location of a chemical entity, or of the relative parts of a chemical entity with respct to one another."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000123 .
-
-:CHEMINF_000042 a owl:Class ;
-    rdfs:label "molecular formula"^^xsd:string ;
-    dc:description "A molecular formula is a structure descriptor which identifies each constituent element by its chemical symbol and indicates the number of atoms of each element found in each discrete molecule of that compound."^^xsd:string ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty obo:IAO_0000136 ;
-            owl:someValuesFrom obo:CHEBI_23367 ],
-        :CHEMINF_000136 .
 
 :CHEMINF_000050 a owl:Class ;
     rdfs:label "- stereochemical descriptor"^^xsd:string ;
@@ -1808,6 +1836,13 @@ obo:RO_0000056 a owl:ObjectProperty ;
     dc:date "2017-02-09 14:29:12+00:00"^^xsd:dateTime ;
     rdfs:subClassOf :CHEMINF_000025 .
 
+:CHEMINF_000059 a owl:Class ;
+    rdfs:label "InChIKey"^^xsd:string ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000136 ;
+            owl:someValuesFrom obo:CHEBI_36357 ],
+        :CHEMINF_000061 .
+
 :CHEMINF_000095 a owl:Class ;
     rdfs:label "hybridization descriptor"^^xsd:string ;
     dc:description "A hybridization descriptor is a chemical descriptor that is about the hybridization of atomic orbitals in a molecular entity."^^xsd:string ;
@@ -1821,13 +1856,10 @@ obo:RO_0000056 a owl:ObjectProperty ;
     dc:description "A systematic name is a molecular entity name which is formulated systematically from the structure of the molecular entity."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000043 .
 
-:CHEMINF_000113 a owl:Class ;
-    rdfs:label "InChI descriptor"^^xsd:string ;
-    dc:description "An InChI descriptor is a structure descriptor which conforms to the InChI format specification."^^xsd:string ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty obo:IAO_0000136 ;
-            owl:someValuesFrom obo:CHEBI_23367 ],
-        :CHEMINF_000085 .
+:CHEMINF_000107 a owl:Class ;
+    rdfs:label "IUPAC name"^^xsd:string ;
+    dc:description "An IUPAC name is a systematic name which is formulated according to the rules and recommendations for chemical nomenclature set out by the International Union of Pure and Applied Chemistry (IUPAC)."^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000106 .
 
 :CHEMINF_000140 a owl:Class ;
     rdfs:label "PubChem compound identifier (CID)"^^xsd:string ;
@@ -1841,25 +1873,47 @@ obo:RO_0000056 a owl:ObjectProperty ;
     rdfs:label "topological polar surface area descriptor"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000146 .
 
+:CHEMINF_000174 a owl:Class ;
+    rdfs:label "TPSA"^^xsd:string ;
+    dc:description "sum of solvent accessible surface areas of atoms with absolute value of partial charges greater than or equal 0.2"^^xsd:string ;
+    chemcore:short_name "TPSA"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000229 .
+
 :CHEMINF_000177 a owl:Class ;
     rdfs:label "collection of 3D coordinates"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000085 .
 
-:CHEMINF_000195 a owl:Class ;
-    rdfs:label "pKa"@en ;
-    dc:description "the logarithmic measure of the acid dissociation constant (Ka)"^^xsd:string ;
-    chemcore:short_name "pKa"^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000193 .
+:CHEMINF_000186 a owl:Class ;
+    rdfs:label "XLogP descriptor"@en ;
+    dc:description "A LogP descriptor based on the atom-type method described in Wang, R., Fu, Y., and Lai, L.. A New Atom-Additive Method for Calculating Partition Coefficients, Journal of Chemical Information and Computer Sciences. vol. 37. 1997, pp. 615-621."^^xsd:string ;
+    chemcore:short_name "XLogP"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000251 .
 
-:CHEMINF_000218 a owl:Class ;
-    rdfs:label "monoisotopic mass descriptor"@en ;
-    dc:description "The mass of a molecule calculated using the mass of the most abundant isotope of each element. E.g., Carbon has a monoisotopic mass of 12.000 g/mol."^^xsd:string ;
+:CHEMINF_000202 a owl:Class ;
+    rdfs:label "tautomer count"@en ;
+    dc:description "a count descriptor that denotes the number of tautomers."^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000209 .
+
+:CHEMINF_000206 a owl:Class ;
+    rdfs:label "defined atom stereocenter count"@en ;
+    rdfs:subClassOf :CHEMINF_000205 .
+
+:CHEMINF_000212 a owl:Class ;
+    rdfs:label "undefined atom stereocenter count"@en ;
+    rdfs:subClassOf :CHEMINF_000205 .
+
+:CHEMINF_000214 a owl:Class ;
+    rdfs:label "defined bond stereocenter count"@en ;
+    rdfs:subClassOf :CHEMINF_000213 .
+
+:CHEMINF_000215 a owl:Class ;
+    rdfs:label "undefined bond stereocenter count"@en ;
+    rdfs:subClassOf :CHEMINF_000213 .
+
+:CHEMINF_000217 a owl:Class ;
+    rdfs:label "exact mass descriptor"@en ;
+    dc:description "an exact mass descriptor corresponds to the mass of the most intense molecule/ion peak in an MS spec, and when calculated denotes the mass of an ion or a molecule containing most likely isotopic composition for a single random molecule."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000088 .
-
-:CHEMINF_000219 a owl:Class ;
-    rdfs:label "complexity descriptor"@en ;
-    dc:description "A complexity descriptor denotes the how complicated a structure is, seen from both the point of view of the elements contained and its structural features ."^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000085 .
 
 :CHEMINF_000246 a owl:Class ;
     rdfs:label "size of largest chain"^^xsd:string ;
@@ -1880,18 +1934,6 @@ obo:RO_0000056 a owl:ObjectProperty ;
             owl:someValuesFrom :CHEMINF_000266 ],
         :CHEMINF_000025 .
 
-:CHEMINF_000254 a owl:Class ;
-    rdfs:label "rotatable bond count"^^xsd:string ;
-    dc:description "a bond count that denotes the integer number of rotors in the molecule, generally single bonds torsion around which produces non-identical geometric molecular configurations."^^xsd:string ;
-    chemcore:short_name "RotatableBondsCount"^^xsd:string ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty :CHEMINF_000012 ;
-            owl:someValuesFrom xsd:int ],
-        [ a owl:Restriction ;
-            owl:onProperty obo:IAO_0000136 ;
-            owl:someValuesFrom obo:CHEBI_23367 ],
-        :CHEMINF_000233 .
-
 :CHEMINF_000257 a owl:Class ;
     rdfs:label "boiling point descriptor"^^xsd:string ;
     rdfs:comment "The boiling point descriptor indicates the temperature at which a chemical substance undergoes a state transition from liquid to gas, at standard conditions."^^xsd:string ;
@@ -1900,17 +1942,74 @@ obo:RO_0000056 a owl:ObjectProperty ;
             owl:someValuesFrom :CHEMINF_000266 ],
         :CHEMINF_000025 .
 
-:CHEMINF_000307 a owl:Class ;
-    rdfs:label "polar surface area descriptor"^^xsd:string ;
-    rdfs:subClassOf :CHEMINF_000229 .
+:CHEMINF_000268 a owl:Class ;
+    rdfs:label "total formal charge descriptor"@en ;
+    dc:description "A charge descriptor that gives the total charge for a molecule"^^xsd:string ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000136 ;
+            owl:someValuesFrom obo:CHEBI_23367 ],
+        :CHEMINF_000131 .
 
-:CHEMINF_000312 a owl:Class ;
-    rdfs:label "rule of five violations descriptor"^^xsd:string ;
-    obo:IAO_0000115 """Number of properties defined in Lipinski’s Rule of 5 (RO5) that the compound fails.  Conditions which violate the RO5 are:
-Molecular weight>=500
-AlogP>=5
-HBD>=5
-HBA>=10
+:CHEMINF_000280 a owl:Class ;
+    rdfs:label "histidine count"^^xsd:string,
+        "covalent unit count"@en ;
+    dc:description "The number of covalent units (molecule / ion) in a chemical structure"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000209,
+        :CHEMINF_000270 .
+
+:CHEMINF_000295 a owl:Class ;
+    rdfs:label "ALogP descriptor"@en ;
+    dc:description "The ALogP descriptor described by Ghose and Crippen in 1986 and 1987."^^xsd:string ;
+    chemcore:short_name "ALogP"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000251 .
+
+:CHEMINF_000300 a owl:Class ;
+    rdfs:label "heavy atom count"@en ;
+    dc:description "The number of non-hydrogen atoms"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000263 .
+
+:CHEMINF_000301 a owl:Class ;
+    rdfs:label "isotope atom count"@en ;
+    dc:description "The sum of all atoms enriched with respect to a particular atom isotope"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000263 .
+
+:CHEMINF_000315 a owl:Class ;
+    rdfs:label "rule of three passes descriptor"^^xsd:string ;
+    obo:IAO_0000115 """Rule of 3 passes.  It is suggested that compounds that pass all these criteria are more likely to be hits in fragment screening.
+molecular weight <=300, 
+number of hydrogen bond donors <=3, 
+number of hydrogen bond acceptors <=3 
+AlogP <=3. 
+RTB <=3
+PSA<=60
+"""^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000025 .
+
+:CHEMINF_000318 a owl:Class ;
+    rdfs:label "medchem friendly descriptor"^^xsd:string ;
+    obo:IAO_0000115 """MedChem Friendly
+These are functional groups that may not be desirable from a medicinal chemistry perspective.  For example reactive groups will be flagged as “N” (not MedChem Friendly).  Molecules which do not contain any of these groups will be flagged as “Y” (MedChem Friendly).
+The groups are defined by the following list of SMARTS:
+[N+]([O-])=O
+[C;!R](-[C;!R]=O)=[C;!R]
+C(-N)=S
+P
+O-N=C
+OS(=O)=O
+O1-CC-O-C-1
+C(-N)=C
+[C;H2]-[C;H2]-[C;H2]-[C;H2]-[C;H2]-[C;H2]-[C;H2]
+OC1OCC(O)C1
+C=N-C(-O)
+[N;H]-[C;H]-[N;H]
+[C;!R]=[C;!R]-N-[C;D1&H3,D2&H2,D3&H1,D4]
+[S;!R]-[C;!R]-[O;!R]
+[O;D2]-[C;!H0](([F,Br,I,Cl])([F,Br,I,Cl])([!F,!Br,!I,!Cl]))
+CC([O;!R])([O;!R])
+C1-C-O1
+C(=O)-S-C(=S)
+[S;H]
+SC#N
 """^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000025 .
 
@@ -1997,6 +2096,11 @@ HBA>=10
     dc:description "A stereochemical descriptor is a chemical descriptor which describes some aspect of the three dimensional structure of a chemical entity."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000123 .
 
+:CHEMINF_000032 a owl:Class ;
+    rdfs:label "isomeric SMILES descriptor"^^xsd:string ;
+    dc:description "an isomeric SMILES descriptor is a SMILES descriptor that written with isotopic and chiral specifications."^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000018 .
+
 :CHEMINF_000044 a owl:Class ;
     rdfs:label "preferred name"^^xsd:string ;
     dc:description "A preferred name is a molecular entity name which is preferred, or recommended, for usage in textual annotations referring to that molecular entity."^^xsd:string ;
@@ -2028,6 +2132,14 @@ HBA>=10
     rdfs:comment "Descriptors which show the relationship between two ligands attached to separate atoms that are connected by a double bond or are contained in a ring. The two ligands are said to be located cis to each other if they lie on the same side of a plane. If they are on opposite sides, their relative position is described as trans. The appropriate reference plane of a double bond is perpendicular to that of the relevant s-bonds and passes through the double bond.[source:IUPAC Gold Book - http://goldbook.iupac.org/C01092.html]"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000520 .
 
+:CHEMINF_000113 a owl:Class ;
+    rdfs:label "InChI descriptor"^^xsd:string ;
+    dc:description "An InChI descriptor is a structure descriptor which conforms to the InChI format specification."^^xsd:string ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000136 ;
+            owl:someValuesFrom obo:CHEBI_23367 ],
+        :CHEMINF_000085 .
+
 :CHEMINF_000185 a owl:Class ;
     rdfs:label "Petitjean Shape Index"@en ;
     dc:description "A measure of the anisotropy in a molecule"^^xsd:string ;
@@ -2043,6 +2155,12 @@ HBA>=10
     rdfs:label "equilibrium constant"@en ;
     rdfs:subClassOf :CHEMINF_000087 .
 
+:CHEMINF_000195 a owl:Class ;
+    rdfs:label "pKa"@en ;
+    dc:description "the logarithmic measure of the acid dissociation constant (Ka)"^^xsd:string ;
+    chemcore:short_name "pKa"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000193 .
+
 :CHEMINF_000203 a owl:Class ;
     rdfs:label "stereocenter count"@en ;
     rdfs:subClassOf :CHEMINF_000209 .
@@ -2052,10 +2170,15 @@ HBA>=10
     rdfs:subClassOf :CHEMINF_000203 ;
     owl:disjointWith :CHEMINF_000213 .
 
-:CHEMINF_000216 a owl:Class ;
-    rdfs:label "average molecular weight descriptor"@en ;
-    dc:description "The mass of a molecule calculated using the average mass of each element weighted for its natural isotopic abundance. E.g., Carbon has two natural isotopes 12 and 13 with relative abundances of 98.9% and 1.1% to yield an average mass of 12.011 g/mol"^^xsd:string ;
+:CHEMINF_000218 a owl:Class ;
+    rdfs:label "monoisotopic mass descriptor"@en ;
+    dc:description "The mass of a molecule calculated using the mass of the most abundant isotope of each element. E.g., Carbon has a monoisotopic mass of 12.000 g/mol."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000088 .
+
+:CHEMINF_000219 a owl:Class ;
+    rdfs:label "complexity descriptor"@en ;
+    dc:description "A complexity descriptor denotes the how complicated a structure is, seen from both the point of view of the elements contained and its structural features ."^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000085 .
 
 :CHEMINF_000231 a owl:Class ;
     rdfs:label "charge density descriptor"^^xsd:string ;
@@ -2111,6 +2234,14 @@ HBA>=10
             owl:someValuesFrom :CHEMINF_000266 ],
         :CHEMINF_000025 .
 
+:CHEMINF_000042 a owl:Class ;
+    rdfs:label "molecular formula"^^xsd:string ;
+    dc:description "A molecular formula is a structure descriptor which identifies each constituent element by its chemical symbol and indicates the number of atoms of each element found in each discrete molecule of that compound."^^xsd:string ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000136 ;
+            owl:someValuesFrom obo:CHEBI_23367 ],
+        :CHEMINF_000136 .
+
 :CHEMINF_000060 a owl:Class ;
     rdfs:label "dimensional extent descriptor"^^xsd:string ;
     dc:description "A dimensional extent descriptor is a physical property descriptor which describes some measurable length, area or volume aspect of a chemical entity."^^xsd:string ;
@@ -2159,6 +2290,32 @@ HBA>=10
     rdfs:label "bond stereocenter count"@en ;
     rdfs:subClassOf :CHEMINF_000203 .
 
+:CHEMINF_000254 a owl:Class ;
+    rdfs:label "rotatable bond count"^^xsd:string ;
+    dc:description "a bond count that denotes the integer number of rotors in the molecule, generally single bonds torsion around which produces non-identical geometric molecular configurations."^^xsd:string ;
+    chemcore:short_name "RotatableBondsCount"^^xsd:string ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :CHEMINF_000012 ;
+            owl:someValuesFrom xsd:int ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000136 ;
+            owl:someValuesFrom obo:CHEBI_23367 ],
+        :CHEMINF_000233 .
+
+:CHEMINF_000307 a owl:Class ;
+    rdfs:label "polar surface area descriptor"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000229 .
+
+:CHEMINF_000312 a owl:Class ;
+    rdfs:label "rule of five violations descriptor"^^xsd:string ;
+    obo:IAO_0000115 """Number of properties defined in Lipinski’s Rule of 5 (RO5) that the compound fails.  Conditions which violate the RO5 are:
+Molecular weight>=500
+AlogP>=5
+HBD>=5
+HBA>=10
+"""^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000025 .
+
 :CHEMINF_000520 a owl:Class ;
     rdfs:label "relative configuration stereochemical descriptor"@en ;
     dc:creator <http://orcid.org/0000-0002-4378-6061> ;
@@ -2184,6 +2341,33 @@ HBA>=10
     rdfs:label "identifying descriptor"^^xsd:string ;
     dc:description "An identifying descriptor is a chemical descriptor which provides an identifier for the chemical entity it is about, which in most cases should aim to be unique and easy to use as an unambiguous reference for the chemical entity."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000123 .
+
+:CHEMINF_000244 a owl:Class ;
+    rdfs:label "hydrogen bond donor count"^^xsd:string ;
+    dc:description "A descriptor that reflects the integer number of hydrogen bond donors in a given molecular entity, as determined by a given method. In highly simplified terms, this is usually the count of all negatively or partially negatively charged heteroatoms (e.g. alcohol oxygen) that have covalently attached to them partially positively charged hydrogen atoms that are capable of participating in a hydrogen bond."^^xsd:string ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000136 ;
+            owl:someValuesFrom obo:CHEBI_23367 ],
+        [ a owl:Restriction ;
+            owl:onProperty :CHEMINF_000012 ;
+            owl:someValuesFrom xsd:int ],
+        :CHEMINF_000209 .
+
+:CHEMINF_000245 a owl:Class ;
+    rdfs:label "hydrogen bond acceptor count"^^xsd:string ;
+    dc:description "A descriptor that reflects the integer number of hydrogen bond acceptors in a given molecular entity, as determined by a given method. In highly simplified terms, this is usually the count of all negatively or partially negatively charged heteroatoms (e.g. alcohol oxygen) capable of accepting a hydrogen bond."^^xsd:string ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000136 ;
+            owl:someValuesFrom obo:CHEBI_23367 ],
+        [ a owl:Restriction ;
+            owl:onProperty :CHEMINF_000012 ;
+            owl:someValuesFrom xsd:int ],
+        :CHEMINF_000209 .
+
+:CHEMINF_000216 a owl:Class ;
+    rdfs:label "average molecular weight descriptor"@en ;
+    dc:description "The mass of a molecule calculated using the average mass of each element weighted for its natural isotopic abundance. E.g., Carbon has two natural isotopes 12 and 13 with relative abundances of 98.9% and 1.1% to yield an average mass of 12.011 g/mol"^^xsd:string ;
+    rdfs:subClassOf :CHEMINF_000088 .
 
 :CHEMINF_000251 a owl:Class ;
     rdfs:label "logP descriptor"^^xsd:string ;
@@ -2231,13 +2415,6 @@ HBA>=10
     dc:description "A geometric descriptor is a descriptor that concerns information about size, shape, and relative position."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000123 .
 
-:CHEMINF_000123 a owl:Class ;
-    rdfs:label "chemical descriptor"^^xsd:string ;
-    dc:description "A chemical descriptor is a data item (quantity or value) about a chemical entity that conforms to a specification for how it is calculated, measured or recorded."^^xsd:string ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty obo:IAO_0000136 ;
-            owl:someValuesFrom :CHEMINF_000000 ] .
-
 :CHEMINF_000085 a owl:Class ;
     rdfs:label "structural descriptor"^^xsd:string ;
     dc:description "A structural descriptor is a chemical descriptor which is about some aspect of the molecular structure (composition) of a chemical entity."^^xsd:string ;
@@ -2245,6 +2422,13 @@ HBA>=10
 
 :CHEMINF_000012 a owl:DatatypeProperty ;
     rdfs:label "has value"^^xsd:string .
+
+:CHEMINF_000123 a owl:Class ;
+    rdfs:label "chemical descriptor"^^xsd:string ;
+    dc:description "A chemical descriptor is a data item (quantity or value) about a chemical entity that conforms to a specification for how it is calculated, measured or recorded."^^xsd:string ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000136 ;
+            owl:someValuesFrom :CHEMINF_000000 ] .
 
 obo:CHEBI_33250 a owl:Class ;
     rdfs:label "atom"^^xsd:string ;
@@ -2299,11 +2483,6 @@ obo:CHEBI_23367 a owl:Class ;
     oboowl:hasAlternativeId "CHEBI:23367"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000000 .
 
-semonto:is_output_of a owl:ObjectProperty ;
-    rdfs:label "is output of"^^xsd:string ;
-    rdfs:subPropertyOf obo:RO_0000056 ;
-    owl:inverseOf :CHEMINF_000145 .
-
 obo:IAO_0000136 a owl:ObjectProperty ;
     rdfs:label "is about"^^xsd:string,
         "is about"@en ;
@@ -2317,174 +2496,4 @@ We will try to build it back up by elaborating the various subproperties that ar
 Some currently missing phenomena that should be considered "about" are predications - "The only person who knows the answer is sitting beside me" , Allegory, Satire, and other literary forms that can be topical without explicitly mentioning the topic."""@en ;
     obo:IAO_0000117 "person:Alan Ruttenberg"@en ;
     obo:IAO_0000119 "Smith, Ceusters, Ruttenberg, 2000 years of philosophy"@en .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
-
-[] a owl:Restriction ;
-    owl:onProperty semonto:is_output_of ;
-    owl:someValuesFrom [ ] .
 

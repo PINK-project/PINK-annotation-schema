@@ -22,7 +22,6 @@ mapped_terms = [
 
     # Properties
     "obo:IAO_0000136",  # is about
-    "semonto:is_output_of",  # is output of
     "obo:RO_0000056",  # participates in
     "cheminf:CHEMINF_000012",  # has value
 ]
@@ -90,6 +89,7 @@ ignored_terms = [
     "obo:IAO_0000310",  #
     "obo:IAO_0000403",  #
     "obo:IAO_0000577",  #
+    "semonto:is_output_of",  # is output of
 ]
 
 
@@ -154,6 +154,7 @@ print("Remove:")
 for term in ignored_terms:
     iri = ts.expand_iri(term)
     print("  -", iri)
+
     ts.update(
         f"""
         PREFIX rdfs: <{RDFS}>
@@ -170,6 +171,7 @@ for term in ignored_terms:
         }}
         """
     )
+
     ts.update(
         f"""DELETE WHERE {{
           ?s owl:equivalentClass ?b .
@@ -177,11 +179,13 @@ for term in ignored_terms:
           ?b owl:intersectionOf ( <{iri}> ?other ) .
         }}"""
     )
-    ts.remove(subject=iri)
-    ts.remove(predicate=iri)
-    ts.remove(object=iri)
     ts.remove(CHEMINF.CHEMINF_000044, OWL.equivalentClass)
+    ts.remove(CHEMINF.CHEMINF_000511, OWL.equivalentClass)
+    ts.remove(CHEMINF.CHEMINF_000512, OWL.equivalentClass)
     ts.remove(CHEMINF.CHEMINF_000513, OWL.equivalentClass)
+    ts.remove(object=iri)
+    #ts.remove(predicate=iri)
+    #ts.remove(subject=iri)
 
 
 # Write cheminf.ttl
