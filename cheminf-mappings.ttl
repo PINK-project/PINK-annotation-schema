@@ -5,23 +5,35 @@
 @prefix micro: <https://w3id.org/emmo/domain/microstructure#> .
 @prefix cheminf: <http://semanticscience.org/resource/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
-
+@prefix semonto: <http://www.semanticweb.org/ontologies/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 
 <https://w3id.org/pink/cheminf-mappings> rdf:type owl:Ontology ;
     owl:versionIRI <https://w3id.org/pink/0.0.1/cheminf-mappings> ;
-    owl:imports
-        <https://w3id.org/pink/0.0.1> ,
-        <https://w3id.org/pink/0.0.1/cheminf> ;
+    owl:imports <https://w3id.org/pink/0.0.1/cheminf> ;
     dcterms:abstract "Mapping CHEMINF to the PINK Annotation Schema."@en ;
     dcterms:title "CHEMINF mappings"@en .
 
 
-# General mappings
-emmo:Property owl:subClassOf pink:Property .  # property
-cheminf:CHEMINF_000025 owl:subClassOf pink:Indicator .  # physical descriptor
-cheminf:CHEMINF_000266 owl:subClassOf emmo:ChemicalSubstance .  # chemical substance
-obo:IAO_0000136 owl:subClassOf pink:isPropertyOf .  # is about
+# General mappings for classes
+emmo:PhysicalQuantity rdfs:subClassOf pink:Property .  # property
+cheminf:CHEMINF_000000 rdfs:subClassOf emmo:ChemicalEntity .  # chemical entity
+cheminf:CHEMINF_000123 rdfs:subClassOf pink:Indicator .  # chemical descriptor
+cheminf:CHEMINF_000266 rdfs:subClassOf emmo:ChemicalSubstance .  # chemical substance
+obo:CHEBI_23367 rdfs:subClassOf emmo:MolecularEntity .  # molecular entity
+obo:CHEBI_33250 rdfs:subClassOf emmo:Atom .  # atom
+obo:CHEBI_36357 rdfs:subClassOf emmo:PolyAtomicEntity .  # polyatomic entity
+
+# General mappings for properties
+obo:IAO_0000136 rdfs:subPropertyOf pink:isPropertyOf .  # is about
+semonto:is_output_or rdfs:subPropertyOf prov:wasGeneratedBy .  # is_output_of
+obo:RO_0000056 rdfs:subPropertyOf pink:participatesTo .  # participates_in
+cheminf:CHEMINF_000012 rdfs:subPropertyOf pink:hasDataValue .  # has value
+
 
 
 # End point-specific mappings (optional)
-cheminf:CHEMINF_000256 owl:subClassOf micro:MeltingPointTemperature .  # melting point descriptor (more generally, it could be mapped to emmo:ThermodynamicTemperature)
+cheminf:CHEMINF_000256 rdfs:subClassOf micro:MeltingPointTemperature .  # melting point descriptor (more generally, it could be mapped to emmo:ThermodynamicTemperature)
+    micro:MeltingPointTemperature rdfs:subClassOf emmo:PhysicalQuantity .
+
+<http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor> rdfs:subClassOf cheminf:CHEMINF_000025 .
