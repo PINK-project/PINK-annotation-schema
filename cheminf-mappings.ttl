@@ -1,5 +1,6 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix pink: <https://w3id.org/pink#> .
 @prefix emmo: <https://w3id.org/emmo/hume#> .
 @prefix micro: <https://w3id.org/emmo/domain/microstructure#> .
@@ -8,7 +9,7 @@
 @prefix semonto: <http://www.semanticweb.org/ontologies/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://w3id.org/pink/cheminf-mappings> rdf:type owl:Ontology ;
+<https://w3id.org/pink/cheminf-mappings> a owl:Ontology ;
     owl:versionIRI <https://w3id.org/pink/0.0.1/cheminf-mappings> ;
     owl:imports <https://w3id.org/pink/0.0.1/cheminf> ;
     dcterms:abstract "Mapping CHEMINF to the PINK Annotation Schema."@en ;
@@ -34,6 +35,6 @@ cheminf:CHEMINF_000012 rdfs:subPropertyOf pink:hasDataValue .  # has value
 
 # End point-specific mappings (optional)
 cheminf:CHEMINF_000256 rdfs:subClassOf micro:MeltingPointTemperature .  # melting point descriptor (more generally, it could be mapped to emmo:ThermodynamicTemperature)
-    micro:MeltingPointTemperature rdfs:subClassOf emmo:PhysicalQuantity .
+micro:MeltingPointTemperature rdfs:subClassOf emmo:PhysicalQuantity .
 
 <http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor> rdfs:subClassOf cheminf:CHEMINF_000025 .
