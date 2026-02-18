@@ -26,6 +26,11 @@ TEST_CASES = [
         "description": "Invalid Dataset (missing required title)",
         "should_conform": False,
     },
+    {
+        "filename": "tests/dataset-plain-string-title.jsonld",
+        "description": "Invalid Dataset (plain string instead of langString for title)",
+        "should_conform": False,
+    },
 ]
 
 
