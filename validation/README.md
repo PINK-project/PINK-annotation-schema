@@ -62,7 +62,7 @@ If you provide a plain string without `@language`, validation will report a **da
   - Mandatory properties (e.g., `pink:Dataset` must have `dcterms:title` and `dcterms:description`)
   - Cardinality constraints (`sh:minCount`, `sh:maxCount`)
   - Custom validation messages
-  
+
   **Important**: This file should only contain cardinality and other project-specific constraints, **not** datatype constraints (which are handled by `shapes.ttl`). Keeping datatype constraints separate ensures clearer error messages.
 
 ## Usage
