@@ -1,0 +1,118 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pink: <https://w3id.org/pink#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+pink:BulkModulusAssessment a owl:Class ;
+    rdfs:label "Bulk Modulus Assessment" ;
+    dcterms:description "Assessment of bulk modulus of materials." ;
+    rdfs:subClassOf pink:MechanicalPropertiesAssessment ;
+    skos:prefLabel "BulkModulusAssessment" .
+
+pink:DensityAssessment a owl:Class ;
+    rdfs:label "Density Assessment" ;
+    dcterms:description "Assessment of density of chemicals and materials." ;
+    rdfs:subClassOf pink:PhysicalPropertiesAssessment ;
+    skos:prefLabel "DensityAssessment" .
+
+pink:EconomicDimension a owl:Class ;
+    rdfs:label "Economic Dimension" ;
+    dcterms:description "The dimension of economic impact in the context of SSbD assessments." ;
+    rdfs:subClassOf pink:SsbdDimension ;
+    skos:prefLabel "EconomicDimension" .
+
+pink:EnvironmentalDimension a owl:Class ;
+    dcterms:description "The dimension of environmental impact in the context of SSbD assessments." ;
+    rdfs:subClassOf pink:SsbdDimension ;
+    skos:prefLabel "EnvironmentalDimension" .
+
+pink:FunctionalityDimension a owl:Class ;
+    dcterms:description "The dimension of functionality in the context of SSbD assessments." ;
+    rdfs:subClassOf pink:SsbdDimension ;
+    skos:prefLabel "FunctionalityDimension" .
+
+pink:GlassTransitionTemperatureAssessment a owl:Class ;
+    rdfs:label "Glass Transition Temperature Assessment" ;
+    dcterms:description "Assessment of glass transition temperature of materials." ;
+    rdfs:subClassOf pink:ThermalPropertiesAssessment ;
+    skos:prefLabel "GlassTransitionTemperatureAssessment" .
+
+pink:PoissonsRatioAssessment a owl:Class ;
+    rdfs:label "Poisson's Ratio Assessment" ;
+    dcterms:description "Assessment of Poisson's ratio of materials." ;
+    rdfs:subClassOf pink:MechanicalPropertiesAssessment ;
+    skos:prefLabel "PoissonsRatioAssessment" .
+
+pink:SafetyDimension a owl:Class ;
+    rdfs:label "Safety Dimension" ;
+    dcterms:description "The dimension of safety in the context of SSbD assessments." ;
+    rdfs:subClassOf pink:SsbdDimension ;
+    skos:prefLabel "SafetyDimension" .
+
+pink:SocialDimension a owl:Class ;
+    dcterms:description "The dimension of social impact in the context of SSbD assessments." ;
+    rdfs:subClassOf pink:SsbdDimension ;
+    skos:prefLabel "SocialDimension" .
+
+pink:YoungsModulusAssessment a owl:Class ;
+    rdfs:label "Young's Modulus Assessment" ;
+    dcterms:description "Assessment of Young's modulus of materials." ;
+    rdfs:subClassOf pink:MechanicalPropertiesAssessment ;
+    skos:prefLabel "YoungsModulusAssessment" .
+
+<https://w3id.org/pink/ssbd-taxonomy> a owl:Ontology ;
+    dcterms:title "Taxonomy useful categorizing activities and outputs of activities within the SSbD framework."@en ;
+    owl:versionIRI <https://w3id.org/pink/0.0.1/ssbd-taxonomy> .
+
+pink:Assessment a owl:Class ;
+    rdfs:label "Assessment" ;
+    dcterms:description "The process of evaluating the quality, performance, or impact of a substance, product, or process." ;
+    rdfs:subClassOf prov:Activity ;
+    skos:prefLabel "Assessment" .
+
+pink:PhysicalPropertiesAssessment a owl:Class ;
+    rdfs:label "Physical Properties Assessment" ;
+    dcterms:description "Assessment of physical properties of chemicals and materials." ;
+    rdfs:subClassOf pink:FunctionalityAssessment ;
+    skos:prefLabel "PhysicalPropertiesAssessment" .
+
+pink:SSbDAssessment a owl:Class ;
+    rdfs:label "SSbD Assessment" ;
+    dcterms:description "An assessment of the safety and sustainability of chemicals and materials across their life cycle. May include hazard, safety, environmental, and functionality assessments." ;
+    rdfs:subClassOf pink:Assessment ;
+    skos:prefLabel "SSbDAssessment" .
+
+pink:SpecifiedAssessment a owl:Class ;
+    rdfs:label "Specified Assessment" ;
+    dcterms:description "An assessment that is focused on a specific aspect or dimension of safety and sustainability, such as functionality, safety, or environmental impact." ;
+    rdfs:subClassOf pink:SSbDAssessment ;
+    skos:prefLabel "SpecifiedAssessment" .
+
+pink:ThermalPropertiesAssessment a owl:Class ;
+    rdfs:label "Thermal Properties Assessment" ;
+    dcterms:description "Assessment of thermal properties of chemicals and materials." ;
+    rdfs:subClassOf pink:FunctionalityAssessment ;
+    skos:prefLabel "ThermalPropertiesAssessment" .
+
+pink:FunctionalityAssessment a owl:Class ;
+    rdfs:label "Functionality Assessment" ;
+    dcterms:description "The superclass of all SSbD Assessments within the dimenstion functionality." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:someValuesFrom pink:FunctionalityDimension ;
+            owl:onProperty pink:assesses ],
+        pink:SpecifiedAssessment ;
+    skos:prefLabel "FunctionalityAssessment" .
+
+pink:MechanicalPropertiesAssessment a owl:Class ;
+    rdfs:label "Mechanical Properties Assessment" ;
+    dcterms:description "Assessment of mechanical properties of chemicals and materials." ;
+    rdfs:subClassOf pink:FunctionalityAssessment ;
+    skos:prefLabel "MechanicalPropertiesAssessment" .
+
+pink:SsbdDimension a owl:Class ;
+    rdfs:label "SSbD Dimension" ;
+    dcterms:description "The superclass of all dimensions relevant for SSbD assessments." ;
+    rdfs:subClassOf prov:Entity ;
+    skos:prefLabel "SsbdDimension" .
