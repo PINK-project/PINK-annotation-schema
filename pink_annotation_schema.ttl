@@ -23,10 +23,12 @@
 <https://w3id.org/pink>
     rdf:type owl:Ontology ;
     owl:versionIRI <https://w3id.org/pink/0.0.1> ;
-    owl:imports <https://w3id.org/pink/0.0.1/reused-terms> ,
-                <https://w3id.org/pink/0.0.1/matter> ,
-                <https://w3id.org/pink/0.0.1/models> ,
-                <https://w3id.org/pink/0.0.1/ssbd-taxonomy> ;
+    owl:imports
+        <https://w3id.org/pink/0.0.1/reused-terms> ,
+        <https://w3id.org/pink/0.0.1/matter> ,
+        <https://w3id.org/pink/0.0.1/models> ,
+        <https://w3id.org/pink/0.0.1/cheminf-mappings> ,
+        <https://w3id.org/pink/0.0.1/ssbd-taxonomy> ;
     dcatap:status "Under Development" ;
     dcterms:abstract """The PINK Annotation Schema provides the semantic basis for SSbD.
 
@@ -144,6 +146,28 @@ vann:usageNote rdf:type owl:AnnotationProperty .
 
 
 #################################################################
+#    Data properties
+#################################################################
+
+:hasDataValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Data ;
+    skos:prefLabel "hasDataValue"@en ;
+    skos:definition "Relates a data individual to its literal value."@en .
+
+:hasAPI a owl:DatatypeProperty ;
+    rdfs:domain :Software ;
+    rdfs:range xsd:boolean ;
+    skos:prefLabel "hasAPI"@en ;
+    skos:definition "Whether the software has an API." .
+
+:hasGUI a owl:DatatypeProperty ;
+    rdfs:domain :Software ;
+    rdfs:range xsd:boolean ;
+    skos:prefLabel "hasGUI"@en ;
+    skos:definition "Whether the software has a GUI." .
+
+
+#################################################################
 #    Object properties
 #################################################################
 
@@ -184,19 +208,6 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     rdfs:range foaf:Document ;
     skos:prefLabel "documentation"@en ;
     skos:definition "A page or document documenting this resource." .
-
-:hasAPI a owl:DatatypeProperty ;
-    rdfs:domain :Software ;
-    rdfs:range xsd:boolean ;
-    skos:prefLabel "hasAPI"@en ;
-    skos:definition "Whether the software has an API." .
-
-
-:hasGUI a owl:DatatypeProperty ;
-    rdfs:domain :Software ;
-    rdfs:range xsd:boolean ;
-    skos:prefLabel "hasGUI"@en ;
-    skos:definition "Whether the software has a GUI." .
 
 
 ### Parthood relations

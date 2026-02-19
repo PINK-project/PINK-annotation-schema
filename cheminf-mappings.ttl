@@ -1,0 +1,48 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix pink: <https://w3id.org/pink#> .
+@prefix emmo: <https://w3id.org/emmo/hume#> .
+@prefix micro: <https://w3id.org/emmo/domain/microstructure#> .
+@prefix cheminf: <http://semanticscience.org/resource/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix semonto: <http://www.semanticweb.org/ontologies/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<https://w3id.org/pink/cheminf-mappings> a owl:Ontology ;
+    owl:versionIRI <https://w3id.org/pink/0.0.1/cheminf-mappings> ;
+    owl:imports <https://w3id.org/pink/0.0.1/cheminf> ;
+    dcterms:abstract "Mapping CHEMINF to the PINK Annotation Schema."@en ;
+    dcterms:title "CHEMINF mappings"@en .
+
+
+# General mappings for classes
+emmo:PhysicalQuantity rdfs:subClassOf pink:Property .  # property
+cheminf:CHEMINF_000000 rdfs:subClassOf emmo:ChemicalEntity .  # chemical entity
+cheminf:CHEMINF_000123 rdfs:subClassOf pink:Indicator .  # chemical descriptor
+cheminf:CHEMINF_000266 rdfs:subClassOf emmo:ChemicalSubstance .  # chemical substance
+obo:CHEBI_23367 rdfs:subClassOf emmo:MolecularEntity .  # molecular entity
+obo:CHEBI_33250 rdfs:subClassOf emmo:Atom .  # atom
+obo:CHEBI_36357 rdfs:subClassOf emmo:PolyAtomicEntity .  # polyatomic entity
+
+# General mappings for properties
+obo:IAO_0000136 rdfs:subPropertyOf pink:isPropertyOf .  # is about
+semonto:is_output_or rdfs:subPropertyOf prov:wasGeneratedBy .  # is_output_of
+obo:RO_0000056 rdfs:subPropertyOf pink:participatesTo .  # participates_in
+cheminf:CHEMINF_000012 rdfs:subPropertyOf pink:hasDataValue .  # has value
+
+
+
+# End point-specific mappings (optional)
+cheminf:CHEMINF_000256 rdfs:subClassOf micro:MeltingPointTemperature .  # melting point descriptor (more generally, it could be mapped to emmo:ThermodynamicTemperature)
+micro:MeltingPointTemperature rdfs:subClassOf emmo:PhysicalQuantity .
+
+<http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor> rdfs:subClassOf cheminf:CHEMINF_000025 .
+
+
+
+# Add CHEBI definitions by hand
+obo:CHEBI_23367 skos:definition "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity."@en .
+obo:CHEBI_33250 skos:definition "A chemical entity constituting the smallest component of an element having the chemical properties of the element."@en .
+obo:CHEBI_36357 skos:definition "Any molecular entity consisting of more than one atom."@en .
