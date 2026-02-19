@@ -2234,6 +2234,11 @@ SC#N
             owl:someValuesFrom :CHEMINF_000266 ],
         :CHEMINF_000025 .
 
+obo:CHEBI_36357 a owl:Class ;
+    rdfs:label "polyatomic entity"^^xsd:string ;
+    oboowl:hasAlternativeId "CHEBI:36357"^^xsd:string ;
+    rdfs:subClassOf obo:CHEBI_23367 .
+
 :CHEMINF_000042 a owl:Class ;
     rdfs:label "molecular formula"^^xsd:string ;
     dc:description "A molecular formula is a structure descriptor which identifies each constituent element by its chemical symbol and indicates the number of atoms of each element found in each discrete molecule of that compound."^^xsd:string ;
