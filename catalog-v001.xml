@@ -11,6 +11,7 @@
     <uri name="https://w3id.org/pink/0.0.1/dcat-mappings"     uri="./dcat-mappings.ttl"/>
     <uri name="https://w3id.org/pink/0.0.1/cheminf"           uri="./cheminf.ttl"/>
     <uri name="https://w3id.org/pink/0.0.1/cheminf-mappings"  uri="./cheminf-mappings.ttl"/>
+    <uri name="https://w3id.org/pink/0.0.1/ssbd-taxonomy"   uri="./ssbd-taxonomy.ttl"/>
 
   </group>
 </catalog>
