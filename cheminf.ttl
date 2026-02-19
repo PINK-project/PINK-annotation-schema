@@ -1,4 +1,4 @@
-# This file is generated/rewritten by scripts/cheminf.py
+# This file is generated/rewritten by scripts/cheminf-extract.py
 @prefix : <http://semanticscience.org/resource/> .
 @prefix bibo: <http://purl.org/ontology/bibo/> .
 @prefix chemcore: <http://semanticscience.org/ontology/cheminf-core.owl#> .

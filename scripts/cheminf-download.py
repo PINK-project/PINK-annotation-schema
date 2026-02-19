@@ -16,6 +16,8 @@ endpoint = (
 
 onto = get_ontology(endpoint).load()
 
+# onto.world.get_ontology("http://purl.obolibrary.org/obo/chebi/200/chebi.owl").load()
+
 onto.save(
     outdir / "cheminf.ttl",
     squash=True,

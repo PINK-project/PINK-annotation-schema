@@ -1,6 +1,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix pink: <https://w3id.org/pink#> .
 @prefix emmo: <https://w3id.org/emmo/hume#> .
 @prefix micro: <https://w3id.org/emmo/domain/microstructure#> .
@@ -38,3 +39,10 @@ cheminf:CHEMINF_000256 rdfs:subClassOf micro:MeltingPointTemperature .  # meltin
 micro:MeltingPointTemperature rdfs:subClassOf emmo:PhysicalQuantity .
 
 <http://www.blueobelisk.org/ontologies/chemoinformatics-algorithms/#AtomicDescriptor> rdfs:subClassOf cheminf:CHEMINF_000025 .
+
+
+
+# Add CHEBI definitions by hand
+obo:CHEBI_23367 skos:definition "Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity."@en .
+obo:CHEBI_33250 skos:definition "A chemical entity constituting the smallest component of an element having the chemical properties of the element."@en .
+obo:CHEBI_36357 skos:definition "Any molecular entity consisting of more than one atom."@en .
