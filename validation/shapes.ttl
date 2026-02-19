@@ -1,0 +1,228 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix pink: <https://w3id.org/pink#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+pink:AdvancedMaterialShape a sh:NodeShape ;
+    sh:targetClass pink:AdvancedMaterial .
+
+pink:AttributionShape a sh:NodeShape ;
+    sh:node pink:AgentShape ;
+    sh:targetClass prov:Attribution .
+
+pink:BooleanDataShape a sh:NodeShape ;
+    sh:node pink:SymbolicDataShape ;
+    sh:targetClass pink:BooleanData .
+
+pink:ByteDataShape a sh:NodeShape ;
+    sh:node pink:ShortDataShape ;
+    sh:targetClass pink:ByteData .
+
+pink:ComputationShape a sh:NodeShape ;
+    sh:node pink:ProcessShape ;
+    sh:targetClass pink:Computation .
+
+pink:ComputationalToolShape a sh:NodeShape ;
+    sh:node pink:SoftwareShape ;
+    sh:targetClass pink:ComputationalTool .
+
+pink:ConceptShape a sh:NodeShape ;
+    sh:targetClass skos:Concept .
+
+pink:ConformanceValueShape a sh:NodeShape ;
+    sh:targetClass pink:ConformanceValue .
+
+pink:DataServiceShape a sh:NodeShape ;
+    sh:node pink:ResourceShape ;
+    sh:targetClass dcat:DataService .
+
+pink:DatasetSeriesShape a sh:NodeShape ;
+    sh:node pink:DatasetShape ;
+    sh:targetClass dcat:DatasetSeries .
+
+pink:DateDataShape a sh:NodeShape ;
+    sh:node pink:SymbolicDataShape ;
+    sh:targetClass pink:DateData .
+
+pink:DateTimeDataShape a sh:NodeShape ;
+    sh:node pink:SymbolicDataShape ;
+    sh:targetClass pink:DateTimeData .
+
+pink:DatumShape a sh:NodeShape ;
+    sh:node pink:DataShape ;
+    sh:targetClass pink:Datum .
+
+pink:DescriptionShape a sh:NodeShape ;
+    sh:node pink:SignShape ;
+    sh:targetClass pink:Description .
+
+pink:DistributionShape a sh:NodeShape ;
+    sh:node pink:ResourceShape ;
+    sh:targetClass dcat:Distribution .
+
+pink:DoubleDataShape a sh:NodeShape ;
+    sh:node pink:NumericalDataShape ;
+    sh:targetClass pink:DoubleData .
+
+pink:FloatDataShape a sh:NodeShape ;
+    sh:node pink:NumericalDataShape ;
+    sh:targetClass pink:FloatData .
+
+pink:IndicatorShape a sh:NodeShape ;
+    sh:node pink:PropertyShape ;
+    sh:targetClass pink:Indicator .
+
+pink:InformationShape a sh:NodeShape ;
+    sh:node pink:DataShape,
+        pink:SignShape ;
+    sh:targetClass pink:Information .
+
+pink:InterpreterShape a sh:NodeShape ;
+    sh:node pink:AgentShape ;
+    sh:targetClass pink:Interpreter .
+
+pink:ItemShape a sh:NodeShape ;
+    sh:targetClass pink:Item .
+
+pink:LicenseDocumentShape a sh:NodeShape ;
+    sh:node pink:RightsStatementShape ;
+    sh:targetClass dcterms:LicenseDocument .
+
+pink:LocationShape a sh:NodeShape ;
+    sh:targetClass dcterms:Location .
+
+pink:MaterialProcessShape a sh:NodeShape ;
+    sh:node pink:ProcessShape ;
+    sh:targetClass pink:MaterialProcess .
+
+pink:MatterShape a sh:NodeShape ;
+    sh:node pink:EntityShape ;
+    sh:targetClass pink:Matter .
+
+pink:MeasurementShape a sh:NodeShape ;
+    sh:node pink:ProcessShape ;
+    sh:targetClass pink:Measurement .
+
+pink:MediaTypeShape a sh:NodeShape ;
+    sh:targetClass dcterms:MediaType .
+
+pink:ModelShape a sh:NodeShape ;
+    sh:node pink:SignShape ;
+    sh:targetClass pink:Model .
+
+pink:ParticipantShape a sh:NodeShape ;
+    sh:node pink:AgentShape,
+        pink:ObjectShape ;
+    sh:targetClass pink:Participant .
+
+pink:PersonShape a sh:NodeShape ;
+    sh:node pink:ObjectShape ;
+    sh:targetClass foaf:Person .
+
+pink:RelationshipShape a sh:NodeShape ;
+    sh:targetClass dcat:Relationship .
+
+pink:ReliabilityDocumentShape a sh:NodeShape ;
+    sh:node pink:DocumentShape ;
+    sh:targetClass pink:ReliabilityDocument .
+
+pink:SsbdDimensionShape a sh:NodeShape ;
+    sh:node pink:EntityShape ;
+    sh:targetClass pink:SsbdDimension .
+
+pink:StandardShape a sh:NodeShape ;
+    sh:targetClass dcterms:Standard .
+
+pink:TierLevelShape a sh:NodeShape ;
+    sh:node pink:EntityShape ;
+    sh:targetClass pink:TierLevel .
+
+pink:TimeDataShape a sh:NodeShape ;
+    sh:node pink:SymbolicDataShape ;
+    sh:targetClass pink:TimeData .
+
+pink:ToxicityShape a sh:NodeShape ;
+    sh:node pink:SignShape ;
+    sh:targetClass pink:Toxicity .
+
+pink:ActivityShape a sh:NodeShape ;
+    sh:targetClass prov:Activity .
+
+pink:IntDataShape a sh:NodeShape ;
+    sh:node pink:LongDataShape ;
+    sh:targetClass pink:IntData .
+
+pink:IntegerDataShape a sh:NodeShape ;
+    sh:node pink:NumericalDataShape ;
+    sh:targetClass pink:IntegerData .
+
+pink:LongDataShape a sh:NodeShape ;
+    sh:node pink:IntegerDataShape ;
+    sh:targetClass pink:LongData .
+
+pink:PropertyShape a sh:NodeShape ;
+    sh:node pink:SignShape ;
+    sh:targetClass pink:Property .
+
+pink:RightsStatementShape a sh:NodeShape ;
+    sh:node pink:DocumentShape ;
+    sh:targetClass dcterms:RightsStatement .
+
+pink:ShortDataShape a sh:NodeShape ;
+    sh:node pink:IntDataShape ;
+    sh:targetClass pink:ShortData .
+
+pink:SoftwareShape a sh:NodeShape ;
+    sh:node pink:DataShape ;
+    sh:targetClass pink:Software .
+
+pink:DatasetShape a sh:NodeShape ;
+    sh:node pink:DataShape,
+        pink:DatasetShape,
+        pink:ResourceShape ;
+    sh:targetClass dcat:Dataset,
+        pink:Dataset .
+
+pink:DocumentShape a sh:NodeShape ;
+    sh:node pink:DataShape ;
+    sh:targetClass foaf:Document .
+
+pink:ObjectShape a sh:NodeShape ;
+    sh:node pink:EntityShape ;
+    sh:targetClass pink:Object .
+
+pink:NumericalDataShape a sh:NodeShape ;
+    sh:node pink:SymbolicDataShape ;
+    sh:targetClass pink:NumericalData .
+
+pink:ProcessShape a sh:NodeShape ;
+    sh:node pink:ActivityShape ;
+    sh:targetClass pink:Process .
+
+pink:ResourceShape a sh:NodeShape ;
+    sh:node pink:EntityShape ;
+    sh:targetClass dcat:Resource .
+
+pink:AgentShape a sh:NodeShape ;
+    sh:node pink:AgentShape ;
+    sh:targetClass prov:Agent,
+        foaf:Agent .
+
+pink:SignShape a sh:NodeShape ;
+    sh:node pink:EntityShape ;
+    sh:targetClass pink:Sign .
+
+pink:SymbolicDataShape a sh:NodeShape ;
+    sh:node pink:DataShape ;
+    sh:targetClass pink:SymbolicData .
+
+pink:DataShape a sh:NodeShape ;
+    sh:node pink:EntityShape ;
+    sh:targetClass pink:Data .
+
+pink:EntityShape a sh:NodeShape ;
+    sh:targetClass prov:Entity .
+
