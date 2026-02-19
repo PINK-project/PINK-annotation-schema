@@ -19,6 +19,7 @@ mapped_terms = [
     "cheminf:CHEMINF_000266",  # chemical substance
     "obo:CHEBI_23367",  # molecular entity
     "obo:CHEBI_33250",  # atom
+    "obo:CHEBI_36357",  # polyatomic entity
 
     # Properties
     "obo:IAO_0000136",  # is about
