@@ -420,15 +420,13 @@ vann:usageNote rdf:type owl:AnnotationProperty .
 :hasProperty rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf :isRepresentedBy ;
     skos:prefLabel "hasProperty"@en ;
-    skos:definition "Connects an entity to a property."@en ;
-    rdfs:domain prov:Entity ;
+    skos:definition "Connects a thing to one of its properties."@en ;
     rdfs:range :Property .
 
 :hasDescription rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf :isRepresentedBy ;
     skos:prefLabel "hasDescription"@en ;
-    skos:definition "Connects an entity to a description."@en ;
-    rdfs:domain prov:Entity ;
+    skos:definition "Connects a thing to a description (i.e. collection of properties) of the thing."@en ;
     rdfs:range :Description .
 
 :hasUnit rdf:type owl:ObjectProperty ;
