@@ -25,7 +25,7 @@
     vann:preferredNamespacePrefix "ddoc" ;
     vann:preferredNamespaceUri "https://w3id.org/emmo/application/datadoc#" ;
     owl:priorVersion "0.0.0" ;
-    owl:versionIRI <https://w3id.org/emmo/application/datadoc/0.1> ;
+    owl:versionIRI <https://w3id.org/emmo/application/datadoc/0.0.1> ;
     owl:versionInfo "0.0.1" .
 
 eli:LegalResource a owl:Class ;

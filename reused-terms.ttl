@@ -18,7 +18,7 @@
 <https://w3id.org/pink/reused-terms> rdf:type owl:Ontology ;
     owl:versionIRI <https://w3id.org/pink/0.0.1/reused-terms> ;
     owl:imports
-        <https://w3id.org/pink/0.0.1/ddoc> ,
+        #<https://w3id.org/emmo/application/datadoc/0.0.1> ,
         <https://w3id.org/pink/0.0.1/matter> ;
     dcterms:title "Standard vocabulary terms reused by PINK"@en ;
     dcterms:abstract "Terms from standard vocabularies reused by the PINK Annotation Schema. These are not changed in PINK. When additional semantics is desired, they are subclassed to new entities in the PINK Ontology."@en .
