@@ -1,5 +1,4 @@
-# Script that extracts all subclasses of chemical descriptor
-# and write them to yaml file sources/cheminf-extract.yaml
+# Script that downloads  CHEMINF and save it to sources/cheminf.ttl
 
 from pathlib import Path
 
@@ -42,6 +41,6 @@ if False:
         descr = str((c.description if c.description else c.comment).first())
         d[c.name] = {"label": label, "description": descr}
 
-    with open(outdir / "cheminf_extract.yaml", "wt") as f:
-        f.write("# Generated with scripts/cheminf_extract.py\n")
+    with open(outdir / "cheminf-extract.yaml", "wt") as f:
+        f.write("# Generated with scripts/cheminf-download.py\n")
         yaml.dump(d, f, sort_keys=False)

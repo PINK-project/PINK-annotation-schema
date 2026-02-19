@@ -2,7 +2,7 @@
 #
 # A script that will add all CHEMINF descriptors to the PINK Annotation Schema.
 #
-# Run cheminf_extract.py before running this script.
+# Run cheminf-download.py before running this script.
 #
 
 import argparse
@@ -192,5 +192,5 @@ for term in ignored_terms:
 # Write cheminf.ttl
 ttl = ts.serialize(format="turtle")
 with open(rootdir / "cheminf.ttl", "wt") as f:
-    f.write("# This file is generated/rewritten by scripts/cheminf.py\n")
+    f.write("# This file is generated/rewritten by scripts/cheminf-extract.py\n")
     f.write(ttl)
