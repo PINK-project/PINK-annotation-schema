@@ -14,6 +14,7 @@
 @prefix accr: <http://publications.europa.eu/resource/authority/access-right/> .
 @prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
 @prefix pink: <https://w3id.org/pink#> .
+@prefix schema: <http://schema.org/> .
 
 <https://w3id.org/pink/reused-terms> rdf:type owl:Ontology ;
     owl:versionIRI <https://w3id.org/pink/0.0.1/reused-terms> ;
@@ -127,6 +128,10 @@ dcterms:description a owl:AnnotationProperty ;
     rdfs:comment "An account of the resource."@en ;
     rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
     rdfs:label "Description"@en .
+
+schema:keywords a rdf:Property ;
+    rdfs:label "keywords" ;
+    rdfs:comment "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas." .
 
 ### Data properties
 
