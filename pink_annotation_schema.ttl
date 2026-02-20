@@ -685,9 +685,9 @@ An architectural floor plan is a model of a house.
 
 
 :Toxicity rdf:type owl:Class ;
-    rdfs:subClassOf :Sign ;
+    rdfs:subClassOf :Indicator ;
     skos:prefLabel "Toxicity"@en ;
-    skos:definition "The property or ability of a substance to cause harmful health effects."@en ;
+    skos:definition "A descriptor for a substance to cause harmful health effects."@en ;
     skos:scopeNote "The helth effects can strike a single cell, a group of cells, an organ system, or the entire body. A toxic effect may be visible damage, or a decrease in performance or function measurable only by a test."@en ;
     skos:scopeNote "Toxicity is always related to a given measurement procedure. Hence, the user is expected to define spesific subclasses defining the measurement procedure that the toxicity is measured according to."@en .
 
