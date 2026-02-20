@@ -655,7 +655,6 @@ dcat:inSeries a owl:ObjectProperty ;
 dcat:keyword a owl:AnnotationProperty ;
     skos:prefLabel "keyword" ;
     skos:definition "A keyword or tag describing the resource." ;
-    rdfs:domain dcat:Resource ;
     rdfs:range rdf:langString ;
     dcat:theme ddoc:datadoc ;
     ddoc:conformance ddoc:recommended .
