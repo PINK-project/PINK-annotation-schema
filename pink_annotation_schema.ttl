@@ -677,6 +677,10 @@ An architectural floor plan is a model of a house.
     skos:altLabel "Descriptor"@en ;
     skos:altLabel "EndPoint"@en ;
     skos:definition "A property that provides information about the state of a system. It simplifies complex realities into measurable values that can guide decisions."@en ;
+    skos:scopeNote """A precisely defined variable intended to reflect an outcome of interest that is statistically analyzed to address a particular research question. A precise definition of an endpoint typically specifies the type of assessments made, the timing of those assessments, the assessment tools used, and possibly other details, as applicable, such as how multiple assessments within an individual are to be combined.
+
+-- National Library of Medicine, https://www.ncbi.nlm.nih.gov/books/NBK338448/
+"""@en ;
     skos:example "For a computation is an indicator a specific property/datum that is provided in the output."@en .
 
 
