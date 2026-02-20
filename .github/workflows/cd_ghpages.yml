@@ -148,6 +148,17 @@ jobs:
             -licensius \
             -includeAnnotationProperties
 
+    - name: Generate Widoco documentation for CHEMINF
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile cheminf.ttl \
+            -outFolder build/widoco-cheminf \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
+
     - name: Include Markdown documentation on gh-pages
       run: |
         cp -r docs build/.
