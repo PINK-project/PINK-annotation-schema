@@ -2,7 +2,7 @@
 A model is a useful simplified description of a selected part of the world.
 The PINK Annotation Schema categorises models as shown in the figures below.
 
-<img alt="Top of Model branch." src="https://pink-project.github.io/PINK-annotation-schema/docs/figs/models-top.png">
+<img alt="Top of Model branch." src="https://pink-project.github.io/PINK-annotation-schema/docs/figs/models-top.png" style="max-width:none">
 
 
 ## Physics-based models
