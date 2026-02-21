@@ -12,6 +12,9 @@ It is constructed to be easily aligned with [EMMO].
 ## Resources
 - [Theoretical background].
   - [Background], including handling of [provenance] and categorisation of relations into [parthood], [causal] and [semiotic] relations.
+  - Documentation of sub-modules:
+    - [Matter module]
+    - [Models module]
   - [Class-level] documentation
 - Reference documentation with interlinked definitions of classes and properties for:
   - [PINK Annotation Schema].
@@ -47,6 +50,8 @@ The example below shows how one can document a toxicity computation using the PI
 [semiotic]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#semiotic-relations
 [Class-level]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#class-level-documentation
 [Guiding principles]: https://pink-project.github.io/PINK-annotation-schema/docs/guiding-principles.html
+[Matter module]: https://pink-project.github.io/PINK-annotation-schema/docs/matter.html
+[Models module]: https://pink-project.github.io/PINK-annotation-schema/docs/models.html
 
 [PINK Annotation Schema]: https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html
 [Reused terms]: https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html
