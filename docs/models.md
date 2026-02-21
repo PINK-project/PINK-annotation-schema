@@ -33,7 +33,7 @@ Within AI, natural language processsing (NLP) and machine learning is further ex
 ![Natural language processing.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/models-NaturalLanguageProcessing.png)
 ![Machine learning.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/models-MachineLearning.png)
 
-Finally has machine learning the sub-branches of supervised learning and deep learning:
+Finally, machine learning has the sub-branches supervised learning and deep learning:
 
 ![Supervised learning.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/models-SupervisedLearning.png)
 ![Deep learning.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/models-DeepLearning.png)
