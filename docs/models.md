@@ -1,6 +1,6 @@
 # The Models module of the PINK Annotation Schema
 A model is a useful simplified description of a selected part of the world.
-The PINK Annotation Schema categorise models as shown in the figures below.
+The PINK Annotation Schema categorises models as shown in the figures below.
 
 ![Top of Model branch.](https://pink-project.github.io/PINK-annotation-schema/docs/figs/models-top.png)
 
