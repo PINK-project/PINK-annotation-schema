@@ -376,7 +376,7 @@ pink:Boosting rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#Classification
 pink:Classification rdf:type owl:Class ;
-                    rdfs:subClassOf pink:SupervicedLearning ;
+                    rdfs:subClassOf pink:SupervisedLearning ;
                     skos:definition "A supervised learning approach that trains models using labeled data to categorize new, unseen data into predefined classes."@en ;
                     skos:prefLabel "Classification"@en .
 
@@ -533,8 +533,8 @@ pink:ImageClassification rdf:type owl:Class ;
 ###  https://w3id.org/pink#ImageSegmentation
 pink:ImageSegmentation rdf:type owl:Class ;
                        rdfs:subClassOf pink:ComputerVision ;
-                       skos:prefLabel "Computer vision algorithm for partitioning a digital image into distinct, meaningful regions at the pixel level to identify object boundaries and simplify image analysis."@en ,
-                                      "ImageSegmentation"@en .
+                       skos:definition "Computer vision algorithm for partitioning a digital image into distinct, meaningful regions at the pixel level to identify object boundaries and simplify image analysis."@en ;
+                       skos:prefLabel "ImageSegmentation"@en .
 
 
 ###  https://w3id.org/pink#Information
@@ -560,8 +560,8 @@ pink:LargeLanguageModel rdf:type owl:Class ;
 ###  https://w3id.org/pink#LinearDiscriminantAnalysis
 pink:LinearDiscriminantAnalysis rdf:type owl:Class ;
                                 rdfs:subClassOf pink:DimensionalityReduction ;
-                                skos:prefLabel "A dimensionality reduction method used in classification tasks to find a feature subspace that maximizes class separability."@en ,
-                                               "LinearDiscriminantAnalysis"@en .
+                                skos:definition "A dimensionality reduction method used in classification tasks to find a feature subspace that maximizes class separability."@en ;
+                                skos:prefLabel "LinearDiscriminantAnalysis"@en .
 
 
 ###  https://w3id.org/pink#Logic
@@ -667,7 +667,7 @@ pink:PlanningModel rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#PredictionLearning
 pink:PredictionLearning rdf:type owl:Class ;
-                        rdfs:subClassOf pink:SupervicedLearning ;
+                        rdfs:subClassOf pink:SupervisedLearning ;
                         skos:altLabel "PredictiveModelling"@en ;
                         skos:definition "A branch of supervised learning that uses historical data, statistical algorithms, and data mining techniques to identify patterns and forecast future outcomes."@en ;
                         skos:prefLabel "PredictionLearning"@en .
@@ -705,7 +705,7 @@ pink:RandomForest rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#RecommenderSystem
 pink:RecommenderSystem rdf:type owl:Class ;
-                       rdfs:subClassOf pink:SupervicedLearning ;
+                       rdfs:subClassOf pink:SupervisedLearning ;
                        skos:altLabel "Recommendation"@en ;
                        skos:definition "A information filtering system using supervised learning to suggest items most relevant to a particular user."@en ;
                        skos:prefLabel "RemommenderSystem"@en .
@@ -720,7 +720,7 @@ pink:RecurrentNeuralNetwork rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#Regression
 pink:Regression rdf:type owl:Class ;
-                rdfs:subClassOf pink:SupervicedLearning ;
+                rdfs:subClassOf pink:SupervisedLearning ;
                 skos:definition "A supervised learning technique used to predict continuous, numerical output values based on labeled training data."@en ;
                 skos:prefLabel "Regression"@en .
 
@@ -765,11 +765,11 @@ pink:StepwiseRegression rdf:type owl:Class ;
                         skos:prefLabel "StepwiseRegression"@en .
 
 
-###  https://w3id.org/pink#SupervicedLearning
-pink:SupervicedLearning rdf:type owl:Class ;
+###  https://w3id.org/pink#SupervisedLearning
+pink:SupervisedLearning rdf:type owl:Class ;
                         rdfs:subClassOf emmo:MachineLearning ;
                         skos:definition "A machine learning paradigm where models are trained using labeled data (input data paired with the correct output) to learn mapping functions that predict outcomes for new, unseen data."@en ;
-                        skos:prefLabel "SupervicedLearning"@en .
+                        skos:prefLabel "SupervisedLearning"@en .
 
 
 ###  https://w3id.org/pink#SupportVectorMachine
@@ -791,8 +791,8 @@ pink:TDistributedStochasticNeighborEmbedding rdf:type owl:Class ;
 ###  https://w3id.org/pink#TargetTracking
 pink:TargetTracking rdf:type owl:Class ;
                     rdfs:subClassOf pink:ComputerVision ;
-                    skos:prefLabel "A computer vision technique for automatically identifying objects in a video and interpreting them as a set of trajectories with high accuracy."@en ,
-                                   "TargetTracking"@en .
+                    skos:definition "A computer vision technique for automatically identifying objects in a video and interpreting them as a set of trajectories with high accuracy."@en ;
+                    skos:prefLabel "TargetTracking"@en .
 
 
 ###  https://w3id.org/pink#TextGeneration
