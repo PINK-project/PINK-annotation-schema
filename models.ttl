@@ -204,8 +204,8 @@ emmo:GenerativeAI rdf:type owl:Class ;
                   skos:prefLabel "GenerativeAI"@en .
 
 
-###  https://w3id.org/emmo/hume#MachineLearning
-emmo:MachineLearning rdf:type owl:Class ;
+###  https://w3id.org/emmo/hume#MachineLearningModel
+emmo:MachineLearningModel rdf:type owl:Class ;
                      rdfs:subClassOf pink:CognitionAndLearningModel ;
                      rdfs:seeAlso "Hutter F, Kotthoff L, Vanschoren J (2019) Automated Machine Learning. Springer, New York." ;
                      skos:definition "AI model that learns progressively by discovering implicit patterns and performing an intellectual task without explicit instructions in advance."@en ;
@@ -337,7 +337,7 @@ pink:AnalogicalReasoning rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#ArtificialNeuralNetwork
 pink:ArtificialNeuralNetwork rdf:type owl:Class ;
-                             rdfs:subClassOf emmo:MachineLearning ;
+                             rdfs:subClassOf emmo:MachineLearningModel ;
                              skos:altLabel "NeuralNetwork"@en ;
                              skos:definition "AI model inspired by the human brain, featuring interconnected layers of artificial neurons that process data to recognize complex patterns, make predictions, and drive machine learning, especially in tasks like computer vision and natural language processing."@en ,
                                              "Neural networks learn by adjusting connection weights via training, with deep networks employing multiple layers for high-level abstraction."@en ;
@@ -454,7 +454,7 @@ pink:DeepLearning rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#DimensionalityReduction
 pink:DimensionalityReduction rdf:type owl:Class ;
-                             rdfs:subClassOf emmo:MachineLearning ;
+                             rdfs:subClassOf emmo:MachineLearningModel ;
                              skos:definition "AI model that transforms high-dimensional datasets into lower-dimensional representations while preserving essential information, mitigating the \"curse of dimensionality."@en ;
                              skos:prefLabel "DimensionalityReduction"@en ;
                              skos:scopeNote ""@en .
@@ -470,7 +470,7 @@ pink:DynamicProgramming rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#EnsembleLearning
 pink:EnsembleLearning rdf:type owl:Class ;
-                      rdfs:subClassOf emmo:MachineLearning ;
+                      rdfs:subClassOf emmo:MachineLearningModel ;
                       skos:definition "A machine learning technique that combines multiple individual models (often called base learners or weak learners) to produce a single, more accurate, and robust predictive model."@en ;
                       skos:prefLabel "EnsembleLearning"@en .
 
@@ -727,7 +727,7 @@ pink:Regression rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#ReinforcedLearning
 pink:ReinforcedLearning rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:MachineLearning ;
+                        rdfs:subClassOf emmo:MachineLearningModel ;
                         skos:altLabel "ReinforcementLearning"@en ;
                         skos:definition "A machine learning technique where an intelligent \"agent\" learns to make optimal, sequential decisions by interacting with an environment, using trial-and-error to maximize cumulative rewards."@en ;
                         skos:prefLabel "ReinforcedLearning"@en .
@@ -742,7 +742,7 @@ pink:SelfTraining rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#SemiSupervicedLearning
 pink:SemiSupervicedLearning rdf:type owl:Class ;
-                            rdfs:subClassOf emmo:MachineLearning ;
+                            rdfs:subClassOf emmo:MachineLearningModel ;
                             skos:definition "A machine learning paradigm that trains models using a small amount of labeled data combined with a large volume of unlabeled data."@en ;
                             skos:prefLabel "SemiSupervicedLearning"@en .
 
@@ -767,7 +767,7 @@ pink:StepwiseRegression rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#SupervisedLearning
 pink:SupervisedLearning rdf:type owl:Class ;
-                        rdfs:subClassOf emmo:MachineLearning ;
+                        rdfs:subClassOf emmo:MachineLearningModel ;
                         skos:definition "A machine learning paradigm where models are trained using labeled data (input data paired with the correct output) to learn mapping functions that predict outcomes for new, unseen data."@en ;
                         skos:prefLabel "SupervisedLearning"@en .
 
@@ -812,7 +812,7 @@ pink:TransformerAI rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#UnsupervicedLearning
 pink:UnsupervicedLearning rdf:type owl:Class ;
-                          rdfs:subClassOf emmo:MachineLearning ;
+                          rdfs:subClassOf emmo:MachineLearningModel ;
                           skos:definition "A type of machine learning that analyzes and clusters unlabeled datasets to discover hidden patterns, structures, or relationships without human intervention."@en ;
                           skos:prefLabel "UnsupervicedLearning"@en .
 
