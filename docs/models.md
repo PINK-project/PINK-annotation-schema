@@ -22,7 +22,7 @@ Statistical models are mathematical models that embodies a set of statistical as
 ## Data-based models
 Data-based models are mathematical models based on observed data, measurements, or experimental results.
 
-The article *Artificial intelligence in product lifecycle management* by [Wang *et al.* (2021)](https://doi.org/10.1007/s00170-021-06882-1) has been used as a basis for the categorisation of data-based models.
+The article [*Artificial intelligence in product lifecycle management*](https://doi.org/10.1007/s00170-021-06882-1) by Wang *et al.* (2021) has been used as a basis for the categorisation of data-based models.
 Additional subclasses relevant to PINK have also been added.
 However, since this article is from before the introduction of the transformer architecture in 2023, the categorisation of modern generative AI is currently rather limited.
 
