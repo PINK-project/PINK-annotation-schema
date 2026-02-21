@@ -208,7 +208,7 @@ emmo:GenerativeAI rdf:type owl:Class ;
 emmo:MachineLearning rdf:type owl:Class ;
                      rdfs:subClassOf pink:CognitionAndLearningModel ;
                      rdfs:seeAlso "Hutter F, Kotthoff L, Vanschoren J (2019) Automated Machine Learning. Springer, New York." ;
-                     skos:definition "AI model that learn progressively by discovering implicit patterns and performing an intellectual task without explicit instructions in advance."@en ;
+                     skos:definition "AI model that learns progressively by discovering implicit patterns and performing an intellectual task without explicit instructions in advance."@en ;
                      skos:prefLabel "MachineLearning"@en .
 
 
