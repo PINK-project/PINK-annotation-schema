@@ -104,10 +104,10 @@ emmo:AnalogicalIcon rdf:type owl:Class ;
 emmo:ArtificialIntelligenceModel rdf:type owl:Class ;
                             rdfs:subClassOf emmo:DataBasedModel ;
                             rdfs:seeAlso "https://www.researchgate.net/publication/350296216/figure/fig3/AS:11431281115851476@1675133526198/The-brief-classification-of-AI.png"^^xsd:anyURI ;
-                            skos:altLabel "ArtificialIntelligenceModel"@en ;
+                            skos:altLabel "ArtificialIntelligence"@en ;
                             skos:definition """A machine-based system that preceives its environment, pursues goals, adapts to feedback/change and provides information/takes action.
 ."""@en ;
-                            skos:prefLabel "ArtificialIntelligence"@en .
+                            skos:prefLabel "ArtificialIntelligenceModel"@en .
 
 
 ###  https://w3id.org/emmo/hume#AtomicInteractionModel
@@ -197,7 +197,7 @@ emmo:FunctionalIcon rdf:type owl:Class ;
 
 ###  https://w3id.org/emmo/hume#GenerativeAI
 emmo:GenerativeAI rdf:type owl:Class ;
-                  rdfs:subClassOf pink:DeepLearning ;
+                  rdfs:subClassOf pink:DeepLearningModel ;
                   skos:altLabel "GenerativeArtificialIntelligenceModel"@en ;
                   skos:definition "An AI model that can generate new content, like text, images or code."@en ;
                   skos:example "Chatbots"@en ;
@@ -209,7 +209,7 @@ emmo:MachineLearningModel rdf:type owl:Class ;
                      rdfs:subClassOf pink:CognitionAndLearningModel ;
                      rdfs:seeAlso "Hutter F, Kotthoff L, Vanschoren J (2019) Automated Machine Learning. Springer, New York." ;
                      skos:definition "AI model that learns progressively by discovering implicit patterns and performing an intellectual task without explicit instructions in advance."@en ;
-                     skos:prefLabel "MachineLearning"@en .
+                     skos:prefLabel "MachineLearningModel"@en .
 
 
 ###  https://w3id.org/emmo/hume#MaterialsModel
@@ -346,7 +346,7 @@ pink:Autoencoder rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#Bagging
 pink:Bagging rdf:type owl:Class ;
-             rdfs:subClassOf pink:PredictionLearning ;
+             rdfs:subClassOf pink:PredictionLearningModel ;
              skos:definition "A prediction learning meta-algorithm designed to improve the stability and accuracy of predictive models, specifically by reducing variance and helping to avoid overfitting."@en ;
              skos:prefLabel "Bagging"@en .
 
@@ -361,21 +361,21 @@ pink:BehaviorModel rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#Boosting
 pink:Boosting rdf:type owl:Class ;
-              rdfs:subClassOf pink:PredictionLearning ;
+              rdfs:subClassOf pink:PredictionLearningModel ;
               skos:definition "A prediction learning ensemble technique designed to improve the predictive performance of models by converting multiple \"weak learners\" (models with low predictive power, often simple decision trees) into a single \"strong learner\"."@en ;
               skos:prefLabel "Boosting"@en .
 
 
 ###  https://w3id.org/pink#Classification
 pink:Classification rdf:type owl:Class ;
-                    rdfs:subClassOf pink:SupervisedLearning ;
+                    rdfs:subClassOf pink:SupervisedLearningModel ;
                     skos:definition "A supervised learning approach that trains models using labeled data to categorize new, unseen data into predefined classes."@en ;
                     skos:prefLabel "Classification"@en .
 
 
 ###  https://w3id.org/pink#Clustering
 pink:Clustering rdf:type owl:Class ;
-                rdfs:subClassOf pink:UnsupervicedLearning ;
+                rdfs:subClassOf pink:UnsupervicedLearningModel ;
                 skos:definition "An unsupervised  learning technique that automatically groups unlabeled data into clusters based on similarities in their features."@en ;
                 skos:prefLabel "Clustering"@en .
 
@@ -417,7 +417,7 @@ pink:ContentExtraction rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#ConvolutionNeuralNetwork
 pink:ConvolutionNeuralNetwork rdf:type owl:Class ;
-                              rdfs:subClassOf pink:DeepLearning ;
+                              rdfs:subClassOf pink:DeepLearningModel ;
                               skos:definition "A type of deep learning based on feedforward neural network that learns features via filter (or kernel) optimization."@en ;
                               skos:prefLabel "ConvolutionNeuralNetwork"@en .
 
@@ -431,16 +431,16 @@ pink:DecisionTree rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#DeepFeedForwardNetwork
 pink:DeepFeedForwardNetwork rdf:type owl:Class ;
-                            rdfs:subClassOf pink:DeepLearning ;
+                            rdfs:subClassOf pink:DeepLearningModel ;
                             skos:definition "Foundational deep learning model that approximate complex functions by mapping inputs to outputs through multiple, unidirectional hidden layers."@en ;
                             skos:prefLabel "DeepFeedForwardNetwork"@en .
 
 
-###  https://w3id.org/pink#DeepLearning
-pink:DeepLearning rdf:type owl:Class ;
+###  https://w3id.org/pink#DeepLearningModel
+pink:DeepLearningModel rdf:type owl:Class ;
                   rdfs:subClassOf pink:ArtificialNeuralNetwork ;
                   skos:definition "Machine learning based on artificial neural networks with multiple layers (often hundreds) that simulate the human brain's structure to learn complex, non-linear patterns from vast datasets."@en ;
-                  skos:prefLabel "DeepLearning"@en ;
+                  skos:prefLabel "DeepLearningModel"@en ;
                   skos:scopeNote "Deep learning powers modern AI in image recognition, NLP, and generative models, outperforming traditional algorithms."@en .
 
 
@@ -454,17 +454,17 @@ pink:DimensionalityReduction rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#DynamicProgramming
 pink:DynamicProgramming rdf:type owl:Class ;
-                        rdfs:subClassOf pink:ReinforcedLearning ;
+                        rdfs:subClassOf pink:ReinforcedLearningModel ;
                         skos:definition ""@en ,
                                         "A reinforced learning technique for solving complex problems by breaking them down into smaller, simpler subproblems and storing the results to avoid redundant calculations."@en ;
                         skos:prefLabel "DynamicProgramming"@en .
 
 
-###  https://w3id.org/pink#EnsembleLearning
-pink:EnsembleLearning rdf:type owl:Class ;
+###  https://w3id.org/pink#EnsembleLearningModel
+pink:EnsembleLearningModel rdf:type owl:Class ;
                       rdfs:subClassOf emmo:MachineLearningModel ;
                       skos:definition "A machine learning technique that combines multiple individual models (often called base learners or weak learners) to produce a single, more accurate, and robust predictive model."@en ;
-                      skos:prefLabel "EnsembleLearning"@en .
+                      skos:prefLabel "EnsembleLearningModel"@en .
 
 
 ###  https://w3id.org/pink#ExpertSystem
@@ -478,40 +478,40 @@ pink:ExpertSystem rdf:type owl:Class ;
 ###  https://w3id.org/pink#ExtraTreesClassifier
 pink:ExtraTreesClassifier rdf:type owl:Class ;
                           rdfs:subClassOf pink:Classification ,
-                                          pink:EnsembleLearning ;
+                                          pink:EnsembleLearningModel ;
                           skos:definition "An ensemble learning method that builds multiple decision trees by choosing random splits for each node, rather than searching for the most discriminative threshold like Random Forest."@en ;
                           skos:prefLabel "ExtraTreesClassifier"@en .
 
 
 ###  https://w3id.org/pink#GenerativeAdversarialNetwork
 pink:GenerativeAdversarialNetwork rdf:type owl:Class ;
-                                  rdfs:subClassOf pink:DeepLearning ;
+                                  rdfs:subClassOf pink:DeepLearningModel ;
                                   skos:definition "A deep learning framework where two neural networks, the generator and discriminator, compete against each other to create new, synthetic instances of data (images, music, text) that resemble training data."@en ;
                                   skos:prefLabel "GenerativeAdversarialNetwork"@en .
 
 
-###  https://w3id.org/pink#GraphBasedLearning
-pink:GraphBasedLearning rdf:type owl:Class ;
-                        rdfs:subClassOf pink:SemiSupervicedLearning ;
+###  https://w3id.org/pink#GraphBasedLearningModel
+pink:GraphBasedLearningModel rdf:type owl:Class ;
+                        rdfs:subClassOf pink:SemiSupervicedLearningModel ;
                         skos:altLabel "GraphBasedAlgorithm"@en ;
                         skos:definition "A semi-superviced machine learning paradigm that analyzes data structured as nodes and edges, exploiting topological relationships rather than treating data points as independent."@en ;
-                        skos:prefLabel "GraphBasedLearning"@en .
+                        skos:prefLabel "GraphBasedLearningModel"@en .
 
 
 ###  https://w3id.org/pink#GraphNeuralNetwork
 pink:GraphNeuralNetwork rdf:type owl:Class ;
-                        rdfs:subClassOf pink:DeepLearning ;
+                        rdfs:subClassOf pink:DeepLearningModel ;
                         skos:definition "Deep learning methods designed to analyze data represented as graphs with nodes (entities) and edges (relationships)."@en ;
                         skos:prefLabel "GraphNeuralNetwork"@en .
 
 
-###  https://w3id.org/pink#HeuristicLearning
-pink:HeuristicLearning rdf:type owl:Class ;
-                       rdfs:subClassOf pink:ReinforcedLearning ;
+###  https://w3id.org/pink#HeuristicLearningModel
+pink:HeuristicLearningModel rdf:type owl:Class ;
+                       rdfs:subClassOf pink:ReinforcedLearningModel ;
                        skos:altLabel "HeuristicMethod"@en ;
                        skos:definition ""@en ,
                                        "An experience-based, discovery-oriented reinforced learning approach to problem-solving that uses \"rules of thumb,\" intuition, and mental shortcuts to find satisfactory solutions quickly when optimal ones are impractical."@en ;
-                       skos:prefLabel "HeuristicLearning"@en ;
+                       skos:prefLabel "HeuristicLearningModel"@en ;
                        skos:scopeNote ""@en .
 
 
@@ -565,16 +565,16 @@ pink:Logic rdf:type owl:Class ;
            skos:prefLabel "Logic"@en .
 
 
-###  https://w3id.org/pink#LogisticRegression
-pink:LogisticRegression rdf:type owl:Class ;
-                        rdfs:subClassOf pink:Regression ;
+###  https://w3id.org/pink#LogisticRegressionModel
+pink:LogisticRegressionModel rdf:type owl:Class ;
+                        rdfs:subClassOf pink:RegressionModel ;
                         skos:definition "A fundamental supervised machine learning algorithm used for classification, predicting the probability of a categorical dependent variable."@en ;
-                        skos:prefLabel "LogisticRegression"@en .
+                        skos:prefLabel "LogisticRegressionModel"@en .
 
 
 ###  https://w3id.org/pink#LowDensitySeparationModel
 pink:LowDensitySeparationModel rdf:type owl:Class ;
-                               rdfs:subClassOf pink:SemiSupervicedLearning ;
+                               rdfs:subClassOf pink:SemiSupervicedLearningModel ;
                                skos:definition "A semi-supervised technique where the decision boundary between classes is placed in a low-density region of the data distribution."@en ;
                                skos:prefLabel "LowDensitySeparationModel"@en .
 
@@ -598,12 +598,12 @@ pink:ModernGenerativeAI rdf:type owl:Class ;
                                         "ModernGenerativeAI"@en .
 
 
-###  https://w3id.org/pink#MonteCarloLearning
-pink:MonteCarloLearning rdf:type owl:Class ;
-                        rdfs:subClassOf pink:ReinforcedLearning ;
+###  https://w3id.org/pink#MonteCarloLearningModel
+pink:MonteCarloLearningModel rdf:type owl:Class ;
+                        rdfs:subClassOf pink:ReinforcedLearningModel ;
                         skos:altLabel "MonteCarloMethod"@en ;
                         skos:definition "A model-free reinforcement learning technique that estimates value functions by averaging total returns from complete episodes of experience."@en ;
-                        skos:prefLabel "MonteCarloLearning"@en .
+                        skos:prefLabel "MonteCarloLearningModel"@en .
 
 
 ###  https://w3id.org/pink#NaiveBayes
@@ -657,12 +657,12 @@ pink:PlanningModel rdf:type owl:Class ;
                    skos:prefLabel "PlanningModel"@en .
 
 
-###  https://w3id.org/pink#PredictionLearning
-pink:PredictionLearning rdf:type owl:Class ;
-                        rdfs:subClassOf pink:SupervisedLearning ;
+###  https://w3id.org/pink#PredictionLearningModel
+pink:PredictionLearningModel rdf:type owl:Class ;
+                        rdfs:subClassOf pink:SupervisedLearningModel ;
                         skos:altLabel "PredictiveModelling"@en ;
                         skos:definition "A branch of supervised learning that uses historical data, statistical algorithms, and data mining techniques to identify patterns and forecast future outcomes."@en ;
-                        skos:prefLabel "PredictionLearning"@en .
+                        skos:prefLabel "PredictionLearningModel"@en .
 
 
 ###  https://w3id.org/pink#PrincipalComponentAnalysis
@@ -690,14 +690,14 @@ pink:QuestionAnswering rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#RandomForest
 pink:RandomForest rdf:type owl:Class ;
-                  rdfs:subClassOf pink:PredictionLearning ;
+                  rdfs:subClassOf pink:PredictionLearningModel ;
                   skos:definition "A prediction learning method for classification and regression that builds multiple decision trees during training."@en ;
                   skos:prefLabel "RandomForest"@en .
 
 
 ###  https://w3id.org/pink#RecommenderSystem
 pink:RecommenderSystem rdf:type owl:Class ;
-                       rdfs:subClassOf pink:SupervisedLearning ;
+                       rdfs:subClassOf pink:SupervisedLearningModel ;
                        skos:altLabel "Recommendation"@en ;
                        skos:definition "A information filtering system using supervised learning to suggest items most relevant to a particular user."@en ;
                        skos:prefLabel "RemommenderSystem"@en .
@@ -705,43 +705,43 @@ pink:RecommenderSystem rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#RecurrentNeuralNetwork
 pink:RecurrentNeuralNetwork rdf:type owl:Class ;
-                            rdfs:subClassOf pink:DeepLearning ;
+                            rdfs:subClassOf pink:DeepLearningModel ;
                             skos:definition "Neural network designed for sequential or time-series data, featuring feedback connections that allow information to persist."@en ;
                             skos:prefLabel "RecurrentNeuralNetwork"@en .
 
 
-###  https://w3id.org/pink#Regression
-pink:Regression rdf:type owl:Class ;
-                rdfs:subClassOf pink:SupervisedLearning ;
+###  https://w3id.org/pink#RegressionModel
+pink:RegressionModel rdf:type owl:Class ;
+                rdfs:subClassOf pink:SupervisedLearningModel ;
                 skos:definition "A supervised learning technique used to predict continuous, numerical output values based on labeled training data."@en ;
-                skos:prefLabel "Regression"@en .
+                skos:prefLabel "RegressionModel"@en .
 
 
-###  https://w3id.org/pink#ReinforcedLearning
-pink:ReinforcedLearning rdf:type owl:Class ;
+###  https://w3id.org/pink#ReinforcedLearningModel
+pink:ReinforcedLearningModel rdf:type owl:Class ;
                         rdfs:subClassOf emmo:MachineLearningModel ;
                         skos:altLabel "ReinforcementLearning"@en ;
                         skos:definition "A machine learning technique where an intelligent \"agent\" learns to make optimal, sequential decisions by interacting with an environment, using trial-and-error to maximize cumulative rewards."@en ;
-                        skos:prefLabel "ReinforcedLearning"@en .
+                        skos:prefLabel "ReinforcedLearningModel"@en .
 
 
-###  https://w3id.org/pink#SelfTraining
-pink:SelfTraining rdf:type owl:Class ;
-                  rdfs:subClassOf pink:SemiSupervicedLearning ;
+###  https://w3id.org/pink#SelfTrainingModel
+pink:SelfTrainingModel rdf:type owl:Class ;
+                  rdfs:subClassOf pink:SemiSupervicedLearningModel ;
                   skos:definition "A semi-supervised machine learning technique that improves model performance by iteratively labeling unlabeled data."@en ;
-                  skos:prefLabel "SelfTraining"@en .
+                  skos:prefLabel "SelfTrainingModel"@en .
 
 
-###  https://w3id.org/pink#SemiSupervicedLearning
-pink:SemiSupervicedLearning rdf:type owl:Class ;
+###  https://w3id.org/pink#SemiSupervicedLearningModel
+pink:SemiSupervicedLearningModel rdf:type owl:Class ;
                             rdfs:subClassOf emmo:MachineLearningModel ;
                             skos:definition "A machine learning paradigm that trains models using a small amount of labeled data combined with a large volume of unlabeled data."@en ;
-                            skos:prefLabel "SemiSupervicedLearning"@en .
+                            skos:prefLabel "SemiSupervicedLearningModel"@en .
 
 
 ###  https://w3id.org/pink#SiameseNeuralNetwork
 pink:SiameseNeuralNetwork rdf:type owl:Class ;
-                          rdfs:subClassOf pink:DeepLearning ;
+                          rdfs:subClassOf pink:DeepLearningModel ;
                           skos:definition "Class of neural network architectures containing two or more identical subnetworks with shared weights."@en ;
                           skos:prefLabel "SiameseNeuralNetwork"@en .
 
@@ -750,18 +750,18 @@ pink:SiameseNeuralNetwork rdf:type owl:Class ;
 pink:Software rdf:type owl:Class .
 
 
-###  https://w3id.org/pink#StepwiseRegression
-pink:StepwiseRegression rdf:type owl:Class ;
-                        rdfs:subClassOf pink:Regression ;
+###  https://w3id.org/pink#StepwiseRegressionModel
+pink:StepwiseRegressionModel rdf:type owl:Class ;
+                        rdfs:subClassOf pink:RegressionModel ;
                         skos:definition "A method of fitting regression models in which the choice of predictive variables is carried out by an automatic procedure."@en ;
-                        skos:prefLabel "StepwiseRegression"@en .
+                        skos:prefLabel "StepwiseRegressionModel"@en .
 
 
-###  https://w3id.org/pink#SupervisedLearning
-pink:SupervisedLearning rdf:type owl:Class ;
+###  https://w3id.org/pink#SupervisedLearningModel
+pink:SupervisedLearningModel rdf:type owl:Class ;
                         rdfs:subClassOf emmo:MachineLearningModel ;
                         skos:definition "A machine learning paradigm where models are trained using labeled data (input data paired with the correct output) to learn mapping functions that predict outcomes for new, unseen data."@en ;
-                        skos:prefLabel "SupervisedLearning"@en .
+                        skos:prefLabel "SupervisedLearningModel"@en .
 
 
 ###  https://w3id.org/pink#SupportVectorMachine
@@ -796,22 +796,22 @@ pink:TextGeneration rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#TransformerAI
 pink:TransformerAI rdf:type owl:Class ;
-                   rdfs:subClassOf pink:DeepLearning ;
+                   rdfs:subClassOf pink:DeepLearningModel ;
                    skos:definition "Deep-learning architecture introduced by Google in 2017 that power modern generative AI like ChatGPT and Gemini."@en ;
                    skos:prefLabel "TransformerAI"@en ;
                    skos:scopeNote ""@en .
 
 
-###  https://w3id.org/pink#UnsupervicedLearning
-pink:UnsupervicedLearning rdf:type owl:Class ;
+###  https://w3id.org/pink#UnsupervicedLearningModel
+pink:UnsupervicedLearningModel rdf:type owl:Class ;
                           rdfs:subClassOf emmo:MachineLearningModel ;
                           skos:definition "A type of machine learning that analyzes and clusters unlabeled datasets to discover hidden patterns, structures, or relationships without human intervention."@en ;
-                          skos:prefLabel "UnsupervicedLearning"@en .
+                          skos:prefLabel "UnsupervicedLearningModel"@en .
 
 
 ###  https://w3id.org/pink#XGBoostRegessor
 pink:XGBoostRegessor rdf:type owl:Class ;
-                     rdfs:subClassOf pink:PredictionLearning ;
+                     rdfs:subClassOf pink:PredictionLearningModel ;
                      skos:definition "An optimized machine learning algorithm that uses an ensemble of decision trees within a gradient boosting framework to predict continuous numerical values."@en ;
                      skos:prefLabel "XGBoostRegressor"@en ;
                      skos:scopeNote "XGBoost Regressor is widely used in data science competitions and real-world applications due to its speed, performance, and features like built-in regularization and automatic handling of missing values."@en .

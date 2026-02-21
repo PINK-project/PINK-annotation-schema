@@ -25,32 +25,32 @@ ontograph \
 
 ontograph \
     --root=DataBasedModel \
-    --leaves=NaturalLanguageProcessing,MachineLearning \
+    --leaves=NaturalLanguageProcessingModel,MachineLearningModel \
     --format=png \
     "$ROOTDIR/models.ttl" \
     "$THISDIR/models-DataBasedModel.png"
 
 ontograph \
-    --root=NaturalLanguageProcessing \
+    --root=NaturalLanguageProcessingModel \
     --format=png \
     "$ROOTDIR/models.ttl" \
-    "$THISDIR/models-NaturalLanguageProcessing.png"
+    "$THISDIR/models-NaturalLanguageProcessingModel.png"
 
 ontograph \
-    --root=MachineLearning \
-    --leaves=DeepLearning,SupervisedLearning \
+    --root=MachineLearningModel \
+    --leaves=DeepLearningModel,SupervisedLearningModel \
     --format=png \
     "$ROOTDIR/models.ttl" \
-    "$THISDIR/models-MachineLearning.png"
+    "$THISDIR/models-MachineLearningModel.png"
 
 ontograph \
-    --root=DeepLearning \
+    --root=DeepLearningModel \
     --format=png \
     "$ROOTDIR/models.ttl" \
-    "$THISDIR/models-DeepLearning.png"
+    "$THISDIR/models-DeepLearningModel.png"
 
 ontograph \
-    --root=SupervisedLearning \
+    --root=SupervisedLearningModel \
     --format=png \
     "$ROOTDIR/models.ttl" \
-    "$THISDIR/models-SupervisedLearning.png"
+    "$THISDIR/models-SupervisedLearningModel.png"
