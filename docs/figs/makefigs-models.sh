@@ -7,50 +7,50 @@ ROOTDIR="$(dirname -- "$(dirname -- "$THISDIR")")"
 ontograph \
     --root=Model \
     --leaves=StatisticalModel,DataBasedModel,PhysicsBasedModel \
-    --format=svg \
+    --format=png \
     "$ROOTDIR/models.ttl" \
-    "$THISDIR/models-top.svg"
+    "$THISDIR/models-top.png"
 
 ontograph \
     --root=PhysicsBasedModel \
-    --format=svg \
+    --format=png \
     "$ROOTDIR/models.ttl" \
-    "$THISDIR/models-PhysicsBasedModel.svg"
+    "$THISDIR/models-PhysicsBasedModel.png"
 
 ontograph \
     --root=StatisticalModel \
-    --format=svg \
+    --format=png \
     "$ROOTDIR/models.ttl" \
-    "$THISDIR/models-StatisticalModel.svg"
+    "$THISDIR/models-StatisticalModel.png"
 
 ontograph \
     --root=DataBasedModel \
     --leaves=NaturalLanguageProcessing,MachineLearning \
-    --format=svg \
+    --format=png \
     "$ROOTDIR/models.ttl" \
-    "$THISDIR/models-DataBasedModel.svg"
+    "$THISDIR/models-DataBasedModel.png"
 
 ontograph \
     --root=NaturalLanguageProcessing \
-    --format=svg \
+    --format=png \
     "$ROOTDIR/models.ttl" \
-    "$THISDIR/models-NaturalLanguageProcessing.svg"
+    "$THISDIR/models-NaturalLanguageProcessing.png"
 
 ontograph \
     --root=MachineLearning \
     --leaves=DeepLearning,SupervisedLearning \
-    --format=svg \
+    --format=png \
     "$ROOTDIR/models.ttl" \
-    "$THISDIR/models-MachineLearning.svg"
+    "$THISDIR/models-MachineLearning.png"
 
 ontograph \
     --root=DeepLearning \
-    --format=svg \
+    --format=png \
     "$ROOTDIR/models.ttl" \
-    "$THISDIR/models-DeepLearning.svg"
+    "$THISDIR/models-DeepLearning.png"
 
 ontograph \
     --root=SupervisedLearning \
-    --format=svg \
+    --format=png \
     "$ROOTDIR/models.ttl" \
-    "$THISDIR/models-SupervisedLearning.svg"
+    "$THISDIR/models-SupervisedLearning.png"
