@@ -100,8 +100,8 @@ emmo:AnalogicalIcon rdf:type owl:Class ;
                                    "The subclass of model inspired by Peirceian category (b) the diagram, whose internal relations, mainly dyadic or so taken, represent by analogy (with the same logic) the relations in something (e.g. math formula, geometric flowchart)."@en .
 
 
-###  https://w3id.org/emmo/hume#ArtificialIntelligence
-emmo:ArtificialIntelligence rdf:type owl:Class ;
+###  https://w3id.org/emmo/hume#ArtificialIntelligenceModel
+emmo:ArtificialIntelligenceModel rdf:type owl:Class ;
                             rdfs:subClassOf emmo:DataBasedModel ;
                             rdfs:seeAlso "https://www.researchgate.net/publication/350296216/figure/fig3/AS:11431281115851476@1675133526198/The-brief-classification-of-AI.png"^^xsd:anyURI ;
                             skos:altLabel "ArtificialIntelligenceModel"@en ;
@@ -237,12 +237,12 @@ emmo:MesoscopicModel rdf:type owl:Class ;
                      skos:prefLabel "MesoscopicModel"@en .
 
 
-###  https://w3id.org/emmo/hume#NaturalLanguageProcessing
-emmo:NaturalLanguageProcessing rdf:type owl:Class ;
+###  https://w3id.org/emmo/hume#NaturalLanguageProcessingModel
+emmo:NaturalLanguageProcessingModel rdf:type owl:Class ;
                                rdfs:subClassOf pink:PerceptionModel ;
                                skos:definition "An AI model that understands and generates human language."@en ;
                                skos:example "Chatbots"@en ;
-                               skos:prefLabel "NaturalLanguageProcessing"@en .
+                               skos:prefLabel "NaturalLanguageProcessingModel"@en .
 
 
 ###  https://w3id.org/emmo/hume#PhysicsBasedModel
@@ -305,20 +305,12 @@ emmo:StructureManipulationModel rdf:type owl:Class ;
                                 skos:prefLabel "StructureManipulationModel"@en .
 
 
-###  https://w3id.org/pink#
-pink: rdf:type owl:Class ;
-      rdfs:subClassOf emmo: ;
-      skos:definition ""@en ;
-      skos:prefLabel ""@en ;
-      skos:scopeNote ""@en .
-
-
-###  https://w3id.org/pink#AbductiveReasoning
-pink:AbductiveReasoning rdf:type owl:Class ;
+###  https://w3id.org/pink#AbductiveReasoningModel
+pink:AbductiveReasoningModel rdf:type owl:Class ;
                         rdfs:subClassOf pink:CognitionAndLearningModel ;
                         skos:definition """Identifies the most plausible explanation for incomplete observations.
 Analogical Reasoning"""@en ;
-                        skos:prefLabel "AbductiveReasoning"@en .
+                        skos:prefLabel "AbductiveReasoningModel"@en .
 
 
 ###  https://w3id.org/pink#Adaboost
@@ -328,11 +320,11 @@ pink:Adaboost rdf:type owl:Class ;
               skos:prefLabel "Adaboost"@en .
 
 
-###  https://w3id.org/pink#AnalogicalReasoning
-pink:AnalogicalReasoning rdf:type owl:Class ;
+###  https://w3id.org/pink#AnalogicalReasoningModel
+pink:AnalogicalReasoningModel rdf:type owl:Class ;
                          rdfs:subClassOf pink:CognitionAndLearningModel ;
                          skos:definition "Solves new problems by drawing parallels to known scenarios."@en ;
-                         skos:prefLabel "AnalogicalReasoning"@en .
+                         skos:prefLabel "AnalogicalReasoningModel"@en .
 
 
 ###  https://w3id.org/pink#ArtificialNeuralNetwork
@@ -361,7 +353,7 @@ pink:Bagging rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#BehaviorModel
 pink:BehaviorModel rdf:type owl:Class ;
-                   rdfs:subClassOf emmo:ArtificialIntelligence ;
+                   rdfs:subClassOf emmo:ArtificialIntelligenceModel ;
                    skos:definition "AI systems trained on vast, multimodal datasets—including video, sensor data, and action logs—to understand, predict, and simulate human-like actions and complex decision-making processes."@en ;
                    skos:prefLabel "BehaviorModel"@en ;
                    skos:scopeNote "Unlike LLMs that process text, LBMs focus on \"what people do,\" utilizing reinforcement learning to adapt to dynamic environments."@en .
@@ -390,7 +382,7 @@ pink:Clustering rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#CognitionAndLearningModel
 pink:CognitionAndLearningModel rdf:type owl:Class ;
-                               rdfs:subClassOf emmo:ArtificialIntelligence ;
+                               rdfs:subClassOf emmo:ArtificialIntelligenceModel ;
                                skos:altLabel "Blends artificial intelligence with cognitive science to simulate human thought processes (sensing, reasoning, and learning) rather than just executing predefined rules."@en ,
                                              "CognitiveAI"@en ;
                                skos:prefLabel "CognitionAndLearningModel"@en .
@@ -630,14 +622,14 @@ pink:NaturalLanguageClassification rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#NaturalLanguageGeneration
 pink:NaturalLanguageGeneration rdf:type owl:Class ;
-                               rdfs:subClassOf emmo:NaturalLanguageProcessing ;
+                               rdfs:subClassOf emmo:NaturalLanguageProcessingModel ;
                                skos:definition "A subfield of natural language processing (NLP) that automatically converts structured data or input into human-like written or spoken text."@en ;
                                skos:prefLabel "NaturalLanguageGeneration"@en .
 
 
 ###  https://w3id.org/pink#NaturalLanguageUnderstanding
 pink:NaturalLanguageUnderstanding rdf:type owl:Class ;
-                                  rdfs:subClassOf emmo:NaturalLanguageProcessing ;
+                                  rdfs:subClassOf emmo:NaturalLanguageProcessingModel ;
                                   skos:definition "A subfield natural language processing (NLP) that enables machines to comprehend the intent, sentiment, and context behind human language."@en ;
                                   skos:prefLabel "NaturalLanguageUnderstanding"@en .
 
@@ -651,7 +643,7 @@ pink:ObjectDetection rdf:type owl:Class ;
 
 ###  https://w3id.org/pink#PerceptionModel
 pink:PerceptionModel rdf:type owl:Class ;
-                     rdfs:subClassOf emmo:ArtificialIntelligence ;
+                     rdfs:subClassOf emmo:ArtificialIntelligenceModel ;
                      skos:altLabel "KnowledgeBasedInferenceEngine"@en ;
                      skos:definition "AI model that interact with the external world and process sensory information."@en ;
                      skos:prefLabel "PerceptionModel"@en .
