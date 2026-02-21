@@ -434,20 +434,11 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:definition "Connects a thing to a description (i.e. collection of properties) of the thing."@en ;
     rdfs:range :Description .
 
-:hasUnit rdf:type owl:ObjectProperty ;
+:hasMeasurementUnit rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf :hasDescription ;
     skos:prefLabel "hasUnit"@en ;
     skos:definition "Connects a property to its unit."@en ;
-    skos:scopeNote "`pink:hasUnit` is intended to refer to a unit in an existing unit ontology, like QUDT or EMMO."@en ;
-    vann:usageNote """A universal restriction should be used when referring to a unit in EMMO.  For example:
-
-    :LethalDose50
-        a pink:Toxicity , [
-            a owl:Restriction ;
-            owl:onProperty pink:hasUnit ;
-            owl:someValuesFrom emmo:MilliGramPerKiloGram
-        ] .
-"""@en ;
+    skos:scopeNote "`pink:hasMeasurementUnit` is intended to refer to a unit in an existing unit ontology, like QUDT or EMMO."@en ;
     rdfs:domain :Property .
 
 :standsFor rdf:type owl:ObjectProperty ;
