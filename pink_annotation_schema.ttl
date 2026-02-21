@@ -304,7 +304,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:example "For example, :baking :used :spoon, :egg, :oven ." .
 
 :wasGeneratedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf prov:wasGeneratedBy,  [ owl:inverseOf :hasOutput ] ;
+    rdfs:subPropertyOf prov:wasGeneratedBy,  [ owl:inverseOf :hasOutput ], :isOvercrossedBy ;
     skos:prefLabel "wasGeneratedBy"@en ;
     rdfs:domain prov:Entity ;
     rdfs:range prov:Activity ;
@@ -320,7 +320,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:definition "Relates an activity to an agent that had some (unspecified) responsibility for the occurence of this activity."@en .
 
 :hasSoftware rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :participatesTo, :wasAssociatedWith ;
+    rdfs:subPropertyOf [ owl:inverseOf :participatesTo ], :wasAssociatedWith ;
     skos:prefLabel "hasSoftware"@en ;
     rdfs:domain :Computation ;
     rdfs:range :Software ;
