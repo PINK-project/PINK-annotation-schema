@@ -8,9 +8,32 @@
 import argparse
 from pathlib import Path
 
-from tripper import OWL, RDFS, Triplestore
+from tripper import DCTERMS, OWL, RDF, RDFS, Literal, Triplestore
 from tripper.datadoc.utils import iriname
 
+# Ontology description
+ontology_iri = "https://w3id.org/pink/cheminf"
+ontology_descr = {
+    OWL.versionIRI: "https://w3id.org/pink/0.0.1/cheminf",
+    DCTERMS.abstract: Literal(
+        "The CHEMINF module of PINK Annotation Schema providing a taxonomy for chemical descriptors.",
+        lang="en"
+    ),
+    DCTERMS.title: Literal("The CHEMINF module of PINK Annotation Schema", lang="en"),
+    "https://w3id.org/widoco/vocab#introduction": Literal(
+        (
+            "This module is a part of the [PINK Annotation Schema]"
+            "(https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html)."
+            "A *descriptor* or *indicator* is a property that provides information about "
+            "the state of a system. It simplifies complex realities into measurable values "
+            "that can guide decisions."
+            "\n\n"
+            "A service for browsing and searching CHEMINF can be found "
+            "[here](https://ontobee.org/ontology/CHEMINF?iri=http://semanticscience.org/resource/CHEMINF_000123)."
+        ),
+        lang="en",
+    ),
+}
 
 # Mapped terms that we want to add
 mapped_terms = [
@@ -137,6 +160,7 @@ def get_concept(ts, iri):
 # Create new triplestore
 ts = Triplestore(backend="rdflib")
 ts.bind("", "http://semanticscience.org/resource/")
+ts.bind("widoco", "https://w3id.org/widoco/vocab#")
 for prefix, ns in ts1.namespaces.items():
     if prefix not in ts.namespaces and ns not in ts.namespaces.values():
         ts.bind(prefix, ns)
@@ -188,6 +212,11 @@ for term in ignored_terms:
     #ts.remove(predicate=iri)
     #ts.remove(subject=iri)
 
+# Add ontology to triplestore
+triples = [(ontology_iri, RDF.type, OWL.Ontology)]
+for p, o in ontology_descr.items():
+    triples.append((ontology_iri, p, o))
+ts.add_triples(triples)
 
 # Write cheminf.ttl
 ttl = ts.serialize(format="turtle")

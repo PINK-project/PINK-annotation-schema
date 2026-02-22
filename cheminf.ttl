@@ -5,6 +5,8 @@
 @prefix chemowl: <http://www.semanticweb.org/ontologies/cheminf.owl#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <https://www.dublincore.org/specifications/dublin-core/dcmi-terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ns1: <https://w3id.org/widoco/vocab#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix oboowl: <http://www.geneontology.org/formats/oboInOwl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -1364,7 +1366,7 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     rdfs:label "ACD/Labs index name"@en ;
     obo:IAO_0000118 "index name"^^xsd:string ;
     dc:creator <http://orcid.org/0000-0002-4378-6061> ;
-    dc:date "2022-07-11 08:20:10+00:00"^^xsd:dateTime ;
+    dc:date "2022-07-11T08:20:10+00:00"^^xsd:dateTime ;
     dc:description "A molecular entity name that represents the name of a molecular structure determined by the naming algorithms developed by ACD/Labs."^^xsd:string ;
     dc:source "https://www.acdlabs.com/products/name/"^^xsd:anyURI ;
     rdfs:subClassOf :CHEMINF_000043 .
@@ -1372,7 +1374,7 @@ where p is the partial pressure of the solute in the gas above the solution, c i
 :CHEMINF_000524 a owl:Class ;
     rdfs:label "InChI with fixedH layer"@en ;
     dc:creator <http://orcid.org/0000-0002-4378-6061> ;
-    dc:date "2022-07-11 08:22:02+00:00"^^xsd:dateTime ;
+    dc:date "2022-07-11T08:22:02+00:00"^^xsd:dateTime ;
     dc:description "An InChI descriptor that is not the standard and that is created with the fixedH layer option. The fixedH layer is appended to the standard InChI and lists the exact position of the tautomeric hydrogen atoms. It is useful when one wants to represent a specific tautomer of a given structure, because if the InChIs for the tautomers were created without the fixedH layer option, the normalization performed by the InChI generation program would result in these InChIs being identical."^^xsd:string ;
     dc:source "https://doi.org/10.1186%2Fs13321-015-0068-4"^^xsd:anyURI ;
     rdfs:subClassOf :CHEMINF_000113 .
@@ -1794,6 +1796,14 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     rdfs:comment "Pi electronegativity is given by X = a + b q + c ( q 2 ) , where a, b and c are Gasteiger Marsili parameters, and q is the sigma charge. Other short_name: elecPiA."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000087 .
 
+<https://w3id.org/pink/cheminf> a owl:Ontology ;
+    dcterms:abstract "The CHEMINF module of PINK Annotation Schema providing a taxonomy for chemical descriptors."@en ;
+    dcterms:title "The CHEMINF module of PINK Annotation Schema"@en ;
+    owl:versionIRI <https://w3id.org/pink/0.0.1/cheminf> ;
+    ns1:introduction """This module is a part of the [PINK Annotation Schema](https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html).A *descriptor* or *indicator* is a property that provides information about the state of a system. It simplifies complex realities into measurable values that can guide decisions.
+
+A service for browsing and searching CHEMINF can be found [here](https://ontobee.org/ontology/CHEMINF?iri=http://semanticscience.org/resource/CHEMINF_000123)."""@en .
+
 :CHEMINF_000001 a owl:Class ;
     rdfs:label "molar refractivity"^^xsd:string ;
     dc:description "Molar refractviity is a measure of the total polarizability of a mole of a substance and is dependent on the temperature, the index of refraction, and the pressure."^^xsd:string ;
@@ -1833,7 +1843,7 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     rdfs:label "file"^^xsd:string,
         "melt mass flow rate"@en ;
     dc:creator <http://orcid.org/0000-0003-3465-8786> ;
-    dc:date "2017-02-09 14:29:12+00:00"^^xsd:dateTime ;
+    dc:date "2017-02-09T14:29:12+00:00"^^xsd:dateTime ;
     rdfs:subClassOf :CHEMINF_000025 .
 
 :CHEMINF_000059 a owl:Class ;
@@ -2075,7 +2085,7 @@ SC#N
 :CHEMINF_000519 a owl:Class ;
     rdfs:label "absolute configuration stereochemical descriptor"@en ;
     dc:creator <http://orcid.org/0000-0002-4378-6061> ;
-    dc:date "2022-07-11 08:01:45+00:00"^^xsd:dateTime ;
+    dc:date "2022-07-11T08:01:45+00:00"^^xsd:dateTime ;
     dc:description "The spatial arrangement of the atoms of a chiral molecular entity (or group) and its stereochemical description e.g. R or S."^^xsd:string ;
     dc:source "https://doi.org/10.1351/goldbook.A00020"^^xsd:anyURI ;
     rdfs:subClassOf :CHEMINF_000027 .
@@ -2324,7 +2334,7 @@ HBA>=10
 :CHEMINF_000520 a owl:Class ;
     rdfs:label "relative configuration stereochemical descriptor"@en ;
     dc:creator <http://orcid.org/0000-0002-4378-6061> ;
-    dc:date "2022-07-11 08:04:08+00:00"^^xsd:dateTime ;
+    dc:date "2022-07-11T08:04:08+00:00"^^xsd:dateTime ;
     dc:description "The configuration of any stereogenic (asymmetric) centre with respect to any other stereogenic centre contained within the same molecular entity. Unlike absolute configuration, relative configuration is reflection-invariant. Relative configuration, distinguishing diastereoisomers, may be denoted by the configurational descriptors R*, R* (or l) and R*, S* (or u) meaning, respectively, that the two centres have identical or opposite configurations. For molecules with more than two asymmetric centres the prefix rel- may be used in front of the name of one enantiomer where R and S have been used. If any centres have known absolute configuration then only R* and S* can be used for the relative configuration."^^xsd:string ;
     dc:source "https://doi.org/10.1351/goldbook.R05260"^^xsd:anyURI ;
     rdfs:subClassOf :CHEMINF_000027 .
