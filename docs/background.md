@@ -102,7 +102,7 @@ These chains of causations have been expressed using [SWRL] rules.
 The relations starting with ":was" are subclasses of the corresponding relations in [PROV-O].
 The `:attributed` and `:wasAttributedTo` are the inverse of each other.
 
-![Causal relations](figs/causal-relations.png)
+![Causal relations](figs/causal-relations.svg)
 
 
 ### Semiotic relations
