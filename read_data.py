@@ -96,7 +96,7 @@ def export_expanded_csv(df: pd.DataFrame, path: str) -> None:
             # just take the series as a one-column DF
             parts.append(df[[col]])
     # remove all values that are empty lists or strings with only whitespace
-    df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+    df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
     # Replace empty strings and NaN with ""
     df = df.replace(r'^\s*$', '', regex=True)
     df = df.fillna('')
