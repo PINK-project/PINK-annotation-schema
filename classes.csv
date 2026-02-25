@@ -1,0 +1,34 @@
+@id,@type,subClassOf,subClassOf,subClassOf,prefLabel,comment,description,usageNote,altLabel,http://www.w3.org/2004/02/skos/core#example
+https://w3id.org/pink#Computation,http://www.w3.org/2002/07/owl#Class,https://w3id.org/pink#Process,,,Computation,"Since Computation is a subclass of Process, we say that there must exist a method that describes the computation.",A procedure that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language).,,,
+https://w3id.org/pink#Participant,http://www.w3.org/2002/07/owl#Class,http://www.w3.org/ns/prov#Agent,https://w3id.org/pink#Object,,Participant,,An object which is a spatial part of a process.,Example: A student during an examination. The student exists both before and after the examination.,,
+https://w3id.org/pink#Process,http://www.w3.org/2002/07/owl#Class,http://www.w3.org/ns/prov#Activity,"AttrDict({
+  '@id': '_:n69975b45a192401abdf29f7e2289362db1',
+  '@type': 'http://www.w3.org/2002/07/owl#Restriction',
+  'http://www.w3.org/2002/07/owl#onProperty': AttrDict({
+    '@id': '_:n69975b45a192401abdf29f7e2289362db2',
+    'http://www.w3.org/2002/07/owl#inverseOf': 'https://w3id.org/pink#hasProcess',
+  }),
+  'http://www.w3.org/2002/07/owl#someValuesFrom': 'https://w3id.org/pink#Method',
+})",,Process,,An activity that is described by a method.,,,
+https://w3id.org/pink#Object,http://www.w3.org/2002/07/owl#Class,http://www.w3.org/ns/prov#Entity,,,Object,,The class of all individuals who's temporal parts are of the same type as the whole.,,,
+https://w3id.org/pink#ComputationalTool,http://www.w3.org/2002/07/owl#Class,https://w3id.org/pink#Method,,,ComputationalTool,,A tool that describes how to run a computational model.,,ComputationalMethod,Gromacs is a computational tool that solves Newton's equations of motion.
+https://w3id.org/pink#Model,http://www.w3.org/2002/07/owl#Class,http://www.w3.org/ns/prov#Entity,,,Model,,A useful simplified description of a selected part of the world.,,,"Newton's law of motion is a model for how a body will move when subjected to forces.
+A mouse can be seen as a model for a human (e.g. in medicine).
+An architectural floor plan is a model of a house.
+"
+https://w3id.org/pink#Method,http://www.w3.org/2002/07/owl#Class,https://w3id.org/pink#Data,,,Method,,Data that describes how to perform an activity.,,MethodImplementation,
+https://w3id.org/pink#ReliabilityDocument,http://www.w3.org/2002/07/owl#Class,http://xmlns.com/foaf/0.1/Document,,,ReliabilityDocument,,xxx,xxx,,
+https://w3id.org/pink#Material,http://www.w3.org/2002/07/owl#Class,http://www.w3.org/ns/prov#Entity,,,Material,,"The class of individuals standing for an amount of matter (ordinary, anti or hybrid) substance (or mixture of substances) in different states of matter or phases.",,,
+https://w3id.org/pink#Property,http://www.w3.org/2002/07/owl#Class,http://www.w3.org/ns/prov#Entity,,,Property,,A coventional semiotic sigh that stands for an physical interaction with an object using an atomic symbol.,A property is atomic in the sense that is aimed to deliver one and one only aspect of the object.,,
+https://w3id.org/pink#MaterialProcess,http://www.w3.org/2002/07/owl#Class,https://w3id.org/pink#Process,,,MaterialProcess,"Since MaterialProcess is a subclass of Process, we say that there must exist a method that describes the material process.",A process that has material as input and output.,,,
+https://w3id.org/pink#Dataset,http://www.w3.org/2002/07/owl#Class,http://www.w3.org/ns/dcat#Dataset,https://w3id.org/pink#Data,"AttrDict({
+  '@id': '_:n69975b45a192401abdf29f7e2289362db3',
+  '@type': 'http://www.w3.org/2002/07/owl#Restriction',
+  'http://www.w3.org/2002/07/owl#onProperty': 'https://w3id.org/pink#hasPart',
+  'http://www.w3.org/2002/07/owl#someValuesFrom': 'https://w3id.org/pink#Datum',
+})",Dataset,,Encoded data made of more than one datum.,"A collection of (more than one) datum, published or curated by a single agent, and available for access or download in one or more representations.",,
+https://w3id.org/pink#Data,http://www.w3.org/2002/07/owl#Class,http://www.w3.org/ns/prov#Entity,,,Data,,Contrast from variation of properties that is encoded by an agent and that can be decoded by another agent according to a specific rule.,,,
+https://w3id.org/pink#Role,http://www.w3.org/2002/07/owl#Class,,,,Role,,The class of all individuals that are defined through a parthood relation to an entity.,An individual can be said to have a role in relation to the entity.,,
+https://w3id.org/pink#Datum,http://www.w3.org/2002/07/owl#Class,https://w3id.org/pink#Data,,,Datum,,A self-consistent encoded data entity.,Datum is the building block of datasets.,,
+https://w3id.org/pink#SsbdDimension,http://www.w3.org/2002/07/owl#Class,,,,SsbdDimension,The pink:SsbdDimension is an extension of the 'sustainability dimensions' defined by JRC.,XXX,,,
+https://w3id.org/pink#Measurement,http://www.w3.org/2002/07/owl#Class,https://w3id.org/pink#Process,,,Measurement,"Since Measurement is a subclass of Process, we say that there must exist a method that describes the measurement.",An observation that results in a quantitative comparison of a 'property' of an 'object' with a standard reference based on a well defined mesurement procedure.,,,

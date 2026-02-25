@@ -1,0 +1,20 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <> .
+<https://w3id.org/pink/0.0.1> a prov:Entity;
+	 dc:title "PINK Annotation Schema";
+	 prov:wasAttributedTo <https://orcid.org/0000-0001-8869-3718>;
+	 dc:creator <https://orcid.org/0000-0001-8869-3718>;
+	 prov:wasAttributedTo <https://orcid.org/0000-0002-1560-809X>;
+	 dc:creator <https://orcid.org/0000-0002-1560-809X>;
+	 prov:wasAttributedTo <https://orcid.org/0000-0002-1849-5246>;
+	 dc:creator <https://orcid.org/0000-0002-1849-5246>;
+	 prov:wasAttributedTo <https://orcid.org/0000-0002-8053-8198>;
+	 dc:creator <https://orcid.org/0000-0002-8053-8198>;
+	 prov:wasAttributedTo <https://orcid.org/0000-0003-4250-4584>;
+	 dc:contributor <https://orcid.org/0000-0003-4250-4584>;
+	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
+	 prov:wasRevisionOf <0.0.0>;
+	 prov:wasGeneratedAt "2025-09-08";
+.

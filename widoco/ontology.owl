@@ -1,0 +1,2069 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/pink#"
+     xml:base="https://w3id.org/pink"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:r5r="http://data.europa.eu/r5r/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:bibo="http://purl.org/ontology/bibo/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:vocab="https://w3id.org/widoco/vocab#">
+    <owl:Ontology rdf:about="https://w3id.org/pink">
+        <owl:versionIRI rdf:resource="https://w3id.org/pink/0.0.1"/>
+        <owl:imports rdf:resource="https://w3id.org/pink/0.0.1/cheminf-mappings"/>
+        <owl:imports rdf:resource="https://w3id.org/pink/0.0.1/matter"/>
+        <owl:imports rdf:resource="https://w3id.org/pink/0.0.1/models"/>
+        <owl:imports rdf:resource="https://w3id.org/pink/0.0.1/reused-terms"/>
+        <owl:imports rdf:resource="https://w3id.org/pink/0.0.1/ssbd-taxonomy"/>
+        <r5r:status>Under Development</r5r:status>
+        <terms:abstract xml:lang="en">The PINK Annotation Schema provides the semantic basis for SSbD.
+
+The PINK Annotation Schema expands on the annotation schema provided by tripper, which again expands on the DCAT-AP.
+
+A reference documentation of terms reused from standard W3C vocabularies can be found https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html.
+</terms:abstract>
+        <terms:bibliographicCitation>xxx</terms:bibliographicCitation>
+        <terms:contributor rdf:resource="https://orcid.org/0000-0003-4250-4584"/>
+        <terms:created>2025-09-08</terms:created>
+        <terms:creator rdf:resource="https://orcid.org/0000-0001-8869-3718"/>
+        <terms:creator rdf:resource="https://orcid.org/0000-0002-1560-809X"/>
+        <terms:creator rdf:resource="https://orcid.org/0000-0002-1849-5246"/>
+        <terms:creator rdf:resource="https://orcid.org/0000-0002-8053-8198"/>
+        <terms:hasFormat rdf:resource="https://www.w3.org/TR/turtle/"/>
+        <terms:license>https://creativecommons.org/licenses/by/4.0/legalcode</terms:license>
+        <terms:publisher rdf:resource="https://pink-project.eu/"/>
+        <terms:title xml:lang="en">PINK Annotation Schema</terms:title>
+        <bibo:doi>tbd</bibo:doi>
+        <bibo:status rdf:resource="http://purl.org/ontology/bibo/status/forthcoming"/>
+        <vann:preferredNamespacePrefix>pink</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>https://w3id.org/pink</vann:preferredNamespaceUri>
+        <owl:priorVersion>0.0.0</owl:priorVersion>
+        <owl:versionInfo>0.0.1</owl:versionInfo>
+        <foaf:homepage rdf:resource="https://github.com/PINK-project/PINK-annotation-schema"/>
+        <foaf:logo rdf:resource="https://tess.elixir-europe.org/system/content_providers/images/000/000/777/original/pink-logo-orange-colorB-500.png"/>
+        <vocab:introduction xml:lang="en">
+The PINK Annotation Schema has a modular structure and aims to cover the following features:
+
+* Allow to categorise resources (datasets, models, software, etc) according to their SSbD dimensions and categories/sub-categories.
+* Provenance, based on the [PROV-O](https://www.w3.org/TR/prov-o/) ontology. PROV-O is fully adapted by the PINK Annotation Schema, having the three top-level PROV-O classes, *Activity*, *Entity* and *Agent* in root.
+* Extension of the basic PROV-O provenance to complex scientific workflows with spatial and temporal parts.
+* Allow documentation of workflows that have not (yet) been executed. Such documentation is done at class-level. When executed individuals should be created for the evaluated activities and their input and output providing a full PROV-O provenance graph.
+* Top-level taxonomy for (advanced) materials and chemicals based on [EMMO](https://emmc.eu/emmo/) with mappings to [ChEBI](https://www.ebi.ac.uk/chebi/) for chemicals.
+* Categorisation models.
+* Strong taxonomy for relations, which are grouped into:
+  - [parthood relations](https://pink-project.github.io/PINK-annotation-schema/docs/background.html#parthood-relations), based on mereology
+  - [causal relations](https://pink-project.github.io/PINK-annotation-schema/docs/background.html#causal-relations), based on causality
+  - [semiotic relations](https://pink-project.github.io/PINK-annotation-schema/docs/background.html#semiotic-relations), based on [Pierse semiotics](https://plato.stanford.edu/entries/peirce-semiotics/)
+
+Separate reference documentations exists for the following sub-modules:
+
+* [ddoc](https://pink-project.github.io/PINK-annotation-schema/widoco-ddoc/index-en.html): The Tripper data documentation vocabulary, with terms reused from other ontologies and vocabularies. Mainly [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), [FOAF](http://xmlns.com/foaf/spec/) and similar basic vocabularies.
+* [reused-terms](https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html): Additional reused terms by the PINK Annotation Schema ([DCAT](https://www.w3.org/TR/vocab-dcat-3/), [PROV-O](https://www.w3.org/TR/prov-o/), etc).
+* [matter](https://pink-project.github.io/PINK-annotation-schema/widoco-matter/index-en.html): Taxonomy for (advanced) materials and chemicals
+* [models](https://pink-project.github.io/PINK-annotation-schema/widoco-models/index-en.html): Taxonomy for models.
+
+The root of the PINK Annotation Schema is shown below. More information can be found in the [background](https://pink-project.github.io/PINK-annotation-schema/docs/background.html) section.
+
+</vocab:introduction>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://data.europa.eu/r5r/status -->
+
+
+    <owl:AnnotationProperty rdf:about="http://data.europa.eu/r5r/status"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/abstract -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/abstract"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/bibliographicCitation -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/bibliographicCitation"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/created -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/created"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/hasFormat -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/hasFormat"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/publisher -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/publisher"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/doi -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/ontology/bibo/doi"/>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/status -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/ontology/bibo/status"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/usageNote -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/usageNote"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#example -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#scopeNote -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/homepage -->
+
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/homepage"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/logo -->
+
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/logo"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/workplaceHomepage -->
+
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/workplaceHomepage"/>
+    
+
+
+    <!-- https://w3id.org/widoco/vocab#introduction -->
+
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/widoco/vocab#introduction"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/terms/hasPart -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/hasPart"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#used -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#used"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasAssociatedWith -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasAttributedTo -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasAttributedTo"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasDerivedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasDerivedBy"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasGeneratedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasInfluencedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasInfluencedBy"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasInformedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasInformedBy"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/page -->
+
+
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/page"/>
+    
+
+
+    <!-- https://w3id.org/pink#assesses -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#assesses">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#isOvercrossedBy"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Assessment"/>
+        <rdfs:range rdf:resource="https://w3id.org/pink#SsbdDimension"/>
+        <skos:definition xml:lang="en">Relates an assessment to a SSbD dimension.</skos:definition>
+        <skos:prefLabel xml:lang="en">assesses</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#attributed -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#attributed">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#causedBy"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/pink#wasAttributedTo"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <skos:definition xml:lang="en">Relates an agent to an entity via an activity that both the agent and entity participates to.</skos:definition>
+        <skos:prefLabel xml:lang="en">attributed</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The activity is through overlapped by the agent and overcrossed by the entity.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">There may or may not be a causal interaction between the agent and entity.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#causedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#causedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasInfluencedBy"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <skos:definition xml:lang="en">A relation between an entity that causally affects the subject.</skos:definition>
+        <skos:example xml:lang="en">John yesterday is the cause of John today, is an example of temporal-like causality. The desk supporting my laptop is a space-like causality.</skos:example>
+        <skos:prefLabel xml:lang="en">causedBy</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#chemicalClass -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#chemicalClass">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/pink#Matter"/>
+        <vann:usageNote xml:lang="en">Choose one of subclasses of pink:Matter.</vann:usageNote>
+        <skos:definition xml:lang="en">Group of chemicals that and entity is relevant for.</skos:definition>
+        <skos:prefLabel xml:lang="en">chemicalClass</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#documentation -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#documentation">
+        <rdfs:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/page"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+        <skos:definition>A page or document documenting this resource.</skos:definition>
+        <skos:prefLabel xml:lang="en">documentation</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasDatum -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasDatum">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#hasProperPart"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Dataset"/>
+        <rdfs:range rdf:resource="https://w3id.org/pink#Datum"/>
+        <skos:definition xml:lang="en">Relates a dataset to its datum.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasDatum</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasDescription -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasDescription">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#isRepresentedBy"/>
+        <rdfs:range rdf:resource="https://w3id.org/pink#Description"/>
+        <skos:definition xml:lang="en">Connects a thing to a description (i.e. collection of properties) of the thing.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasDescription</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasInput -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasInput">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#isOvercrossedBy"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <skos:definition xml:lang="en">Relates an activity to an entity that is input to the activity.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasInput</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The activity A proper overlaps the entity E, where the non-overlapping part of E causes A.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasJunctionPart -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasJunctionPart">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#hasProperPart"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <skos:altLabel xml:lang="en">hasSpatioTemporalPart</skos:altLabel>
+        <skos:definition xml:lang="en">The part is connected with the rest item or members with both hasNext (or its inverse) and hasContact relations.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasJunctionPart</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasMeasurementUnit -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasMeasurementUnit">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#hasDescription"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Property"/>
+        <skos:definition xml:lang="en">Connects a property to its unit.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasUnit</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">`pink:hasMeasurementUnit` is intended to refer to a unit in an existing unit ontology, like QUDT or EMMO.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasOutput -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasOutput">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#isOvercrossedBy"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <skos:definition xml:lang="en">Relates an activity to an entity that is the output of the activity.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasOutput</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasPart -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasPart">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/hasPart"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#overlaps"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/pink#isOvercrossedBy"/>
+        <skos:definition xml:lang="en">The primitive relation that express the concept of an entity being part of another one.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasPart</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">OWL2 does not allow non-simple (e.g. transitive) properties to appear in disjoint property axioms. We therefore implement the transitivity of hasPart using SWRL rules instead of asserting it with owl:TransitiveProperty.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasParticipant -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasParticipant">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#hasProperPart"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <skos:definition xml:lang="en">The relation between a process and an object participating to it, i.e. that is relevant to the process itself.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasParticipant</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Participation is a parthood relation - you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasProcess -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasProcess"/>
+    
+
+
+    <!-- https://w3id.org/pink#hasProperPart -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasProperPart">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#hasPart"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <skos:definition xml:lang="en">The relation between an entity and one of its parts, when both entities are distinct.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasProperPart</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasProperty -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasProperty">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#isRepresentedBy"/>
+        <rdfs:range rdf:resource="https://w3id.org/pink#Property"/>
+        <skos:definition xml:lang="en">Connects a thing to one of its properties.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasProperty</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasSoftware -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasSoftware">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#wasAssociatedWith"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://w3id.org/pink#participatesTo"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Computation"/>
+        <rdfs:range rdf:resource="https://w3id.org/pink#Software"/>
+        <skos:definition xml:lang="en">Relates a computation to the software used to perform the computation.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasSoftware</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasSpatialPart -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasSpatialPart">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#hasProperPart"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <skos:definition xml:lang="en">A proper part of a whole, whose parts always cover the full temporal extension of the whole within a spatial interval.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasSpatialPart</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The part is connected with the rest item or members with hasContact relations only (no hasNext).</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasSubProcess -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasSubProcess">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#hasProperPart"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Process"/>
+        <rdfs:range rdf:resource="https://w3id.org/pink#Process"/>
+        <skos:definition xml:lang="en">The relation between a process and one of its process parts.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasSubProcess</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasTemporalPart -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#hasTemporalPart">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#hasProperPart"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <skos:definition>A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasTemporalPart</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">A temporal part of an item cannot both cause and be caused by any other proper part of the item.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#implementsModel -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#implementsModel">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#standsFor"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Software"/>
+        <rdfs:range rdf:resource="https://w3id.org/pink#Model"/>
+        <skos:definition xml:lang="en">Relates a software to the model it implements.</skos:definition>
+        <skos:prefLabel xml:lang="en">implementsModel</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Semiotically a software can be seen as an executable sign that stands for the model it implements.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#input -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#input"/>
+    
+
+
+    <!-- https://w3id.org/pink#isAfter -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#isAfter">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#causedBy"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <skos:definition xml:lang="en">A one-directional relation between an entity that affects the subject.</skos:definition>
+        <skos:prefLabel xml:lang="en">isAfter</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#isDescriptionOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#isDescriptionOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#standsFor"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/pink#hasDescription"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Description"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <skos:definition xml:lang="en">Connects a description to an entity.</skos:definition>
+        <skos:prefLabel xml:lang="en">isDescriptionOf</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#isInterpretedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#isInterpretedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#semiotical"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Sign"/>
+        <rdfs:range rdf:resource="https://w3id.org/pink#Interpreter"/>
+        <skos:definition xml:lang="en">Connects a sign (e.g. a property) to an interpreter.</skos:definition>
+        <skos:prefLabel xml:lang="en">isInterpretedBy</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#isOvercrossedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#isOvercrossedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#overlaps"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <skos:definition xml:lang="en">The relation between an entity that overlaps another without having it as part.</skos:definition>
+        <skos:prefLabel xml:lang="en">isOvercrossedBy</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#isPropertyOf -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#isPropertyOf">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#standsFor"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/pink#hasProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Property"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <skos:definition xml:lang="en">Connects a property to an entity.</skos:definition>
+        <skos:prefLabel xml:lang="en">isPropertyOf</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#isRepresentedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#isRepresentedBy">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#semiotical"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/pink#standsFor"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/pink#Sign"/>
+        <skos:definition xml:lang="en">Connects an entity to a sign that stands for the entity.</skos:definition>
+        <skos:prefLabel xml:lang="en">isRepresentedBy</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#nonOverlaps -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#nonOverlaps">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/pink#overlaps"/>
+        <skos:definition xml:lang="en">The relation between two individuals that does not share any parts.</skos:definition>
+        <skos:prefLabel xml:lang="en">nonOverlaps</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#output -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#output"/>
+    
+
+
+    <!-- https://w3id.org/pink#overlaps -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#overlaps">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <skos:definition xml:lang="en">The relation between two individuals representing entities that share at least one of their parts.</skos:definition>
+        <skos:prefLabel xml:lang="en">overlaps</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#participatesTo -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#participatesTo">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#isOvercrossedBy"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <skos:definition xml:lang="en">Relation an entity to an activity that it interacts with.</skos:definition>
+        <skos:prefLabel xml:lang="en">participatesTo</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The entity through overlaps the activity.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#priorRelease -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#priorRelease">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#causedBy"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Software"/>
+        <rdfs:range rdf:resource="https://w3id.org/pink#Software"/>
+        <skos:definition xml:lang="en">Direct relation that relates a software to the most resent earlier release of the software.</skos:definition>
+        <skos:prefLabel xml:lang="en">priorRelease</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Useful for tracking the provenance of software releases.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#processedFrom -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#processedFrom">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#isAfter"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <skos:definition xml:lang="en">Indirect relation that relates the output of an activity to its input.</skos:definition>
+        <skos:prefLabel xml:lang="en">processedFrom</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#semiotical -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#semiotical">
+        <skos:definition xml:lang="en">The base of all semiotic relations.</skos:definition>
+        <skos:prefLabel xml:lang="en">semiotical</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Semiotic relations can be seen as shortcuts that replaces a series of complex causal relations with a single relation.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">Semiotic relations take part in a triadic semiotic meaning-making process, where an &apos;interpreter&apos; connects a &apos;sign&apos; (e.g. a property) to an entity (called &apos;referent&apos;).</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">The semiotic relations in the PINK Annotation Scheme are inspirred by EMMO, which in turn is based on the semiotic theory by Charles Sanders Peirce (1839-1914).</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#ssbdDimension -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#ssbdDimension">
+        <rdfs:range rdf:resource="https://w3id.org/pink#SsbdDimension"/>
+        <vann:usageNote xml:lang="en">One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`</vann:usageNote>
+        <skos:definition xml:lang="en">Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15</skos:definition>
+        <skos:prefLabel xml:lang="en">ssbdDimension</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#standsFor -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#standsFor">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#semiotical"/>
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Sign"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <skos:definition xml:lang="en">Connects a sign (e.g. a property) to an entity (a &apos;referent&apos;).</skos:definition>
+        <skos:prefLabel xml:lang="en">standsFor</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#tierLevel -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#tierLevel">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/pink#TierLevel"/>
+        <vann:usageNote xml:lang="en">One of `pink:tierlevel1` (ideation/design), `pink:tierlevel2` (lab phase/development), `pink:tierlevel3` (up-scaling/production)</vann:usageNote>
+        <skos:definition xml:lang="en">Relate an entity to an SSbD tier level.</skos:definition>
+        <skos:prefLabel xml:lang="en">tierLevel</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#used -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#used">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#used"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#hasInput"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <skos:definition xml:lang="en">Relates an activity to an entity that it used.</skos:definition>
+        <skos:example>For example, :baking :used :spoon, :egg, :oven .</skos:example>
+        <skos:prefLabel xml:lang="en">used</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The activity A proper overlaps the entity E, where the non-overlapping part of E causes A.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#wasAssociatedWith -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#wasAssociatedWith">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#isOvercrossedBy"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <skos:definition xml:lang="en">Relates an activity to an agent that had some (unspecified) responsibility for the occurence of this activity.</skos:definition>
+        <skos:prefLabel xml:lang="en">wasAssociatedWith</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The activity is through overlapped by the agent.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#wasAttributedTo -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#wasAttributedTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasAttributedTo"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#causedBy"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <skos:definition xml:lang="en">Relates an entity to an agent via an activity that both the entity and agent participates to.</skos:definition>
+        <skos:prefLabel xml:lang="en">wasAttributedTo</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The activity is through overlapped by the agent and overcrossed by the entity.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#wasDerivedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#wasDerivedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasDerivedBy"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#processedFrom"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <skos:definition xml:lang="en">Indirect relation that relates the output entity of an activity to its input entity.</skos:definition>
+        <skos:prefLabel xml:lang="en">wasDerivedBy</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#wasGeneratedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#wasGeneratedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasGeneratedBy"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#isOvercrossedBy"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="https://w3id.org/pink#hasOutput"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <skos:definition xml:lang="en">Relates an entity to the activity it was generated from.</skos:definition>
+        <skos:prefLabel xml:lang="en">wasGeneratedBy</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A.</skos:scopeNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pink#wasInformedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pink#wasInformedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasInformedBy"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/pink#isAfter"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <skos:definition xml:lang="en">A one-directional relation between an activity that affects the subject activity.</skos:definition>
+        <skos:prefLabel xml:lang="en">wasInformedBy</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/pink#hasAPI -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/pink#hasAPI">
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Software"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <skos:definition>Whether the software has an API.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasAPI</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasDataValue -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/pink#hasDataValue">
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Data"/>
+        <skos:definition xml:lang="en">Relates a data individual to its literal value.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasDataValue</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/pink#hasGUI -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/pink#hasGUI">
+        <rdfs:domain rdf:resource="https://w3id.org/pink#Software"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <skos:definition>Whether the software has a GUI.</skos:definition>
+        <skos:prefLabel xml:lang="en">hasGUI</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/pink#ssbdSubDimension -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/pink#ssbdSubDimension">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:definition xml:lang="en">Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15</skos:definition>
+        <skos:prefLabel xml:lang="en">ssbdSubDimension</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/terms/RightsStatement -->
+
+
+    <owl:Class rdf:about="http://purl.org/dc/terms/RightsStatement">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/dcat#Resource -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/dcat#Resource">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Activity -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Agent -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Agent">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Entity -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Document -->
+
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Document">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Project -->
+
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Project">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#ChemicalEntity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#ChemicalEntity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Matter"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#Substance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#Substance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Matter"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Assessment -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Assessment"/>
+    
+
+
+    <!-- https://w3id.org/pink#BooleanData -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#BooleanData">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#SymbolicData"/>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/xmlschema11-2/#boolean"/>
+        <skos:definition xml:lang="en">A symbolic data representing a boolean number.</skos:definition>
+        <skos:prefLabel xml:lang="en">BooleanData</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#ByteData -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#ByteData">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#ShortData"/>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/xmlschema11-2/#byte"/>
+        <skos:definition xml:lang="en">A data representing a 8-bit integer number.</skos:definition>
+        <skos:prefLabel xml:lang="en">ByteData</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Computation -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Computation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Process"/>
+        <skos:definition xml:lang="en">A process that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language).</skos:definition>
+        <skos:prefLabel xml:lang="en">Computation</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#ComputationalTool -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#ComputationalTool">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Software"/>
+        <skos:definition xml:lang="en">A software that performs a computation.</skos:definition>
+        <skos:example xml:lang="en">Gromacs is a computational tool that solves Newton&apos;s equations of motion.</skos:example>
+        <skos:prefLabel xml:lang="en">ComputationalTool</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Data -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Data">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <skos:definition xml:lang="en">Contrast from variation of properties that is encoded by an agent and that can be decoded by another agent according to a specific rule.</skos:definition>
+        <skos:prefLabel xml:lang="en">Data</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Dataset -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Dataset">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Data"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pink#hasPart"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pink#Datum"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <vann:usageNote xml:lang="en">A collection of (more than one) datum, published or curated by a single agent, and available for access or download in one or more representations.</vann:usageNote>
+        <skos:definition xml:lang="en">Encoded data made of more than one datum.</skos:definition>
+        <skos:prefLabel xml:lang="en">Dataset</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#DateData -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#DateData">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#SymbolicData"/>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/xmlschema11-2/#date"/>
+        <skos:definition xml:lang="en">A symbolic data representing date. Format: YYYY-MM-DD (followed by an optional time zone offset, e.g. +01:00 for Central Europe).</skos:definition>
+        <skos:prefLabel xml:lang="en">DateData</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#DateTimeData -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#DateTimeData">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#SymbolicData"/>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/xmlschema11-2/#dateTime"/>
+        <skos:definition xml:lang="en">A symbolic data representing datetime. Format: YYYY-MM-DDThh:mm:ss (followed by an optional time zone offset, e.g. +01:00 for Central Europe).</skos:definition>
+        <skos:prefLabel xml:lang="en">DateTimeData</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Datum -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Datum">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Data"/>
+        <vann:usageNote xml:lang="en">Datum is the building block of datasets.</vann:usageNote>
+        <skos:definition xml:lang="en">A self-consistent encoded data entity.</skos:definition>
+        <skos:prefLabel xml:lang="en">Datum</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Description -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Description">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Sign"/>
+        <skos:definition xml:lang="en">A collection of properties that depicts an object.</skos:definition>
+        <skos:prefLabel xml:lang="en">Description</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">A description is not atomic in the sense that it is made of more than one property.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#DoubleData -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#DoubleData">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#NumericalData"/>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/xmlschema11-2/#double"/>
+        <skos:definition xml:lang="en">A symbolic data representing a 64-bit floating point numbers incl. ±Inf, ±0, NaN.</skos:definition>
+        <skos:prefLabel xml:lang="en">DoubleData</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#FloatData -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#FloatData">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#NumericalData"/>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/xmlschema11-2/#float"/>
+        <skos:definition xml:lang="en">A symbolic data representing a 32-bit floating point numbers incl. ±Inf, ±0, NaN.</skos:definition>
+        <skos:prefLabel xml:lang="en">FloatData</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Indicator -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Indicator">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Property"/>
+        <skos:altLabel xml:lang="en">Descriptor</skos:altLabel>
+        <skos:altLabel xml:lang="en">EndPoint</skos:altLabel>
+        <skos:definition xml:lang="en">A property that provides information about the state of a system. It simplifies complex realities into measurable values that can guide decisions.</skos:definition>
+        <skos:example xml:lang="en">For a computation is an indicator a specific property/datum that is provided in the output.</skos:example>
+        <skos:prefLabel xml:lang="en">Indicator</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">A precisely defined variable intended to reflect an outcome of interest that is statistically analyzed to address a particular research question. A precise definition of an endpoint typically specifies the type of assessments made, the timing of those assessments, the assessment tools used, and possibly other details, as applicable, such as how multiple assessments within an individual are to be combined.
+
+-- National Library of Medicine, https://www.ncbi.nlm.nih.gov/books/NBK338448/
+</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Information -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Information">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Data"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Sign"/>
+        <rdfs:isDefinedBy xml:lang="en">Luciano Floridi, Information - A Very Short Introduction, Oxford University Press (2010) ISBN: 9780199551378</rdfs:isDefinedBy>
+        <skos:definition xml:lang="en">Data with meaning (semiotic sign).</skos:definition>
+        <skos:prefLabel xml:lang="en">Information</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#IntData -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#IntData">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#LongData"/>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/xmlschema11-2/#int"/>
+        <skos:definition xml:lang="en">A data representing a 32-bit integer number.</skos:definition>
+        <skos:prefLabel xml:lang="en">IntData</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#IntegerData -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#IntegerData">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#NumericalData"/>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/xmlschema11-2/#integer"/>
+        <skos:definition xml:lang="en">A data representing an arbritrary sized integer number.</skos:definition>
+        <skos:prefLabel xml:lang="en">IntegerData</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Interpreter -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Interpreter">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <skos:definition xml:lang="en">The agent that connects the sign to an entity in a semiotic (meaning-making) process.</skos:definition>
+        <skos:example xml:lang="en">A person (interpreter) that measures the length (sign) of an pencil (object).</skos:example>
+        <skos:prefLabel xml:lang="en">Interpreter</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#LongData -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#LongData">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#IntegerData"/>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/xmlschema11-2/#long"/>
+        <skos:definition xml:lang="en">A data representing a 64-bit integer number.</skos:definition>
+        <skos:prefLabel xml:lang="en">LongData</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#MaterialProcess -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#MaterialProcess">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Process"/>
+        <skos:definition xml:lang="en">A process that has material as input and output.</skos:definition>
+        <skos:prefLabel xml:lang="en">MaterialProcess</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Matter -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Matter">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <skos:definition xml:lang="en">An entity that possess mass and occupies volume.</skos:definition>
+        <skos:prefLabel xml:lang="en">Matter</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">From the definition it follows that matter is an object with fermionic parts.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">The interpretation of the term &quot;matter&quot; is not univocal. Several concepts are labelled with this term, depending on the field of science. The concept mass is sometimes related to the term &quot;matter&quot;, even if the former refers to a physical quantity (precisely defined by modern physics) while the latter is a type that qualifies a physical entity.
+It is possible to identify more than one concept that can be reasonably labelled with the term &quot;matter&quot;. For example, it is possible to label as matter only the entities that are made up of atoms. Or more generally, we can be more fine-grained and call &quot;matter&quot; the entities that are made up of protons, neutrons or electrons, so that we can call matter also a neutron radiation or a cathode ray.
+A more fundamental approach taken here, considers matter as entities that are made of quarks and leptons, without excluding particles like the W and Z bosons that possess some mass, but are not fermions. This definition also include antimatter.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Measurement -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Measurement">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Process"/>
+        <skos:definition xml:lang="en">An observation that results in a quantitative comparison of a &apos;property&apos; of an &apos;object&apos; with a standard reference based on a well defined mesurement procedure.</skos:definition>
+        <skos:prefLabel xml:lang="en">Measurement</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Model -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Model">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Sign"/>
+        <skos:definition xml:lang="en">A useful simplified description of a selected part of the world.</skos:definition>
+        <skos:example xml:lang="en">Newton&apos;s law of motion is a model for how a body will move when subjected to forces.
+A mouse can be seen as a model for a human (e.g. in medicine).
+An architectural floor plan is a model of a house.
+</skos:example>
+        <skos:prefLabel xml:lang="en">Model</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">A model is a sign that resembles or imitates an object, in shape, function or by sharing a similar logical structure.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#NumericalData -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#NumericalData">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#SymbolicData"/>
+        <skos:definition xml:lang="en">A symbolic data representing a numerical value.</skos:definition>
+        <skos:prefLabel xml:lang="en">NumericalData</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Object -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Object">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <skos:altLabel xml:lang="en">Continuant</skos:altLabel>
+        <skos:altLabel xml:lang="en">Endurant</skos:altLabel>
+        <skos:definition xml:lang="en">An entity that has a temporal extension.</skos:definition>
+        <skos:prefLabel xml:lang="en">Object</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Object individals will typically also be an individual of &apos;Matter&apos;. However, when categorising something as an &apos;Object&apos;, the focus is on its existence (throughout one of more processes), while &apos;Matter&apos; focuses on that it pocess mass and takes up volume and how it can further be categorised as </skos:scopeNote>
+        <skos:scopeNote xml:lang="en">Object is the class of all individuals who&apos;s temporal parts are of the same type as the whole.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Participant -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Participant">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Object"/>
+        <skos:definition xml:lang="en">An object that participates to a process.</skos:definition>
+        <skos:example xml:lang="en">A student during an examination. The student exists both before and after the examination.</skos:example>
+        <skos:prefLabel xml:lang="en">Participant</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Mereologically participation means that the object is a spatial part of the process.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Process -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Process">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <skos:altLabel xml:lang="en">Occurent</skos:altLabel>
+        <skos:altLabel xml:lang="en">Perdurant</skos:altLabel>
+        <skos:definition xml:lang="en">An activity with temporal parts.</skos:definition>
+        <skos:prefLabel xml:lang="en">Process</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The temporal parts of a process are not of the same type as the process itself.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Property -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Property">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Sign"/>
+        <skos:definition xml:lang="en">An &quot;atomic&quot; sign that stands for an physical interaction with an object.</skos:definition>
+        <skos:prefLabel xml:lang="en">Property</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">A property is atomic in the sense that is aimed to deliver one and one only aspect of the object.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#ReliabilityDocument -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#ReliabilityDocument">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+        <vann:usageNote xml:lang="en">xxx</vann:usageNote>
+        <skos:definition xml:lang="en">xxx</skos:definition>
+        <skos:prefLabel xml:lang="en">ReliabilityDocument</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#ShortData -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#ShortData">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#IntData"/>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/xmlschema11-2/#short"/>
+        <skos:definition xml:lang="en">A data representing a 16-bit integer number.</skos:definition>
+        <skos:prefLabel xml:lang="en">ShortData</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Sign -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Sign">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <skos:definition xml:lang="en">A sign that stands for an entity.</skos:definition>
+        <skos:prefLabel xml:lang="en">Sign</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">A sign is a part of a triadic semiotic (meaning-making) process, where an &apos;interpreter&apos; connects a &apos;sign&apos; to an entity (called &apos;referent&apos;).</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Software -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Software">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Data"/>
+        <skos:definition xml:lang="en">All or part of the programs, procedures, rules, and associated documentation of an information processing system.</skos:definition>
+        <skos:prefLabel xml:lang="en">Software</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#SsbdDimension -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#SsbdDimension">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#SymbolicData -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#SymbolicData">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Data"/>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Datatype_Maps"/>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#built-in-datatypes"/>
+        <skos:definition xml:lang="en">The class for entities which stands for a specific data format expressed using a symbolic encoding.</skos:definition>
+        <skos:prefLabel xml:lang="en">SymbolicData</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#TierLevel -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#TierLevel">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <skos:definition xml:lang="en">Represent a tiered, iterative framework for evaluating chemical and material safety from early innovation to production.</skos:definition>
+        <skos:prefLabel xml:lang="en">TierLevel</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">This approach typically involves a three-tier system-ranging from qualitative, early-stage, in silico, and in vitro screening to, finally, advanced, quantitative, in vivo testing.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#TimeData -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#TimeData">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#SymbolicData"/>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/xmlschema11-2/#time"/>
+        <skos:definition xml:lang="en">A symbolic data representing time. Format: hh:mm:ss (followed by an optional time zone offset, e.g. +01:00 for Central Europe).</skos:definition>
+        <skos:prefLabel xml:lang="en">TimeData</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Toxicity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Toxicity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#Indicator"/>
+        <skos:definition xml:lang="en">A descriptor for a substance to cause harmful health effects.</skos:definition>
+        <skos:prefLabel xml:lang="en">Toxicity</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The helth effects can strike a single cell, a group of cells, an organ system, or the entire body. A toxic effect may be visible damage, or a decrease in performance or function measurable only by a test.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">Toxicity is always related to a given measurement procedure. Hence, the user is expected to define spesific subclasses defining the measurement procedure that the toxicity is measured according to.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://orcid.org/0000-0001-8869-3718 -->
+
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0001-8869-3718">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <skos:prefLabel>FrancescaLonstadBleken</skos:prefLabel>
+        <foaf:name>Francesca Lønstad Bleken</foaf:name>
+        <foaf:workplaceHomepage rdf:resource="https://www.sintef.no/en/"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://orcid.org/0000-0002-1560-809X -->
+
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0002-1560-809X">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <skos:prefLabel>JesperFriis</skos:prefLabel>
+        <foaf:name>Jesper Friis</foaf:name>
+        <foaf:workplaceHomepage rdf:resource="https://www.sintef.no/en/"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://orcid.org/0000-0002-1849-5246 -->
+
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0002-1849-5246">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <skos:prefLabel>ThomasExner</skos:prefLabel>
+        <foaf:name>Thomas Exner</foaf:name>
+        <foaf:workplaceHomepage rdf:resource="https://sevenpastnine.com/"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://orcid.org/0000-0002-8053-8198 -->
+
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0002-8053-8198">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <skos:prefLabel>JohDokler</skos:prefLabel>
+        <foaf:name>Joh Dokler</foaf:name>
+        <foaf:workplaceHomepage rdf:resource="https://sevenpastnine.com/"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://orcid.org/0000-0003-4250-4584 -->
+
+
+    <owl:NamedIndividual rdf:about="https://orcid.org/0000-0003-4250-4584">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <skos:prefLabel>IseultLynch</skos:prefLabel>
+        <foaf:name>Iseult Lynch</foaf:name>
+        <foaf:workplaceHomepage rdf:resource="https://www.birmingham.ac.uk/"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pink#tierlevel1 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pink#tierlevel1">
+        <rdf:type rdf:resource="https://w3id.org/pink#TierLevel"/>
+        <rdfs:label xml:lang="en">ideation/design</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pink#tierlevel2 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pink#tierlevel2">
+        <rdf:type rdf:resource="https://w3id.org/pink#TierLevel"/>
+        <rdfs:label xml:lang="en">lab phase/development</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pink#tierlevel3 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pink#tierlevel3">
+        <rdf:type rdf:resource="https://w3id.org/pink#TierLevel"/>
+        <rdfs:label xml:lang="en">up-scaling/production</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="urn:swrl:var#x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#y">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#z">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#hasProcess"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#used"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#input"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#hasProcess"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#wasGeneratedBy"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#z"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#output"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#used"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#wasGeneratedBy"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#wasInformedBy"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#wasGeneratedBy"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#used"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#processedFrom"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#wasGeneratedBy"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#used"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#wasDerivedBy"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#hasPart"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#hasPart"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#hasPart"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#wasGeneratedBy"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#wasAssociatedWith"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#wasAttributedTo"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#wasAssociatedWith"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#used"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#y"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="https://w3id.org/pink#attributed"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#x"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

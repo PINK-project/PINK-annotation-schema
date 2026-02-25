@@ -1,0 +1,818 @@
+@prefix : <https://w3id.org/pink/models#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/pink/models#> .
+
+<https://w3id.org/pink/models> rdf:type owl:Ontology ;
+                                owl:versionIRI <https://w3id.org/pink/0.0.1/models> ;
+                                <http://purl.org/dc/terms/abstract> "The Models module of PINK Annotation Schema providing a taxonomy for models."@en ;
+                                <http://purl.org/dc/terms/title> "The Models module of PINK Annotation Schema"@en ;
+                                <https://w3id.org/widoco/vocab#introduction> """
+This module is a part of the [PINK Annotation Schema](https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html).
+A model is a useful simplified description of a selected part of the world.
+
+A figure showing how the PINK Annotation Schema categorise models can be found [here](https://pink-project.github.io/PINK-annotation-schema/docs/models.html).
+"""@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/abstract
+<http://purl.org/dc/terms/abstract> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+<http://www.w3.org/2004/02/skos/core#example> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/widoco/vocab#introduction
+<https://w3id.org/widoco/vocab#introduction> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/pink#hasParticipant
+<https://w3id.org/pink#hasParticipant> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/pink#implementsModel
+<https://w3id.org/pink#implementsModel> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/emmo/hume#
+<https://w3id.org/emmo/hume#> rdf:type owl:Class .
+
+
+###  https://w3id.org/emmo/hume#AnalogicalIcon
+<https://w3id.org/emmo/hume#AnalogicalIcon> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://w3id.org/pink#Model> ;
+                                            <http://www.w3.org/2004/02/skos/core#altLabel> "AnalogicalIcon"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#definition> "A model that represents the internal logical structure of the object."@en ;
+                                            <http://www.w3.org/2004/02/skos/core#example> "A physics equation is replicating the mechanisms internal to the object."@en ,
+                                                                                          "Electrical diagram is diagrammatic and resemblance"@en ,
+                                                                                          "MODA and CHADA are diagrammatic representation of a simulation or a characterisation workflow."@en ;
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "AnalogicalModel"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#scopeNote> "A model that focus on HOW the object works."@en ,
+                                                                                            "The subclass of model inspired by Peirceian category (b) the diagram, whose internal relations, mainly dyadic or so taken, represent by analogy (with the same logic) the relations in something (e.g. math formula, geometric flowchart)."@en .
+
+
+###  https://w3id.org/emmo/hume#ArtificialIntelligenceModel
+<https://w3id.org/emmo/hume#ArtificialIntelligenceModel> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <https://w3id.org/emmo/hume#DataBasedModel> ;
+                                                         rdfs:seeAlso "https://www.researchgate.net/publication/350296216/figure/fig3/AS:11431281115851476@1675133526198/The-brief-classification-of-AI.png"^^xsd:anyURI ;
+                                                         <http://www.w3.org/2004/02/skos/core#altLabel> "ArtificialIntelligence"@en ;
+                                                         <http://www.w3.org/2004/02/skos/core#definition> """A machine-based system that preceives its environment, pursues goals, adapts to feedback/change and provides information/takes action.
+."""@en ;
+                                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "ArtificialIntelligenceModel"@en .
+
+
+###  https://w3id.org/emmo/hume#AtomicInteractionModel
+<https://w3id.org/emmo/hume#AtomicInteractionModel> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <https://w3id.org/emmo/hume#AtomisticModel> ;
+                                                    <http://www.w3.org/2004/02/skos/core#definition> "A physics-based model based on a physics equation describing the interaction between atoms."@en ;
+                                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "AtomicInteractionModel"@en .
+
+
+###  https://w3id.org/emmo/hume#AtomisticModel
+<https://w3id.org/emmo/hume#AtomisticModel> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialsModel> ;
+                                            <http://www.w3.org/2004/02/skos/core#example> "A physics-based model based on a physics equation describing the behaviour of atoms."@en ;
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "AtomisticModel"@en .
+
+
+###  https://w3id.org/emmo/hume#AtomisticMolecularDynamics
+<https://w3id.org/emmo/hume#AtomisticMolecularDynamics> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <https://w3id.org/emmo/hume#AtomisticModel> ;
+                                                        <http://www.w3.org/2004/02/skos/core#definition> "Atomistic model that models the physical movements of atoms and molecules over time by numerically solving Newton’s equations of motion."@en ;
+                                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "AtomisticMolecularDynamics"@en .
+
+
+###  https://w3id.org/emmo/hume#ContinuumModel
+<https://w3id.org/emmo/hume#ContinuumModel> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialsModel> ;
+                                            <http://www.w3.org/2004/02/skos/core#example> "A physics-based model based on a physics equation describing the behaviour of continuum volume."@en ;
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "ContinuumModel"@en .
+
+
+###  https://w3id.org/emmo/hume#CumulativeHypergeometricTest
+<https://w3id.org/emmo/hume#CumulativeHypergeometricTest> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <https://w3id.org/emmo/hume#StatisticalTest> ;
+                                                          <http://www.w3.org/2004/02/skos/core#definition> "A statistical test that determines the statistical significance (p-value) of observing `k` or more/fewer successes in a sample drawn without replacement from a finite population. It tests if a subpopulation is over- or under-represented, often calculating `P(X>=k)` or `P(X<=k)`. It is essential for small populations where sampling changes probabilities."@en ;
+                                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "CumulativeHypergeometricTest"@en .
+
+
+###  https://w3id.org/emmo/hume#DataBasedModel
+<https://w3id.org/emmo/hume#DataBasedModel> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://w3id.org/emmo/hume#MathematicalModel> ;
+                                            <http://www.w3.org/2004/02/skos/core#definition> "A mathematical model based on observed data, measurements, or experimental results."@en ;
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "DataBasedModel"@en .
+
+
+###  https://w3id.org/emmo/hume#DataProcessing
+<https://w3id.org/emmo/hume#DataProcessing> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://w3id.org/pink#Computation> ,
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <https://w3id.org/pink#hasParticipant> ;
+                                                              owl:someValuesFrom <https://w3id.org/emmo/hume#DataProcessingSoftware>
+                                                            ] ;
+                                            <http://www.w3.org/2004/02/skos/core#definition> "A computation that provides a data output following the elaboration of some input data, using a data processing application."@en ;
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "DataProcessing"@en .
+
+
+###  https://w3id.org/emmo/hume#DataProcessingSoftware
+<https://w3id.org/emmo/hume#DataProcessingSoftware> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <https://w3id.org/pink#Software> ,
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <https://w3id.org/pink#implementsModel> ;
+                                                                      owl:someValuesFrom <https://w3id.org/emmo/hume#MathematicalModel>
+                                                                    ] ;
+                                                    <http://www.w3.org/2004/02/skos/core#altLabel> "DataProcessingApplication"@en ;
+                                                    <http://www.w3.org/2004/02/skos/core#definition> "A software program aimed for data processing."@en ;
+                                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "DataProcessingSoftware"@en .
+
+
+###  https://w3id.org/emmo/hume#ElectronicModel
+<https://w3id.org/emmo/hume#ElectronicModel> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialsModel> ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> "A physics-based model based on a physics equation describing the behaviour of electrons."@en ;
+                                             <http://www.w3.org/2004/02/skos/core#example> """Density functional theory.
+Hartree-Fock."""@en ;
+                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "ElectronicModel"@en .
+
+
+###  https://w3id.org/emmo/hume#FunctionalIcon
+<https://w3id.org/emmo/hume#FunctionalIcon> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://w3id.org/pink#Model> ;
+                                            <http://www.w3.org/2004/02/skos/core#altLabel> "FunctionalIcon"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#definition> "A model that imitates one representative character of the object. It share external similarities with the object, but not necessarily the same internal logical structure."@en ;
+                                            <http://www.w3.org/2004/02/skos/core#example> "A data based model is only a functional model, since it provide the same relations between the properties of the object (e.g., it can predict some properties as function of others) but is not considering the internal mechanisms (i.e., it can ignore the physics)."@en ;
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "FunctionalModel"@en ;
+                                            <http://www.w3.org/2004/02/skos/core#scopeNote> "A model that focusing WHAT the object does."@en ,
+                                                                                            "This subclass of model inspired by Peirceian category (c) the metaphor, which represents the representative character of a sign by representing a parallelism in something else."@en .
+
+
+###  https://w3id.org/emmo/hume#GenerativeAIModel
+<https://w3id.org/emmo/hume#GenerativeAIModel> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/pink#DeepLearningModel> ;
+                                               <http://www.w3.org/2004/02/skos/core#altLabel> "GenerativeArtificialIntelligenceModel"@en ;
+                                               <http://www.w3.org/2004/02/skos/core#definition> "An AI model that can generate new content, like text, images or code."@en ;
+                                               <http://www.w3.org/2004/02/skos/core#example> "Chatbots"@en ;
+                                               <http://www.w3.org/2004/02/skos/core#prefLabel> "GenerativeAIModel"@en .
+
+
+###  https://w3id.org/emmo/hume#MachineLearningModel
+<https://w3id.org/emmo/hume#MachineLearningModel> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <https://w3id.org/pink#CognitionAndLearningModel> ;
+                                                  rdfs:seeAlso "Hutter F, Kotthoff L, Vanschoren J (2019) Automated Machine Learning. Springer, New York." ;
+                                                  <http://www.w3.org/2004/02/skos/core#definition> "AI model that learns progressively by discovering implicit patterns and performing an intellectual task without explicit instructions in advance."@en ;
+                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "MachineLearningModel"@en .
+
+
+###  https://w3id.org/emmo/hume#MaterialsModel
+<https://w3id.org/emmo/hume#MaterialsModel> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://w3id.org/emmo/hume#PhysicsBasedModel> ;
+                                            <http://www.w3.org/2004/02/skos/core#definition> "A solvable set of one Physics Equation and one or more Materials Relations."@en ;
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "MaterialsModel"@en .
+
+
+###  https://w3id.org/emmo/hume#MathematicalModel
+<https://w3id.org/emmo/hume#MathematicalModel> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/emmo/hume#AnalogicalIcon> ,
+                                                               <https://w3id.org/pink#Information> ;
+                                               <http://www.w3.org/2004/02/skos/core#definition> "An analogical model expressed in mathematical language."@en ;
+                                               <http://www.w3.org/2004/02/skos/core#prefLabel> "MathematicalModel"@en ;
+                                               <http://www.w3.org/2004/02/skos/core#scopeNote> """A mathematical model can be defined as a description of a system using mathematical concepts and language to facilitate proper explanation of a system or to study the effects of different components and to make predictions on patterns of behaviour.
+
+Abramowitz and Stegun, 1968"""@en .
+
+
+###  https://w3id.org/emmo/hume#MesoscopicModel
+<https://w3id.org/emmo/hume#MesoscopicModel> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://w3id.org/emmo/hume#MaterialsModel> ;
+                                             <http://www.w3.org/2004/02/skos/core#example> "A physics-based model based on a physics equation describing the behaviour of mesoscopic entities, i.e. a set of bounded atoms like a molecule, bead or nanoparticle."@en ;
+                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "MesoscopicModel"@en .
+
+
+###  https://w3id.org/emmo/hume#NaturalLanguageProcessingModel
+<https://w3id.org/emmo/hume#NaturalLanguageProcessingModel> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <https://w3id.org/pink#PerceptionModel> ;
+                                                            <http://www.w3.org/2004/02/skos/core#definition> "An AI model that understands and generates human language."@en ;
+                                                            <http://www.w3.org/2004/02/skos/core#example> "Chatbots"@en ;
+                                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "NaturalLanguageProcessingModel"@en .
+
+
+###  https://w3id.org/emmo/hume#PhysicsBasedModel
+<https://w3id.org/emmo/hume#PhysicsBasedModel> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/emmo/hume#MathematicalModel> ;
+                                               rdfs:isDefinedBy "CEN Workshop Agreement, CWA 17284 Materials modelling - terminology, classification and metadata"@en ;
+                                               <http://www.w3.org/2004/02/skos/core#definition> "A mathematical model based on a fundamental physics theory which defines the relations between physics quantities of an entity."@en ;
+                                               <http://www.w3.org/2004/02/skos/core#prefLabel> "PhysicsBasedModel"@en .
+
+
+###  https://w3id.org/emmo/hume#PhysicsEquation
+<https://w3id.org/emmo/hume#PhysicsEquation> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://w3id.org/emmo/hume#PhysicsBasedModel> ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> "An 'equation' that stands for a 'physical_law' by mathematically defining the relations between physics_quantities."@en ;
+                                             <http://www.w3.org/2004/02/skos/core#example> """The Newton's equation of motion.
+The Schrödinger equation.
+The Navier-Stokes equation."""@en ;
+                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "PhysicsEquation"@en .
+
+
+###  https://w3id.org/emmo/hume#Replica
+<https://w3id.org/emmo/hume#Replica> rdf:type owl:Class ;
+                                     rdfs:subClassOf <https://w3id.org/emmo/hume#FunctionalIcon> ,
+                                                     <https://w3id.org/emmo/hume#ResemblanceIcon> ;
+                                     <http://www.w3.org/2004/02/skos/core#definition> "A model that not only resembles the object, but also can express some of the object's functions."@en ;
+                                     <http://www.w3.org/2004/02/skos/core#example> "A small scale replica of a plane tested in a wind gallery shares the same functionality in terms of aerodynamic behaviour of the bigger one."@en ,
+                                                                                   "Pinocchio is a functional model of a boy since it imitates the external behaviour without having the internal biological structure of a human being (it is made of magic wood...)."@en ;
+                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "Replica"@en .
+
+
+###  https://w3id.org/emmo/hume#ResemblanceIcon
+<https://w3id.org/emmo/hume#ResemblanceIcon> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://w3id.org/pink#Model> ;
+                                             <http://www.w3.org/2004/02/skos/core#altLabel> "ResemblanceIcon"@en ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> "A model that mimics the spatial or temporal shape of the object."@en ;
+                                             <http://www.w3.org/2004/02/skos/core#example> "A geographical map that imitates the shape of the landscape and its properties at a specific historical time."@en ;
+                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "ResemblanceModel"@en ;
+                                             <http://www.w3.org/2004/02/skos/core#scopeNote> "A model that focus on WHERE/WHEN the object is, in the sense of spatial or temporal shape."@en ,
+                                                                                             "The subclass of model inspired by Peirceian category a) the image, which depends on a simple quality (e.g. picture)."@en .
+
+
+###  https://w3id.org/emmo/hume#StatisticalModel
+<https://w3id.org/emmo/hume#StatisticalModel> rdf:type owl:Class ;
+                                              rdfs:subClassOf <https://w3id.org/emmo/hume#MathematicalModel> ;
+                                              <http://www.w3.org/2004/02/skos/core#definition> "A mathematical model that embodies a set of statistical assumptions concerning the generation of sample data (and similar data from a larger population)."@en ;
+                                              <http://www.w3.org/2004/02/skos/core#prefLabel> "StatisticalModel"@en .
+
+
+###  https://w3id.org/emmo/hume#StatisticalTest
+<https://w3id.org/emmo/hume#StatisticalTest> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://w3id.org/emmo/hume#StatisticalModel> ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> "A statistical model for analyzing data to determine if research results are significant and to decide whether to reject the null hypothesis, assessing if findings occurred by chance."@en ;
+                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "StatisticalTest"@en .
+
+
+###  https://w3id.org/emmo/hume#StructureManipulationModel
+<https://w3id.org/emmo/hume#StructureManipulationModel> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <https://w3id.org/emmo/hume#AtomisticModel> ;
+                                                        <http://www.w3.org/2004/02/skos/core#definition> "A physics based model that manipulates atomic structures."@en ;
+                                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "StructureManipulationModel"@en .
+
+
+###  https://w3id.org/pink#AbductiveReasoningModel
+<https://w3id.org/pink#AbductiveReasoningModel> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://w3id.org/pink#CognitionAndLearningModel> ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> """Identifies the most plausible explanation for incomplete observations.
+Analogical Reasoning"""@en ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "AbductiveReasoningModel"@en .
+
+
+###  https://w3id.org/pink#Adaboost
+<https://w3id.org/pink#Adaboost> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://w3id.org/pink#Classification> ;
+                                 <http://www.w3.org/2004/02/skos/core#definition> "A supervised ensemble learning algorithm primarily used for classification and, less commonly, regression tasks."@en ;
+                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Adaboost"@en .
+
+
+###  https://w3id.org/pink#AnalogicalReasoningModel
+<https://w3id.org/pink#AnalogicalReasoningModel> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://w3id.org/pink#CognitionAndLearningModel> ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "Solves new problems by drawing parallels to known scenarios."@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "AnalogicalReasoningModel"@en .
+
+
+###  https://w3id.org/pink#ArtificialNeuralNetwork
+<https://w3id.org/pink#ArtificialNeuralNetwork> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://w3id.org/emmo/hume#MachineLearningModel> ;
+                                                <http://www.w3.org/2004/02/skos/core#altLabel> "NeuralNetwork"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "AI model inspired by the human brain, featuring interconnected layers of artificial neurons that process data to recognize complex patterns, make predictions, and drive machine learning, especially in tasks like computer vision and natural language processing."@en ,
+                                                                                                 "Neural networks learn by adjusting connection weights via training, with deep networks employing multiple layers for high-level abstraction."@en ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "ArtificialNeuralNetwork"@en .
+
+
+###  https://w3id.org/pink#Autoencoder
+<https://w3id.org/pink#Autoencoder> rdf:type owl:Class ;
+                                    rdfs:subClassOf <https://w3id.org/pink#ArtificialNeuralNetwork> ,
+                                                    <https://w3id.org/pink#DimensionalityReduction> ;
+                                    <http://www.w3.org/2004/02/skos/core#definition> "Neural networks designed to compress input data into a lower-dimensional bottleneck layer and then reconstruct it, effectively learning efficient, non-linear representations."@en ;
+                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "Autoencoder"@en .
+
+
+###  https://w3id.org/pink#Bagging
+<https://w3id.org/pink#Bagging> rdf:type owl:Class ;
+                                rdfs:subClassOf <https://w3id.org/pink#PredictionLearningModel> ;
+                                <http://www.w3.org/2004/02/skos/core#definition> "A prediction learning meta-algorithm designed to improve the stability and accuracy of predictive models, specifically by reducing variance and helping to avoid overfitting."@en ;
+                                <http://www.w3.org/2004/02/skos/core#prefLabel> "Bagging"@en .
+
+
+###  https://w3id.org/pink#BehaviorModel
+<https://w3id.org/pink#BehaviorModel> rdf:type owl:Class ;
+                                      rdfs:subClassOf <https://w3id.org/emmo/hume#ArtificialIntelligenceModel> ;
+                                      <http://www.w3.org/2004/02/skos/core#definition> "AI systems trained on vast, multimodal datasets—including video, sensor data, and action logs—to understand, predict, and simulate human-like actions and complex decision-making processes."@en ;
+                                      <http://www.w3.org/2004/02/skos/core#prefLabel> "BehaviorModel"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#scopeNote> "Unlike LLMs that process text, LBMs focus on \"what people do,\" utilizing reinforcement learning to adapt to dynamic environments."@en .
+
+
+###  https://w3id.org/pink#Boosting
+<https://w3id.org/pink#Boosting> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://w3id.org/pink#PredictionLearningModel> ;
+                                 <http://www.w3.org/2004/02/skos/core#definition> "A prediction learning ensemble model designed to improve the predictive performance of models by converting multiple \"weak learners\" (models with low predictive power, often simple decision trees) into a single \"strong learner\"."@en ;
+                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Boosting"@en .
+
+
+###  https://w3id.org/pink#Classification
+<https://w3id.org/pink#Classification> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pink#SupervisedLearningModel> ;
+                                       <http://www.w3.org/2004/02/skos/core#definition> "A supervised learning model that trains models using labeled data to categorize new, unseen data into predefined classes."@en ;
+                                       <http://www.w3.org/2004/02/skos/core#prefLabel> "Classification"@en .
+
+
+###  https://w3id.org/pink#Clustering
+<https://w3id.org/pink#Clustering> rdf:type owl:Class ;
+                                   rdfs:subClassOf <https://w3id.org/pink#UnsupervicedLearningModel> ;
+                                   <http://www.w3.org/2004/02/skos/core#definition> "An unsupervised learning model that automatically groups unlabeled data into clusters based on similarities in their features."@en ;
+                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Clustering"@en .
+
+
+###  https://w3id.org/pink#CognitionAndLearningModel
+<https://w3id.org/pink#CognitionAndLearningModel> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <https://w3id.org/emmo/hume#ArtificialIntelligenceModel> ;
+                                                  <http://www.w3.org/2004/02/skos/core#altLabel> "Blends artificial intelligence with cognitive science to simulate human thought processes (sensing, reasoning, and learning) rather than just executing predefined rules."@en ,
+                                                                                                 "CognitiveAI"@en ;
+                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "CognitionAndLearningModel"@en .
+
+
+###  https://w3id.org/pink#CollaborativeFiltering
+<https://w3id.org/pink#CollaborativeFiltering> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/pink#RecommenderSystem> ;
+                                               <http://www.w3.org/2004/02/skos/core#definition> "A widely used recommender system model that primarily operates by leveraging similarities between users and items based on past interactions (like ratings or purchases)." ;
+                                               <http://www.w3.org/2004/02/skos/core#prefLabel> "CollaborativeFiltering"@en .
+
+
+###  https://w3id.org/pink#Computation
+<https://w3id.org/pink#Computation> rdf:type owl:Class .
+
+
+###  https://w3id.org/pink#ComputerVision
+<https://w3id.org/pink#ComputerVision> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pink#PerceptionModel> ;
+                                       <http://www.w3.org/2004/02/skos/core#altLabel> "MachineVision"@en ;
+                                       <http://www.w3.org/2004/02/skos/core#definition> "AI system that is able to acquire, understand and use digital images to recognize activities, objects, and images."@en ;
+                                       <http://www.w3.org/2004/02/skos/core#prefLabel> "ComputerVision"@en ;
+                                       <http://www.w3.org/2004/02/skos/core#scopeNote> ""@en .
+
+
+###  https://w3id.org/pink#ContentExtraction
+<https://w3id.org/pink#ContentExtraction> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://w3id.org/pink#NaturalLanguageUnderstanding> ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "A natural language model tha tinvolves analyzing text to move beyond keyword matching, identifying the \"who, what, and why\" behind user input by extracting entities, themes, and semantic relationships."@en ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "ContentExtraction"@en .
+
+
+###  https://w3id.org/pink#ConvolutionNeuralNetwork
+<https://w3id.org/pink#ConvolutionNeuralNetwork> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <https://w3id.org/pink#DeepLearningModel> ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "A type of deep learning based on feedforward neural network that learns features via filter (or kernel) optimization."@en ;
+                                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "ConvolutionNeuralNetwork"@en .
+
+
+###  https://w3id.org/pink#DecisionTree
+<https://w3id.org/pink#DecisionTree> rdf:type owl:Class ;
+                                     rdfs:subClassOf <https://w3id.org/pink#Classification> ;
+                                     <http://www.w3.org/2004/02/skos/core#definition> "A non-parametric, supervised learning algorithm used for both classification and regression tasks."@en ;
+                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "DecisionTree"@en .
+
+
+###  https://w3id.org/pink#DeepFeedForwardNetwork
+<https://w3id.org/pink#DeepFeedForwardNetwork> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/pink#DeepLearningModel> ;
+                                               <http://www.w3.org/2004/02/skos/core#definition> "Foundational deep learning model that approximate complex functions by mapping inputs to outputs through multiple, unidirectional hidden layers."@en ;
+                                               <http://www.w3.org/2004/02/skos/core#prefLabel> "DeepFeedForwardNetwork"@en .
+
+
+###  https://w3id.org/pink#DeepLearningModel
+<https://w3id.org/pink#DeepLearningModel> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://w3id.org/pink#ArtificialNeuralNetwork> ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "Machine learning based on artificial neural networks with multiple layers (often hundreds) that simulate the human brain's structure to learn complex, non-linear patterns from vast datasets."@en ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "DeepLearningModel"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#scopeNote> "Deep learning powers modern AI in image recognition, NLP, and generative models, outperforming traditional algorithms."@en .
+
+
+###  https://w3id.org/pink#DimensionalityReduction
+<https://w3id.org/pink#DimensionalityReduction> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://w3id.org/emmo/hume#MachineLearningModel> ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "AI model that transforms high-dimensional datasets into lower-dimensional representations while preserving essential information, mitigating the \"curse of dimensionality."@en ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "DimensionalityReduction"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#scopeNote> ""@en .
+
+
+###  https://w3id.org/pink#DynamicProgramming
+<https://w3id.org/pink#DynamicProgramming> rdf:type owl:Class ;
+                                           rdfs:subClassOf <https://w3id.org/pink#ReinforcedLearningModel> ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> ""@en ,
+                                                                                            "A reinforced learning model for solving complex problems by breaking them down into smaller, simpler subproblems and storing the results to avoid redundant calculations."@en ;
+                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "DynamicProgramming"@en .
+
+
+###  https://w3id.org/pink#EnsembleLearningModel
+<https://w3id.org/pink#EnsembleLearningModel> rdf:type owl:Class ;
+                                              rdfs:subClassOf <https://w3id.org/emmo/hume#MachineLearningModel> ;
+                                              <http://www.w3.org/2004/02/skos/core#definition> "A machine learning model that combines multiple individual models (often called base learners or weak learners) to produce a single, more accurate, and robust predictive model."@en ;
+                                              <http://www.w3.org/2004/02/skos/core#prefLabel> "EnsembleLearningModel"@en .
+
+
+###  https://w3id.org/pink#ExpertSystem
+<https://w3id.org/pink#ExpertSystem> rdf:type owl:Class ;
+                                     rdfs:subClassOf <https://w3id.org/pink#KnowledgeRepresentation> ;
+                                     <http://www.w3.org/2004/02/skos/core#definition> "AI system that contains manually inputted rules and data to copy human decision-making abilities."@en ;
+                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "ExpertSystem"@en ;
+                                     <http://www.w3.org/2004/02/skos/core#scopeNote> ""@en .
+
+
+###  https://w3id.org/pink#ExtraTreesClassifier
+<https://w3id.org/pink#ExtraTreesClassifier> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://w3id.org/pink#Classification> ,
+                                                             <https://w3id.org/pink#EnsembleLearningModel> ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> "An ensemble learning model that builds multiple decision trees by choosing random splits for each node, rather than searching for the most discriminative threshold like Random Forest."@en ;
+                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "ExtraTreesClassifier"@en .
+
+
+###  https://w3id.org/pink#GenerativeAdversarialNetwork
+<https://w3id.org/pink#GenerativeAdversarialNetwork> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <https://w3id.org/pink#DeepLearningModel> ;
+                                                     <http://www.w3.org/2004/02/skos/core#definition> "A deep learning framework where two neural networks, the generator and discriminator, compete against each other to create new, synthetic instances of data (images, music, text) that resemble training data."@en ;
+                                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "GenerativeAdversarialNetwork"@en .
+
+
+###  https://w3id.org/pink#GraphBasedLearningModel
+<https://w3id.org/pink#GraphBasedLearningModel> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://w3id.org/pink#SemiSupervicedLearningModel> ;
+                                                <http://www.w3.org/2004/02/skos/core#altLabel> "GraphBasedAlgorithm"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "A semi-superviced machine learning paradigm that analyzes data structured as nodes and edges, exploiting topological relationships rather than treating data points as independent."@en ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "GraphBasedLearningModel"@en .
+
+
+###  https://w3id.org/pink#GraphNeuralNetwork
+<https://w3id.org/pink#GraphNeuralNetwork> rdf:type owl:Class ;
+                                           rdfs:subClassOf <https://w3id.org/pink#DeepLearningModel> ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> "Deep learning model designed to analyze data represented as graphs with nodes (entities) and edges (relationships)."@en ;
+                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "GraphNeuralNetwork"@en .
+
+
+###  https://w3id.org/pink#HeuristicLearningModel
+<https://w3id.org/pink#HeuristicLearningModel> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/pink#ReinforcedLearningModel> ;
+                                               <http://www.w3.org/2004/02/skos/core#altLabel> "HeuristicMethod"@en ;
+                                               <http://www.w3.org/2004/02/skos/core#definition> ""@en ,
+                                                                                                "An experience-based, discovery-oriented reinforced learning model to problem-solving that uses \"rules of thumb,\" intuition, and mental shortcuts to find satisfactory solutions quickly when optimal ones are impractical."@en ;
+                                               <http://www.w3.org/2004/02/skos/core#prefLabel> "HeuristicLearningModel"@en ;
+                                               <http://www.w3.org/2004/02/skos/core#scopeNote> ""@en .
+
+
+###  https://w3id.org/pink#ImageClassification
+<https://w3id.org/pink#ImageClassification> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://w3id.org/pink#ComputerVision> ;
+                                            <http://www.w3.org/2004/02/skos/core#definition> "A core computer vision task that assigns a predefined label or category to an entire image based on its visual content."@en ;
+                                            <http://www.w3.org/2004/02/skos/core#prefLabel> "ImageClassification"@en .
+
+
+###  https://w3id.org/pink#ImageSegmentation
+<https://w3id.org/pink#ImageSegmentation> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://w3id.org/pink#ComputerVision> ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "Computer vision algorithm for partitioning a digital image into distinct, meaningful regions at the pixel level to identify object boundaries and simplify image analysis."@en ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "ImageSegmentation"@en .
+
+
+###  https://w3id.org/pink#Information
+<https://w3id.org/pink#Information> rdf:type owl:Class .
+
+
+###  https://w3id.org/pink#KnowledgeRepresentation
+<https://w3id.org/pink#KnowledgeRepresentation> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://w3id.org/pink#CognitionAndLearningModel> ;
+                                                rdfs:seeAlso "Liu HC, You JX, Li Z, Tian G (2017) Fuzzy Petri nets for knowledge representation and reasoning: A literature review. Eng Appl Artif Intell 60:45–56." ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "Represent facts in the format of reusable knowledge. It combines a series of rules to simulate how a human brain functions through artificial means. It can make inferences and judgments based on knowledge provided by one or more experts and simulate human experts' decision-making process."@en .
+
+
+###  https://w3id.org/pink#LargeLanguageModel
+<https://w3id.org/pink#LargeLanguageModel> rdf:type owl:Class ;
+                                           rdfs:subClassOf <https://w3id.org/pink#ModernGenerativeAIModel> ,
+                                                           <https://w3id.org/pink#TextGeneration> ;
+                                           <http://www.w3.org/2004/02/skos/core#altLabel> "LLM"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> "A specialized subset of Generative Artificial Intelligence that is fundamentally defined by its use of transformer architecture (specifically encoders, decoders, or both) to process and generate human-like text by predicting the next token in a sequence."@en ;
+                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "LargeLanguageModel"@en .
+
+
+###  https://w3id.org/pink#LinearDiscriminantAnalysis
+<https://w3id.org/pink#LinearDiscriminantAnalysis> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://w3id.org/pink#DimensionalityReduction> ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A dimensionality reduction model used in classification tasks to find a feature subspace that maximizes class separability."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "LinearDiscriminantAnalysis"@en .
+
+
+###  https://w3id.org/pink#Logic
+<https://w3id.org/pink#Logic> rdf:type owl:Class ;
+                              rdfs:subClassOf <https://w3id.org/pink#CognitionAndLearningModel> ;
+                              <http://www.w3.org/2004/02/skos/core#altLabel> "DeductiveReasoning"@en ;
+                              <http://www.w3.org/2004/02/skos/core#definition> "A AI system based on generic rules of the reasoning behind different cases of problem-solving."@en ;
+                              <http://www.w3.org/2004/02/skos/core#example> "If A=B and B=C, then A=C"@en ;
+                              <http://www.w3.org/2004/02/skos/core#prefLabel> "Logic"@en .
+
+
+###  https://w3id.org/pink#LogisticRegressionModel
+<https://w3id.org/pink#LogisticRegressionModel> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://w3id.org/pink#RegressionModel> ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "A fundamental supervised machine learning algorithm used for classification, predicting the probability of a categorical dependent variable."@en ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "LogisticRegressionModel"@en .
+
+
+###  https://w3id.org/pink#LowDensitySeparationModel
+<https://w3id.org/pink#LowDensitySeparationModel> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <https://w3id.org/pink#SemiSupervicedLearningModel> ;
+                                                  <http://www.w3.org/2004/02/skos/core#definition> "A semi-supervised model where the decision boundary between classes is placed in a low-density region of the data distribution."@en ;
+                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "LowDensitySeparationModel"@en .
+
+
+###  https://w3id.org/pink#MachineTranslation
+<https://w3id.org/pink#MachineTranslation> rdf:type owl:Class ;
+                                           rdfs:subClassOf <https://w3id.org/pink#NaturalLanguageUnderstanding> ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> "A natural language understanding model that enables machine translation to move beyond word-for-word substitution by analyzing intent, context, and semantic meaning."@en ;
+                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "MachineTranslation"@en .
+
+
+###  https://w3id.org/pink#Model
+<https://w3id.org/pink#Model> rdf:type owl:Class .
+
+
+###  https://w3id.org/pink#ModernGenerativeAIModel
+<https://w3id.org/pink#ModernGenerativeAIModel> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://w3id.org/emmo/hume#GenerativeAIModel> ,
+                                                                <https://w3id.org/pink#TransformerAI> ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "Generative AI based on the transformer architecture."@en ,
+                                                                                                 "ModernGenerativeAIModel"@en .
+
+
+###  https://w3id.org/pink#MonteCarloLearningModel
+<https://w3id.org/pink#MonteCarloLearningModel> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://w3id.org/pink#ReinforcedLearningModel> ;
+                                                <http://www.w3.org/2004/02/skos/core#altLabel> "MonteCarloMethod"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "A model-free reinforcement learning model that estimates value functions by averaging total returns from complete episodes of experience."@en ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "MonteCarloLearningModel"@en .
+
+
+###  https://w3id.org/pink#NaiveBayes
+<https://w3id.org/pink#NaiveBayes> rdf:type owl:Class ;
+                                   rdfs:subClassOf <https://w3id.org/pink#Classification> ;
+                                   <http://www.w3.org/2004/02/skos/core#definition> "A family of supervised learning algorithms used for classification problems, such as spam detection and sentiment analysis."@en ;
+                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "NaiveBayes"@en .
+
+
+###  https://w3id.org/pink#NaturalLanguageClassification
+<https://w3id.org/pink#NaturalLanguageClassification> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <https://w3id.org/pink#NaturalLanguageUnderstanding> ;
+                                                      <http://www.w3.org/2004/02/skos/core#definition> "A natural language understandig model that automatically assigns predefined categories, tags, or labels to unstructured text."@en ;
+                                                      <http://www.w3.org/2004/02/skos/core#prefLabel> "NaturalLanguageClassification"@en .
+
+
+###  https://w3id.org/pink#NaturalLanguageGeneration
+<https://w3id.org/pink#NaturalLanguageGeneration> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <https://w3id.org/emmo/hume#NaturalLanguageProcessingModel> ;
+                                                  <http://www.w3.org/2004/02/skos/core#definition> "A subfield of natural language processing (NLP) that automatically converts structured data or input into human-like written or spoken text."@en ;
+                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "NaturalLanguageGeneration"@en .
+
+
+###  https://w3id.org/pink#NaturalLanguageUnderstanding
+<https://w3id.org/pink#NaturalLanguageUnderstanding> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <https://w3id.org/emmo/hume#NaturalLanguageProcessingModel> ;
+                                                     <http://www.w3.org/2004/02/skos/core#definition> "A subfield natural language processing (NLP) that enables machines to comprehend the intent, sentiment, and context behind human language."@en ;
+                                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "NaturalLanguageUnderstanding"@en .
+
+
+###  https://w3id.org/pink#ObjectDetection
+<https://w3id.org/pink#ObjectDetection> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://w3id.org/pink#ComputerVision> ;
+                                        <http://www.w3.org/2004/02/skos/core#definition> "A computer vision model that combines image classification and localization to identify, label, and locate multiple objects within images or videos."@en ;
+                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "ObjectDetection"@en .
+
+
+###  https://w3id.org/pink#PerceptionModel
+<https://w3id.org/pink#PerceptionModel> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://w3id.org/emmo/hume#ArtificialIntelligenceModel> ;
+                                        <http://www.w3.org/2004/02/skos/core#altLabel> "KnowledgeBasedInferenceEngine"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#definition> "AI model that interact with the external world and process sensory information."@en ;
+                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "PerceptionModel"@en .
+
+
+###  https://w3id.org/pink#PlanningModel
+<https://w3id.org/pink#PlanningModel> rdf:type owl:Class ;
+                                      rdfs:subClassOf <https://w3id.org/pink#CognitionAndLearningModel> ;
+                                      <http://www.w3.org/2004/02/skos/core#altLabel> "Planning"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#definition> "System for intelligent planning and scheduling of tasks."@en ;
+                                      <http://www.w3.org/2004/02/skos/core#prefLabel> "PlanningModel"@en .
+
+
+###  https://w3id.org/pink#PredictionLearningModel
+<https://w3id.org/pink#PredictionLearningModel> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://w3id.org/pink#SupervisedLearningModel> ;
+                                                <http://www.w3.org/2004/02/skos/core#altLabel> "PredictiveModelling"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "A branch of supervised learning that uses historical data, statistical algorithms, and data mining techniques to identify patterns and forecast future outcomes."@en ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "PredictionLearningModel"@en .
+
+
+###  https://w3id.org/pink#PrincipalComponentAnalysis
+<https://w3id.org/pink#PrincipalComponentAnalysis> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://w3id.org/pink#DimensionalityReduction> ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "linear feature extraction model that transforms data into a new set of variables (principal components) that maximize variance."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "PrincipalComponentAnalysis"@en .
+
+
+###  https://w3id.org/pink#ProbabilityModel
+<https://w3id.org/pink#ProbabilityModel> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pink#CognitionAndLearningModel> ;
+                                         rdfs:seeAlso "Anastasopoulos A, Chiang D, Duong L (2016) An unsupervised probability model for speech-to-translation alignment of low-resource languages. arXiv preprint arXiv:1609.08139." ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "InductiveReasining"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "AI system based on the probabilistic relationships between variables based on mathematical models."@en ;
+                                         <http://www.w3.org/2004/02/skos/core#scopeNote> "Generalizes from specific observations, identifying patterns to predict outcomes (probabilistic)."@en .
+
+
+###  https://w3id.org/pink#QuestionAnswering
+<https://w3id.org/pink#QuestionAnswering> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://w3id.org/pink#NaturalLanguageUnderstanding> ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "A subfield of natural language processing and information retrieval that focuses on building systems capable of automatically answering questions posed by humans in natural language."@en ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "QuestionAnswering"@en .
+
+
+###  https://w3id.org/pink#RandomForest
+<https://w3id.org/pink#RandomForest> rdf:type owl:Class ;
+                                     rdfs:subClassOf <https://w3id.org/pink#PredictionLearningModel> ;
+                                     <http://www.w3.org/2004/02/skos/core#definition> "A prediction learning model for classification and regression that builds multiple decision trees during training."@en ;
+                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "RandomForest"@en .
+
+
+###  https://w3id.org/pink#RecommenderSystem
+<https://w3id.org/pink#RecommenderSystem> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://w3id.org/pink#SupervisedLearningModel> ;
+                                          <http://www.w3.org/2004/02/skos/core#altLabel> "Recommendation"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "A information filtering system using supervised learning to suggest items most relevant to a particular user."@en ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "RemommenderSystem"@en .
+
+
+###  https://w3id.org/pink#RecurrentNeuralNetwork
+<https://w3id.org/pink#RecurrentNeuralNetwork> rdf:type owl:Class ;
+                                               rdfs:subClassOf <https://w3id.org/pink#DeepLearningModel> ;
+                                               <http://www.w3.org/2004/02/skos/core#definition> "Neural network designed for sequential or time-series data, featuring feedback connections that allow information to persist."@en ;
+                                               <http://www.w3.org/2004/02/skos/core#prefLabel> "RecurrentNeuralNetwork"@en .
+
+
+###  https://w3id.org/pink#RegressionModel
+<https://w3id.org/pink#RegressionModel> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://w3id.org/pink#SupervisedLearningModel> ;
+                                        <http://www.w3.org/2004/02/skos/core#definition> "A supervised learning model used to predict continuous, numerical output values based on labeled training data."@en ;
+                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "RegressionModel"@en .
+
+
+###  https://w3id.org/pink#ReinforcedLearningModel
+<https://w3id.org/pink#ReinforcedLearningModel> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://w3id.org/emmo/hume#MachineLearningModel> ;
+                                                <http://www.w3.org/2004/02/skos/core#altLabel> "ReinforcementLearning"@en ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "A machine learning model where an intelligent \"agent\" learns to make optimal, sequential decisions by interacting with an environment, using trial-and-error to maximize cumulative rewards."@en ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "ReinforcedLearningModel"@en .
+
+
+###  https://w3id.org/pink#SelfTrainingModel
+<https://w3id.org/pink#SelfTrainingModel> rdf:type owl:Class ;
+                                          rdfs:subClassOf <https://w3id.org/pink#SemiSupervicedLearningModel> ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "A semi-supervised machine learning model that improves model performance by iteratively labeling unlabeled data."@en ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "SelfTrainingModel"@en .
+
+
+###  https://w3id.org/pink#SemiSupervicedLearningModel
+<https://w3id.org/pink#SemiSupervicedLearningModel> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <https://w3id.org/emmo/hume#MachineLearningModel> ;
+                                                    <http://www.w3.org/2004/02/skos/core#definition> "A machine learning paradigm that trains models using a small amount of labeled data combined with a large volume of unlabeled data."@en ;
+                                                    <http://www.w3.org/2004/02/skos/core#prefLabel> "SemiSupervicedLearningModel"@en .
+
+
+###  https://w3id.org/pink#SiameseNeuralNetwork
+<https://w3id.org/pink#SiameseNeuralNetwork> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://w3id.org/pink#DeepLearningModel> ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> "Class of neural network architectures containing two or more identical subnetworks with shared weights."@en ;
+                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "SiameseNeuralNetwork"@en .
+
+
+###  https://w3id.org/pink#Software
+<https://w3id.org/pink#Software> rdf:type owl:Class .
+
+
+###  https://w3id.org/pink#StepwiseRegressionModel
+<https://w3id.org/pink#StepwiseRegressionModel> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://w3id.org/pink#RegressionModel> ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "A regression model of fitting regression models in which the choice of predictive variables is carried out by an automatic procedure."@en ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "StepwiseRegressionModel"@en .
+
+
+###  https://w3id.org/pink#SupervisedLearningModel
+<https://w3id.org/pink#SupervisedLearningModel> rdf:type owl:Class ;
+                                                rdfs:subClassOf <https://w3id.org/emmo/hume#MachineLearningModel> ;
+                                                <http://www.w3.org/2004/02/skos/core#definition> "A machine learning paradigm where models are trained using labeled data (input data paired with the correct output) to learn mapping functions that predict outcomes for new, unseen data."@en ;
+                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "SupervisedLearningModel"@en .
+
+
+###  https://w3id.org/pink#SupportVectorMachine
+<https://w3id.org/pink#SupportVectorMachine> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://w3id.org/pink#Classification> ;
+                                             <http://www.w3.org/2004/02/skos/core#altLabel> "SVM"@en ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> "Supervised machine learning algorithms used for classification, regression, and outlier detection."@en ;
+                                             <http://www.w3.org/2004/02/skos/core#prefLabel> "SupportVectorMachine"@en .
+
+
+###  https://w3id.org/pink#TDistributedStochasticNeighborEmbedding
+<https://w3id.org/pink#TDistributedStochasticNeighborEmbedding> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <https://w3id.org/pink#DimensionalityReduction> ;
+                                                                <http://www.w3.org/2004/02/skos/core#altLabel> "t-SNE"@en ;
+                                                                <http://www.w3.org/2004/02/skos/core#definition> "A non-linear dimensionality reduction model excellent for visualizing high-dimensional data in 2D or 3D."@en ;
+                                                                <http://www.w3.org/2004/02/skos/core#prefLabel> "TDistributedStochasticNeighborEmbedding"@en .
+
+
+###  https://w3id.org/pink#TargetTracking
+<https://w3id.org/pink#TargetTracking> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pink#ComputerVision> ;
+                                       <http://www.w3.org/2004/02/skos/core#definition> "A computer vision model for automatically identifying objects in a video and interpreting them as a set of trajectories with high accuracy."@en ;
+                                       <http://www.w3.org/2004/02/skos/core#prefLabel> "TargetTracking"@en .
+
+
+###  https://w3id.org/pink#TextGeneration
+<https://w3id.org/pink#TextGeneration> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pink#NaturalLanguageGeneration> ;
+                                       <http://www.w3.org/2004/02/skos/core#definition> "Natural language subfield that focuses on automatically producing human-like, coherent, and contextually relevant text or speech from structured or unstructured data."@en ;
+                                       <http://www.w3.org/2004/02/skos/core#prefLabel> "TextGeneration"@en .
+
+
+###  https://w3id.org/pink#TransformerAI
+<https://w3id.org/pink#TransformerAI> rdf:type owl:Class ;
+                                      rdfs:subClassOf <https://w3id.org/pink#DeepLearningModel> ;
+                                      <http://www.w3.org/2004/02/skos/core#definition> "Deep-learning architecture introduced by Google in 2017 that power modern generative AI like ChatGPT and Gemini."@en ;
+                                      <http://www.w3.org/2004/02/skos/core#prefLabel> "TransformerAI"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#scopeNote> ""@en .
+
+
+###  https://w3id.org/pink#UnsupervicedLearningModel
+<https://w3id.org/pink#UnsupervicedLearningModel> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <https://w3id.org/emmo/hume#MachineLearningModel> ;
+                                                  <http://www.w3.org/2004/02/skos/core#definition> "A type of machine learning that analyzes and clusters unlabeled datasets to discover hidden patterns, structures, or relationships without human intervention."@en ;
+                                                  <http://www.w3.org/2004/02/skos/core#prefLabel> "UnsupervicedLearningModel"@en .
+
+
+###  https://w3id.org/pink#XGBoostRegessor
+<https://w3id.org/pink#XGBoostRegessor> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://w3id.org/pink#PredictionLearningModel> ;
+                                        <http://www.w3.org/2004/02/skos/core#definition> "An optimized machine learning algorithm that uses an ensemble of decision trees within a gradient boosting framework to predict continuous numerical values."@en ;
+                                        <http://www.w3.org/2004/02/skos/core#prefLabel> "XGBoostRegressor"@en ;
+                                        <http://www.w3.org/2004/02/skos/core#scopeNote> "XGBoost Regressor is widely used in data science competitions and real-world applications due to its speed, performance, and features like built-in regularization and automatic handling of missing values."@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://w3id.org/pink#Bagging>
+                <https://w3id.org/pink#Boosting>
+                <https://w3id.org/pink#RandomForest>
+              )
+] .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

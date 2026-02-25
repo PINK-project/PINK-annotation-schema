@@ -1,0 +1,922 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/pink/matter#"
+     xml:base="https://w3id.org/pink/matter"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:vocab="https://w3id.org/widoco/vocab#">
+    <owl:Ontology rdf:about="https://w3id.org/pink/matter">
+        <owl:versionIRI rdf:resource="https://w3id.org/pink/0.0.1/matter"/>
+        <terms:abstract xml:lang="en">The Matter module of PINK Annotation Schema providing a taxonomy for physical matter (including nanomaterial, chemical compounds, etc...) with anchor points for links for CheBI.</terms:abstract>
+        <terms:title xml:lang="en">The Matter module of PINK Annotation Schema</terms:title>
+        <vocab:introduction xml:lang="en">
+This module is a part of the [PINK Annotation Schema](https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html).
+Matter is a physical entity that possess mass and occupies volume.
+
+This module provides a categorisation of different types of matter entities.
+At the top it categorise matter into molecular entities (discrete atoms or molecules) and different types of substances (homogenious properties).
+
+A page illustrating showing how the PINK Annotation Schema categorise models can be found [here](https://pink-project.github.io/PINK-annotation-schema/docs/matter.html).
+</vocab:introduction>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/terms/abstract -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/abstract"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#example -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#scopeNote -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+    
+
+
+    <!-- https://w3id.org/widoco/vocab#introduction -->
+
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/widoco/vocab#introduction"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/emmo/hume#AmorphousMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#AmorphousMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByStructure"/>
+        <skos:altLabel xml:lang="en">NonCrystallineMaterial</skos:altLabel>
+        <skos:definition xml:lang="en">A solid lacking a repeating, ordered atomic structure (long-range order).</skos:definition>
+        <skos:prefLabel xml:lang="en">AmorphousMaterial</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">A amorphous material resembles a frozen liquid with atoms arranged randomly, unlike crystalline solids with periodic patterns, leading to properties like no sharp melting point, irregular shapes, and isotropic characteristics (uniform properties in all directions).</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#ArtificialMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#ArtificialMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByOrigin"/>
+        <skos:definition xml:lang="en">Any substance engineered or created by humans, often to mimic or improve upon natural materials.</skos:definition>
+        <skos:prefLabel xml:lang="en">ArtificialMaterial</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Artificial materials are typically engineered through chemical synthesis from natural raw materials like oil or coal, resulting in polymers such as plastics, nylon, or polyester, designed for specific, enhanced properties like strength, durability, or moldability not found in nature.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#Atom -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#Atom">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MolecularEntity"/>
+        <skos:altLabel xml:lang="en">ChemicalElement</skos:altLabel>
+        <skos:definition xml:lang="en">A standalone atom has direct part one &apos;nucleus&apos; and one &apos;electron_cloud&apos;.
+
+An O &apos;atom&apos; within an O₂ &apos;molecule&apos; is an &apos;e-bonded_atom&apos;.
+
+In this material branch, H atom is a particular case, with respect to higher atomic number atoms, since as soon as it shares its electron it has no nucleus entangled electron cloud.
+
+We cannot say that H₂ molecule has direct part two H atoms, but has direct part two H nucleus.</skos:definition>
+        <skos:prefLabel xml:lang="en">Atom</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">An &apos;atom&apos; is a &apos;nucleus&apos; surrounded by an &apos;electron_cloud&apos;, i.e. a quantum system made of one or more bounded electrons.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#BondedAtom -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#BondedAtom">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Atom"/>
+        <skos:definition xml:lang="en">A bonded atom that shares at least one electron to the atom-based entity of which is part of.</skos:definition>
+        <skos:prefLabel xml:lang="en">BondedAtom</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">A real bond between atoms is always something hybrid between covalent, metallic and ionic.
+
+In general, metallic and ionic bonds have atoms sharing electrons.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">The bond types that are covered by this definition are the strong electronic bonds: covalent, metallic and ionic.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">This class can be used to represent molecules as simplified quantum systems, in which outer molecule shared electrons are un-entangled with the inner shells of the atoms composing the molecule.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#CeramicMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#CeramicMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByType"/>
+        <skos:altLabel xml:lang="en">Ceramic</skos:altLabel>
+        <skos:definition xml:lang="en">An inorganic non-metallic solid made from elements (metals, non-metals, semi-metals like silicon) combined into compounds (oxides, carbides, nitrides) that are typically hard, strong, brittle, corrosion-resistant, and good insulators.</skos:definition>
+        <skos:prefLabel xml:lang="en">CeramicMaterial</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Ceramic materials are hardened by intense heat and typically used from pottery and tiles to advanced electronics and aerospace parts.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#ChemicalCompound -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#ChemicalCompound">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#ChemicalSubstance"/>
+        <rdfs:seeAlso xml:lang="en">https://en.wikipedia.org/wiki/Chemical_compound</rdfs:seeAlso>
+        <skos:definition xml:lang="en">A chemical substance composed of many identical molecules (or molecular entities) composed of atoms from more than one element held together by chemical bonds.</skos:definition>
+        <skos:prefLabel xml:lang="en">ChemicalCompound</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#ChemicalEntity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#ChemicalEntity">
+        <skos:definition xml:lang="en">The union of ChemicalSubstance and MolecularEntity.</skos:definition>
+        <skos:prefLabel xml:lang="en">ChemicalEntity</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">A chemical entity comprises the two different ways to represents matter: as single recognizable particle entity (molecular entity) and as a composition of particle entities (substance).
+
+This distinction is not well assessed in actual chemical nomenclature, in which an element name refers to both the pure elemental substance or the atom.
+
+In the EMMO we force the adoption of a more strict categorization based on mereotopology.
+
+The class Material hosts the subclasses for which a substance can be identified without necessarily considering its nature of molecule/atom or substance (e.g. hydrocarbon is the class of both hydrocarbon molecules or gases).</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#ChemicalSubstance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#ChemicalSubstance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#ChemicalEntity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Substance"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/emmo/hume#MolecularEntity"/>
+        <rdfs:seeAlso xml:lang="en">https://doi.org/10.1351/goldbook.C01039</rdfs:seeAlso>
+        <skos:definition xml:lang="en">Matter of constant composition best characterized by the entities (molecules, formula units, atoms) it is composed of.</skos:definition>
+        <skos:prefLabel xml:lang="en">ChemicalSubstance</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">A chemical substance is always composed of more than one molecular entity. It lays in the continuum or mesoscopic domain.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#CompactMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#CompactMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByCompactness"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Solid"/>
+        <skos:definition xml:lang="en">A solid material whose particles are closely and firmly packed together, resulting in a high density, solid structure without significant internal voids or cavities.</skos:definition>
+        <skos:prefLabel xml:lang="en">CompactMaterial</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#CompositeMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#CompositeMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByType"/>
+        <skos:altLabel xml:lang="en">Composite</skos:altLabel>
+        <skos:definition xml:lang="en">A material that contains two or more constituent materials.</skos:definition>
+        <skos:prefLabel xml:lang="en">CompositeMaterial</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#CondensedMatter -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#CondensedMatter">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#StateOfMatter"/>
+        <skos:definition xml:lang="en">Solid or liquid matter.</skos:definition>
+        <skos:prefLabel xml:lang="en">CondensedMatter</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with &quot;condensed&quot; phases of matter: systems of many constituents with strong interactions between them.</skos:scopeNote>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://w3id.org/emmo/hume#CondensedMatter"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <owl:annotatedTarget xml:lang="en">The subject of condensed matter physics that deals with the macroscopic and microscopic physical properties of matter, especially the solid and liquid phases which arise from electromagnetic forces between atoms. More generally, the subject deals with &quot;condensed&quot; phases of matter: systems of many constituents with strong interactions between them.</owl:annotatedTarget>
+        <rdfs:seeAlso xml:lang="en">https://en.wikipedia.org/wiki/Condensed_matter_physics</rdfs:seeAlso>
+    </owl:Axiom>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#ContinuumSubstance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#ContinuumSubstance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Substance"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/emmo/hume#MesoscopicSubstance"/>
+        <skos:definition xml:lang="en">A state that is a collection of sufficiently large number of other parts such that:
+- it is the bearer of qualities that can exists only by the fact that it is a sum of parts
+- the smallest partition dV of the state volume in which we are interested in, contains enough parts to be statistically consistent: n [#/m3] x dV [m3] &gt;&gt; 1</skos:definition>
+        <skos:prefLabel xml:lang="en">ContinuumSubstance</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">A continuum is made of a sufficient number of parts that it continues to exists as continuum individual even after the loss of one of them i.e. a continuum is a redundant.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">A continuum is not necessarily small (i.e. composed by the minimum amount of sates to fulfill the definition).
+
+A single continuum individual can be the whole fluid in a pipe.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">A continuum is the bearer of properties that are generated by the interactions of parts such as viscosity and thermal or electrical conductivity.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#CrystallineMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#CrystallineMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByStructure"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Solid"/>
+        <skos:definition xml:lang="en">A solid where atoms, ions, or molecules are arranged in a highly ordered, repeating, three-dimensional pattern, forming a crystal lattice that extends throughout the substance, giving it characteristic geometric shapes and distinct physical properties like sharp melting points, unlike amorphous solids with random structures.</skos:definition>
+        <skos:prefLabel xml:lang="en">CrystallineMaterial</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#ElementalSubstance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#ElementalSubstance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#ChemicalSubstance"/>
+        <rdfs:seeAlso xml:lang="en">https://doi.org/10.1351/goldbook.C01022</rdfs:seeAlso>
+        <skos:altLabel xml:lang="en">PureSubstance</skos:altLabel>
+        <skos:definition xml:lang="en">A chemical substance composed of atoms with the same number of protons in the atomic nucleus.</skos:definition>
+        <skos:prefLabel xml:lang="en">ElementalSubstance</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#Fluid -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#Fluid">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#StateOfMatter"/>
+        <skos:definition xml:lang="en">A continuum that has no fixed shape and yields easily to external pressure.</skos:definition>
+        <skos:example xml:lang="en">Gas, liquid, plasma,</skos:example>
+        <skos:prefLabel xml:lang="en">Fluid</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#Gas -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#Gas">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Fluid"/>
+        <skos:definition xml:lang="en">Gas is a compressible fluid, a state of matter that has no fixed shape and no fixed volume.</skos:definition>
+        <skos:prefLabel xml:lang="en">Gas</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#GranularMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#GranularMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByCompactness"/>
+        <skos:definition xml:lang="en">A granular material is a conglomeration of discrete solid, macroscopic particles that are  large enough to avoid thermal motion fluctuations, and characterized by a loss of energy whenever the particles interact.</skos:definition>
+        <skos:prefLabel xml:lang="en">GranularMaterial</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#InorganicCompound -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#InorganicCompound">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#ChemicalCompound"/>
+        <rdfs:seeAlso xml:lang="en">https://en.wikipedia.org/wiki/Inorganic_compound</rdfs:seeAlso>
+        <skos:definition xml:lang="en">A chemical compound that is not organic.</skos:definition>
+        <skos:prefLabel xml:lang="en">InorganicCompound</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#IonAtom -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#IonAtom">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#StandaloneAtom"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/emmo/hume#NeutralAtom"/>
+        <skos:definition xml:lang="en">A standalone atom with an unbalanced number of electrons with respect to its atomic number.</skos:definition>
+        <skos:prefLabel xml:lang="en">IonAtom</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#Liquid -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#Liquid">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#CondensedMatter"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Fluid"/>
+        <skos:definition xml:lang="en">A liquid is a nearly incompressible fluid that conforms to the shape of its container but retains a (nearly) constant volume independent of pressure.</skos:definition>
+        <skos:prefLabel xml:lang="en">Liquid</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#ManufacturedMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#ManufacturedMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#ArtificialMaterial"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#Material -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#Material">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Substance"/>
+        <skos:definition xml:lang="en">The class of individuals standing for an amount of ordinary matter substance.</skos:definition>
+        <skos:prefLabel xml:lang="en">Material</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">A instance of a material (e.g. nitrogen) can represent any state of matter. The fact that the individual also belongs to other classes (e.g. Gas) would reveal the actual form in which the material is found.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">A material may be either a mesoscopic or a continuum substance.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">Material usually means some definite kind, quality, or quantity of matter, especially as intended for use.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#MaterialByClassicalMaterialsScience -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#MaterialByClassicalMaterialsScience">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Material"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#MaterialByCompactness -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#MaterialByCompactness">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Material"/>
+        <skos:prefLabel xml:lang="en">MaterialByCompactness</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#MaterialByForceResponse -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#MaterialByForceResponse">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Material"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#MaterialByFunction -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#MaterialByFunction">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Material"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#MaterialByOrigin -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#MaterialByOrigin">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Material"/>
+        <skos:prefLabel xml:lang="en">MaterialByOrigin</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#MaterialBySize -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#MaterialBySize">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Material"/>
+        <skos:prefLabel xml:lang="en">MaterialBySize</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#MaterialByStructure -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#MaterialByStructure">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByClassicalMaterialsScience"/>
+        <skos:prefLabel xml:lang="en">MaterialByStructure</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#MaterialByType -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#MaterialByType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByClassicalMaterialsScience"/>
+        <skos:definition xml:lang="en">Categorisation of matter by its type.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#MesoscopicSubstance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#MesoscopicSubstance">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Substance"/>
+        <skos:definition xml:lang="en">A matter that is not a particulate matter and that does not fullfill the criteria of being a continuum substance.</skos:definition>
+        <skos:example xml:lang="en">nanoparticle,
+quantum dot,
+carbon nanotupe</skos:example>
+        <skos:prefLabel xml:lang="en">MesoscopicSubstance</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Mesoscopic substances typically exist on a length scale between atoms and molecules and macroscopic (bulk) substances. They are typically in the range of some nanometers to about a micrometer and often exhibit unique physical properties due to their size and shape.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#MetallicMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#MetallicMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByType"/>
+        <skos:definition xml:lang="en">Inorganic substance, consisting of one or more metallic elements.</skos:definition>
+        <skos:prefLabel xml:lang="en">MetallicMaterial</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Metallic materials are known for their shiny luster, excellent electrical/thermal conductivity, malleability (shapable by hammering), and ductility (can be drawn into wires), due to metallic bonding (shared electrons); they often form alloys (like steel from iron/carbon) to enhance these properties for diverse applications.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#Mixture -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#Mixture">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#ContinuumSubstance"/>
+        <skos:definition xml:lang="en">A continuum substance made up of two or more different substances which are physically (not chemically) combined.</skos:definition>
+        <skos:prefLabel xml:lang="en">Mixture</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#MolecularEntity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#MolecularEntity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#ChemicalEntity"/>
+        <rdfs:isDefinedBy xml:lang="en">https://goldbook.iupac.org/terms/view/M03986</rdfs:isDefinedBy>
+        <skos:definition xml:lang="en">Any constitutionally or isotopically distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer etc., identifiable as a separately distinguishable entity that can undergo a chemical reaction.</skos:definition>
+        <skos:example xml:lang="en">Hydrogen molecule is an adequate definition of a certain molecular entity for some purposes, whereas for others it is necessary to distinguish the electronic state and/or vibrational state and/or nuclear spin, etc. of the hydrogen molecule.</skos:example>
+        <skos:example xml:lang="en">Methane, may mean a single molecule of CH4 (molecular entity) or a molar amount, specified or not (chemical species), participating in a reaction. The degree of precision necessary to describe a molecular entity depends on the context.</skos:example>
+        <skos:prefLabel xml:lang="en">MolecularEntity</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Molecular entity is used as a general term for singular entities, irrespective of their nature, while chemical species stands for sets or ensembles of molecular entities.
+
+Note that the name of a compound may refer to the respective molecular entity or to the chemical species,</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#Molecule -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#Molecule">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MolecularEntity"/>
+        <skos:definition xml:lang="en">An atom-based state defined by an exact number of e-bonded atomic species and an electron cloud made of the shared electrons.</skos:definition>
+        <skos:example xml:lang="en">H₂0, C₆H₁₂O₆, CH₄</skos:example>
+        <skos:prefLabel xml:lang="en">Molecule</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">An entity is called essential if removing one direct part will lead to a change in entity class.
+An entity is called redundant if removing one direct part will not lead to a change in entity class.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">This definition states that this object is a non-periodic set of atoms or a set with a finite periodicity.
+Removing an atom from the state will result in another type of atom_based state.
+e.g. you cannot remove H from H₂0 without changing the molecule type (essential). However, you can remove a C from a nanotube (redundant). C60 fullerene is a molecule, since it has a finite periodicity and is made of a well defined number of atoms (essential). A C nanotube is not a molecule, since it has an infinite periodicity (redundant).</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#NanoMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#NanoMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialBySize"/>
+        <skos:definition xml:lang="en">Material with any external dimension in the nanoscale or having internal structure or surface structure in the nanoscale, i.e. in the range of 1-100 nm.</skos:definition>
+        <skos:prefLabel xml:lang="en">NanoMaterial</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The above definition comes from ISO 80004-1:2023.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#NaturalMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#NaturalMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByOrigin"/>
+        <skos:definition xml:lang="en">A Material occurring in nature, without the need of human intervention.</skos:definition>
+        <skos:prefLabel xml:lang="en">NaturalMaterial</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#NeutralAtom -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#NeutralAtom">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#StandaloneAtom"/>
+        <skos:definition xml:lang="en">A standalone atom that has no net charge.</skos:definition>
+        <skos:prefLabel xml:lang="en">NeutralAtom</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#OrganicCompound -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#OrganicCompound">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#ChemicalCompound"/>
+        <rdfs:seeAlso xml:lang="en">https://en.wikipedia.org/wiki/Organic_compound</rdfs:seeAlso>
+        <skos:definition xml:lang="en">A chemical compound containing carbon atoms.</skos:definition>
+        <skos:prefLabel xml:lang="en">OrganicCompound</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The definition of organic compound is based on the IUPAC Gold Book. However, sometimes an organic compound is defined as a chemical compound that contains a carbon-hydrogen or carbon-carbon bond. Also, some carbon-containing compounds are typically not classified as organic, like carbides, carbonates, and cyanides.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#PhaseOfMatter -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#PhaseOfMatter">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#ContinuumSubstance"/>
+        <skos:altLabel xml:lang="en">Phase</skos:altLabel>
+        <skos:definition xml:lang="en">A matter object throughout which all physical properties of a material are essentially uniform.</skos:definition>
+        <skos:prefLabel xml:lang="en">PhaseOfMatter</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">In the physical sciences, a phase is a region of space (a thermodynamic system), throughout which all physical properties of a material are essentially uniform. Examples of physical properties include density, index of refraction, magnetization and chemical composition. A simple description is that a phase is a region of material that is chemically uniform, physically distinct, and (often) mechanically separable. In a system consisting of ice and water in a glass jar, the ice cubes are one phase, the water is a second phase, and the humid air is a third phase over the ice and water. The glass of the jar is another separate phase.
+
+The term phase is sometimes used as a synonym for state of matter, but there can be several immiscible phases of the same state of matter. Also, the term phase is sometimes used to refer to a set of equilibrium states demarcated in terms of state variables such as pressure and temperature by a phase boundary on a phase diagram. Because phase boundaries relate to changes in the organization of matter, such as a change from liquid to solid or a more subtle change from one crystal structure to another, this latter usage is similar to the use of &quot;phase&quot; as a synonym for state of matter. However, the state of matter and phase diagram usages are not commensurate with the formal definition given above and the intended meaning must be determined in part from the context in which the term is used.</skos:scopeNote>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="https://w3id.org/emmo/hume#PhaseOfMatter"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2004/02/skos/core#scopeNote"/>
+        <owl:annotatedTarget xml:lang="en">In the physical sciences, a phase is a region of space (a thermodynamic system), throughout which all physical properties of a material are essentially uniform. Examples of physical properties include density, index of refraction, magnetization and chemical composition. A simple description is that a phase is a region of material that is chemically uniform, physically distinct, and (often) mechanically separable. In a system consisting of ice and water in a glass jar, the ice cubes are one phase, the water is a second phase, and the humid air is a third phase over the ice and water. The glass of the jar is another separate phase.
+
+The term phase is sometimes used as a synonym for state of matter, but there can be several immiscible phases of the same state of matter. Also, the term phase is sometimes used to refer to a set of equilibrium states demarcated in terms of state variables such as pressure and temperature by a phase boundary on a phase diagram. Because phase boundaries relate to changes in the organization of matter, such as a change from liquid to solid or a more subtle change from one crystal structure to another, this latter usage is similar to the use of &quot;phase&quot; as a synonym for state of matter. However, the state of matter and phase diagram usages are not commensurate with the formal definition given above and the intended meaning must be determined in part from the context in which the term is used.</owl:annotatedTarget>
+        <rdfs:seeAlso xml:lang="en">https://en.wikipedia.org/wiki/Phase_(matter)</rdfs:seeAlso>
+    </owl:Axiom>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#Plasma -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#Plasma">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Fluid"/>
+        <skos:definition xml:lang="en">A fluid in which a gas is ionized to a level where its electrical conductivity allows long-range electric and magnetic fields to dominate its behaviour.</skos:definition>
+        <skos:prefLabel xml:lang="en">Plasma</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#PolyAtomicEntity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#PolyAtomicEntity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MolecularEntity"/>
+        <skos:definition xml:lang="en">An entity made of two or more bonded atoms.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#PolymericMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#PolymericMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByType"/>
+        <skos:definition xml:lang="en">A substance made of macromolecules formed by linking many smaller, repeating chemical units called monomers into long chains or networks, resulting in unique properties like toughness, elasticity, or flexibility, found in both natural forms (like DNA, protein) and synthetic plastics, rubbers, and fibers.</skos:definition>
+        <skos:prefLabel xml:lang="en">PolymericMaterial</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#Powder -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#Powder">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#GranularMaterial"/>
+        <rdfs:isDefinedBy xml:lang="en">Duran, J., Reisinger A., Sands, Powders, and Grains: An Introduction to the Physics of Granular Materials. November 1999, Springer-Verlag New York, Inc., New York, ISBN 0-387-98656-1.</rdfs:isDefinedBy>
+        <skos:definition xml:lang="en">A powder is a granular material composed of many very fine dry solid particles that may flow freely when shaken or tilted.</skos:definition>
+        <skos:prefLabel xml:lang="en">Powder</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#Solid -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#Solid">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#CondensedMatter"/>
+        <skos:definition xml:lang="en">A continuum characterized by structural rigidity and resistance to changes of shape or volume, that retains its shape and density when not confined.</skos:definition>
+        <skos:prefLabel xml:lang="en">Solid</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#StandaloneAtom -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#StandaloneAtom">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Atom"/>
+        <skos:definition xml:lang="en">An atom that does not share electrons with other atoms.</skos:definition>
+        <skos:prefLabel xml:lang="en">StandaloneAtom</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#StateOfMatter -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#StateOfMatter">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#ContinuumSubstance"/>
+        <skos:definition xml:lang="en">A superclass made as the disjoint union of all the form under which matter can exist.</skos:definition>
+        <skos:prefLabel xml:lang="en">StateOfMatter</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">In physics, a state of matter is one of the distinct forms in which matter can exist. Four states of matter are observable in everyday life: solid, liquid, gas, and plasma.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/emmo/hume#Substance -->
+
+
+    <owl:Class rdf:about="https://w3id.org/emmo/hume#Substance">
+        <skos:definition xml:lang="en">A matter entity characterised by the fact that it possesses some homogeneous properties or identification criteria.</skos:definition>
+        <skos:example xml:lang="en">A litre of water.</skos:example>
+        <skos:example xml:lang="en">A pen can be classified as a substance (although it has parts with different properties) since it can be identified as being solid.</skos:example>
+        <skos:prefLabel xml:lang="en">Substance</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#AdvancedMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#AdvancedMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#ArtificialMaterial"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByFunction"/>
+        <skos:definition xml:lang="en">A designed material tailored to simultaneously meet two or more pre-defined criteria.</skos:definition>
+        <skos:prefLabel xml:lang="en">AdvancedMaterial</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#BiocompatibleMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#BiocompatibleMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByFunction"/>
+        <skos:definition xml:lang="en">Material designed to be biocompatible for implantation in the body, such as artificial joints or tissue scaffolds.</skos:definition>
+        <skos:prefLabel xml:lang="en">BiocompatibleMaterial</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#ElectronicMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#ElectronicMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByFunction"/>
+        <skos:definition xml:lang="en">A material for electronic applications, like silicon used in computer chips, solar cells, and circuits.</skos:definition>
+        <skos:prefLabel xml:lang="en">ElectronicMaterial</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#EnergyMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#EnergyMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByFunction"/>
+        <skos:definition xml:lang="en">A material for energy applications, including energy generation, storage, and conversion, such as batteries, supercapacitors, and fuel cells.</skos:definition>
+        <skos:prefLabel xml:lang="en">EnergyMaterial</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#MacroMolecule -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#MacroMolecule">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Molecule"/>
+        <skos:definition xml:lang="en">A molecule with a specific weight larger than 5000 dalton.</skos:definition>
+        <skos:prefLabel xml:lang="en">MacroMolecule</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#MagneticMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#MagneticMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByFunction"/>
+        <skos:definition xml:lang="en">A material for magnetic applications, like for data storage, motors, and transformers (e.g., iron, ferrite).</skos:definition>
+        <skos:prefLabel xml:lang="en">MagneticMaterial</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#MicroMolecule -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#MicroMolecule">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Molecule"/>
+        <skos:altLabel xml:lang="en">MicroMolecule</skos:altLabel>
+        <skos:definition xml:lang="en">A molecule with a specific weight smaller than 1000 dalton.</skos:definition>
+        <skos:prefLabel xml:lang="en">SmallMolecule</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#NanoComposite -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#NanoComposite">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#CompositeMaterial"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#NanoStructuredMaterial"/>
+        <skos:definition xml:lang="en">A composite material with at least one physically or chemically distinct region or collection of regions having at least one dimension in the range of 1-100 nm.</skos:definition>
+        <skos:prefLabel xml:lang="en">NanoComposite</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#NanoFiber -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#NanoFiber">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#NanoObject"/>
+        <skos:definition xml:lang="en">A material with two dimensions in the range of 1-100 nm.</skos:definition>
+        <skos:prefLabel xml:lang="en">NanoFiber</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Nanofibers are often considered to be 1-dimensional nanomaterials.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#NanoObject -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#NanoObject">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#NanoMaterial"/>
+        <skos:definition xml:lang="en">Material with any external dimension in the nanoscale, i.e. in the range of 1-100 nm.</skos:definition>
+        <skos:prefLabel xml:lang="en">NanoObject</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#NanoParticle -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#NanoParticle">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#NanoObject"/>
+        <skos:definition xml:lang="en">A material with all dimensions in the range of 1-100 nm.</skos:definition>
+        <skos:prefLabel xml:lang="en">NanoParticle</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Nanoparticles are often considered to be 0-dimensional nanomaterials.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#NanoPlate -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#NanoPlate">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#NanoObject"/>
+        <skos:definition xml:lang="en">A material with one dimension in the range of 1-100 nm.</skos:definition>
+        <skos:prefLabel xml:lang="en">NanoPlate</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Nanoplates are often considered to be 2-dimensional nanomaterials.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#NanoRod -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#NanoRod">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#NanoFiber"/>
+        <skos:definition xml:lang="en">A solid nanofiber.</skos:definition>
+        <skos:prefLabel xml:lang="en">NanoRod</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#NanoStructuredMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#NanoStructuredMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#NanoMaterial"/>
+        <skos:definition xml:lang="en">A material with at least one physically or chemically distinct region with at least one dimension in the range of 1-100 nm.</skos:definition>
+        <skos:prefLabel xml:lang="en">NanoStructuredMaterial</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Nanostructured materials are considered to be 3-dimensional nanomaterials.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#NanoTube -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#NanoTube">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pink#NanoFiber"/>
+        <skos:definition xml:lang="en">A hollow nanofiber.</skos:definition>
+        <skos:prefLabel xml:lang="en">NanoTube</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#OpticalMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#OpticalMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByFunction"/>
+        <skos:definition xml:lang="en">A material for optical applications. Designed for specific interactions with light, such as fiber optics, lasers, or transparent coatings.</skos:definition>
+        <skos:prefLabel xml:lang="en">OpticalMaterial</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#Protein -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#Protein">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#Molecule"/>
+        <skos:definition xml:lang="en">A large molecule made of long chains of amino acids.</skos:definition>
+        <skos:prefLabel xml:lang="en">Protein</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pink#StructuralMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/pink#StructuralMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/emmo/hume#MaterialByFunction"/>
+        <skos:definition xml:lang="en">A material Designed to bear loads and provide mechanical strength, stiffness, and durability (e.g., steel for bridges, concrete for buildings, aerospace alloys).</skos:definition>
+        <skos:prefLabel xml:lang="en">StructuralMaterial</skos:prefLabel>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

@@ -1,0 +1,3188 @@
+[ {
+  "@id" : "_:genid1",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#oneOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/emmo/application/datadoc#mandatory"
+    }, {
+      "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+    }, {
+      "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+    } ]
+  } ]
+}, {
+  "@id" : "http://data.europa.eu/eli/ontology#LegalResource",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "The definition and properties of the Legal Resource class are aligned with the ontology included in \"Council conclusions inviting the introduction of the European Legislation Identifier (ELI)\". For describing the attributes of a Legal Resource (labels, preferred labels, alternative labels, definition, etc.) we refer to the (ELI) ontology. In this data specification the use is restricted to instances of this class that follow the (ELI) URI guidelines."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "This class represents the legislation, policy or policies that lie behind the Rules that govern the service."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Document"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "This class represents the legislation, policy or policies that lie behind the Rules that govern the service."
+  } ]
+}, {
+  "@id" : "http://data.europa.eu/r5r/applicableLegislation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The legislation that mandates the creation or management of the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://data.europa.eu/eli/ontology#LegalResource"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The legislation that mandates the creation or management of the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "applicableLegislation"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://data.europa.eu/r5r/availability",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "An indication how long it is planned to keep the Distribution of the Dataset available."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "An indication how long it is planned to keep the Distribution of the Dataset available."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "availability"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+  } ]
+}, {
+  "@id" : "http://data.europa.eu/r5r/status",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "It MUST take one of the values: 'stat:Completed', 'stat:Deprecated', 'stat:UnderDevelopment', 'stat:Withdrawn'."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The status of the distribution in the context of maturity lifecycle."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The status of the distribution in the context of maturity lifecycle."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "status"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@language" : "en",
+    "@value" : "Disclosure of this data could cause damage to interested parties such as public administrations and businesses. It may refer to personal and professional information as well as to information in the context of business, commerce or trade."
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://purl.org/dc/terms/RightsStatement"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Information that is not disclosed."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "confidential"
+  } ]
+}, {
+  "@id" : "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@language" : "en",
+    "@value" : "This category may include resources that contain sensitive or personal information."
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://purl.org/dc/terms/RightsStatement"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Not publicly accessible for privacy, security or other reasons."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "non-public"
+  } ]
+}, {
+  "@id" : "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@language" : "en",
+    "@value" : "Permissible obstacles include registration and request for API keys, as long as anyone can request such registration and/or API keys."
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://purl.org/dc/terms/RightsStatement"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Publicly accessible by everyone."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "public"
+  } ]
+}, {
+  "@id" : "http://publications.europa.eu/resource/authority/access-right/RESTRICTED",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@language" : "en",
+    "@value" : "This category may include resources that require payment, resources shared under non-disclosure agreements, resources for which the publisher or owner has not yet decided if they can be publicly released."
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://purl.org/dc/terms/RightsStatement"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Only available under certain conditions."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "restricted"
+  } ]
+}, {
+  "@id" : "http://publications.europa.eu/resource/authority/access-right/SENSITIVE",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://purl.org/dc/terms/RightsStatement"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Sensitive non-classified (SNC) information, information whose unauthorised disclosure could cause damage to the Commission or other interested parties such as businesses, companies, intellectual property or personal data but which is not EU classified information."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "sensitive"
+  } ]
+}, {
+  "@id" : "http://purl.org/adms/status/Completed",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#inScheme" : [ {
+    "@id" : "http://purl.org/adms/status/1.0"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#notation" : [ {
+    "@value" : "Completed"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Completed"
+  } ]
+}, {
+  "@id" : "http://purl.org/adms/status/Deprecated",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#inScheme" : [ {
+    "@id" : "http://purl.org/adms/status/1.0"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#notation" : [ {
+    "@value" : "Deprecated"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Deprecated"
+  } ]
+}, {
+  "@id" : "http://purl.org/adms/status/UnderDevelopment",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#inScheme" : [ {
+    "@id" : "http://purl.org/adms/status/1.0"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#notation" : [ {
+    "@value" : "UnderDevelopment"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "UnderDevelopment"
+  } ]
+}, {
+  "@id" : "http://purl.org/adms/status/Withdrawn",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#inScheme" : [ {
+    "@id" : "http://purl.org/adms/status/1.0"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#notation" : [ {
+    "@value" : "Withdrawn"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Withdrawn"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/Frequency",
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/LicenseDocument",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A legal document giving official permission to do something with a resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/Location",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "It can be represented using a controlled vocabulary or with geographic coordinates. In the latter case, the use of the Core Location Vocabulary is recommended, following the approach described in the GeoDCAT-AP specification."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A spatial region or named place."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A spatial region or named place."
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/MediaType",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "Media type instances follow the [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types) vocabulary using the <http://www.iana.org/assignments/media-types/> namespace. For example, the IRI of the media type `text/turtle` is <http://www.iana.org/assignments/media-types/text/turtle>."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A media type, e.g. the format of a computer file."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A media type, e.g. the format of a computer file."
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/MediaTypeOrExtent",
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/PeriodOfTime",
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/RightsStatement",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "EU pre-defines the following individuals: accr:PUBLIC, accr:NON_PUBLIC, accr:CONFIDENTIAL, accr:RESTRICTED, accr:SENSITIVE."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/Standard",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A standard or other specification to which a resource conforms."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A standard or other specification to which a resource conforms."
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/abstract",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A summary of the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A summary of the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "abstract"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/accessRights",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies. The following preferred Rights Statement individuals are defined: `accr:PUBLIC`, `accr:NON_PUBLIC`, `accr:CONFIDENTIAL`, `accr:RESTRICTED`, `accr:SENSITIVE`"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Information about who can access the resource or an indication of its security status."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://purl.org/dc/terms/RightsStatement"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "Information about who can access the resource or an indication of its security status."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "accessRights"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/accrualPeriodicity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The frequency at which the Dataset is updated."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://purl.org/dc/terms/Frequency"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The frequency at which the Dataset is updated."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "frequency"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/bibliographicCitation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A bibliographic reference for the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A bibliographic reference for the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "bibliographicCitation"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/conformsTo",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "An implementing rule or other specification."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://purl.org/dc/terms/Standard"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "An implementing rule or other specification."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "conformsTo"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/contributor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "An entity responsible for making contributions to the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Agent"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "An entity responsible for making contributions to the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "contributor"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/creator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "An entity responsible for producing the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Agent"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "An entity responsible for producing the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "creator"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/format",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "dcat:mediaType SHOULD be used if the type of the distribution is defined by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The file format of the Distribution."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://purl.org/dc/terms/MediaTypeOrExtent"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The file format of the Distribution."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "format"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/hasPart",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A related resource that is included either physically or logically in the described resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A related resource that is included either physically or logically in the described resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasPart"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/identifier",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "URI or other unique identifier of the resource being described."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Agent"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "URI or other unique identifier of the resource being described."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "identifier"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/isReferencedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A related resource, such as a publication, that references, cites, or otherwise points to the documented resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A related resource, such as a publication, that references, cites, or otherwise points to the documented resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "isReferencedBy"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/issued",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The date of formal issuance (e.g., publication) of the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The date of formal issuance (e.g., publication) of the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "releaseDate"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/language",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "Recommended practice is to use either a non-literal value\nrepresenting a language from a controlled vocabulary such as\nISO 639-2 or ISO 639-3, or a literal value consisting of an\nIETF Best Current Practice 47\n[[IETF-BCP47](https://tools.ietf.org/html/bcp47)] language\ntag.\n\nExample values: \"en\", \"it\", \"no\", \"da\"\n\nThis property can be repeated if the resource is expressed\nwith multiple languages.\n"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A language of the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A language of the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "language"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/license",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A licence under which the resource is made available."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://purl.org/dc/terms/LicenseDocument"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A licence under which the resource is made available."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "license"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/modified",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The most recent date on which the resource was changed or modified."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The most recent date on which the resource was changed or modified."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "modificationDate"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/publisher",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Agent responsible for making the resource available."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Agent"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "Agent responsible for making the resource available."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "publisher"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/relation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A resource with an unspecified relationship to the cataloged resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Relationship"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A resource with an unspecified relationship to the cataloged resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "relatedResource"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/source",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A related Dataset from which the described Dataset is derived."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A related Dataset from which the described Dataset is derived."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "source"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/spatial",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A geographic region that is covered by the dataset."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://purl.org/dc/terms/Location"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A geographic region that is covered by the dataset."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "geographicalCoverage"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/temporal",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A temporal period that the Dataset covers."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://purl.org/dc/terms/PeriodOfTime"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A temporal period that the Dataset covers."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "temporalCoverage"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/title",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "This property can be repeated for parallel language versions of the name."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A name given to the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A name given to the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "title"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#mandatory"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/type",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "A recommended controlled vocabulary data-type is foreseen. For agents, the value should be chosen from [ADMS publisher type](https://raw.githubusercontent.com/SEMICeu/ADMS-AP/master/purl.org/ADMS_SKOS_v1.00.rdf)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A type of the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@value" : "dcterms:LicenseDocument"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A type of the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "type"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://purl.org/vocab/vann/preferredNamespacePrefix",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/vocab/vann/preferredNamespaceUri",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/vocab/vann/usageNote",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A reference that provides information on how this resource is to be used."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A reference that provides information on how this resource is to be used."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "usageNote"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://spdx.org/rdf/terms#Checksum",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A preferred label of the concept."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A preferred label of the concept."
+  } ]
+}, {
+  "@id" : "http://spdx.org/rdf/terms#ChecksumAlgorithm",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "This specification does not impose any additional requirements to properties for this entity."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Algorithm for Checksums."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "Algorithm for Checksums."
+  } ]
+}, {
+  "@id" : "http://spdx.org/rdf/terms#algorithm",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The algorithm used to produce the subject Checksum."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://spdx.org/rdf/terms#Checksum"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://spdx.org/rdf/terms#ChecksumAlgorithm"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The algorithm used to produce the subject Checksum."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "algorithm"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://spdx.org/rdf/terms#checksum",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "The checksum is related to the downloadURL."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A mechanism that can be used to verify that the contents of a distribution have not changed."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://spdx.org/rdf/terms#Checksum"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A mechanism that can be used to verify that the contents of a distribution have not changed."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "checksum"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://spdx.org/rdf/terms#checksumValue",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A lower case hexadecimal encoded digest value produced using a specific algorithm."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://spdx.org/rdf/terms#Checksum"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#hexBinary"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A lower case hexadecimal encoded digest value produced using a specific algorithm."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "checksumValue"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON",
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A generic resource defined by RDFS."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A generic resource defined by RDFS."
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2000/01/rdf-schema#domain",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2001/XMLSchema#duration",
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#Concept",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "In DCAT-AP, a Concept is used to denote codes within a codelist. See [DCAT-AP](https://semiceu.github.io/DCAT-AP/releases/3.0.0/#controlled-vocs) for expectations and more detail."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "An idea or notion; a unit of thought."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "An idea or notion; a unit of thought."
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#definition",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "This property can be repeated for parallel language versions of the description."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A free-text account of the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A free-text account of the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "description"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#mandatory"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#inScheme",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#notation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#prefLabel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#Kind",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "Note that the class Kind is the parent class for the four explicit types of vCard (Individual, Organization, Location, Group)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A description following the vCard specification, e.g. to provide telephone number and e-mail address for a contact point."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A description following the vCard specification, e.g. to provide telephone number and e-mail address for a contact point."
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasAddress",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasAddress"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasCountryName",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasCountryName"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasEmail",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasEmail"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasFamilyName",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasFamilyName"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasGender",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasGender"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasGeo",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasGeo"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasGivenName",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasGivenName"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasHonorificPrefix",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasHonorificPrefix"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasHonorificSuffix",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasHonorificSuffix"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasInstantMessage",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasInstantMessage"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasKey",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasKey"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasLanguage",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasLanguage"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasLogo",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasLogo"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasMember",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasMember"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasName",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasName"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasNickname",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasNickname"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasNote",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasNote"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasOrganizationName",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasOrganizationName"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasOrganizationUnit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasOrganizationUnit"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasPhoto",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasPhoto"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasPostalCode",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasPostalCode"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasRegion",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasRegion"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasStreetAddress",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasStreetAddress"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasTelephone",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasTelephone"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasUID",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasUID"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/2006/vcard/ns#hasURL",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasURL"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/adms#Identifier",
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/adms#identifier",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A secondary identifier of the Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/adms#Identifier"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A secondary identifier of the Dataset"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "otherIdentifier"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/adms#sample",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A sample distribution of the dataset."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A sample distribution of the dataset."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "sample"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/adms#versionNotes",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "This property can be repeated for parallel language versions of the version notes."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A description of the differences between this version and a previous version of the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@value" : "dcat:Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A description of the differences between this version and a previous version of the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "versionNotes"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#DataService",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A collection of operations that provides access to one or more datasets or data processing functions."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A collection of operations that provides access to one or more datasets or data processing functions."
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#Dataset",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "This class represents the actual dataset as published by the dataset provider. In cases where a distinction between the actual dataset and its entry in the catalog is necessary (because metadata such as modification date and maintainer might differ), the catalog record class can be used for the latter."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A collection of data, published or curated by an agent, and available for access or download in one or more representations."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A collection of data, published or curated by an agent, and available for access or download in one or more representations."
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#DatasetSeries",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A collection of datasets that are published separately, but share some characteristics that group them."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A collection of datasets that are published separately, but share some characteristics that group them."
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#Distribution",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "This represents a general availability of a dataset. It implies no information about the actual access method of the data, i.e., whether by direct download, API, or through a Web page. The use of dcat:downloadURL property indicates directly downloadable distributions."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A physical embodiment of the Dataset in a particular format."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A physical embodiment of the Dataset in a particular format."
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#Relationship",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "An association class for attaching additional information to a relationship between DCAT Resources."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "An association class for attaching additional information to a relationship between DCAT Resources."
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#Resource",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Resource published or curated by an agent."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "Resource published or curated by an agent."
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#Role",
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#accessService",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A data service that gives access to the distribution of the dataset."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#DataService"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A data service that gives access to the distribution of the dataset."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "accessService"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#accessURL",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "The resource at the access URL may contain information about how to get the Dataset."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A URL that gives access to a Distribution of the Dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A URL that gives access to a Distribution of the Dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "accessURL"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#mandatory"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#bbox",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The geographic bounding box of a resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://purl.org/dc/terms/Location"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The geographic bounding box of a resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "bbox"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#byteSize",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The size of a Distribution in bytes."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The size of a Distribution in bytes."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "byteSize"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#centroid",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The geographic center (centroid) of a resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://purl.org/dc/terms/Location"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The geographic center (centroid) of a resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "centroid"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#compressFormat",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "It SHOULD be expressed using a media type as defined in the official register of media types managed by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The format of the file in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://purl.org/dc/terms/MediaType"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The format of the file in which the data is contained in a compressed form, e.g. to reduce the size of the downloadable file."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "compressFormat"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#contactPoint",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Contact information that can be used for sending comments about the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2006/vcard/ns#Kind"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "Contact information that can be used for sending comments about the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "contactPoint"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#distribution",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "An available distribution for the dataset."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "An available distribution for the dataset."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "distribution"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#downloadURL",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A URL that is a direct link to a downloadable file in a given format. The format is indicated by the distribution's 'dterms:format' and/or 'dcat:mediaType'."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A URL that is a direct link to a downloadable file in a given format. The format is indicated by the distribution's 'dterms:format' and/or 'dcat:mediaType'."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "downloadURL"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#endpointDescription",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A description of the services available via the end-points, including their operations, parameters etc."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#DataService"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A description of the services available via the end-points, including their operations, parameters etc."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "endpointDescription"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#endpointURL",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The root location or primary endpoint of the service (an IRI)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#DataService"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The root location or primary endpoint of the service (an IRI)."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "endpointURL"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#mandatory"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#hasRole",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A function of an entity or agent with respect to another entity or resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Relationship"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Role"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A function of an entity or agent with respect to another entity or resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasRole"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#hasVersion",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "This property is intended for relating a non-versioned or abstract resource to several versioned resources, e.g., snapshots."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A related resource that is a version, edition, or adaptation of the described resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A related resource that is a version, edition, or adaptation of the described resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "hasVersion"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#inSeries",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A dataset series of which the dataset is part."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#DatasetSeries"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A dataset series of which the dataset is part."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "inSeries"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#keyword",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A keyword or tag describing the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A keyword or tag describing the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "keyword"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#landingPage",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "It is intended to point to a landing page at the original\ndata provider, not to a page on a site of a third party,\nsuch as an aggregator.\n\nFor distributions, if they are accessible only through a\nlanding page (i.e. direct download URLs are not known), then\nthe landing page link should be duplicated as accessURL on a\ndistribution.\n"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A web page that provides access to the resource and/or additional information (e.g. the distribution for a dataset)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Document"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A web page that provides access to the resource and/or additional information (e.g. the distribution for a dataset)."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "landingPage"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#mediaType",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The media type of the Distribution as defined in the official register of media types managed by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://purl.org/dc/terms/MediaType"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The media type of the Distribution as defined in the official register of media types managed by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "mediaType"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#packageFormat",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "It SHOULD be expressed using a media type as defined in the official register of media types managed by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types) and prefixed with `https://www.iana.org/assignments/media-types/`."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The format of the file in which one or more data files are grouped together, e.g. to enable a set of related files to be downloaded together."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://purl.org/dc/terms/MediaType"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The format of the file in which one or more data files are grouped together, e.g. to enable a set of related files to be downloaded together."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "packageFormat"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#qualifiedRelation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A description of a relationship with another resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Relationship"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A description of a relationship with another resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "qualifiedRelation"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#servesDataset",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "This property refers to a collection of data that this data service can distribute."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#DataService"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "This property refers to a collection of data that this data service can distribute."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "servesDataset"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#spatialResolutionInMeters",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The minimum spatial separation resolvable in a dataset, measured in meters."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The minimum spatial separation resolvable in a dataset, measured in meters."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "spatialResolution"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#temporalResolution",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The minimum time period resolvable in the dataset."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#duration"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The minimum time period resolvable in the dataset."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "temporalResolution"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#theme",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "The set of themes used to categorize the resources are organized in a skos:ConceptScheme, skos:Collection, owl:Ontology or similar, describing all the categories and their relations in the catalog."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A category of the resource.  A resource may be associated with multiple themes."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A category of the resource.  A resource may be associated with multiple themes."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "theme"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#recommended"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/dcat#version",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "DCAT does not prescribe how a version name / identifier should be specified, and refers for guidance to [DWBP]'s Best Practice 7: Provide a version indicator."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Version indicator (name or identifier) of a resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "Version indicator (name or identifier) of a resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "version"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/locn#Geometry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "This specification does not impose any additional requirements to properties for this entity."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The locn:Geometry class provides the means to identify a location as a point, line, polygon, etc. expressed using coordinates in some coordinate reference system."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The locn:Geometry class provides the means to identify a location as a point, line, polygon, etc. expressed using coordinates in some coordinate reference system."
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/locn#geometry",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The geographic center (centroid) of a resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://purl.org/dc/terms/Location"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/locn#Geometry"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The geographic center (centroid) of a resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "geometry"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/prov#Activity",
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/prov#Agent",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.w3.org/ns/prov#Attribution",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "See [explanations and examples in W3C/DCAT](https://www.w3.org/TR/vocab-dcat-3/#qualified-attribution)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "An agent that has some form of responsibility for a resource, but which is not a publisher nor a creator of the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Agent"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "An agent that has some form of responsibility for a resource, but which is not a publisher nor a creator of the resource."
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/prov#qualifiedAttribution",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "An Agent having some form of responsibility for the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Attribution"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "An Agent having some form of responsibility for the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "qualifiedAttribution"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/prov#wasDerivedFrom",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "Relates a resource to another resource it was derived from."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "wasDerivedFrom"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/prov#wasGeneratedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "An activity that generated, or provides the business context for, the creation of the dataset."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Activity"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "An activity that generated, or provides the business context for, the creation of the dataset."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "wasGeneratedBy"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "http://xmlns.com/foaf/0.1/Agent",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "A resource that acts or has the power to act."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "An agent (eg. person, group, software or physical artifact)."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "An agent (eg. person, group, software or physical artifact)."
+  } ]
+}, {
+  "@id" : "http://xmlns.com/foaf/0.1/Document",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "The Document class represents those things which are, broadly conceived, 'documents'. E.g. images."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A document."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A document."
+  } ]
+}, {
+  "@id" : "http://xmlns.com/foaf/0.1/name",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A name of the agent."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Agent"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A name of the agent."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "name"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#mandatory"
+  } ]
+}, {
+  "@id" : "http://xmlns.com/foaf/0.1/page",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A page or document about this resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Document"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A page or document about this resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "documentation"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ],
+  "https://w3id.org/emmo/application/datadoc#conformance" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#optional"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/application/datadoc#ConformanceLevel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The class of conformance levels. Includes the following individuals: `ddoc:mandatory`, `ddoc:recommended` and `ddoc:optional`."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "_:genid1"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "The class of conformance levels. Includes the following individuals: `ddoc:mandatory`, `ddoc:recommended` and `ddoc:optional`."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ConformanceLevel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/application/datadoc#conformance",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@language" : "en",
+    "@value" : "It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended' or 'ddoc:optional'."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Whether the annotation is mandatory, recommended or optional."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc"
+  }, {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#ConformanceLevel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Whether the annotation is mandatory, recommended or optional."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "conformance"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/application/datadoc#curationDate",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Date of curation."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "Date of curation."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "curationDate"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/application/datadoc#curator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@value" : "Use `ddoc:curationDate` to refer to the date of curation."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "The agent that curated the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Agent"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "The agent that curated the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "curator"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/application/datadoc#datadoc",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@language" : "en",
+    "@value" : "Intended to be used as a theme individual for basic data documentation."
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Basic data documentation."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/application/datadoc#datatype",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A datatype for annotations and data properties."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A datatype for annotations and data properties."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "datatype"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/application/datadoc#mandatory",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#ConformanceLevel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "mandatory"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/application/datadoc#optional",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#ConformanceLevel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "optional"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/application/datadoc#process",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@language" : "en",
+    "@value" : "Intended to be used as a theme individual for basic documentation of processes."
+  } ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2004/02/skos/core#Concept"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Basic documentation of processes."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "process"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/application/datadoc#recommended",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#ConformanceLevel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "recommended"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/application/datadoc#unitSymbol",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ],
+  "http://purl.org/vocab/vann/usageNote" : [ {
+    "@language" : "en",
+    "@value" : "The unit should be written with standard SI unit symbols.  Examples: As, μm, J, m/s²"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A SI unit associated to a property."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A SI unit associated to a property."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "unitSymbol"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#Datamodel",
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://www.w3.org/2000/01/rdf-schema#Datatype"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#Generator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A generator that can serialise an instance of a datamodel into a distribution."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/domain/oteio#Parser"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A generator that can serialise an instance of a datamodel into a distribution."
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#Parser",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A parser that can parse a distribution into an instance of a datamodel."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A parser that can parse a distribution into an instance of a datamodel."
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#generator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A generator that can create the distribution."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Distribution"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/emmo/domain/oteio#Generator"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A generator that can create the distribution."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "generator"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#generatorType",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Generator type. Ex: `application/vnd.dlite-generate`."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/emmo/domain/oteio#Generator"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "Generator type. Ex: `application/vnd.dlite-generate`."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "generatorType"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#hasConfiguration",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A JSON string with configurations specific to the parser or generator."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/emmo/domain/oteio#Parser"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A JSON string with configurations specific to the parser or generator."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "configuration"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#hasDatamodel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "URI of DLite datamodel for the dataset."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/emmo/domain/oteio#Datamodel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "URI of DLite datamodel for the dataset."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "datamodel"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#hasDatamodelStorage",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "URL to DLite storage plugin where the datamodel is stored."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "URL to DLite storage plugin where the datamodel is stored."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "datamodelStorage"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#mapping",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A list of subject-predicate-object triples mapping the datamodel to ontological concepts."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A list of subject-predicate-object triples mapping the datamodel to ontological concepts."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "mappings"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#mappingFormat",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "File format for `mappingURL`. Defaults to \"turtle\"."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "File format for `mappingURL`. Defaults to \"turtle\"."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "mappingFormat"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#mappingURL",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "URL to a document defining the mappings of the datamodel. The file format is given by `mappingFormat`. Defaults to turtle."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Dataset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "URL to a document defining the mappings of the datamodel. The file format is given by `mappingFormat`. Defaults to turtle."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "mappingURL"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#parser",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A parser that can parse the distribution."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#DataService"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/emmo/domain/oteio#Parser"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A parser that can parse the distribution."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "parser"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#parserType",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Parser type. Ex: `application/vnd.dlite-parse`."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/emmo/domain/oteio#Parser"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "Parser type. Ex: `application/vnd.dlite-parse`."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "parserType"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/domain/oteio#statement",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A list of subject-predicate-object triples with additional RDF statements documenting the resource."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/dcat#Resource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A list of subject-predicate-object triples with additional RDF statements documenting the resource."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@value" : "statements"
+  } ],
+  "http://www.w3.org/ns/dcat#theme" : [ {
+    "@id" : "https://w3id.org/emmo/application/datadoc#datadoc"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink/ddoc",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://purl.org/dc/terms/title" : [ {
+    "@language" : "en",
+    "@value" : "Concepts defined in the ddoc vocabulary."
+  }, {
+    "@value" : "Data documentation ontology"
+  } ],
+  "http://purl.org/vocab/vann/preferredNamespacePrefix" : [ {
+    "@value" : "ddoc"
+  } ],
+  "http://purl.org/vocab/vann/preferredNamespaceUri" : [ {
+    "@value" : "https://w3id.org/emmo/application/datadoc#"
+  } ],
+  "http://www.w3.org/2002/07/owl#priorVersion" : [ {
+    "@value" : "0.0.0"
+  } ],
+  "http://www.w3.org/2002/07/owl#versionIRI" : [ {
+    "@id" : "https://w3id.org/pink/0.0.1/ddoc"
+  } ],
+  "http://www.w3.org/2002/07/owl#versionInfo" : [ {
+    "@value" : "0.0.1"
+  } ]
+} ]

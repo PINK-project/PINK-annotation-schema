@@ -1,0 +1,1593 @@
+[ {
+  "@id" : "_:genid1",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/pink#hasParticipant"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://w3id.org/emmo/hume#DataProcessingSoftware"
+  } ]
+}, {
+  "@id" : "_:genid2",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://w3id.org/pink#implementsModel"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MathematicalModel"
+  } ]
+}, {
+  "@id" : "_:genid3",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/pink#Bagging"
+    }, {
+      "@id" : "https://w3id.org/pink#Boosting"
+    }, {
+      "@id" : "https://w3id.org/pink#RandomForest"
+    } ]
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/abstract",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/title",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#altLabel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#definition",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#example",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#prefLabel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/2004/02/skos/core#scopeNote",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#AnalogicalIcon",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#Model"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "AnalogicalIcon"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A model that represents the internal logical structure of the object."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@language" : "en",
+    "@value" : "A physics equation is replicating the mechanisms internal to the object."
+  }, {
+    "@language" : "en",
+    "@value" : "Electrical diagram is diagrammatic and resemblance"
+  }, {
+    "@language" : "en",
+    "@value" : "MODA and CHADA are diagrammatic representation of a simulation or a characterisation workflow."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "AnalogicalModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#scopeNote" : [ {
+    "@language" : "en",
+    "@value" : "A model that focus on HOW the object works."
+  }, {
+    "@language" : "en",
+    "@value" : "The subclass of model inspired by Peirceian category (b) the diagram, whose internal relations, mainly dyadic or so taken, represent by analogy (with the same logic) the relations in something (e.g. math formula, geometric flowchart)."
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#ArtificialIntelligenceModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#seeAlso" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "@value" : "https://www.researchgate.net/publication/350296216/figure/fig3/AS:11431281115851476@1675133526198/The-brief-classification-of-AI.png"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#DataBasedModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "ArtificialIntelligence"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A machine-based system that preceives its environment, pursues goals, adapts to feedback/change and provides information/takes action.\n."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ArtificialIntelligenceModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#AtomicInteractionModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#AtomisticModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A physics-based model based on a physics equation describing the interaction between atoms."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "AtomicInteractionModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#AtomisticModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MaterialsModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@language" : "en",
+    "@value" : "A physics-based model based on a physics equation describing the behaviour of atoms."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "AtomisticModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#AtomisticMolecularDynamics",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#AtomisticModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Atomistic model that models the physical movements of atoms and molecules over time by numerically solving Newton’s equations of motion."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "AtomisticMolecularDynamics"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#ContinuumModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MaterialsModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@language" : "en",
+    "@value" : "A physics-based model based on a physics equation describing the behaviour of continuum volume."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ContinuumModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#CumulativeHypergeometricTest",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#StatisticalTest"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A statistical test that determines the statistical significance (p-value) of observing `k` or more/fewer successes in a sample drawn without replacement from a finite population. It tests if a subpopulation is over- or under-represented, often calculating `P(X>=k)` or `P(X<=k)`. It is essential for small populations where sampling changes probabilities."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "CumulativeHypergeometricTest"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#DataBasedModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MathematicalModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A mathematical model based on observed data, measurements, or experimental results."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "DataBasedModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#DataProcessing",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#Computation"
+  }, {
+    "@id" : "_:genid1"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A computation that provides a data output following the elaboration of some input data, using a data processing application."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "DataProcessing"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#DataProcessingSoftware",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#Software"
+  }, {
+    "@id" : "_:genid2"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "DataProcessingApplication"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A software program aimed for data processing."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "DataProcessingSoftware"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#ElectronicModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MaterialsModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A physics-based model based on a physics equation describing the behaviour of electrons."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@language" : "en",
+    "@value" : "Density functional theory.\nHartree-Fock."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ElectronicModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#FunctionalIcon",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#Model"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "FunctionalIcon"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A model that imitates one representative character of the object. It share external similarities with the object, but not necessarily the same internal logical structure."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@language" : "en",
+    "@value" : "A data based model is only a functional model, since it provide the same relations between the properties of the object (e.g., it can predict some properties as function of others) but is not considering the internal mechanisms (i.e., it can ignore the physics)."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "FunctionalModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#scopeNote" : [ {
+    "@language" : "en",
+    "@value" : "A model that focusing WHAT the object does."
+  }, {
+    "@language" : "en",
+    "@value" : "This subclass of model inspired by Peirceian category (c) the metaphor, which represents the representative character of a sign by representing a parallelism in something else."
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#GenerativeAIModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#DeepLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "GenerativeArtificialIntelligenceModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "An AI model that can generate new content, like text, images or code."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@language" : "en",
+    "@value" : "Chatbots"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "GenerativeAIModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#MachineLearningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#seeAlso" : [ {
+    "@value" : "Hutter F, Kotthoff L, Vanschoren J (2019) Automated Machine Learning. Springer, New York."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#CognitionAndLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "AI model that learns progressively by discovering implicit patterns and performing an intellectual task without explicit instructions in advance."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "MachineLearningModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#MaterialsModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#PhysicsBasedModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A solvable set of one Physics Equation and one or more Materials Relations."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "MaterialsModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#MathematicalModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#AnalogicalIcon"
+  }, {
+    "@id" : "https://w3id.org/pink#Information"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "An analogical model expressed in mathematical language."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "MathematicalModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#scopeNote" : [ {
+    "@language" : "en",
+    "@value" : "A mathematical model can be defined as a description of a system using mathematical concepts and language to facilitate proper explanation of a system or to study the effects of different components and to make predictions on patterns of behaviour.\n\nAbramowitz and Stegun, 1968"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#MesoscopicModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MaterialsModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@language" : "en",
+    "@value" : "A physics-based model based on a physics equation describing the behaviour of mesoscopic entities, i.e. a set of bounded atoms like a molecule, bead or nanoparticle."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "MesoscopicModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#NaturalLanguageProcessingModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#PerceptionModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "An AI model that understands and generates human language."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@language" : "en",
+    "@value" : "Chatbots"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "NaturalLanguageProcessingModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#PhysicsBasedModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
+    "@language" : "en",
+    "@value" : "CEN Workshop Agreement, CWA 17284 Materials modelling - terminology, classification and metadata"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MathematicalModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A mathematical model based on a fundamental physics theory which defines the relations between physics quantities of an entity."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "PhysicsBasedModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#PhysicsEquation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#PhysicsBasedModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "An 'equation' that stands for a 'physical_law' by mathematically defining the relations between physics_quantities."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@language" : "en",
+    "@value" : "The Newton's equation of motion.\nThe Schrödinger equation.\nThe Navier-Stokes equation."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "PhysicsEquation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#Replica",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#FunctionalIcon"
+  }, {
+    "@id" : "https://w3id.org/emmo/hume#ResemblanceIcon"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A model that not only resembles the object, but also can express some of the object's functions."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@language" : "en",
+    "@value" : "A small scale replica of a plane tested in a wind gallery shares the same functionality in terms of aerodynamic behaviour of the bigger one."
+  }, {
+    "@language" : "en",
+    "@value" : "Pinocchio is a functional model of a boy since it imitates the external behaviour without having the internal biological structure of a human being (it is made of magic wood...)."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Replica"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#ResemblanceIcon",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#Model"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "ResemblanceIcon"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A model that mimics the spatial or temporal shape of the object."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@language" : "en",
+    "@value" : "A geographical map that imitates the shape of the landscape and its properties at a specific historical time."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ResemblanceModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#scopeNote" : [ {
+    "@language" : "en",
+    "@value" : "A model that focus on WHERE/WHEN the object is, in the sense of spatial or temporal shape."
+  }, {
+    "@language" : "en",
+    "@value" : "The subclass of model inspired by Peirceian category a) the image, which depends on a simple quality (e.g. picture)."
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#StatisticalModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MathematicalModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A mathematical model that embodies a set of statistical assumptions concerning the generation of sample data (and similar data from a larger population)."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "StatisticalModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#StatisticalTest",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#StatisticalModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A statistical model for analyzing data to determine if research results are significant and to decide whether to reject the null hypothesis, assessing if findings occurred by chance."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "StatisticalTest"
+  } ]
+}, {
+  "@id" : "https://w3id.org/emmo/hume#StructureManipulationModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#AtomisticModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A physics based model that manipulates atomic structures."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "StructureManipulationModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#AbductiveReasoningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#CognitionAndLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Identifies the most plausible explanation for incomplete observations.\nAnalogical Reasoning"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "AbductiveReasoningModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#Adaboost",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#Classification"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A supervised ensemble learning algorithm primarily used for classification and, less commonly, regression tasks."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Adaboost"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#AnalogicalReasoningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#CognitionAndLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Solves new problems by drawing parallels to known scenarios."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "AnalogicalReasoningModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#ArtificialNeuralNetwork",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MachineLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "NeuralNetwork"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "AI model inspired by the human brain, featuring interconnected layers of artificial neurons that process data to recognize complex patterns, make predictions, and drive machine learning, especially in tasks like computer vision and natural language processing."
+  }, {
+    "@language" : "en",
+    "@value" : "Neural networks learn by adjusting connection weights via training, with deep networks employing multiple layers for high-level abstraction."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ArtificialNeuralNetwork"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#Autoencoder",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#ArtificialNeuralNetwork"
+  }, {
+    "@id" : "https://w3id.org/pink#DimensionalityReduction"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Neural networks designed to compress input data into a lower-dimensional bottleneck layer and then reconstruct it, effectively learning efficient, non-linear representations."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Autoencoder"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#Bagging",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#PredictionLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A prediction learning meta-algorithm designed to improve the stability and accuracy of predictive models, specifically by reducing variance and helping to avoid overfitting."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Bagging"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#BehaviorModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#ArtificialIntelligenceModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "AI systems trained on vast, multimodal datasets—including video, sensor data, and action logs—to understand, predict, and simulate human-like actions and complex decision-making processes."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "BehaviorModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#scopeNote" : [ {
+    "@language" : "en",
+    "@value" : "Unlike LLMs that process text, LBMs focus on \"what people do,\" utilizing reinforcement learning to adapt to dynamic environments."
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#Boosting",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#PredictionLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A prediction learning ensemble model designed to improve the predictive performance of models by converting multiple \"weak learners\" (models with low predictive power, often simple decision trees) into a single \"strong learner\"."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Boosting"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#Classification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#SupervisedLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A supervised learning model that trains models using labeled data to categorize new, unseen data into predefined classes."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Classification"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#Clustering",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#UnsupervicedLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "An unsupervised learning model that automatically groups unlabeled data into clusters based on similarities in their features."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Clustering"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#CognitionAndLearningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#ArtificialIntelligenceModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "Blends artificial intelligence with cognitive science to simulate human thought processes (sensing, reasoning, and learning) rather than just executing predefined rules."
+  }, {
+    "@language" : "en",
+    "@value" : "CognitiveAI"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "CognitionAndLearningModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#CollaborativeFiltering",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#RecommenderSystem"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@value" : "A widely used recommender system model that primarily operates by leveraging similarities between users and items based on past interactions (like ratings or purchases)."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "CollaborativeFiltering"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#Computation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/pink#ComputerVision",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#PerceptionModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "MachineVision"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "AI system that is able to acquire, understand and use digital images to recognize activities, objects, and images."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ComputerVision"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#scopeNote" : [ {
+    "@language" : "en",
+    "@value" : ""
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#ContentExtraction",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#NaturalLanguageUnderstanding"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A natural language model tha tinvolves analyzing text to move beyond keyword matching, identifying the \"who, what, and why\" behind user input by extracting entities, themes, and semantic relationships."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ContentExtraction"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#ConvolutionNeuralNetwork",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#DeepLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A type of deep learning based on feedforward neural network that learns features via filter (or kernel) optimization."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ConvolutionNeuralNetwork"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#DecisionTree",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#Classification"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A non-parametric, supervised learning algorithm used for both classification and regression tasks."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "DecisionTree"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#DeepFeedForwardNetwork",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#DeepLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Foundational deep learning model that approximate complex functions by mapping inputs to outputs through multiple, unidirectional hidden layers."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "DeepFeedForwardNetwork"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#DeepLearningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#ArtificialNeuralNetwork"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Machine learning based on artificial neural networks with multiple layers (often hundreds) that simulate the human brain's structure to learn complex, non-linear patterns from vast datasets."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "DeepLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#scopeNote" : [ {
+    "@language" : "en",
+    "@value" : "Deep learning powers modern AI in image recognition, NLP, and generative models, outperforming traditional algorithms."
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#DimensionalityReduction",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MachineLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "AI model that transforms high-dimensional datasets into lower-dimensional representations while preserving essential information, mitigating the \"curse of dimensionality."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "DimensionalityReduction"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#scopeNote" : [ {
+    "@language" : "en",
+    "@value" : ""
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#DynamicProgramming",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#ReinforcedLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : ""
+  }, {
+    "@language" : "en",
+    "@value" : "A reinforced learning model for solving complex problems by breaking them down into smaller, simpler subproblems and storing the results to avoid redundant calculations."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "DynamicProgramming"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#EnsembleLearningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MachineLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A machine learning model that combines multiple individual models (often called base learners or weak learners) to produce a single, more accurate, and robust predictive model."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "EnsembleLearningModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#ExpertSystem",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#KnowledgeRepresentation"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "AI system that contains manually inputted rules and data to copy human decision-making abilities."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ExpertSystem"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#scopeNote" : [ {
+    "@language" : "en",
+    "@value" : ""
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#ExtraTreesClassifier",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#Classification"
+  }, {
+    "@id" : "https://w3id.org/pink#EnsembleLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "An ensemble learning model that builds multiple decision trees by choosing random splits for each node, rather than searching for the most discriminative threshold like Random Forest."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ExtraTreesClassifier"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#GenerativeAdversarialNetwork",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#DeepLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A deep learning framework where two neural networks, the generator and discriminator, compete against each other to create new, synthetic instances of data (images, music, text) that resemble training data."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "GenerativeAdversarialNetwork"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#GraphBasedLearningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#SemiSupervicedLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "GraphBasedAlgorithm"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A semi-superviced machine learning paradigm that analyzes data structured as nodes and edges, exploiting topological relationships rather than treating data points as independent."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "GraphBasedLearningModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#GraphNeuralNetwork",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#DeepLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Deep learning model designed to analyze data represented as graphs with nodes (entities) and edges (relationships)."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "GraphNeuralNetwork"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#HeuristicLearningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#ReinforcedLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "HeuristicMethod"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : ""
+  }, {
+    "@language" : "en",
+    "@value" : "An experience-based, discovery-oriented reinforced learning model to problem-solving that uses \"rules of thumb,\" intuition, and mental shortcuts to find satisfactory solutions quickly when optimal ones are impractical."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "HeuristicLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#scopeNote" : [ {
+    "@language" : "en",
+    "@value" : ""
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#ImageClassification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#ComputerVision"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A core computer vision task that assigns a predefined label or category to an entire image based on its visual content."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ImageClassification"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#ImageSegmentation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#ComputerVision"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Computer vision algorithm for partitioning a digital image into distinct, meaningful regions at the pixel level to identify object boundaries and simplify image analysis."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ImageSegmentation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#Information",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/pink#KnowledgeRepresentation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#seeAlso" : [ {
+    "@value" : "Liu HC, You JX, Li Z, Tian G (2017) Fuzzy Petri nets for knowledge representation and reasoning: A literature review. Eng Appl Artif Intell 60:45–56."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#CognitionAndLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Represent facts in the format of reusable knowledge. It combines a series of rules to simulate how a human brain functions through artificial means. It can make inferences and judgments based on knowledge provided by one or more experts and simulate human experts' decision-making process."
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#LargeLanguageModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#ModernGenerativeAIModel"
+  }, {
+    "@id" : "https://w3id.org/pink#TextGeneration"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "LLM"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A specialized subset of Generative Artificial Intelligence that is fundamentally defined by its use of transformer architecture (specifically encoders, decoders, or both) to process and generate human-like text by predicting the next token in a sequence."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "LargeLanguageModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#LinearDiscriminantAnalysis",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#DimensionalityReduction"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A dimensionality reduction model used in classification tasks to find a feature subspace that maximizes class separability."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "LinearDiscriminantAnalysis"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#Logic",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#CognitionAndLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "DeductiveReasoning"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A AI system based on generic rules of the reasoning behind different cases of problem-solving."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#example" : [ {
+    "@language" : "en",
+    "@value" : "If A=B and B=C, then A=C"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "Logic"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#LogisticRegressionModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#RegressionModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A fundamental supervised machine learning algorithm used for classification, predicting the probability of a categorical dependent variable."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "LogisticRegressionModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#LowDensitySeparationModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#SemiSupervicedLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A semi-supervised model where the decision boundary between classes is placed in a low-density region of the data distribution."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "LowDensitySeparationModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#MachineTranslation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#NaturalLanguageUnderstanding"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A natural language understanding model that enables machine translation to move beyond word-for-word substitution by analyzing intent, context, and semantic meaning."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "MachineTranslation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#Model",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/pink#ModernGenerativeAIModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#GenerativeAIModel"
+  }, {
+    "@id" : "https://w3id.org/pink#TransformerAI"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Generative AI based on the transformer architecture."
+  }, {
+    "@language" : "en",
+    "@value" : "ModernGenerativeAIModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#MonteCarloLearningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#ReinforcedLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "MonteCarloMethod"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A model-free reinforcement learning model that estimates value functions by averaging total returns from complete episodes of experience."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "MonteCarloLearningModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#NaiveBayes",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#Classification"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A family of supervised learning algorithms used for classification problems, such as spam detection and sentiment analysis."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "NaiveBayes"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#NaturalLanguageClassification",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#NaturalLanguageUnderstanding"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A natural language understandig model that automatically assigns predefined categories, tags, or labels to unstructured text."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "NaturalLanguageClassification"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#NaturalLanguageGeneration",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#NaturalLanguageProcessingModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A subfield of natural language processing (NLP) that automatically converts structured data or input into human-like written or spoken text."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "NaturalLanguageGeneration"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#NaturalLanguageUnderstanding",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#NaturalLanguageProcessingModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A subfield natural language processing (NLP) that enables machines to comprehend the intent, sentiment, and context behind human language."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "NaturalLanguageUnderstanding"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#ObjectDetection",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#ComputerVision"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A computer vision model that combines image classification and localization to identify, label, and locate multiple objects within images or videos."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ObjectDetection"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#PerceptionModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#ArtificialIntelligenceModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "KnowledgeBasedInferenceEngine"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "AI model that interact with the external world and process sensory information."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "PerceptionModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#PlanningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#CognitionAndLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "Planning"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "System for intelligent planning and scheduling of tasks."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "PlanningModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#PredictionLearningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#SupervisedLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "PredictiveModelling"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A branch of supervised learning that uses historical data, statistical algorithms, and data mining techniques to identify patterns and forecast future outcomes."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "PredictionLearningModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#PrincipalComponentAnalysis",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#DimensionalityReduction"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "linear feature extraction model that transforms data into a new set of variables (principal components) that maximize variance."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "PrincipalComponentAnalysis"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#ProbabilityModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#seeAlso" : [ {
+    "@value" : "Anastasopoulos A, Chiang D, Duong L (2016) An unsupervised probability model for speech-to-translation alignment of low-resource languages. arXiv preprint arXiv:1609.08139."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#CognitionAndLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "InductiveReasining"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "AI system based on the probabilistic relationships between variables based on mathematical models."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#scopeNote" : [ {
+    "@language" : "en",
+    "@value" : "Generalizes from specific observations, identifying patterns to predict outcomes (probabilistic)."
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#QuestionAnswering",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#NaturalLanguageUnderstanding"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A subfield of natural language processing and information retrieval that focuses on building systems capable of automatically answering questions posed by humans in natural language."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "QuestionAnswering"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#RandomForest",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#PredictionLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A prediction learning model for classification and regression that builds multiple decision trees during training."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "RandomForest"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#RecommenderSystem",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#SupervisedLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "Recommendation"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A information filtering system using supervised learning to suggest items most relevant to a particular user."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "RemommenderSystem"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#RecurrentNeuralNetwork",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#DeepLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Neural network designed for sequential or time-series data, featuring feedback connections that allow information to persist."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "RecurrentNeuralNetwork"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#RegressionModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#SupervisedLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A supervised learning model used to predict continuous, numerical output values based on labeled training data."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "RegressionModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#ReinforcedLearningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MachineLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "ReinforcementLearning"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A machine learning model where an intelligent \"agent\" learns to make optimal, sequential decisions by interacting with an environment, using trial-and-error to maximize cumulative rewards."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "ReinforcedLearningModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#SelfTrainingModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#SemiSupervicedLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A semi-supervised machine learning model that improves model performance by iteratively labeling unlabeled data."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "SelfTrainingModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#SemiSupervicedLearningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MachineLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A machine learning paradigm that trains models using a small amount of labeled data combined with a large volume of unlabeled data."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "SemiSupervicedLearningModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#SiameseNeuralNetwork",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#DeepLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Class of neural network architectures containing two or more identical subnetworks with shared weights."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "SiameseNeuralNetwork"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#Software",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "https://w3id.org/pink#StepwiseRegressionModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#RegressionModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A regression model of fitting regression models in which the choice of predictive variables is carried out by an automatic procedure."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "StepwiseRegressionModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#SupervisedLearningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MachineLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A machine learning paradigm where models are trained using labeled data (input data paired with the correct output) to learn mapping functions that predict outcomes for new, unseen data."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "SupervisedLearningModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#SupportVectorMachine",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#Classification"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "SVM"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Supervised machine learning algorithms used for classification, regression, and outlier detection."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "SupportVectorMachine"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#TDistributedStochasticNeighborEmbedding",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#DimensionalityReduction"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#altLabel" : [ {
+    "@language" : "en",
+    "@value" : "t-SNE"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A non-linear dimensionality reduction model excellent for visualizing high-dimensional data in 2D or 3D."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "TDistributedStochasticNeighborEmbedding"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#TargetTracking",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#ComputerVision"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A computer vision model for automatically identifying objects in a video and interpreting them as a set of trajectories with high accuracy."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "TargetTracking"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#TextGeneration",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#NaturalLanguageGeneration"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Natural language subfield that focuses on automatically producing human-like, coherent, and contextually relevant text or speech from structured or unstructured data."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "TextGeneration"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#TransformerAI",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#DeepLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "Deep-learning architecture introduced by Google in 2017 that power modern generative AI like ChatGPT and Gemini."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "TransformerAI"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#scopeNote" : [ {
+    "@language" : "en",
+    "@value" : ""
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#UnsupervicedLearningModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/emmo/hume#MachineLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "A type of machine learning that analyzes and clusters unlabeled datasets to discover hidden patterns, structures, or relationships without human intervention."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "UnsupervicedLearningModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#XGBoostRegessor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/pink#PredictionLearningModel"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#definition" : [ {
+    "@language" : "en",
+    "@value" : "An optimized machine learning algorithm that uses an ensemble of decision trees within a gradient boosting framework to predict continuous numerical values."
+  } ],
+  "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+    "@language" : "en",
+    "@value" : "XGBoostRegressor"
+  } ],
+  "http://www.w3.org/2004/02/skos/core#scopeNote" : [ {
+    "@language" : "en",
+    "@value" : "XGBoost Regressor is widely used in data science competitions and real-world applications due to its speed, performance, and features like built-in regularization and automatic handling of missing values."
+  } ]
+}, {
+  "@id" : "https://w3id.org/pink#hasParticipant",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/pink#implementsModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/pink/models",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://purl.org/dc/terms/abstract" : [ {
+    "@language" : "en",
+    "@value" : "The Models module of PINK Annotation Schema providing a taxonomy for models."
+  } ],
+  "http://purl.org/dc/terms/title" : [ {
+    "@language" : "en",
+    "@value" : "The Models module of PINK Annotation Schema"
+  } ],
+  "http://www.w3.org/2002/07/owl#versionIRI" : [ {
+    "@id" : "https://w3id.org/pink/0.0.1/models"
+  } ],
+  "https://w3id.org/widoco/vocab#introduction" : [ {
+    "@language" : "en",
+    "@value" : "\nThis module is a part of the [PINK Annotation Schema](https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html).\nA model is a useful simplified description of a selected part of the world.\n\nA figure showing how the PINK Annotation Schema categorise models can be found [here](https://pink-project.github.io/PINK-annotation-schema/docs/models.html).\n"
+  } ]
+}, {
+  "@id" : "https://w3id.org/widoco/vocab#introduction",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+} ]

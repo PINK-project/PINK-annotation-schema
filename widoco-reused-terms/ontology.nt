@@ -1,0 +1,331 @@
+<https://w3id.org/pink/reused-terms> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/pink/reused-terms> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/pink/0.0.1/reused-terms> .
+<https://w3id.org/pink/reused-terms> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/pink/0.0.1/matter> .
+<https://w3id.org/pink/reused-terms> <http://purl.org/dc/terms/abstract> "Terms from standard vocabularies reused by the PINK Annotation Schema. These are not changed in PINK. When additional semantics is desired, they are subclassed to new entities in the PINK Ontology."@en .
+<https://w3id.org/pink/reused-terms> <http://purl.org/dc/terms/title> "Standard vocabulary terms reused by PINK"@en .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/abstract
+<http://purl.org/dc/terms/abstract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#scopeNote
+<http://www.w3.org/2004/02/skos/core#scopeNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/prov#category
+<http://www.w3.org/ns/prov#category> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/ns/prov#category> <http://www.w3.org/2000/01/rdf-schema#comment> "Classify prov-o terms into three categories, including 'starting-point', 'qualifed', and 'extended'. This classification is used by the prov-o html document to gently introduce prov-o terms to its users. "@en .
+<http://www.w3.org/ns/prov#category> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+# 
+# http://www.w3.org/ns/prov#component
+<http://www.w3.org/ns/prov#component> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/ns/prov#component> <http://www.w3.org/2000/01/rdf-schema#comment> "Classify prov-o terms into six components according to prov-dm, including 'agents-responsibility', 'alternate', 'annotations', 'collections', 'derivations', and 'entities-activities'. This classification is used so that readers of prov-o specification can find its correspondence with the prov-dm specification."@en .
+<http://www.w3.org/ns/prov#component> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+# 
+# http://www.w3.org/ns/prov#constraints
+<http://www.w3.org/ns/prov#constraints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/ns/prov#constraints> <http://www.w3.org/2000/01/rdf-schema#comment> "A reference to the principal section of the PROV-CONSTRAINTS document that describes this concept."@en .
+<http://www.w3.org/ns/prov#constraints> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#constraints> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2000/01/rdf-schema#seeAlso> .
+# 
+# http://www.w3.org/ns/prov#definition
+<http://www.w3.org/ns/prov#definition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/ns/prov#definition> <http://www.w3.org/2000/01/rdf-schema#comment> "A definition quoted from PROV-DM or PROV-CONSTRAINTS that describes the concept expressed with this OWL term."@en .
+<http://www.w3.org/ns/prov#definition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+# 
+# http://www.w3.org/ns/prov#dm
+<http://www.w3.org/ns/prov#dm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/ns/prov#dm> <http://www.w3.org/2000/01/rdf-schema#comment> "A reference to the principal section of the PROV-DM document that describes this concept."@en .
+<http://www.w3.org/ns/prov#dm> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#dm> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2000/01/rdf-schema#seeAlso> .
+# 
+# http://www.w3.org/ns/prov#inverse
+<http://www.w3.org/ns/prov#inverse> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/prov#n
+<http://www.w3.org/ns/prov#n> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+<http://www.w3.org/ns/prov#n> <http://www.w3.org/2000/01/rdf-schema#comment> "A reference to the principal section of the PROV-DM document that describes this concept."@en .
+<http://www.w3.org/ns/prov#n> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#n> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2000/01/rdf-schema#seeAlso> .
+# 
+# http://www.w3.org/ns/prov#qualifiedForm
+<http://www.w3.org/ns/prov#qualifiedForm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/prov#activity
+<http://www.w3.org/ns/prov#activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/ns/prov#agent
+<http://www.w3.org/ns/prov#agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/ns/prov#entity
+<http://www.w3.org/ns/prov#entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/ns/prov#qualifiedAssociation
+<http://www.w3.org/ns/prov#qualifiedAssociation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/ns/prov#qualifiedAttribution
+<http://www.w3.org/ns/prov#qualifiedAttribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/ns/prov#qualifiedCommunication
+<http://www.w3.org/ns/prov#qualifiedCommunication> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/ns/prov#qualifiedUsage
+<http://www.w3.org/ns/prov#qualifiedUsage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/ns/prov#used
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasInfluencedBy> .
+<http://www.w3.org/ns/prov#wasInfluencedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Activity> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid1 .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#entity> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#qualifiedUsage> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#comment> "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/2000/01/rdf-schema#label> "used" .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/ns/prov#category> "starting-point" .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/ns/prov#component> "entities-activities" .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/ns/prov#inverse> "wasUsedBy" .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/ns/prov#qualifiedForm> <http://www.w3.org/ns/prov#Usage> .
+<http://www.w3.org/ns/prov#used> <http://www.w3.org/ns/prov#qualifiedForm> <http://www.w3.org/ns/prov#qualifiedUsage> .
+# 
+# http://www.w3.org/ns/prov#wasAssociatedWith
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasInfluencedBy> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Activity> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Agent> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:genid4 .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid3 .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#agent> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#qualifiedAssociation> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#comment> "An prov:Agent that had some (unspecified) responsibility for the occurrence of this prov:Activity."@en .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/2000/01/rdf-schema#label> "wasAssociatedWith" .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/ns/prov#category> "starting-point" .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/ns/prov#component> "agents-responsibility" .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/ns/prov#inverse> "wasAssociateFor" .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/ns/prov#qualifiedForm> <http://www.w3.org/ns/prov#Association> .
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/ns/prov#qualifiedForm> <http://www.w3.org/ns/prov#qualifiedAssociation> .
+# 
+# http://www.w3.org/ns/prov#wasAttributedTo
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasInfluencedBy> .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Agent> .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:genid6 .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#agent> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#qualifiedAttribution> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/2000/01/rdf-schema#comment> "Attribution is the ascribing of an entity to an agent."@en .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/2000/01/rdf-schema#label> "wasAttributedTo" .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/ns/prov#category> "starting-point" .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/ns/prov#component> "agents-responsibility" .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/ns/prov#definition> "Attribution is the ascribing of an entity to an agent."@en .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/ns/prov#inverse> "contributed" .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/ns/prov#qualifiedForm> <http://www.w3.org/ns/prov#Attribution> .
+<http://www.w3.org/ns/prov#wasAttributedTo> <http://www.w3.org/ns/prov#qualifiedForm> <http://www.w3.org/ns/prov#qualifiedAttribution> .
+# 
+# http://www.w3.org/ns/prov#wasInfluencedBy
+# 
+# http://www.w3.org/ns/prov#wasInformedBy
+<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasInfluencedBy> .
+<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Activity> .
+<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Activity> .
+<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:genid8 .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid7 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#activity> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.w3.org/ns/prov#qualifiedCommunication> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "An activity a2 is dependent on or informed by another activity a1, by way of some unspecified entity that is generated by a1 and used by a2."@en .
+<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/2000/01/rdf-schema#label> "wasInformedBy" .
+<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/ns/prov#category> "starting-point" .
+<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/ns/prov#component> "entities-activities" .
+<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/ns/prov#inverse> "informed" .
+<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/ns/prov#qualifiedForm> <http://www.w3.org/ns/prov#Communication> .
+<http://www.w3.org/ns/prov#wasInformedBy> <http://www.w3.org/ns/prov#qualifiedForm> <http://www.w3.org/ns/prov#qualifiedCommunication> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/dc/terms/issued> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://purl.org/dc/terms/issued> <http://www.w3.org/2000/01/rdf-schema#comment> "The date of formal issuance (e.g., publication) of the resource." .
+<http://purl.org/dc/terms/issued> <http://www.w3.org/2000/01/rdf-schema#label> "releaseDate" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/LicenseDocument
+<http://purl.org/dc/terms/LicenseDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/dc/terms/LicenseDocument> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/dc/terms/RightsStatement> .
+# 
+# http://purl.org/dc/terms/RightsStatement
+<http://purl.org/dc/terms/RightsStatement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/ns/dcat#Resource
+<http://www.w3.org/ns/dcat#Resource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/dcat#Resource> <http://www.w3.org/2000/01/rdf-schema#comment> "Resource published or curated by a single agent."@en .
+<http://www.w3.org/ns/dcat#Resource> <http://www.w3.org/2000/01/rdf-schema#label> "Resource"@en .
+<http://www.w3.org/ns/dcat#Resource> <http://www.w3.org/2004/02/skos/core#scopeNote> "The class of all catalogued resources, the Superclass of dcat:Dataset, dcat:DataService, dcat:Catalog and any other member of a dcat:Catalog. This class carries properties common to all catalogued resources, including datasets and data services. The instances of this class SHOULD be included in a catalog. The instances of this class SHOULD be included in a catalog. It is strongly recommended to use a more specific sub-class. When describing a resource which is not a dcat:Dataset or dcat:DataService, it is recommended to create a suitable sub-class of dcat:Resource, or use dcat:Resource with the dcterms:type property to indicate the specific type."@en .
+# 
+# http://www.w3.org/ns/prov#Activity
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/2000/01/rdf-schema#label> "Activity" .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/ns/prov#category> "starting-point" .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/ns/prov#component> "entities-activities" .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/ns/prov#constraints> "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/ns/prov#definition> "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/ns/prov#dm> "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Activity"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/ns/prov#n> "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Activity"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+# 
+# http://www.w3.org/ns/prov#Agent
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Agent> .
+<http://xmlns.com/foaf/0.1/Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/2000/01/rdf-schema#label> "Agent" .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/ns/prov#category> "starting-point" .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/ns/prov#component> "agents-responsibility" .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/ns/prov#definition> "An agent is something that bears some form of responsibility for a activity taking place, for the existence of an entity, or for another agent's aprovctivity. "@en .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/ns/prov#dm> "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://www.w3.org/ns/prov#Agent> <http://www.w3.org/ns/prov#n> "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+# 
+# http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.w3.org/ns/prov#InstantaneousEvent> .
+<http://www.w3.org/ns/prov#InstantaneousEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#label> "Entity" .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/ns/prov#category> "starting-point" .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/ns/prov#component> "entities-activities" .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/ns/prov#constraints> "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/ns/prov#definition> "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/ns/prov#dm> "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/ns/prov#n> "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity"^^<http://www.w3.org/2001/XMLSchema#anyURI> .
+# 
+# http://www.w3.org/ns/prov#InstantaneousEvent
+# 
+# http://xmlns.com/foaf/0.1/Agent
+# 
+# http://xmlns.com/foaf/0.1/Document
+<http://xmlns.com/foaf/0.1/Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://xmlns.com/foaf/0.1/Document> <http://www.w3.org/2002/07/owl#disjointWith> <http://xmlns.com/foaf/0.1/Organization> .
+<http://xmlns.com/foaf/0.1/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://xmlns.com/foaf/0.1/Document> <http://www.w3.org/2002/07/owl#disjointWith> <http://xmlns.com/foaf/0.1/Project> .
+<http://xmlns.com/foaf/0.1/Project> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://xmlns.com/foaf/0.1/Document> <http://www.w3.org/2000/01/rdf-schema#comment> "A document." .
+<http://xmlns.com/foaf/0.1/Document> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://xmlns.com/foaf/0.1/> .
+<http://xmlns.com/foaf/0.1/Document> <http://www.w3.org/2000/01/rdf-schema#label> "Document" .
+# 
+# http://xmlns.com/foaf/0.1/Organization
+# 
+# http://xmlns.com/foaf/0.1/Project
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/LicenseDocument
+<http://purl.org/dc/terms/LicenseDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/dc/terms/LicenseDocument> <http://purl.org/dc/terms/issued> "2008-01-14T00:00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+# 
+# http://purl.org/dc/terms/RightsStatement
+<http://purl.org/dc/terms/RightsStatement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/dc/terms/RightsStatement> <http://purl.org/dc/terms/issued> "2008-01-14T00:00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+# 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/dc/terms/description> <http://purl.org/dc/terms/issued> "2008-01-14"^^<http://www.w3.org/2001/XMLSchema#date> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Annotations
+# #
+# #################################################################
+# 
+# 
+<http://purl.org/dc/terms/LicenseDocument> <http://www.w3.org/2000/01/rdf-schema#comment> "A legal document giving official permission to do something with a resource."@en .
+<http://purl.org/dc/terms/LicenseDocument> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/dc/terms/> .
+<http://purl.org/dc/terms/LicenseDocument> <http://www.w3.org/2000/01/rdf-schema#label> "License Document"@en .
+# 
+<http://purl.org/dc/terms/RightsStatement> <http://www.w3.org/2000/01/rdf-schema#comment> "A statement about the intellectual property rights (IPR) held in or over a resource, a legal document giving official permission to do something with a resource, or a statement about access rights."@en .
+<http://purl.org/dc/terms/RightsStatement> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/dc/terms/> .
+<http://purl.org/dc/terms/RightsStatement> <http://www.w3.org/2000/01/rdf-schema#label> "Rights Statement"@en .
+# 
+<http://purl.org/dc/terms/description> <http://purl.org/dc/terms/description> "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en .
+<http://purl.org/dc/terms/description> <http://www.w3.org/2000/01/rdf-schema#comment> "An account of the resource."@en .
+<http://purl.org/dc/terms/description> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://purl.org/dc/terms/> .
+<http://purl.org/dc/terms/description> <http://www.w3.org/2000/01/rdf-schema#label> "Description"@en .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
