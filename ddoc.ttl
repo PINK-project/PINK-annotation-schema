@@ -25,7 +25,7 @@
     vann:preferredNamespacePrefix "ddoc" ;
     vann:preferredNamespaceUri "https://w3id.org/emmo/application/datadoc#" ;
     owl:priorVersion "0.0.0" ;
-    owl:versionIRI <https://w3id.org/emmo/application/datadoc/0.1> ;
+    owl:versionIRI <https://w3id.org/emmo/application/datadoc/0.0.1> ;
     owl:versionInfo "0.0.1" .
 
 eli:LegalResource a owl:Class ;
@@ -45,7 +45,7 @@ dcatap:availability a owl:DatatypeProperty ;
     skos:prefLabel "availability" ;
     skos:definition "An indication how long it is planned to keep the Distribution of the Dataset available." ;
     rdfs:domain dcat:Distribution ;
-    rdfs:range xsd:datetime ;
+    rdfs:range xsd:dateTime ;
     dcat:theme ddoc:datadoc ;
     ddoc:conformance ddoc:recommended .
 
@@ -223,7 +223,7 @@ dcterms:issued a owl:DatatypeProperty ;
     skos:prefLabel "releaseDate" ;
     skos:definition "The date of formal issuance (e.g., publication) of the resource." ;
     rdfs:domain dcat:Resource ;
-    rdfs:range xsd:datetime ;
+    rdfs:range xsd:dateTime ;
     dcat:theme ddoc:datadoc ;
     ddoc:conformance ddoc:optional .
 
@@ -259,7 +259,7 @@ dcterms:modified a owl:DatatypeProperty ;
     skos:prefLabel "modificationDate" ;
     skos:definition "The most recent date on which the resource was changed or modified." ;
     rdfs:domain dcat:Resource ;
-    rdfs:range xsd:datetime ;
+    rdfs:range xsd:dateTime ;
     dcat:theme ddoc:datadoc ;
     ddoc:conformance ddoc:optional .
 
@@ -655,7 +655,6 @@ dcat:inSeries a owl:ObjectProperty ;
 dcat:keyword a owl:AnnotationProperty ;
     skos:prefLabel "keyword" ;
     skos:definition "A keyword or tag describing the resource." ;
-    rdfs:domain dcat:Resource ;
     rdfs:range rdf:langString ;
     dcat:theme ddoc:datadoc ;
     ddoc:conformance ddoc:recommended .
@@ -823,7 +822,7 @@ ddoc:curationDate a owl:DatatypeProperty ;
     skos:prefLabel "curationDate" ;
     skos:definition "Date of curation." ;
     rdfs:domain dcat:Resource ;
-    rdfs:range xsd:datetime ;
+    rdfs:range xsd:dateTime ;
     dcat:theme ddoc:datadoc .
 
 ddoc:curator a owl:ObjectProperty ;

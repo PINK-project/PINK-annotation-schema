@@ -26,7 +26,9 @@
     owl:imports
         <https://w3id.org/pink/0.0.1/reused-terms> ,
         <https://w3id.org/pink/0.0.1/matter> ,
-        <https://w3id.org/pink/0.0.1/models> ;
+        <https://w3id.org/pink/0.0.1/models> ,
+        <https://w3id.org/pink/0.0.1/cheminf-mappings> ,
+        <https://w3id.org/pink/0.0.1/ssbd-taxonomy> ;
     dcatap:status "Under Development" ;
     dcterms:abstract """The PINK Annotation Schema provides the semantic basis for SSbD.
 
@@ -143,14 +145,26 @@ skos:scopeNote rdf:type owl:AnnotationProperty .
 vann:usageNote rdf:type owl:AnnotationProperty .
 
 
-###  https://w3id.org/pink#conformance
-:conformance rdf:type owl:ObjectProperty ;
-    rdfs:range ddoc:ConformanceLevel ;
-    skos:definition "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema"@en ;
-    vann:usageNote "It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended' or 'ddoc:optional'."@en ;
-    rdfs:isDefinedBy <https://w3id.org/pink> ;
-    skos:prefLabel "conformance" .
+#################################################################
+#    Data properties
+#################################################################
 
+:hasDataValue rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Data ;
+    skos:prefLabel "hasDataValue"@en ;
+    skos:definition "Relates a data individual to its literal value."@en .
+
+:hasAPI a owl:DatatypeProperty ;
+    rdfs:domain :Software ;
+    rdfs:range xsd:boolean ;
+    skos:prefLabel "hasAPI"@en ;
+    skos:definition "Whether the software has an API." .
+
+:hasGUI a owl:DatatypeProperty ;
+    rdfs:domain :Software ;
+    rdfs:range xsd:boolean ;
+    skos:prefLabel "hasGUI"@en ;
+    skos:definition "Whether the software has a GUI." .
 
 
 #################################################################
@@ -179,8 +193,8 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     vann:usageNote "One of `pink:tierlevel1` (ideation/design), `pink:tierlevel2` (lab phase/development), `pink:tierlevel3` (up-scaling/production)"@en .
 
 :chemicalClass rdf:type owl:ObjectProperty ;
-    rdfs:range pink:Matter ;
     rdfs:domain prov:Entity ;
+    rdfs:range pink:Matter ;
     skos:prefLabel "chemicalClass"@en ;
     skos:definition "Group of chemicals that and entity is relevant for."@en ;
     vann:usageNote "Choose one of subclasses of pink:Matter."@en .
@@ -194,19 +208,6 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     rdfs:range foaf:Document ;
     skos:prefLabel "documentation"@en ;
     skos:definition "A page or document documenting this resource." .
-
-:hasAPI a owl:DatatypeProperty ;
-    rdfs:domain :Software ;
-    rdfs:range xsd:boolean ;
-    skos:prefLabel "hasAPI"@en ;
-    skos:definition "Whether the software has an API." .
-
-
-:hasGUI a owl:DatatypeProperty ;
-    rdfs:domain :Software ;
-    rdfs:range xsd:boolean ;
-    skos:prefLabel "hasGUI"@en ;
-    skos:definition "Whether the software has a GUI." .
 
 
 ### Parthood relations
@@ -232,33 +233,38 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:scopeNote "OWL2 does not allow non-simple (e.g. transitive) properties to appear in disjoint property axioms. We therefore implement the transitivity of hasPart using SWRL rules instead of asserting it with owl:TransitiveProperty."@en ;
     skos:definition "The primitive relation that express the concept of an entity being part of another one."@en .
 
-:hasParticipant rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+:hasProperPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
+    skos:prefLabel "hasProperPart"@en ;
+    skos:definition "The relation between an entity and one of its parts, when both entities are distinct."@en .
+
+:hasParticipant rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :hasProperPart ;
     skos:prefLabel "hasParticipant"@en ;
     skos:definition "The relation between a process and an object participating to it, i.e. that is relevant to the process itself."@en ;
     skos:scopeNote "Participation is a parthood relation - you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process."@en .
 
 :hasDatum rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :hasPart ;
+    rdfs:subPropertyOf :hasProperPart ;
     skos:prefLabel "hasDatum"@en ;
     rdfs:domain :Dataset ;
     rdfs:range :Datum ;
     skos:definition "Relates a dataset to its datum."@en .
 
 :hasSpatialPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :hasPart ;
+    rdfs:subPropertyOf :hasProperPart ;
     skos:prefLabel "hasSpatialPart"@en ;
     skos:definition "A proper part of a whole, whose parts always cover the full temporal extension of the whole within a spatial interval."@en ;
     skos:scopeNote "The part is connected with the rest item or members with hasContact relations only (no hasNext)."@en .
 
 :hasTemporalPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :hasPart ;
+    rdfs:subPropertyOf :hasProperPart ;
     skos:prefLabel "hasTemporalPart"@en ;
     skos:definition "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval." ;
     skos:scopeNote "A temporal part of an item cannot both cause and be caused by any other proper part of the item."@en .
 
 :hasJunctionPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :hasPart ;
+    rdfs:subPropertyOf :hasProperPart ;
     skos:prefLabel "hasJunctionPart"@en ;
     skos:altLabel "hasSpatioTemporalPart"@en ;
     skos:definition "The part is connected with the rest item or members with both hasNext (or its inverse) and hasContact relations."@en .
@@ -272,8 +278,24 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:scopeNote "The entity through overlaps the activity."@en ;
     skos:definition "Relation an entity to an activity that it interacts with."@en .
 
+:hasInput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :isOvercrossedBy ;
+    skos:prefLabel "hasInput"@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:range prov:Entity ;
+    skos:scopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."@en ;
+    skos:definition "Relates an activity to an entity that is input to the activity."@en .
+
+:hasOutput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :isOvercrossedBy ;
+    skos:prefLabel "hasOutput"@en ;
+    rdfs:domain prov:Activity ;
+    rdfs:range prov:Entity ;
+    skos:scopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
+    skos:definition "Relates an activity to an entity that is the output of the activity."@en .
+
 :used rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf prov:used, :isOvercrossedBy ;
+    rdfs:subPropertyOf prov:used, :hasInput ;
     skos:prefLabel "used"@en ;
     rdfs:domain prov:Activity ;
     rdfs:range prov:Entity ;
@@ -282,28 +304,12 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:example "For example, :baking :used :spoon, :egg, :oven ." .
 
 :wasGeneratedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf prov:wasGeneratedBy, :isOvercrossedBy ;
+    rdfs:subPropertyOf prov:wasGeneratedBy,  [ owl:inverseOf :hasOutput ], :isOvercrossedBy ;
     skos:prefLabel "wasGeneratedBy"@en ;
     rdfs:domain prov:Entity ;
     rdfs:range prov:Activity ;
     skos:scopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
     skos:definition "Relates an entity to the activity it was generated from."@en .
-
-:hasInput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :used ;
-    skos:prefLabel "hasInput"@en ;
-    rdfs:domain prov:Activity ;
-    rdfs:range prov:Entity ;
-    skos:scopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."@en ;
-    skos:definition "Relates an activity to an entity that is input to the activity."@en .
-
-:hasOutput rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf [ owl:inverseOf :wasGeneratedBy ] ;
-    skos:prefLabel "hasOutput"@en ;
-    rdfs:domain prov:Activity ;
-    rdfs:range prov:Entity ;
-    skos:scopeNote "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."@en ;
-    skos:definition "Relates an activity to an entity that is the output of the activity."@en .
 
 :wasAssociatedWith rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf prov:wasAssociatedWith, :isOvercrossedBy ;
@@ -314,12 +320,25 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:definition "Relates an activity to an agent that had some (unspecified) responsibility for the occurence of this activity."@en .
 
 :hasSoftware rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
-    rdfs:subPropertyOf :wasAssociatedWith ;
+    rdfs:subPropertyOf [ owl:inverseOf :participatesTo ], :wasAssociatedWith ;
     skos:prefLabel "hasSoftware"@en ;
     rdfs:domain :Computation ;
     rdfs:range :Software ;
     skos:definition "Relates a computation to the software used to perform the computation."@en .
 
+:hasSubProcess rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :hasProperPart ;
+    skos:prefLabel "hasSubProcess"@en ;
+    rdfs:domain :Process ;
+    rdfs:range :Process ;
+    skos:definition "The relation between a process and one of its process parts."@en .
+
+:assesses rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :isOvercrossedBy ;
+    skos:prefLabel "assesses"@en ;
+    rdfs:domain :Assessment ;
+    rdfs:range :SsbdDimension ;
+    skos:definition "Relates an assessment to a SSbD dimension."@en .
 
 ### Causal relations
 :causedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
@@ -406,31 +425,20 @@ vann:usageNote rdf:type owl:AnnotationProperty .
 :hasProperty rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf :isRepresentedBy ;
     skos:prefLabel "hasProperty"@en ;
-    skos:definition "Connects an entity to a property."@en ;
-    rdfs:domain prov:Entity ;
+    skos:definition "Connects a thing to one of its properties."@en ;
     rdfs:range :Property .
 
 :hasDescription rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf :isRepresentedBy ;
     skos:prefLabel "hasDescription"@en ;
-    skos:definition "Connects an entity to a description."@en ;
-    rdfs:domain prov:Entity ;
+    skos:definition "Connects a thing to a description (i.e. collection of properties) of the thing."@en ;
     rdfs:range :Description .
 
-:hasUnit rdf:type owl:ObjectProperty ;
+:hasMeasurementUnit rdf:type owl:ObjectProperty ;
     rdfs:subPropertyOf :hasDescription ;
     skos:prefLabel "hasUnit"@en ;
     skos:definition "Connects a property to its unit."@en ;
-    skos:scopeNote "`pink:hasUnit` is intended to refer to a unit in an existing unit ontology, like QUDT or EMMO."@en ;
-    vann:usageNote """A universal restriction should be used when referring to a unit in EMMO.  For example:
-
-    :LethalDose50
-        a pink:Toxicity , [
-            a owl:Restriction ;
-            owl:onProperty pink:hasUnit ;
-            owl:someValuesFrom emmo:MilliGramPerKiloGram
-        ] .
-"""@en ;
+    skos:scopeNote "`pink:hasMeasurementUnit` is intended to refer to a unit in an existing unit ontology, like QUDT or EMMO."@en ;
     rdfs:domain :Property .
 
 :standsFor rdf:type owl:ObjectProperty ;
@@ -470,13 +478,6 @@ vann:usageNote rdf:type owl:AnnotationProperty .
 #################################################################
 #    Classes
 #################################################################
-
-### SSbD-related classes
-:SsbdDimension rdf:type owl:Class ;
-    skos:prefLabel "SsbdDimension"@en ;
-    skos:scopeNote "The pink:SsbdDimension is an extension of the 'sustainability dimensions' defined by JRC." ;
-    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
-
 
 ### Activity subclasses
 :Process rdf:type owl:Class ;
@@ -669,14 +670,20 @@ An architectural floor plan is a model of a house.
 :Indicator rdf:type owl:Class ;
     rdfs:subClassOf :Property ;
     skos:prefLabel "Indicator"@en ;
-    skos:definition "A metric or signal that provides information about the state of a system. It simplifies complex realities into measurable values that can guide decisions."@en ;
+    skos:altLabel "Descriptor"@en ;
+    skos:altLabel "EndPoint"@en ;
+    skos:definition "A property that provides information about the state of a system. It simplifies complex realities into measurable values that can guide decisions."@en ;
+    skos:scopeNote """A precisely defined variable intended to reflect an outcome of interest that is statistically analyzed to address a particular research question. A precise definition of an endpoint typically specifies the type of assessments made, the timing of those assessments, the assessment tools used, and possibly other details, as applicable, such as how multiple assessments within an individual are to be combined.
+
+-- National Library of Medicine, https://www.ncbi.nlm.nih.gov/books/NBK338448/
+"""@en ;
     skos:example "For a computation is an indicator a specific property/datum that is provided in the output."@en .
 
 
 :Toxicity rdf:type owl:Class ;
-    rdfs:subClassOf :Sign ;
+    rdfs:subClassOf :Indicator ;
     skos:prefLabel "Toxicity"@en ;
-    skos:definition "The property or ability of a substance to cause harmful health effects."@en ;
+    skos:definition "A descriptor for a substance to cause harmful health effects."@en ;
     skos:scopeNote "The helth effects can strike a single cell, a group of cells, an organ system, or the entire body. A toxic effect may be visible damage, or a decrease in performance or function measurable only by a test."@en ;
     skos:scopeNote "Toxicity is always related to a given measurement procedure. Hence, the user is expected to define spesific subclasses defining the measurement procedure that the toxicity is measured according to."@en .
 
@@ -726,7 +733,6 @@ An architectural floor plan is a model of a house.
 foaf:Document rdfs:subClassOf :Data .
 prov:Agent rdfs:subClassOf foaf:Agent .
 dcat:Resource rdfs:subClassOf prov:Entity .
-ddoc:ConformanceLevel rdfs:subClassOf foaf:Document .
 foaf:Organization rdfs:subClassOf :Object .
 foaf:Person rdfs:subClassOf :Object .
 foaf:Project rdfs:subClassOf prov:Entity .
@@ -747,74 +753,6 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
 
 :tierlevel3 a :TierLevel ;
     rdfs:label "up-scaling/production"@en .
-
-
-### SSbD categories
-:functionality a :SsbdDimension ;
-    skos:prefLabel "functionality" ;
-    skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
-
-:safety a :SsbdDimension ;
-    skos:prefLabel "safety" ;
-    skos:definition "Human helth and environmental safety aspects of chemicals and materials."@en ;
-    dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
-    skos:scopeNote """In the context of chemicals assessment, safety could be referring to a
-certain condition where a stressor (e.g. a chemical) is unlikely to
-cause any adverse effect to a receptor (e.g. humans and other
-organisms) (more related to intrinsic hazard properties of the
-stressor) or where a receptor is protected from risk (more related to
-control measures or mechanisms to minimise exposure to the
-stressor). In any case, the term safe involves receptors, and with
-that generally also requires the consideration of the contact
-(i.e. exposure) between stressors and receptors as addressed in a risk
-assessment context."""@en ;
-    skos:scopeNote "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
-
-:environmental_systainability a :SsbdDimension ;
-    skos:prefLabel "environmental_systainability" ;
-    skos:definition "The ability to conserve natural resources and protect global ecosystems to support human health and wellbeing, within the limits of our Planet"@en ;
-    dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
-    skos:scopeNote """Assessing environmental sustainability implies to assess the environmental impacts generated by
-chemicals/materials along the entire life cycle to move towards:
-
-  · A toxic-free environment as stated in the CSS (i.e. minimising the total toxicity footprint in terms
-    of ecotoxicity and human toxicity13 - at each stage of the production and consumption life cycle,
-    originated not only by the assessed chemical or material, but also by all the chemicals that are emitted
-    along the life cycle14) (EC, 2020a);
-  · A climate-neutral economy (i.e. minimising the emission of greenhouse gases along the life cycle)
-    (EC, 2019b);
-  · A resource efficient economy and a regenerative economy (i.e. using natural resources in a
-    sustainable manner, minimising inputs and waste generation, and providing more benefits than
-    burdens) (EC, 2020b);
-  · The reduction of biodiversity loss and the conservation of ecosystem functioning, addressing the
-    main drivers of structural and functional biodiversity loss (e.g. land use, climate change) (EC, 2020c);
-"""@en ;
-    skos:scopeNote "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
-
-:social_systainability a :SsbdDimension ;
-    skos:prefLabel "social_sustainability" ;
-    skos:definition "A globally agreed list of objectives and targets to be pursued for achieving sustainable development."@en ;
-    dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
-    skos:scopeNote """In the SDGs framework several Goals focus on social aspects,
-e.g. poverty eradication (SDG 1), food security (SDG 2), health (SDG 3),
-education (SDG 4), gender equality (SDG 5), decent work (SDG 8),
-reduce inequalities (SDG 10), peace and justice (SDG 16)."""@en ;
-    skos:scopeNote "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
-
-:economic a :SsbdDimension ;
-    skos:prefLabel "economic" ;
-    skos:definition "Aspects related to techno-economic feasibility, to operational costs, etc."@en ;
-    dcterms:bibliographicCitation "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022" ;
-    skos:scopeNote """There are important considerations to be made in the context of SSbD
-such as the 'availability' of raw materials, as chemicals/materials
-cannot be declared SSbD if the raw materials to produce them are not
-renewable or are (very) scarce and extracted and processed in an
-unsustainable manner. Economic aspects play a role when there is a
-need to rank chemicals and materials based on SSbD criteria (even if
-they are not SSbD). However, mainly externalities consideration is at
-stake in a sustainability framework like the SSbD one."""@en ;
-    skos:scopeNote "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
-
 
 
 #################################################################
