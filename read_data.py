@@ -123,11 +123,11 @@ kw = get_keywords(theme=None)
 kw.load_yaml('https://pink-project.github.io/PINK-annotation-schema/context/keywords.yaml', redefine='allow')
 
 # Get name of columns that can have more than one value from termdefs. Check the column SingleValue in termdefs. If False, then the value in column "Poperty"
-list_columns = termdefs[termdefs['SingleValue'] == False]['IRI'].tolist()
+list_columns = termdefs[termdefs['SingleValue'] == False]['Tripper_keyword'].tolist()
 # Add @id and @type to the list of columns that can have multiple values, because they can also be lists.
 list_columns.extend(['@id', '@type'])
 # Map properties to IRIs
-property_to_iri = dict(zip(termdefs['Property'], termdefs['IRI']))
+property_to_iri = dict(zip(termdefs['Property'], termdefs['Tripper_keyword']))
 
 # Create the computatations documentation dataframe, and copy/move relevant columns from the software documentation dataframe.
 activity_columns = ['inputDatasetType', 'outputDatasetType',
@@ -169,13 +169,15 @@ sw.rename(columns=property_to_iri, inplace=True)
 for col in set(list_columns).intersection(sw.columns):
     sw[col] = sw[col].apply(split_to_list)
 # Add prefixes to values
-sw['dcterms:accessRights'] = sw['dcterms:accessRights'].apply(add_prefix, prefix='rights')
+sw['accessRights'] = sw['accessRights'].apply(add_prefix, prefix='rights')
 
-sw['pink:tierLevel'] = sw['pink:tierLevel'].apply(correct_tier_level)
-sw['pink:tierLevel'] = sw['pink:tierLevel'].apply(add_prefix, prefix='pink')
+sw['tierLevel'] = sw['tierLevel'].apply(correct_tier_level)
+sw['tierLevel'] = sw['tierLevel'].apply(add_prefix, prefix='pink')
 
 # Add @id because tripper does not accept dcterms:identifier as identifier for some reason.
-sw['@id'] = sw['dcterms:identifier'].apply(add_prefix, prefix='pink')
+sw['@id'] = sw['@id'].apply(add_prefix, prefix='pink')
+
+#sw.drop(columns=['modelType'], inplace=True)
 
 # A bit cumbersome to write file, I am sure there are better ways
 
@@ -229,7 +231,9 @@ comp['@type'] = comp.apply(lambda row: ['prov:Activity'] + merge_ssbd_dimensions
 comp.drop(columns=[col for col in comp.columns if col.startswith('Ssbd')], inplace=True)
 
 # Change all haeders according to the property_to_iri mapping
+
 comp.rename(columns=property_to_iri, inplace=True)
+print(comp.columns)
 for col in set(list_columns).intersection(comp.columns):
     print('col that may be listcol:', col)
     comp[col] = comp[col].apply(split_to_list)
@@ -250,6 +254,10 @@ compdocumentation = TableDoc.parse_csv(
 # Save software documentation to triplestore
 compdocumentation.save(ts)
 
+
+ts2 = Triplestore("rdflib")
+d = store(ts2, {"@graph": [{"@id": "http://example.com/data/mydata", "creator": "https://ror.org/056d84691"}]})
+print(ts2.serialize())
 
 
 '''
