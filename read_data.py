@@ -10,6 +10,8 @@ from pyld import jsonld
 import json
 import pandas as pd
 import dateutil
+from ontopy import get_ontology
+from ontopy.exceptions import NoSuchLabelError
 
 # in column 'accessRights', add 'rights:' prefix to all values that are not empty and that do not have a prefix already.
 def add_prefix(value, prefix='pink'):
@@ -70,45 +72,66 @@ def split_to_list(value):
     cleaned = [p.strip() for p in parts if p.strip() != ""]
     return cleaned
 
-def export_expanded_csv(df: pd.DataFrame, path: str) -> None:
+def expanded_df(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Export df to CSV at `path`. Any column whose values are lists
+    Expand the dataframe: Any column whose values are lists
     will be expanded into multiple columns (all using the same header),
     with blanks where the lists were shorter.
     """
     parts = []
     for col in df.columns:
-        print('processing column:', col)
-        # detect if this column has any list entries
         is_list_col = df[col].apply(lambda v: isinstance(v, list)).any()
-        print('is list column:', is_list_col)
         if is_list_col:
-            # convert each row's list to a row in a small DF
             sub = pd.DataFrame(
-                df[col].apply(
-                    lambda v: v if isinstance(v, list) and len(v) > 0 else [None]
-                ).tolist()
+                df[col].apply(lambda v: v if isinstance(v, list) and v else [None]).tolist()
             )
-            # rename all its columns to the original header
             sub.columns = [col] * sub.shape[1]
             parts.append(sub)
         else:
-            # just take the series as a one-column DF
             parts.append(df[[col]])
-    # remove all values that are empty lists or strings with only whitespace
-    df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
-    # Replace empty strings and NaN with ""
-    df = df.replace(r'^\s*$', '', regex=True)
-    df = df.fillna('')
-    # concatenate side by side
-    expanded = pd.concat(parts, axis=1)
-    print('expanded columns:', expanded.columns)
-    print('expanded head:', expanded.head())
-    expanded.to_csv(path, index=False)
+
+    out = pd.concat(parts, axis=1)
+
+    # clean the output (not the original df)
+    out = out.map(lambda x: x.strip() if isinstance(x, str) else x)
+    out = out.replace(r'^\s*$', '', regex=True).fillna('')
+
+    return out
+
+def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
+    """
+    Check all values in the dataframe.
+    If they are a URI (starting with http://, https://, or prefix:),
+    check that they exist in the ontology. If so, replace with the IRI.
+    """
+
+    def process_value(val):
+        if not isinstance(val, str):
+            return val
+
+        # Detect URI-like values
+        if val.startswith("http://") or val.startswith("https://") or ":" in val:
+            lookup_val = val
+
+            # Remove prefix if not full URI
+            if not (val.startswith("http://") or val.startswith("https://")):
+                lookup_val = val.split(":", 1)[1]
+
+            try:
+                term = ontology[lookup_val]
+                print(f"Replacing {val} with IRI: {term.iri}")
+                return term.iri
+            except NoSuchLabelError:
+                print(f"Warning: {val} not found in ontology")
+                return val
+
+        return val
+
+    return df.map(process_value)
 
 
-
-
+# import the pink ontology for accessing labels and convert to IRIs (just before storing into the triplestore)
+onto =  get_ontology('pink_annotation_schema.ttl').load()
 # Get data from Google Sheets
 # Software documentation
 sw_url = "https://docs.google.com/spreadsheets/d/1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&gid=1707023773"
@@ -177,11 +200,15 @@ sw['tierLevel'] = sw['tierLevel'].apply(add_prefix, prefix='pink')
 # Add @id because tripper does not accept dcterms:identifier as identifier for some reason.
 sw['@id'] = sw['@id'].apply(add_prefix, prefix='pink')
 
-#sw.drop(columns=['modelType'], inplace=True)
+
 
 # A bit cumbersome to write file, I am sure there are better ways
+expanded_sw = expanded_df(sw)
+check_for_uris(expanded_sw, onto)
 
-export_expanded_csv(sw, 'sw_clean.csv')  
+
+
+expanded_sw.to_csv('sw_clean.csv', index=False)  
 
 
 swdocumentation = TableDoc.parse_csv(
@@ -197,7 +224,6 @@ ts = Triplestore('rdflib')
 v = swdocumentation.save(ts)
 #v = told(swdocumentation.asdicts(), keywords=kw)
 
-print(comp.head())
 # Save the computational entities as activities
 # Create a unique id (@id) for each activity in the comp dspreadsheet
 comp['@id'] = comp.apply(lambda row: f"https://w3id.org/pink/activity/{row.name}", axis=1)
@@ -225,24 +251,24 @@ def merge_ssbd_dimensions(row):
     return values
 
 comp['@type'] = comp.apply(lambda row: ['prov:Activity'] + merge_ssbd_dimensions(row), axis=1)
- 
+
+print(comp['@type']) 
 
 # Remove the Ssbd columns
 comp.drop(columns=[col for col in comp.columns if col.startswith('Ssbd')], inplace=True)
 
-# Change all haeders according to the property_to_iri mapping
+# Change all headers according to the property_to_iri mapping
 
 comp.rename(columns=property_to_iri, inplace=True)
-print(comp.columns)
 for col in set(list_columns).intersection(comp.columns):
-    print('col that may be listcol:', col)
     comp[col] = comp[col].apply(split_to_list)
  
-print('a')
-print(comp.head())
-print('b')
 # A bit cumbersome to write file, I am sure there are better ways
-export_expanded_csv(comp, 'comp_clean.csv')
+expanded_comp = expanded_df(comp)
+
+corrected_iris_comp = check_for_uris(expanded_comp, onto)
+
+corrected_iris_comp.to_csv('comp_clean.csv', index=False)
 
 
 compdocumentation = TableDoc.parse_csv(
@@ -254,27 +280,3 @@ compdocumentation = TableDoc.parse_csv(
 # Save software documentation to triplestore
 compdocumentation.save(ts)
 
-
-ts2 = Triplestore("rdflib")
-d = store(ts2, {"@graph": [{"@id": "http://example.com/data/mydata", "creator": "https://ror.org/056d84691"}]})
-print(ts2.serialize())
-
-
-'''
-data_graph = "some-data.ttl"
-shacl_graph = "pink_shacl.ttl"
-ont_graph = "pink_annotation_schema.ttl"
-
-r = validate(data_graph,
-      shacl_graph=shacl_graph,
-      ont_graph=ont_graph,
-      inference='rdfs',
-      abort_on_first=False,
-      allow_infos=False,
-      allow_warnings=False,
-      meta_shacl=False,
-      advanced=False,
-      js=False,
-      debug=False)
-conforms, results_graph, results_text = r
-'''
