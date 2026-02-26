@@ -648,7 +648,7 @@ emmo:ChemicalEntity rdfs:subClassOf :Matter .
 :Information rdf:type owl:Class ;
     rdfs:subClassOf :Sign, :Data ;
     skos:prefLabel "Information"@en ;
-    skos:Definition "Data with meaning (semiotic sign)."@en ;
+    skos:definition "Data with meaning (semiotic sign)."@en ;
     rdfs:isDefinedBy "Luciano Floridi, Information - A Very Short Introduction, Oxford University Press (2010) ISBN: 9780199551378"@en .
 
 :Model rdf:type owl:Class ;

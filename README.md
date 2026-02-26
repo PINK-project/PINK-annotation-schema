@@ -10,15 +10,21 @@ It is constructed to be easily aligned with [EMMO].
 
 
 ## Resources
+- [Theoretical background].
+  - [Background], including handling of [provenance] and categorisation of relations into [parthood], [causal] and [semiotic] relations.
+  - Documentation of sub-modules:
+    - [Matter module]
+    - [Models module]
+  - [Class-level] documentation
 - Reference documentation with interlinked definitions of classes and properties for:
   - [PINK Annotation Schema].
   - [Reused terms], i.e. terms reused from existing vocabularies (e.g. [PROV-O], [DCAT-AP 3.0.1]).
   - [Matter], including categorisation of substances, materials, molecules, etc...
-  - [Models]
+  - [Models], including categorisation of statistical, physics and data-based (AI) models.
   - [CHEMINF descriptors], a taxonomy of descriptors from mainly the chemistry domain
+- [Guiding principles] for the implementation of the PINK Annotation Schema
 - [Turtle file] including all imported concepts (source of truth).
 - [Inferred turtle file] reasoned with HermiT.
-- [Theoretical background].
 
 
 ## Top level taxonomy
@@ -38,6 +44,16 @@ The example below shows how one can document a toxicity computation using the PI
 
 
 [Theoretical background]: https://pink-project.github.io/PINK-annotation-schema/docs/
+[Background]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html
+[provenance]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html
+[parthood]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#parthood-relations
+[causal]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#causal-relations
+[semiotic]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#semiotic-relations
+[Class-level]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#class-level-documentation
+[Guiding principles]: https://pink-project.github.io/PINK-annotation-schema/docs/guiding-principles.html
+[Matter module]: https://pink-project.github.io/PINK-annotation-schema/docs/matter.html
+[Models module]: https://pink-project.github.io/PINK-annotation-schema/docs/models.html
+
 [PINK Annotation Schema]: https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html
 [Reused terms]: https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html
 [Matter]: https://pink-project.github.io/PINK-annotation-schema/widoco-matter/index-en.html
