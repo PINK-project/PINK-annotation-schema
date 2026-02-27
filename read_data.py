@@ -72,7 +72,7 @@ def split_to_list(value):
     cleaned = [p.strip() for p in parts if p.strip() != ""]
     return cleaned
 
-def expanded_df(df: pd.DataFrame) -> pd.DataFrame:
+def expand_df(df: pd.DataFrame) -> pd.DataFrame:
     """
     Expand the dataframe: Any column whose values are lists
     will be expanded into multiple columns (all using the same header),
@@ -129,7 +129,7 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
 
     return df.map(process_value)
 
-def correct_pink_dataframes(dataframe, ontology):
+def correct_pink_dataframes(df, ontology):
     """
     Correct the pink dataframes by:
     - Adding prefixes to values in certain columns
@@ -137,11 +137,65 @@ def correct_pink_dataframes(dataframe, ontology):
     - Splitting columns with multiple values into lists
     - Checking for URIs and replacing with IRIs from the ontology
     """
-    # This function can be implemented to apply all the corrections in one place.
-    pass
+ 
+    df.rename(columns=property_to_iri, inplace=True)
+    # remove rows with empty @id
+    
+    # Convert releaseDate to ISO format (YYYY-MM-DD)
+    print(df.columns)
+    if 'releaseDate' in df.columns:
+        df['releaseDate'] = df['releaseDate'].apply(lambda x: dateutil.parser.parse(x).isoformat() if pd.notna(x) else None)
+
+    # correct tier level
+    if 'tierLevel' in df.columns:
+        df['tierLevel'] = df['tierLevel'].apply(correct_tier_level)
+
+    # Add prefixes to values
+    if 'accessRights' in df.columns:
+        df['accessRights'] = df['accessRights'].apply(add_prefix, prefix='rights')
+
+    for col in ['tierLevel', '@id']:
+        if col in df.columns:    
+            df[col] = df[col].apply(add_prefix, prefix='pink')
+
+
+    # Remove the all columns that have '(comment)' in their name
+    # These are for the curators filling out the spreadsheet and should 
+    # be looked at with them.
+    df.drop(columns=[col for col in df.columns if '(comment)' in col], inplace=True)
+
+    # Change possible lists to lists
+    for col in set(list_columns).intersection(df.columns):
+        df[col] = df[col].apply(split_to_list)
+    
+    expanded_df = expand_df(df)
+    check_for_uris(expanded_df, ontology)
+    return expanded_df
+
+
+def validate_and_store_documentation(documentation, ts):
+    """
+    Validate the documentation and store it in the triplestore if valid.
+    Otherwise print the validation report.
+    """
+    conforms = True
+    for doc in documentation.asdicts():
+        conforms, report = validate_jsonld(jsonld=doc)
+        if not conforms:
+            print(f"Validation failed for document with @id {doc.get('@id', 'unknown')}:")
+            print(report)
+            break
+    print(f"Validation result: {'VALID' if conforms else 'INVALID'}")
+    
+    if conforms:
+        documentation.save(ts)
 
 # import the pink ontology for accessing labels and convert to IRIs (just before storing into the triplestore)
 onto =  get_ontology('pink_annotation_schema.ttl').load()
+
+# create the triplestore
+ts = Triplestore('rdflib')
+
 # Get data from Google Sheets
 # Software documentation
 sw_url = "https://docs.google.com/spreadsheets/d/1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&gid=1707023773"
@@ -154,7 +208,6 @@ termdefs = pd.read_csv(termdef_url, skiprows=2)
 # Dataset documentation
 datasettype_url = "https://docs.google.com/spreadsheets/d/1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&gid=1581267372"
 datasettypes = pd.read_csv(datasettype_url)
-
 
 # Get pink keywords
 kw = get_keywords(theme=None)
@@ -191,49 +244,11 @@ sw['chemicalClass'] = sw.apply(merge_classes, axis=1, class_cols=chemicalclass_c
 sw.drop(columns=chemicalclass_cols, inplace=True)
 
 # We have to decide how to handle Indicator, it is currently a class.
-sw = sw.drop(columns=["indicator", 
-                      ])
-sw.rename(columns=property_to_iri, inplace=True)
+sw = sw.drop(columns=["indicator"])
 
-# Convert releaseDate to ISO format (YYYY-MM-DD)
-sw['releaseDate'] = sw['releaseDate'].apply(lambda x: dateutil.parser.parse(x).isoformat() if pd.notna(x) else None) 
-
-# Add prefixes to values
-sw['accessRights'] = sw['accessRights'].apply(add_prefix, prefix='rights')
-
-sw['tierLevel'] = sw['tierLevel'].apply(correct_tier_level)
-sw['tierLevel'] = sw['tierLevel'].apply(add_prefix, prefix='pink')
-
-sw['@id'] = sw['@id'].apply(add_prefix, prefix='pink')
-
-
-
-
-# Remove the all columns that have '(comment)' in their name
-# These are for the curators filling out the spreadsheet and should 
-# be looked at with them.
-sw.drop(columns=[col for col in sw.columns if '(comment)' in col], inplace=True)
-
-
-
-# Correct the values 
-# Change lists to lists
-# Change all haeders according to the property_to_iri mapping
-for col in set(list_columns).intersection(sw.columns):
-    sw[col] = sw[col].apply(split_to_list)
-
-
-
+expanded_sw = correct_pink_dataframes(sw, onto)
 # A bit cumbersome to write file, I am sure there are better ways
-expanded_sw = expanded_df(sw)
-check_for_uris(expanded_sw, onto)
-
-
-
-#expanded_sw.to_csv('sw_clean.csv', index=False)  
-#expanded_sw.loc[expanded_sw['@id'].isin(["https://doi.org/10.1002/smll.201904749", "pink:AOP_451"])].to_csv('sw_clean.csv', index=False)
-expanded_sw.loc[expanded_sw['@id'].isin(["pink:AOP_451"])].to_csv('sw_clean.csv', index=False)
-
+expanded_sw.to_csv('sw_clean.csv', index=False)  
 
 swdocumentation = TableDoc.parse_csv(
         'sw_clean.csv',
@@ -245,21 +260,14 @@ swdocumentation = TableDoc.parse_csv(
                   'datasettype': 'https://w3id.org/pink/datasettype/'}
         )
 
-# Save software documentation to triplestore
-conforms, report = validate_jsonld(jsonld=swdocumentation.asdicts()[0])
-print(f"Validation result: {'VALID' if conforms else 'INVALID'}")
+# Validate and save software documentation to triplestore
+validate_and_store_documentation(swdocumentation, ts)
 
-ts = Triplestore('rdflib')
-if conforms:
-    swdocumentation.save(ts)
-else:
-    print(report)
 
-# Save the computational entities as activities
+# Correct the computations documentation dataframe 
+
 # Create a unique id (@id) for each activity in the comp dspreadsheet
 comp['@id'] = comp.apply(lambda row: f"https://w3id.org/pink/activity/{row.name}", axis=1)
-
-
 # Add a column that defines that each activity is a prov:Activity
 comp['@type'] = 'prov:Activity'
 
@@ -283,22 +291,12 @@ def merge_ssbd_dimensions(row):
 
 comp['@type'] = comp.apply(lambda row: ['prov:Activity'] + merge_ssbd_dimensions(row), axis=1)
 
-
 # Remove the Ssbd columns
 comp.drop(columns=[col for col in comp.columns if col.startswith('Ssbd')], inplace=True)
 
-# Change all headers according to the property_to_iri mapping
 
-comp.rename(columns=property_to_iri, inplace=True)
-for col in set(list_columns).intersection(comp.columns):
-    comp[col] = comp[col].apply(split_to_list)
- 
-# A bit cumbersome to write file, I am sure there are better ways
-expanded_comp = expanded_df(comp)
-
-corrected_iris_comp = check_for_uris(expanded_comp, onto)
-
-corrected_iris_comp.to_csv('comp_clean.csv', index=False)
+expanded_comp = correct_pink_dataframes(comp, onto)
+expanded_comp.to_csv('comp_clean.csv', index=False)
 
 
 compdocumentation = TableDoc.parse_csv(
@@ -307,11 +305,25 @@ compdocumentation = TableDoc.parse_csv(
         context=context,
         prefixes={'mw': 'https://modelwave.it/ontology/', 'datasettype': 'https://w3id.org/pink/datasettype/'}
         )
-conforms, report = validate_jsonld(jsonld=compdocumentation)
-print(f"Validation result: {'VALID' if conforms else 'INVALID'}")
+
+validate_and_store_documentation(compdocumentation, ts)
 
 
-# Save software documentation to triplestore
-if conforms:
-    compdocumentation.save(ts)
-#
+# Datasettype
+#Remove all columns starting with 'Datum' (these go into the datamodel)
+datasettypes = datasettypes.drop(columns=[col for col in datasettypes.columns if col.startswith('datum')])
+# Remove Unamed columns
+datasettypes = datasettypes.loc[:, ~datasettypes.columns.str.contains('^Unnamed')]
+
+
+# Drop indicator
+datasettypes = datasettypes.drop(columns=["indicator"])
+expanded_datasettypes = correct_pink_dataframes(datasettypes, onto)
+expanded_datasettypes.to_csv('datasettypes_clean.csv', index=False)
+datasettypedocumentation = TableDoc.parse_csv(
+        'datasettypes_clean.csv',
+        keywords=kw,
+        context=context,
+        prefixes={'mw': 'https://modelwave.it/ontology/', 'datasettype': 'https://w3id.org/pink/datasettype/'}
+        )
+validate_and_store_documentation(datasettypedocumentation, ts)
