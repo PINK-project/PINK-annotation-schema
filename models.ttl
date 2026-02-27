@@ -83,9 +83,6 @@ pink:implementsModel rdf:type owl:ObjectProperty .
 #    Classes
 #################################################################
 
-###  https://w3id.org/emmo/hume#
-emmo: rdf:type owl:Class .
-
 
 ###  https://w3id.org/emmo/hume#AnalogicalIcon
 emmo:AnalogicalIcon rdf:type owl:Class ;

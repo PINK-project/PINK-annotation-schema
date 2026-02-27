@@ -167,8 +167,8 @@ jobs:
       run: |
         mkdir -p build/context
         keywords \
-            --input=pink_annotation_schema.ttl \
-            --write-context=build/context/pink_annotation_schema.jsonld \
+            --input=build/${ONTOLOGY_NAME}.ttl \
+            --write-context=build/context/${ONTOLOGY_NAME}.jsonld \
             --redefine=allow \
             --set-prefix=emmo:https://w3id.org/emmo/hume#
             #--namespace-filter=pink
