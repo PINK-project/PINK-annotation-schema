@@ -1,0 +1,8 @@
+[project]
+requires-python = "==3.13.*"
+readme = "README.md"
+name = "PINK-annotation-schema"
+dependencies = ["tripper[datadoc]~=0.4", "pyshacl~=0.28"]
+
+[tool.pdm]
+distribution = false
