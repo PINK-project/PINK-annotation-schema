@@ -1,0 +1,17 @@
+{
+  "@id": "pink:EnalosCloud_Hamaker",
+  "@type": "owl:NamedIndividual",
+  "title": "Hamaker Extended tool",
+  "description": "This web GUI tool calculates the Hamaker constant of two different types of Nanoparticles in dispersion medium using the NOVAMFF (i.e., a FF for the accurate prediction of Hamaker constants). The NP's chemical formulas and the chemical formula of the dispersion medium as well astheir densities are needed as input by the user",
+  "keyword": [
+    "Aggregation",
+    "DLVO",
+    "NPs"
+  ],
+  "accessURL": "https://enaloscloud.novamechanics.com/pinkish/hamakerextension/",
+  "hasAPI": true,
+  "hasGUI": true,
+  "accessRights": "rights:PUBLIC",
+  "creator": "https://ror.org/03wwn0z54",
+  "chemicalClass": "pink:NanoParticle"
+}

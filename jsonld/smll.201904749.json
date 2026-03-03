@@ -1,0 +1,26 @@
+{
+  "@id": "https://doi.org/10.1002/smll.201904749",
+  "@type": "owl:NamedIndividual",
+  "title": "Tiered NAM-based safety testing workflow",
+  "description": "Data-driven tiered safety testing workflow where structure- and exposure-based analyses feed new-generation high-throughput, high-content, and omics-technology-coupled NAMs",
+  "keyword": [
+    "NAMs",
+    "safety",
+    "testing",
+    "tiered",
+    "workflow"
+  ],
+  "documentation": "https://doi.org/10.1002/smll.201904749",
+  "accessURL": "https://doi.org/10.1002/smll.201904749",
+  "hasAPI": true,
+  "hasGUI": true,
+  "accessRights": "rights:PUBLIC",
+  "creator": "https://ror.org/056d84691",
+  "priorRelease": "https://doi.org/10.5281/zenodo.1486011",
+  "version": "4",
+  "curator": "https://orcid.org/0000-0002-3435-7775",
+  "chemicalClass": [
+    "emmo:NanoMaterial",
+    "pink:AdvancedMaterial"
+  ]
+}

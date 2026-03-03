@@ -1,0 +1,14 @@
+{
+  "@id": "datasettype:FuelConsumptionInput",
+  "@type": "owl:NamedIndividual",
+  "label": [
+    "EMPA",
+    "Input",
+    "calculator.",
+    "energy",
+    "the",
+    "to"
+  ],
+  "format": "csv, text",
+  "subClassOf": "datasettype:Dataset"
+}

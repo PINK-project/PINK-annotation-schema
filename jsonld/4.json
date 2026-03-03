@@ -1,0 +1,9 @@
+{
+  "@id": "https://w3id.org/pink/activity/4",
+  "@type": [
+    "pink:Safety Assessment",
+    "prov:Activity"
+  ],
+  "hasInput": "datasettype:SMILES",
+  "title": "Atmos. Hydroxylation Rate"
+}

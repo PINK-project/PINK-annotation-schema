@@ -1,0 +1,10 @@
+{
+  "@id": "https://w3id.org/pink/activity/9",
+  "@type": [
+    "pink:Functionality Assessment",
+    "prov:Activity"
+  ],
+  "hasInput": "datasettype:ChemicalStructureDataset",
+  "hasOutput": "datasettype:InteractionPotentialParameters",
+  "title": "CNR force field builder module - molecular scale"
+}

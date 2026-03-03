@@ -1,0 +1,15 @@
+{
+  "@id": "qsar:ProfilerCarcinogenicityAlertsByISS",
+  "@type": "owl:NamedIndividual",
+  "label": [
+    "(genotox",
+    "Carcinogenicity",
+    "ISS",
+    "alerts",
+    "and",
+    "by",
+    "nongenotox)"
+  ],
+  "format": "csv",
+  "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
+}

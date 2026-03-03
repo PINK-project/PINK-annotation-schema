@@ -1,0 +1,9 @@
+{
+  "@id": "https://w3id.org/pink/activity/0",
+  "@type": [
+    "pink:Safety Assessment",
+    "prov:Activity"
+  ],
+  "hasInput": "datasettype:SMILES",
+  "title": "MultiCASE CASE Ultra commercial model RC2_AF4 for Rodent carcinogenicity in female mouse in vivo,\nDanish QSAR Group at DTU Food"
+}

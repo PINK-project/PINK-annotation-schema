@@ -1,0 +1,12 @@
+{
+  "@id": "https://w3id.org/pink/activity/21",
+  "@type": [
+    "pink:Hazard Characterisation Human Health",
+    "pink:Safety Assessment",
+    "pink:developmental neurotoxicity assessment",
+    "prov:Activity"
+  ],
+  "hasInput": "datasettype:RNACounts",
+  "hasOutput": "datasettype:differentialExpressionOutput",
+  "title": "Gene Expression assessment for an arbtitrary exposure"
+}

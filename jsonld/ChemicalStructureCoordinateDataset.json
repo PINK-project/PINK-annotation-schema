@@ -1,0 +1,7 @@
+{
+  "@id": "datasettype:ChemicalStructureCoordinateDataset",
+  "@type": "owl:NamedIndividual",
+  "description": "Dataset describing a three-dimensional coordinates of a structure.",
+  "format": "MOL, SDF, PDB, XYZ, GRO, CIF",
+  "subClassOf": "datasettype:ChemicalStructureDataset"
+}

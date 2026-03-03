@@ -1,0 +1,16 @@
+{
+  "@id": "pink:upscaling_LCI_calculator",
+  "@type": "owl:NamedIndividual",
+  "title": "Life Cycle Inventory calculation tool (energy/material flows)",
+  "description": "Sector-tailored energy calculator and Life Cycle Inventory creation tool. Will guide users on how the energy (and/or material) flows needs to be while upscaling with a general approach in chemical industry and specially tailored with different constrains in biochemical sector. Powered by simple imputs through fluid dynamics and thermodynamic calculations with technical information about industrial processes to guide though a possible higher TRL",
+  "keyword": [
+    "LCA",
+    "LCI",
+    "upscaling"
+  ],
+  "tierLevel": "pink:tierlevel3",
+  "hasAPI": true,
+  "hasGUI": true,
+  "accessRights": "rights:NON_PUBLIC",
+  "creator": "https://ror.org/02x681a42"
+}

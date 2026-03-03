@@ -1,0 +1,5 @@
+{
+  "@id": "qsar:Profiler",
+  "@type": "owl:NamedIndividual",
+  "subClassOf": "datasettype:Dataset"
+}

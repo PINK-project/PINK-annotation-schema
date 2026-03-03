@@ -189,6 +189,11 @@ def validate_and_store_documentation(documentation, ts):
             print(f"Validation failed for document with @id {doc.get('@id', 'unknown')}:")
             print(report)
             break
+        # save the doc (jsonld) as dict in the folder jsonld, 
+        # with filename as the @id of the doc (after the last / or :) and .json extension
+        doc_id = doc.get('@id', 'unknown').split('/')[-1].split(':')[-1]
+        with open(f'jsonld/{doc_id}.json', 'w') as f:
+            json.dump(doc, f, indent=2)
     print(f"Validation result: {'VALID' if conforms else 'INVALID'}")
     
     if conforms:
@@ -218,7 +223,7 @@ kw = get_keywords(theme=None)
 kw.load_yaml('https://pink-project.github.io/PINK-annotation-schema/context/keywords.yaml', redefine='allow')
 
 #context=get_context('https://pink-project.github.io/PINK-annotation-schema/context/pink_annotation_schema.jsonld')
-context=get_context('context_corrected.jsonld')
+context=get_context('sources/context_corrected.jsonld') # / in title generated from Cheminf make problems in jsonld
 
 # Get name of columns that can have more than one value from termdefs. Check the column SingleValue in termdefs. If False, then the value in column "Poperty"
 list_columns = termdefs[termdefs['SingleValue'] == False]['Tripper_keyword'].tolist()

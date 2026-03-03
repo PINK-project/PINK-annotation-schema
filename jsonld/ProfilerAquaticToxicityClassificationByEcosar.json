@@ -1,0 +1,5 @@
+{
+  "@id": "qsar:ProfilerAquaticToxicityClassificationByEcosar",
+  "@type": "owl:NamedIndividual",
+  "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
+}

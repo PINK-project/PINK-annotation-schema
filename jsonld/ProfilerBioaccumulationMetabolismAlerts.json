@@ -1,0 +1,5 @@
+{
+  "@id": "qsar:ProfilerBioaccumulationMetabolismAlerts",
+  "@type": "owl:NamedIndividual",
+  "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
+}

@@ -1,0 +1,11 @@
+{
+  "@id": "datasettype:RNACounts",
+  "@type": "owl:NamedIndividual",
+  "label": [
+    "Counts",
+    "DESeq2",
+    "RNA",
+    "for"
+  ],
+  "description": "Dataset with RNA counts"
+}

@@ -1,0 +1,31 @@
+{
+  "@id": "datasettype:Ecotoxicity_ZebrafishEmbryoCells",
+  "@type": "owl:NamedIndividual",
+  "label": [
+    "Cytotoxicity",
+    "PFAS",
+    "and",
+    "cells",
+    "embryo",
+    "impacts",
+    "mitochondrial",
+    "of",
+    "on",
+    "zebrafish"
+  ],
+  "description": "Detailed mechanistic information on impacts of PFAS alone or as mixtures on ZF4 cell viability, cell death mechanism, metabolic pathways and mitochondrial toxicity.",
+  "keyword": [
+    "PFAS",
+    "Zebrafish",
+    "action",
+    "cells",
+    "ecotoxicity",
+    "embryo",
+    "mixtures",
+    "mode",
+    "of"
+  ],
+  "format": ".csv",
+  "subClassOf": "datasettype:Dataset",
+  "curator": "https://ror.org/03angcq70"
+}

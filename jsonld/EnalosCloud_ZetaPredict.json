@@ -1,0 +1,17 @@
+{
+  "@id": "pink:EnalosCloud_ZetaPredict",
+  "@type": "owl:NamedIndividual",
+  "title": "Zeta Predict Extended tool",
+  "description": "This web GUI tool calculates the zeta potential of Nanoparticles using a) DLVO theory, b) liquid TEM images and c) the NOVAMFF derived to predict with high accuracy the Hamaker constant",
+  "keyword": [
+    "Aggregation",
+    "DLVO",
+    "NPs"
+  ],
+  "accessURL": "https://enaloscloud.novamechanics.com/pinkish/zpredictextension/",
+  "hasAPI": true,
+  "hasGUI": true,
+  "accessRights": "rights:PUBLIC",
+  "creator": "https://ror.org/03wwn0z54",
+  "chemicalClass": "pink:NanoParticle"
+}

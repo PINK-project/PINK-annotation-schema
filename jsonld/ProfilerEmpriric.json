@@ -1,0 +1,11 @@
+{
+  "@id": "qsar:ProfilerEmpriric",
+  "@type": "owl:NamedIndividual",
+  "label": [
+    "Empiric",
+    "QSAR",
+    "profilers"
+  ],
+  "description": "Empiric categorization schemes include rules used to determine the chemical elements constituting the target chemical, its chemical functionality and structural similarity (e.g. Organic functional groups)",
+  "subClassOf": "datasettype:QSARProfilers"
+}

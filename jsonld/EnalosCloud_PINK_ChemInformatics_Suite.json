@@ -1,0 +1,20 @@
+{
+  "@id": "pink:EnalosCloud_PINK_ChemInformatics_Suite",
+  "@type": "owl:NamedIndividual",
+  "title": "PINK ChemInformatics Suite",
+  "description": "Within this web-tool, users can import compounds of interest by either drawing molecules using an integrated sketcher or uploading a list of molecules in SMILES format. Users can also inspect a 3D visualization of their molecular structures post-drawing. The platform can be used for high-throughput virtual screening through batch processing: users can upload SDF files and process multiple compounds with one query. Then the users should select one or more endpoints from the available checkbox list (i.e., logP, logVP, BP, Cytotoxicity, Mutagenicity). Upon submission, predictions are generated within seconds. The results include the predicted property value(s) and/or toxicity class. All results can be downloaded per model for further analysis, enhancing flexibility and usability for diverse research applications. Apart from the predictions for each model their reliability according to the corresponding applicability domain is presented. Especially for the developed kNN models, in the downloaded results the training neighbours and their distances from the input substances are presented, allowing the evaluation of structural similarity patterns.",
+  "keyword": [
+    "BP",
+    "Cytotoxicity",
+    "ML",
+    "Mutagenicity",
+    "logP",
+    "logVP"
+  ],
+  "documentation": "https://www.enaloscloud.novamechanics.com/pinkish/suite",
+  "accessURL": "https://www.enaloscloud.novamechanics.com/pinkish/suite/index.zul",
+  "hasGUI": true,
+  "accessRights": "rights:PUBLIC",
+  "creator": "https://ror.org/03wwn0z54",
+  "chemicalClass": "pink:MicroMolecule"
+}

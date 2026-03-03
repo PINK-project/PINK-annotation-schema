@@ -1,0 +1,19 @@
+{
+  "@id": "pink:e2078536-1427-4d94-88dc-766215ea9abb",
+  "@type": "owl:NamedIndividual",
+  "title": "MultiCASE CASE Ultra commercial model RC2_AF4 for Rodent carcinogenicity in female mouse in vivo,\nDanish QSAR Group at DTU Food",
+  "description": "The training set consists of non\u2010proprietary studies and is composed of data harvested from FDA approval packages and the published literature (for more details see 6.5). The model algorithm is proprietary from commercial software. The model has been created by FDA and MultiCASE based on FDA data as part of a Research Cooperation Agreement (RCA).\nThe training set was constructed using the NTP (U.S. National Toxicology Program) Rodent carcinogenicity database, the Lois Gold Carcinogen Potency Database, FDA/CDER (U.S. Food and Drug Administration / Center for Drug Evaluation and Research) archives, and the scientific literature. The model including the training data set is commercially available from MultiCASE Inc.",
+  "documentation": "https://drive.google.com/file/d/1UfVlkwcNl9NiI3T1g9D463njkqScE5Gr/view",
+  "accessURL": "https://app.jaqpot.org/dashboard/models/1837/predict",
+  "implementsModel": "pink:StepwiseRegressionModel",
+  "hasAPI": true,
+  "hasGUI": true,
+  "accessRights": "rights:PUBLIC",
+  "license": "https://qsartoolbox.org/license-agreement/",
+  "version": "January 2015",
+  "curator": "https://orcid.org/0000-0002-0628-8434",
+  "chemicalClass": [
+    "emmo:OrganicCompound",
+    "pink:SmallMolecule"
+  ]
+}

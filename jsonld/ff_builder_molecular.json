@@ -1,0 +1,26 @@
+{
+  "@id": "mw:ff_builder_molecular",
+  "@type": "owl:NamedIndividual",
+  "title": "CNR force field builder module - molecular scale",
+  "description": "(Computational module) - This module takes the polymer structure as an input and generates a molecular mechanics force field, with OPLS used as the default option and GAFF available as an alternative. The tool generates the complete molecular topology, including atom types, bonded and non-bonded parameters, partial charges, and connectivity, providing a fully parameterized polymer structure ready for subsequent MD calculations.",
+  "keyword": [
+    "Molecular",
+    "dynamics",
+    "field",
+    "force",
+    "polymer",
+    "topology"
+  ],
+  "tierLevel": "pink:tierlevel1",
+  "implementsModel": "pink:AtomicInteractionModel",
+  "hasAPI": true,
+  "hasGUI": true,
+  "accessRights": "rights:PUBLIC",
+  "license": "https://opensource.org/license/mit",
+  "creator": "https://ror.org/04zaypm56",
+  "curator": [
+    "https://orcid.org/0000-0002-3369-4438",
+    "https://orcid.org/0000-0002-4860-153X"
+  ],
+  "chemicalClass": "emmo:PolymericMaterial"
+}

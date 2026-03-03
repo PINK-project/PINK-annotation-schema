@@ -1,0 +1,15 @@
+{
+  "@id": "pink:ChemPharosDB-ds3",
+  "@type": "owl:NamedIndividual",
+  "label": [
+    "(logVP)",
+    "Pressure",
+    "Vapor",
+    "molecules",
+    "of",
+    "small"
+  ],
+  "description": "A curated and enriched dataset for log-transormed vapor pressure at 24\u02daC of small molecules, intended for in silico model development. The dataset originates from the US EPA EPI Suite, filtered according to Zang et al. (2017). https://doi.org/10.1021/acs.jcim.6b00625. The curated logVP dataset comprises 2713 compounds enriched with 777 molecular descriptors extracted from their 2D structure using EnalosMold2 KNIME node.",
+  "format": ".csv",
+  "subClassOf": "datasettype:Dataset"
+}

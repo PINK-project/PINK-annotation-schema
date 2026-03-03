@@ -1,0 +1,8 @@
+{
+  "@id": "https://w3id.org/pink/activity/15",
+  "@type": [
+    "pink:Functionality Assessment",
+    "prov:Activity"
+  ],
+  "title": "Hamaker Extended tool"
+}

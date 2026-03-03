@@ -1,0 +1,11 @@
+{
+  "@id": "datasettype:differentialExpressionOutput",
+  "@type": "owl:NamedIndividual",
+  "label": [
+    "DESeq2",
+    "Output",
+    "analysis",
+    "from"
+  ],
+  "description": "Statistical measures per gene"
+}

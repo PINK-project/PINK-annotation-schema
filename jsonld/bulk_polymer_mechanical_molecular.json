@@ -1,0 +1,23 @@
+{
+  "@id": "mw:bulk_polymer_mechanical_molecular",
+  "@type": "owl:NamedIndividual",
+  "title": "CNR SMILES to mechanical properties workflow - molecular scale",
+  "description": "(Integrated workflow) - An integrated workflow based on atomistic molecular dynamics simulations that uses the SMILES representation of a monomer as input to automatically generate a polymer chain, construct a periodic bulk model, and perform fully atomistic simulations of mechanical properties. From the stress-strain response obtained under controlled deformation, the tool computes the key mechanical properties of the polymer, including Young\u2019s modulus, bulk modulus, and Poisson\u2019s ratio.",
+  "keyword": [
+    "Molecular",
+    "SMILES",
+    "bulk",
+    "dynamics",
+    "polymer"
+  ],
+  "hasAPI": true,
+  "hasGUI": true,
+  "accessRights": "rights:PUBLIC",
+  "license": "https://opensource.org/license/mit",
+  "creator": "https://ror.org/04zaypm56",
+  "curator": [
+    "https://orcid.org/0000-0002-3369-4438",
+    "https://orcid.org/0000-0002-4860-153X"
+  ],
+  "chemicalClass": "emmo:PolymericMaterial"
+}

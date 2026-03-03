@@ -1,0 +1,8 @@
+{
+  "@id": "https://w3id.org/pink/activity/17",
+  "@type": [
+    "pink:Functionality Assessment",
+    "prov:Activity"
+  ],
+  "title": "NanoBioConstruct"
+}

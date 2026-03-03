@@ -1,0 +1,14 @@
+{
+  "@id": "pink:20592778",
+  "@type": "owl:NamedIndividual",
+  "title": "Atmos. Hydroxylation Rate",
+  "description": "OH rate constant for the atmospheric, gas-phase reaction between photochemically produced hydroxyl radicals and organic chemicals",
+  "documentation": "https://github.com/kmansouri/OPERA",
+  "accessURL": "https://comptox.epa.gov/ctx-api/docs/chemical.html",
+  "hasAPI": true,
+  "hasGUI": true,
+  "accessRights": "rights:PUBLIC",
+  "license": "https://github.com/kmansouri/OPERA?tab=MIT-1-ov-file#readme",
+  "version": "V2.8, Mar 24, 2022",
+  "curator": "https://orcid.org/0000-0002-0628-8434"
+}

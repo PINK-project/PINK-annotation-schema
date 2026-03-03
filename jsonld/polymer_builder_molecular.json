@@ -1,0 +1,21 @@
+{
+  "@id": "mw:polymer_builder_molecular",
+  "@type": "owl:NamedIndividual",
+  "title": "CNR polymer builder module - molecular scale",
+  "description": "(Computational module) - This module takes the SMILES representation of a monomer as input and automatically generates a polymer chain structure (atomistic level) suitable for atomistic molecular dynamics simulations. The tool interprets the SMILES string to reconstruct the 3D molecular structure of the monomer, identifies the reactive termini, and performs automated polymerization to build a chain of user-defined length.",
+  "keyword": [
+    "SMILES",
+    "polymer"
+  ],
+  "implementsModel": "pink:StructureManipulationModel",
+  "hasAPI": true,
+  "hasGUI": true,
+  "accessRights": "rights:PUBLIC",
+  "license": "https://opensource.org/license/mit",
+  "creator": "https://ror.org/04zaypm56",
+  "curator": [
+    "https://orcid.org/0000-0002-3369-4438",
+    "https://orcid.org/0000-0002-4860-153X"
+  ],
+  "chemicalClass": "emmo:PolymericMaterial"
+}

@@ -1,0 +1,14 @@
+{
+  "@id": "pink:ChemPharosDB-ds11",
+  "@type": "owl:NamedIndividual",
+  "label": [
+    "Ames",
+    "molecule",
+    "mutagenicity",
+    "of",
+    "small"
+  ],
+  "description": "A curated and enriched dataset for the Ames mutagenicity of small molecules, intended for in silico model development. The dataset originates from the study of Hansen et al. (2009) https://doi.org/10.1021/ci900161g, and is further refined by the US EPA EPI Suite (removing salts, mixtures, ambiguous compounds, and compounds without CAS numbers). The curated lmutagenicity dataset comprises 5738 compounds enriched with 777 molecular descriptors extracted from their 2D structure using EnalosMold2 KNIME node. Compounds are classified as either \u201cpositive\u201d -indicating mutagenic compounds- or \u201cnegative\u201d -indicating non-mutagenic substances.",
+  "format": ".csv",
+  "subClassOf": "datasettype:Dataset"
+}

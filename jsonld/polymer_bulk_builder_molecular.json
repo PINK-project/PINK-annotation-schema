@@ -1,0 +1,28 @@
+{
+  "@id": "mw:polymer_bulk_builder_molecular",
+  "@type": "owl:NamedIndividual",
+  "title": "CNR bulk builder module - molecular scale",
+  "description": "(Computational module) - This module takes a single polymer chain structure (atomistic level) as an input and constructs a three-dimensional bulk model (atomistic level) by replicating it within a cubic simulation box. The system is then subjected to a multi-stage molecular dynamics protocol in the NPT ensemble, comprising heating under compression, cooling under compression, and final equilibration at ambient pressure. This procedure enables the chains to pack realistically and relax toward a stable glassy configuration. The module outputs the equilibrated bulk structure along with key bulk properties extracted from the simulation, providing a physically meaningful starting point for mechanical characterization.",
+  "keyword": [
+    "bulk",
+    "density",
+    "dynamics",
+    "molecular",
+    "polymer"
+  ],
+  "tierLevel": "pink:tierlevel1",
+  "implementsModel": "pink:AtomisticMolecularDynamics",
+  "hasAPI": true,
+  "hasGUI": true,
+  "accessRights": "rights:PUBLIC",
+  "license": "https://opensource.org/license/mit",
+  "creator": "https://ror.org/04zaypm56",
+  "curator": [
+    "https://orcid.org/0000-0002-3369-4438",
+    "https://orcid.org/0000-0002-4860-153X"
+  ],
+  "chemicalClass": [
+    "emmo:OrganicCompound",
+    "emmo:PolymericMaterial"
+  ]
+}

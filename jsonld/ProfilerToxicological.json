@@ -1,0 +1,11 @@
+{
+  "@id": "qsar:ProfilerToxicological",
+  "@type": "owl:NamedIndividual",
+  "label": [
+    "QSAR",
+    "Toxicological",
+    "profilers"
+  ],
+  "description": "The toxicological category includes only one profiler. The profiler contains boundaries based on repeated dose toxicity test data extracted from database of Hazard Evaluation Support System (HESS).",
+  "subClassOf": "datasettype:QSARProfilers"
+}

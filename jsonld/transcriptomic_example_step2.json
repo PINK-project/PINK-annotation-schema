@@ -1,0 +1,38 @@
+{
+  "@id": "pink:transcriptomic_example_step2",
+  "@type": "owl:NamedIndividual",
+  "title": "Gene set enrichment to understand affected pathways from transcriptomic_example1",
+  "description": "This takes the output of the previous example to carry out gene set enrichment to better understand the effects of exposure to some arbitray chemical",
+  "keyword": [
+    "cytotoxicity",
+    "health",
+    "human",
+    "transcriptomics"
+  ],
+  "tierLevel": "pink:tierlevel1",
+  "documentation": "https://biit.cs.ut.ee/gprofiler/page/r",
+  "accessURL": "https://biit.cs.ut.ee/gprofiler/page/r",
+  "distribution": {
+    "@type": [
+      "dcat:Distribution",
+      "dcat:Resource"
+    ],
+    "downloadURL": "https://biit.cs.ut.ee/gprofiler/page/r"
+  },
+  "implementsModel": "pink:CumulativeHypergeometricTest",
+  "hasAPI": true,
+  "hasGUI": true,
+  "accessRights": "rights:PUBLIC",
+  "creator": "https://ror.org/03z77qz90",
+  "version": "0.2.4",
+  "chemicalClass": [
+    "emmo:CeramicMaterial",
+    "emmo:ChemicalCompound",
+    "emmo:CompositeMaterial",
+    "emmo:InorganicCompound",
+    "emmo:MetallicMaterial",
+    "emmo:OrganicCompound",
+    "emmo:PolymericMaterial",
+    "pink:Protein"
+  ]
+}

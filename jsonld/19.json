@@ -1,0 +1,9 @@
+{
+  "@id": "https://w3id.org/pink/activity/19",
+  "@type": [
+    "pink:Environmental Assessment",
+    "pink:Environmental Impact Assessment",
+    "prov:Activity"
+  ],
+  "title": "Life Cycle Impact prediction Tool"
+}

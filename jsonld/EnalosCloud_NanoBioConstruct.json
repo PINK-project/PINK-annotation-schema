@@ -1,0 +1,22 @@
+{
+  "@id": "pink:EnalosCloud_NanoBioConstruct",
+  "@type": "owl:NamedIndividual",
+  "title": "NanoBioConstruct",
+  "description": "This web GUI tool prioritirize human proteins based on their adsorption onto a wide range of NPs surface using the UnitedAtom approach and Debye Theory and then applies a mapping from the coarse-grained approximation of the produced NP-protein configurations to atomistic ones in order to calculate with accuracy the NP's protein corona and calculate its adsorption energy",
+  "keyword": [
+    "Aggregation",
+    "Atomistic",
+    "Calculations",
+    "DLVO",
+    "Inverse",
+    "Mapping",
+    "NPs"
+  ],
+  "hasGUI": true,
+  "accessRights": "rights:PUBLIC",
+  "creator": "https://ror.org/03wwn0z54",
+  "chemicalClass": [
+    "pink:NanoParticle",
+    "pink:Protein"
+  ]
+}

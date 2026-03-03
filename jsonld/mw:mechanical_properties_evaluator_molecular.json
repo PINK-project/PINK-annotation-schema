@@ -1,0 +1,28 @@
+{
+  "@id": "mw:mechanical_properties_evaluator_molecular",
+  "@type": "owl:NamedIndividual",
+  "title": "CNR mechanical properties calculator module - molecular scale",
+  "description": "(Computational module) - This module takes the equilibrated bulk polymer model as input and prepares it for mechanical testing by replicating the simulation cell and applying a series of molecular dynamics simulations. Controlled deformations are introduced under NPT conditions to obtain stress-strain responses for different loading modes. From these trajectories, the module computes key mechanical indicators of the polymer, including Young\u2019s modulus, bulk modulus, and Poisson\u2019s ratio, providing a quantitative assessment of the material\u2019s macroscopic mechanical behavior directly from atomistic simulation.",
+  "keyword": [
+    "bulk",
+    "dynamics",
+    "modulus",
+    "molecular",
+    "poisson",
+    "polymer",
+    "ratio",
+    "young's"
+  ],
+  "tierLevel": "pink:tierlevel1",
+  "implementsModel": "pink:AtomisticMolecularDynamics",
+  "hasAPI": true,
+  "hasGUI": true,
+  "accessRights": "rights:PUBLIC",
+  "license": "https://opensource.org/license/mit",
+  "creator": "https://ror.org/04zaypm56",
+  "curator": [
+    "https://orcid.org/0000-0002-3369-4438",
+    "https://orcid.org/0000-0002-4860-153X"
+  ],
+  "chemicalClass": "emmo:PolymericMaterial"
+}

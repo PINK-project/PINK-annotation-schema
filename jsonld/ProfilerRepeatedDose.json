@@ -1,0 +1,5 @@
+{
+  "@id": "qsar:ProfilerRepeatedDose",
+  "@type": "owl:NamedIndividual",
+  "subClassOf": "datasettype:QSARProfilersToxicological"
+}

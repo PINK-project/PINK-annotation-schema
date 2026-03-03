@@ -1,0 +1,20 @@
+{
+  "@id": "pink:Smiles_to_impact-prediction-tool",
+  "@type": "owl:NamedIndividual",
+  "title": "Life Cycle Impact prediction Tool",
+  "description": "This GUI-based tool allows user to predict the Life Cycle Impacts of simple organic compounds by using their SMILES representation. The tool predicts 21 different types of impacts as described in the Environmental Footprint v3.1 method. Under the hood, tool uses the PaDEL tool to generate physical-chemical descriptors to the target molecules, and different ML models. The tool returns the expected predictions along with model metadata.",
+  "keyword": [
+    "LCA",
+    "LCIA",
+    "impact"
+  ],
+  "tierLevel": "pink:tierlevel1",
+  "documentation": "https://pink.sustain.list.lu/",
+  "accessURL": "https://pink.sustain.list.lu/",
+  "implementsModel": "pink:XGBoostRegressor",
+  "hasAPI": true,
+  "hasGUI": true,
+  "accessRights": "rights:NON_PUBLIC",
+  "creator": "https://ror.org/01t178j62",
+  "chemicalClass": "pink:MicroMolecule"
+}

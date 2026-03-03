@@ -1,0 +1,8 @@
+{
+  "@id": "https://w3id.org/pink/activity/1",
+  "@type": [
+    "pink:Safety Assessment",
+    "prov:Activity"
+  ],
+  "title": "Tox21 HEK293T Gonadotropin-releasing Hormone (GnRH) Receptor Agonism Assay"
+}
