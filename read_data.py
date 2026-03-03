@@ -137,10 +137,14 @@ def correct_pink_dataframes(df, ontology):
     - Splitting columns with multiple values into lists
     - Checking for URIs and replacing with IRIs from the ontology
     """
- 
+    #Remove all columns starting with 'Datum' (these go into the datamodel)
+    df = df.drop(columns=[col for col in df.columns if col.startswith('datum')])
+    # Remove Unamed columns
+    df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
+
     df.rename(columns=property_to_iri, inplace=True)
     # remove rows with empty @id
-    
+    df.dropna(subset=['@id'], inplace=True) 
     # Convert releaseDate to ISO format (YYYY-MM-DD)
     print(df.columns)
     if 'releaseDate' in df.columns:
@@ -310,14 +314,10 @@ validate_and_store_documentation(compdocumentation, ts)
 
 
 # Datasettype
-#Remove all columns starting with 'Datum' (these go into the datamodel)
-datasettypes = datasettypes.drop(columns=[col for col in datasettypes.columns if col.startswith('datum')])
-# Remove Unamed columns
-datasettypes = datasettypes.loc[:, ~datasettypes.columns.str.contains('^Unnamed')]
-
 
 # Drop indicator
 datasettypes = datasettypes.drop(columns=["indicator"])
+#datasettypes['@type'] = 'owl:Class'
 expanded_datasettypes = correct_pink_dataframes(datasettypes, onto)
 expanded_datasettypes.to_csv('datasettypes_clean.csv', index=False)
 datasettypedocumentation = TableDoc.parse_csv(
