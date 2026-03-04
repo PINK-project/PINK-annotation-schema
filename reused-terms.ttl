@@ -128,6 +128,15 @@ dcterms:description a owl:AnnotationProperty ;
     rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
     rdfs:label "Description"@en .
 
+dcterms:rightsHolder a owl:ObjectProperty ;
+    rdfs:range foaf:Agent ;
+    dcterms:description "Recommended practice is to refer to the rights holder with a URI. If this is not possible or feasible, a literal value that identifies the rights holder may be provided."@en ;
+    dcterms:issued "2004-06-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    rdfs:comment "A person or organization owning or managing rights over the resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Rights Holder"@en .
+
+
 ### Data properties
 
 dcterms:issued a owl:DatatypeProperty ;
