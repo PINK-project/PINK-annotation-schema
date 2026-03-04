@@ -161,7 +161,8 @@ def get_concept(ts, iri):
 
 def mklabel(s: str, isclass: bool) -> str:
     """Return string `s` converted to a prefLabel."""
-    lst = [x for x in re.split("[ /_+-]+", s) if x]
+    cleaned = s.replace("+", "Plus").replace("-", "Minus")
+    lst = [x for x in re.split("[ /_]+", cleaned) if x]
     first = lst[0]
     if isclass:
         first = first[0].upper() + first[1:]

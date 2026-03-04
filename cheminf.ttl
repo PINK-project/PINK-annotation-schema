@@ -46,7 +46,7 @@ obo:RO_0000056 a owl:ObjectProperty ;
     dc:description "partial positive surface area * total positive charge on the molecule"^^xsd:string ;
     chemcore:short_name "PPSA-2"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "PPSA2"@en .
+    skos:prefLabel "PPSAMinus2"@en .
 
 :CHEMINF_000006 a owl:Class ;
     rdfs:label "R stereochemical descriptor"^^xsd:string ;
@@ -85,7 +85,7 @@ obo:RO_0000056 a owl:ObjectProperty ;
     dc:description "partial negative surface area * total negative charge on the molecule"^^xsd:string ;
     chemcore:short_name "PNSA-2"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "PNSA2"@en .
+    skos:prefLabel "PNSAMinus2"@en .
 
 :CHEMINF_000019 a owl:Class ;
     rdfs:label "SMARTS descriptor"^^xsd:string ;
@@ -106,7 +106,7 @@ obo:RO_0000056 a owl:ObjectProperty ;
     rdfs:label "+ stereochemical descriptor"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000048 ;
     owl:disjointWith :CHEMINF_000050 ;
-    skos:prefLabel "StereochemicalDescriptor"@en .
+    skos:prefLabel "PlusStereochemicalDescriptor"@en .
 
 :CHEMINF_000052 a owl:Class ;
     rdfs:label "D stereochemical descriptor"^^xsd:string ;
@@ -348,105 +348,105 @@ The formal charge of any atom in a molecule can be calculated by the following e
     dc:description "difference of PPSA-1 and PNSA-1"^^xsd:string ;
     chemcore:short_name "DPSA-1"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "DPSA1"@en .
+    skos:prefLabel "DPSAMinus1"@en .
 
 :CHEMINF_000155 a owl:Class ;
     rdfs:label "DPSA-2"^^xsd:string ;
     dc:description "difference of FPSA-2 and PNSA-2"^^xsd:string ;
     chemcore:short_name "DPSA-2"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "DPSA2"@en .
+    skos:prefLabel "DPSAMinus2"@en .
 
 :CHEMINF_000156 a owl:Class ;
     rdfs:label "DPSA-3"^^xsd:string ;
     dc:description "difference of PPSA-3 and PNSA-3"^^xsd:string ;
     chemcore:short_name "DPSA-3"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "DPSA3"@en .
+    skos:prefLabel "DPSAMinus3"@en .
 
 :CHEMINF_000157 a owl:Class ;
     rdfs:label "FPSA-1"^^xsd:string ;
     dc:description "PPSA-1 / total molecular surface area"^^xsd:string ;
     chemcore:short_name "FPSA-1"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "FPSA1"@en .
+    skos:prefLabel "FPSAMinus1"@en .
 
 :CHEMINF_000158 a owl:Class ;
     rdfs:label "FPSA-2"^^xsd:string ;
     dc:description "PPSA-2 / total molecular surface area"^^xsd:string ;
     chemcore:short_name "FPSA-2"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "FPSA2"@en .
+    skos:prefLabel "FPSAMinus2"@en .
 
 :CHEMINF_000159 a owl:Class ;
     rdfs:label "FPSA-3"^^xsd:string ;
     dc:description "PPSA-3 / total molecular surface area"^^xsd:string ;
     chemcore:short_name "FPSA-3"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "FPSA3"@en .
+    skos:prefLabel "FPSAMinus3"@en .
 
 :CHEMINF_000160 a owl:Class ;
     rdfs:label "FNSA-1"^^xsd:string ;
     dc:description "PNSA-1 / total molecular surface area"^^xsd:string ;
     chemcore:short_name "FNSA-1"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "FNSA1"@en .
+    skos:prefLabel "FNSAMinus1"@en .
 
 :CHEMINF_000161 a owl:Class ;
     rdfs:label "FNSA-2"^^xsd:string ;
     dc:description "PNSA-2 / total molecular surface area"^^xsd:string ;
     chemcore:short_name "FNSA-2"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "FNSA2"@en .
+    skos:prefLabel "FNSAMinus2"@en .
 
 :CHEMINF_000162 a owl:Class ;
     rdfs:label "FNSA-3"^^xsd:string ;
     dc:description "PNSA-3 / total molecular surface area"^^xsd:string ;
     chemcore:short_name "FNSA-3"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "FNSA3"@en .
+    skos:prefLabel "FNSAMinus3"@en .
 
 :CHEMINF_000163 a owl:Class ;
     rdfs:label "WPSA-1"^^xsd:string ;
     dc:description "PPSA-1 * total molecular surface area / 1000"^^xsd:string ;
     chemcore:short_name "WPSA-1"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "WPSA1"@en .
+    skos:prefLabel "WPSAMinus1"@en .
 
 :CHEMINF_000164 a owl:Class ;
     rdfs:label "WPSA-2"^^xsd:string ;
     dc:description "PPSA-2 * total molecular surface area /1000"^^xsd:string ;
     chemcore:short_name "WPSA-2"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "WPSA2"@en .
+    skos:prefLabel "WPSAMinus2"@en .
 
 :CHEMINF_000165 a owl:Class ;
     rdfs:label "WPSA-3"^^xsd:string ;
     dc:description "PPSA-3 * total molecular surface area /1000"^^xsd:string ;
     chemcore:short_name "WPSA-3"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "WPSA3"@en .
+    skos:prefLabel "WPSAMinus3"@en .
 
 :CHEMINF_000166 a owl:Class ;
     rdfs:label "WNSA-1"^^xsd:string ;
     dc:description "PNSA-1 * total molecular surface area /1000"^^xsd:string ;
     chemcore:short_name "WNSA-1"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "WNSA1"@en .
+    skos:prefLabel "WNSAMinus1"@en .
 
 :CHEMINF_000167 a owl:Class ;
     rdfs:label "WNSA-2"^^xsd:string ;
     dc:description "PNSA-2 * total molecular surface area /1000"^^xsd:string ;
     chemcore:short_name "WNSA-2"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "WNSA2"@en .
+    skos:prefLabel "WNSAMinus2"@en .
 
 :CHEMINF_000168 a owl:Class ;
     rdfs:label "WNSA-3"^^xsd:string ;
     dc:description "PNSA-3 * total molecular surface area /1000"^^xsd:string ;
     chemcore:short_name "WNSA-3"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000229 ;
-    skos:prefLabel "WNSA3"@en .
+    skos:prefLabel "WNSAMinus3"@en .
 
 :CHEMINF_000169 a owl:Class ;
     rdfs:label "relative positive charge"^^xsd:string ;
@@ -609,7 +609,7 @@ The term 'ionization potential' has historically been used but is now no longer 
             owl:onProperty obo:IAO_0000136 ;
             owl:someValuesFrom obo:CHEBI_23367 ],
         :CHEMINF_000209 ;
-    skos:prefLabel "PiSystemSize"@en .
+    skos:prefLabel "PiMinussystemSize"@en .
 
 :CHEMINF_000224 a owl:Class ;
     rdfs:label "bond dissociation Gibbs energy descriptor"^^xsd:string ;
@@ -1050,7 +1050,7 @@ Zwitterion (ZW)	ACD_MOST_ApKa <6.5 and ACD_MOST_BpKa>8.5
     rdfs:label "pubchem depositor-supplied molecular entity name"@en ;
     obo:IAO_0000115 "A molecular entity name that has been supplied by a depositor to the PubChem database. This is just a molecular entity name with additional provenance associated. "^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000043 ;
-    skos:prefLabel "PubchemDepositorSuppliedMolecularEntityName"@en .
+    skos:prefLabel "PubchemDepositorMinussuppliedMolecularEntityName"@en .
 
 :CHEMINF_000344 a owl:Class ;
     rdfs:label "logD calculated at pH 5.5 by ACD/Labs PhysChem software library version 12.01"^^xsd:string ;
@@ -1339,7 +1339,7 @@ Quantifying the chemical beauty of drugs.
 Bickerton GR, Paolini GV, Besnard J, Muresan S, Hopkins AL."""^^xsd:string ;
     obo:IAO_0000118 "QED weighted"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000025 ;
-    skos:prefLabel "WeightedQuantitativeEstimateOfDrugLikeness"@en .
+    skos:prefLabel "WeightedQuantitativeEstimateOfDrugMinuslikeness"@en .
 
 :CHEMINF_000432 a owl:Class ;
     rdfs:label "freezing point descriptor"@en ;
@@ -1468,7 +1468,7 @@ where p is the partial pressure of the solute in the gas above the solution, c i
             owl:onProperty obo:IAO_0000136 ;
             owl:someValuesFrom :CHEMINF_000266 ],
         :CHEMINF_000025 ;
-    skos:prefLabel "SoilHalfLifeDescriptor"@en .
+    skos:prefLabel "SoilHalfMinuslifeDescriptor"@en .
 
 :CHEMINF_000446 a owl:Class ;
     rdfs:label "CAS registry number"^^xsd:string ;
@@ -1633,7 +1633,7 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     obo:IAO_0000115 "International Non-proprietary Name, defined by the WHO."^^xsd:string ;
     chemowl:short_name "INN"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000043 ;
-    skos:prefLabel "InternationalNonProprietaryName"@en .
+    skos:prefLabel "InternationalNonMinusproprietaryName"@en .
 
 :CHEMINF_000563 a owl:Class ;
     rdfs:label "Unique Ingredient Identifier"^^xsd:string ;
@@ -1823,7 +1823,7 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     chemowl:short_name "chiPathCluster"^^xsd:string ;
     rdfs:comment "It utilizes the graph isomorphism code of the CDK to find fragments matching SMILES strings representing the fragments corresponding to each type of chain."^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000092 ;
-    skos:prefLabel "ChiPathClusterIndices"@en .
+    skos:prefLabel "ChiPathMinusclusterIndices"@en .
 
 :CHEMINF_001511 a owl:Class ;
     rdfs:label "gravitational index (square and cube roots)"@en ;
@@ -1885,7 +1885,7 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     dc:description "Descriptor returns true if the protons is directly bonded to a pi system."^^xsd:string ;
     chemowl:short_name "isProtonInConjugatedPiSystem"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000136 ;
-    skos:prefLabel "ProtonBelongingToAPiSystem"@en .
+    skos:prefLabel "ProtonBelongingToAPiMinussystem"@en .
 
 :CHEMINF_001519 a owl:Class ;
     rdfs:label "Kier Hall SMARTS"@en ;
@@ -1929,7 +1929,7 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     dc:description "Descriptor that check if two atoms have pi-contact (this is true when there is one and the same conjugated pi-system which contains both atoms, or directly linked neighboors of the atoms)."^^xsd:string ;
     chemowl:short_name "piContact"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000136 ;
-    skos:prefLabel "PiContactOfTwoAtoms"@en .
+    skos:prefLabel "PiMinuscontactOfTwoAtoms"@en .
 
 :CHEMINF_001525 a owl:Class ;
     rdfs:label "proton total partial charge"@en ;
@@ -1977,7 +1977,7 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     chemowl:short_name "autoCorrelationCharge"^^xsd:string ;
     rdfs:comment "ATSc1 - ATSc5"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000092 ;
-    skos:prefLabel "MoreauBrotoAutocorrelation(charge)Descriptors"@en .
+    skos:prefLabel "MoreauMinusBrotoAutocorrelation(charge)Descriptors"@en .
 
 :CHEMINF_001531 a owl:Class ;
     rdfs:label "Moreau-Broto autocorrelation (mass) descriptors"@en ;
@@ -1985,7 +1985,7 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     chemowl:short_name "autoCorrelationMass"^^xsd:string ;
     rdfs:comment "ATSm1 - ATSm5"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000092 ;
-    skos:prefLabel "MoreauBrotoAutocorrelation(mass)Descriptors"@en .
+    skos:prefLabel "MoreauMinusBrotoAutocorrelation(mass)Descriptors"@en .
 
 :CHEMINF_001532 a owl:Class ;
     rdfs:label "Moreau-Broto autocorrelation (polarizability) descriptors"@en ;
@@ -1993,7 +1993,7 @@ where p is the partial pressure of the solute in the gas above the solution, c i
     chemowl:short_name "autoCorrelationPolarizability"^^xsd:string ;
     rdfs:comment "ATSp1 - ATSp5"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000092 ;
-    skos:prefLabel "MoreauBrotoAutocorrelation(polarizability)Descriptors"@en .
+    skos:prefLabel "MoreauMinusBrotoAutocorrelation(polarizability)Descriptors"@en .
 
 :CHEMINF_001533 a owl:Class ;
     rdfs:label "carbon types"@en ;
@@ -2135,7 +2135,7 @@ A service for browsing and searching CHEMINF can be found [here](https://ontobee
 :CHEMINF_000050 a owl:Class ;
     rdfs:label "- stereochemical descriptor"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000048 ;
-    skos:prefLabel "StereochemicalDescriptor"@en .
+    skos:prefLabel "MinusStereochemicalDescriptor"@en .
 
 :CHEMINF_000053 a owl:Class ;
     rdfs:label "L stereochemical descriptor"^^xsd:string ;
@@ -2478,7 +2478,7 @@ SC#N
             owl:onProperty obo:IAO_0000136 ;
             owl:someValuesFrom obo:CHEBI_33250 ],
         :CHEMINF_000520 ;
-    skos:prefLabel "StereochemicalDescriptor"@en .
+    skos:prefLabel "PlusMinusStereochemicalDescriptor"@en .
 
 :CHEMINF_000051 a owl:Class ;
     rdfs:label "DL stereochemical descriptor"^^xsd:string ;
@@ -2500,7 +2500,7 @@ SC#N
     rdfs:label "cis-trans stereochemical descriptor"^^xsd:string ;
     rdfs:comment "Descriptors which show the relationship between two ligands attached to separate atoms that are connected by a double bond or are contained in a ring. The two ligands are said to be located cis to each other if they lie on the same side of a plane. If they are on opposite sides, their relative position is described as trans. The appropriate reference plane of a double bond is perpendicular to that of the relevant s-bonds and passes through the double bond.[source:IUPAC Gold Book - http://goldbook.iupac.org/C01092.html]"^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000520 ;
-    skos:prefLabel "CisTransStereochemicalDescriptor"@en .
+    skos:prefLabel "CisMinustransStereochemicalDescriptor"@en .
 
 :CHEMINF_000113 a owl:Class ;
     rdfs:label "InChI descriptor"^^xsd:string ;
