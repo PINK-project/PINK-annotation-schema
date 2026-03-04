@@ -179,21 +179,23 @@ def correct_pink_dataframes(df, ontology):
 
 def validate_and_store_documentation(documentation, ts):
     """
-    Validate the documentation and store it in the triplestore if valid.
+    Validate the documentation as TableDoc instance and store it in the triplestore if valid.
     Otherwise print the validation report.
     """
     conforms = True
-    for doc in documentation.asdicts():
-        conforms, report = validate_jsonld(jsonld=doc)
-        if not conforms:
-            print(f"Validation failed for document with @id {doc.get('@id', 'unknown')}:")
-            print(report)
-            break
-        # save the doc (jsonld) as dict in the folder jsonld, 
-        # with filename as the @id of the doc (after the last / or :) and .json extension
-        doc_id = doc.get('@id', 'unknown').split('/')[-1].split(':')[-1]
-        with open(f'jsonld/{doc_id}.json', 'w') as f:
-            json.dump(doc, f, indent=2)
+    doc = told(documentation.asdicts(), context=documentation.context, keywords=documentation.keywords)
+
+    #for doc in documentation.asdicts():
+    conforms, report = validate_jsonld(jsonld=doc)
+    if not conforms:
+        print(f"Validation failed for document with @id {doc.get('@id', 'unknown')}:")
+        print(report)
+    #        break
+    #    # save the doc (jsonld) as dict in the folder jsonld, 
+    #    # with filename as the @id of the doc (after the last /) and .json extension
+    #    doc_id = doc.get('@id', 'unknown').split('/')[-1]
+    #    with open(f'jsonld/{doc_id}.json', 'w') as f:
+    #        json.dump(doc, f, indent=2)
     print(f"Validation result: {'VALID' if conforms else 'INVALID'}")
     
     if conforms:
@@ -204,6 +206,7 @@ onto =  get_ontology('pink_annotation_schema.ttl').load()
 
 # create the triplestore
 ts = Triplestore('rdflib')
+
 
 # Get data from Google Sheets
 # Software documentation
@@ -277,8 +280,10 @@ validate_and_store_documentation(swdocumentation, ts)
 
 # Create a unique id (@id) for each activity in the comp dspreadsheet
 comp['@id'] = comp.apply(lambda row: f"https://w3id.org/pink/activity/{row.name}", axis=1)
-# Add a column that defines that each activity is a prov:Activity
-comp['@type'] = 'prov:Activity'
+# Add a column that defines that each activity is a prov:Activity and pink:Computation
+# Reasoning tells us that a pink:Computation is a prov:Activity, but we add both for easier 
+# querying and to avoid relying on reasoning in the triplestore.
+comp['@type'] = ['prov:Activity', 'pink:Computation'] 
 
 # Add alle values under SsbdDimension, SsvbSubDimension and SsbdSubSubDimension 
 # into the column '@type' as list.
