@@ -133,7 +133,7 @@ dcterms:rightsHolder a owl:ObjectProperty ;
     dcterms:issued "2004-06-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
     dcterms:description "A person or organization owning or managing rights over the resource."@en ;
     rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
-    rdfs:label "Rights Holder"@en .
+    rdfs:label "rightsHolder"@en .
 
 
 ### Data properties
