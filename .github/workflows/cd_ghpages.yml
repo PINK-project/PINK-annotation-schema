@@ -32,7 +32,7 @@ jobs:
         pip install --upgrade pip
         pip install \
             "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@master" \
-            "tripper[datadoc] @ git+https://github.com/EMMC-ASBL/tripper.git@multiple-labels"
+            "tripper[datadoc] @ git+https://github.com/EMMC-ASBL/tripper.git@master"
 
     - name: List installed Python modules
       run: |
