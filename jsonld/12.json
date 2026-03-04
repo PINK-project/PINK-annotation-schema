@@ -1,8 +1,0 @@
-{
-  "@id": "https://w3id.org/pink/activity/12",
-  "@type": [
-    "pink:Safety Assessment",
-    "prov:Activity"
-  ],
-  "title": "AOP 451: Interaction with lung resident cell membrane components leads to lung cancer"
-}

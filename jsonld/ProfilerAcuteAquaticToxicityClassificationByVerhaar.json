@@ -1,5 +1,0 @@
-{
-  "@id": "qsar:ProfilerAcuteAquaticToxicityClassificationByVerhaar",
-  "@type": "owl:NamedIndividual",
-  "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
-}

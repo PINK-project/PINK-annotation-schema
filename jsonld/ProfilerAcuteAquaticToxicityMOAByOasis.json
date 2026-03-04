@@ -1,5 +1,0 @@
-{
-  "@id": "qsar:ProfilerAcuteAquaticToxicityMOAByOasis",
-  "@type": "owl:NamedIndividual",
-  "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
-}

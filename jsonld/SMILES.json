@@ -1,7 +1,0 @@
-{
-  "@id": "datasettype:SMILES",
-  "@type": "owl:NamedIndividual",
-  "description": "A dataset with a SMILES string.",
-  "format": "SMILES",
-  "subClassOf": "datasettype:ChemicalStructureDataset"
-}

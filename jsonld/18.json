@@ -1,8 +1,0 @@
-{
-  "@id": "https://w3id.org/pink/activity/18",
-  "@type": [
-    "pink:Safety Assessment",
-    "prov:Activity"
-  ],
-  "title": "PINK ChemInformatics Suite"
-}

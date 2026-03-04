@@ -1,5 +1,0 @@
-{
-  "@id": "qsar:ProfilerBioaccumulationMetabolismHalfLives",
-  "@type": "owl:NamedIndividual",
-  "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
-}

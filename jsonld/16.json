@@ -1,8 +1,0 @@
-{
-  "@id": "https://w3id.org/pink/activity/16",
-  "@type": [
-    "pink:Functionality Assessment",
-    "prov:Activity"
-  ],
-  "title": "Zeta Predict Extended tool"
-}
