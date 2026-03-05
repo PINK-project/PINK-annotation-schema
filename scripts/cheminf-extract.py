@@ -5,10 +5,12 @@ A script that will add all CHEMINF descriptors to the PINK Annotation Schema.
 
 Run cheminf-download.py before running this script.
 """
+import re
 
 from pathlib import Path
 
-from tripper import DCTERMS, OWL, RDF, RDFS, Literal, Triplestore
+from tripper import DCTERMS, OWL, RDF, RDFS, SKOS, Literal, Triplestore
+from tripper.utils import en
 from tripper.datadoc.utils import iriname
 
 # Ontology description
@@ -161,6 +163,19 @@ def get_concept(ts, iri):  # pylint: disable=redefined-outer-name
     return ts.query(query)
 
 
+def mklabel(s: str, isclass: bool) -> str:
+    """Return string `s` converted to a prefLabel."""
+    cleaned = s.replace("+", "Plus").replace("-", "Minus")
+    lst = [x for x in re.split("[ /_]+", cleaned) if x]
+    first = lst[0]
+    if isclass:
+        first = first[0].upper() + first[1:]
+    else:
+        first = first.lower()
+
+    return "".join([first] + [e[0].upper() + e[1:] for e in lst[1:]])
+
+
 # Create new triplestore
 ts = Triplestore(backend="rdflib")
 ts.bind("", "http://semanticscience.org/resource/")
@@ -212,11 +227,25 @@ for term in ignored_terms:
     # ts.remove(predicate=iri)
     # ts.remove(subject=iri)
 
+
 # Add ontology to triplestore
 triples = [(ontology_iri, RDF.type, OWL.Ontology)]
 for p, o in ontology_descr.items():
     triples.append((ontology_iri, p, o))
 ts.add_triples(triples)
+
+
+# Add preferred labels
+triples = []
+labels = set()
+for s, p, o in ts.triples(predicate=RDFS.label):
+    label = str(o)
+    if label not in labels:
+        labels.add(label)
+        isclass = ts.has(s, RDF.type, OWL.Class)
+        triples.append((s, SKOS.prefLabel, en(mklabel(label, isclass))))
+ts.add_triples(triples)
+
 
 # Write cheminf.ttl
 ttl = ts.serialize(format="turtle")
