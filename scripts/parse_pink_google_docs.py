@@ -23,7 +23,7 @@ from tripper.datadoc.tabledoc import TableDoc
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 # pylint: disable=wrong-import-position,import-error
-from validation.validate import load_shapes, shacl_validate 
+from validation.validate import load_shapes, shacl_validate
 
 
 def add_prefix(value, prefix="pink"):
@@ -97,6 +97,9 @@ def expand_df(df: pd.DataFrame) -> pd.DataFrame:
     will be expanded into multiple columns (all using the same header),
     with blanks where the lists were shorter.
     """
+    # reindex
+    df = df.reset_index(drop=True)
+
     parts = []
     for col in df.columns:
         is_list_col = df[col].apply(lambda v: isinstance(v, list)).any()
@@ -112,7 +115,6 @@ def expand_df(df: pd.DataFrame) -> pd.DataFrame:
             parts.append(df[[col]])
 
     out = pd.concat(parts, axis=1)
-
     # clean the output (not the original df)
     out = out.map(lambda x: x.strip() if isinstance(x, str) else x)
     out = out.replace(r"^\s*$", "", regex=True).fillna("")
@@ -176,12 +178,10 @@ def correct_pink_dataframes(df, ontology):
     # These are for the curators filling out the spreadsheet and should
     # be looked at with them.
     df = df.drop(columns=[col for col in df.columns if "(comment)" in col])
-
     df.rename(columns=property_to_iri, inplace=True)
-    # remove rows with empty @id
+    #  remove rows with empty @id
     df.dropna(subset=["@id"], inplace=True)
     # Convert releaseDate to ISO format (YYYY-MM-DD)
-    print(df.columns)
     if "releaseDate" in df.columns:
         df["releaseDate"] = df["releaseDate"].apply(
             lambda x: (
@@ -206,7 +206,6 @@ def correct_pink_dataframes(df, ontology):
     # Change possible lists to lists
     for col in set(list_columns).intersection(df.columns):
         df[col] = df[col].apply(split_to_list)
-
     expanded_df = expand_df(df)
     check_for_uris(expanded_df, ontology)
     return expanded_df
@@ -263,6 +262,15 @@ DATASETTYPE_URL = (
     "gid=1581267372"
 )
 datasettypes = pd.read_csv(DATASETTYPE_URL)
+
+
+AGENTS_URL = (
+    "https://docs.google.com/spreadsheets/d/"
+    "1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&"
+    "gid=1445327120"
+)
+agents = pd.read_csv(AGENTS_URL)
+
 
 # Get pink keywords
 kw = get_keywords(theme=None)
@@ -409,8 +417,23 @@ datasettypedocumentation = TableDoc.parse_csv(
     prefixes=prefixes,
 )
 
+# Agents
+agents["@type"] = [["prov:Agent"]] * len(agents)
+agents = agents.drop(columns=["e-mail", "affiliation.name", "affiliation.id"])
+agents = agents[~agents["identifier"].isin(ts.subjects())]
+
+agents_corrected = correct_pink_dataframes(agents, onto)
+agents_corrected.to_csv("agents_clean.csv", index=False)
+agentdocumentation = TableDoc.parse_csv(
+    "agents_clean.csv",
+    keywords=kw,
+    context=context,
+    prefixes=prefixes,
+)
+
 
 # Save the data to the triplstore
+agentdocumentation.save(ts)
 
 swdocumentation.save(ts)
 compdocumentation.save(ts)
@@ -434,6 +457,8 @@ conforms, results_graph, report = shacl_validate(
     inference="rdfs",
     abort_on_first=False,
 )
+
+ts.serialize("everything.ttl", format="turtle")
 
 if not conforms:
     print("Validation failed.")

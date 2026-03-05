@@ -856,15 +856,15 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000446",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "EuropeanCommunityNumber": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "EINECSNo": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ECNumber": {
-      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2543,9 +2543,9 @@
     "void": "http://rdfs.org/ns/void#",
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
-    "ns1": "http://www.semanticweb.org/ontologies/cheminf.owl#",
-    "ns2": "http://purl.obolibrary.org/obo/",
-    "ns3": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns1": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns3": "http://purl.obolibrary.org/obo/",
     "ns4": "http://www.geneontology.org/formats/oboInOwl#",
     "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
     "swrl": "http://www.w3.org/2003/11/swrl#",
@@ -2730,8 +2730,8 @@
       "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
     "has value": "http://semanticscience.org/resource/CHEMINF_000012",
-    "participates_in": "http://purl.obolibrary.org/obo/RO_0000056",
     "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
+    "participates_in": "http://purl.obolibrary.org/obo/RO_0000056",
     "rightsHolder": {
       "@id": "http://purl.org/dc/terms/rightsHolder",
       "@type": "@id"
