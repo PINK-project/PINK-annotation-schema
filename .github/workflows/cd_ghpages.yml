@@ -170,17 +170,21 @@ jobs:
             --input=build/${ONTOLOGY_NAME}.ttl \
             --write-context=build/context/${ONTOLOGY_NAME}.jsonld \
             --redefine=allow \
-            --set-prefix=emmo:https://w3id.org/emmo/hume#
+            --set-prefix=emmo:https://w3id.org/emmo/hume# \
+            --set-prefix=cheminf:http://semanticscience.org/resource/ \
+            --set-prefix=pink:https://w3id.org/pink#
             #--namespace-filter=pink
 
     - name: Generate keywords file
       run: |
         mkdir -p build/context
         keywords \
-            --input=pink_annotation_schema.ttl \
+            --input=build/${ONTOLOGY_NAME}.ttl \
             --write-kw-yaml=build/context/keywords.yaml \
             --redefine=allow \
-            --set-prefix=emmo:https://w3id.org/emmo/hume#
+            --set-prefix=emmo:https://w3id.org/emmo/hume# \
+            --set-prefix=cheminf:http://semanticscience.org/resource/ \
+            --set-prefix=pink:https://w3id.org/pink#
             #--namespace-filter=pink
 
     # - name: Create markdown documentation of keywords
