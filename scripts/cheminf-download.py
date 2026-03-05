@@ -1,10 +1,12 @@
-# Script that downloads  CHEMINF and save it to sources/cheminf.ttl
+# pylint: disable=invalid-name, invalid-name
+"""
+Script that downloads  CHEMINF and save it to sources/cheminf.ttl
+"""
 
 from pathlib import Path
 
 import yaml
 from ontopy import get_ontology
-
 
 rootdir = Path(__file__).resolve().parent.parent
 outdir = rootdir / "sources"
@@ -35,7 +37,7 @@ onto.save(
     },
 )
 
-if False:
+if False:  # pylint: disable=using-constant-test
     d = {}
     chemical_descriptor = onto.CHEMINF_000123
     for c in chemical_descriptor.descendants():
@@ -43,6 +45,6 @@ if False:
         descr = str((c.description if c.description else c.comment).first())
         d[c.name] = {"label": label, "description": descr}
 
-    with open(outdir / "cheminf-extract.yaml", "wt") as f:
+    with open(outdir / "cheminf-extract.yaml", "wt", encoding="utf-8") as f:
         f.write("# Generated with scripts/cheminf-download.py\n")
         yaml.dump(d, f, sort_keys=False)

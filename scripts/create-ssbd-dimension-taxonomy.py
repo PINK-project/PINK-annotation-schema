@@ -1,22 +1,30 @@
 #!/usr/bin/env python
-# Generates ssbd-dimensions.ttl
+# pylint: disable=invalid-name
+"""Generates ssbd-dimensions.ttl"""
 
 from pathlib import Path
 
 from tripper import DCTERMS, OWL, RDF, RDFS, Triplestore
 from tripper.datadoc import TableDoc
-from tripper.utils import en
 from tripper.datadoc.keywords import Keywords
+from tripper.utils import en
 
 # Set constants
-ssbd = "https://w3id.org/pink/ssbd-taxonomy"
-ver = "0.0.1"
+SSBD = "https://w3id.org/pink/ssbd-taxonomy"
+VER = "0.0.1"
 
 thisdir = Path(__file__).resolve().parent
 rootdir = thisdir.parent
 
-kw  = Keywords(theme=None)
-kw.add('https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/refs/heads/gh-pages/context/keywords.yaml', 'yaml', redefine='allow')
+kw = Keywords(theme=None)
+kw.add(
+    (
+        "https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema"
+        "/refs/heads/gh-pages/context/keywords.yaml"
+    ),
+    "yaml",
+    redefine="allow",
+)
 
 
 # Create triplestore and load the SSbD taxonomy into it
@@ -33,9 +41,16 @@ td.save(ts)
 # Add Ontology
 ts.add_triples(
     [
-        (ssbd, RDF.type, OWL.Ontology),
-        (ssbd, OWL.versionIRI, f"https://w3id.org/pink/{ver}/ssbd-taxonomy"),
-        (ssbd, DCTERMS.title, en("Taxonomy useful categorizing activities and outputs of activities within the SSbD framework.")),
+        (SSBD, RDF.type, OWL.Ontology),
+        (SSBD, OWL.versionIRI, f"https://w3id.org/pink/{VER}/ssbd-taxonomy"),
+        (
+            SSBD,
+            DCTERMS.title,
+            en(
+                "Taxonomy useful categorizing activities and outputs"
+                " of activities within the SSbD framework."
+            ),
+        ),
     ]
 )
 
@@ -43,4 +58,4 @@ ts.add_triples(
 ts.remove(predicate=RDFS.subClassOf, object=RDFS.Class)
 
 # Save to file
-ts.serialize(rootdir/"ssbd-taxonomy.ttl")
+ts.serialize(rootdir / "ssbd-taxonomy.ttl")

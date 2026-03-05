@@ -486,7 +486,7 @@ The formal charge of any atom in a molecule can be calculated by the following e
 
 :CHEMINF_000191 a owl:Class ;
     rdfs:label "ionization energy descriptor"@en ;
-    obo:IAO_0000115 """An ionization energy descriptor is a descriptor that describes the minimum amount of energy required to remove an electron (to an infinite distance) from an atom or molecule in a gaseous state. 
+    obo:IAO_0000115 """An ionization energy descriptor is a descriptor that describes the minimum amount of energy required to remove an electron (to an infinite distance) from an atom or molecule in a gaseous state.
 
 X + energy → X+ + e-
 
@@ -1126,13 +1126,13 @@ Zwitterion (ZW)	ACD_MOST_ApKa <6.5 and ACD_MOST_BpKa>8.5
 
 :CHEMINF_000430 a owl:Class ;
     rdfs:label "structural alert count"@en ;
-    obo:IAO_0000115 """The number of structural alerts, that is, unwanted features as defined according to the procedure followed in Brenk et al., 2008. 
+    obo:IAO_0000115 """The number of structural alerts, that is, unwanted features as defined according to the procedure followed in Brenk et al., 2008.
 Brenk R, et al. Lessons learnt from assembling screening libraries for drug discovery for neglected diseases. Chem Med Chem. 2008;3:435–444. """^^xsd:string ;
     rdfs:subClassOf :CHEMINF_000209 .
 
 :CHEMINF_000431 a owl:Class ;
     rdfs:label "weighted quantitative estimate of drug-likeness"@en ;
-    obo:IAO_0000115 """A descriptor which gives a quantitative estimate of drug likeness according to the procedure outlined in Bickerton et al., 2012. 
+    obo:IAO_0000115 """A descriptor which gives a quantitative estimate of drug likeness according to the procedure outlined in Bickerton et al., 2012.
 
 http://www.ncbi.nlm.nih.gov/pubmed/22270643
 Nat Chem. 2012 Jan 24;4(2):90-8. doi: 10.1038/nchem.1243.
@@ -1986,10 +1986,10 @@ A service for browsing and searching CHEMINF can be found [here](https://ontobee
 :CHEMINF_000315 a owl:Class ;
     rdfs:label "rule of three passes descriptor"^^xsd:string ;
     obo:IAO_0000115 """Rule of 3 passes.  It is suggested that compounds that pass all these criteria are more likely to be hits in fragment screening.
-molecular weight <=300, 
-number of hydrogen bond donors <=3, 
-number of hydrogen bond acceptors <=3 
-AlogP <=3. 
+molecular weight <=300,
+number of hydrogen bond donors <=3,
+number of hydrogen bond acceptors <=3
+AlogP <=3.
 RTB <=3
 PSA<=60
 """^^xsd:string ;
@@ -2504,11 +2504,10 @@ obo:IAO_0000136 a owl:ObjectProperty ;
     obo:IAO_0000112 "This document is about information artifacts and their representations"@en ;
     obo:IAO_0000114 obo:IAO_0000125 ;
     obo:IAO_0000115 "A (currently) primitive relation that relates an information artifact to an entity."@en ;
-    obo:IAO_0000116 """7/6/2009 Alan Ruttenberg. Following discussion with Jonathan Rees, and introduction of "mentions" relation. Weaken the is_about relationship to be primitive. 
+    obo:IAO_0000116 """7/6/2009 Alan Ruttenberg. Following discussion with Jonathan Rees, and introduction of "mentions" relation. Weaken the is_about relationship to be primitive.
 
 We will try to build it back up by elaborating the various subproperties that are more precisely defined.
 
 Some currently missing phenomena that should be considered "about" are predications - "The only person who knows the answer is sitting beside me" , Allegory, Satire, and other literary forms that can be topical without explicitly mentioning the topic."""@en ;
     obo:IAO_0000117 "person:Alan Ruttenberg"@en ;
     obo:IAO_0000119 "Smith, Ceusters, Ruttenberg, 2000 years of philosophy"@en .
-
