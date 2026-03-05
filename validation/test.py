@@ -6,7 +6,11 @@ Generates shapes from ontology and validates example files.
 from pathlib import Path
 
 from generate_shacl import generate_shapes
+<<<<<<< populate_ts_w_real_data
 from validate import validate_jsonld, print_validation_result
+=======
+from validate import validate, print_validation_result
+>>>>>>> main
 
 
 # Define test cases declaratively
@@ -64,7 +68,11 @@ def run_tests() -> bool:
         print_header(f"STEP {i + 1}: Validating {test_case['description']}", newline_before=True)
 
         test_path = script_dir / test_case["filename"]
+<<<<<<< populate_ts_w_real_data
         conforms, report = validate_jsonld(str(test_path))
+=======
+        conforms, report = validate(str(test_path))
+>>>>>>> main
         print_validation_result(str(test_path), conforms, report)
 
         # Check if result matches expectation
