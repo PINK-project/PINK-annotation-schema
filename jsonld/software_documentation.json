@@ -856,15 +856,15 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000446",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EuropeanCommunityNumber": {
-      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "EINECSNo": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ECNumber": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1680,11 +1680,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000056",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "File": {
+    "MeltMassFlowRate": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MeltMassFlowRate": {
+    "File": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1768,11 +1768,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000268",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "HistidineCount": {
+    "CovalentUnitCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000280",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "CovalentUnitCount": {
+    "HistidineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000280",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2492,9 +2492,10 @@
       "@id": "http://xmlns.com/foaf/0.1/Document",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "rights": "http://publications.europa.eu/resource/authority/access-right/",
     "mw": "https://modelwave.it/ontology/",
+    "rights": "http://publications.europa.eu/resource/authority/access-right/",
     "datasettype": "https://w3id.org/pink/datasettype/",
+    "qsar": "https://w3id.org/pink/qsar/",
     "ddoc": "https://w3id.org/emmo/application/datadoc#",
     "accr": "http://publications.europa.eu/resource/authority/access-right/",
     "adms": "http://www.w3.org/ns/adms#",
@@ -2542,9 +2543,9 @@
     "void": "http://rdfs.org/ns/void#",
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
-    "ns1": "http://purl.obolibrary.org/obo/",
-    "ns2": "http://semanticscience.org/ontology/cheminf-core.owl#",
-    "ns3": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns1": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns2": "http://purl.obolibrary.org/obo/",
+    "ns3": "http://semanticscience.org/ontology/cheminf-core.owl#",
     "ns4": "http://www.geneontology.org/formats/oboInOwl#",
     "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
     "swrl": "http://www.w3.org/2003/11/swrl#",

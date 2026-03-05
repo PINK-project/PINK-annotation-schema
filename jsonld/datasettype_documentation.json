@@ -856,15 +856,15 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000446",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EuropeanCommunityNumber": {
-      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "EINECSNo": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ECNumber": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1680,11 +1680,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000056",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "File": {
+    "MeltMassFlowRate": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MeltMassFlowRate": {
+    "File": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1768,11 +1768,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000268",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "HistidineCount": {
+    "CovalentUnitCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000280",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "CovalentUnitCount": {
+    "HistidineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000280",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2492,9 +2492,10 @@
       "@id": "http://xmlns.com/foaf/0.1/Document",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "rights": "http://publications.europa.eu/resource/authority/access-right/",
     "mw": "https://modelwave.it/ontology/",
+    "rights": "http://publications.europa.eu/resource/authority/access-right/",
     "datasettype": "https://w3id.org/pink/datasettype/",
+    "qsar": "https://w3id.org/pink/qsar/",
     "ddoc": "https://w3id.org/emmo/application/datadoc#",
     "accr": "http://publications.europa.eu/resource/authority/access-right/",
     "adms": "http://www.w3.org/ns/adms#",
@@ -2542,9 +2543,9 @@
     "void": "http://rdfs.org/ns/void#",
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
-    "ns1": "http://purl.obolibrary.org/obo/",
-    "ns2": "http://semanticscience.org/ontology/cheminf-core.owl#",
-    "ns3": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns1": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns2": "http://purl.obolibrary.org/obo/",
+    "ns3": "http://semanticscience.org/ontology/cheminf-core.owl#",
     "ns4": "http://www.geneontology.org/formats/oboInOwl#",
     "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
     "swrl": "http://www.w3.org/2003/11/swrl#",
@@ -3535,7 +3536,7 @@
         "specific"
       ],
       "description": "Mechanistic categorization schemes consist of rules for identification of chemical characteristics associated with a specific endpoint based on published or expert knowledge (e.g. DNA alerts for AMES, CA and MNT by OASIS).",
-      "subClassOf": "datasettype:QSARProfilers"
+      "subClassOf": "qsar:Profiler"
     },
     {
       "@id": "qsar:ProfilerCarcinogenicityAlertsByISS",
@@ -3553,8 +3554,17 @@
         "by",
         "nongenotox)"
       ],
-      "format": "csv",
-      "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
+      "keyword": [
+        "alerts",
+        "carinogenicity",
+        "structural"
+      ],
+      "format": "csv; variable in programming environment from an API call",
+      "subClassOf": "qsar:ProfilerEndpointSpecific",
+      "curator": [
+        "https://orcid.org/0000-0002-0628-8434",
+        "https://ror.org/03cx6bg69"
+      ]
     },
     {
       "@id": "qsar:ProfilerAcuteAquaticToxicityClassificationByVerhaar",
@@ -3563,7 +3573,7 @@
         "dcat:Resource",
         "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
       ],
-      "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerAcuteAquaticToxicityMOAByOasis",
@@ -3572,7 +3582,7 @@
         "dcat:Resource",
         "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
       ],
-      "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerAcuteOralToxicity",
@@ -3581,7 +3591,7 @@
         "dcat:Resource",
         "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
       ],
-      "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerAquaticToxicityClassificationByEcosar",
@@ -3590,7 +3600,7 @@
         "dcat:Resource",
         "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
       ],
-      "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerBioaccumulationMetabolismAlerts",
@@ -3599,7 +3609,7 @@
         "dcat:Resource",
         "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
       ],
-      "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerBioaccumulationMetabolismHalfLives",
@@ -3608,7 +3618,7 @@
         "dcat:Resource",
         "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
       ],
-      "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerGeneralMechanistic",
@@ -3624,7 +3634,7 @@
         "profilers"
       ],
       "description": "Mechanistic categorization schemes consist of rules for identification of important general chemical characteristics based on published or expert knowledge (e.g. DNA binding by OASIS)",
-      "subClassOf": "datasettype:QSARProfilers"
+      "subClassOf": "qsar:Profiler"
     },
     {
       "@id": "qsar:ProfilerPredefined",
@@ -3639,7 +3649,7 @@
         "profilers"
       ],
       "description": "Predefined categories are set of rules for grouping chemicals developed by recognized institutions or organizations and they could be considered as \u201cstandard\u201d categorization schemes (e.g. US-EPA New Chemical categories)",
-      "subClassOf": "datasettype:QSARProfilers"
+      "subClassOf": "qsar:Profiler"
     },
     {
       "@id": "qsar:ProfilerEmpriric",
@@ -3654,7 +3664,7 @@
         "profilers"
       ],
       "description": "Empiric categorization schemes include rules used to determine the chemical elements constituting the target chemical, its chemical functionality and structural similarity (e.g. Organic functional groups)",
-      "subClassOf": "datasettype:QSARProfilers"
+      "subClassOf": "qsar:Profiler"
     },
     {
       "@id": "qsar:ProfilerToxicological",
@@ -3669,7 +3679,7 @@
         "profilers"
       ],
       "description": "The toxicological category includes only one profiler. The profiler contains boundaries based on repeated dose toxicity test data extracted from database of Hazard Evaluation Support System (HESS).",
-      "subClassOf": "datasettype:QSARProfilers"
+      "subClassOf": "qsar:Profiler"
     },
     {
       "@id": "qsar:ProfilerRepeatedDose",
@@ -3678,7 +3688,7 @@
         "dcat:Resource",
         "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
       ],
-      "subClassOf": "datasettype:QSARProfilersToxicological"
+      "subClassOf": "qsar:ProfilerToxicological"
     },
     {
       "@id": "qsar:ProfilerCustom",
@@ -3693,7 +3703,7 @@
         "profilers"
       ],
       "description": "schemes based on the user`s knowledge. Example Prioritization Scheme (PBT) identifying the persistence, bioaccumulation and toxicity of the target chemical(s) based on their experimental and/or predicted data is included as a custom profiler.",
-      "subClassOf": "datasettype:QSARProfilers"
+      "subClassOf": "qsar:Profiler"
     },
     {
       "@id": "datasettype:RNACounts",

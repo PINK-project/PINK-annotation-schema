@@ -5,6 +5,7 @@ model and dataset providers for documentation.
 
 import json
 import re
+import sys
 from pathlib import Path
 
 import dateutil
@@ -19,7 +20,10 @@ from tripper.datadoc import (
 )
 from tripper.datadoc.tabledoc import TableDoc
 
-from validation.validate import load_shapes, shacl_validate
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+
+# pylint: disable=wrong-import-position,import-error
+from validation.validate import load_shapes, shacl_validate 
 
 
 def add_prefix(value, prefix="pink"):
@@ -228,6 +232,11 @@ onto = get_ontology("pink_annotation_schema.ttl").load()
 
 # create the triplestore
 ts = Triplestore("rdflib")
+# Add the reasoned ontology to the triplestore
+ts.parse(
+    "https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/"
+    "refs/heads/gh-pages/pink_annotation_schema-inferred.ttl"
+)
 
 
 # Get data from Google Sheets
@@ -267,6 +276,14 @@ context = get_context(
     "https://pink-project.github.io/PINK-annotation-schema/"
     "context/pink_annotation_schema.jsonld"
 )
+
+# Choice of prefixes
+prefixes = {
+    "mw": "https://modelwave.it/ontology/",
+    "rights": "http://publications.europa.eu/resource/authority/access-right/",
+    "datasettype": "https://w3id.org/pink/datasettype/",
+    "qsar": "https://w3id.org/pink/qsar/",
+}
 
 # Get name of columns that can have more than one value from termdefs.
 # Check the column SingleValue in termdefs.
@@ -321,11 +338,7 @@ swdocumentation = TableDoc.parse_csv(
     keywords=kw,
     context=context,
     # baseiri='https://w3id.org/pink/',
-    prefixes={
-        "mw": "https://modelwave.it/ontology/",
-        "rights": "http://publications.europa.eu/resource/authority/access-right/",
-        "datasettype": "https://w3id.org/pink/datasettype/",
-    },
+    prefixes=prefixes,
 )
 
 # Correct the computations documentation dataframe
@@ -377,13 +390,7 @@ expanded_comp.to_csv("comp_clean.csv", index=False)
 
 
 compdocumentation = TableDoc.parse_csv(
-    "comp_clean.csv",
-    keywords=kw,
-    context=context,
-    prefixes={
-        "mw": "https://modelwave.it/ontology/",
-        "datasettype": "https://w3id.org/pink/datasettype/",
-    },
+    "comp_clean.csv", keywords=kw, context=context, prefixes=prefixes
 )
 
 # Datasettype
@@ -399,10 +406,7 @@ datasettypedocumentation = TableDoc.parse_csv(
     "datasettypes_clean.csv",
     keywords=kw,
     context=context,
-    prefixes={
-        "mw": "https://modelwave.it/ontology/",
-        "datasettype": "https://w3id.org/pink/datasettype/",
-    },
+    prefixes=prefixes,
 )
 
 
@@ -418,11 +422,10 @@ store_jsonld(datasettypedocumentation, name="datasettype_documentation")
 store_jsonld(compdocumentation, name="comp_documentation")
 
 # Get absolute current path
-current_path = Path(__file__).parent.resolve()
-shacl_graph = load_shapes(current_path / "validation" / "shapes.ttl")
-shacl_graph.parse(
-    current_path / "validation" / "shapes-pink.ttl", format="turtle"
-)
+root_path = Path(__file__).parent.parent.resolve()
+validation_path = root_path / "validation"
+shacl_graph = load_shapes(validation_path / "shapes.ttl")
+shacl_graph.parse(validation_path / "shapes-pink.ttl", format="turtle")
 
 
 conforms, results_graph, report = shacl_validate(
@@ -431,7 +434,6 @@ conforms, results_graph, report = shacl_validate(
     inference="rdfs",
     abort_on_first=False,
 )
-
 
 if not conforms:
     print("Validation failed.")
