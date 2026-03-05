@@ -1,68 +1,58 @@
 {
   "@context": {
-    "has value": "http://semanticscience.org/resource/CHEMINF_000012",
-    "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
-    "participates_in": "http://purl.obolibrary.org/obo/RO_0000056",
-    "is about": "http://purl.obolibrary.org/obo/IAO_0000136",
-    "category": "http://www.w3.org/ns/prov#category",
-    "component": "http://www.w3.org/ns/prov#component",
-    "constraints": "http://www.w3.org/ns/prov#constraints",
-    "dm": "http://www.w3.org/ns/prov#dm",
-    "n": "http://www.w3.org/ns/prov#n",
-    "introduction": "https://w3id.org/widoco/vocab#introduction",
-    "License Document": {
-      "@id": "http://purl.org/dc/terms/LicenseDocument",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
+    "isDescriptionOf": {
+      "@id": "https://w3id.org/pink#isDescriptionOf",
+      "@type": "@id"
     },
-    "atomic polarizability sum": {
+    "AtomicPolarizabilitySum": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000002",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "partial positive surface area": {
+    "PartialPositiveSurfaceArea": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000003",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "PPSA-2": {
+    "PPSAMinus2": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000004",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "R stereochemical descriptor": {
+    "RStereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000006",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "charge weighted partial positive surface area": {
+    "ChargeWeightedPartialPositiveSurfaceArea": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000008",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "atomic order": {
+    "AtomicOrder": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000010",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "partial negative surface area": {
+    "PartialNegativeSurfaceArea": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000011",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "PNSA-2": {
+    "PNSAMinus2": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000015",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "SMARTS descriptor": {
+    "SMARTSDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000019",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "zagreb index": {
+    "ZagrebIndex": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000046",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "+ stereochemical descriptor": {
+    "PlusStereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000049",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "D stereochemical descriptor": {
+    "DStereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000052",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "chemical connectivity table": {
+    "ChemicalConnectivityTable": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000055",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -70,191 +60,191 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000058",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond order descriptor": {
+    "BondOrderDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000062",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "functional group descriptor": {
+    "FunctionalGroupDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000068",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "neutron count": {
+    "NeutronCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000078",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "proton count": {
+    "ProtonCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000079",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "cis stereochemical descriptor": {
+    "CisStereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000081",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "trans stereochemical descriptor": {
+    "TransStereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000082",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "atomic mass descriptor": {
+    "AtomicMassDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000084",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "atomic degree": {
+    "AtomicDegree": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000090",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "atomic valence": {
+    "AtomicValence": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000096",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "atomic hardness descriptor": {
+    "AtomicHardnessDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000097",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "atomic softness descriptor": {
+    "AtomicSoftnessDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000099",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molecular QSAR descriptor": {
+    "MolecularQSARDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000104",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "cycle basis": {
+    "CycleBasis": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000105",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "trivial name": {
+    "TrivialName": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000109",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "fused cycles": {
+    "FusedCycles": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000110",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "atomic QSAR descriptor": {
+    "AtomicQSARDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000112",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MOLfile descriptor": {
+    "MOLfileDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000114",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "atomic connectivity index": {
+    "AtomicConnectivityIndex": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000116",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Wiener path number": {
+    "WienerPathNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000117",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "formal charge descriptor": {
+    "FormalChargeDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000118",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "partial charge descriptor": {
+    "PartialChargeDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000119",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "electronegativity descriptor": {
+    "ElectronegativityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000122",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond multiplicity descriptor": {
+    "BondMultiplicityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000130",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond length descriptor": {
+    "BondLengthDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000132",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Wiener polarity number descriptor": {
+    "WienerPolarityNumberDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000137",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "PubChem substance identifier (SID)": {
+    "PubChemSubstanceIdentifier(SID)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000141",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "generic SMILES descriptor": {
+    "GenericSMILESDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000149",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "charge weighted partial negative surface area": {
+    "ChargeWeightedPartialNegativeSurfaceArea": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000153",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "DPSA-1": {
+    "DPSAMinus1": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000154",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "DPSA-2": {
+    "DPSAMinus2": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000155",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "DPSA-3": {
+    "DPSAMinus3": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000156",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "FPSA-1": {
+    "FPSAMinus1": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000157",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "FPSA-2": {
+    "FPSAMinus2": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000158",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "FPSA-3": {
+    "FPSAMinus3": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000159",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "FNSA-1": {
+    "FNSAMinus1": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000160",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "FNSA-2": {
+    "FNSAMinus2": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000161",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "FNSA-3": {
+    "FNSAMinus3": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000162",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "WPSA-1": {
+    "WPSAMinus1": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000163",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "WPSA-2": {
+    "WPSAMinus2": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000164",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "WPSA-3": {
+    "WPSAMinus3": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000165",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "WNSA-1": {
+    "WNSAMinus1": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000166",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "WNSA-2": {
+    "WNSAMinus2": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000167",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "WNSA-3": {
+    "WNSAMinus3": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000168",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "relative positive charge": {
+    "RelativePositiveCharge": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000169",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "relative negative charge": {
+    "RelativeNegativeCharge": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000170",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "relative positive charge surface area": {
+    "RelativePositiveChargeSurfaceArea": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000171",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "relative negative charge surface area": {
+    "RelativeNegativeChargeSurfaceArea": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000172",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -270,663 +260,775 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000176",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "collection of 3D atomic coordinates": {
+    "CollectionOf3DAtomicCoordinates": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000178",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molecular polarizability": {
+    "MolecularPolarizability": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000179",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "fragment complexity descriptor": {
+    "FragmentComplexityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000180",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "vertex adjacency matrix descriptor": {
+    "VertexAdjacencyMatrixDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000181",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Petitjean Topological Shape Index": {
+    "PetitjeanTopologicalShapeIndex": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000182",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Petitjean Geometric Shape Index": {
+    "PetitjeanGeometricShapeIndex": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000183",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Petitjean number": {
+    "PetitjeanNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000184",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MLogP descriptor": {
+    "MLogPDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000187",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "maximal ratio of length to breadth descriptor": {
+    "MaximalRatioOfLengthToBreadthDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000188",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "minimal ratio of length to breadth descriptor": {
+    "MinimalRatioOfLengthToBreadthDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000190",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ionization energy descriptor": {
+    "IonizationEnergyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000191",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "eccentric connectivity index descriptor": {
+    "EccentricConnectivityIndexDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000192",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "acid dissociation constant": {
+    "AcidDissociationConstant": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000194",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molecular weight calculated by pipeline pilot": {
+    "MolecularWeightCalculatedByPipelinePilot": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000198",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "absolute SMILES descriptor": {
+    "AbsoluteSMILESDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000199",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "pi-system size": {
+    "PiMinussystemSize": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000223",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond dissociation Gibbs energy descriptor": {
+    "BondDissociationGibbsEnergyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000224",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "solvation Gibbs energy descriptor": {
+    "SolvationGibbsEnergyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000225",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond charge density descriptor": {
+    "BondChargeDensityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000226",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "aromatic atom count": {
+    "AromaticAtomCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000232",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "PubChem conformer identifier": {
+    "PubChemConformerIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000234",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond aromaticity descriptor": {
+    "BondAromaticityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000237",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "formation Gibbs energy descriptor": {
+    "FormationGibbsEnergyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000239",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "size of largest aliphatic chain": {
+    "SizeOfLargestAliphaticChain": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000240",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "formation enthalpy descriptor": {
+    "FormationEnthalpyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000241",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "aromatic bond count": {
+    "AromaticBondCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000243",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "solvation entropy descriptor": {
+    "SolvationEntropyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000249",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "solvation enthalpy descriptor": {
+    "SolvationEnthalpyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000250",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond dissociation enthalpy descriptor": {
+    "BondDissociationEnthalpyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000252",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "melting point descriptor": {
+    "MeltingPointDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000256",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "formation entropy descriptor": {
+    "FormationEntropyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000260",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "relative permittivity descriptor": {
+    "RelativePermittivityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000261",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "atomic charge density descriptor": {
+    "AtomicChargeDensityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000264",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond dissociation entropy descriptor": {
+    "BondDissociationEntropyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000265",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "effective rotor count": {
+    "EffectiveRotorCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000267",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "conformer volume descriptor": {
+    "ConformerVolumeDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000269",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "alanine count": {
+    "AlanineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000271",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "arginine count": {
+    "ArginineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000272",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "asparagine count": {
+    "AsparagineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000273",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "aspartate count": {
+    "AspartateCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000274",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "cysteine count": {
+    "CysteineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000275",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "phenylalanine count": {
+    "PhenylalanineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000276",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "glutamate count": {
+    "GlutamateCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000277",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "glutamine count": {
+    "GlutamineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000278",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "glycine count": {
+    "GlycineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000279",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "isoleucine count": {
+    "IsoleucineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000281",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "proline count": {
+    "ProlineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000282",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "leucine count": {
+    "LeucineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000283",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "lysine count": {
+    "LysineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000284",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "methionine count": {
+    "MethionineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000285",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "serine count": {
+    "SerineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000286",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "threonine count": {
+    "ThreonineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000287",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "tyrosine count": {
+    "TyrosineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000288",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "valine count": {
+    "ValineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000289",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "tryptophan count": {
+    "TryptophanCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000290",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Highest Occupied Molecular Orbital Energy": {
+    "HighestOccupiedMolecularOrbitalEnergy": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000291",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Lowest Unoccupied Molecular Orbital Energy": {
+    "LowestUnoccupiedMolecularOrbitalEnergy": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000292",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "acidic group count": {
+    "AcidicGroupCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000293",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "basic group count": {
+    "BasicGroupCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000294",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "hybridization descriptor (VSEPR)": {
+    "HybridizationDescriptor(VSEPR)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000296",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "inductive atomic hardness": {
+    "InductiveAtomicHardness": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000297",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "TPSA (fragments)": {
+    "TPSA(fragments)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000298",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "VABC volume descriptor": {
+    "VABCVolumeDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000299",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "GenBank Protein Identifier": {
+    "GenBankProteinIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000303",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "GenBank Nucleotide Identifier": {
+    "GenBankNucleotideIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000304",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ALogP calculated by Pipeline Pilot": {
+    "ALogPCalculatedByPipelinePilot": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000305",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "polar surface area descriptor calculated by Pipeline Pilot": {
+    "PolarSurfaceAreaDescriptorCalculatedByPipelinePilot": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000308",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "hydrogen bond acceptor count calculated by pipeline pilot": {
+    "HydrogenBondAcceptorCountCalculatedByPipelinePilot": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000309",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "hydrogen bond donor count calculated by pipeline pilot": {
+    "HydrogenBondDonorCountCalculatedByPipelinePilot": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000310",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "rotatable bond count calculated by pipeline pilot": {
+    "RotatableBondCountCalculatedByPipelinePilot": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000311",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "rule of five violations calculated by pipeline pilot": {
+    "RuleOfFiveViolationsCalculatedByPipelinePilot": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000314",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "rule of three passes calculated by pipeline pilot": {
+    "RuleOfThreePassesCalculatedByPipelinePilot": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000317",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "medchem friendly descriptor calculated by pipeline pilot": {
+    "MedchemFriendlyDescriptorCalculatedByPipelinePilot": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000319",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molecular weight calculated by the pubchem software library": {
+    "LogPCalculatedByACDLabsPhysChemSoftware": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000321",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LogDCalculatedAtPH7.4ByACDLabsPhysChemSoftware": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000323",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MostAcidicPKaCalculatedByACDLabsPhysChemSoftwareLibrary": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000324",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MostBasicPKaCalculatedByACDLabsPhysChemSoftwareLibrary": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000325",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularSpeciesAtPH7.4CalculatedByACDLabsPhysChemSoftware": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000327",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularWeightCalculatedByThePubchemSoftwareLibrary": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000334",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molecular formula calculated by the pubchem software library": {
+    "MolecularFormulaCalculatedByThePubchemSoftwareLibrary": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000335",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "total formal charge calculated by the pubchem software library": {
+    "TotalFormalChargeCalculatedByThePubchemSoftwareLibrary": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000336",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "monoisotopic mass calculated by the pubchem software library": {
+    "MonoisotopicMassCalculatedByThePubchemSoftwareLibrary": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000337",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "exact mass calculated by pubchem software library": {
+    "ExactMassCalculatedByPubchemSoftwareLibrary": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000338",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "pubchem depositor-supplied molecular entity name": {
+    "PubchemDepositorMinussuppliedMolecularEntityName": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000339",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molecular weight of the corresponding free base": {
+    "LogDCalculatedAtPH5.5ByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000344",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondAcceptorCountCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000345",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondDonorCountCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000346",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BoilingPointAt760MmHgPressureCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000347",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NumberOfFreelyRotatingBondsCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000348",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PolarSurfaceAreaCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000349",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularWeightOfTheCorrespondingFreeBase": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000350",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "covalent unit count generated by pubchem software library": {
+    "MolarRefractivityCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000351",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IndexOfRefractionCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000352",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolarVolumeCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000358",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DensityCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000359",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FlashPointCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000360",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EnthalpyOfVaporizationCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000361",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "VapourPressureCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000362",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "OrganicCarbonAdsorptionCoefficientAtPH5.5CalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000363",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "OrganicCarbonAdsorptionCoefficientAtPH7.4CalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000364",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BioconcentrationFactorAtPH5.5CalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000365",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BioconcentrationFactorAtPH7.4CalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000366",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NumberOfRuleOfFiveViolationsCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000367",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SurfaceTensionCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000368",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CovalentUnitCountGeneratedByPubchemSoftwareLibrary": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000369",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "defined atom stereocenter count generated by the pubchem software library": {
+    "DefinedAtomStereocenterCountGeneratedByThePubchemSoftwareLibrary": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000370",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "defined bond stereocenter count generated by pubchem software library": {
+    "DefinedBondStereocenterCountGeneratedByPubchemSoftwareLibrary": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000371",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "isotope atom count generated by pubchem software library": {
+    "IsotopeAtomCountGeneratedByPubchemSoftwareLibrary": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000372",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "heavy atom count generated by pubchem software library": {
+    "HeavyAtomCountGeneratedByPubchemSoftwareLibrary": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000373",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "undefined atom stereocenter count generated by the pubchem software library": {
+    "UndefinedAtomStereocenterCountGeneratedByThePubchemSoftwareLibrary": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000374",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "undefined bond stereocenter count generated by the pubchem software library": {
+    "UndefinedBondStereocenterCountGeneratedByThePubchemSoftwareLibrary": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000375",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "canonical smiles generated by OEChem": {
+    "CanonicalSmilesGeneratedByOEChem": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000376",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "isomeric SMILES generated by OEChem": {
+    "IsomericSMILESGeneratedByOEChem": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000379",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "aromatic cycle count": {
+    "AromaticCycleCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000381",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "IUPAC Name generated by LexiChem": {
+    "IUPACNameGeneratedByLexiChem": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000382",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "hydrogen bond donor count calculated by cactvs": {
+    "HydrogenBondDonorCountCalculatedByCactvs": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000387",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "hydrogen bond acceptor count calculated by cactvs": {
+    "HydrogenBondAcceptorCountCalculatedByCactvs": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000388",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "rotatable bond count calculated by cactvs": {
+    "RotatableBondCountCalculatedByCactvs": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000389",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "structure complexity calculated by cactvs": {
+    "StructureComplexityCalculatedByCactvs": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000390",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "tautomer count calculated by cactvs": {
+    "TautomerCountCalculatedByCactvs": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000391",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "TPSA calculated by cactvs": {
+    "TPSACalculatedByCactvs": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000392",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "xlogp3 calculated by the xlogp3 software": {
+    "Xlogp3CalculatedByTheXlogp3Software": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000395",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "InChI calculated by library version 1.0.4": {
+    "InChICalculatedByLibraryVersion1.0.4": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000396",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "InChIKey generated by software version 1.0.4": {
+    "InChIKeyGeneratedBySoftwareVersion1.0.4": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000399",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "chemical graph": {
+    "ChemicalGraph": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000400",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ChemSpider identifier": {
+    "ChemSpiderIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000405",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "DrugBank identifier": {
+    "DrugBankIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000406",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ChEBI identifier": {
+    "ChEBIIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000407",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "HMDB identifier": {
+    "HMDBIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000408",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "KEGG identifier": {
+    "KEGGIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000409",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Reactome identifier": {
+    "ReactomeIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000411",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ChEMBL identifier": {
+    "ChEMBLIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000412",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "structural alert count": {
+    "StructuralAlertCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000430",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "weighted quantitative estimate of drug-likeness": {
+    "WeightedQuantitativeEstimateOfDrugMinuslikeness": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000431",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "freezing point descriptor": {
+    "FreezingPointDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000432",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Henry's Law constant": {
+    "Henry'sLawConstant": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000433",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "atmospheric OH rate constant": {
+    "AtmosphericOHRateConstant": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000434",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "upper explosive limit descriptor": {
+    "UpperExplosiveLimitDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000435",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "lower explosive limit descriptor": {
+    "LowerExplosiveLimitDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000436",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "minimum explosive concentration descriptor": {
+    "MinimumExplosiveConcentrationDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000437",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "specific gravity descriptor": {
+    "SpecificGravityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000438",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "relative density descriptor": {
+    "RelativeDensityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000439",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "vapor density descriptor": {
+    "VaporDensityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000440",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "odor detection threshold descriptor": {
+    "OdorDetectionThresholdDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000441",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "pH descriptor": {
+    "PHDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000442",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "evaporation rate descriptor": {
+    "EvaporationRateDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000443",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "autoignition temperature descriptor": {
+    "AutoignitionTemperatureDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000444",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "soil half-life descriptor": {
+    "SoilHalfMinuslifeDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000445",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "CAS registry number": {
+    "CASRegistryNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000446",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EINECS No": {
+    "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "European Community number": {
+    "EINECSNo": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EC number": {
+    "ECNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "metal atom count": {
+    "MetalAtomCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000448",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "oxygen atom count": {
+    "OxygenAtomCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000449",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ChemSpider unvalidated synonym": {
+    "ChemSpiderUnvalidatedSynonym": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000466",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "validated chemical database identifier": {
+    "ValidatedChemicalDatabaseIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000467",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ChemSpider title": {
+    "ChemSpiderTitle": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000476",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "energy band gap": {
+    "AverageMolecularWeightDescriptorCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000484",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MonoisotopicMolecularWeightDescriptorCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000485",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EnergyBandGap": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000487",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "metal element mass descriptor": {
+    "MetalElementMassDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000488",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "partition coefficient": {
+    "MolecularFormulaCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000490",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PartitionCoefficient": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000496",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "numeric chemical descriptor": {
+    "NumericChemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000511",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "textual chemical descriptor": {
+    "TextualChemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000512",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "chemical substance descriptor": {
+    "ChemicalSubstanceDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000513",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "group of an atom": {
+    "GroupOfAnAtom": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000516",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "NInChI descriptor": {
+    "NInChIDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000517",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "TUCAN descriptor": {
+    "TUCANDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000518",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "InChI with fixedH layer": {
+    "ACDLabsIndexName": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000523",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "InChIWithFixedHLayer": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000524",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ChEBI name": {
+    "ChEBIName": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000550",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "drug trade name": {
+    "DrugTradeName": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000561",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "International Non-proprietary Name": {
+    "InternationalNonMinusproprietaryName": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000562",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Unique Ingredient Identifier": {
+    "UniqueIngredientIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000563",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "LipidMaps identifier": {
+    "LipidMapsIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000564",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "National Service Center number": {
+    "NationalServiceCenterNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000565",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "RTECS identifier": {
+    "RTECSIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000566",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "European Registry of Materials identifier": {
+    "EuropeanRegistryOfMaterialsIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000569",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "SwissLipids identifier": {
+    "SwissLipidsIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000570",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MolMeDB identifier": {
+    "MolMeDBIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000571",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "PDB ligand identifier": {
+    "PDBLigandIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000572",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "PDB structure identifier": {
+    "PDBStructureIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000573",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "number of rule of five violations calculated by RDKit software library version 2015_09_2": {
+    "NumberOfRuleOfFiveViolationsCalculatedByRDKitSoftwareLibraryVersion2015092": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000802",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "hydrogen bond acceptor count calculated by RDKit software library version 2015_09_2": {
+    "HydrogenBondAcceptorCountCalculatedByRDKitSoftwareLibraryVersion2015092": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000803",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "hydrogen bond donor count calculated by RDKit software library version 2015_09_2": {
+    "HydrogenBondDonorCountCalculatedByRDKitSoftwareLibraryVersion2015092": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000804",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "logP descriptor calculated by RDKit software library version 2015_09_2": {
+    "LogPDescriptorCalculatedByRDKitSoftwareLibraryVersion2015092": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000805",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molecular formula calculated by RDKit software library version 2015_09_2": {
+    "MolecularFormulaCalculatedByRDKitSoftwareLibraryVersion2015092": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000806",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "average molecular weight calculated by RDKit software library version 2015_09_2": {
+    "AverageMolecularWeightCalculatedByRDKitSoftwareLibraryVersion2015092": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000807",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "total polar surface area calculated by RDKit software library version 2015_09_2": {
+    "TotalPolarSurfaceAreaCalculatedByRDKitSoftwareLibraryVersion2015092": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000808",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Bond Polarizabilities": {
+    "BondPolarizabilities": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001100",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "oxidation state": {
+    "OxidationState": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001101",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "connectivity SMILES descriptor": {
+    "ConnectivitySMILESDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001104",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -934,111 +1036,111 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_001500",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond partial pi charge": {
+    "BondPartialPiCharge": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001501",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond partial sigma charge": {
+    "BondPartialSigmaCharge": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001502",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond partial total charge": {
+    "BondPartialTotalCharge": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001503",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond sigma electronegativity": {
+    "BondSigmaElectronegativity": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001504",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bonds to Atom": {
+    "BondsToAtom": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001505",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "chi chain indices": {
+    "ChiChainIndices": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001506",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "chi cluster indices": {
+    "ChiClusterIndices": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001507",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "chi path indices": {
+    "ChiPathIndices": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001508",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "chi path-cluster indices": {
+    "ChiPathMinusclusterIndices": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001509",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "gravitational index (square and cube roots)": {
+    "GravitationalIndex(squareAndCubeRoots)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001511",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "acceptor field atoms (Boehm,Klebe)": {
+    "AcceptorFieldAtoms(Boehm,Klebe)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001512",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "hydrogen bond acceptors (Daylight)": {
+    "HydrogenBondAcceptors(Daylight)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001513",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "acceptors or donors field atoms (Boehm,Klebe)": {
+    "AcceptorsOrDonorsFieldAtoms(Boehm,Klebe)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001514",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "donor field atoms (Boehm,Klebe)": {
+    "DonorFieldAtoms(Boehm,Klebe)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001515",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "hydrogen bond donors (Daylight)": {
+    "HydrogenBondDonors(Daylight)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001516",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "proton belonging to an aromatic system": {
+    "ProtonBelongingToAnAromaticSystem": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001517",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "proton belonging to a pi-system": {
+    "ProtonBelongingToAPiMinussystem": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001518",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Kier Hall SMARTS": {
+    "KierHallSMARTS": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001519",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molecular distance edge": {
+    "MolecularDistanceEdge": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001520",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "moments of inertia": {
+    "MomentsOfInertia": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001521",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "partial total charge (MMFF94)": {
+    "PartialTotalCharge(MMFF94)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001522",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "period of an atom": {
+    "PeriodOfAnAtom": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001523",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "pi-contact of two atoms": {
+    "PiMinuscontactOfTwoAtoms": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001524",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "proton total partial charge": {
+    "ProtonTotalPartialCharge": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001525",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "RDF proton descriptor": {
+    "RDFProtonDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001526",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "TAE RECON descriptors for amino acid sequences": {
+    "TAERECONDescriptorsForAminoAcidSequences": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001527",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "weighted path": {
+    "WeightedPath": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001528",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1046,71 +1148,71 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_001529",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Moreau-Broto Autocorrelation (charge) descriptors": {
+    "MoreauMinusBrotoAutocorrelation(charge)Descriptors": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001530",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Moreau-Broto autocorrelation (mass) descriptors": {
+    "MoreauMinusBrotoAutocorrelation(mass)Descriptors": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001531",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Moreau-Broto autocorrelation (polarizability) descriptors": {
+    "MoreauMinusBrotoAutocorrelation(polarizability)Descriptors": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001532",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "carbon types": {
+    "CarbonTypes": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001533",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "carbon connectivity index (order 0)": {
+    "CarbonConnectivityIndex(order0)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001534",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "valence connectivity index (order 0)": {
+    "ValenceConnectivityIndex(order0)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001535",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "valence carbon connectivity index (order 0)": {
+    "ValenceCarbonConnectivityIndex(order0)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001536",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "carbon connectivity index (order 1)": {
+    "CarbonConnectivityIndex(order1)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001537",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "valence connectivity index (order 1)": {
+    "ValenceConnectivityIndex(order1)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001538",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "valence carbon connectivity index (order 1)": {
+    "ValenceCarbonConnectivityIndex(order1)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001539",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "distance to atom": {
+    "DistanceToAtom": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001540",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "effective polarizability": {
+    "EffectivePolarizability": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001541",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "hybridization ratio": {
+    "HybridizationRatio": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001542",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Kier and Hall kappa molecular shape indices": {
+    "KierAndHallKappaMolecularShapeIndices": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001543",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "partial pi charge": {
+    "PartialPiCharge": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001544",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "partial sigma charge": {
+    "PartialSigmaCharge": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001545",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "pi electronegativity": {
+    "PiElectronegativity": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001546",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1550,39 +1652,39 @@
       "@id": "http://purl.org/dc/terms/RightsStatement",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molar refractivity": {
+    "MolarRefractivity": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000001",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "canonical SMILES descriptor": {
+    "CanonicalSMILESDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000007",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "S stereochemical descriptor": {
+    "SStereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000034",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "positional descriptor": {
+    "PositionalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000041",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "- stereochemical descriptor": {
+    "MinusStereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000050",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "L stereochemical descriptor": {
+    "LStereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000053",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "aromaticity descriptor": {
+    "AromaticityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000056",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "melt mass flow rate": {
+    "File": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "file": {
+    "MeltMassFlowRate": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1590,27 +1692,27 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000059",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "hybridization descriptor": {
+    "HybridizationDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000095",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "systematic name": {
+    "SystematicName": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000106",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "IUPAC name": {
+    "IUPACName": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000107",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "PubChem compound identifier (CID)": {
+    "PubChemCompoundIdentifier(CID)": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000140",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "topological surface area descriptor": {
+    "TopologicalSurfaceAreaDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000146",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "topological polar surface area descriptor": {
+    "TopologicalPolarSurfaceAreaDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000152",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1618,123 +1720,123 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000174",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "collection of 3D coordinates": {
+    "CollectionOf3DCoordinates": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000177",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "XLogP descriptor": {
+    "XLogPDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000186",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "tautomer count": {
+    "TautomerCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000202",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "defined atom stereocenter count": {
+    "DefinedAtomStereocenterCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000206",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "undefined atom stereocenter count": {
+    "UndefinedAtomStereocenterCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000212",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "defined bond stereocenter count": {
+    "DefinedBondStereocenterCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000214",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "undefined bond stereocenter count": {
+    "UndefinedBondStereocenterCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000215",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "exact mass descriptor": {
+    "ExactMassDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000217",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "size of largest chain": {
+    "SizeOfLargestChain": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000246",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "refractive index descriptor": {
+    "RefractiveIndexDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000253",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "boiling point descriptor": {
+    "BoilingPointDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000257",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "total formal charge descriptor": {
+    "TotalFormalChargeDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000268",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "histidine count": {
+    "HistidineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000280",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "covalent unit count": {
+    "CovalentUnitCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000280",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ALogP descriptor": {
+    "ALogPDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000295",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "heavy atom count": {
+    "HeavyAtomCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000300",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "isotope atom count": {
+    "IsotopeAtomCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000301",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "rule of three passes descriptor": {
+    "RuleOfThreePassesDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000315",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "medchem friendly descriptor": {
+    "MedchemFriendlyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000318",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molecular species at pH 7.4 descriptor": {
+    "MolecularSpeciesAtPH7.4Descriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000326",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "cycle count": {
+    "CycleCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000380",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molar volume descriptor": {
+    "MolarVolumeDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000415",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "density descriptor": {
+    "DensityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000416",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "flash point descriptor": {
+    "FlashPointDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000417",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "enthalpy of vaporization descriptor": {
+    "EnthalpyOfVaporizationDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000418",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "vapour pressure descriptor": {
+    "VapourPressureDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000419",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "surface tension descriptor": {
+    "SurfaceTensionDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000420",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ChemSpider validated synonym": {
+    "ChemSpiderValidatedSynonym": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000465",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "absolute configuration stereochemical descriptor": {
+    "AbsoluteConfigurationStereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000519",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "gravitational index": {
+    "GravitationalIndex": {
       "@id": "http://semanticscience.org/resource/CHEMINF_001510",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1890,95 +1992,99 @@
       "@id": "https://w3id.org/pink#UnsupervicedLearningModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "RS stereochemical descriptor": {
+    "RSStereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000005",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "stereochemical descriptor": {
+    "StereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000027",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "isomeric SMILES descriptor": {
+    "IsomericSMILESDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000032",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "preferred name": {
+    "PreferredName": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000044",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "DL stereochemical descriptor": {
+    "PlusMinusStereochemicalDescriptor": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000048",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DLStereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000051",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "QSAR descriptor": {
+    "QSARDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000064",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "cis-trans stereochemical descriptor": {
+    "CisMinustransStereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000080",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "InChI descriptor": {
+    "InChIDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000113",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Petitjean Shape Index": {
+    "PetitjeanShapeIndex": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000185",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ratio of length to breadth descriptor": {
+    "RatioOfLengthToBreadthDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000189",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "equilibrium constant": {
+    "EquilibriumConstant": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000193",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "pKa": {
+    "PKa": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000195",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "stereocenter count": {
+    "StereocenterCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000203",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "atom stereocenter count": {
+    "AtomStereocenterCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000205",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "monoisotopic mass descriptor": {
+    "MonoisotopicMassDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000218",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "complexity descriptor": {
+    "ComplexityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000219",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "charge density descriptor": {
+    "ChargeDensityDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000231",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond count": {
+    "BondCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000233",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "volume descriptor": {
+    "VolumeDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000242",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "PubChem Identifier": {
+    "PubChemIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000302",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "logD descriptor": {
+    "LogDDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000322",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "organic carbon adsorption descriptor": {
+    "OrganicCarbonAdsorptionDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000413",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bioconcentration factor descriptor": {
+    "BioconcentrationFactorDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000414",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2054,59 +2160,59 @@
       "@id": "https://w3id.org/pink#RegressionModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "polyatomic entity": {
+    "PolyatomicEntity": {
       "@id": "http://purl.obolibrary.org/obo/CHEBI_36357",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molecular formula": {
+    "MolecularFormula": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000042",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "dimensional extent descriptor": {
+    "DimensionalExtentDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000060",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "mass descriptor": {
+    "MassDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000083",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molecular mass descriptor": {
+    "MolecularMassDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000088",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "charge descriptor": {
+    "ChargeDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000131",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "formation energy descriptor": {
+    "FormationEnergyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000207",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "solvation energy descriptor": {
+    "SolvationEnergyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000208",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "dissociation energy descriptor": {
+    "DissociationEnergyDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000210",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "bond stereocenter count": {
+    "BondStereocenterCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000213",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "rotatable bond count": {
+    "RotatableBondCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000254",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "polar surface area descriptor": {
+    "PolarSurfaceAreaDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000307",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "rule of five violations descriptor": {
+    "RuleOfFiveViolationsDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000312",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "relative configuration stereochemical descriptor": {
+    "RelativeConfigurationStereochemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000520",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2115,7 +2221,7 @@
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Atom": {
-      "@id": "https://w3id.org/emmo/hume#Atom",
+      "@id": "http://purl.obolibrary.org/obo/CHEBI_33250",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "AtomisticModel": {
@@ -2123,11 +2229,11 @@
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ChemicalEntity": {
-      "@id": "https://w3id.org/emmo/hume#ChemicalEntity",
+      "@id": "http://semanticscience.org/resource/CHEMINF_000000",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ChemicalSubstance": {
-      "@id": "https://w3id.org/emmo/hume#ChemicalSubstance",
+      "@id": "http://semanticscience.org/resource/CHEMINF_000266",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "CondensedMatter": {
@@ -2178,23 +2284,23 @@
       "@id": "https://w3id.org/pink#SemiSupervicedLearningModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "energetic descriptor": {
+    "EnergeticDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000016",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "SMILES descriptor": {
+    "SMILESDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000018",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "identifying descriptor": {
+    "IdentifyingDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000061",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "hydrogen bond donor count": {
+    "HydrogenBondDonorCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000244",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "hydrogen bond acceptor count": {
+    "HydrogenBondAcceptorCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000245",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2242,20 +2348,20 @@
       "@id": "https://w3id.org/pink#TierLevel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "average molecular weight descriptor": {
+    "AverageMolecularWeightDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000216",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "logP descriptor": {
+    "LogPDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000251",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "atom count": {
+    "AtomCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000263",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MolecularEntity": {
-      "@id": "https://w3id.org/emmo/hume#MolecularEntity",
+      "@id": "http://purl.obolibrary.org/obo/CHEBI_23367",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Classification": {
@@ -2266,11 +2372,7 @@
       "@id": "https://w3id.org/pink#SymbolicData",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "chemical entity": {
-      "@id": "http://semanticscience.org/resource/CHEMINF_000000",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "charge delocalization descriptor": {
+    "ChargeDelocalizationDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000094",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2278,7 +2380,7 @@
       "@id": "https://w3id.org/emmo/hume#Material",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "constitutional descriptor": {
+    "ConstitutionalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000136",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2298,11 +2400,11 @@
       "@id": "https://w3id.org/pink#SsbdDimension",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "molecular entity name": {
+    "MolecularEntityName": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000043",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "geometric descriptor": {
+    "GeometricDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000093",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2310,52 +2412,40 @@
       "@id": "https://w3id.org/pink#DeepLearningModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "structural descriptor": {
+    "StructuralDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000085",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "chemical descriptor": {
+    "ChemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000123",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "atom": {
-      "@id": "http://purl.obolibrary.org/obo/CHEBI_33250",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "count descriptor": {
+    "CountDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000209",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "amino acid count": {
+    "AminoAcidCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000270",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "chemical database identifier": {
+    "ChemicalDatabaseIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000464",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "chemical substance": {
-      "@id": "http://semanticscience.org/resource/CHEMINF_000266",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "topological descriptor": {
+    "TopologicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000092",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "electronic descriptor": {
+    "ElectronicDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000087",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "surface area descriptor": {
+    "SurfaceAreaDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000229",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "physical descriptor": {
+    "PhysicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000025",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "molecular entity": {
-      "@id": "http://purl.obolibrary.org/obo/CHEBI_23367",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Attribution": {
@@ -2402,16 +2492,8 @@
       "@id": "http://xmlns.com/foaf/0.1/Document",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "cheminf": "http://semanticscience.org/resource/",
-    "ns1": "http://purl.obolibrary.org/obo/",
-    "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
-    "ns3": "http://semanticscience.org/ontology/cheminf-core.owl#",
-    "ns4": "http://www.geneontology.org/formats/oboInOwl#",
-    "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
-    "swrl": "http://www.w3.org/2003/11/swrl#",
-    "vidoco": "https://w3id.org/widoco/vocab#",
-    "mw": "https://modelwave.it/ontology/",
     "rights": "http://publications.europa.eu/resource/authority/access-right/",
+    "mw": "https://modelwave.it/ontology/",
     "datasettype": "https://w3id.org/pink/datasettype/",
     "ddoc": "https://w3id.org/emmo/application/datadoc#",
     "accr": "http://publications.europa.eu/resource/authority/access-right/",
@@ -2440,6 +2522,8 @@
     "emmo": "https://w3id.org/emmo/hume#",
     "oteio": "https://w3id.org/emmo/domain/oteio#",
     "chameo": "https://w3id.org/emmo/domain/characterisation-methodology/chameo#",
+    "cheminf": "http://semanticscience.org/resource/",
+    "pink": "https://w3id.org/pink#",
     "xml": "http://www.w3.org/XML/1998/namespace",
     "brick": "https://brickschema.org/schema/Brick#",
     "csvw": "http://www.w3.org/ns/csvw#",
@@ -2458,8 +2542,13 @@
     "void": "http://rdfs.org/ns/void#",
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
-    "widoco": "https://w3id.org/widoco/vocab#",
-    "pink": "https://w3id.org/pink#",
+    "ns1": "http://purl.obolibrary.org/obo/",
+    "ns2": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns3": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns4": "http://www.geneontology.org/formats/oboInOwl#",
+    "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
+    "swrl": "http://www.w3.org/2003/11/swrl#",
+    "vidoco": "https://w3id.org/widoco/vocab#",
     "accessRights": {
       "@id": "http://purl.org/dc/terms/accessRights",
       "@type": "@id"
@@ -2497,7 +2586,7 @@
       "@type": "@id"
     },
     "definition": {
-      "@id": "http://www.w3.org/2004/02/skos/core#definition",
+      "@id": "http://www.w3.org/ns/prov#definition",
       "@language": "en"
     },
     "description": {
@@ -2639,37 +2728,52 @@
       "@id": "https://w3id.org/pink#ssbdSubDimension",
       "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
+    "has value": "http://semanticscience.org/resource/CHEMINF_000012",
+    "participates_in": "http://purl.obolibrary.org/obo/RO_0000056",
+    "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
+    "rightsHolder": {
+      "@id": "http://purl.org/dc/terms/rightsHolder",
+      "@type": "@id"
+    },
+    "hasJunctionPart": "https://w3id.org/pink#hasJunctionPart",
+    "hasSpatialPart": "https://w3id.org/pink#hasSpatialPart",
+    "hasTemporalPart": "https://w3id.org/pink#hasTemporalPart",
     "ssbdDimension": {
       "@id": "https://w3id.org/pink#ssbdDimension",
       "@type": "@id"
     },
-    "overlaps": "https://w3id.org/pink#overlaps",
-    "nonOverlaps": "https://w3id.org/pink#nonOverlaps",
-    "isOvercrossedBy": "https://w3id.org/pink#isOvercrossedBy",
-    "hasProperPart": "https://w3id.org/pink#hasProperPart",
     "hasParticipant": "https://w3id.org/pink#hasParticipant",
-    "hasSpatialPart": "https://w3id.org/pink#hasSpatialPart",
-    "hasTemporalPart": "https://w3id.org/pink#hasTemporalPart",
-    "hasJunctionPart": "https://w3id.org/pink#hasJunctionPart",
-    "causedBy": "https://w3id.org/pink#causedBy",
-    "isAfter": "https://w3id.org/pink#isAfter",
-    "processedFrom": "https://w3id.org/pink#processedFrom",
-    "semiotical": "https://w3id.org/pink#semiotical",
     "hasProperty": {
       "@id": "https://w3id.org/pink#hasProperty",
       "@type": "@id"
     },
+    "nonOverlaps": "https://w3id.org/pink#nonOverlaps",
     "hasDescription": {
       "@id": "https://w3id.org/pink#hasDescription",
       "@type": "@id"
     },
+    "isAfter": "https://w3id.org/pink#isAfter",
+    "processedFrom": "https://w3id.org/pink#processedFrom",
+    "overlaps": "https://w3id.org/pink#overlaps",
+    "semiotical": "https://w3id.org/pink#semiotical",
+    "causedBy": "https://w3id.org/pink#causedBy",
+    "hasProperPart": "https://w3id.org/pink#hasProperPart",
+    "isOvercrossedBy": "https://w3id.org/pink#isOvercrossedBy",
+    "is about": "http://purl.obolibrary.org/obo/IAO_0000136",
+    "Description": "http://purl.org/dc/terms/description",
     "doi": "http://purl.org/ontology/bibo/doi",
     "preferredNamespacePrefix": "http://purl.org/vocab/vann/preferredNamespacePrefix",
     "preferredNamespaceUri": "http://purl.org/vocab/vann/preferredNamespaceUri",
-    "homepage": "http://xmlns.com/foaf/0.1/homepage",
-    "logo": "http://xmlns.com/foaf/0.1/logo",
     "altLabel": "http://www.w3.org/2004/02/skos/core#altLabel",
     "example": "http://www.w3.org/2004/02/skos/core#example",
+    "category": "http://www.w3.org/ns/prov#category",
+    "component": "http://www.w3.org/ns/prov#component",
+    "constraints": "http://www.w3.org/ns/prov#constraints",
+    "dm": "http://www.w3.org/ns/prov#dm",
+    "n": "http://www.w3.org/ns/prov#n",
+    "homepage": "http://xmlns.com/foaf/0.1/homepage",
+    "logo": "http://xmlns.com/foaf/0.1/logo",
+    "introduction": "https://w3id.org/widoco/vocab#introduction",
     "scopeNote": "http://www.w3.org/2004/02/skos/core#scopeNote",
     "distribution": {
       "@id": "http://www.w3.org/ns/dcat#distribution",
@@ -2883,15 +2987,32 @@
       "@id": "http://www.w3.org/2002/07/owl#maxQualifiedCardinality",
       "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
     },
-    "hasSubProcess": {
-      "@id": "https://w3id.org/pink#hasSubProcess",
+    "assesses": {
+      "@id": "https://w3id.org/pink#assesses",
       "@type": "@id"
     },
     "hasSoftware": {
       "@id": "https://w3id.org/pink#hasSoftware",
       "@type": "@id"
     },
+    "hasSubProcess": {
+      "@id": "https://w3id.org/pink#hasSubProcess",
+      "@type": "@id"
+    },
+    "hasMeasurementUnit": "https://w3id.org/pink#hasMeasurementUnit",
+    "isPropertyOf": {
+      "@id": "https://w3id.org/pink#isPropertyOf",
+      "@type": "@id"
+    },
     "hasDataValue": "https://w3id.org/pink#hasDataValue",
+    "isInterpretedBy": {
+      "@id": "https://w3id.org/pink#isInterpretedBy",
+      "@type": "@id"
+    },
+    "standsFor": {
+      "@id": "https://w3id.org/pink#standsFor",
+      "@type": "@id"
+    },
     "hasAPI": {
       "@id": "https://w3id.org/pink#hasAPI",
       "@type": "http://www.w3.org/2001/XMLSchema#boolean"
@@ -2908,55 +3029,6 @@
       "@id": "https://w3id.org/pink#implementsModel",
       "@type": "@id"
     },
-    "isInterpretedBy": {
-      "@id": "https://w3id.org/pink#isInterpretedBy",
-      "@type": "@id"
-    },
-    "standsFor": {
-      "@id": "https://w3id.org/pink#standsFor",
-      "@type": "@id"
-    },
-    "hasMeasurementUnit": "https://w3id.org/pink#hasMeasurementUnit",
-    "isPropertyOf": {
-      "@id": "https://w3id.org/pink#isPropertyOf",
-      "@type": "@id"
-    },
-    "isDescriptionOf": {
-      "@id": "https://w3id.org/pink#isDescriptionOf",
-      "@type": "@id"
-    },
-    "tierLevel": {
-      "@id": "https://w3id.org/pink#tierLevel",
-      "@type": "@id"
-    },
-    "chemicalClass": {
-      "@id": "https://w3id.org/pink#chemicalClass",
-      "@type": "@id"
-    },
-    "participatesTo": {
-      "@id": "https://w3id.org/pink#participatesTo",
-      "@type": "@id"
-    },
-    "wasDerivedBy": {
-      "@id": "https://w3id.org/pink#wasDerivedBy",
-      "@type": "@id"
-    },
-    "wasAttributedTo": {
-      "@id": "https://w3id.org/pink#wasAttributedTo",
-      "@type": "@id"
-    },
-    "isRepresentedBy": {
-      "@id": "https://w3id.org/pink#isRepresentedBy",
-      "@type": "@id"
-    },
-    "hasInput": {
-      "@id": "https://w3id.org/pink#hasInput",
-      "@type": "@id"
-    },
-    "hasOutput": {
-      "@id": "https://w3id.org/pink#hasOutput",
-      "@type": "@id"
-    },
     "used": {
       "@id": "https://w3id.org/pink#used",
       "@type": "@id"
@@ -2969,8 +3041,36 @@
       "@id": "https://w3id.org/pink#wasInformedBy",
       "@type": "@id"
     },
-    "assesses": {
-      "@id": "https://w3id.org/pink#assesses",
+    "hasInput": {
+      "@id": "https://w3id.org/pink#hasInput",
+      "@type": "@id"
+    },
+    "hasOutput": {
+      "@id": "https://w3id.org/pink#hasOutput",
+      "@type": "@id"
+    },
+    "chemicalClass": {
+      "@id": "https://w3id.org/pink#chemicalClass",
+      "@type": "@id"
+    },
+    "tierLevel": {
+      "@id": "https://w3id.org/pink#tierLevel",
+      "@type": "@id"
+    },
+    "wasAttributedTo": {
+      "@id": "https://w3id.org/pink#wasAttributedTo",
+      "@type": "@id"
+    },
+    "wasDerivedBy": {
+      "@id": "https://w3id.org/pink#wasDerivedBy",
+      "@type": "@id"
+    },
+    "participatesTo": {
+      "@id": "https://w3id.org/pink#participatesTo",
+      "@type": "@id"
+    },
+    "isRepresentedBy": {
+      "@id": "https://w3id.org/pink#isRepresentedBy",
       "@type": "@id"
     },
     "Resource": {
@@ -3025,51 +3125,55 @@
       "@id": "http://www.w3.org/2002/07/owl#Restriction",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Process": {
-      "@id": "https://w3id.org/pink#Process",
+    "License Document": {
+      "@id": "http://purl.org/dc/terms/LicenseDocument",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Assessment": {
+      "@id": "https://w3id.org/pink#Assessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Computation": {
       "@id": "https://w3id.org/pink#Computation",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Data": {
-      "@id": "https://w3id.org/pink#Data",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Software": {
-      "@id": "https://w3id.org/pink#Software",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Sign": {
-      "@id": "https://w3id.org/pink#Sign",
+    "Process": {
+      "@id": "https://w3id.org/pink#Process",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Property": {
       "@id": "https://w3id.org/pink#Property",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Description": {
-      "@id": "https://w3id.org/pink#Description",
+    "Data": {
+      "@id": "https://w3id.org/pink#Data",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Entity": {
-      "@id": "http://www.w3.org/ns/prov#Entity",
+    "Sign": {
+      "@id": "https://w3id.org/pink#Sign",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Software": {
+      "@id": "https://w3id.org/pink#Software",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Activity": {
       "@id": "http://www.w3.org/ns/prov#Activity",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Assessment": {
-      "@id": "https://w3id.org/pink#Assessment",
+    "Entity": {
+      "@id": "http://www.w3.org/ns/prov#Entity",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     }
   },
   "@graph": [
     {
       "@id": "datasettype:ChemicalStructureDataset",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "Chemical",
         "Dataset",
@@ -3096,14 +3200,22 @@
     },
     {
       "@id": "datasettype:ChemicalStructureCoordinateDataset",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "description": "Dataset describing a three-dimensional coordinates of a structure.",
       "format": "MOL, SDF, PDB, XYZ, GRO, CIF",
       "subClassOf": "datasettype:ChemicalStructureDataset"
     },
     {
       "@id": "datasettype:MechanicalPropertiesDataset",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "Dataset",
         "Mechanical",
@@ -3130,7 +3242,11 @@
     },
     {
       "@id": "datasettype:InteractionPotentialParameters",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "Dataset",
         "Interaction",
@@ -3160,7 +3276,11 @@
     },
     {
       "@id": "pink:ChemPharosDB-ds3",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "(logVP)",
         "Pressure",
@@ -3175,7 +3295,11 @@
     },
     {
       "@id": "pink:ChemPharosDB-ds4",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "(logP)",
         "Octanol/water",
@@ -3191,7 +3315,11 @@
     },
     {
       "@id": "pink:ChemPharosDB-ds5",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "Cytotoxicity",
         "molecules",
@@ -3204,7 +3332,11 @@
     },
     {
       "@id": "pink:ChemPharosDB-ds10",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "Boiling",
         "molecules",
@@ -3218,7 +3350,11 @@
     },
     {
       "@id": "pink:ChemPharosDB-ds11",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "Ames",
         "molecule",
@@ -3232,7 +3368,11 @@
     },
     {
       "@id": "datasettype:OccurrenceData",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "PFAS",
         "Quantification",
@@ -3259,7 +3399,11 @@
     },
     {
       "@id": "datasettype:Ecotoxicity_Daphnia",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "(21-day",
         "(48h",
@@ -3288,7 +3432,11 @@
     },
     {
       "@id": "datasettype:Ecotoxicity_ZebrafishEmbryoCells",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "Cytotoxicity",
         "PFAS",
@@ -3319,14 +3467,22 @@
     },
     {
       "@id": "datasettype:SMILES",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "description": "A dataset with a SMILES string.",
       "format": "SMILES",
       "subClassOf": "datasettype:ChemicalStructureDataset"
     },
     {
       "@id": "datasettype:FuelConsumptionInput",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "EMPA",
         "Input",
@@ -3340,7 +3496,11 @@
     },
     {
       "@id": "datasettype:FuelConsumptionOutput",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "EMPA",
         "Output",
@@ -3354,12 +3514,20 @@
     },
     {
       "@id": "qsar:Profiler",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "subClassOf": "datasettype:Dataset"
     },
     {
       "@id": "qsar:ProfilerEndpointSpecific",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "Endpoint",
         "QSAR",
@@ -3371,7 +3539,11 @@
     },
     {
       "@id": "qsar:ProfilerCarcinogenicityAlertsByISS",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "(genotox",
         "Carcinogenicity",
@@ -3386,37 +3558,65 @@
     },
     {
       "@id": "qsar:ProfilerAcuteAquaticToxicityClassificationByVerhaar",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerAcuteAquaticToxicityMOAByOasis",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerAcuteOralToxicity",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerAquaticToxicityClassificationByEcosar",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerBioaccumulationMetabolismAlerts",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerBioaccumulationMetabolismHalfLives",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "subClassOf": "datasettype:QSARProfilersEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerGeneralMechanistic",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "General",
         "QSAR",
@@ -3428,7 +3628,11 @@
     },
     {
       "@id": "qsar:ProfilerPredefined",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "Predefined",
         "QSAR",
@@ -3439,7 +3643,11 @@
     },
     {
       "@id": "qsar:ProfilerEmpriric",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "Empiric",
         "QSAR",
@@ -3450,7 +3658,11 @@
     },
     {
       "@id": "qsar:ProfilerToxicological",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "QSAR",
         "Toxicological",
@@ -3461,12 +3673,20 @@
     },
     {
       "@id": "qsar:ProfilerRepeatedDose",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "subClassOf": "datasettype:QSARProfilersToxicological"
     },
     {
       "@id": "qsar:ProfilerCustom",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "Custom",
         "QSAR",
@@ -3477,7 +3697,11 @@
     },
     {
       "@id": "datasettype:RNACounts",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "Counts",
         "DESeq2",
@@ -3488,7 +3712,11 @@
     },
     {
       "@id": "datasettype:geneList",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "List",
         "gene",
@@ -3499,7 +3727,11 @@
     },
     {
       "@id": "datasettype:differentialExpressionOutput",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "DESeq2",
         "Output",
@@ -3510,7 +3742,11 @@
     },
     {
       "@id": "datasettype:geneSetEnrichmentOutput",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Dataset",
+        "dcat:Resource",
+        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
+      ],
       "label": [
         "Output",
         "gProfiler",

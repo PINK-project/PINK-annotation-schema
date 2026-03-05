@@ -12,7 +12,8 @@ import pandas as pd
 import dateutil
 from ontopy import get_ontology
 from ontopy.exceptions import NoSuchLabelError
-from validation.validate import validate_jsonld
+from validation.validate import load_shapes, shacl_validate
+from pathlib import Path
 
 def add_prefix(value, prefix='pink'):
     """Add prefix to value if it does not already have one and is not empty.
@@ -137,10 +138,16 @@ def correct_pink_dataframes(df, ontology):
     - Splitting columns with multiple values into lists
     - Checking for URIs and replacing with IRIs from the ontology
     """
+    # Remove columns that have nan as header (these are from empty columns in the spreadsheet)
+    df = df.loc[:, ~df.columns.isna()]
     #Remove all columns starting with 'Datum' (these go into the datamodel)
     df = df.drop(columns=[col for col in df.columns if col.startswith('datum')])
     # Remove Unamed columns
     df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
+    # Remove the all columns that have '(comment)' in their name
+    # These are for the curators filling out the spreadsheet and should 
+    # be looked at with them.
+    df = df.drop(columns=[col for col in df.columns if '(comment)' in col])
 
     df.rename(columns=property_to_iri, inplace=True)
     # remove rows with empty @id
@@ -163,11 +170,6 @@ def correct_pink_dataframes(df, ontology):
             df[col] = df[col].apply(add_prefix, prefix='pink')
 
 
-    # Remove the all columns that have '(comment)' in their name
-    # These are for the curators filling out the spreadsheet and should 
-    # be looked at with them.
-    df.drop(columns=[col for col in df.columns if '(comment)' in col], inplace=True)
-
     # Change possible lists to lists
     for col in set(list_columns).intersection(df.columns):
         df[col] = df[col].apply(split_to_list)
@@ -176,31 +178,15 @@ def correct_pink_dataframes(df, ontology):
     check_for_uris(expanded_df, ontology)
     return expanded_df
 
-
-def validate_and_store_documentation(documentation, ts):
+def store_jsonld(documentation, name=None):
     """
-    Validate the documentation as TableDoc instance and store it in the triplestore if valid.
-    Otherwise print the validation report.
+    Store the TableDoc as jsonld in 'jsonld' folder with the given name. 
     """
-    conforms = True
     doc = told(documentation.asdicts(), context=documentation.context, keywords=documentation.keywords)
-
-    #for doc in documentation.asdicts():
-    conforms, report = validate_jsonld(jsonld=doc)
-    if not conforms:
-        print(f"Validation failed for document with @id {doc.get('@id', 'unknown')}:")
-        print(report)
-    #        break
-    #    # save the doc (jsonld) as dict in the folder jsonld, 
-    #    # with filename as the @id of the doc (after the last /) and .json extension
-    #    doc_id = doc.get('@id', 'unknown').split('/')[-1]
-    #    with open(f'jsonld/{doc_id}.json', 'w') as f:
-    #        json.dump(doc, f, indent=2)
-    print(f"Validation result: {'VALID' if conforms else 'INVALID'}")
     
-    if conforms:
-        documentation.save(ts)
-
+    with open(f'jsonld/{name}.json', 'w') as f:
+        json.dump(doc, f, indent=2)
+    
 # import the pink ontology for accessing labels and convert to IRIs (just before storing into the triplestore)
 onto =  get_ontology('pink_annotation_schema.ttl').load()
 
@@ -225,8 +211,8 @@ datasettypes = pd.read_csv(datasettype_url)
 kw = get_keywords(theme=None)
 kw.load_yaml('https://pink-project.github.io/PINK-annotation-schema/context/keywords.yaml', redefine='allow')
 
-#context=get_context('https://pink-project.github.io/PINK-annotation-schema/context/pink_annotation_schema.jsonld')
-context=get_context('sources/context_corrected.jsonld') # / in title generated from Cheminf make problems in jsonld
+context=get_context('https://pink-project.github.io/PINK-annotation-schema/context/pink_annotation_schema.jsonld')
+#context=get_context('sources/context_corrected.jsonld') # / in title generated from Cheminf make problems in jsonld
 
 # Get name of columns that can have more than one value from termdefs. Check the column SingleValue in termdefs. If False, then the value in column "Poperty"
 list_columns = termdefs[termdefs['SingleValue'] == False]['Tripper_keyword'].tolist()
@@ -272,10 +258,6 @@ swdocumentation = TableDoc.parse_csv(
                   'datasettype': 'https://w3id.org/pink/datasettype/'}
         )
 
-# Validate and save software documentation to triplestore
-validate_and_store_documentation(swdocumentation, ts)
-
-
 # Correct the computations documentation dataframe 
 
 # Create a unique id (@id) for each activity in the comp dspreadsheet
@@ -283,7 +265,7 @@ comp['@id'] = comp.apply(lambda row: f"https://w3id.org/pink/activity/{row.name}
 # Add a column that defines that each activity is a prov:Activity and pink:Computation
 # Reasoning tells us that a pink:Computation is a prov:Activity, but we add both for easier 
 # querying and to avoid relying on reasoning in the triplestore.
-comp['@type'] = ['prov:Activity', 'pink:Computation'] 
+comp['@type'] = [['prov:Activity', 'pink:Computation']] * len(comp)
 
 # Add alle values under SsbdDimension, SsvbSubDimension and SsbdSubSubDimension 
 # into the column '@type' as list.
@@ -320,12 +302,11 @@ compdocumentation = TableDoc.parse_csv(
         prefixes={'mw': 'https://modelwave.it/ontology/', 'datasettype': 'https://w3id.org/pink/datasettype/'}
         )
 
-validate_and_store_documentation(compdocumentation, ts)
-
-
 # Datasettype
 
 # Drop indicator
+datasettypes['@type'] = [['pink:Dataset']] * len(datasettypes)
+
 datasettypes = datasettypes.drop(columns=["indicator"])
 #datasettypes['@type'] = 'owl:Class'
 expanded_datasettypes = correct_pink_dataframes(datasettypes, onto)
@@ -336,4 +317,33 @@ datasettypedocumentation = TableDoc.parse_csv(
         context=context,
         prefixes={'mw': 'https://modelwave.it/ontology/', 'datasettype': 'https://w3id.org/pink/datasettype/'}
         )
-validate_and_store_documentation(datasettypedocumentation, ts)
+
+
+# Save the data to the triplstore
+
+swdocumentation.save(ts)
+compdocumentation.save(ts)
+datasettypedocumentation.save(ts)
+
+# Store the jsonlds for joh
+store_jsonld(swdocumentation, name='software_documentation')
+store_jsonld(datasettypedocumentation, name='datasettype_documentation')
+store_jsonld(compdocumentation, name='comp_documentation') 
+
+# Get absolute current path
+current_path = Path(__file__).parent.resolve()
+shacl_graph = load_shapes(current_path / 'validation' / 'shapes.ttl')
+shacl_graph.parse(current_path / 'validation' / 'shapes-pink.ttl', format='turtle')
+
+
+conforms, results_graph, report = shacl_validate(
+    data_graph=ts.backend.graph, 
+    shacl_graph=shacl_graph, 
+    inference='rdfs',
+    abort_on_first=False
+)
+
+ 
+if not conforms:
+    print("Validation failed.")
+    print(report)
