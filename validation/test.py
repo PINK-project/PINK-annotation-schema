@@ -7,7 +7,6 @@ from pathlib import Path
 
 from generate_shacl import generate_shapes
 from validate import validate, print_validation_result
->>>>>>> main
 
 
 # Define test cases declaratively
