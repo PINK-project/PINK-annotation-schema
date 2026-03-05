@@ -4,6 +4,7 @@ Validate JSON-LD data against SHACL shapes.
 Provides functions to validate JSON-LD files representing PINK resources
 (Dataset, Software, etc.) against generated SHACL shapes.
 """
+
 from pathlib import Path
 from typing import Optional, Tuple
 
@@ -41,7 +42,9 @@ def load_jsonld(jsonld_path: Path) -> Graph:
     return data
 
 
-def validate_jsonld(jsonld_path: str = None, jsonld: dict = None, shapes_path: Optional[str] = None) -> Tuple[bool, str]:
+def validate_jsonld(
+    jsonld_path: str, shapes_path: Optional[str] = None
+) -> Tuple[bool, str]:
     """
     Validate JSON-LD file against SHACL shapes.
 
@@ -50,7 +53,6 @@ def validate_jsonld(jsonld_path: str = None, jsonld: dict = None, shapes_path: O
 
     Parameters:
         jsonld_path: Path to JSON-LD file to validate.
-        jsonld: JSON-LD data as a dictionary (alternative to file path).
         shapes_path: Path to SHACL shapes file. Defaults to shapes.ttl
                      in the same directory as this script.
 
@@ -58,10 +60,9 @@ def validate_jsonld(jsonld_path: str = None, jsonld: dict = None, shapes_path: O
         Tuple of (conforms: bool, report: str) where conforms indicates
         if validation passed and report contains human-readable details.
     """
-    if jsonld_path:
-        jsonld_file = Path(jsonld_path)
-        if not jsonld_file.exists():
-            return False, f"File not found: {jsonld_path}"
+    jsonld_file = Path(jsonld_path)
+    if not jsonld_file.exists():
+        return False, f"File not found: {jsonld_path}"
 
     # Default shapes path
     if shapes_path is None:
@@ -70,19 +71,17 @@ def validate_jsonld(jsonld_path: str = None, jsonld: dict = None, shapes_path: O
         shapes_file = Path(shapes_path)
 
     if not shapes_file.exists():
-        return False, f"Shapes file not found: {shapes_file}. Run generate_shacl.py first."
+        return (
+            False,
+            f"Shapes file not found: {shapes_file}. Run generate_shacl.py first.",
+        )
 
     # Project-specific shapes
     pink_shapes_file = Path(__file__).parent / "shapes-pink.ttl"
 
     # Load data and shapes
     try:
-        if jsonld_path:
-            data_graph = load_jsonld(jsonld_file)
-        elif jsonld:
-            data_graph = Graph().parse(data=jsonld, format="json-ld")
-        else:
-            return False, "No JSON-LD data provided."
+        data_graph = load_jsonld(jsonld_file)
     except Exception as e:
         return False, f"Failed to parse JSON-LD: {e}"
 
@@ -103,7 +102,9 @@ def validate_jsonld(jsonld_path: str = None, jsonld: dict = None, shapes_path: O
     return conforms, results_text
 
 
-def print_validation_result(jsonld_path: str, conforms: bool, report: str) -> None:
+def print_validation_result(
+    jsonld_path: str, conforms: bool, report: str
+) -> None:
     """
     Print validation result in human-readable format.
 
