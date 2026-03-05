@@ -65,7 +65,6 @@ def run_tests() -> bool:
 
         test_path = script_dir / test_case["filename"]
         conforms, report = validate(str(test_path))
->>>>>>> main
         print_validation_result(str(test_path), conforms, report)
 
         # Check if result matches expectation
