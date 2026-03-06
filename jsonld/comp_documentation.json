@@ -856,15 +856,15 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000446",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EuropeanCommunityNumber": {
-      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "EINECSNo": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ECNumber": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1680,11 +1680,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000056",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MeltMassFlowRate": {
+    "File": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "File": {
+    "MeltMassFlowRate": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1768,11 +1768,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000268",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "CovalentUnitCount": {
+    "HistidineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000280",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "HistidineCount": {
+    "CovalentUnitCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000280",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2543,9 +2543,9 @@
     "void": "http://rdfs.org/ns/void#",
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
-    "ns1": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns1": "http://purl.obolibrary.org/obo/",
     "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
-    "ns3": "http://purl.obolibrary.org/obo/",
+    "ns3": "http://semanticscience.org/ontology/cheminf-core.owl#",
     "ns4": "http://www.geneontology.org/formats/oboInOwl#",
     "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
     "swrl": "http://www.w3.org/2003/11/swrl#",
@@ -3169,167 +3169,181 @@
   },
   "@graph": [
     {
-      "@id": "https://w3id.org/pink/activity/0",
-      "@type": [
-        "pink:Safety Assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity0",
+      "@type": "owl:Class",
       "hasInput": "datasettype:SMILES",
-      "title": "MultiCASE CASE Ultra commercial model RC2_AF4 for Rodent carcinogenicity in female mouse in vivo,\nDanish QSAR Group at DTU Food"
+      "title": "MultiCASE CASE Ultra commercial model RC2_AF4 for Rodent carcinogenicity in female mouse in vivo,\nDanish QSAR Group at DTU Food",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/1",
-      "@type": [
-        "pink:Safety Assessment",
-        "prov:Activity"
-      ],
-      "title": "Tox21 HEK293T Gonadotropin-releasing Hormone (GnRH) Receptor Agonism Assay"
+      "@id": "https://w3id.org/pink/activity/activity1",
+      "@type": "owl:Class",
+      "title": "Tox21 HEK293T Gonadotropin-releasing Hormone (GnRH) Receptor Agonism Assay",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/2",
-      "@type": [
-        "pink:Carcinogenicity assessment",
-        "pink:Hazard Characterisation Human Health",
-        "pink:Safety Assessment",
-        "pink:non-genotoxic carcinogenicity assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity2",
+      "@type": "owl:Class",
       "hasInput": "datasettype:SMILES",
       "hasOutput": "qsar:ProfilerCarcinogenicityAlertsByISS",
-      "title": "Carcinogenicity (genotox and nongenotox) alerts by ISS"
+      "title": "Carcinogenicity (genotox and nongenotox) alerts by ISS",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/3",
-      "@type": [
-        "pink:Safety Assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity3",
+      "@type": "owl:Class",
       "hasInput": "datasettype:SMILES",
-      "title": "GeneTox_detail"
+      "title": "GeneTox_detail",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/4",
-      "@type": [
-        "pink:Safety Assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity4",
+      "@type": "owl:Class",
       "hasInput": "datasettype:SMILES",
-      "title": "Atmos. Hydroxylation Rate"
+      "title": "Atmos. Hydroxylation Rate",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/5",
-      "@type": [
-        "pink:Safety Assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity5",
+      "@type": "owl:Class",
       "hasInput": "datasettype:SMILES",
-      "title": "Animal Carcinogenicity prediction according to OECD Test No. 451"
+      "title": "Animal Carcinogenicity prediction according to OECD Test No. 451",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/6",
-      "@type": [
-        "pink:Safety Assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity6",
+      "@type": "owl:Class",
       "hasInput": "datasettype:SMILES",
-      "title": "Skin Reaction TDCommons"
+      "title": "Skin Reaction TDCommons",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/7",
-      "@type": [
-        "pink:Functionality Assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity7",
+      "@type": "owl:Class",
       "hasInput": "datasettype:ChemicalStructureDataset",
       "hasOutput": "datasettype:MechanicalPropertiesDataset",
-      "title": "CNR SMILES to mechanical properties workflow - molecular scale"
+      "title": "CNR SMILES to mechanical properties workflow - molecular scale",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation",
+        "https://w3id.org/pink#FunctionalityAssessment"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/8",
-      "@type": [
-        "pink:Functionality Assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity8",
+      "@type": "owl:Class",
       "hasInput": "datasettype:ChemicalStructureDataset",
       "hasOutput": "datasettype:ChemicalStructureDataset",
-      "title": "CNR polymer builder module - molecular scale"
+      "title": "CNR polymer builder module - molecular scale",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation",
+        "https://w3id.org/pink#FunctionalityAssessment"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/9",
-      "@type": [
-        "pink:Functionality Assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity9",
+      "@type": "owl:Class",
       "hasInput": "datasettype:ChemicalStructureDataset",
       "hasOutput": "datasettype:InteractionPotentialParameters",
-      "title": "CNR force field builder module - molecular scale"
+      "title": "CNR force field builder module - molecular scale",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation",
+        "https://w3id.org/pink#FunctionalityAssessment"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/10",
-      "@type": [
-        "pink:Functionality Assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity10",
+      "@type": "owl:Class",
       "hasInput": [
         "datasettype:ChemicalStructureDataset",
         "datasettype:InteractionPotentialParameters"
       ],
       "hasOutput": "datasettype:ChemicalStructureDataset",
-      "title": "CNR bulk builder module - molecular scale"
+      "title": "CNR bulk builder module - molecular scale",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation",
+        "https://w3id.org/pink#FunctionalityAssessment"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/11",
-      "@type": [
-        "pink:Functionality Assessment",
-        "pink:Mechanical Properties Assessment",
-        "pink:Physical Properties Assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity11",
+      "@type": "owl:Class",
       "hasInput": [
         "datasettype:ChemicalStructureDataset",
         "datasettype:InteractionPotentialParameters"
       ],
       "hasOutput": "datasettype:MechanicalPropertiesDataset",
-      "title": "CNR Young's modulus calculator module - molecular scale"
+      "title": "CNR Young's modulus calculator module - molecular scale",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation",
+        "https://w3id.org/pink#FunctionalityAssessment",
+        "https://w3id.org/pink#MechanicalPropertiesAssessment",
+        "https://w3id.org/pink#PhysicalPropertiesAssessment"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/12",
-      "@type": [
-        "pink:Functionality Assessment",
-        "pink:Mechanical Properties Assessment",
-        "pink:Physical Properties Assessment",
-        "pink:Thermal Properties Assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity12",
+      "@type": "owl:Class",
       "hasInput": [
         "datasettype:ChemicalStructureDataset",
         "datasettype:InteractionPotentialParameters"
       ],
       "hasOutput": "datasettype:MechanicalPropertiesDataset",
-      "title": "CNR mechanical properties calculator module - molecular scale"
+      "title": "CNR mechanical properties calculator module - molecular scale",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation",
+        "https://w3id.org/pink#FunctionalityAssessment",
+        "https://w3id.org/pink#MechanicalPropertiesAssessment",
+        "https://w3id.org/pink#PhysicalPropertiesAssessment",
+        "https://w3id.org/pink#ThermalPropertiesAssessment"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/13",
-      "@type": [
-        "pink:Safety Assessment",
-        "prov:Activity"
-      ],
-      "title": "AOP 451: Interaction with lung resident cell membrane components leads to lung cancer"
+      "@id": "https://w3id.org/pink/activity/activity13",
+      "@type": "owl:Class",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/14",
-      "@type": [
-        "pink:Safety Assessment",
-        "prov:Activity"
-      ],
-      "title": "Tiered NAM-based safety testing workflow"
+      "@id": "https://w3id.org/pink/activity/activity14",
+      "@type": "owl:Class",
+      "title": "Tiered NAM-based safety testing workflow",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/15",
-      "@type": [
-        "pink:Functionality Assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity15",
+      "@type": "owl:Class",
       "hasInput": [
         "datasettype:ChemicalStructureDataset",
         "datasettype:NWChemParameters"
@@ -3338,110 +3352,120 @@
         "datasettype:ChemicalStructureDataset",
         "datasettype:Energy"
       ],
-      "title": "NWChemDFTGeometryOptimisation"
+      "title": "NWChemDFTGeometryOptimisation",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation",
+        "https://w3id.org/pink#FunctionalityAssessment"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/16",
-      "@type": [
-        "pink:Functionality Assessment",
-        "prov:Activity"
-      ],
-      "title": "Hamaker Extended tool"
+      "@id": "https://w3id.org/pink/activity/activity16",
+      "@type": "owl:Class",
+      "title": "Hamaker Extended tool",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation",
+        "https://w3id.org/pink#FunctionalityAssessment"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/17",
-      "@type": [
-        "pink:Functionality Assessment",
-        "prov:Activity"
-      ],
-      "title": "Zeta Predict Extended tool"
+      "@id": "https://w3id.org/pink/activity/activity17",
+      "@type": "owl:Class",
+      "title": "Zeta Predict Extended tool",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation",
+        "https://w3id.org/pink#FunctionalityAssessment"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/18",
-      "@type": [
-        "pink:Functionality Assessment",
-        "prov:Activity"
-      ],
-      "title": "NanoBioConstruct"
+      "@id": "https://w3id.org/pink/activity/activity18",
+      "@type": "owl:Class",
+      "title": "NanoBioConstruct",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation",
+        "https://w3id.org/pink#FunctionalityAssessment"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/19",
-      "@type": [
-        "pink:Safety Assessment",
-        "prov:Activity"
-      ],
-      "title": "PINK ChemInformatics Suite"
+      "@id": "https://w3id.org/pink/activity/activity19",
+      "@type": "owl:Class",
+      "title": "PINK ChemInformatics Suite",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/20",
-      "@type": [
-        "pink:Environmental Assessment",
-        "pink:Environmental Impact Assessment",
-        "prov:Activity"
-      ],
-      "title": "Life Cycle Impact prediction Tool"
+      "@id": "https://w3id.org/pink/activity/activity20",
+      "@type": "owl:Class",
+      "title": "Life Cycle Impact prediction Tool",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/21",
-      "@type": [
-        "pink:Environmental Assessment",
-        "pink:Environmental Impact Assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity21",
+      "@type": "owl:Class",
       "hasInput": "datasettype:FuelConsumptionInput",
       "hasOutput": "datasettype:FuelConsumptionOutput",
-      "title": "Life Cycle Inventory calculation tool (energy/material flows)"
+      "title": "Life Cycle Inventory calculation tool (energy/material flows)",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/22",
-      "@type": [
-        "pink:Hazard Characterisation Human Health",
-        "pink:Safety Assessment",
-        "pink:developmental neurotoxicity assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity22",
+      "@type": "owl:Class",
       "hasInput": "datasettype:RNACounts",
       "hasOutput": "datasettype:differentialExpressionOutput",
-      "title": "Gene Expression assessment for an arbtitrary exposure"
+      "title": "Gene Expression assessment for an arbtitrary exposure",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/23",
-      "@type": [
-        "pink:Hazard Characterisation Human Health",
-        "pink:Safety Assessment",
-        "pink:developmental neurotoxicity assessment",
-        "prov:Activity"
-      ],
+      "@id": "https://w3id.org/pink/activity/activity23",
+      "@type": "owl:Class",
       "hasInput": "datasettype:geneList",
       "hasOutput": "datasettype:geneSetEnrichmentOutput",
-      "title": "Gene set enrichment to understand affected pathways from transcriptomic_example1"
+      "title": "Gene set enrichment to understand affected pathways from transcriptomic_example1",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/24",
-      "@type": [
-        "pink:Hazard Characterisation Human Health",
-        "pink:Safety Assessment",
-        "prov:Activity"
-      ],
-      "title": "Predictive Toxicogenomics Space"
+      "@id": "https://w3id.org/pink/activity/activity24",
+      "@type": "owl:Class",
+      "title": "Predictive Toxicogenomics Space",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/25",
-      "@type": [
-        "pink:Acute toxicity assessment",
-        "pink:Hazard Characterisation Human Health",
-        "pink:Safety Assessment",
-        "prov:Activity"
-      ],
-      "title": "Automated data FAIRification, preprocessing and Tox5Score calculation"
+      "@id": "https://w3id.org/pink/activity/activity25",
+      "@type": "owl:Class",
+      "title": "Automated data FAIRification, preprocessing and Tox5Score calculation",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/26",
-      "@type": [
-        "pink:Safety Assessment",
-        "prov:Activity"
-      ],
-      "title": "Science in Risk Assessment and Policy for nanomaterials"
+      "@id": "https://w3id.org/pink/activity/activity26",
+      "@type": "owl:Class",
+      "title": "Science in Risk Assessment and Policy for nanomaterials",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
     }
   ]
 }

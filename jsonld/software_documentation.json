@@ -856,15 +856,15 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000446",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EuropeanCommunityNumber": {
-      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "EINECSNo": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ECNumber": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1680,11 +1680,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000056",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MeltMassFlowRate": {
+    "File": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "File": {
+    "MeltMassFlowRate": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1768,11 +1768,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000268",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "CovalentUnitCount": {
+    "HistidineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000280",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "HistidineCount": {
+    "CovalentUnitCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000280",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2543,9 +2543,9 @@
     "void": "http://rdfs.org/ns/void#",
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
-    "ns1": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns1": "http://purl.obolibrary.org/obo/",
     "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
-    "ns3": "http://purl.obolibrary.org/obo/",
+    "ns3": "http://semanticscience.org/ontology/cheminf-core.owl#",
     "ns4": "http://www.geneontology.org/formats/oboInOwl#",
     "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
     "swrl": "http://www.w3.org/2003/11/swrl#",
@@ -3182,7 +3182,7 @@
         ],
         "accessURL": "https://app.jaqpot.org/dashboard/models/1837/predict"
       },
-      "implementsModel": "pink:StepwiseRegressionModel",
+      "implementsModel": "https://w3id.org/pink#StepwiseRegressionModel",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
@@ -3190,8 +3190,8 @@
       "version": "January 2015",
       "curator": "https://orcid.org/0000-0002-0628-8434",
       "chemicalClass": [
-        "emmo:OrganicCompound",
-        "pink:SmallMolecule"
+        "https://w3id.org/emmo/hume#OrganicCompound",
+        "https://w3id.org/pink#MicroMolecule"
       ]
     },
     {
@@ -3208,7 +3208,7 @@
         ],
         "accessURL": "https://clowder.edap-cluster.com/spaces/687e388ce4b02565bc3e28e4"
       },
-      "implementsModel": "pink:PhysicsBasedModel",
+      "implementsModel": "https://w3id.org/emmo/hume#PhysicsBasedModel",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
@@ -3229,12 +3229,11 @@
         ],
         "accessURL": "https://app.jaqpot.org/dashboard/models/1842/predict"
       },
-      "implementsModel": "pink:DecisionTree",
+      "implementsModel": "https://w3id.org/pink#DecisionTree",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
       "license": "https://qsartoolbox.org/license-agreement/",
-      "version": "Version: 2.3\nDecember 2016",
       "curator": "https://orcid.org/0000-0002-0628-8434"
     },
     {
@@ -3281,7 +3280,6 @@
       "@id": "pink:Jaqpot_2081",
       "@type": "owl:NamedIndividual",
       "title": "Animal Carcinogenicity prediction according to OECD Test No. 451",
-      "description": "The endpoint predicted by this model is Animal Carcinogenicity. The dataset used for modeling was obtained from the Carcinogenic Potency Database (CPDB), which contains long-term study results for over 1,500 chemical substances on rodent (mouse and rat) species. Carcinogenicity is defined through the OECD Test No. 451. Each author in the literature evaluated the tissue-tumor combination of the chemical substance and gave their opinion on carcinogenicity, which was assessed from NCI/NTP. In the dataset:\nCarcinogenic chemicals are labeled as 1.\nNon-carcinogenic chemicals are labeled as 0.",
       "documentation": "https://docs.google.com/document/d/1yBrGi-dJkPBCYkpQ6qhCtzQswdLcKN5x/edit?usp=drive_link&ouid=103056225293934767525&rtpof=true&sd=true",
       "distribution": {
         "@type": [
@@ -3291,7 +3289,7 @@
         ],
         "accessURL": "https://app.jaqpot.org/dashboard/models/2081/description"
       },
-      "implementsModel": "pink:RandomForest",
+      "implementsModel": "https://w3id.org/pink#RandomForest",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
@@ -3340,7 +3338,7 @@
         "https://orcid.org/0000-0002-3369-4438",
         "https://orcid.org/0000-0002-4860-153X"
       ],
-      "chemicalClass": "emmo:PolymericMaterial"
+      "chemicalClass": "https://w3id.org/emmo/hume#PolymericMaterial"
     },
     {
       "@id": "mw:polymer_builder_molecular",
@@ -3351,7 +3349,7 @@
         "SMILES",
         "polymer"
       ],
-      "implementsModel": "pink:StructureManipulationModel",
+      "implementsModel": "https://w3id.org/emmo/hume#StructureManipulationModel",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
@@ -3361,7 +3359,7 @@
         "https://orcid.org/0000-0002-3369-4438",
         "https://orcid.org/0000-0002-4860-153X"
       ],
-      "chemicalClass": "emmo:PolymericMaterial"
+      "chemicalClass": "https://w3id.org/emmo/hume#PolymericMaterial"
     },
     {
       "@id": "mw:ff_builder_molecular",
@@ -3376,8 +3374,8 @@
         "polymer",
         "topology"
       ],
-      "tierLevel": "pink:tierlevel1",
-      "implementsModel": "pink:AtomicInteractionModel",
+      "tierLevel": "https://w3id.org/pink#tierlevel1",
+      "implementsModel": "https://w3id.org/emmo/hume#AtomicInteractionModel",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
@@ -3387,7 +3385,7 @@
         "https://orcid.org/0000-0002-3369-4438",
         "https://orcid.org/0000-0002-4860-153X"
       ],
-      "chemicalClass": "emmo:PolymericMaterial"
+      "chemicalClass": "https://w3id.org/emmo/hume#PolymericMaterial"
     },
     {
       "@id": "mw:polymer_bulk_builder_molecular",
@@ -3401,8 +3399,8 @@
         "molecular",
         "polymer"
       ],
-      "tierLevel": "pink:tierlevel1",
-      "implementsModel": "pink:AtomisticMolecularDynamics",
+      "tierLevel": "https://w3id.org/pink#tierlevel1",
+      "implementsModel": "https://w3id.org/emmo/hume#AtomisticMolecularDynamics",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
@@ -3413,8 +3411,8 @@
         "https://orcid.org/0000-0002-4860-153X"
       ],
       "chemicalClass": [
-        "emmo:OrganicCompound",
-        "emmo:PolymericMaterial"
+        "https://w3id.org/emmo/hume#OrganicCompound",
+        "https://w3id.org/emmo/hume#PolymericMaterial"
       ]
     },
     {
@@ -3431,8 +3429,8 @@
         "properties",
         "young's"
       ],
-      "tierLevel": "pink:tierlevel1",
-      "implementsModel": "pink:AtomisticMolecularDynamics",
+      "tierLevel": "https://w3id.org/pink#tierlevel1",
+      "implementsModel": "https://w3id.org/emmo/hume#AtomisticMolecularDynamics",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
@@ -3442,7 +3440,7 @@
         "https://orcid.org/0000-0002-3369-4438",
         "https://orcid.org/0000-0002-4860-153X"
       ],
-      "chemicalClass": "emmo:PolymericMaterial"
+      "chemicalClass": "https://w3id.org/emmo/hume#PolymericMaterial"
     },
     {
       "@id": "mw:mechanical_properties_evaluator_molecular",
@@ -3459,8 +3457,8 @@
         "ratio",
         "young's"
       ],
-      "tierLevel": "pink:tierlevel1",
-      "implementsModel": "pink:AtomisticMolecularDynamics",
+      "tierLevel": "https://w3id.org/pink#tierlevel1",
+      "implementsModel": "https://w3id.org/emmo/hume#AtomisticMolecularDynamics",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
@@ -3470,12 +3468,11 @@
         "https://orcid.org/0000-0002-3369-4438",
         "https://orcid.org/0000-0002-4860-153X"
       ],
-      "chemicalClass": "emmo:PolymericMaterial"
+      "chemicalClass": "https://w3id.org/emmo/hume#PolymericMaterial"
     },
     {
       "@id": "pink:AOP_451",
       "@type": "owl:NamedIndividual",
-      "title": "AOP 451: Interaction with lung resident cell membrane components leads to lung cancer",
       "description": "An Adverse Outcome Pathway for lung cancer induced by nanosized foreign matter, anchored to a selection of 18 standardized methods and NAMs for in silico- and in vitro-based integrated assessment of lung carcinogenicity",
       "keyword": [
         "AOP",
@@ -3503,7 +3500,7 @@
       "license": "https://creativecommons.org/licenses/by-sa/4.0/",
       "creator": "https://ror.org/056d84691",
       "curator": "https://orcid.org/0000-0002-3435-7775",
-      "chemicalClass": "pink:NanoParticle"
+      "chemicalClass": "https://w3id.org/pink#NanoParticle"
     },
     {
       "@id": "https://doi.org/10.1002/smll.201904749",
@@ -3534,8 +3531,8 @@
       "version": "4",
       "curator": "https://orcid.org/0000-0002-3435-7775",
       "chemicalClass": [
-        "emmo:NanoMaterial",
-        "pink:AdvancedMaterial"
+        "https://w3id.org/emmo/hume#NanoMaterial",
+        "https://w3id.org/pink#AdvancedMaterial"
       ]
     },
     {
@@ -3570,7 +3567,7 @@
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
       "creator": "https://ror.org/03wwn0z54",
-      "chemicalClass": "pink:NanoParticle"
+      "chemicalClass": "https://w3id.org/pink#NanoParticle"
     },
     {
       "@id": "pink:EnalosCloud_ZetaPredict",
@@ -3594,7 +3591,7 @@
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
       "creator": "https://ror.org/03wwn0z54",
-      "chemicalClass": "pink:NanoParticle"
+      "chemicalClass": "https://w3id.org/pink#NanoParticle"
     },
     {
       "@id": "pink:EnalosCloud_NanoBioConstruct",
@@ -3614,15 +3611,14 @@
       "accessRights": "rights:PUBLIC",
       "creator": "https://ror.org/03wwn0z54",
       "chemicalClass": [
-        "pink:NanoParticle",
-        "pink:Protein"
+        "https://w3id.org/pink#NanoParticle",
+        "https://w3id.org/pink#Protein"
       ]
     },
     {
       "@id": "pink:EnalosCloud_PINK_ChemInformatics_Suite",
       "@type": "owl:NamedIndividual",
       "title": "PINK ChemInformatics Suite",
-      "description": "Within this web-tool, users can import compounds of interest by either drawing molecules using an integrated sketcher or uploading a list of molecules in SMILES format. Users can also inspect a 3D visualization of their molecular structures post-drawing. The platform can be used for high-throughput virtual screening through batch processing: users can upload SDF files and process multiple compounds with one query. Then the users should select one or more endpoints from the available checkbox list (i.e., logP, logVP, BP, Cytotoxicity, Mutagenicity). Upon submission, predictions are generated within seconds. The results include the predicted property value(s) and/or toxicity class. All results can be downloaded per model for further analysis, enhancing flexibility and usability for diverse research applications. Apart from the predictions for each model their reliability according to the corresponding applicability domain is presented. Especially for the developed kNN models, in the downloaded results the training neighbours and their distances from the input substances are presented, allowing the evaluation of structural similarity patterns.",
       "keyword": [
         "BP",
         "Cytotoxicity",
@@ -3643,7 +3639,7 @@
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
       "creator": "https://ror.org/03wwn0z54",
-      "chemicalClass": "pink:MicroMolecule"
+      "chemicalClass": "https://w3id.org/pink#MicroMolecule"
     },
     {
       "@id": "pink:Smiles_to_impact-prediction-tool",
@@ -3655,7 +3651,7 @@
         "LCIA",
         "impact"
       ],
-      "tierLevel": "pink:tierlevel1",
+      "tierLevel": "https://w3id.org/pink#tierlevel1",
       "documentation": "https://pink.sustain.list.lu/",
       "distribution": {
         "@type": [
@@ -3665,12 +3661,12 @@
         ],
         "accessURL": "https://pink.sustain.list.lu/"
       },
-      "implementsModel": "pink:XGBoostRegressor",
+      "implementsModel": "https://w3id.org/pink#XGBoostRegessor",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "rights:NON_PUBLIC",
       "creator": "https://ror.org/01t178j62",
-      "chemicalClass": "pink:MicroMolecule"
+      "chemicalClass": "https://w3id.org/pink#MicroMolecule"
     },
     {
       "@id": "pink:upscaling_LCI_calculator",
@@ -3682,7 +3678,7 @@
         "LCI",
         "upscaling"
       ],
-      "tierLevel": "pink:tierlevel3",
+      "tierLevel": "https://w3id.org/pink#tierlevel3",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "rights:NON_PUBLIC",
@@ -3699,7 +3695,7 @@
         "human",
         "transcriptomics"
       ],
-      "tierLevel": "pink:tierlevel1",
+      "tierLevel": "https://w3id.org/pink#tierlevel1",
       "documentation": "https://bioconductor.org/packages/release/bioc/html/DESeq2.html",
       "distribution": {
         "@type": [
@@ -3717,13 +3713,13 @@
       "creator": "https://ror.org/0130frc33",
       "version": "1.50.2",
       "chemicalClass": [
-        "emmo:CeramicMaterial",
-        "emmo:ChemicalCompound",
-        "emmo:CompositeMaterial",
-        "emmo:InorganicCompound",
-        "emmo:MetallicMaterial",
-        "emmo:OrganicCompound",
-        "emmo:PolymericMaterial"
+        "https://w3id.org/emmo/hume#CeramicMaterial",
+        "https://w3id.org/emmo/hume#ChemicalCompound",
+        "https://w3id.org/emmo/hume#CompositeMaterial",
+        "https://w3id.org/emmo/hume#InorganicCompound",
+        "https://w3id.org/emmo/hume#MetallicMaterial",
+        "https://w3id.org/emmo/hume#OrganicCompound",
+        "https://w3id.org/emmo/hume#PolymericMaterial"
       ]
     },
     {
@@ -3737,7 +3733,7 @@
         "human",
         "transcriptomics"
       ],
-      "tierLevel": "pink:tierlevel1",
+      "tierLevel": "https://w3id.org/pink#tierlevel1",
       "documentation": "https://biit.cs.ut.ee/gprofiler/page/r",
       "distribution": {
         "@type": [
@@ -3748,21 +3744,21 @@
         "accessURL": "https://biit.cs.ut.ee/gprofiler/page/r",
         "downloadURL": "https://biit.cs.ut.ee/gprofiler/page/r"
       },
-      "implementsModel": "pink:CumulativeHypergeometricTest",
+      "implementsModel": "https://w3id.org/emmo/hume#CumulativeHypergeometricTest",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
       "creator": "https://ror.org/03z77qz90",
       "version": "0.2.4",
       "chemicalClass": [
-        "emmo:CeramicMaterial",
-        "emmo:ChemicalCompound",
-        "emmo:CompositeMaterial",
-        "emmo:InorganicCompound",
-        "emmo:MetallicMaterial",
-        "emmo:OrganicCompound",
-        "emmo:PolymericMaterial",
-        "pink:Protein"
+        "https://w3id.org/emmo/hume#CeramicMaterial",
+        "https://w3id.org/emmo/hume#ChemicalCompound",
+        "https://w3id.org/emmo/hume#CompositeMaterial",
+        "https://w3id.org/emmo/hume#InorganicCompound",
+        "https://w3id.org/emmo/hume#MetallicMaterial",
+        "https://w3id.org/emmo/hume#OrganicCompound",
+        "https://w3id.org/emmo/hume#PolymericMaterial",
+        "https://w3id.org/pink#Protein"
       ]
     },
     {
@@ -3778,35 +3774,34 @@
         "prediction",
         "toxicity"
       ],
-      "tierLevel": "pink:tierlevel2",
+      "tierLevel": "https://w3id.org/pink#tierlevel2",
       "documentation": "https://doi.org/10.1038/ncomms15932",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "rights:NON_PUBLIC",
       "curator": "https://orcid.org/0000-0002-3435-7775",
       "chemicalClass": [
-        "emmo:CeramicMaterial",
-        "emmo:ChemicalCompound",
-        "emmo:CompositeMaterial",
-        "emmo:InorganicCompound",
-        "emmo:MetallicMaterial",
-        "emmo:NanoMaterial",
-        "emmo:OrganicCompound",
-        "emmo:PolymericMaterial",
-        "pink:AdvancedMaterial",
-        "pink:BiocompatibleMaterial",
-        "pink:ElectronicMaterial",
-        "pink:EnergyMaterial",
-        "pink:MacroMolecule",
-        "pink:MagneticMaterial",
-        "pink:MicroMolecule",
-        "pink:NanoFiber",
-        "pink:NanoParticle",
-        "pink:NanoPlate",
-        "pink:NanoStructuredMaterial",
-        "pink:OpticalMaterial",
-        "pink:SmallMolecule",
-        "pink:StructuralMaterial"
+        "https://w3id.org/emmo/hume#CeramicMaterial",
+        "https://w3id.org/emmo/hume#ChemicalCompound",
+        "https://w3id.org/emmo/hume#CompositeMaterial",
+        "https://w3id.org/emmo/hume#InorganicCompound",
+        "https://w3id.org/emmo/hume#MetallicMaterial",
+        "https://w3id.org/emmo/hume#NanoMaterial",
+        "https://w3id.org/emmo/hume#OrganicCompound",
+        "https://w3id.org/emmo/hume#PolymericMaterial",
+        "https://w3id.org/pink#AdvancedMaterial",
+        "https://w3id.org/pink#BiocompatibleMaterial",
+        "https://w3id.org/pink#ElectronicMaterial",
+        "https://w3id.org/pink#EnergyMaterial",
+        "https://w3id.org/pink#MacroMolecule",
+        "https://w3id.org/pink#MagneticMaterial",
+        "https://w3id.org/pink#MicroMolecule",
+        "https://w3id.org/pink#NanoFiber",
+        "https://w3id.org/pink#NanoParticle",
+        "https://w3id.org/pink#NanoPlate",
+        "https://w3id.org/pink#NanoStructuredMaterial",
+        "https://w3id.org/pink#OpticalMaterial",
+        "https://w3id.org/pink#StructuralMaterial"
       ]
     },
     {
@@ -3823,7 +3818,7 @@
         "screening",
         "toxicity"
       ],
-      "tierLevel": "pink:tierlevel2",
+      "tierLevel": "https://w3id.org/pink#tierlevel2",
       "documentation": "https://doi.org/10.1186/s13321-025-01001-8",
       "distribution": {
         "@type": [
@@ -3837,27 +3832,26 @@
       "license": "https://github.com/ideaconsult/orange3-toxfairy/blob/main/LICENSE",
       "curator": "https://orcid.org/0000-0002-3435-7775",
       "chemicalClass": [
-        "emmo:CeramicMaterial",
-        "emmo:ChemicalCompound",
-        "emmo:CompositeMaterial",
-        "emmo:InorganicCompound",
-        "emmo:MetallicMaterial",
-        "emmo:NanoMaterial",
-        "emmo:OrganicCompound",
-        "emmo:PolymericMaterial",
-        "pink:AdvancedMaterial",
-        "pink:BiocompatibleMaterial",
-        "pink:ElectronicMaterial",
-        "pink:EnergyMaterial",
-        "pink:MacroMolecule",
-        "pink:MagneticMaterial",
-        "pink:MicroMolecule",
-        "pink:NanoFiber",
-        "pink:NanoParticle",
-        "pink:NanoPlate",
-        "pink:OpticalMaterial",
-        "pink:SmallMolecule",
-        "pink:StructuralMaterial"
+        "https://w3id.org/emmo/hume#CeramicMaterial",
+        "https://w3id.org/emmo/hume#ChemicalCompound",
+        "https://w3id.org/emmo/hume#CompositeMaterial",
+        "https://w3id.org/emmo/hume#InorganicCompound",
+        "https://w3id.org/emmo/hume#MetallicMaterial",
+        "https://w3id.org/emmo/hume#NanoMaterial",
+        "https://w3id.org/emmo/hume#OrganicCompound",
+        "https://w3id.org/emmo/hume#PolymericMaterial",
+        "https://w3id.org/pink#AdvancedMaterial",
+        "https://w3id.org/pink#BiocompatibleMaterial",
+        "https://w3id.org/pink#ElectronicMaterial",
+        "https://w3id.org/pink#EnergyMaterial",
+        "https://w3id.org/pink#MacroMolecule",
+        "https://w3id.org/pink#MagneticMaterial",
+        "https://w3id.org/pink#MicroMolecule",
+        "https://w3id.org/pink#NanoFiber",
+        "https://w3id.org/pink#NanoParticle",
+        "https://w3id.org/pink#NanoPlate",
+        "https://w3id.org/pink#OpticalMaterial",
+        "https://w3id.org/pink#StructuralMaterial"
       ]
     },
     {
@@ -3872,7 +3866,7 @@
         "quality",
         "vitro"
       ],
-      "tierLevel": "pink:tierlevel1",
+      "tierLevel": "https://w3id.org/pink#tierlevel1",
       "documentation": "https://doi.org/10.3389/ftox.2023.1319985",
       "distribution": {
         "@type": [
@@ -3889,23 +3883,23 @@
       "creator": "https://ror.org/056d84691",
       "curator": "https://orcid.org/0000-0002-3435-7775",
       "chemicalClass": [
-        "emmo:CeramicMaterial",
-        "emmo:CompositeMaterial",
-        "emmo:InorganicCompound",
-        "emmo:MetallicMaterial",
-        "emmo:NanoMaterial",
-        "emmo:OrganicCompound",
-        "emmo:PolymericMaterial",
-        "pink:AdvancedMaterial",
-        "pink:BiocompatibleMaterial",
-        "pink:ElectronicMaterial",
-        "pink:EnergyMaterial",
-        "pink:MagneticMaterial",
-        "pink:NanoFiber",
-        "pink:NanoParticle",
-        "pink:NanoPlate",
-        "pink:OpticalMaterial",
-        "pink:StructuralMaterial"
+        "https://w3id.org/emmo/hume#CeramicMaterial",
+        "https://w3id.org/emmo/hume#CompositeMaterial",
+        "https://w3id.org/emmo/hume#InorganicCompound",
+        "https://w3id.org/emmo/hume#MetallicMaterial",
+        "https://w3id.org/emmo/hume#NanoMaterial",
+        "https://w3id.org/emmo/hume#OrganicCompound",
+        "https://w3id.org/emmo/hume#PolymericMaterial",
+        "https://w3id.org/pink#AdvancedMaterial",
+        "https://w3id.org/pink#BiocompatibleMaterial",
+        "https://w3id.org/pink#ElectronicMaterial",
+        "https://w3id.org/pink#EnergyMaterial",
+        "https://w3id.org/pink#MagneticMaterial",
+        "https://w3id.org/pink#NanoFiber",
+        "https://w3id.org/pink#NanoParticle",
+        "https://w3id.org/pink#NanoPlate",
+        "https://w3id.org/pink#OpticalMaterial",
+        "https://w3id.org/pink#StructuralMaterial"
       ]
     }
   ]

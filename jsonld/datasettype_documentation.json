@@ -856,15 +856,15 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000446",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EuropeanCommunityNumber": {
-      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "EINECSNo": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ECNumber": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1680,11 +1680,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000056",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MeltMassFlowRate": {
+    "File": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "File": {
+    "MeltMassFlowRate": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1768,11 +1768,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000268",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "CovalentUnitCount": {
+    "HistidineCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000280",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "HistidineCount": {
+    "CovalentUnitCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000280",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2543,9 +2543,9 @@
     "void": "http://rdfs.org/ns/void#",
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
-    "ns1": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns1": "http://purl.obolibrary.org/obo/",
     "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
-    "ns3": "http://purl.obolibrary.org/obo/",
+    "ns3": "http://semanticscience.org/ontology/cheminf-core.owl#",
     "ns4": "http://www.geneontology.org/formats/oboInOwl#",
     "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
     "swrl": "http://www.w3.org/2003/11/swrl#",
@@ -3170,16 +3170,8 @@
   "@graph": [
     {
       "@id": "datasettype:ChemicalStructureDataset",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "Chemical",
-        "Dataset",
-        "Structure"
-      ],
+      "@type": "owl:Class",
+      "label": "Chemical Structure Dataset",
       "description": "Dataset describing the chemical identity and three-dimensional structure of molecules, oligomers, polymers, or condensed-phase systems. It may include SMILES strings, atomistic coordinates, bonding topology, periodic boundary conditions, and molecular connectivity. The dataset is used as input for structure generation, force-field assignment, molecular dynamics simulations, and construction of bulk models.",
       "keyword": [
         "SMILES",
@@ -3196,32 +3188,20 @@
         "topology"
       ],
       "format": "SMILES, MOL, SDF, PDB, XYZ, GRO, CIF",
-      "subClassOf": "datasettype:Dataset",
+      "subClassOf": "https://w3id.org/pink#Dataset",
       "curator": "https://ror.org/04zaypm56"
     },
     {
       "@id": "datasettype:ChemicalStructureCoordinateDataset",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
+      "@type": "owl:Class",
       "description": "Dataset describing a three-dimensional coordinates of a structure.",
       "format": "MOL, SDF, PDB, XYZ, GRO, CIF",
       "subClassOf": "datasettype:ChemicalStructureDataset"
     },
     {
       "@id": "datasettype:MechanicalPropertiesDataset",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "Dataset",
-        "Mechanical",
-        "Properties"
-      ],
+      "@type": "owl:Class",
+      "label": "Mechanical Properties Dataset",
       "description": "Dataset reporting mechanical properties derived from experiments or simulations, such as Young\u2019s modulus, bulk modulus, Poisson\u2019s ratio, stress-strain curves, elastic constants, and derived statistical indicators. The dataset supports quantitative assessment of material stiffness, elasticity, and macroscopic mechanical behavior.",
       "keyword": [
         "Poisson",
@@ -3238,22 +3218,13 @@
         "stress-strain"
       ],
       "format": "CSV, XLSX, JSON",
-      "subClassOf": "datasettype:Dataset",
+      "subClassOf": "https://w3id.org/pink#Dataset",
       "curator": "https://ror.org/04zaypm56"
     },
     {
       "@id": "datasettype:InteractionPotentialParameters",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "Dataset",
-        "Interaction",
-        "Parameters",
-        "Potential"
-      ],
+      "@type": "owl:Class",
+      "label": "Interaction Potential Parameters Dataset",
       "description": "Dataset containing the parameters required to define the interaction potential for molecular simulations. This includes atom types, bonded parameters (bonds, angles, dihedrals), non-bonded parameters (Lennard-Jones, electrostatics), partial charges, and force-field topology information. The dataset enables reproducible molecular mechanics and molecular dynamics simulations.",
       "keyword": [
         "GAFF",
@@ -3272,119 +3243,48 @@
         "types"
       ],
       "format": "TOP, ITP, PRM, XML, JSON, TXT",
-      "subClassOf": "datasettype:Dataset",
+      "subClassOf": "https://w3id.org/pink#Dataset",
       "curator": "https://ror.org/04zaypm56"
     },
     {
       "@id": "pink:ChemPharosDB-ds3",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "(logVP)",
-        "Pressure",
-        "Vapor",
-        "molecules",
-        "of",
-        "small"
-      ],
-      "description": "A curated and enriched dataset for log-transormed vapor pressure at 24\u02daC of small molecules, intended for in silico model development. The dataset originates from the US EPA EPI Suite, filtered according to Zang et al. (2017). https://doi.org/10.1021/acs.jcim.6b00625. The curated logVP dataset comprises 2713 compounds enriched with 777 molecular descriptors extracted from their 2D structure using EnalosMold2 KNIME node.",
+      "@type": "owl:Class",
+      "label": "Vapor Pressure (logVP) of small molecules",
       "format": ".csv",
-      "subClassOf": "datasettype:Dataset"
+      "subClassOf": "https://w3id.org/pink#Dataset"
     },
     {
       "@id": "pink:ChemPharosDB-ds4",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "(logP)",
-        "Octanol/water",
-        "coefficient",
-        "molecules",
-        "of",
-        "partition",
-        "small"
-      ],
-      "description": "A curated and enriched dataset for log-transormed octanol/water partition coefficient of small molecules, intended for in silico model development. The dataset originates from the US EPA EPI Suite, filtered according to Zang et al. (2017). https://doi.org/10.1021/acs.jcim.6b00625. The curated logP dataset comprises 14207 compounds enriched with 777 molecular descriptors extracted from their 2D structure using EnalosMold2 KNIME node.",
+      "@type": "owl:Class",
+      "label": "Octanol/water partition coefficient (logP) of small molecules",
       "format": ".csv",
-      "subClassOf": "datasettype:Dataset"
+      "subClassOf": "https://w3id.org/pink#Dataset"
     },
     {
       "@id": "pink:ChemPharosDB-ds5",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "Cytotoxicity",
-        "molecules",
-        "of",
-        "small"
-      ],
-      "description": "A curated and enriched dataset for the cytotoxicity of small molecules to NIH/3T3 cells (mouse embryonic fibroblast cell line; ATCC CRL-1658). The dataset originates from the PubChem database: https://pubchem.ncbi.nlm.nih.gov/bioassay/651744. The curated dataset comprises 5416 compounds enriched with 777 molecular descriptors extracted from their 2D structure using EnalosMold2 KNIME node. Compounds are classified as either \u201cActive\u201d\u2014indicating cytotoxicity to NIH/3T3 cells\u2014or \u201cInactive\u201d, signifying non-cytotoxicity to these cells.",
+      "@type": "owl:Class",
+      "label": "Cytotoxicity of small molecules",
       "format": ".csv",
-      "subClassOf": "datasettype:Dataset"
+      "subClassOf": "https://w3id.org/pink#Dataset"
     },
     {
       "@id": "pink:ChemPharosDB-ds10",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "Boiling",
-        "molecules",
-        "of",
-        "point",
-        "small"
-      ],
-      "description": "A curated and enriched dataset for the boiling point (BP) in \u00b0C of small molecules, intended for in silico model development. The dataset originates from the US EPA EPI Suite, filtered according to Zang et al. (2017). https://doi.org/10.1021/acs.jcim.6b00625. The curated BP dataset comprises 5432 compounds enriched with 777 molecular descriptors extracted from their 2D structure using EnalosMold2 KNIME node.",
+      "@type": "owl:Class",
+      "label": "Boiling point of small molecules",
       "format": ".csv",
-      "subClassOf": "datasettype:Dataset"
+      "subClassOf": "https://w3id.org/pink#Dataset"
     },
     {
       "@id": "pink:ChemPharosDB-ds11",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "Ames",
-        "molecule",
-        "mutagenicity",
-        "of",
-        "small"
-      ],
-      "description": "A curated and enriched dataset for the Ames mutagenicity of small molecules, intended for in silico model development. The dataset originates from the study of Hansen et al. (2009) https://doi.org/10.1021/ci900161g, and is further refined by the US EPA EPI Suite (removing salts, mixtures, ambiguous compounds, and compounds without CAS numbers). The curated lmutagenicity dataset comprises 5738 compounds enriched with 777 molecular descriptors extracted from their 2D structure using EnalosMold2 KNIME node. Compounds are classified as either \u201cpositive\u201d -indicating mutagenic compounds- or \u201cnegative\u201d -indicating non-mutagenic substances.",
+      "@type": "owl:Class",
+      "label": "Ames mutagenicity of small molecule",
       "format": ".csv",
-      "subClassOf": "datasettype:Dataset"
+      "subClassOf": "https://w3id.org/pink#Dataset"
     },
     {
       "@id": "datasettype:OccurrenceData",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "PFAS",
-        "Quantification",
-        "UK",
-        "and",
-        "groundwater",
-        "in",
-        "of",
-        "sites",
-        "surface"
-      ],
+      "@type": "owl:Class",
+      "label": "Quantification of PFAS in surface and groundwater sites in UK",
       "description": "A curated dataset of environmental monitoring from UK 2022-2024 for surface and groundwaters assessing total PFAS and individual PFAS congeners.",
       "keyword": [
         "GIS-tagged",
@@ -3395,29 +3295,13 @@
         "pollutnats"
       ],
       "format": ".csv",
-      "subClassOf": "datasettype:Dataset",
+      "subClassOf": "https://w3id.org/pink#Dataset",
       "curator": "https://ror.org/03angcq70"
     },
     {
       "@id": "datasettype:Ecotoxicity_Daphnia",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "(21-day",
-        "(48h",
-        "Acute",
-        "D.",
-        "chronic",
-        "immobilisation)",
-        "impacts",
-        "magna",
-        "on",
-        "or",
-        "reproduction)"
-      ],
+      "@type": "owl:Class",
+      "label": "Acute (48h, immobilisation) or chronic (21-day, reproduction) impacts on D. magna",
       "description": "Data for acute (48h, immobilisation) or chronic (21-day, reproduction) of D. magna by specific nanomaterials or chemicals",
       "keyword": [
         "Daphnia",
@@ -3428,28 +3312,13 @@
         "nanomaterials"
       ],
       "format": ".csv",
-      "subClassOf": "datasettype:Dataset",
+      "subClassOf": "https://w3id.org/pink#Dataset",
       "curator": "https://ror.org/03angcq70"
     },
     {
       "@id": "datasettype:Ecotoxicity_ZebrafishEmbryoCells",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "Cytotoxicity",
-        "PFAS",
-        "and",
-        "cells",
-        "embryo",
-        "impacts",
-        "mitochondrial",
-        "of",
-        "on",
-        "zebrafish"
-      ],
+      "@type": "owl:Class",
+      "label": "Cytotoxicity and mitochondrial impacts of PFAS on zebrafish embryo cells",
       "description": "Detailed mechanistic information on impacts of PFAS alone or as mixtures on ZF4 cell viability, cell death mechanism, metabolic pathways and mitochondrial toxicity.",
       "keyword": [
         "PFAS",
@@ -3463,97 +3332,46 @@
         "of"
       ],
       "format": ".csv",
-      "subClassOf": "datasettype:Dataset",
+      "subClassOf": "https://w3id.org/pink#Dataset",
       "curator": "https://ror.org/03angcq70"
     },
     {
       "@id": "datasettype:SMILES",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
+      "@type": "owl:Class",
       "description": "A dataset with a SMILES string.",
       "format": "SMILES",
       "subClassOf": "datasettype:ChemicalStructureDataset"
     },
     {
       "@id": "datasettype:FuelConsumptionInput",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "EMPA",
-        "Input",
-        "calculator.",
-        "energy",
-        "the",
-        "to"
-      ],
+      "@type": "owl:Class",
+      "label": "Input to the EMPA energy calculator.",
       "format": "csv, text",
-      "subClassOf": "datasettype:Dataset"
+      "subClassOf": "https://w3id.org/pink#Dataset"
     },
     {
       "@id": "datasettype:FuelConsumptionOutput",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "EMPA",
-        "Output",
-        "calculator.",
-        "energy",
-        "the",
-        "to"
-      ],
+      "@type": "owl:Class",
+      "label": "Output to the EMPA energy calculator.",
       "format": "csv, text",
-      "subClassOf": "datasettype:Dataset"
+      "subClassOf": "https://w3id.org/pink#Dataset"
     },
     {
       "@id": "qsar:Profiler",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "subClassOf": "datasettype:Dataset"
+      "@type": "owl:Class",
+      "subClassOf": "https://w3id.org/pink#Dataset"
     },
     {
       "@id": "qsar:ProfilerEndpointSpecific",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "Endpoint",
-        "QSAR",
-        "profilers",
-        "specific"
-      ],
+      "@type": "owl:Class",
+      "label": "Endpoint specific QSAR profilers",
       "description": "Mechanistic categorization schemes consist of rules for identification of chemical characteristics associated with a specific endpoint based on published or expert knowledge (e.g. DNA alerts for AMES, CA and MNT by OASIS).",
       "subClassOf": "qsar:Profiler"
     },
     {
       "@id": "qsar:ProfilerCarcinogenicityAlertsByISS",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "(genotox",
-        "Carcinogenicity",
-        "ISS",
-        "alerts",
-        "and",
-        "by",
-        "nongenotox)"
-      ],
+      "@type": "owl:Class",
+      "label": "Carcinogenicity (genotox and nongenotox) alerts by ISS",
       "keyword": [
         "alerts",
         "carinogenicity",
@@ -3568,200 +3386,96 @@
     },
     {
       "@id": "qsar:ProfilerAcuteAquaticToxicityClassificationByVerhaar",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
+      "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerAcuteAquaticToxicityMOAByOasis",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
+      "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerAcuteOralToxicity",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
+      "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerAquaticToxicityClassificationByEcosar",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
+      "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerBioaccumulationMetabolismAlerts",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
+      "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerBioaccumulationMetabolismHalfLives",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
+      "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
       "@id": "qsar:ProfilerGeneralMechanistic",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "General",
-        "QSAR",
-        "mechanistic",
-        "profilers"
-      ],
+      "@type": "owl:Class",
+      "label": "General mechanistic QSAR profilers",
       "description": "Mechanistic categorization schemes consist of rules for identification of important general chemical characteristics based on published or expert knowledge (e.g. DNA binding by OASIS)",
       "subClassOf": "qsar:Profiler"
     },
     {
       "@id": "qsar:ProfilerPredefined",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "Predefined",
-        "QSAR",
-        "profilers"
-      ],
+      "@type": "owl:Class",
+      "label": "Predefined QSAR profilers",
       "description": "Predefined categories are set of rules for grouping chemicals developed by recognized institutions or organizations and they could be considered as \u201cstandard\u201d categorization schemes (e.g. US-EPA New Chemical categories)",
       "subClassOf": "qsar:Profiler"
     },
     {
       "@id": "qsar:ProfilerEmpriric",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "Empiric",
-        "QSAR",
-        "profilers"
-      ],
+      "@type": "owl:Class",
+      "label": "Empiric QSAR profilers",
       "description": "Empiric categorization schemes include rules used to determine the chemical elements constituting the target chemical, its chemical functionality and structural similarity (e.g. Organic functional groups)",
       "subClassOf": "qsar:Profiler"
     },
     {
       "@id": "qsar:ProfilerToxicological",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "QSAR",
-        "Toxicological",
-        "profilers"
-      ],
+      "@type": "owl:Class",
+      "label": "Toxicological QSAR profilers",
       "description": "The toxicological category includes only one profiler. The profiler contains boundaries based on repeated dose toxicity test data extracted from database of Hazard Evaluation Support System (HESS).",
       "subClassOf": "qsar:Profiler"
     },
     {
       "@id": "qsar:ProfilerRepeatedDose",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
+      "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerToxicological"
     },
     {
       "@id": "qsar:ProfilerCustom",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "Custom",
-        "QSAR",
-        "profilers"
-      ],
+      "@type": "owl:Class",
+      "label": "Custom QSAR profilers",
       "description": "schemes based on the user`s knowledge. Example Prioritization Scheme (PBT) identifying the persistence, bioaccumulation and toxicity of the target chemical(s) based on their experimental and/or predicted data is included as a custom profiler.",
       "subClassOf": "qsar:Profiler"
     },
     {
       "@id": "datasettype:RNACounts",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "Counts",
-        "DESeq2",
-        "RNA",
-        "for"
-      ],
+      "@type": "owl:Class",
+      "label": "RNA Counts for DESeq2",
       "description": "Dataset with RNA counts"
     },
     {
       "@id": "datasettype:geneList",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "List",
-        "gene",
-        "names",
-        "of"
-      ],
+      "@type": "owl:Class",
+      "label": "List of gene names",
       "description": "List of HGNC/Ensembl gene names"
     },
     {
       "@id": "datasettype:differentialExpressionOutput",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "DESeq2",
-        "Output",
-        "analysis",
-        "from"
-      ],
+      "@type": "owl:Class",
+      "label": "Output from DESeq2 analysis",
       "description": "Statistical measures per gene"
     },
     {
       "@id": "datasettype:geneSetEnrichmentOutput",
-      "@type": [
-        "pink:Dataset",
-        "dcat:Resource",
-        "emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a"
-      ],
-      "label": [
-        "Output",
-        "gProfiler",
-        "of"
-      ],
+      "@type": "owl:Class",
+      "label": "Output of gProfiler",
       "description": "Enrichment statistics for gene annotations"
     }
   ]

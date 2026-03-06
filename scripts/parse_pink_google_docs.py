@@ -145,17 +145,22 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
             # OBS! vi risikerer å bruke feil prefix.
             if not (val.startswith("http://") or val.startswith("https://")):
                 lookup_val = val.split(":", 1)[1]
-
             try:
                 term = ontology[lookup_val]
                 print(f"Replacing {val} with IRI: {term.iri}")
                 return term.iri
             except NoSuchLabelError:
-                return val
-
+                # If there is a space in the value return None, 
+                # As areal uri cannot have spaces 
+                if " " in val:
+                    print(f"Value '{val}' looks like a URI but contains spaces. Deleted.")
+                    return None
+                else:
+                    return val
         return val
 
-    return df.map(process_value)
+    df = df.map(process_value)
+    return df
 
 
 def correct_pink_dataframes(df, ontology):
@@ -204,10 +209,14 @@ def correct_pink_dataframes(df, ontology):
             df[col] = df[col].apply(add_prefix, prefix="pink")
 
     # Change possible lists to lists
+    print('columns', df.columns)
     for col in set(list_columns).intersection(df.columns):
         df[col] = df[col].apply(split_to_list)
+    print('after split_to_list', df.columns)
     expanded_df = expand_df(df)
-    check_for_uris(expanded_df, ontology)
+    print('after expand_df', expanded_df.columns)
+    expanded_df = check_for_uris(expanded_df, ontology)
+
     return expanded_df
 
 
@@ -321,7 +330,7 @@ sw = sw.drop(columns=activity_columns)
 
 
 # Correct sowtare documentation dataframe
-
+print('PREPARING SW DOCUMENTATION')
 # Clean up the chemicalClass,
 # which is currently in three columns for easier annotation in the spreadsheet.
 chemicalclass_cols = [
@@ -337,6 +346,8 @@ sw.drop(columns=chemicalclass_cols, inplace=True)
 # We have to decide how to handle Indicator, it is currently a class.
 sw = sw.drop(columns=["indicator"])
 
+#sw['@type'] = 'pink:Software'
+
 expanded_sw = correct_pink_dataframes(sw, onto)
 # A bit cumbersome to write file, I am sure there are better ways
 expanded_sw.to_csv("sw_clean.csv", index=False)
@@ -351,14 +362,16 @@ swdocumentation = TableDoc.parse_csv(
 
 # Correct the computations documentation dataframe
 
+print('PREPARING COMPUTATION TYPE DOCUMENTATION')
 # Create a unique id (@id) for each activity in the comp dspreadsheet
+
 comp["@id"] = comp.apply(
-    lambda row: f"https://w3id.org/pink/activity/{row.name}", axis=1
+    lambda row: f"https://w3id.org/pink/activity/activity{row.name}", axis=1
 )
 # Add a column that defines that each activity is a prov:Activity and pink:Computation
 # Reasoning tells us that a pink:Computation is a prov:Activity, but we add both for easier
 # querying and to avoid relying on reasoning in the triplestore.
-comp["@type"] = [["prov:Activity", "pink:Computation"]] * len(comp)
+comp["@type"] = "owl:Class"
 
 
 def merge_ssbd_dimensions(row):
@@ -382,8 +395,8 @@ def merge_ssbd_dimensions(row):
     return values
 
 
-comp["@type"] = comp.apply(
-    lambda row: ["prov:Activity"] + merge_ssbd_dimensions(row), axis=1
+comp["subClassOf"] = comp.apply(
+    lambda row: ["prov:Activity", "pink:Computation"] + merge_ssbd_dimensions(row), axis=1
 )
 
 # Remove the Ssbd columns
@@ -402,9 +415,9 @@ compdocumentation = TableDoc.parse_csv(
 )
 
 # Datasettype
-
+print('PREPARING DATASETTYPE DOCUMENTATION')
 # Drop indicator
-datasettypes["@type"] = [["pink:Dataset"]] * len(datasettypes)
+datasettypes["@type"] = [["owl:Class"]] * len(datasettypes)
 
 datasettypes = datasettypes.drop(columns=["indicator"])
 # datasettypes['@type'] = 'owl:Class'
@@ -418,6 +431,7 @@ datasettypedocumentation = TableDoc.parse_csv(
 )
 
 # Agents
+print('PREPARING AGENT DOCUMENTATION')
 agents["@type"] = [["prov:Agent"]] * len(agents)
 agents = agents.drop(columns=["e-mail", "affiliation.name", "affiliation.id"])
 agents = agents[~agents["identifier"].isin(ts.subjects())]
