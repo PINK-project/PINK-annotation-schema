@@ -814,6 +814,15 @@ pink:XGBoostRegessor rdf:type owl:Class ;
                      skos:scopeNote "XGBoost Regressor is widely used in data science competitions and real-world applications due to its speed, performance, and features like built-in regularization and automatic handling of missing values."@en .
 
 
+pink:QSARModel a owl:Class ;
+    rdfs:subClassOf pink:MathematicalModel ;
+                     skos:definition "A model for estimating Quantitative Structure-Activity Relationships (QSAR). That is properties of a chemical from its molecular structure and have the potential to provide information on hazards of chemicals, while reducing time, monetary cost and animal testing currently needed."@en ;
+    skos:prefLabel "QSARModel"@en ;
+    skos:scopeNote "To facilitate practical application of (Q)SAR approaches in regulatory contexts by governments and industry and to improve their regulatory acceptance, the OECD (Q)SAR project has developed various outcomes such as the principles for the validation of (Q)SAR models, guidance documents as well as the QSAR Toolbox.  The Toolbox is a software application intended for governments, the chemical industry and other stakeholders in filling gaps in (eco)toxicity data needed for assessing the hazards of chemicals. It has been developed in close collaboration with the European Chemicals Agency. The Toolbox incorporates information and tools from various sources into a logical workflow. Crucial to this workflow is grouping chemicals into chemical categories."@en ;
+    rdfs:seeAlso <https://www.oecd.org/en/topics/sub-issues/assessment-of-chemicals/quantitative-structure-activity-relationships-project.html> .
+
+
+
 #################################################################
 #    General axioms
 #################################################################
