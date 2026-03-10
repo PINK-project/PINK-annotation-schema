@@ -541,6 +541,15 @@ emmo:ChemicalEntity rdfs:subClassOf :Matter .
     skos:definition "A software that identify the affiliation of the target chemical(s) to preliminary defined categories (functional groups/alerts)."@en ;
     skos:scopeNote "The outcome of the profiling determines the most appropriate way to search for analogues, but they are also useful for preliminary screening or prioritization of substances."@en .
 
+:QSARSoftware rdf:type owl:Class ;
+    rdfs:subClassOf :Software , [
+        a owl:Restriction ;
+        owl:onProperty :implementsModel ;
+        owl:someValuesFrom :QSARModel
+    ] ;
+    skos:prefLabel "QSARSoftware"@en ;
+    skos:definition "A software implementing a QSAR model."@en .
+
 :Datum rdf:type owl:Class ;
     rdfs:subClassOf :Data ;
     skos:prefLabel "Datum"@en ;
@@ -698,11 +707,12 @@ An architectural floor plan is a model of a house.
     skos:definition "A collection of properties that depicts an object."@en ;
     skos:scopeNote "A description is not atomic in the sense that it is made of more than one property."@en .
 
-:DomainOfApplicability rdf:type owl:Class ;
+:Applicability rdf:type owl:Class ;
     rdfs:subClassOf :Property ;
-    skos:prefLabel "DomainOfApplicability"@en ;
-    skos:definition "A property of a software indicating its the domain of applicability."@en ;
-    skos:scopeNote "It should be one of the One of the following categories: pink:undefined; pink:outOfDomain; pink:inDomain."@en .
+    skos:prefLabel "Applicability"@en ;
+    skos:altLabel "DomainOfApplicability"@en ;
+    skos:definition "A property of a model or software indicating whether the input is within the domain of applicability."@en ;
+    skos:scopeNote "It should take one of the following values: pink:undefined; pink:outOfDomain; pink:inDomain."@en .
 
 
 ## Object
@@ -766,15 +776,15 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
 :tierlevel3 a :TierLevel ;
     skos:prefLabel "up-scaling/production"@en .
 
-:undefined a :DomainOfApplicability ;
+:undefined a :Applicability ;
     skos:prefLabel "undefined"@en ;
     skos:definition "The applicability of the given input is undefined."@en .
 
-:outOfDomain a :DomainOfApplicability ;
+:outOfDomain a :Applicability ;
     skos:prefLabel "outOfDomain"@en ;
     skos:definition "The input is outside the valid doamin."@en .
 
-:inDomain a :DomainOfApplicability ;
+:inDomain a :Applicability ;
     skos:prefLabel "inDomain"@en ;
     skos:definition "The input is within the valid domain."@en .
 
