@@ -860,11 +860,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ECNumber": {
+    "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EuropeanCommunityNumber": {
+    "ECNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1580,8 +1580,16 @@
       "@id": "https://w3id.org/pink#ProbabilityModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Profiler": {
+      "@id": "https://w3id.org/pink#Profiler",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "Protein": {
       "@id": "https://w3id.org/pink#Protein",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "QSARSoftware": {
+      "@id": "https://w3id.org/pink#QSARSoftware",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "QuestionAnswering": {
@@ -1956,6 +1964,10 @@
       "@id": "https://w3id.org/pink#PhysicalPropertiesAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "QSARModel": {
+      "@id": "https://w3id.org/pink#QSARModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "RandomForest": {
       "@id": "https://w3id.org/pink#RandomForest",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -2252,6 +2264,10 @@
       "@id": "https://w3id.org/emmo/hume#Molecule",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Applicability": {
+      "@id": "https://w3id.org/pink#Applicability",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "FunctionalityAssessment": {
       "@id": "https://w3id.org/pink#FunctionalityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -2312,10 +2328,6 @@
       "@id": "https://w3id.org/emmo/hume#MaterialsModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MathematicalModel": {
-      "@id": "https://w3id.org/emmo/hume#MathematicalModel",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "Substance": {
       "@id": "https://w3id.org/emmo/hume#Substance",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -2358,6 +2370,10 @@
     },
     "AtomCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000263",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MathematicalModel": {
+      "@id": "https://w3id.org/emmo/hume#MathematicalModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MolecularEntity": {
@@ -2544,8 +2560,8 @@
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
     "ns1": "http://purl.obolibrary.org/obo/",
-    "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
-    "ns3": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns2": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns3": "http://www.semanticweb.org/ontologies/cheminf.owl#",
     "ns4": "http://www.geneontology.org/formats/oboInOwl#",
     "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
     "swrl": "http://www.w3.org/2003/11/swrl#",
@@ -2730,8 +2746,8 @@
       "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
     "has value": "http://semanticscience.org/resource/CHEMINF_000012",
-    "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
     "participates_in": "http://purl.obolibrary.org/obo/RO_0000056",
+    "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
     "rightsHolder": {
       "@id": "http://purl.org/dc/terms/rightsHolder",
       "@type": "@id"
@@ -3357,19 +3373,21 @@
       "subClassOf": "https://w3id.org/pink#Dataset"
     },
     {
-      "@id": "qsar:Profiler",
+      "@id": "qsar:ProfilerOutput",
       "@type": "owl:Class",
+      "label": "Profiler dataset type",
+      "description": "Preliminary defined categories (functional groups/alerts) used in a profiler.",
       "subClassOf": "https://w3id.org/pink#Dataset"
     },
     {
-      "@id": "qsar:ProfilerEndpointSpecific",
+      "@id": "qsar:ProfilerOutputEndpointSpecific",
       "@type": "owl:Class",
       "label": "Endpoint specific QSAR profilers",
       "description": "Mechanistic categorization schemes consist of rules for identification of chemical characteristics associated with a specific endpoint based on published or expert knowledge (e.g. DNA alerts for AMES, CA and MNT by OASIS).",
       "subClassOf": "qsar:Profiler"
     },
     {
-      "@id": "qsar:ProfilerCarcinogenicityAlertsByISS",
+      "@id": "qsar:ProfilerOutputCarcinogenicityAlertsByIss",
       "@type": "owl:Class",
       "label": "Carcinogenicity (genotox and nongenotox) alerts by ISS",
       "keyword": [
@@ -3385,74 +3403,207 @@
       ]
     },
     {
-      "@id": "qsar:ProfilerAcuteAquaticToxicityClassificationByVerhaar",
+      "@id": "qsar:ProfilerOutputAcuteAquaticToxicityClassificationByVerhaar",
       "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
-      "@id": "qsar:ProfilerAcuteAquaticToxicityMOAByOasis",
+      "@id": "qsar:ProfilerOutputAcuteAquaticToxicityMoaByOasis",
       "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
-      "@id": "qsar:ProfilerAcuteOralToxicity",
+      "@id": "qsar:ProfilerOutputAcuteOralToxicity",
       "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
-      "@id": "qsar:ProfilerAquaticToxicityClassificationByEcosar",
+      "@id": "qsar:ProfilerOutputAquaticToxicityClassificationByEcosar",
       "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
-      "@id": "qsar:ProfilerBioaccumulationMetabolismAlerts",
+      "@id": "qsar:ProfilerOutputBioaccumulationMetabolismAlerts",
       "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
-      "@id": "qsar:ProfilerBioaccumulationMetabolismHalfLives",
+      "@id": "qsar:ProfilerOutputBioaccumulationMetabolismHalfLives",
       "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerEndpointSpecific"
     },
     {
-      "@id": "qsar:ProfilerGeneralMechanistic",
+      "@id": "qsar:ProfilerOutputBiodegradationFragments",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputDartScheme",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputDnaAlertsForAmesbyOasis",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputEyeIrritationCorrosionExclusionRulesbyBfr",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputEyeIrritationCorrosionInclusionRulesbyBfr",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputInVitroMutagenicityAlertsbyIss",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputInVivoMutagenicityAlertsbyIss",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputKeratinocyteGeneExpression",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputOncologicPrimaryClassification",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputProteinBindingAlertsForChromosomalAberrationByOasis",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputProteinBindingAlertsForSkinSensitizationAccordingToGhs",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputProteinBindingAlertsForSkinSensitizationByIss",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputProteinBindingPotencyHclat",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputRespiratorySensitisation",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputRetinoicAcidReceptorBinding",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputRterExpertSystemUsepa",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputSkinIrritationCorrosionExclusionRulesbyBfr",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputSkinIrritationCorrosionInclusionRulesbyBfr",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:ProfilerEndpointSpecific"
+    },
+    {
+      "@id": "qsar:ProfilerOutputGeneralMechanistic",
       "@type": "owl:Class",
       "label": "General mechanistic QSAR profilers",
       "description": "Mechanistic categorization schemes consist of rules for identification of important general chemical characteristics based on published or expert knowledge (e.g. DNA binding by OASIS)",
       "subClassOf": "qsar:Profiler"
     },
     {
-      "@id": "qsar:ProfilerPredefined",
+      "@id": "qsar:ProfilerOutputPredefined",
       "@type": "owl:Class",
       "label": "Predefined QSAR profilers",
       "description": "Predefined categories are set of rules for grouping chemicals developed by recognized institutions or organizations and they could be considered as \u201cstandard\u201d categorization schemes (e.g. US-EPA New Chemical categories)",
       "subClassOf": "qsar:Profiler"
     },
     {
-      "@id": "qsar:ProfilerEmpriric",
+      "@id": "qsar:ProfilerOutputEmpriric",
       "@type": "owl:Class",
       "label": "Empiric QSAR profilers",
       "description": "Empiric categorization schemes include rules used to determine the chemical elements constituting the target chemical, its chemical functionality and structural similarity (e.g. Organic functional groups)",
       "subClassOf": "qsar:Profiler"
     },
     {
-      "@id": "qsar:ProfilerToxicological",
+      "@id": "qsar:ProfilerOutputToxicological",
       "@type": "owl:Class",
       "label": "Toxicological QSAR profilers",
       "description": "The toxicological category includes only one profiler. The profiler contains boundaries based on repeated dose toxicity test data extracted from database of Hazard Evaluation Support System (HESS).",
       "subClassOf": "qsar:Profiler"
     },
     {
-      "@id": "qsar:ProfilerRepeatedDose",
+      "@id": "qsar:ProfilerOutputRepeatedDose",
       "@type": "owl:Class",
       "subClassOf": "qsar:ProfilerToxicological"
     },
     {
-      "@id": "qsar:ProfilerCustom",
+      "@id": "qsar:ProfilerOutputCustom",
       "@type": "owl:Class",
       "label": "Custom QSAR profilers",
       "description": "schemes based on the user`s knowledge. Example Prioritization Scheme (PBT) identifying the persistence, bioaccumulation and toxicity of the target chemical(s) based on their experimental and/or predicted data is included as a custom profiler.",
       "subClassOf": "qsar:Profiler"
+    },
+    {
+      "@id": "qsar:EndpointOutput",
+      "@type": "owl:Class",
+      "label": "QSAR Endpoints",
+      "subClassOf": "qsar:Endpoint"
+    },
+    {
+      "@id": "qsar:EndpointOutputPhysicalChemicalProperties",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:Endpoint"
+    },
+    {
+      "@id": "qsar:EndpointOutputBoilingPoint",
+      "@type": "owl:Class",
+      "label": "Boiling Point Adapted Stein and Brown Method (EPISUITE)",
+      "description": "boiling point",
+      "keyword": [
+        "boiling",
+        "point"
+      ],
+      "format": "csv; variable in programming environment from an API call",
+      "subClassOf": "qsar:EndpointPhysicalChemicalProperties"
+    },
+    {
+      "@id": "qsar:EndpointOutputEcotoxicologicalInformation",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:Endpoint"
+    },
+    {
+      "@id": "qsar:EndpointOutputEnvironmentalFateAndTransport",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:Endpoint"
+    },
+    {
+      "@id": "qsar:EndpointOutputIntermediateEffectsMechanisticInformation",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:Endpoint"
+    },
+    {
+      "@id": "qsar:EndpointOutputHumanHealthHazards",
+      "@type": "owl:Class",
+      "subClassOf": "qsar:Endpoint"
     },
     {
       "@id": "datasettype:RNACounts",

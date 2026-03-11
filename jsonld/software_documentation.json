@@ -860,11 +860,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ECNumber": {
+    "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EuropeanCommunityNumber": {
+    "ECNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1580,8 +1580,16 @@
       "@id": "https://w3id.org/pink#ProbabilityModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Profiler": {
+      "@id": "https://w3id.org/pink#Profiler",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "Protein": {
       "@id": "https://w3id.org/pink#Protein",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "QSARSoftware": {
+      "@id": "https://w3id.org/pink#QSARSoftware",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "QuestionAnswering": {
@@ -1956,6 +1964,10 @@
       "@id": "https://w3id.org/pink#PhysicalPropertiesAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "QSARModel": {
+      "@id": "https://w3id.org/pink#QSARModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "RandomForest": {
       "@id": "https://w3id.org/pink#RandomForest",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -2252,6 +2264,10 @@
       "@id": "https://w3id.org/emmo/hume#Molecule",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Applicability": {
+      "@id": "https://w3id.org/pink#Applicability",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "FunctionalityAssessment": {
       "@id": "https://w3id.org/pink#FunctionalityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -2312,10 +2328,6 @@
       "@id": "https://w3id.org/emmo/hume#MaterialsModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MathematicalModel": {
-      "@id": "https://w3id.org/emmo/hume#MathematicalModel",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "Substance": {
       "@id": "https://w3id.org/emmo/hume#Substance",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -2358,6 +2370,10 @@
     },
     "AtomCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000263",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MathematicalModel": {
+      "@id": "https://w3id.org/emmo/hume#MathematicalModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MolecularEntity": {
@@ -2544,8 +2560,8 @@
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
     "ns1": "http://purl.obolibrary.org/obo/",
-    "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
-    "ns3": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns2": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns3": "http://www.semanticweb.org/ontologies/cheminf.owl#",
     "ns4": "http://www.geneontology.org/formats/oboInOwl#",
     "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
     "swrl": "http://www.w3.org/2003/11/swrl#",
@@ -2730,8 +2746,8 @@
       "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
     "has value": "http://semanticscience.org/resource/CHEMINF_000012",
-    "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
     "participates_in": "http://purl.obolibrary.org/obo/RO_0000056",
+    "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
     "rightsHolder": {
       "@id": "http://purl.org/dc/terms/rightsHolder",
       "@type": "@id"
@@ -3170,7 +3186,10 @@
   "@graph": [
     {
       "@id": "pink:e2078536-1427-4d94-88dc-766215ea9abb",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "MultiCASE CASE Ultra commercial model RC2_AF4 for Rodent carcinogenicity in female mouse in vivo,\nDanish QSAR Group at DTU Food",
       "description": "The training set consists of non\u2010proprietary studies and is composed of data harvested from FDA approval packages and the published literature (for more details see 6.5). The model algorithm is proprietary from commercial software. The model has been created by FDA and MultiCASE based on FDA data as part of a Research Cooperation Agreement (RCA).\nThe training set was constructed using the NTP (U.S. National Toxicology Program) Rodent carcinogenicity database, the Lois Gold Carcinogen Potency Database, FDA/CDER (U.S. Food and Drug Administration / Center for Drug Evaluation and Research) archives, and the scientific literature. The model including the training data set is commercially available from MultiCASE Inc.",
       "documentation": "https://drive.google.com/file/d/1UfVlkwcNl9NiI3T1g9D463njkqScE5Gr/view",
@@ -3196,7 +3215,10 @@
     },
     {
       "@id": "pink:TOX21_GNRHR_HEK293_Agonist",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Tox21 HEK293T Gonadotropin-releasing Hormone (GnRH) Receptor Agonism Assay",
       "description": "TOX21_GNRHR_HEK293 is a cell-based, single-readout assay that uses GnRHR-expressing stably transfected HEK293, a human kidney cell line, with measurements taken at 1.25 hours after chemical dosing in a 1536-well plate. TOX21_GNRHR_HEK293_Agonist is one of 2 assay components measured in the TOX21_GNRHR_HEK293 assay. It is designed to make measurements of intracellular calcium, a form of biochemical reporter, as detected with Fluorescence intensity signals by FDSS 7000EX kinetic plate reader technology. Data from the assay component TOX21_GNRHR_HEK293_Agonist was analyzed into 2 assay endpoints. This assay endpoint, TOX21_GNRHR_HEK293_Agonist was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. Using a type of inducible reporter, gain-of-signal activity can be used to understand changes in binding. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the gpcr, where the subfamily is gonadotropin-releasing hormone receptor.",
       "documentation": "https://clowder.edap-cluster.com/files/68a37cece4b02565fc7b59e4?dataset=6894f2dae4b025654d12b716&space=687e388ce4b02565bc3e28e4",
@@ -3218,9 +3240,18 @@
     },
     {
       "@id": "pink:2256b12d-5ef8-49a2-af9a-b453b3f23d96",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Carcinogenicity (genotox and nongenotox) alerts by ISS",
       "description": "This profiler is an expanded and updated version of the correspondent module originally\nimplemented in the software Toxtree. It works as a decision tree for estimating\ncarcinogenicity, based on a list of 55 structural alerts (SAs). Out of them, 35 derive from the\nToxtree module and 20 are newly derived. Most of the new SAs are relative to nongenotoxic\ncarcinogenicity, whereas the SAs in the initial list mainly coded genotoxic carcinogenicity.\nThe SAs for carcinogenicity are molecular functional groups or substructures known to be\nlinked to the carcinogenic activity of chemicals. As one or more SAs embedded in a\nmolecular structure are recognised, the system flags the potential carcinogenicity of the\nchemical. The present list of alert is relevant for the investigation of chemicals genotoxic\nand nongenotoxic carcinogenicity. Applicable to Carcinogenicity (e.g. Carcinogenicity, Summary carcinogenicity, TD50).",
+      "keyword": [
+        "carcinogenicity",
+        "profiler"
+      ],
+      "tierLevel": "https://w3id.org/pink#tierlevel1",
+      "documentation": "https://drive.google.com/file/d/1A-PrNYn-XXgJyLs_c9xaiTGxbC5qHoBP/view?usp=share_link",
       "distribution": {
         "@type": [
           "dcat:Distribution",
@@ -3234,11 +3265,46 @@
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
       "license": "https://qsartoolbox.org/license-agreement/",
+      "creator": "https://ror.org/02hssy432",
       "curator": "https://orcid.org/0000-0002-0628-8434"
     },
     {
+      "@id": "pink:e898dfa3-28ac-4a89-9032-deff475db152",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
+      "title": "Boiling Point Adapted Stein and Brown Method (EPISUITE)",
+      "description": "Not available.",
+      "keyword": [
+        "boiling",
+        "point",
+        "qsar"
+      ],
+      "tierLevel": "https://w3id.org/pink#tierlevel1",
+      "documentation": "https://docs.google.com/document/d/1kbkV108TFkqF3DwtcQX4JEuVY2oPBLu2jeCH8A5luxY/edit?tab=t.0",
+      "distribution": {
+        "@type": [
+          "dcat:Distribution",
+          "dcat:Resource",
+          "prov:Entity"
+        ],
+        "accessURL": "https://app.jaqpot.org/dashboard/models/1837/description"
+      },
+      "implementsModel": "https://w3id.org/emmo/hume#MathematicalModel",
+      "hasAPI": true,
+      "hasGUI": true,
+      "accessRights": "rights:PUBLIC",
+      "license": "https://qsartoolbox.org/license-agreement/",
+      "creator": "https://ror.org/03tns0030",
+      "version": "QSAR Toolbox 4.7\nMay 2024"
+    },
+    {
       "@id": "pink:GeneTox_detail",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "GeneTox_detail",
       "description": "Multiple results from GeneTox",
       "documentation": "https://healthdata.gov/NIH/GENE-TOX-Genetic-Toxicology-Data-Bank-/mg75-uw2s/about_data",
@@ -3257,7 +3323,10 @@
     },
     {
       "@id": "pink:20592778",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Atmos. Hydroxylation Rate",
       "description": "OH rate constant for the atmospheric, gas-phase reaction between photochemically produced hydroxyl radicals and organic chemicals",
       "documentation": "https://github.com/kmansouri/OPERA",
@@ -3273,12 +3342,16 @@
       "hasGUI": true,
       "accessRights": "rights:PUBLIC",
       "license": "https://github.com/kmansouri/OPERA?tab=MIT-1-ov-file#readme",
+      "creator": "https://orcid.org/0000-0002-6426-8036",
       "version": "V2.8, Mar 24, 2022",
       "curator": "https://orcid.org/0000-0002-0628-8434"
     },
     {
       "@id": "pink:Jaqpot_2081",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Animal Carcinogenicity prediction according to OECD Test No. 451",
       "documentation": "https://docs.google.com/document/d/1yBrGi-dJkPBCYkpQ6qhCtzQswdLcKN5x/edit?usp=drive_link&ouid=103056225293934767525&rtpof=true&sd=true",
       "distribution": {
@@ -3298,7 +3371,10 @@
     },
     {
       "@id": "pink:Jaqpot_2082",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Skin Reaction TDCommons",
       "description": "Binary Classification of Skin Reaction for small Drugs with Extra Trees Classifier and MACCS fingerprints with python and jaqpot software. An Extra Trees classifier was developed to classify whether a drug causes skin reaction or not. The dataset used in this study was retrieved from the ICCVAM (Interagency Coordinating Committee on the Validation of Alternative Methods) report on the rLLNA. The test used to obtain the endpoint is called reduced LLNA (rLLNA) which identifies skin sensitizers by quantifying lymphocyte proliferation.. The train and testing splits were conducted randomly stratified with a 0.7-0.3 ratio. MACCS fingerprints were generated from SMILES and feature selection through correlation, variance threshold and mutual information was implemented. The final model is cross-validated and evaluated on the unseen test set to ensure robustness.",
       "documentation": "https://docs.google.com/document/d/1F0iwM70_BLwXiBPRN9J5PDtuV8UJLdoC/edit",
@@ -3319,7 +3395,10 @@
     },
     {
       "@id": "mw:bulk_polymer_mechanical_molecular",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "CNR SMILES to mechanical properties workflow - molecular scale",
       "description": "(Integrated workflow) - An integrated workflow based on atomistic molecular dynamics simulations that uses the SMILES representation of a monomer as input to automatically generate a polymer chain, construct a periodic bulk model, and perform fully atomistic simulations of mechanical properties. From the stress-strain response obtained under controlled deformation, the tool computes the key mechanical properties of the polymer, including Young\u2019s modulus, bulk modulus, and Poisson\u2019s ratio.",
       "keyword": [
@@ -3342,7 +3421,10 @@
     },
     {
       "@id": "mw:polymer_builder_molecular",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "CNR polymer builder module - molecular scale",
       "description": "(Computational module) - This module takes the SMILES representation of a monomer as input and automatically generates a polymer chain structure (atomistic level) suitable for atomistic molecular dynamics simulations. The tool interprets the SMILES string to reconstruct the 3D molecular structure of the monomer, identifies the reactive termini, and performs automated polymerization to build a chain of user-defined length.",
       "keyword": [
@@ -3363,7 +3445,10 @@
     },
     {
       "@id": "mw:ff_builder_molecular",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "CNR force field builder module - molecular scale",
       "description": "(Computational module) - This module takes the polymer structure as an input and generates a molecular mechanics force field, with OPLS used as the default option and GAFF available as an alternative. The tool generates the complete molecular topology, including atom types, bonded and non-bonded parameters, partial charges, and connectivity, providing a fully parameterized polymer structure ready for subsequent MD calculations.",
       "keyword": [
@@ -3389,7 +3474,10 @@
     },
     {
       "@id": "mw:polymer_bulk_builder_molecular",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "CNR bulk builder module - molecular scale",
       "description": "(Computational module) - This module takes a single polymer chain structure (atomistic level) as an input and constructs a three-dimensional bulk model (atomistic level) by replicating it within a cubic simulation box. The system is then subjected to a multi-stage molecular dynamics protocol in the NPT ensemble, comprising heating under compression, cooling under compression, and final equilibration at ambient pressure. This procedure enables the chains to pack realistically and relax toward a stable glassy configuration. The module outputs the equilibrated bulk structure along with key bulk properties extracted from the simulation, providing a physically meaningful starting point for mechanical characterization.",
       "keyword": [
@@ -3417,7 +3505,10 @@
     },
     {
       "@id": "mw:youngs_modulus_evaluator_molecular",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "CNR Young's modulus calculator module - molecular scale",
       "description": "(Computational module) -This module computes the Young\u2019s modulus of a bulk polymer system using molecular simulations. It takes as input an equilibrated polymer configuration along with the corresponding interaction parameters. The simulation cell is replicated to minimize finite-size effects and subjected to controlled uniaxial deformation within an NPT ensemble. During deformation, the stress-strain response of the system is recorded. The Young\u2019s modulus is then determined by fitting the linear elastic region of the stress-strain curve, providing a quantitative measure of the polymer\u2019s mechanical stiffness.",
       "keyword": [
@@ -3444,7 +3535,10 @@
     },
     {
       "@id": "mw:mechanical_properties_evaluator_molecular",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "CNR mechanical properties calculator module - molecular scale",
       "description": "(Computational module) - This module takes the equilibrated bulk polymer model as input and prepares it for mechanical testing by replicating the simulation cell and applying a series of molecular dynamics simulations. Controlled deformations are introduced under NPT conditions to obtain stress-strain responses for different loading modes. From these trajectories, the module computes key mechanical indicators of the polymer, including Young\u2019s modulus, bulk modulus, and Poisson\u2019s ratio, providing a quantitative assessment of the material\u2019s macroscopic mechanical behavior directly from atomistic simulation.",
       "keyword": [
@@ -3472,7 +3566,10 @@
     },
     {
       "@id": "pink:AOP_451",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "description": "An Adverse Outcome Pathway for lung cancer induced by nanosized foreign matter, anchored to a selection of 18 standardized methods and NAMs for in silico- and in vitro-based integrated assessment of lung carcinogenicity",
       "keyword": [
         "AOP",
@@ -3504,7 +3601,10 @@
     },
     {
       "@id": "https://doi.org/10.1002/smll.201904749",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Tiered NAM-based safety testing workflow",
       "description": "Data-driven tiered safety testing workflow where structure- and exposure-based analyses feed new-generation high-throughput, high-content, and omics-technology-coupled NAMs",
       "keyword": [
@@ -3537,7 +3637,10 @@
     },
     {
       "@id": "pink:NWChem",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "NWChemDFTGeometryOptimisation",
       "description": "NWChem provides many methods for computing the properties of molecular and periodic systems using standard quantum mechanical descriptions of the electronic wavefunction or density. Its classical molecular dynamics capabilities provide for the simulation of macromolecules and solutions, including the computation of free energies using a variety of force fields. These approaches may be combined to perform mixed quantum-mechanics and molecular-mechanics simulations.\n\n\nNote that this is not a tool that we are making available within PINK. However it is useful for demonstration purposes.",
       "keyword": "DFT",
@@ -3547,7 +3650,10 @@
     },
     {
       "@id": "pink:EnalosCloud_Hamaker",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Hamaker Extended tool",
       "description": "This web GUI tool calculates the Hamaker constant of two different types of Nanoparticles in dispersion medium using the NOVAMFF (i.e., a FF for the accurate prediction of Hamaker constants). The NP's chemical formulas and the chemical formula of the dispersion medium as well astheir densities are needed as input by the user",
       "keyword": [
@@ -3571,7 +3677,10 @@
     },
     {
       "@id": "pink:EnalosCloud_ZetaPredict",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Zeta Predict Extended tool",
       "description": "This web GUI tool calculates the zeta potential of Nanoparticles using a) DLVO theory, b) liquid TEM images and c) the NOVAMFF derived to predict with high accuracy the Hamaker constant",
       "keyword": [
@@ -3595,7 +3704,10 @@
     },
     {
       "@id": "pink:EnalosCloud_NanoBioConstruct",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "NanoBioConstruct",
       "description": "This web GUI tool prioritirize human proteins based on their adsorption onto a wide range of NPs surface using the UnitedAtom approach and Debye Theory and then applies a mapping from the coarse-grained approximation of the produced NP-protein configurations to atomistic ones in order to calculate with accuracy the NP's protein corona and calculate its adsorption energy",
       "keyword": [
@@ -3617,7 +3729,10 @@
     },
     {
       "@id": "pink:EnalosCloud_PINK_ChemInformatics_Suite",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "PINK ChemInformatics Suite",
       "keyword": [
         "BP",
@@ -3643,7 +3758,10 @@
     },
     {
       "@id": "pink:Smiles_to_impact-prediction-tool",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Life Cycle Impact prediction Tool",
       "description": "This GUI-based tool allows user to predict the Life Cycle Impacts of simple organic compounds by using their SMILES representation. The tool predicts 21 different types of impacts as described in the Environmental Footprint v3.1 method. Under the hood, tool uses the PaDEL tool to generate physical-chemical descriptors to the target molecules, and different ML models. The tool returns the expected predictions along with model metadata.",
       "keyword": [
@@ -3670,7 +3788,10 @@
     },
     {
       "@id": "pink:upscaling_LCI_calculator",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Life Cycle Inventory calculation tool (energy/material flows)",
       "description": "Sector-tailored energy calculator and Life Cycle Inventory creation tool. Will guide users on how the energy (and/or material) flows needs to be while upscaling with a general approach in chemical industry and specially tailored with different constrains in biochemical sector. Powered by simple imputs through fluid dynamics and thermodynamic calculations with technical information about industrial processes to guide though a possible higher TRL",
       "keyword": [
@@ -3686,7 +3807,10 @@
     },
     {
       "@id": "pink:transcriptomic_example_step1",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Gene Expression assessment for an arbtitrary exposure",
       "description": "This is an example to demostrate transcriptomic screening within this spreadsheet",
       "keyword": [
@@ -3724,7 +3848,10 @@
     },
     {
       "@id": "pink:transcriptomic_example_step2",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Gene set enrichment to understand affected pathways from transcriptomic_example1",
       "description": "This takes the output of the previous example to carry out gene set enrichment to better understand the effects of exposure to some arbitray chemical",
       "keyword": [
@@ -3763,7 +3890,10 @@
     },
     {
       "@id": "pink:PTGS",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Predictive Toxicogenomics Space",
       "description": "1) PTGS cytotoxicity score, 2) PTGS MoA/AOP analysis, 3) PTGS bioactivity-based grouping of chemicals/materials",
       "keyword": [
@@ -3806,7 +3936,10 @@
     },
     {
       "@id": "pink:ToxFAIRy",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Automated data FAIRification, preprocessing and Tox5Score calculation",
       "description": "In vitro bioactivity-based scoring, ranking and grouping",
       "keyword": [
@@ -3856,7 +3989,10 @@
     },
     {
       "@id": "pink:SciRAPnano",
-      "@type": "owl:NamedIndividual",
+      "@type": [
+        "pink:Software",
+        "pink:Data"
+      ],
       "title": "Science in Risk Assessment and Policy for nanomaterials",
       "description": "Quality assessment of in vitro data for nanomaterials",
       "keyword": [

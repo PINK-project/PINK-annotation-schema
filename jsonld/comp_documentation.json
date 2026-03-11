@@ -860,11 +860,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ECNumber": {
+    "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EuropeanCommunityNumber": {
+    "ECNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1580,8 +1580,16 @@
       "@id": "https://w3id.org/pink#ProbabilityModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Profiler": {
+      "@id": "https://w3id.org/pink#Profiler",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "Protein": {
       "@id": "https://w3id.org/pink#Protein",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "QSARSoftware": {
+      "@id": "https://w3id.org/pink#QSARSoftware",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "QuestionAnswering": {
@@ -1956,6 +1964,10 @@
       "@id": "https://w3id.org/pink#PhysicalPropertiesAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "QSARModel": {
+      "@id": "https://w3id.org/pink#QSARModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "RandomForest": {
       "@id": "https://w3id.org/pink#RandomForest",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -2252,6 +2264,10 @@
       "@id": "https://w3id.org/emmo/hume#Molecule",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Applicability": {
+      "@id": "https://w3id.org/pink#Applicability",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "FunctionalityAssessment": {
       "@id": "https://w3id.org/pink#FunctionalityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -2312,10 +2328,6 @@
       "@id": "https://w3id.org/emmo/hume#MaterialsModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MathematicalModel": {
-      "@id": "https://w3id.org/emmo/hume#MathematicalModel",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "Substance": {
       "@id": "https://w3id.org/emmo/hume#Substance",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -2358,6 +2370,10 @@
     },
     "AtomCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000263",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MathematicalModel": {
+      "@id": "https://w3id.org/emmo/hume#MathematicalModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MolecularEntity": {
@@ -2544,8 +2560,8 @@
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
     "ns1": "http://purl.obolibrary.org/obo/",
-    "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
-    "ns3": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns2": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns3": "http://www.semanticweb.org/ontologies/cheminf.owl#",
     "ns4": "http://www.geneontology.org/formats/oboInOwl#",
     "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
     "swrl": "http://www.w3.org/2003/11/swrl#",
@@ -2730,8 +2746,8 @@
       "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
     "has value": "http://semanticscience.org/resource/CHEMINF_000012",
-    "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
     "participates_in": "http://purl.obolibrary.org/obo/RO_0000056",
+    "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
     "rightsHolder": {
       "@id": "http://purl.org/dc/terms/rightsHolder",
       "@type": "@id"
@@ -3191,7 +3207,7 @@
       "@id": "https://w3id.org/pink/activity/activity2",
       "@type": "owl:Class",
       "hasInput": "datasettype:SMILES",
-      "hasOutput": "qsar:ProfilerCarcinogenicityAlertsByISS",
+      "hasOutput": "qsar:ProfilerCarcinogenicityAlertsByIss",
       "title": "Carcinogenicity (genotox and nongenotox) alerts by ISS",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
@@ -3202,17 +3218,19 @@
       "@id": "https://w3id.org/pink/activity/activity3",
       "@type": "owl:Class",
       "hasInput": "datasettype:SMILES",
-      "title": "GeneTox_detail",
+      "hasOutput": "qsar:EndpointBoilingPoint",
+      "title": "Boiling Point Adapted Stein and Brown Method (EPISUITE)",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/pink#Computation",
+        "https://w3id.org/pink#PhysicalPropertiesAssessment"
       ]
     },
     {
       "@id": "https://w3id.org/pink/activity/activity4",
       "@type": "owl:Class",
       "hasInput": "datasettype:SMILES",
-      "title": "Atmos. Hydroxylation Rate",
+      "title": "GeneTox_detail",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/pink#Computation"
@@ -3222,7 +3240,7 @@
       "@id": "https://w3id.org/pink/activity/activity5",
       "@type": "owl:Class",
       "hasInput": "datasettype:SMILES",
-      "title": "Animal Carcinogenicity prediction according to OECD Test No. 451",
+      "title": "Atmos. Hydroxylation Rate",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/pink#Computation"
@@ -3232,7 +3250,7 @@
       "@id": "https://w3id.org/pink/activity/activity6",
       "@type": "owl:Class",
       "hasInput": "datasettype:SMILES",
-      "title": "Skin Reaction TDCommons",
+      "title": "Animal Carcinogenicity prediction according to OECD Test No. 451",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/pink#Computation"
@@ -3240,6 +3258,16 @@
     },
     {
       "@id": "https://w3id.org/pink/activity/activity7",
+      "@type": "owl:Class",
+      "hasInput": "datasettype:SMILES",
+      "title": "Skin Reaction TDCommons",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
+    },
+    {
+      "@id": "https://w3id.org/pink/activity/activity8",
       "@type": "owl:Class",
       "hasInput": "datasettype:ChemicalStructureDataset",
       "hasOutput": "datasettype:MechanicalPropertiesDataset",
@@ -3251,7 +3279,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity8",
+      "@id": "https://w3id.org/pink/activity/activity9",
       "@type": "owl:Class",
       "hasInput": "datasettype:ChemicalStructureDataset",
       "hasOutput": "datasettype:ChemicalStructureDataset",
@@ -3263,7 +3291,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity9",
+      "@id": "https://w3id.org/pink/activity/activity10",
       "@type": "owl:Class",
       "hasInput": "datasettype:ChemicalStructureDataset",
       "hasOutput": "datasettype:InteractionPotentialParameters",
@@ -3275,7 +3303,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity10",
+      "@id": "https://w3id.org/pink/activity/activity11",
       "@type": "owl:Class",
       "hasInput": [
         "datasettype:ChemicalStructureDataset",
@@ -3290,7 +3318,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity11",
+      "@id": "https://w3id.org/pink/activity/activity12",
       "@type": "owl:Class",
       "hasInput": [
         "datasettype:ChemicalStructureDataset",
@@ -3307,7 +3335,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity12",
+      "@id": "https://w3id.org/pink/activity/activity13",
       "@type": "owl:Class",
       "hasInput": [
         "datasettype:ChemicalStructureDataset",
@@ -3325,7 +3353,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity13",
+      "@id": "https://w3id.org/pink/activity/activity14",
       "@type": "owl:Class",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
@@ -3333,7 +3361,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity14",
+      "@id": "https://w3id.org/pink/activity/activity15",
       "@type": "owl:Class",
       "title": "Tiered NAM-based safety testing workflow",
       "subClassOf": [
@@ -3342,7 +3370,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity15",
+      "@id": "https://w3id.org/pink/activity/activity16",
       "@type": "owl:Class",
       "hasInput": [
         "datasettype:ChemicalStructureDataset",
@@ -3360,7 +3388,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity16",
+      "@id": "https://w3id.org/pink/activity/activity17",
       "@type": "owl:Class",
       "title": "Hamaker Extended tool",
       "subClassOf": [
@@ -3370,7 +3398,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity17",
+      "@id": "https://w3id.org/pink/activity/activity18",
       "@type": "owl:Class",
       "title": "Zeta Predict Extended tool",
       "subClassOf": [
@@ -3380,7 +3408,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity18",
+      "@id": "https://w3id.org/pink/activity/activity19",
       "@type": "owl:Class",
       "title": "NanoBioConstruct",
       "subClassOf": [
@@ -3390,7 +3418,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity19",
+      "@id": "https://w3id.org/pink/activity/activity20",
       "@type": "owl:Class",
       "title": "PINK ChemInformatics Suite",
       "subClassOf": [
@@ -3399,7 +3427,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity20",
+      "@id": "https://w3id.org/pink/activity/activity21",
       "@type": "owl:Class",
       "title": "Life Cycle Impact prediction Tool",
       "subClassOf": [
@@ -3408,7 +3436,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity21",
+      "@id": "https://w3id.org/pink/activity/activity22",
       "@type": "owl:Class",
       "hasInput": "datasettype:FuelConsumptionInput",
       "hasOutput": "datasettype:FuelConsumptionOutput",
@@ -3419,7 +3447,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity22",
+      "@id": "https://w3id.org/pink/activity/activity23",
       "@type": "owl:Class",
       "hasInput": "datasettype:RNACounts",
       "hasOutput": "datasettype:differentialExpressionOutput",
@@ -3430,7 +3458,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity23",
+      "@id": "https://w3id.org/pink/activity/activity24",
       "@type": "owl:Class",
       "hasInput": "datasettype:geneList",
       "hasOutput": "datasettype:geneSetEnrichmentOutput",
@@ -3441,7 +3469,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity24",
+      "@id": "https://w3id.org/pink/activity/activity25",
       "@type": "owl:Class",
       "title": "Predictive Toxicogenomics Space",
       "subClassOf": [
@@ -3450,7 +3478,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity25",
+      "@id": "https://w3id.org/pink/activity/activity26",
       "@type": "owl:Class",
       "title": "Automated data FAIRification, preprocessing and Tox5Score calculation",
       "subClassOf": [
@@ -3459,7 +3487,7 @@
       ]
     },
     {
-      "@id": "https://w3id.org/pink/activity/activity26",
+      "@id": "https://w3id.org/pink/activity/activity27",
       "@type": "owl:Class",
       "title": "Science in Risk Assessment and Policy for nanomaterials",
       "subClassOf": [
