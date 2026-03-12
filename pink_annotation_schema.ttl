@@ -707,9 +707,9 @@ An architectural floor plan is a model of a house.
     skos:definition "A collection of properties that depicts an object."@en ;
     skos:scopeNote "A description is not atomic in the sense that it is made of more than one property."@en .
 
-:domainOfApplicabilityResult rdf:type owl:Class ;
+:DomainOfApplicabilityStatus rdf:type owl:Class ;
     rdfs:subClassOf :Property ;
-    skos:prefLabel "domainOfApplicabilityResult"@en ;
+    skos:prefLabel "DomainOfApplicabilityStatus"@en ;
     skos:definition "A result of a model or software indicating whether an input is within the applicability domain of the model or software. Applicability domain refers to the range of conditions and limitations within which a model can be reliably applied. It is a critical factor in determining the accuracy and validity of a model, as it defines the scope of its predictions and identifies potential sources of uncertainty. The process of defining the applicability domain involves assessing the model's performance under different conditions and establishing the boundaries of its predictive capabilities."@en ;
     skos:scopeNote "It should take one of the following values: pink:undefined; pink:outOfDomain; pink:inDomain."@en .
 
