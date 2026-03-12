@@ -766,7 +766,10 @@ foaf:Organization rdfs:subClassOf :Object .
 foaf:Person rdfs:subClassOf :Object .
 foaf:Project rdfs:subClassOf prov:Entity .
 dcterms:RightsStatement rdfs:subClassOf foaf:Document .
-:SsbdDimension  rdfs:subClassOf prov:Entity .
+:SsbdDimension rdfs:subClassOf prov:Entity .
+
+#dcterms:rightsHolder rdfs:subPropertyOf :isRepresentedBy .
+#prov:wasInfluencedBy rdfs:subPropertyOf :causal .
 
 
 #################################################################
