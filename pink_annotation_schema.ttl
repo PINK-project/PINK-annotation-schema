@@ -775,15 +775,15 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
 :tierlevel3 a :TierLevel ;
     skos:prefLabel "up-scaling/production"@en .
 
-:undefined a :Applicability ;
+:undefined a :DomainOfApplicabilityStatus ;
     skos:prefLabel "undefined"@en ;
     skos:definition "The applicability of the given input is undefined."@en .
 
-:outOfDomain a :Applicability ;
+:outOfDomain a :DomainOfApplicabilityStatus ;
     skos:prefLabel "outOfDomain"@en ;
     skos:definition "The input is outside the valid doamin."@en .
 
-:inDomain a :Applicability ;
+:inDomain a :DomainOfApplicabilityStatus ;
     skos:prefLabel "inDomain"@en ;
     skos:definition "The input is within the valid domain."@en .
 
