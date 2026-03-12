@@ -281,7 +281,7 @@ AGENTS_URL = (
 )
 agents = pd.read_csv(AGENTS_URL)
 
-
+print('getting keywords')
 # Get pink keywords
 kw = get_keywords(theme=None)
 kw.load_yaml(
