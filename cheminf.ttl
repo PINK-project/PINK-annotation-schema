@@ -25,7 +25,6 @@ obo:RO_0000056 a owl:ObjectProperty ;
     obo:IAO_0000118 "participates_in"@en ;
     oboowl:hasAlternativeId "OBO_REL:0000020"^^xsd:string ;
     oboowl:hasOBONamespace "relationship"^^xsd:string ;
-    owl:inverseOf obo:RO_0000057 ;
     skos:prefLabel "participatesIn"@en .
 
 :CHEMINF_000002 a owl:Class ;
@@ -2928,4 +2927,3 @@ Some currently missing phenomena that should be considered "about" are predicati
     obo:IAO_0000117 "person:Alan Ruttenberg"@en ;
     obo:IAO_0000119 "Smith, Ceusters, Ruttenberg, 2000 years of philosophy"@en ;
     skos:prefLabel "isAbout"@en .
-

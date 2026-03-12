@@ -118,6 +118,7 @@ ignored_terms = [
     "obo:IAO_0000310",  #
     "obo:IAO_0000403",  #
     "obo:IAO_0000577",  #
+    "obo:RO_0000057",   #
     "semonto:is_output_of",  # is output of
 ]
 
