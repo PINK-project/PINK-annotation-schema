@@ -768,7 +768,7 @@ foaf:Project rdfs:subClassOf prov:Entity .
 dcterms:RightsStatement rdfs:subClassOf foaf:Document .
 :SsbdDimension rdfs:subClassOf prov:Entity .
 
-#dcterms:rightsHolder rdfs:subPropertyOf :isRepresentedBy .
+dcterms:rightsHolder rdfs:subPropertyOf :isRepresentedBy .
 #prov:wasInfluencedBy rdfs:subPropertyOf :causal .
 
 
