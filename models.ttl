@@ -816,7 +816,7 @@ pink:XGBoostRegessor rdf:type owl:Class ;
 
 pink:QSARModel a owl:Class ;
     rdfs:subClassOf emmo:MathematicalModel ;
-    skos:definition "A model for estimating Quantitative Structure-Activity Relationships (QSAR). That is a model that can estimate properties of a chemical from its molecular structure and have the potential to provide information on ecotoxicology, environmental fate and transport, human health hazards, and possibly other things."@en ;
+    skos:definition "A mathematical model (often a statistical correlation) relating one or more quantitative parameters derived from chemical structure to a quantitative measure of a property or activity (e.g. related to physical-chemical properties, ecotoxicology, environmental fate and transport, and human health hazards). QSARs are quantitative models yielding a continuous or categorical result."@en ;
     skos:prefLabel "QSARModel"@en ;
     skos:scopeNote "The aim of a QSAR model is typically to reduce time, monetary cost and needed animal testing."@en ;
     skos:scopeNote "To facilitate practical application of (Q)SAR approaches in regulatory contexts by governments and industry and to improve their regulatory acceptance, the OECD (Q)SAR project has developed various outcomes such as the principles for the validation of (Q)SAR models, guidance documents as well as the QSAR Toolbox."@en ;
