@@ -856,15 +856,15 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000446",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EINECSNo": {
-      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ECNumber": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EINECSNo": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1580,16 +1580,8 @@
       "@id": "https://w3id.org/pink#ProbabilityModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Profiler": {
-      "@id": "https://w3id.org/pink#Profiler",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "Protein": {
       "@id": "https://w3id.org/pink#Protein",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "QSARSoftware": {
-      "@id": "https://w3id.org/pink#QSARSoftware",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "QuestionAnswering": {
@@ -1688,11 +1680,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000056",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "File": {
+    "MeltMassFlowRate": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MeltMassFlowRate": {
+    "File": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1962,10 +1954,6 @@
     },
     "PhysicalPropertiesAssessment": {
       "@id": "https://w3id.org/pink#PhysicalPropertiesAssessment",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "QSARModel": {
-      "@id": "https://w3id.org/pink#QSARModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "RandomForest": {
@@ -2264,10 +2252,6 @@
       "@id": "https://w3id.org/emmo/hume#Molecule",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Applicability": {
-      "@id": "https://w3id.org/pink#Applicability",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "FunctionalityAssessment": {
       "@id": "https://w3id.org/pink#FunctionalityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -2328,6 +2312,10 @@
       "@id": "https://w3id.org/emmo/hume#MaterialsModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "MathematicalModel": {
+      "@id": "https://w3id.org/emmo/hume#MathematicalModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "Substance": {
       "@id": "https://w3id.org/emmo/hume#Substance",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -2370,10 +2358,6 @@
     },
     "AtomCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000263",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "MathematicalModel": {
-      "@id": "https://w3id.org/emmo/hume#MathematicalModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MolecularEntity": {
@@ -2560,8 +2544,8 @@
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
     "ns1": "http://purl.obolibrary.org/obo/",
-    "ns2": "http://semanticscience.org/ontology/cheminf-core.owl#",
-    "ns3": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns3": "http://semanticscience.org/ontology/cheminf-core.owl#",
     "ns4": "http://www.geneontology.org/formats/oboInOwl#",
     "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
     "swrl": "http://www.w3.org/2003/11/swrl#",
@@ -2759,23 +2743,26 @@
       "@id": "https://w3id.org/pink#ssbdDimension",
       "@type": "@id"
     },
+    "causal": "https://w3id.org/pink#causal",
+    "equalsTo": "https://w3id.org/pink#equalsTo",
     "hasParticipant": "https://w3id.org/pink#hasParticipant",
-    "hasProperty": {
-      "@id": "https://w3id.org/pink#hasProperty",
-      "@type": "@id"
-    },
     "nonOverlaps": "https://w3id.org/pink#nonOverlaps",
     "hasDescription": {
       "@id": "https://w3id.org/pink#hasDescription",
       "@type": "@id"
     },
+    "hasProperty": {
+      "@id": "https://w3id.org/pink#hasProperty",
+      "@type": "@id"
+    },
     "isAfter": "https://w3id.org/pink#isAfter",
     "processedFrom": "https://w3id.org/pink#processedFrom",
     "overlaps": "https://w3id.org/pink#overlaps",
+    "parthood": "https://w3id.org/pink#parthood",
     "semiotical": "https://w3id.org/pink#semiotical",
     "causedBy": "https://w3id.org/pink#causedBy",
-    "hasProperPart": "https://w3id.org/pink#hasProperPart",
     "isOvercrossedBy": "https://w3id.org/pink#isOvercrossedBy",
+    "hasProperPart": "https://w3id.org/pink#hasProperPart",
     "is about": "http://purl.obolibrary.org/obo/IAO_0000136",
     "Description": "http://purl.org/dc/terms/description",
     "doi": "http://purl.org/ontology/bibo/doi",
@@ -3038,6 +3025,10 @@
       "@id": "https://w3id.org/pink#hasGUI",
       "@type": "http://www.w3.org/2001/XMLSchema#boolean"
     },
+    "isSubmoduleOf": {
+      "@id": "https://w3id.org/pink#isSubmoduleOf",
+      "@type": "@id"
+    },
     "priorRelease": {
       "@id": "https://w3id.org/pink#priorRelease",
       "@type": "@id"
@@ -3074,12 +3065,12 @@
       "@id": "https://w3id.org/pink#tierLevel",
       "@type": "@id"
     },
-    "wasAttributedTo": {
-      "@id": "https://w3id.org/pink#wasAttributedTo",
-      "@type": "@id"
-    },
     "wasDerivedBy": {
       "@id": "https://w3id.org/pink#wasDerivedBy",
+      "@type": "@id"
+    },
+    "wasAttributedTo": {
+      "@id": "https://w3id.org/pink#wasAttributedTo",
       "@type": "@id"
     },
     "participatesTo": {
@@ -3438,8 +3429,8 @@
     {
       "@id": "https://w3id.org/pink/activity/activity22",
       "@type": "owl:Class",
-      "hasInput": "datasettype:FuelConsumptionInput",
-      "hasOutput": "datasettype:FuelConsumptionOutput",
+      "hasInput": "datasettype:PhysicalQuantity",
+      "hasOutput": "datasettype:Energy",
       "title": "Life Cycle Inventory calculation tool (energy/material flows)",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
@@ -3490,6 +3481,14 @@
       "@id": "https://w3id.org/pink/activity/activity27",
       "@type": "owl:Class",
       "title": "Science in Risk Assessment and Policy for nanomaterials",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/pink#Computation"
+      ]
+    },
+    {
+      "@id": "https://w3id.org/pink/activity/activity28",
+      "@type": "owl:Class",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/pink#Computation"

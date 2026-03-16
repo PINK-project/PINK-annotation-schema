@@ -281,7 +281,7 @@ AGENTS_URL = (
 )
 agents = pd.read_csv(AGENTS_URL)
 
-print('getting keywords')
+print("getting keywords")
 # Get pink keywords
 kw = get_keywords(theme=None)
 kw.load_yaml(
@@ -450,11 +450,11 @@ agentdocumentation = TableDoc.parse_csv(
 
 
 # Save the data to the triplstore
-agentdocumentation.save(ts)
+# agentdocumentation.save(ts)
 
 swdocumentation.save(ts)
-compdocumentation.save(ts)
-datasettypedocumentation.save(ts)
+# compdocumentation.save(ts)
+# datasettypedocumentation.save(ts)
 
 # Store the jsonlds for joh
 store_jsonld(swdocumentation, name="software_documentation")
