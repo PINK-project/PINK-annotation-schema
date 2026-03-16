@@ -2,7 +2,11 @@
 requires-python = "==3.13.*"
 readme = "README.md"
 name = "PINK-annotation-schema"
-dependencies = ["tripper[datadoc]~=0.4", "pyshacl~=0.28"]
+dependencies = [
+    "pyshacl",
+    "git+https://github.com/EMMC-ASBL/tripper.git@master",
+    "git+https://github.com/emmo-repo/EMMOntoPy.git@master"
+]
 
 [tool.pdm]
 distribution = false
