@@ -1,0 +1,10 @@
+# These are python requirements for running
+# python scripts made available in the repository
+# The annotation schema itself does not require
+# any python packages
+pre-commit==4.0.1
+pylint==3.3.4; python_version>='3.9'
+
+# requirements for running scripts
+EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@master
+tripper[datadoc] @ git+https://github.com/EMMC-ASBL/tripper.git@master

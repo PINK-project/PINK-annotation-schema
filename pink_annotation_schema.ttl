@@ -185,38 +185,23 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:prefLabel "ssbdSubDimension"@en ;
     skos:definition "Note this class redefined in PR https://github.com/PINK-project/PINK-annotation-schema/pull/15"@en .
 
-:tierLevel a owl:ObjectProperty ;
-    skos:prefLabel "tierLevel"@en ;
-    rdfs:domain prov:Entity ;
-    rdfs:range :TierLevel ;
-    skos:definition "Relate an entity to an SSbD tier level."@en ;
-    vann:usageNote "One of `pink:tierlevel1` (ideation/design), `pink:tierlevel2` (lab phase/development), `pink:tierlevel3` (up-scaling/production)"@en .
-
-:chemicalClass rdf:type owl:ObjectProperty ;
-    rdfs:domain prov:Entity ;
-    rdfs:range pink:Matter ;
-    skos:prefLabel "chemicalClass"@en ;
-    skos:definition "Group of chemicals that and entity is relevant for."@en ;
-    vann:usageNote "Choose one of subclasses of pink:Matter."@en .
-
-
-
-### Other PINK-specific relations
-:documentation a owl:ObjectProperty ;
-    rdfs:subPropertyOf foaf:page;
-    rdfs:domain dcat:Resource ;
-    rdfs:range foaf:Document ;
-    skos:prefLabel "documentation"@en ;
-    skos:definition "A page or document documenting this resource." .
 
 
 ### Parthood relations
+
+:parthood rdf:type owl:ObjectProperty ;
+    skos:prefLabel "parthood"@en ;
+    skos:definition "The root of SSbD parthood relations."@en ;
+    skos:scopeNote "The SSbD parthood relations adhere to Atomistic General Extensional Mereology (AGEM)."@en .
+
 :overlaps rdf:type owl:ObjectProperty, owl:SymmetricProperty, owl:ReflexiveProperty ;
+    rdfs:subPropertyOf :parthood ;
     skos:prefLabel "overlaps"@en ;
     owl:propertyDisjointWith :nonOverlaps ;
     skos:definition "The relation between two individuals representing entities that share at least one of their parts."@en .
 
 :nonOverlaps rdf:type owl:ObjectProperty, owl:SymmetricProperty, owl:IrreflexiveProperty ;
+    rdfs:subPropertyOf :parthood ;
     skos:prefLabel "nonOverlaps"@en ;
     owl:propertyDisjointWith :overlaps ;
     skos:definition "The relation between two individuals that does not share any parts."@en .
@@ -235,8 +220,15 @@ vann:usageNote rdf:type owl:AnnotationProperty .
 
 :hasProperPart rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasPart ;
+    owl:propertyDisjointWith :equalsTo ;
     skos:prefLabel "hasProperPart"@en ;
     skos:definition "The relation between an entity and one of its parts, when both entities are distinct."@en .
+
+:equalsTo rdf:type owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:subPropertyOf :hasPart, [ owl:inverseOf :hasPart ] ;
+    skos:prefLabel "equalsTo"@en ;
+    skos:definition "The relation between two indeviduals representing the same entity."@en ;
+    skos:editorialNote "The main purpose of this relation is to locically define hasProperPart." .
 
 :hasParticipant rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
     rdfs:subPropertyOf :hasProperPart ;
@@ -340,9 +332,23 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     rdfs:range :SsbdDimension ;
     skos:definition "Relates an assessment to a SSbD dimension."@en .
 
+:isSubmoduleOf rdf:type owl:ObjectProperty, owl:IrreflexiveProperty, owl:AsymmetricProperty ;
+    rdfs:subPropertyOf :parthood, [ owl:inverseOf :hasProperPart ] ;
+    rdfs:domain :Software ;
+    rdfs:range :Software ;
+    skos:prefLabel "isSubmoduleOf"@en ;
+    skos:altLabel "isSoftwareSubmoduleOf"@en ;
+    skos:definition "A parthood relation that relates a submodule of a software to the software."@en .
+
+
 ### Causal relations
+:causal rdf:type owl:ObjectProperty ;
+    skos:prefLabel "causal"@en ;
+    skos:definition "The root of all causal SSbD relations."@en ;
+    skos:scopeNote "Causality is the fundamental concept describing how entities affect each other."@en .
+
 :causedBy rdf:type owl:ObjectProperty, owl:IrreflexiveProperty ;
-    rdfs:subPropertyOf prov:wasInfluencedBy ;
+    rdfs:subPropertyOf :causal, prov:wasInfluencedBy ;
     skos:prefLabel "causedBy"@en ;
     skos:definition "A relation between an entity that causally affects the subject."@en ;
     skos:example "John yesterday is the cause of John today, is an example of temporal-like causality. The desk supporting my laptop is a space-like causality."@en .
@@ -400,6 +406,7 @@ vann:usageNote rdf:type owl:AnnotationProperty .
 
 
 ### Semiotic relations
+
 :semiotical rdf:type owl:ObjectProperty ;
     skos:prefLabel "semiotical"@en ;
     skos:definition "The base of all semiotic relations."@en ;
@@ -473,6 +480,28 @@ vann:usageNote rdf:type owl:AnnotationProperty .
     skos:definition "Relates a software to the model it implements."@en ;
     skos:scopeNote "Semiotically a software can be seen as an executable sign that stands for the model it implements."@en .
 
+:tierLevel a owl:ObjectProperty ;
+    rdfs:subPropertyOf :hasProperty ;
+    skos:prefLabel "tierLevel"@en ;
+    rdfs:domain prov:Entity ;
+    rdfs:range :TierLevel ;
+    skos:definition "Relate an entity to an SSbD tier level."@en ;
+    vann:usageNote "Should be one of: pink:tierlevel1 (ideation/design), pink:tierlevel2 (lab phase/development), pink:tierlevel3 (up-scaling/production)"@en .
+
+:chemicalClass rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf :standsFor ;
+    rdfs:domain prov:Entity ;
+    rdfs:range pink:Matter ;
+    skos:prefLabel "chemicalClass"@en ;
+    skos:definition "Relates an entity to a chemical class that the entity is relevant for."@en ;
+    vann:usageNote "Choose one of subclasses of pink:Matter."@en .
+
+:documentation a owl:ObjectProperty ;
+    rdfs:subPropertyOf foaf:page, :isRepresentedBy ;
+    rdfs:domain dcat:Resource ;
+    rdfs:range foaf:Document ;
+    skos:prefLabel "documentation"@en ;
+    skos:definition "Relates a resource to a page or document documenting this resource." .
 
 
 #################################################################
@@ -664,7 +693,7 @@ An architectural floor plan is a model of a house.
 :Property rdf:type owl:Class ;
     rdfs:subClassOf :Sign ;
     skos:prefLabel "Property"@en ;
-    skos:definition """An "atomic" sign that stands for an physical interaction with an object."""@en ;
+    skos:definition """An "atomic" sign that stands for a characteristic of an object that can be observed or detected in a semiotic process."""@en ;
     skos:scopeNote "A property is atomic in the sense that is aimed to deliver one and one only aspect of the object."@en .
 
 :Indicator rdf:type owl:Class ;
@@ -737,7 +766,10 @@ foaf:Organization rdfs:subClassOf :Object .
 foaf:Person rdfs:subClassOf :Object .
 foaf:Project rdfs:subClassOf prov:Entity .
 dcterms:RightsStatement rdfs:subClassOf foaf:Document .
-:SsbdDimension  rdfs:subClassOf prov:Entity .
+:SsbdDimension rdfs:subClassOf prov:Entity .
+
+dcterms:rightsHolder rdfs:subPropertyOf :isRepresentedBy .
+#prov:wasInfluencedBy rdfs:subPropertyOf :causal .
 
 
 #################################################################
@@ -765,42 +797,18 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
 
 <urn:swrl:var#z> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
 
-[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasProcess ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :wasGeneratedBy ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#z> ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :output ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
- ] .
+
 
 [ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :used ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:used ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :wasGeneratedBy ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:wasGeneratedBy ;
                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                                 ] ;
@@ -809,7 +817,7 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
                                          ] ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :wasInformedBy ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:wasInformedBy ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                      ] ;
@@ -820,13 +828,13 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
 [ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :wasAssociatedWith ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:wasAssociatedWith ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#x>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :used ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:used ;
                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                                 ] ;
@@ -835,7 +843,7 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
                                          ] ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :attributed ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:attributed ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                      ] ;
@@ -846,13 +854,13 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
 [ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :wasGeneratedBy ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:wasGeneratedBy ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :used ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:used ;
                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                                 ] ;
@@ -861,7 +869,7 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
                                          ] ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :processedFrom ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:processedFrom ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                      ] ;
@@ -872,13 +880,13 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
 [ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
    <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :wasGeneratedBy ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:wasGeneratedBy ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
                                                      ] ;
                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :used ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:wasAssociatedWith ;
                                                                   <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
                                                                   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                                 ] ;
@@ -887,33 +895,7 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
                                          ] ;
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :wasDerivedBy ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
- ] .
-
-[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasProcess ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :used ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :input ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:wasAttributedTo ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                      ] ;
@@ -940,32 +922,6 @@ dcterms:RightsStatement rdfs:subClassOf foaf:Document .
    <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> pink:hasPart ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
- ] .
-
-[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :wasGeneratedBy ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#y>
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :wasAssociatedWith ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#y> ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
-                                                                ] ;
-                                                      rdf:rest rdf:nil
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :wasAttributedTo ;
                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#x> ;
                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#z>
                                                      ] ;

@@ -1,12 +1,12 @@
 #!/usr/bin/env python
-#
-# A script that will add all CHEMINF descriptors to the PINK Annotation Schema.
-#
-# Run cheminf-download.py before running this script.
-#
+# pylint: disable=invalid-name
+"""
+A script that will add all CHEMINF descriptors to the PINK Annotation Schema.
 
-import argparse
+Run cheminf-download.py before running this script.
+"""
 import re
+
 from pathlib import Path
 
 from tripper import DCTERMS, OWL, RDF, RDFS, SKOS, Literal, Triplestore
@@ -18,10 +18,13 @@ ontology_iri = "https://w3id.org/pink/cheminf"
 ontology_descr = {
     OWL.versionIRI: "https://w3id.org/pink/0.0.1/cheminf",
     DCTERMS.abstract: Literal(
-        "The CHEMINF module of PINK Annotation Schema providing a taxonomy for chemical descriptors.",
-        lang="en"
+        "The CHEMINF module of PINK Annotation Schema "
+        "providing a taxonomy for chemical descriptors.",
+        lang="en",
     ),
-    DCTERMS.title: Literal("The CHEMINF module of PINK Annotation Schema", lang="en"),
+    DCTERMS.title: Literal(
+        "The CHEMINF module of PINK Annotation Schema", lang="en"
+    ),
     "https://w3id.org/widoco/vocab#introduction": Literal(
         (
             "This module is a part of the [PINK Annotation Schema]"
@@ -31,7 +34,8 @@ ontology_descr = {
             "that can guide decisions."
             "\n\n"
             "A service for browsing and searching CHEMINF can be found "
-            "[here](https://ontobee.org/ontology/CHEMINF?iri=http://semanticscience.org/resource/CHEMINF_000123)."
+            "[here](https://ontobee.org/ontology/CHEMINF?iri=http://semanticscience.org/"
+            "resource/CHEMINF_000123)."
         ),
         lang="en",
     ),
@@ -45,7 +49,6 @@ mapped_terms = [
     "obo:CHEBI_23367",  # molecular entity
     "obo:CHEBI_33250",  # atom
     "obo:CHEBI_36357",  # polyatomic entity
-
     # Properties
     "obo:IAO_0000136",  # is about
     "obo:RO_0000056",  # participates in
@@ -115,6 +118,7 @@ ignored_terms = [
     "obo:IAO_0000310",  #
     "obo:IAO_0000403",  #
     "obo:IAO_0000577",  #
+    "obo:RO_0000057",   #
     "semonto:is_output_of",  # is output of
 ]
 
@@ -136,8 +140,9 @@ r = ts1.query(query)
 iris = [t[0] for t in r]
 
 
-def get_concept(ts, iri):
+def get_concept(ts, iri):  # pylint: disable=redefined-outer-name
     """Return a list of triples describing the IRI."""
+    # pylint: disable=redefined-outer-name
     iri = ts.expand_iri(iri)
     query = f"""
     PREFIX rdfs: <{RDFS}>
@@ -195,8 +200,7 @@ for term in ignored_terms:
     iri = ts.expand_iri(term)
     print("  -", iri)
 
-    ts.update(
-        f"""
+    ts.update(f"""
         PREFIX rdfs: <{RDFS}>
         PREFIX owl: <{OWL}>
         DELETE {{
@@ -209,23 +213,20 @@ for term in ignored_terms:
           ?s ?pred <{iri}> .
           ?s ?p ?o .
         }}
-        """
-    )
+        """)
 
-    ts.update(
-        f"""DELETE WHERE {{
+    ts.update(f"""DELETE WHERE {{
           ?s owl:equivalentClass ?b .
           ?b a owl:Class .
           ?b owl:intersectionOf ( <{iri}> ?other ) .
-        }}"""
-    )
+        }}""")
     ts.remove(CHEMINF.CHEMINF_000044, OWL.equivalentClass)
     ts.remove(CHEMINF.CHEMINF_000511, OWL.equivalentClass)
     ts.remove(CHEMINF.CHEMINF_000512, OWL.equivalentClass)
     ts.remove(CHEMINF.CHEMINF_000513, OWL.equivalentClass)
     ts.remove(object=iri)
-    #ts.remove(predicate=iri)
-    #ts.remove(subject=iri)
+    # ts.remove(predicate=iri)
+    # ts.remove(subject=iri)
 
 
 # Add ontology to triplestore
@@ -249,6 +250,8 @@ ts.add_triples(triples)
 
 # Write cheminf.ttl
 ttl = ts.serialize(format="turtle")
-with open(rootdir / "cheminf.ttl", "wt") as f:
-    f.write("# This file is generated/rewritten by scripts/cheminf-extract.py\n")
+with open(rootdir / "cheminf.ttl", "wt", encoding="utf-8") as f:
+    f.write(
+        "# This file is generated/rewritten by scripts/cheminf-extract.py\n"
+    )
     f.write(ttl)
