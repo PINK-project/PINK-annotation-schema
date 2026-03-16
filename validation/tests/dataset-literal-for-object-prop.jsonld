@@ -1,0 +1,21 @@
+{
+  "@context": {
+    "pink": "https://w3id.org/pink#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@id": "https://example.org/dataset/literal-for-object-prop",
+  "@type": "pink:Dataset",
+  "dcterms:title": {
+    "@value": "Dataset with literal string for object property",
+    "@language": "en"
+  },
+  "dcterms:description": {
+    "@value": "Tests that a plain string literal for an object property is still rejected.",
+    "@language": "en"
+  },
+  "dcterms:publisher": "not-an-iri-just-a-string"
+}

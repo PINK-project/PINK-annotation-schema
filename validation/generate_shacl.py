@@ -12,6 +12,7 @@ from typing import Dict, List, Optional, Tuple, Set
 
 from rdflib import Graph, Namespace, URIRef, Literal, BNode
 from rdflib import RDF, RDFS, OWL, XSD
+from rdflib.collection import Collection
 from rdflib.namespace import split_uri
 
 
@@ -358,7 +359,14 @@ def create_property_shape(
         if is_datatype(constraints.range_uri):
             shapes_graph.add((prop_shape, SH.datatype, constraints.range_uri))
         else:
-            shapes_graph.add((prop_shape, SH["class"], constraints.range_uri))
+            # Allow either a typed instance or an untyped IRI reference
+            class_constraint = BNode()
+            shapes_graph.add((class_constraint, SH["class"], constraints.range_uri))
+            iri_constraint = BNode()
+            shapes_graph.add((iri_constraint, SH.nodeKind, SH.IRI))
+            or_list = BNode()
+            Collection(shapes_graph, or_list, [class_constraint, iri_constraint])
+            shapes_graph.add((prop_shape, SH["or"], or_list))
 
     return prop_shape
 

@@ -9,24 +9,67 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+pink:AbductiveReasoningModelShape a sh:NodeShape ;
+    sh:node pink:CognitionAndLearningModelShape ;
+    sh:targetClass pink:AbductiveReasoningModel .
+
+pink:AdaboostShape a sh:NodeShape ;
+    sh:node pink:ClassificationShape ;
+    sh:targetClass pink:Adaboost .
+
 pink:AdvancedMaterialShape a sh:NodeShape ;
     sh:targetClass pink:AdvancedMaterial .
+
+pink:AnalogicalReasoningModelShape a sh:NodeShape ;
+    sh:node pink:CognitionAndLearningModelShape ;
+    sh:targetClass pink:AnalogicalReasoningModel .
 
 pink:AttributionShape a sh:NodeShape ;
     sh:node pink:AgentShape ;
     sh:targetClass prov:Attribution .
 
+pink:AutoencoderShape a sh:NodeShape ;
+    sh:node pink:ArtificialNeuralNetworkShape,
+        pink:DimensionalityReductionShape ;
+    sh:targetClass pink:Autoencoder .
+
+pink:BaggingShape a sh:NodeShape ;
+    sh:node pink:PredictionLearningModelShape ;
+    sh:targetClass pink:Bagging .
+
+pink:BehaviorModelShape a sh:NodeShape ;
+    sh:targetClass pink:BehaviorModel .
+
+pink:BiocompatibleMaterialShape a sh:NodeShape ;
+    sh:targetClass pink:BiocompatibleMaterial .
+
 pink:BooleanDataShape a sh:NodeShape ;
     sh:node pink:SymbolicDataShape ;
     sh:targetClass pink:BooleanData .
+
+pink:BoostingShape a sh:NodeShape ;
+    sh:node pink:PredictionLearningModelShape ;
+    sh:targetClass pink:Boosting .
+
+pink:BulkModulusAssessmentShape a sh:NodeShape ;
+    sh:node pink:MechanicalPropertiesAssessmentShape ;
+    sh:targetClass pink:BulkModulusAssessment .
 
 pink:ByteDataShape a sh:NodeShape ;
     sh:node pink:ShortDataShape ;
     sh:targetClass pink:ByteData .
 
+pink:ClusteringShape a sh:NodeShape ;
+    sh:node pink:UnsupervicedLearningModelShape ;
+    sh:targetClass pink:Clustering .
+
+pink:CollaborativeFilteringShape a sh:NodeShape ;
+    sh:node pink:RecommenderSystemShape ;
+    sh:targetClass pink:CollaborativeFiltering .
+
 pink:ComputationShape a sh:NodeShape ;
     sh:node pink:ProcessShape ;
-    sh:property [ sh:class pink:Software ;
+    sh:property [ sh:or ( [ sh:class pink:Software ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path pink:hasSoftware ] ;
     sh:targetClass pink:Computation .
 
@@ -37,16 +80,24 @@ pink:ComputationalToolShape a sh:NodeShape ;
 pink:ConceptShape a sh:NodeShape ;
     sh:targetClass skos:Concept .
 
+pink:ContentExtractionShape a sh:NodeShape ;
+    sh:node pink:NaturalLanguageUnderstandingShape ;
+    sh:targetClass pink:ContentExtraction .
+
+pink:ConvolutionNeuralNetworkShape a sh:NodeShape ;
+    sh:node pink:DeepLearningModelShape ;
+    sh:targetClass pink:ConvolutionNeuralNetwork .
+
 pink:DataServiceShape a sh:NodeShape ;
     sh:node pink:ResourceShape ;
-    sh:property [ sh:class <https://w3id.org/emmo/domain/oteio#Parser> ;
+    sh:property [ sh:or ( [ sh:class rdfs:Resource ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcat:endpointDescription ],
+        [ sh:or ( [ sh:class <https://w3id.org/emmo/domain/oteio#Parser> ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path <https://w3id.org/emmo/domain/oteio#parser> ],
         [ sh:datatype xsd:anyURI ;
             sh:path dcat:endpointURL ],
-        [ sh:class dcat:Dataset ;
-            sh:path dcat:servesDataset ],
-        [ sh:class rdfs:Resource ;
-            sh:path dcat:endpointDescription ] ;
+        [ sh:or ( [ sh:class dcat:Dataset ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcat:servesDataset ] ;
     sh:targetClass dcat:DataService .
 
 pink:DatasetSeriesShape a sh:NodeShape ;
@@ -65,51 +116,118 @@ pink:DatumShape a sh:NodeShape ;
     sh:node pink:DataShape ;
     sh:targetClass pink:Datum .
 
+pink:DecisionTreeShape a sh:NodeShape ;
+    sh:node pink:ClassificationShape ;
+    sh:targetClass pink:DecisionTree .
+
+pink:DeepFeedForwardNetworkShape a sh:NodeShape ;
+    sh:node pink:DeepLearningModelShape ;
+    sh:targetClass pink:DeepFeedForwardNetwork .
+
+pink:DensityAssessmentShape a sh:NodeShape ;
+    sh:node pink:PhysicalPropertiesAssessmentShape ;
+    sh:targetClass pink:DensityAssessment .
+
 pink:DescriptionShape a sh:NodeShape ;
     sh:node pink:SignShape ;
-    sh:property [ sh:class prov:Entity ;
+    sh:property [ sh:or ( [ sh:class prov:Entity ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path pink:isDescriptionOf ] ;
     sh:targetClass pink:Description .
 
 pink:DistributionShape a sh:NodeShape ;
     sh:node pink:ResourceShape ;
-    sh:property [ sh:class dcterms:MediaType ;
+    sh:property [ sh:or ( [ sh:class <https://w3id.org/emmo/domain/oteio#Generator> ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path <https://w3id.org/emmo/domain/oteio#generator> ],
+        [ sh:or ( [ sh:class dcterms:MediaType ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path dcat:packageFormat ],
-        [ sh:class skos:Concept ;
+        [ sh:or ( [ sh:class dcterms:MediaTypeOrExtent ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcterms:format ],
+        [ sh:or ( [ sh:class rdfs:Resource ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcat:accessURL ],
+        [ sh:or ( [ sh:class dcterms:MediaType ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcat:compressFormat ],
+        [ sh:or ( [ sh:class skos:Concept ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path <http://data.europa.eu/r5r/status> ],
-        [ sh:datatype xsd:datetime ;
+        [ sh:or ( [ sh:class dcterms:MediaType ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcat:mediaType ],
+        [ sh:datatype xsd:dateTime ;
             sh:path <http://data.europa.eu/r5r/availability> ],
-        [ sh:class dcat:DataService ;
+        [ sh:or ( [ sh:class <http://spdx.org/rdf/terms#Checksum> ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path <http://spdx.org/rdf/terms#checksum> ],
+        [ sh:or ( [ sh:class dcat:DataService ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path dcat:accessService ],
         [ sh:datatype xsd:nonNegativeInteger ;
             sh:path dcat:byteSize ],
-        [ sh:class rdfs:Resource ;
-            sh:path dcat:accessURL ],
-        [ sh:class <https://w3id.org/emmo/domain/oteio#Generator> ;
-            sh:path <https://w3id.org/emmo/domain/oteio#generator> ],
-        [ sh:class dcterms:MediaType ;
-            sh:path dcat:compressFormat ],
-        [ sh:class <http://spdx.org/rdf/terms#Checksum> ;
-            sh:path <http://spdx.org/rdf/terms#checksum> ],
-        [ sh:class dcterms:MediaTypeOrExtent ;
-            sh:path dcterms:format ],
         [ sh:datatype xsd:anyURI ;
-            sh:path dcat:downloadURL ],
-        [ sh:class dcterms:MediaType ;
-            sh:path dcat:mediaType ] ;
+            sh:path dcat:downloadURL ] ;
     sh:targetClass dcat:Distribution .
 
 pink:DoubleDataShape a sh:NodeShape ;
     sh:node pink:NumericalDataShape ;
     sh:targetClass pink:DoubleData .
 
+pink:DynamicProgrammingShape a sh:NodeShape ;
+    sh:node pink:ReinforcedLearningModelShape ;
+    sh:targetClass pink:DynamicProgramming .
+
+pink:EconomicDimensionShape a sh:NodeShape ;
+    sh:node pink:SsbdDimensionShape ;
+    sh:targetClass pink:EconomicDimension .
+
+pink:ElectronicMaterialShape a sh:NodeShape ;
+    sh:targetClass pink:ElectronicMaterial .
+
+pink:EnergyMaterialShape a sh:NodeShape ;
+    sh:targetClass pink:EnergyMaterial .
+
+pink:EnvironmentalDimensionShape a sh:NodeShape ;
+    sh:node pink:SsbdDimensionShape ;
+    sh:targetClass pink:EnvironmentalDimension .
+
+pink:ExpertSystemShape a sh:NodeShape ;
+    sh:node pink:KnowledgeRepresentationShape ;
+    sh:targetClass pink:ExpertSystem .
+
+pink:ExtraTreesClassifierShape a sh:NodeShape ;
+    sh:node pink:ClassificationShape,
+        pink:EnsembleLearningModelShape ;
+    sh:targetClass pink:ExtraTreesClassifier .
+
 pink:FloatDataShape a sh:NodeShape ;
     sh:node pink:NumericalDataShape ;
     sh:targetClass pink:FloatData .
 
-pink:IndicatorShape a sh:NodeShape ;
-    sh:node pink:PropertyShape ;
-    sh:targetClass pink:Indicator .
+pink:FunctionalityDimensionShape a sh:NodeShape ;
+    sh:node pink:SsbdDimensionShape ;
+    sh:targetClass pink:FunctionalityDimension .
+
+pink:GenerativeAdversarialNetworkShape a sh:NodeShape ;
+    sh:node pink:DeepLearningModelShape ;
+    sh:targetClass pink:GenerativeAdversarialNetwork .
+
+pink:GlassTransitionTemperatureAssessmentShape a sh:NodeShape ;
+    sh:node pink:ThermalPropertiesAssessmentShape ;
+    sh:targetClass pink:GlassTransitionTemperatureAssessment .
+
+pink:GraphBasedLearningModelShape a sh:NodeShape ;
+    sh:node pink:SemiSupervicedLearningModelShape ;
+    sh:targetClass pink:GraphBasedLearningModel .
+
+pink:GraphNeuralNetworkShape a sh:NodeShape ;
+    sh:node pink:DeepLearningModelShape ;
+    sh:targetClass pink:GraphNeuralNetwork .
+
+pink:HeuristicLearningModelShape a sh:NodeShape ;
+    sh:node pink:ReinforcedLearningModelShape ;
+    sh:targetClass pink:HeuristicLearningModel .
+
+pink:ImageClassificationShape a sh:NodeShape ;
+    sh:node pink:ComputerVisionShape ;
+    sh:targetClass pink:ImageClassification .
+
+pink:ImageSegmentationShape a sh:NodeShape ;
+    sh:node pink:ComputerVisionShape ;
+    sh:targetClass pink:ImageSegmentation .
 
 pink:InformationShape a sh:NodeShape ;
     sh:node pink:DataShape,
@@ -120,16 +238,47 @@ pink:InterpreterShape a sh:NodeShape ;
     sh:node pink:AgentShape ;
     sh:targetClass pink:Interpreter .
 
+pink:LargeLanguageModelShape a sh:NodeShape ;
+    sh:node pink:ModernGenerativeAIModelShape,
+        pink:TextGenerationShape ;
+    sh:targetClass pink:LargeLanguageModel .
+
 pink:LicenseDocumentShape a sh:NodeShape ;
     sh:node pink:RightsStatementShape ;
     sh:targetClass dcterms:LicenseDocument .
 
+pink:LinearDiscriminantAnalysisShape a sh:NodeShape ;
+    sh:node pink:DimensionalityReductionShape ;
+    sh:targetClass pink:LinearDiscriminantAnalysis .
+
 pink:LocationShape a sh:NodeShape ;
-    sh:property [ sh:class <http://www.w3.org/ns/locn#Geometry> ;
+    sh:property [ sh:or ( [ sh:class <http://www.w3.org/ns/locn#Geometry> ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path <http://www.w3.org/ns/locn#geometry> ],
-        [ sh:path dcat:centroid ],
-        [ sh:path dcat:bbox ] ;
+        [ sh:path dcat:bbox ],
+        [ sh:path dcat:centroid ] ;
     sh:targetClass dcterms:Location .
+
+pink:LogicShape a sh:NodeShape ;
+    sh:node pink:CognitionAndLearningModelShape ;
+    sh:targetClass pink:Logic .
+
+pink:LogisticRegressionModelShape a sh:NodeShape ;
+    sh:node pink:RegressionModelShape ;
+    sh:targetClass pink:LogisticRegressionModel .
+
+pink:LowDensitySeparationModelShape a sh:NodeShape ;
+    sh:node pink:SemiSupervicedLearningModelShape ;
+    sh:targetClass pink:LowDensitySeparationModel .
+
+pink:MachineTranslationShape a sh:NodeShape ;
+    sh:node pink:NaturalLanguageUnderstandingShape ;
+    sh:targetClass pink:MachineTranslation .
+
+pink:MacroMoleculeShape a sh:NodeShape ;
+    sh:targetClass pink:MacroMolecule .
+
+pink:MagneticMaterialShape a sh:NodeShape ;
+    sh:targetClass pink:MagneticMaterial .
 
 pink:MaterialProcessShape a sh:NodeShape ;
     sh:node pink:ProcessShape ;
@@ -146,19 +295,92 @@ pink:MeasurementShape a sh:NodeShape ;
 pink:MediaTypeShape a sh:NodeShape ;
     sh:targetClass dcterms:MediaType .
 
+pink:MicroMoleculeShape a sh:NodeShape ;
+    sh:targetClass pink:MicroMolecule .
+
 pink:ModelShape a sh:NodeShape ;
     sh:node pink:SignShape ;
     sh:targetClass pink:Model .
+
+pink:MonteCarloLearningModelShape a sh:NodeShape ;
+    sh:node pink:ReinforcedLearningModelShape ;
+    sh:targetClass pink:MonteCarloLearningModel .
+
+pink:NaiveBayesShape a sh:NodeShape ;
+    sh:node pink:ClassificationShape ;
+    sh:targetClass pink:NaiveBayes .
+
+pink:NanoCompositeShape a sh:NodeShape ;
+    sh:node pink:NanoStructuredMaterialShape ;
+    sh:targetClass pink:NanoComposite .
+
+pink:NanoParticleShape a sh:NodeShape ;
+    sh:node pink:NanoObjectShape ;
+    sh:targetClass pink:NanoParticle .
+
+pink:NanoPlateShape a sh:NodeShape ;
+    sh:node pink:NanoObjectShape ;
+    sh:targetClass pink:NanoPlate .
+
+pink:NanoRodShape a sh:NodeShape ;
+    sh:node pink:NanoFiberShape ;
+    sh:targetClass pink:NanoRod .
+
+pink:NanoTubeShape a sh:NodeShape ;
+    sh:node pink:NanoFiberShape ;
+    sh:targetClass pink:NanoTube .
+
+pink:NaturalLanguageClassificationShape a sh:NodeShape ;
+    sh:node pink:NaturalLanguageUnderstandingShape ;
+    sh:targetClass pink:NaturalLanguageClassification .
+
+pink:ObjectDetectionShape a sh:NodeShape ;
+    sh:node pink:ComputerVisionShape ;
+    sh:targetClass pink:ObjectDetection .
+
+pink:OpticalMaterialShape a sh:NodeShape ;
+    sh:targetClass pink:OpticalMaterial .
 
 pink:ParticipantShape a sh:NodeShape ;
     sh:node pink:AgentShape,
         pink:ObjectShape ;
     sh:targetClass pink:Participant .
 
+pink:PlanningModelShape a sh:NodeShape ;
+    sh:node pink:CognitionAndLearningModelShape ;
+    sh:targetClass pink:PlanningModel .
+
+pink:PoissonsRatioAssessmentShape a sh:NodeShape ;
+    sh:node pink:MechanicalPropertiesAssessmentShape ;
+    sh:targetClass pink:PoissonsRatioAssessment .
+
+pink:PrincipalComponentAnalysisShape a sh:NodeShape ;
+    sh:node pink:DimensionalityReductionShape ;
+    sh:targetClass pink:PrincipalComponentAnalysis .
+
+pink:ProbabilityModelShape a sh:NodeShape ;
+    sh:node pink:CognitionAndLearningModelShape ;
+    sh:targetClass pink:ProbabilityModel .
+
+pink:ProteinShape a sh:NodeShape ;
+    sh:targetClass pink:Protein .
+
+pink:QuestionAnsweringShape a sh:NodeShape ;
+    sh:node pink:NaturalLanguageUnderstandingShape ;
+    sh:targetClass pink:QuestionAnswering .
+
+pink:RandomForestShape a sh:NodeShape ;
+    sh:node pink:PredictionLearningModelShape ;
+    sh:targetClass pink:RandomForest .
+
+pink:RecurrentNeuralNetworkShape a sh:NodeShape ;
+    sh:node pink:DeepLearningModelShape ;
+    sh:targetClass pink:RecurrentNeuralNetwork .
+
 pink:RelationshipShape a sh:NodeShape ;
-    sh:property [ sh:class rdfs:Resource ;
+    sh:property [ sh:or ( [ sh:class rdfs:Resource ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path dcterms:relation ],
-        [ sh:class dcat:Role ;
+        [ sh:or ( [ sh:class dcat:Role ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path dcat:hasRole ] ;
     sh:targetClass dcat:Relationship .
 
@@ -166,12 +388,43 @@ pink:ReliabilityDocumentShape a sh:NodeShape ;
     sh:node pink:DocumentShape ;
     sh:targetClass pink:ReliabilityDocument .
 
-pink:SsbdDimensionShape a sh:NodeShape ;
-    sh:node pink:EntityShape ;
-    sh:targetClass pink:SsbdDimension .
+pink:SafetyDimensionShape a sh:NodeShape ;
+    sh:node pink:SsbdDimensionShape ;
+    sh:targetClass pink:SafetyDimension .
+
+pink:SelfTrainingModelShape a sh:NodeShape ;
+    sh:node pink:SemiSupervicedLearningModelShape ;
+    sh:targetClass pink:SelfTrainingModel .
+
+pink:SiameseNeuralNetworkShape a sh:NodeShape ;
+    sh:node pink:DeepLearningModelShape ;
+    sh:targetClass pink:SiameseNeuralNetwork .
+
+pink:SocialDimensionShape a sh:NodeShape ;
+    sh:node pink:SsbdDimensionShape ;
+    sh:targetClass pink:SocialDimension .
 
 pink:StandardShape a sh:NodeShape ;
     sh:targetClass dcterms:Standard .
+
+pink:StepwiseRegressionModelShape a sh:NodeShape ;
+    sh:node pink:RegressionModelShape ;
+    sh:targetClass pink:StepwiseRegressionModel .
+
+pink:StructuralMaterialShape a sh:NodeShape ;
+    sh:targetClass pink:StructuralMaterial .
+
+pink:SupportVectorMachineShape a sh:NodeShape ;
+    sh:node pink:ClassificationShape ;
+    sh:targetClass pink:SupportVectorMachine .
+
+pink:TDistributedStochasticNeighborEmbeddingShape a sh:NodeShape ;
+    sh:node pink:DimensionalityReductionShape ;
+    sh:targetClass pink:TDistributedStochasticNeighborEmbedding .
+
+pink:TargetTrackingShape a sh:NodeShape ;
+    sh:node pink:ComputerVisionShape ;
+    sh:targetClass pink:TargetTracking .
 
 pink:TierLevelShape a sh:NodeShape ;
     sh:node pink:EntityShape ;
@@ -182,27 +435,29 @@ pink:TimeDataShape a sh:NodeShape ;
     sh:targetClass pink:TimeData .
 
 pink:ToxicityShape a sh:NodeShape ;
-    sh:node pink:SignShape ;
+    sh:node pink:IndicatorShape ;
     sh:targetClass pink:Toxicity .
 
-pink:ActivityShape a sh:NodeShape ;
-    sh:property [ sh:class prov:Activity ;
-            sh:path pink:wasInformedBy ],
-        [ sh:class prov:Entity ;
-            sh:path pink:hasInput ],
-        [ sh:class prov:Agent ;
-            sh:path prov:wasAssociatedWith ],
-        [ sh:class prov:Entity ;
-            sh:path pink:hasOutput ],
-        [ sh:class prov:Agent ;
-            sh:path pink:wasAssociatedWith ],
-        [ sh:class prov:Activity ;
-            sh:path prov:wasInformedBy ],
-        [ sh:class prov:Entity ;
-            sh:path pink:used ],
-        [ sh:class prov:Entity ;
-            sh:path prov:used ] ;
-    sh:targetClass prov:Activity .
+pink:XGBoostRegessorShape a sh:NodeShape ;
+    sh:node pink:PredictionLearningModelShape ;
+    sh:targetClass pink:XGBoostRegessor .
+
+pink:YoungsModulusAssessmentShape a sh:NodeShape ;
+    sh:node pink:MechanicalPropertiesAssessmentShape ;
+    sh:targetClass pink:YoungsModulusAssessment .
+
+pink:AssessmentShape a sh:NodeShape ;
+    sh:node pink:ActivityShape ;
+    sh:property [ sh:or ( [ sh:class pink:SsbdDimension ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:assesses ] ;
+    sh:targetClass pink:Assessment .
+
+pink:EnsembleLearningModelShape a sh:NodeShape ;
+    sh:targetClass pink:EnsembleLearningModel .
+
+pink:IndicatorShape a sh:NodeShape ;
+    sh:node pink:PropertyShape ;
+    sh:targetClass pink:Indicator .
 
 pink:IntDataShape a sh:NodeShape ;
     sh:node pink:LongDataShape ;
@@ -212,24 +467,53 @@ pink:IntegerDataShape a sh:NodeShape ;
     sh:node pink:NumericalDataShape ;
     sh:targetClass pink:IntegerData .
 
+pink:KnowledgeRepresentationShape a sh:NodeShape ;
+    sh:node pink:CognitionAndLearningModelShape ;
+    sh:targetClass pink:KnowledgeRepresentation .
+
 pink:LongDataShape a sh:NodeShape ;
     sh:node pink:IntegerDataShape ;
     sh:targetClass pink:LongData .
+
+pink:ModernGenerativeAIModelShape a sh:NodeShape ;
+    sh:node pink:TransformerAIShape ;
+    sh:targetClass pink:ModernGenerativeAIModel .
+
+pink:NanoStructuredMaterialShape a sh:NodeShape ;
+    sh:targetClass pink:NanoStructuredMaterial .
+
+pink:NaturalLanguageGenerationShape a sh:NodeShape ;
+    sh:targetClass pink:NaturalLanguageGeneration .
 
 pink:ObjectShape a sh:NodeShape ;
     sh:node pink:EntityShape ;
     sh:targetClass pink:Object .
 
+pink:PerceptionModelShape a sh:NodeShape ;
+    sh:targetClass pink:PerceptionModel .
+
+pink:PhysicalPropertiesAssessmentShape a sh:NodeShape ;
+    sh:node pink:FunctionalityAssessmentShape ;
+    sh:targetClass pink:PhysicalPropertiesAssessment .
+
 pink:PropertyShape a sh:NodeShape ;
     sh:node pink:SignShape ;
-    sh:property [ sh:path pink:hasUnit ],
-        [ sh:class prov:Entity ;
-            sh:path pink:isPropertyOf ] ;
+    sh:property [ sh:or ( [ sh:class prov:Entity ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:isPropertyOf ],
+        [ sh:path pink:hasMeasurementUnit ] ;
     sh:targetClass pink:Property .
+
+pink:RecommenderSystemShape a sh:NodeShape ;
+    sh:node pink:SupervisedLearningModelShape ;
+    sh:targetClass pink:RecommenderSystem .
 
 pink:RightsStatementShape a sh:NodeShape ;
     sh:node pink:DocumentShape ;
     sh:targetClass dcterms:RightsStatement .
+
+pink:SSbDAssessmentShape a sh:NodeShape ;
+    sh:node pink:AssessmentShape ;
+    sh:targetClass pink:SSbDAssessment .
 
 pink:ShortDataShape a sh:NodeShape ;
     sh:node pink:IntDataShape ;
@@ -237,57 +521,100 @@ pink:ShortDataShape a sh:NodeShape ;
 
 pink:SoftwareShape a sh:NodeShape ;
     sh:node pink:DataShape ;
-    sh:property [ sh:datatype xsd:boolean ;
-            sh:path pink:hasGUI ],
+    sh:property [ sh:or ( [ sh:class pink:Software ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:priorRelease ],
+        [ sh:or ( [ sh:class pink:Software ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:isSubmoduleOf ],
         [ sh:datatype xsd:boolean ;
             sh:path pink:hasAPI ],
-        [ sh:class pink:Model ;
+        [ sh:or ( [ sh:class pink:Model ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path pink:implementsModel ],
-        [ sh:class pink:Software ;
-            sh:path pink:priorRelease ] ;
+        [ sh:datatype xsd:boolean ;
+            sh:path pink:hasGUI ] ;
     sh:targetClass pink:Software .
+
+pink:SpecifiedAssessmentShape a sh:NodeShape ;
+    sh:node pink:SSbDAssessmentShape ;
+    sh:targetClass pink:SpecifiedAssessment .
+
+pink:TextGenerationShape a sh:NodeShape ;
+    sh:node pink:NaturalLanguageGenerationShape ;
+    sh:targetClass pink:TextGeneration .
+
+pink:ThermalPropertiesAssessmentShape a sh:NodeShape ;
+    sh:node pink:FunctionalityAssessmentShape ;
+    sh:targetClass pink:ThermalPropertiesAssessment .
+
+pink:TransformerAIShape a sh:NodeShape ;
+    sh:node pink:DeepLearningModelShape ;
+    sh:targetClass pink:TransformerAI .
+
+pink:UnsupervicedLearningModelShape a sh:NodeShape ;
+    sh:targetClass pink:UnsupervicedLearningModel .
+
+pink:ActivityShape a sh:NodeShape ;
+    sh:property [ sh:or ( [ sh:class prov:Entity ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:used ],
+        [ sh:or ( [ sh:class prov:Activity ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path prov:wasInformedBy ],
+        [ sh:or ( [ sh:class prov:Agent ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:wasAssociatedWith ],
+        [ sh:or ( [ sh:class prov:Entity ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path prov:used ],
+        [ sh:or ( [ sh:class prov:Entity ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:hasOutput ],
+        [ sh:or ( [ sh:class prov:Agent ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path prov:wasAssociatedWith ],
+        [ sh:or ( [ sh:class prov:Entity ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:hasInput ],
+        [ sh:or ( [ sh:class prov:Activity ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:wasInformedBy ] ;
+    sh:targetClass prov:Activity .
+
+pink:ArtificialNeuralNetworkShape a sh:NodeShape ;
+    sh:targetClass pink:ArtificialNeuralNetwork .
 
 pink:DatasetShape a sh:NodeShape ;
     sh:node pink:DataShape,
         pink:DatasetShape,
         pink:ResourceShape ;
-    sh:property [ sh:class pink:Datum ;
-            sh:path pink:hasPart ],
-        [ sh:class dcat:Dataset ;
-            sh:path dcterms:source ],
-        [ sh:class <https://w3id.org/emmo/domain/oteio#Datamodel> ;
-            sh:path <https://w3id.org/emmo/domain/oteio#hasDatamodel> ],
-        [ sh:class dcterms:PeriodOfTime ;
-            sh:path dcterms:temporal ],
-        [ sh:path <https://w3id.org/emmo/domain/oteio#mappingFormat> ],
-        [ sh:class <http://www.w3.org/ns/adms#Identifier> ;
-            sh:path <http://www.w3.org/ns/adms#identifier> ],
-        [ sh:class dcat:Distribution ;
-            sh:path dcat:distribution ],
-        [ sh:class dcat:DatasetSeries ;
-            sh:path dcat:inSeries ],
-        [ sh:class dcat:Distribution ;
-            sh:path <http://www.w3.org/ns/adms#sample> ],
-        [ sh:datatype xsd:anyURI ;
+    sh:property [ sh:datatype xsd:anyURI ;
             sh:path <https://w3id.org/emmo/domain/oteio#hasDatamodelStorage> ],
-        [ sh:class prov:Activity ;
-            sh:path prov:wasGeneratedBy ],
-        [ sh:class pink:Datum ;
-            sh:path pink:hasDatum ],
-        [ sh:datatype xsd:duration ;
-            sh:path dcat:temporalResolution ],
-        [ sh:class dcat:Resource ;
-            sh:path prov:wasDerivedFrom ],
-        [ sh:class dcterms:Frequency ;
+        [ sh:or ( [ sh:class dcterms:Location ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcterms:spatial ],
+        [ sh:or ( [ sh:class dcterms:PeriodOfTime ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcterms:temporal ],
+        [ sh:or ( [ sh:class <http://www.w3.org/ns/adms#Identifier> ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path <http://www.w3.org/ns/adms#identifier> ],
+        [ sh:or ( [ sh:class dcterms:Frequency ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path dcterms:accrualPeriodicity ],
+        [ sh:or ( [ sh:class dcat:Distribution ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcat:distribution ],
+        [ sh:datatype xsd:decimal ;
+            sh:path dcat:spatialResolutionInMeters ],
+        [ sh:or ( [ sh:class dcat:DatasetSeries ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcat:inSeries ],
         [ sh:datatype xsd:anyURI ;
             sh:path <https://w3id.org/emmo/domain/oteio#mappingURL> ],
-        [ sh:class dcterms:Location ;
-            sh:path dcterms:spatial ],
-        [ sh:class rdf:JSON ;
+        [ sh:or ( [ sh:class <https://w3id.org/emmo/domain/oteio#Datamodel> ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path <https://w3id.org/emmo/domain/oteio#hasDatamodel> ],
+        [ sh:or ( [ sh:class prov:Activity ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path prov:wasGeneratedBy ],
+        [ sh:or ( [ sh:class rdf:JSON ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path <https://w3id.org/emmo/domain/oteio#mapping> ],
-        [ sh:datatype xsd:decimal ;
-            sh:path dcat:spatialResolutionInMeters ] ;
+        [ sh:or ( [ sh:class dcat:Resource ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path prov:wasDerivedFrom ],
+        [ sh:datatype xsd:duration ;
+            sh:path dcat:temporalResolution ],
+        [ sh:or ( [ sh:class dcat:Distribution ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path <http://www.w3.org/ns/adms#sample> ],
+        [ sh:or ( [ sh:class pink:Datum ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:hasPart ],
+        [ sh:path <https://w3id.org/emmo/domain/oteio#mappingFormat> ],
+        [ sh:or ( [ sh:class pink:Datum ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:hasDatum ],
+        [ sh:or ( [ sh:class dcat:Dataset ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcterms:source ] ;
     sh:targetClass dcat:Dataset,
         pink:Dataset .
 
@@ -295,122 +622,178 @@ pink:DocumentShape a sh:NodeShape ;
     sh:node pink:DataShape ;
     sh:targetClass foaf:Document .
 
+pink:NanoFiberShape a sh:NodeShape ;
+    sh:node pink:NanoObjectShape ;
+    sh:targetClass pink:NanoFiber .
+
+pink:RegressionModelShape a sh:NodeShape ;
+    sh:node pink:SupervisedLearningModelShape ;
+    sh:targetClass pink:RegressionModel .
+
+pink:FunctionalityAssessmentShape a sh:NodeShape ;
+    sh:node pink:SpecifiedAssessmentShape ;
+    sh:property [ sh:or ( [ sh:class pink:FunctionalityDimension ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:assesses ] ;
+    sh:targetClass pink:FunctionalityAssessment .
+
+pink:MechanicalPropertiesAssessmentShape a sh:NodeShape ;
+    sh:node pink:FunctionalityAssessmentShape ;
+    sh:targetClass pink:MechanicalPropertiesAssessment .
+
+pink:NanoObjectShape a sh:NodeShape ;
+    sh:targetClass pink:NanoObject .
+
 pink:NumericalDataShape a sh:NodeShape ;
     sh:node pink:SymbolicDataShape ;
     sh:targetClass pink:NumericalData .
 
 pink:ProcessShape a sh:NodeShape ;
     sh:node pink:ActivityShape ;
+    sh:property [ sh:or ( [ sh:class pink:Process ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:hasSubProcess ] ;
     sh:targetClass pink:Process .
+
+pink:ReinforcedLearningModelShape a sh:NodeShape ;
+    sh:targetClass pink:ReinforcedLearningModel .
 
 pink:ResourceShape a sh:NodeShape ;
     sh:node pink:EntityShape ;
-    sh:property [ sh:class <http://www.w3.org/2006/vcard/ns#Kind> ;
-            sh:path dcat:contactPoint ],
-        [ sh:path dcterms:bibliographicCitation ],
-        [ sh:class <http://data.europa.eu/eli/ontology#LegalResource> ;
-            sh:path <http://data.europa.eu/r5r/applicableLegislation> ],
-        [ sh:class foaf:Document ;
-            sh:path pink:documentation ],
-        [ sh:class <https://w3id.org/emmo/application/datadoc#ConformanceLevel> ;
-            sh:path <https://w3id.org/emmo/application/datadoc#conformance> ],
-        [ sh:class dcterms:RightsStatement ;
-            sh:path dcterms:accessRights ],
-        [ sh:class rdfs:Resource ;
-            sh:path dcterms:isReferencedBy ],
-        [ sh:class foaf:Document ;
-            sh:path dcat:landingPage ],
-        [ sh:class skos:Concept ;
-            sh:path dcat:theme ],
-        [ sh:datatype rdf:langString ;
-            sh:path dcterms:abstract ],
-        [ sh:class foaf:Agent ;
-            sh:path <https://w3id.org/emmo/application/datadoc#curator> ],
-        [ sh:datatype rdf:langString ;
-            sh:path dcat:keyword ],
-        [ sh:class foaf:Document ;
-            sh:path foaf:page ],
-        [ sh:datatype xsd:datetime ;
-            sh:path dcterms:modified ],
-        [ sh:class prov:Attribution ;
-            sh:path prov:qualifiedAttribution ],
-        [ sh:class rdf:JSON ;
-            sh:path <https://w3id.org/emmo/domain/oteio#statement> ],
-        [ sh:class foaf:Agent ;
-            sh:path dcterms:publisher ],
-        [ sh:datatype xsd:string ;
-            sh:path dcterms:language ],
-        [ sh:class dcat:Relationship ;
-            sh:path dcat:qualifiedRelation ],
-        [ sh:class rdfs:Resource ;
-            sh:path dcat:hasVersion ],
-        [ sh:class dcterms:LicenseDocument ;
-            sh:path dcterms:license ],
-        [ sh:class dcterms:Standard ;
-            sh:path dcterms:conformsTo ],
-        [ sh:datatype xsd:datetime ;
+    sh:property [ sh:datatype xsd:dateTime ;
             sh:path <https://w3id.org/emmo/application/datadoc#curationDate> ],
-        [ sh:datatype rdf:langString ;
-            sh:path dcterms:title ],
-        [ sh:class foaf:Agent ;
-            sh:path dcterms:creator ],
-        [ sh:path dcat:version ],
-        [ sh:datatype rdf:langString ;
-            sh:path skos:definition ],
         [ sh:datatype xsd:dateTime ;
             sh:path dcterms:issued ],
-        [ sh:class foaf:Agent ;
-            sh:path dcterms:contributor ],
+        [ sh:or ( [ sh:class foaf:Document ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcat:landingPage ],
+        [ sh:path dcat:version ],
+        [ sh:or ( [ sh:class foaf:Agent ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path <https://w3id.org/emmo/application/datadoc#curator> ],
+        [ sh:or ( [ sh:class prov:Attribution ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path prov:qualifiedAttribution ],
+        [ sh:or ( [ sh:class rdf:JSON ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path <https://w3id.org/emmo/domain/oteio#statement> ],
+        [ sh:or ( [ sh:class foaf:Agent ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcterms:publisher ],
+        [ sh:or ( [ sh:class dcat:Relationship ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcat:qualifiedRelation ],
+        [ sh:or ( [ sh:class rdfs:Resource ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcat:hasVersion ],
+        [ sh:or ( [ sh:class <http://data.europa.eu/eli/ontology#LegalResource> ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path <http://data.europa.eu/r5r/applicableLegislation> ],
+        [ sh:or ( [ sh:class foaf:Document ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path foaf:page ],
+        [ sh:or ( [ sh:class <https://w3id.org/emmo/application/datadoc#ConformanceLevel> ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path <https://w3id.org/emmo/application/datadoc#conformance> ],
+        [ sh:datatype rdf:langString ;
+            sh:path dcterms:abstract ],
+        [ sh:or ( [ sh:class <http://www.w3.org/2006/vcard/ns#Kind> ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcat:contactPoint ],
+        [ sh:datatype xsd:dateTime ;
+            sh:path dcterms:modified ],
+        [ sh:or ( [ sh:class foaf:Agent ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcterms:creator ],
+        [ sh:or ( [ sh:class dcterms:RightsStatement ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcterms:accessRights ],
+        [ sh:or ( [ sh:class dcterms:Standard ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcterms:conformsTo ],
+        [ sh:path dcterms:bibliographicCitation ],
         [ sh:datatype xsd:string ;
-            sh:path <https://w3id.org/emmo/application/datadoc#unitSymbol> ] ;
+            sh:path <https://w3id.org/emmo/application/datadoc#unitSymbol> ],
+        [ sh:datatype rdf:langString ;
+            sh:path skos:definition ],
+        [ sh:or ( [ sh:class skos:Concept ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcat:theme ],
+        [ sh:or ( [ sh:class dcterms:LicenseDocument ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcterms:license ],
+        [ sh:or ( [ sh:class rdfs:Resource ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcterms:isReferencedBy ],
+        [ sh:or ( [ sh:class foaf:Agent ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path dcterms:contributor ],
+        [ sh:datatype rdf:langString ;
+            sh:path dcterms:title ],
+        [ sh:or ( [ sh:class foaf:Document ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:documentation ],
+        [ sh:datatype xsd:string ;
+            sh:path dcterms:language ] ;
     sh:targetClass dcat:Resource .
+
+pink:SemiSupervicedLearningModelShape a sh:NodeShape ;
+    sh:targetClass pink:SemiSupervicedLearningModel .
 
 pink:AgentShape a sh:NodeShape ;
     sh:node pink:AgentShape ;
-    sh:property [ sh:path dcterms:identifier ],
-        [ sh:class prov:Entity ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:path foaf:name ],
+        [ sh:or ( [ sh:class prov:Entity ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path pink:attributed ],
-        [ sh:datatype xsd:string ;
-            sh:path foaf:name ] ;
+        [ sh:path dcterms:identifier ] ;
     sh:targetClass prov:Agent,
         foaf:Agent .
 
+pink:ComputerVisionShape a sh:NodeShape ;
+    sh:node pink:PerceptionModelShape ;
+    sh:targetClass pink:ComputerVision .
+
+pink:DimensionalityReductionShape a sh:NodeShape ;
+    sh:targetClass pink:DimensionalityReduction .
+
+pink:NaturalLanguageUnderstandingShape a sh:NodeShape ;
+    sh:targetClass pink:NaturalLanguageUnderstanding .
+
+pink:PredictionLearningModelShape a sh:NodeShape ;
+    sh:node pink:SupervisedLearningModelShape ;
+    sh:targetClass pink:PredictionLearningModel .
+
 pink:SignShape a sh:NodeShape ;
     sh:node pink:EntityShape ;
-    sh:property [ sh:class prov:Entity ;
-            sh:path pink:standsFor ],
-        [ sh:class pink:Interpreter ;
-            sh:path pink:isInterpretedBy ] ;
+    sh:property [ sh:or ( [ sh:class pink:Interpreter ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:isInterpretedBy ],
+        [ sh:or ( [ sh:class prov:Entity ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:standsFor ] ;
     sh:targetClass pink:Sign .
+
+pink:SupervisedLearningModelShape a sh:NodeShape ;
+    sh:targetClass pink:SupervisedLearningModel .
+
+pink:ClassificationShape a sh:NodeShape ;
+    sh:node pink:SupervisedLearningModelShape ;
+    sh:targetClass pink:Classification .
+
+pink:SsbdDimensionShape a sh:NodeShape ;
+    sh:node pink:EntityShape ;
+    sh:targetClass pink:SsbdDimension .
 
 pink:SymbolicDataShape a sh:NodeShape ;
     sh:node pink:DataShape ;
     sh:targetClass pink:SymbolicData .
 
+pink:CognitionAndLearningModelShape a sh:NodeShape ;
+    sh:targetClass pink:CognitionAndLearningModel .
+
 pink:DataShape a sh:NodeShape ;
     sh:node pink:EntityShape ;
+    sh:property [ sh:path pink:hasDataValue ] ;
     sh:targetClass pink:Data .
 
+pink:DeepLearningModelShape a sh:NodeShape ;
+    sh:node pink:ArtificialNeuralNetworkShape ;
+    sh:targetClass pink:DeepLearningModel .
+
 pink:EntityShape a sh:NodeShape ;
-    sh:property [ sh:class prov:Activity ;
+    sh:property [ sh:or ( [ sh:class prov:Activity ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path pink:wasGeneratedBy ],
-        [ sh:class pink:Description ;
-            sh:path pink:hasDescription ],
-        [ sh:class prov:Entity ;
-            sh:path pink:wasDerivedBy ],
-        [ sh:class pink:TierLevel ;
-            sh:path pink:tierLevel ],
-        [ sh:class prov:Agent ;
-            sh:path pink:wasAttributedTo ],
-        [ sh:class prov:Activity ;
+        [ sh:or ( [ sh:class prov:Activity ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path pink:participatesTo ],
-        [ sh:class pink:Sign ;
-            sh:path pink:isRepresentedBy ],
-        [ sh:class pink:Property ;
-            sh:path pink:hasProperty ],
-        [ sh:class pink:Matter ;
+        [ sh:or ( [ sh:class pink:Matter ] [ sh:nodeKind sh:IRI ] ) ;
             sh:path pink:chemicalClass ],
-        [ sh:class prov:Agent ;
-            sh:path prov:wasAttributedTo ] ;
+        [ sh:or ( [ sh:class prov:Entity ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:wasDerivedBy ],
+        [ sh:or ( [ sh:class pink:TierLevel ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:tierLevel ],
+        [ sh:or ( [ sh:class prov:Agent ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path prov:wasAttributedTo ],
+        [ sh:or ( [ sh:class prov:Agent ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:wasAttributedTo ],
+        [ sh:or ( [ sh:class pink:Sign ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path pink:isRepresentedBy ] ;
     sh:targetClass prov:Entity .
 
