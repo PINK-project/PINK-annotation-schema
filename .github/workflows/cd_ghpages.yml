@@ -188,7 +188,7 @@ jobs:
 
     - name: Copy Markdown documentation to gh-pages
       run: |
-        cp -r docs build/.
+        cp -r docs public/.
 
     - name: copy relevant files and folders to public
       run: |
