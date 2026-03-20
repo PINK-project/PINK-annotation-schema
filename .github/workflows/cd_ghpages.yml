@@ -2,15 +2,12 @@ name: Deploy on GitHub Pages
 
 on:
   push:
-    branches: [main]
-
-env:
-  ONTOLOGY_NAME: pink_annotation_schema
-  ONTOLOGY_IRI: https://w3id.org/pink
+    branches:
+      - main
+      - reference_documentaiton
 
 permissions:
   contents: write
-
 
 jobs:
   deploy-on-ghpages:
@@ -30,8 +27,25 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install \
-            "EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@master" \
+            "EMMOntoPy[ontodoc,ontokit] @ git+https://github.com/emmo-repo/EMMOntoPy.git@ontokit_dev" \
             "tripper[datadoc] @ git+https://github.com/EMMC-ASBL/tripper.git@master"
+
+    - name: Load ontokit configuration
+      run: |
+        if [ ! -f .ontokit_conf.yml ]; then
+          echo "Missing .ontokit_conf.yml" >&2
+          exit 1
+        fi
+
+        for key in ONTOLOGY_NAME ONTOLOGY_PREFIX ONTOLOGY_IRI GITHUB_REPOSITORY BUILD_DIR; do
+          value=$(sed -n -E "s/^${key}:[[:space:]]*(.*)$/\\1/p" .ontokit_conf.yml | head -n 1)
+          if [ -z "$value" ]; then
+            echo "Missing required key '${key}' in .ontokit_conf.yml" >&2
+            exit 1
+          fi
+          echo "${key}=${value}" >> "$GITHUB_ENV"
+        done
+
 
     - name: List installed Python modules
       run: |
@@ -186,6 +200,14 @@ jobs:
             --set-prefix=pink:https://w3id.org/pink#
             #--namespace-filter=pink
 
+    - name: Generate Ontokit documentation to public
+      run: ontokit docs --imported --recursive --ontology-file=pink_annotation_schema.ttl --docs-dir=docs . && touch public/.nojekyll
+
+    # Copy turtle files from build to public
+    - name: Copy ontologies to public
+      run: cp build/*ttl public/
+
+
     # - name: Create markdown documentation of keywords
     #   run: |
     #     keywords \
@@ -203,7 +225,7 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        folder: build
+        folder: public
         branch: gh-pages
         clean: false
         single-commit: true
