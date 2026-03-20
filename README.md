@@ -10,7 +10,7 @@ It is constructed to be easily aligned with [EMMO].
 
 
 ## Resources
-- [Theoretical background].
+- Theoretical background.
   - [Background], including handling of [provenance] and categorisation of relations into [parthood], [causal] and [semiotic] relations.
   - Documentation of sub-modules:
     - [Matter module]
@@ -43,8 +43,7 @@ The example below shows how one can document a toxicity computation using the PI
 
 
 
-[Theoretical background]: https://pink-project.github.io/PINK-annotation-schema/docs/
-[Background]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html
+[Background]: ./docs/background.md
 [provenance]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html
 [parthood]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#parthood-relations
 [causal]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#causal-relations
