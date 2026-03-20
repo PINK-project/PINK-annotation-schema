@@ -1,0 +1,2064 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "https://w3id.org/emmo/application/datadoc", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/ns/prov", "http://purl.org/dc/terms", "http://www.w3.org/2001/XMLSchema", "http://www.w3.org/ns/dcat", "http://xmlns.com/foaf/0.1", "https://w3id.org/pink" ],
+    "title" : {
+      "en" : "PINK Annotation Schema"
+    },
+    "iri" : "https://w3id.org/pink",
+    "version" : "0.0.1",
+    "author" : [ "https://w3id.org/pink#FrancescaBleken", "https://w3id.org/pink#JesperFriis", "https://w3id.org/pink#JohDokler", "https://w3id.org/pink#ThomasExner" ],
+    "comments" : {
+      "en" : "This expands on the annotation schema provided by tripper, which again expands on the DCAT-AP."
+    },
+    "other" : {
+      "hasFormat" : [ {
+        "identifier" : "hasFormat",
+        "language" : "undefined",
+        "value" : "https://www.w3.org/TR/turtle/",
+        "type" : "iri"
+      } ],
+      "priorVersion" : [ {
+        "identifier" : "priorVersion",
+        "language" : "undefined",
+        "value" : "0.0.0",
+        "type" : "label"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://w3id.org/pink#FrancescaBleken",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://w3id.org/pink#ThomasExner",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://w3id.org/pink#JohDokler",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://w3id.org/pink#JesperFriis",
+        "type" : "iri"
+      } ],
+      "created" : [ {
+        "identifier" : "created",
+        "language" : "undefined",
+        "value" : "2025-09-08",
+        "type" : "label"
+      } ],
+      "abstract" : [ {
+        "identifier" : "abstract",
+        "language" : "en",
+        "value" : "The PINK Annotation Schema provides the semantic basis for SSbD.",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "0.0.1",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "en",
+        "value" : "PINK Annotation Schema",
+        "type" : "label"
+      } ],
+      "license" : [ {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "https://creativecommons.org/licenses/by/4.0/legalcode",
+        "type" : "label"
+      } ],
+      "contributor" : [ {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "https://w3id.org/pink#IseultLynch",
+        "type" : "iri"
+      } ],
+      "preferredNamespacePrefix" : [ {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "undefined",
+        "value" : "pink",
+        "type" : "label"
+      } ],
+      "publisher" : [ {
+        "identifier" : "publisher",
+        "language" : "undefined",
+        "value" : "https://pink-project.eu/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "xxxx-xx-xx",
+        "type" : "label"
+      } ],
+      "logo" : [ {
+        "identifier" : "logo",
+        "language" : "undefined",
+        "value" : "https://tess.elixir-europe.org/system/content_providers/images/000/000/777/original/pink-logo-orange-colorB-500.png",
+        "type" : "iri"
+      } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "https://w3id.org/pink",
+        "type" : "label"
+      } ],
+      "bibliographicCitation" : [ {
+        "identifier" : "bibliographicCitation",
+        "language" : "undefined",
+        "value" : "xxx",
+        "type" : "label"
+      } ],
+      "issued" : [ {
+        "identifier" : "issued",
+        "language" : "undefined",
+        "value" : "xxxx-xx-xx",
+        "type" : "label"
+      } ],
+      "doi" : [ {
+        "identifier" : "doi",
+        "language" : "undefined",
+        "value" : "tbd",
+        "type" : "label"
+      } ],
+      "status" : [ {
+        "identifier" : "status",
+        "language" : "undefined",
+        "value" : "Under Development",
+        "type" : "label"
+      } ],
+      "homepage" : [ {
+        "identifier" : "homepage",
+        "language" : "undefined",
+        "value" : "https://github.com/PINK-project/PINK-annotation-schema",
+        "type" : "iri"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "38",
+    "type" : "owl:Class"
+  }, {
+    "id" : "50",
+    "type" : "owl:Class"
+  }, {
+    "id" : "47",
+    "type" : "owl:Class"
+  }, {
+    "id" : "30",
+    "type" : "owl:Class"
+  }, {
+    "id" : "51",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "71",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "9",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "60",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "23",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "72",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "57",
+    "type" : "owl:Class"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "40",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://www.w3.org/ns/prov#Activity",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Activity"
+    },
+    "subClasses" : [ "1" ],
+    "attributes" : [ "external" ],
+    "id" : "0"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#Entity",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Entity"
+    },
+    "subClasses" : [ "14", "15", "16", "17", "18" ],
+    "attributes" : [ "external" ],
+    "id" : "11"
+  }, {
+    "iri" : "https://w3id.org/pink#Data",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "Contrast from variation of properties that is encoded by an agent and that can be decoded by another agent according to a specific rule."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "Data",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Data"
+    },
+    "subClasses" : [ "19", "6", "20", "21" ],
+    "id" : "17",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "https://w3id.org/pink#Measurement",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "An observation that results in a quantitative comparison of a 'property' of an 'object' with a standard reference based on a well defined mesurement procedure."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "Measurement",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Measurement"
+    },
+    "comment" : {
+      "undefined" : "Since Measurement is a subclass of Process, we say that there must exist a method that describes the measurement."
+    },
+    "id" : "26",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://w3id.org/pink#Computation",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "A procedure that deals with quantitative symbols (i.e. symbols associated with a quantitative oriented language)."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "Computation",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Computation"
+    },
+    "comment" : {
+      "undefined" : "Since Computation is a subclass of Process, we say that there must exist a method that describes the computation."
+    },
+    "id" : "38",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://w3id.org/emmo/application/datadoc#ConformanceLevel",
+    "baseIri" : "https://w3id.org/emmo/application/datadoc",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ConformanceLevel"
+    },
+    "attributes" : [ "external" ],
+    "id" : "50"
+  }, {
+    "iri" : "http://www.w3.org/ns/dcat#Resource",
+    "baseIri" : "http://www.w3.org/ns/dcat",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Resource"
+    },
+    "attributes" : [ "external" ],
+    "id" : "47"
+  }, {
+    "iri" : "https://w3id.org/pink#MaterialProcess",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "A process that has material as input and output."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "MaterialProcess",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "MaterialProcess"
+    },
+    "comment" : {
+      "undefined" : "Since MaterialProcess is a subclass of Process, we say that there must exist a method that describes the material process."
+    },
+    "id" : "30",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#Agent",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Agent"
+    },
+    "subClasses" : [ "57" ],
+    "attributes" : [ "external" ],
+    "id" : "51",
+    "superClasses" : [ "60" ]
+  }, {
+    "iri" : "https://w3id.org/pink#ReliabilityDocument",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "xxx"
+    },
+    "annotations" : {
+      "usageNote" : [ {
+        "identifier" : "usageNote",
+        "language" : "en",
+        "value" : "xxx",
+        "type" : "label"
+      } ],
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "ReliabilityDocument",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ReliabilityDocument"
+    },
+    "id" : "32",
+    "superClasses" : [ "21" ]
+  }, {
+    "iri" : "https://w3id.org/pink#Object",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "The class of all individuals who's temporal parts are of the same type as the whole."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "Object",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Object"
+    },
+    "subClasses" : [ "57" ],
+    "id" : "15",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "71",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "9",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "https://w3id.org/pink#Role",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "The class of all individuals that are defined through a parthood relation to an entity."
+    },
+    "annotations" : {
+      "usageNote" : [ {
+        "identifier" : "usageNote",
+        "language" : "en",
+        "value" : "An individual can be said to have a role in relation to the entity.",
+        "type" : "label"
+      } ],
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "Role",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Role"
+    },
+    "subClasses" : [ "51" ],
+    "id" : "60"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "3",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "23",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "72",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "https://w3id.org/pink#Datum",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "A self-consistent encoded data entity."
+    },
+    "annotations" : {
+      "usageNote" : [ {
+        "identifier" : "usageNote",
+        "language" : "en",
+        "value" : "Datum is the building block of datasets.",
+        "type" : "label"
+      } ],
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "Datum",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Datum"
+    },
+    "id" : "20",
+    "superClasses" : [ "17" ]
+  }, {
+    "iri" : "https://w3id.org/pink#Participant",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "An object which is a spatial part of a process."
+    },
+    "annotations" : {
+      "usageNote" : [ {
+        "identifier" : "usageNote",
+        "language" : "en",
+        "value" : "Example: A student during an examination. The student exists both before and after the examination.",
+        "type" : "label"
+      } ],
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "Participant",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Participant"
+    },
+    "id" : "57",
+    "superClasses" : [ "15", "51" ]
+  }, {
+    "iri" : "https://w3id.org/pink#SsbdDimension",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "XXX"
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "SsbdDimension",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "SsbdDimension"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/pink#economic",
+      "baseIri" : "https://w3id.org/pink",
+      "description" : {
+        "en" : "Aspects related to techno-economic feasibility, to operational costs, etc."
+      },
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "economic",
+          "type" : "label"
+        } ],
+        "bibliographicCitation" : [ {
+          "identifier" : "bibliographicCitation",
+          "language" : "undefined",
+          "value" : "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "There are important considerations to be made in the context of SSbD\nsuch as the 'availability' of raw materials, as chemicals/materials\ncannot be declared SSbD if the raw materials to produce them are not\nrenewable or are (very) scarce and extracted and processed in an\nunsustainable manner. Economic aspects play a role when there is a\nneed to rank chemicals and materials based on SSbD criteria (even if\nthey are not SSbD). However, mainly externalities consideration is at\nstake in a sustainability framework like the SSbD one."
+      },
+      "labels" : {
+        "IRI-based" : "economic"
+      }
+    }, {
+      "iri" : "https://w3id.org/pink#functionality",
+      "baseIri" : "https://w3id.org/pink",
+      "description" : {
+        "en" : "XXX"
+      },
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "functionality",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "functionality"
+      }
+    }, {
+      "iri" : "https://w3id.org/pink#safety",
+      "baseIri" : "https://w3id.org/pink",
+      "description" : {
+        "en" : "Human helth and environmental safety aspects of chemicals and materials."
+      },
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "safety",
+          "type" : "label"
+        } ],
+        "bibliographicCitation" : [ {
+          "identifier" : "bibliographicCitation",
+          "language" : "undefined",
+          "value" : "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "In the context of chemicals assessment, safety could be referring to a\ncertain condition where a stressor (e.g. a chemical) is unlikely to\ncause any adverse effect to a receptor (e.g. humans and other\norganisms) (more related to intrinsic hazard properties of the\nstressor) or where a receptor is protected from risk (more related to\ncontrol measures or mechanisms to minimise exposure to the\nstressor). In any case, the term safe involves receptors, and with\nthat generally also requires the consideration of the contact\n(i.e. exposure) between stressors and receptors as addressed in a risk\nassessment context."
+      },
+      "labels" : {
+        "IRI-based" : "safety"
+      }
+    }, {
+      "iri" : "https://w3id.org/pink#environmental_systainability",
+      "baseIri" : "https://w3id.org/pink",
+      "description" : {
+        "en" : "The ability to conserve natural resources and protect global ecosystems to support human health and wellbeing, within the limits of our Planet"
+      },
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "environmental_systainability",
+          "type" : "label"
+        } ],
+        "bibliographicCitation" : [ {
+          "identifier" : "bibliographicCitation",
+          "language" : "undefined",
+          "value" : "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "Assessing environmental sustainability implies to assess the environmental impacts generated by\nchemicals/materials along the entire life cycle to move towards:\n\n  · A toxic-free environment as stated in the CSS (i.e. minimising the total toxicity footprint in terms\n    of ecotoxicity and human toxicity13 - at each stage of the production and consumption life cycle,\n    originated not only by the assessed chemical or material, but also by all the chemicals that are emitted\n    along the life cycle14) (EC, 2020a);\n  · A climate-neutral economy (i.e. minimising the emission of greenhouse gases along the life cycle)\n    (EC, 2019b);\n  · A resource efficient economy and a regenerative economy (i.e. using natural resources in a\n    sustainable manner, minimising inputs and waste generation, and providing more benefits than\n    burdens) (EC, 2020b);\n  · The reduction of biodiversity loss and the conservation of ecosystem functioning, addressing the\n    main drivers of structural and functional biodiversity loss (e.g. land use, climate change) (EC, 2020c);\n"
+      },
+      "labels" : {
+        "IRI-based" : "environmental_systainability"
+      }
+    }, {
+      "iri" : "https://w3id.org/pink#social_systainability",
+      "baseIri" : "https://w3id.org/pink",
+      "description" : {
+        "en" : "A globally agreed list of objectives and targets to be pursued for achieving sustainable development."
+      },
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "undefined",
+          "value" : "social_sustainability",
+          "type" : "label"
+        } ],
+        "bibliographicCitation" : [ {
+          "identifier" : "bibliographicCitation",
+          "language" : "undefined",
+          "value" : "Caldeira et al. JRC Technical Report. Sage and Sustainable by Design chemicals and materials. EU Science Hub. doi:10.2760/487955. 2022",
+          "type" : "label"
+        } ]
+      },
+      "comment" : {
+        "en" : "In the SDGs framework several Goals focus on social aspects,\ne.g. poverty eradication (SDG 1), food security (SDG 2), health (SDG 3),\neducation (SDG 4), gender equality (SDG 5), decent work (SDG 8),\nreduce inequalities (SDG 10), peace and justice (SDG 16)."
+      },
+      "labels" : {
+        "IRI-based" : "social_systainability"
+      }
+    } ],
+    "comment" : {
+      "undefined" : "The pink:SsbdDimension is an extension of the 'sustainability dimensions' defined by JRC."
+    },
+    "id" : "24"
+  }, {
+    "iri" : "https://w3id.org/pink#Material",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "The class of individuals standing for an amount of matter (ordinary, anti or hybrid) substance (or mixture of substances) in different states of matter or phases."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "Material",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Material"
+    },
+    "id" : "14",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "https://w3id.org/pink#Dataset",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "Encoded data made of more than one datum."
+    },
+    "annotations" : {
+      "usageNote" : [ {
+        "identifier" : "usageNote",
+        "language" : "en",
+        "value" : "A collection of (more than one) datum, published or curated by a single agent, and available for access or download in one or more representations.",
+        "type" : "label"
+      } ],
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "Dataset",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Dataset"
+    },
+    "id" : "19",
+    "superClasses" : [ "17", "40" ]
+  }, {
+    "iri" : "https://w3id.org/pink#Method",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "Data that describes how to perform an activity."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "Method",
+        "type" : "label"
+      } ],
+      "altLabel" : [ {
+        "identifier" : "altLabel",
+        "language" : "en",
+        "value" : "MethodImplementation",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Method"
+    },
+    "subClasses" : [ "36" ],
+    "id" : "6",
+    "superClasses" : [ "17" ]
+  }, {
+    "iri" : "https://w3id.org/pink#Model",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "A useful simplified description of a selected part of the world."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "Model",
+        "type" : "label"
+      } ],
+      "example" : [ {
+        "identifier" : "example",
+        "language" : "en",
+        "value" : "Newton's law of motion is a model for how a body will move when subjected to forces.\nA mouse can be seen as a model for a human (e.g. in medicine).\nAn architectural floor plan is a model of a house.\n",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Model"
+    },
+    "id" : "18",
+    "superClasses" : [ "11" ]
+  }, {
+    "iri" : "https://w3id.org/pink#ComputationalTool",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "A tool that describes how to run a computational model."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "ComputationalTool",
+        "type" : "label"
+      } ],
+      "altLabel" : [ {
+        "identifier" : "altLabel",
+        "language" : "en",
+        "value" : "ComputationalMethod",
+        "type" : "label"
+      } ],
+      "example" : [ {
+        "identifier" : "example",
+        "language" : "en",
+        "value" : "Gromacs is a computational tool that solves Newton's equations of motion.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ComputationalTool"
+    },
+    "id" : "36",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "http://xmlns.com/foaf/0.1/Document",
+    "baseIri" : "http://xmlns.com/foaf/0.1",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Document"
+    },
+    "subClasses" : [ "32" ],
+    "attributes" : [ "external" ],
+    "id" : "21",
+    "superClasses" : [ "17" ]
+  }, {
+    "iri" : "http://www.w3.org/ns/dcat#Dataset",
+    "baseIri" : "http://www.w3.org/ns/dcat",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Dataset"
+    },
+    "subClasses" : [ "19" ],
+    "attributes" : [ "external" ],
+    "id" : "40"
+  }, {
+    "iri" : "https://w3id.org/pink#Process",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "An activity that is described by a method."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "Process",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Process"
+    },
+    "subClasses" : [ "38", "30", "26" ],
+    "id" : "1",
+    "superClasses" : [ "0" ]
+  }, {
+    "iri" : "https://w3id.org/pink#Property",
+    "baseIri" : "https://w3id.org/pink",
+    "instances" : 0,
+    "description" : {
+      "en" : "A coventional semiotic sigh that stands for an physical interaction with an object using an atomic symbol."
+    },
+    "annotations" : {
+      "usageNote" : [ {
+        "identifier" : "usageNote",
+        "language" : "en",
+        "value" : "A property is atomic in the sense that is aimed to deliver one and one only aspect of the object.",
+        "type" : "label"
+      } ],
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "Property",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Property"
+    },
+    "id" : "16",
+    "superClasses" : [ "11" ]
+  } ],
+  "property" : [ {
+    "id" : "2",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "5",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "8",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "10",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "22",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "25",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "27",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "31",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "33",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "35",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "37",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "39",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "41",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "46",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "49",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "28",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "52",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "45",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "48",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "55",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "56",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "58",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "59",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "61",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "62",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "63",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "64",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "65",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "66",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "67",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "68",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "69",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "53",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "70",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "12",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "42",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "7",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "73",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "74",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "75",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "54",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "77",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "78",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "79",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "80",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "13",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "82",
+    "type" : "owl:someValuesFrom"
+  }, {
+    "id" : "83",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "4",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "84",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "85",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "86",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "43",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "88",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "89",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "44",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "81",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "90",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "76",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "87",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "http://www.w3.org/ns/prov#used",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "used"
+    },
+    "domain" : "3",
+    "subproperty" : [ "4" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "2"
+  }, {
+    "iri" : "https://w3id.org/pink#hasProcess",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "1",
+    "description" : {
+      "en" : "Relates a method to the process that it describes."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "hasProcess",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasProcess"
+    },
+    "superproperty" : [ "7" ],
+    "domain" : "6",
+    "comment" : {
+      "en" : "The starting point for this relation is that it relates a method to an activity it describes. However, when an activity is described by a method is a process. Therefor is the range of this relation a process and not only an activity."
+    },
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "5"
+  }, {
+    "iri" : "https://w3id.org/pink#ssbdSubDimension",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "9",
+    "description" : {
+      "en" : "XXX"
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "ssbdSubDimension",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ssbdSubDimension"
+    },
+    "domain" : "3",
+    "attributes" : [ "datatype" ],
+    "id" : "8"
+  }, {
+    "iri" : "https://w3id.org/pink#wasGeneratedBy",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "0",
+    "description" : {
+      "en" : "Relates an entity to the activity it was generated from."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "wasGeneratedBy",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wasGeneratedBy"
+    },
+    "superproperty" : [ "12", "13" ],
+    "domain" : "11",
+    "comment" : {
+      "en" : "The activity A proper overlaps the entity E, where the non-overlapping part of E is caused by A."
+    },
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "10"
+  }, {
+    "iri" : "https://w3id.org/pink#ssbdDimension",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "24",
+    "description" : {
+      "en" : "XXX"
+    },
+    "annotations" : {
+      "usageNote" : [ {
+        "identifier" : "usageNote",
+        "language" : "en",
+        "value" : "One of `pink:functionality`, `pink:safety`, `pink:environmental_sustainability`, `pink:social_sustainability`",
+        "type" : "label"
+      } ],
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "ssbdDimension",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ssbdDimension"
+    },
+    "domain" : "23",
+    "attributes" : [ "object" ],
+    "id" : "22"
+  }, {
+    "range" : "1",
+    "domain" : "26",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "25"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasAssociatedWith",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "wasAssociatedWith"
+    },
+    "domain" : "3",
+    "subproperty" : [ "28" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "27"
+  }, {
+    "range" : "1",
+    "domain" : "30",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "29"
+  }, {
+    "range" : "21",
+    "domain" : "32",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "31"
+  }, {
+    "iri" : "https://w3id.org/pink#hasSpatialPart",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "3",
+    "description" : {
+      "en" : "A proper part of a whole, whose parts always cover the full temporal extension of the whole within a spatial interval."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "hasSpatialPart",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasSpatialPart"
+    },
+    "superproperty" : [ "34" ],
+    "domain" : "3",
+    "comment" : {
+      "en" : "The part is connected with the rest item or members with hasContact relations only (no hasNext)."
+    },
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "33"
+  }, {
+    "range" : "6",
+    "domain" : "36",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "35"
+  }, {
+    "range" : "1",
+    "domain" : "38",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "37"
+  }, {
+    "range" : "40",
+    "domain" : "19",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "39"
+  }, {
+    "iri" : "https://w3id.org/pink#causedBy",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "3",
+    "description" : {
+      "en" : "A relation between an entity that causally affects the subject."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "causedBy",
+        "type" : "label"
+      } ],
+      "example" : [ {
+        "identifier" : "example",
+        "language" : "en",
+        "value" : "John yesterday is the cause of John today, is an example of temporal-like causality. The desk supporting my laptop is a space-like causality.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "causedBy"
+    },
+    "superproperty" : [ "42" ],
+    "domain" : "3",
+    "subproperty" : [ "43", "44", "45" ],
+    "attributes" : [ "irreflexive", "object" ],
+    "id" : "41"
+  }, {
+    "iri" : "https://w3id.org/pink#documentation",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "21",
+    "description" : {
+      "undefined" : "A page or document documenting this resource."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "documentation",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "documentation"
+    },
+    "superproperty" : [ "48" ],
+    "domain" : "47",
+    "attributes" : [ "object" ],
+    "id" : "46"
+  }, {
+    "iri" : "https://w3id.org/pink#input",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "11",
+    "description" : {
+      "en" : "Relates a method to an entity via a process that used the entity and that the method participates to."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "input",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "input"
+    },
+    "superproperty" : [ "43" ],
+    "domain" : "6",
+    "comment" : {
+      "en" : "The process P is through overlapped by the agent A and overcrossed by the entity E, where the non-overlapping part of E causes P."
+    },
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "49"
+  }, {
+    "iri" : "https://w3id.org/pink#wasAssociatedWith",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "51",
+    "description" : {
+      "en" : "Relates an activity to an agent that had some (unspecified) responsibility for the occurence of this activity."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "wasAssociatedWith",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wasAssociatedWith"
+    },
+    "superproperty" : [ "13", "27" ],
+    "domain" : "0",
+    "comment" : {
+      "en" : "The activity is through overlapped by the agent."
+    },
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "28"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasInformedBy",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "wasInformedBy"
+    },
+    "domain" : "3",
+    "subproperty" : [ "53" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "52"
+  }, {
+    "iri" : "https://w3id.org/pink#isAfter",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "3",
+    "description" : {
+      "en" : "A one-directional relation between an entity that affects the subject."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "isAfter",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "isAfter"
+    },
+    "superproperty" : [ "41" ],
+    "domain" : "3",
+    "subproperty" : [ "53", "54" ],
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "45"
+  }, {
+    "iri" : "http://xmlns.com/foaf/0.1/page",
+    "baseIri" : "http://xmlns.com/foaf/0.1",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "page"
+    },
+    "domain" : "3",
+    "subproperty" : [ "46" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "48"
+  }, {
+    "iri" : "http://purl.org/dc/terms/hasPart",
+    "baseIri" : "http://purl.org/dc/terms",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "hasPart"
+    },
+    "domain" : "3",
+    "subproperty" : [ "34" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "55"
+  }, {
+    "range" : "15",
+    "domain" : "57",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "56"
+  }, {
+    "range" : "51",
+    "domain" : "57",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "58"
+  }, {
+    "range" : "60",
+    "domain" : "51",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "59"
+  }, {
+    "range" : "17",
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "61"
+  }, {
+    "range" : "17",
+    "domain" : "19",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "62"
+  }, {
+    "range" : "17",
+    "domain" : "21",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "63"
+  }, {
+    "range" : "17",
+    "domain" : "20",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "64"
+  }, {
+    "iri" : "https://w3id.org/pink#hasMethod",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "6",
+    "description" : {
+      "undefined" : "Relates an activity to the method that it is described by."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "hasMethod",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasMethod"
+    },
+    "superproperty" : [ "7" ],
+    "domain" : "0",
+    "attributes" : [ "object" ],
+    "id" : "65"
+  }, {
+    "iri" : "https://w3id.org/pink#hasDatum",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "20",
+    "description" : {
+      "en" : "Relates a dataset to its datum."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "hasDatum",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasDatum"
+    },
+    "superproperty" : [ "34" ],
+    "domain" : "19",
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "66"
+  }, {
+    "range" : "11",
+    "domain" : "16",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "67"
+  }, {
+    "range" : "11",
+    "domain" : "18",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "68"
+  }, {
+    "range" : "11",
+    "domain" : "17",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "69"
+  }, {
+    "iri" : "https://w3id.org/pink#wasInformedBy",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "0",
+    "description" : {
+      "en" : "A one-directional relation between an activity that affects the subject activity."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "wasInformedBy",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wasInformedBy"
+    },
+    "superproperty" : [ "52", "45" ],
+    "domain" : "0",
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "53"
+  }, {
+    "iri" : "https://w3id.org/pink#overlaps",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "3",
+    "description" : {
+      "en" : "The relation between two individuals representing entities that share at least one of their parts."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "overlaps",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "overlaps"
+    },
+    "domain" : "3",
+    "subproperty" : [ "13", "34" ],
+    "attributes" : [ "object", "symmetric", "reflexive" ],
+    "id" : "70"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasGeneratedBy",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "wasGeneratedBy"
+    },
+    "domain" : "3",
+    "subproperty" : [ "10" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "12"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasInfluencedBy",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "wasInfluencedBy"
+    },
+    "domain" : "3",
+    "subproperty" : [ "41" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "42"
+  }, {
+    "iri" : "https://w3id.org/pink#participatesTo",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "0",
+    "description" : {
+      "en" : "Relation an entity to an activity that it interacts with."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "participatesTo",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "participatesTo"
+    },
+    "superproperty" : [ "13" ],
+    "domain" : "11",
+    "subproperty" : [ "5", "65" ],
+    "comment" : {
+      "en" : "The entity through overlaps the activity."
+    },
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "7"
+  }, {
+    "range" : "0",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "73"
+  }, {
+    "range" : "11",
+    "domain" : "14",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "74"
+  }, {
+    "range" : "11",
+    "domain" : "15",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "75"
+  }, {
+    "iri" : "https://w3id.org/pink#processedFrom",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "3",
+    "description" : {
+      "en" : "Indirect relation that relates the output of an activity to its input."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "processedFrom",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "processedFrom"
+    },
+    "superproperty" : [ "45" ],
+    "domain" : "3",
+    "subproperty" : [ "76" ],
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "54"
+  }, {
+    "iri" : "https://w3id.org/pink#hasParticipant",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "3",
+    "description" : {
+      "en" : "The relation between a process and an object participating to it, i.e. that is relevant to the process itself."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "hasParticipant",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasParticipant"
+    },
+    "superproperty" : [ "34" ],
+    "domain" : "3",
+    "comment" : {
+      "en" : "Participation is a parthood relation: you must be part of the process to contribute to it. A participant whose 4D extension is totally contained within the process."
+    },
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "77"
+  }, {
+    "iri" : "https://w3id.org/pink#hasTemporalPart",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "3",
+    "description" : {
+      "undefined" : "A relation that identify a proper item part of the whole, whose parts always cover the full spatial extension of the whole within a time interval."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "hasTemporalPart",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasTemporalPart"
+    },
+    "superproperty" : [ "34" ],
+    "domain" : "3",
+    "comment" : {
+      "en" : "A temporal part of an item cannot both cause and be caused by any other proper part of the item."
+    },
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "78"
+  }, {
+    "iri" : "https://w3id.org/pink#nonOverlaps",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "3",
+    "description" : {
+      "en" : "The relation between two individuals that does not share any parts."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "nonOverlaps",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "nonOverlaps"
+    },
+    "domain" : "3",
+    "attributes" : [ "irreflexive", "object", "symmetric" ],
+    "id" : "79"
+  }, {
+    "iri" : "https://w3id.org/pink#hasPart",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "20",
+    "description" : {
+      "en" : "The primitive relation that express the concept of an entity being part of another one."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "hasPart",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasPart"
+    },
+    "superproperty" : [ "70", "55" ],
+    "domain" : "19",
+    "subproperty" : [ "77", "78", "66", "33", "81" ],
+    "comment" : {
+      "en" : "OWL2 does not allow non-simple (e.g. transitive) properties to appear in disjoint property axioms. We therefore implement the transitivity of hasPart using SWRL rules instead of asserting it with owl:TransitiveProperty."
+    },
+    "attributes" : [ "someValues", "object", "reflexive" ],
+    "id" : "80"
+  }, {
+    "iri" : "https://w3id.org/pink#isOvercrossedBy",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "3",
+    "description" : {
+      "en" : "The relation between an entity that overlaps another without having it as part."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "isOvercrossedBy",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "isOvercrossedBy"
+    },
+    "superproperty" : [ "70" ],
+    "domain" : "3",
+    "subproperty" : [ "10", "7", "28", "4" ],
+    "attributes" : [ "irreflexive", "object" ],
+    "id" : "13"
+  }, {
+    "iri" : "https://w3id.org/pink#hasProcess",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "6",
+    "description" : {
+      "en" : "Relates a method to the process that it describes."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "hasProcess",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasProcess"
+    },
+    "superproperty" : [ "7" ],
+    "domain" : "1",
+    "comment" : {
+      "en" : "The starting point for this relation is that it relates a method to an activity it describes. However, when an activity is described by a method is a process. Therefor is the range of this relation a process and not only an activity."
+    },
+    "attributes" : [ "irreflexive", "someValues", "object", "asymmetric" ],
+    "id" : "82"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasAttributedTo",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "wasAttributedTo"
+    },
+    "domain" : "3",
+    "subproperty" : [ "44" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "83"
+  }, {
+    "iri" : "https://w3id.org/pink#used",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "11",
+    "description" : {
+      "en" : "Relates an activity to an entity that it used."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "used",
+        "type" : "label"
+      } ],
+      "example" : [ {
+        "identifier" : "example",
+        "language" : "undefined",
+        "value" : "For example, :baking :used :spoon, :egg, :oven .",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "used"
+    },
+    "superproperty" : [ "13", "2" ],
+    "domain" : "0",
+    "comment" : {
+      "en" : "The activity A proper overlaps the entity E, where the non-overlapping part of E causes A."
+    },
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "4"
+  }, {
+    "iri" : "https://w3id.org/pink#hasProperty",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "16",
+    "description" : {
+      "en" : "A semiotic relation that connects a semiotic object to a property in a declaration process."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "hasProperty",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasProperty"
+    },
+    "domain" : "11",
+    "attributes" : [ "object" ],
+    "id" : "84"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasDerivedBy",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "wasDerivedBy"
+    },
+    "domain" : "3",
+    "subproperty" : [ "76" ],
+    "attributes" : [ "object", "external" ],
+    "id" : "85"
+  }, {
+    "iri" : "https://w3id.org/pink#method",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "6",
+    "description" : {
+      "undefined" : "Relates a dataset to the method that describes the activity it was created with."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "method",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "method"
+    },
+    "superproperty" : [ "76" ],
+    "domain" : "40",
+    "attributes" : [ "object" ],
+    "id" : "86"
+  }, {
+    "iri" : "https://w3id.org/pink#attributed",
+    "inverse" : "44",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "11",
+    "description" : {
+      "en" : "Relates an agent to an entity via an activity that both the agent and entity participates to."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "attributed",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "attributed"
+    },
+    "superproperty" : [ "41" ],
+    "domain" : "51",
+    "subproperty" : [ "49", "87" ],
+    "comment" : {
+      "en" : "There may or may not be a causal interaction between the agent and entity."
+    },
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "43"
+  }, {
+    "iri" : "https://w3id.org/pink#conformance",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "50",
+    "description" : {
+      "en" : "Whether the annotation is mandatory, recommended or optional as part of the PINK Annotation Schema"
+    },
+    "annotations" : {
+      "usageNote" : [ {
+        "identifier" : "usageNote",
+        "language" : "en",
+        "value" : "It MUST take one of the values 'ddoc:mandatory', 'ddoc:recommended' or 'ddoc:optional'.",
+        "type" : "label"
+      } ],
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://w3id.org/pink",
+        "type" : "iri"
+      } ],
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "undefined",
+        "value" : "conformance",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "conformance"
+    },
+    "domain" : "72",
+    "attributes" : [ "object" ],
+    "id" : "88"
+  }, {
+    "iri" : "https://w3id.org/pink#hasAPI",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "71",
+    "description" : {
+      "undefined" : "Whether the method has an API."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "hasAPI",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasAPI"
+    },
+    "domain" : "47",
+    "attributes" : [ "datatype" ],
+    "id" : "89"
+  }, {
+    "iri" : "https://w3id.org/pink#wasAttributedTo",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "51",
+    "description" : {
+      "en" : "Relates an entity to an agent via an activity that both the entity and agent participates to."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "wasAttributedTo",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wasAttributedTo"
+    },
+    "superproperty" : [ "41", "83" ],
+    "domain" : "11",
+    "comment" : {
+      "en" : "The activity is through overlapped by the agent and overcrossed by the entity."
+    },
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "44"
+  }, {
+    "iri" : "https://w3id.org/pink#hasJunctionPart",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "3",
+    "description" : {
+      "en" : "The part is connected with the rest item or members with both hasNext (or its inverse) and hasContact relations."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "hasJunctionPart",
+        "type" : "label"
+      } ],
+      "altLabel" : [ {
+        "identifier" : "altLabel",
+        "language" : "en",
+        "value" : "hasSpatioTemporalPart",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasJunctionPart"
+    },
+    "superproperty" : [ "34" ],
+    "domain" : "3",
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "81"
+  }, {
+    "iri" : "https://w3id.org/pink#hasModel",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "18",
+    "description" : {
+      "en" : "Relates a method to the model it implements."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "hasModel",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasModel"
+    },
+    "domain" : "6",
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "90"
+  }, {
+    "iri" : "https://w3id.org/pink#wasDerivedBy",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "11",
+    "description" : {
+      "en" : "Indirect relation that relates the output entity of an activity to its input entity."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "wasDerivedBy",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wasDerivedBy"
+    },
+    "superproperty" : [ "54", "85" ],
+    "domain" : "11",
+    "subproperty" : [ "86" ],
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "76"
+  }, {
+    "iri" : "https://w3id.org/pink#output",
+    "baseIri" : "https://w3id.org/pink",
+    "range" : "11",
+    "description" : {
+      "en" : "Relates a method to an entity via a process that was generated by the entity and that the method participates to."
+    },
+    "annotations" : {
+      "prefLabel" : [ {
+        "identifier" : "prefLabel",
+        "language" : "en",
+        "value" : "output",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "output"
+    },
+    "superproperty" : [ "43" ],
+    "domain" : "6",
+    "comment" : {
+      "en" : "The process P is through overlapped by the agent A and overcrossed by the entity E, where the non-overlapping part of E is caused by P."
+    },
+    "attributes" : [ "irreflexive", "object", "asymmetric" ],
+    "id" : "87"
+  } ]
+}
