@@ -716,6 +716,18 @@ An architectural floor plan is a model of a house.
     skos:scopeNote "The helth effects can strike a single cell, a group of cells, an organ system, or the entire body. A toxic effect may be visible damage, or a decrease in performance or function measurable only by a test."@en ;
     skos:scopeNote "Toxicity is always related to a given measurement procedure. Hence, the user is expected to define spesific subclasses defining the measurement procedure that the toxicity is measured according to."@en .
 
+:Dose rdf:type owl:Class ;
+    rdfs:subClassOf :Indicator ;
+    skos:prefLabel "Dose"@en ;
+    skos:definition "A quantitative measurement of exposure."@en ;
+    skos:scopeNote "The dose is typically the concentration, amount, or intensity of a chemical, drug, or environmental stressor that is matched with high-throughput molecular changes"@en .
+
+:BioActivity rdf:type owl:Class ;
+    rdfs:subClassOf :Indicator ;
+    skos:prefLabel "BioActivity"@en ;
+    skos:definition "Difference of activity between a controlled reference and the experiment."@en ;
+    skos:scopeNote "Bioactivity refers to the ability of a substance, compound, or material to produce a specific biological effect or interact with living tissues, organisms, or cells. It encompasses beneficial physiological responses, such as tissue regeneration or metabolic changes, often demonstrated in scientific studies."@en .
+
 :Description rdf:type owl:Class ;
     rdfs:subClassOf :Sign ;
     skos:prefLabel "Description"@en ;
