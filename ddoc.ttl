@@ -21,7 +21,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://w3id.org/emmo/application/datadoc> a owl:Ontology ;
-    dcterms:title "Data documentation ontology" ;
+    dcterms:title "Data documentation vocabulary" ;
     vann:preferredNamespacePrefix "ddoc" ;
     vann:preferredNamespaceUri "https://w3id.org/emmo/application/datadoc#" ;
     owl:priorVersion "0.0.0" ;
