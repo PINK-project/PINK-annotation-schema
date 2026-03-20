@@ -1,15 +1,10 @@
 name: Deploy on GitHub Pages
 
-# Only run this workflow on push to a release branch or master
-#on: push
 on:
   push:
     branches:
-       - '[0-9]+.[0-9]+.[0-9]+'
-       - '[0-9]+.[0-9]+.[0-9]+-*'
-       - master
-       - main
-       - reference_documentaiton
+      - main
+      - reference_documentaiton
 
 permissions:
   contents: write
@@ -26,18 +21,18 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
-        python-version: 3.14
+        python-version: 3.13
 
     - name: Install EMMOntoPy and tripper
       run: |
         pip install --upgrade pip
         pip install \
-            "EMMOntoPy[ontokit] @ git+https://github.com/emmo-repo/EMMOntoPy.git@ontokit_docs_docsfolder" \
+            "EMMOntoPy[ontodoc,ontokit] @ git+https://github.com/emmo-repo/EMMOntoPy.git@[ontokit_docs_docsfolder]" \
             "tripper[datadoc] @ git+https://github.com/EMMC-ASBL/tripper.git@master"
 
-    #- name: Install current ontology for keywords tool
-    #  run: |
-    #    pip install -U git+
+    - name: List installed Python modules
+      run: |
+        pip list
 
     - name: Install ROBOT
       run: |
@@ -52,72 +47,141 @@ jobs:
       run: |
         wget --quiet https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-17.jar
 
-    - name: Copy readme and license files to gh-pages
+    - name: Copy documentation to gh-pages
       run: |
-        mkdir build
-        cp README.md LICENSE build/.
+        mkdir -p build
+        cp -r docs/ build/.
 
-    - name: Create dependencies on gh-pages
+    - name: Create squashed ontologies
       run: |
+        cp README.md build/.
         ontoconvert \
             -saw \
-            --namespace="emmo:https://w3id.org/emmo#" \
-            --namespace="pink:https://w3id.org/pink#" \
-            pink_annotation_schema-dependencies.ttl \
-            build/pink_annotation_schema-dependencies.ttl
+            --base-iri="${ONTOLOGY_IRI}#" \
+            --iri="${ONTOLOGY_IRI}" \
+            --namespace="pink:${ONTOLOGY_IRI}#" \
+            --namespace="ddoc:https://w3id.org/emmo/application/datadoc#" \
+            --namespace="vidoco:https://w3id.org/widoco/vocab#" \
+            --namespace="dcatap:http://data.europa.eu/r5r/" \
+            ${ONTOLOGY_NAME}.ttl \
+            build/${ONTOLOGY_NAME}.ttl
 
-    - name: Create squashed ontology
-      run: |
-        ontoconvert \
-            -sawe \
-            --namespace="emmo:https://w3id.org/emmo#" \
-            --namespace="pink:https://w3id.org/pink#" \
-            --base-iri="https://w3id.org/pink#" \
-            --iri="https://w3id.org/pink" \
-            pink_annotation_schema.ttl \
-            build/pink_annotation_schema.ttl
-
-    - name: Create ontology for used later for generating documentation
-      run: |
-        ontoconvert \
-            -awe \
-            --namespace="emmo:https://w3id.org/emmo#" \
-            --namespace="pink:https://w3id.org/pink#" \
-            --base-iri="https://w3id.org/pink#" \
-            --iri="https://w3id.org/pink" \
-            --copy-annotation="elucidation-->http://purl.org/dc/terms/description" \
-            --copy-annotation="prefLabel-->http://www.w3.org/2000/01/rdf-schema#label" \
-            pink_annotation_schema.ttl \
-            build/pink_annotation_schema-doc.ttl
-
-    - name: Create inferred ontology
+    - name: Create inferred ontologies
       run: |
         bin/robot reason \
-            --reasoner HermiT \
-            --remove-redundant-subclass-axioms true \
-            --preserve-annotated-axioms true \
-            --exclude-owl-thing true \
-            --exclude-duplicate-axioms true \
-            --input build/pink_annotation_schema.ttl \
-            --output pink_annotation_schema-inferred.ttl
-        ontoconvert --iri=https://w3id.org/pink/inferred pink_annotation_schema-inferred.ttl build/pink_annotation_schema-inferred.ttl
+          --reasoner HermiT \
+          --remove-redundant-subclass-axioms true \
+          --preserve-annotated-axioms true \
+          --exclude-owl-thing true \
+          --exclude-duplicate-axioms true \
+          --input build/${ONTOLOGY_NAME}.ttl \
+          --output build/${ONTOLOGY_NAME}-inferred.ttl
+        ontoconvert --iri=${ONTOLOGY_IRI}/inferred build/${ONTOLOGY_NAME}-inferred.ttl public/${ONTOLOGY_NAME}-inferred.ttl
 
-    - name: Generate markdown documentation of all keywords
-      run: |
-        keywords -i build/pink_annotation_schema-doc.ttl --write-kw-md build/pink_annotation_schema_kw.md --namespace-filter=https://w3id.org/pink# --redefine=allow
-
-    - name: Generate Widoco documentation
+    - name: Generate Widoco documentation for PINK Annotation Schema
       run: |
         java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
-            -ontFile build/pink_annotation_schema-doc.ttl \
+            -ontFile pink_annotation_schema.ttl \
             -outFolder build/widoco \
             -getOntologyMetadata \
             -oops \
             -rewriteAll \
-            -saveConfig build/widoco/widoco.conf \
-            -webVowl \
+            -includeImportedOntologies \
             -licensius \
             -includeAnnotationProperties
+
+    - name: Generate Widoco documentation for reused terms
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile reused-terms.ttl \
+            -outFolder build/widoco-reused-terms \
+            -excludeIntroduction \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
+
+    - name: Include Markdown documentation on gh-pages
+      run: |
+        cp -r docs build/.
+
+    - name: Generate Widoco documentation for ddoc terms
+      run: |
+        ontoconvert -awe \
+            ddoc.ttl \
+            build/ddoc-doc.ttl
+
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile build/ddoc-doc.ttl \
+            -outFolder build/widoco-ddoc \
+            -excludeIntroduction \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
+
+    - name: Generate Widoco documentation for matter taxonomy
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile matter.ttl \
+            -outFolder build/widoco-matter \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
+
+    - name: Generate Widoco documentation for models
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile models.ttl \
+            -outFolder build/widoco-models \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
+
+    - name: Generate Widoco documentation for CHEMINF
+      run: |
+        java -jar widoco-1.4.25-jar-with-dependencies_JDK-17.jar \
+            -ontFile cheminf.ttl \
+            -outFolder build/widoco-cheminf \
+            -getOntologyMetadata \
+            -rewriteAll \
+            -includeImportedOntologies \
+            -licensius \
+            -includeAnnotationProperties
+
+    - name: Include Markdown documentation on gh-pages
+      run: |
+        cp -r docs build/.
+
+    - name: Generate JSON-LD context
+      run: |
+        mkdir -p build/context
+        keywords \
+            --input=build/${ONTOLOGY_NAME}.ttl \
+            --write-context=build/context/${ONTOLOGY_NAME}.jsonld \
+            --redefine=allow \
+            --set-prefix=emmo:https://w3id.org/emmo/hume# \
+            --set-prefix=cheminf:http://semanticscience.org/resource/ \
+            --set-prefix=pink:https://w3id.org/pink#
+            #--namespace-filter=pink
+
+    - name: Generate keywords file
+      run: |
+        mkdir -p build/context
+        keywords \
+            --input=build/${ONTOLOGY_NAME}.ttl \
+            --write-kw-yaml=build/context/keywords.yaml \
+            --redefine=allow \
+            --set-prefix=emmo:https://w3id.org/emmo/hume# \
+            --set-prefix=cheminf:http://semanticscience.org/resource/ \
+            --set-prefix=pink:https://w3id.org/pink#
+            #--namespace-filter=pink
 
     - name: Generate Ontokit documentation to public
       run: ontokit docs --imported --recursive --ontology-file=pink_annotation_schema.ttl --docs-dir=docs . && touch public/.nojekyll
@@ -126,9 +190,20 @@ jobs:
     - name: Copy ontologies to public
       run: cp build/*ttl public/
 
-    # Copy widoco documentation to public, what to do with it is not yet decided.
-    - name: Copy widoco documentation to public
-      run: cp -r build/widoco public/widoco
+
+    # - name: Create markdown documentation of keywords
+    #   run: |
+    #     keywords \
+    #         --input=pink_annotation_schema.ttl \
+    #         --keywords=build/keywords.md \
+    #         --namespace-filter=pink \
+    #         --redefine=allow \
+    #        --set-prefix=emmo:https://w3id.org/emmo/hume#
+
+    # - name: Create csv tables
+    #   run: |
+    #     python scripts/csv-documentation.py
+    #     mv classes.csv properties.csv build/.
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
