@@ -23,7 +23,7 @@ ontology_descr = {
         lang="en",
     ),
     DCTERMS.title: Literal(
-        "The CHEMINF module of PINK Annotation Schema", lang="en"
+        "CHEMINF terms", lang="en"
     ),
     "https://w3id.org/widoco/vocab#introduction": Literal(
         (

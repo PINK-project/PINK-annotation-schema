@@ -564,6 +564,21 @@ emmo:ChemicalEntity rdfs:subClassOf :Matter .
     skos:definition "A software that performs a computation."@en ;
     skos:example "Gromacs is a computational tool that solves Newton's equations of motion."@en .
 
+:Profiler rdf:type owl:Class ;
+    rdfs:subClassOf :Software ;
+    skos:prefLabel "Profiler"@en ;
+    skos:definition "A software that identify the affiliation of the target chemical(s) to preliminary defined categories (functional groups/alerts)."@en ;
+    skos:scopeNote "The outcome of the profiling determines the most appropriate way to search for analogues, but they are also useful for preliminary screening or prioritization of substances."@en .
+
+:QSARSoftware rdf:type owl:Class ;
+    rdfs:subClassOf :Software , [
+        a owl:Restriction ;
+        owl:onProperty :implementsModel ;
+        owl:someValuesFrom :QSARModel
+    ] ;
+    skos:prefLabel "QSARSoftware"@en ;
+    skos:definition "A software implementing a QSAR model."@en .
+
 :Datum rdf:type owl:Class ;
     rdfs:subClassOf :Data ;
     skos:prefLabel "Datum"@en ;
@@ -708,7 +723,6 @@ An architectural floor plan is a model of a house.
 """@en ;
     skos:example "For a computation is an indicator a specific property/datum that is provided in the output."@en .
 
-
 :Toxicity rdf:type owl:Class ;
     rdfs:subClassOf :Indicator ;
     skos:prefLabel "Toxicity"@en ;
@@ -721,6 +735,13 @@ An architectural floor plan is a model of a house.
     skos:prefLabel "Description"@en ;
     skos:definition "A collection of properties that depicts an object."@en ;
     skos:scopeNote "A description is not atomic in the sense that it is made of more than one property."@en .
+
+:DomainOfApplicabilityStatus rdf:type owl:Class ;
+    rdfs:subClassOf :Property ;
+    skos:prefLabel "DomainOfApplicabilityStatus"@en ;
+    skos:definition "A result of a model or software indicating whether an input is within the applicability domain of the model or software. Applicability domain refers to the range of conditions and limitations within which a model can be reliably applied. It is a critical factor in determining the accuracy and validity of a model, as it defines the scope of its predictions and identifies potential sources of uncertainty. The process of defining the applicability domain involves assessing the model's performance under different conditions and establishing the boundaries of its predictive capabilities."@en ;
+    skos:scopeNote "It should take one of the following values: pink:undefined; pink:outOfDomain; pink:inDomain."@en .
+
 
 ## Object
 :Object rdf:type owl:Class ;
@@ -778,13 +799,26 @@ dcterms:rightsHolder rdfs:subPropertyOf :isRepresentedBy .
 
 ### TierLevel individuals
 :tierlevel1 a :TierLevel ;
-    rdfs:label "ideation/design"@en .
+    skos:prefLabel "ideation/design"@en .
 
 :tierlevel2 a :TierLevel ;
-    rdfs:label "lab phase/development"@en .
+    skos:prefLabel "lab phase/development"@en .
 
 :tierlevel3 a :TierLevel ;
-    rdfs:label "up-scaling/production"@en .
+    skos:prefLabel "up-scaling/production"@en .
+
+:undefined a :DomainOfApplicabilityStatus ;
+    skos:prefLabel "undefined"@en ;
+    skos:definition "The applicability of the given input is undefined."@en .
+
+:outOfDomain a :DomainOfApplicabilityStatus ;
+    skos:prefLabel "outOfDomain"@en ;
+    skos:definition "The input is outside the valid doamin."@en .
+
+:inDomain a :DomainOfApplicabilityStatus ;
+    skos:prefLabel "inDomain"@en ;
+    skos:definition "The input is within the valid domain."@en .
+
 
 
 #################################################################

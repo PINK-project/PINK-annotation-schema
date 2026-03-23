@@ -63,7 +63,8 @@ pink:YoungsModulusAssessment a owl:Class ;
     skos:prefLabel "YoungsModulusAssessment" .
 
 <https://w3id.org/pink/ssbd-taxonomy> a owl:Ontology ;
-    dcterms:title "Taxonomy useful categorizing activities and outputs of activities within the SSbD framework."@en ;
+    dcterms:title "SSbD Taxonomy"@en ;
+    dcterms:abstract "Taxonomy useful categorizing activities and outputs of activities within the SSbD framework."@en ;
     owl:versionIRI <https://w3id.org/pink/0.0.1/ssbd-taxonomy> .
 
 pink:Assessment a owl:Class ;

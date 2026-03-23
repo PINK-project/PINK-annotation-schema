@@ -23,7 +23,7 @@
 <https://w3id.org/pink/models> rdf:type owl:Ontology ;
                                 owl:versionIRI <https://w3id.org/pink/0.0.1/models> ;
                                 dcterms:abstract "The Models module of PINK Annotation Schema providing a taxonomy for models."@en ;
-                                dcterms:title "The Models module of PINK Annotation Schema"@en ;
+                                dcterms:title "Models"@en ;
                                 widoco:introduction """
 This module is a part of the [PINK Annotation Schema](https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html).
 A model is a useful simplified description of a selected part of the world.
@@ -812,6 +812,16 @@ pink:XGBoostRegessor rdf:type owl:Class ;
                      skos:definition "An optimized machine learning algorithm that uses an ensemble of decision trees within a gradient boosting framework to predict continuous numerical values."@en ;
                      skos:prefLabel "XGBoostRegressor"@en ;
                      skos:scopeNote "XGBoost Regressor is widely used in data science competitions and real-world applications due to its speed, performance, and features like built-in regularization and automatic handling of missing values."@en .
+
+
+pink:QSARModel a owl:Class ;
+    rdfs:subClassOf emmo:MathematicalModel ;
+    skos:definition "A mathematical model (often a statistical correlation) relating one or more quantitative parameters derived from chemical structure to a quantitative measure of a property or activity (e.g. related to physical-chemical properties, ecotoxicology, environmental fate and transport, and human health hazards). QSARs are quantitative models yielding a continuous or categorical result."@en ;
+    skos:prefLabel "QSARModel"@en ;
+    skos:scopeNote "The aim of a QSAR model is typically to reduce time, monetary cost and needed animal testing."@en ;
+    skos:scopeNote "To facilitate practical application of (Q)SAR approaches in regulatory contexts by governments and industry and to improve their regulatory acceptance, the OECD (Q)SAR project has developed various outcomes such as the principles for the validation of (Q)SAR models, guidance documents as well as the QSAR Toolbox."@en ;
+    rdfs:seeAlso <https://www.oecd.org/en/topics/sub-issues/assessment-of-chemicals/quantitative-structure-activity-relationships-project.html> .
+
 
 
 #################################################################

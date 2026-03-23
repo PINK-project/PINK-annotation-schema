@@ -2102,7 +2102,7 @@ where p is the partial pressure of the solute in the gas above the solution, c i
 
 <https://w3id.org/pink/cheminf> a owl:Ontology ;
     dcterms:abstract "The CHEMINF module of PINK Annotation Schema providing a taxonomy for chemical descriptors."@en ;
-    dcterms:title "The CHEMINF module of PINK Annotation Schema"@en ;
+    dcterms:title "CHEMINF terms"@en ;
     owl:versionIRI <https://w3id.org/pink/0.0.1/cheminf> ;
     widoco:introduction """This module is a part of the [PINK Annotation Schema](https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html).A *descriptor* or *indicator* is a property that provides information about the state of a system. It simplifies complex realities into measurable values that can guide decisions.
 
