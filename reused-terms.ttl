@@ -220,78 +220,99 @@ dcterms:LicenseDocument a owl:Class ;
 ### Properties
 
 dcterms:accessRights a owl:ObjectProperty ;
-    skos:prefLabel "accessRights" ;
-    skos:definition "Information about who can access the resource or an indication of its security status." ;
-    vann:usageNote "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies. The following preferred Rights Statement individuals are defined: `accr:PUBLIC`, `accr:NON_PUBLIC`, `accr:CONFIDENTIAL`, `accr:RESTRICTED`, `accr:SENSITIVE`" ;
+    skos:prefLabel "accessRights"@en ;
+    skos:definition "Information about who can access the resource or an indication of its security status."@en ;
+    vann:usageNote "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies. The following preferred Rights Statement individuals are defined: `accr:PUBLIC`, `accr:NON_PUBLIC`, `accr:CONFIDENTIAL`, `accr:RESTRICTED`, `accr:SENSITIVE`"@en ;
     rdfs:domain dcat:Resource ;
-    rdfs:range dcterms:RightsStatement ;
-    dcat:theme ddoc:datadoc .
+    rdfs:range dcterms:RightsStatement .
 
 dcat:accessURL a owl:ObjectProperty ;
-    skos:prefLabel "accessURL" ;
-    skos:definition "A URL that gives access to a Distribution of the Dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred." ;
-    vann:usageNote "The resource at the access URL may contain information about how to get the Dataset." ;
+    skos:prefLabel "accessURL"@en ;
+    skos:definition "A URL that gives access to a Distribution of the Dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred."@en ;
+    vann:usageNote "The resource at the access URL may contain information about how to get the Dataset."@en ;
     rdfs:domain dcat:Distribution ;
-    rdfs:range rdfs:Resource ;
-    dcat:theme ddoc:datadoc .
+    rdfs:range rdfs:Resource .
 
 dcterms:creator a owl:ObjectProperty ;
-    skos:prefLabel "creator" ;
-    skos:definition "An entity responsible for producing the resource." ;
+    skos:prefLabel "creator"@en ;
+    skos:definition "An entity responsible for producing the resource."@en ;
     rdfs:domain dcat:Resource ;
-    rdfs:range foaf:Agent ;
-    dcat:theme ddoc:datadoc .
+    rdfs:range foaf:Agent .
 
 ddoc:curator a owl:ObjectProperty ;
-    skos:prefLabel "curator" ;
-    skos:definition "The agent that curated the resource." ;
-    vann:usageNote "Use `ddoc:curationDate` to refer to the date of curation." ;
+    skos:prefLabel "curator"@en ;
+    skos:definition "The agent that curated the resource."@en ;
+    vann:usageNote "Use `ddoc:curationDate` to refer to the date of curation."@en ;
     rdfs:domain dcat:Resource ;
-    rdfs:range foaf:Agent ;
-    dcat:theme ddoc:datadoc .
+    rdfs:range foaf:Agent .
 
-#dm:datamodelIRI
-#dm:datumName
-#dm:datumType
-#dm:datumUnit
-#dm:datumShape
-#dm:datumDescription
+dm:datamodel a owl:ObjectProperty ;
+    skos:prefLabel "datamodel"@en ;
+    skos:altLabel "datamodelIRI"@en ;
+    skos:definition "URI of a data model describing the datum/properties of a dataset."@en ;
+    rdfs:range dm:DataModel .
+
+dm:datumName a owl:DatatypeProperty ;
+    skos:prefLabel "datumName"@en ;
+    skos:definition "Name of the datum/property."@en ;
+    skos:scopeNote "Typically the variable name used in a program or web interface. A string without spaces."@en ;
+    rdfs:range xsd:string .
+
+dm:datumType a owl:DatatypeProperty ;
+    skos:prefLabel "datumType"@en ;
+    skos:definition "Type of the datum/property."@en ;
+    skos:scopeNote "Use one of bool, int, float, string. For int and float the number of bits can be added. E.g. int32, float64."@en ;
+    rdfs:range xsd:string .
+
+dm:datumUnit a owl:DatatypeProperty ;
+    skos:prefLabel "datumUnit"@en ;
+    skos:definition "Unit of the datum/property."@en ;
+    skos:scopeNote "Use standard SI symbols."@en ;
+    skos:scopeNote "Leave empty if dimensionless."@en ;
+    rdfs:range xsd:string .
+
+dm:datumShape a owl:DatatypeProperty ;
+    skos:prefLabel "datumShape"@en ;
+    skos:definition "Unit of the datum/property."@en ;
+    skos:scopeNote "List of the dimension names if the datum/property is multi-dimensional. Leave empty if it is a scalar."@en ;
+    skos:scopeNote "Leave empty if scalar."@en ;
+    rdfs:range rdf:JSON .
+
+dm:datumDescription a owl:DatatypeProperty ;
+    skos:prefLabel "datumDescription"@en ;
+    skos:definition "Human-readable description of the datum/property."@en ;
+    rdfs:range xsd:string .
 
 skos:definition a owl:AnnotationProperty ;
-    skos:prefLabel "definition" ;
-    skos:definition "A free-text account of the resource." ;
-    vann:usageNote "This property can be repeated for parallel language versions of the description." ;
+    skos:prefLabel "definition"@en ;
+    skos:definition "A free-text account of the resource."@en ;
+    vann:usageNote "This property can be repeated for parallel language versions of the description."@en ;
     rdfs:domain dcat:Resource ;
-    rdfs:range rdf:langString ;
-    dcat:theme ddoc:datadoc .
+    rdfs:range rdf:langString .
 
 dcat:downloadURL a owl:DatatypeProperty ;
-    skos:prefLabel "downloadURL" ;
-    skos:definition "A URL that is a direct link to a downloadable file in a given format. The format is indicated by the distribution's 'dterms:format' and/or 'dcat:mediaType'." ;
+    skos:prefLabel "downloadURL"@en ;
+    skos:definition "A URL that is a direct link to a downloadable file in a given format. The format is indicated by the distribution's 'dterms:format' and/or 'dcat:mediaType'."@en ;
     rdfs:domain dcat:Distribution ;
-    rdfs:range xsd:anyURI ;
-    dcat:theme ddoc:datadoc .
+    rdfs:range xsd:anyURI .
 
 dcterms:format a owl:ObjectProperty ;
-    skos:prefLabel "format" ;
-    skos:definition "The file format of the Distribution." ;
-    vann:usageNote "dcat:mediaType SHOULD be used if the type of the distribution is defined by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)." ;
+    skos:prefLabel "format"@en ;
+    skos:definition "The file format of the Distribution."@en ;
+    vann:usageNote "dcat:mediaType SHOULD be used if the type of the distribution is defined by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)."@en ;
     rdfs:domain dcat:Distribution ;
-    rdfs:range dcterms:MediaTypeOrExtent ;
-    dcat:theme ddoc:datadoc .
+    rdfs:range dcterms:MediaTypeOrExtent .
 
 dcterms:identifier a owl:AnnotationProperty ;
-    skos:prefLabel "identifier" ;
-    skos:definition "URI or other unique identifier of the resource being described." ;
-    vann:usageNote "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs." ;
-    rdfs:domain foaf:Agent ;
-    dcat:theme ddoc:datadoc .
+    skos:prefLabel "identifier"@en ;
+    skos:definition "URI or other unique identifier of the resource being described."@en ;
+    vann:usageNote "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs."@en ;
+    rdfs:domain foaf:Agent .
 
 dcat:keyword a owl:AnnotationProperty ;
-    skos:prefLabel "keyword" ;
-    skos:definition "A keyword or tag describing the resource." ;
-    rdfs:range rdf:langString ;
-    dcat:theme ddoc:datadoc .
+    skos:prefLabel "keyword"@en ;
+    skos:definition "A keyword or tag describing the resource."@en ;
+    rdfs:range rdf:langString .
 
 rdfs:label a rdf:Property ;
         rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
@@ -301,11 +322,10 @@ rdfs:label a rdf:Property ;
         rdfs:range rdfs:Literal .
 
 dcterms:license a owl:ObjectProperty ;
-    skos:prefLabel "license" ;
-    skos:definition "A licence under which the resource is made available." ;
+    skos:prefLabel "license"@en ;
+    skos:definition "A licence under which the resource is made available."@en ;
     rdfs:domain dcat:Resource ;
-    rdfs:range dcterms:LicenseDocument ;
-    dcat:theme ddoc:datadoc .
+    rdfs:range dcterms:LicenseDocument .
 
 dcterms:rightsHolder
     dcam:rangeIncludes dcterms:Agent ;
@@ -317,12 +337,11 @@ dcterms:rightsHolder
     rdfs:label "Rights Holder"@en .
 
 dcterms:issued a owl:DatatypeProperty ;
-    skos:prefLabel "releaseDate" ;
-    skos:altLabel "issued" ;
-    skos:definition "The date of formal issuance (e.g., publication) of the resource." ;
+    skos:prefLabel "releaseDate"@en ;
+    skos:altLabel "issued"@en ;
+    skos:definition "The date of formal issuance (e.g., publication) of the resource."@en ;
     rdfs:domain dcat:Resource ;
-    rdfs:range xsd:dateTime ;
-    dcat:theme ddoc:datadoc .
+    rdfs:range xsd:dateTime .
 
 skos:scopeNote a rdf:Property, owl:AnnotationProperty ;
     rdfs:label "scope note"@en ;
@@ -355,19 +374,17 @@ dcat:theme a rdf:Property, owl:ObjectProperty ;
   skos:scopeNote "The set of skos:Concepts used to categorize the resources are organized in a skos:ConceptScheme describing all the categories and their relations in the catalog."@en .
 
 dcterms:title a owl:AnnotationProperty ;
-    skos:prefLabel "title" ;
-    skos:definition "A name given to the resource." ;
-    vann:usageNote "This property can be repeated for parallel language versions of the name." ;
+    skos:prefLabel "title"@en ;
+    skos:definition "A name given to the resource."@en ;
+    vann:usageNote "This property can be repeated for parallel language versions of the name."@en ;
     rdfs:domain dcat:Resource ;
-    rdfs:range rdf:langString ;
-    dcat:theme ddoc:datadoc .
+    rdfs:range rdf:langString .
 
 dcat:version a owl:AnnotationProperty ;
-    skos:prefLabel "version" ;
-    skos:definition "Version indicator (name or identifier) of a resource." ;
-    vann:usageNote "DCAT does not prescribe how a version name / identifier should be specified, and refers for guidance to [DWBP]'s Best Practice 7: Provide a version indicator." ;
-    rdfs:domain dcat:Resource ;
-    dcat:theme ddoc:datadoc .
+    skos:prefLabel "version"@en ;
+    skos:definition "Version indicator (name or identifier) of a resource."@en ;
+    vann:usageNote "DCAT does not prescribe how a version name / identifier should be specified, and refers for guidance to [DWBP]'s Best Practice 7: Provide a version indicator."@en ;
+    rdfs:domain dcat:Resource .
 
 
 ### Individuals
