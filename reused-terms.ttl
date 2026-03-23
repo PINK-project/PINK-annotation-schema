@@ -225,8 +225,7 @@ dcterms:accessRights a owl:ObjectProperty ;
     vann:usageNote "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies. The following preferred Rights Statement individuals are defined: `accr:PUBLIC`, `accr:NON_PUBLIC`, `accr:CONFIDENTIAL`, `accr:RESTRICTED`, `accr:SENSITIVE`" ;
     rdfs:domain dcat:Resource ;
     rdfs:range dcterms:RightsStatement ;
-    dcat:theme ddoc:datadoc ;
-    ddoc:conformance ddoc:optional .
+    dcat:theme ddoc:datadoc .
 
 dcat:accessURL a owl:ObjectProperty ;
     skos:prefLabel "accessURL" ;
@@ -234,16 +233,14 @@ dcat:accessURL a owl:ObjectProperty ;
     vann:usageNote "The resource at the access URL may contain information about how to get the Dataset." ;
     rdfs:domain dcat:Distribution ;
     rdfs:range rdfs:Resource ;
-    dcat:theme ddoc:datadoc ;
-    ddoc:conformance ddoc:mandatory .
+    dcat:theme ddoc:datadoc .
 
 dcterms:creator a owl:ObjectProperty ;
     skos:prefLabel "creator" ;
     skos:definition "An entity responsible for producing the resource." ;
     rdfs:domain dcat:Resource ;
     rdfs:range foaf:Agent ;
-    dcat:theme ddoc:datadoc ;
-    ddoc:conformance ddoc:optional .
+    dcat:theme ddoc:datadoc .
 
 ddoc:curator a owl:ObjectProperty ;
     skos:prefLabel "curator" ;
@@ -266,16 +263,14 @@ skos:definition a owl:AnnotationProperty ;
     vann:usageNote "This property can be repeated for parallel language versions of the description." ;
     rdfs:domain dcat:Resource ;
     rdfs:range rdf:langString ;
-    dcat:theme ddoc:datadoc ;
-    ddoc:conformance ddoc:mandatory .
+    dcat:theme ddoc:datadoc .
 
 dcat:downloadURL a owl:DatatypeProperty ;
     skos:prefLabel "downloadURL" ;
     skos:definition "A URL that is a direct link to a downloadable file in a given format. The format is indicated by the distribution's 'dterms:format' and/or 'dcat:mediaType'." ;
     rdfs:domain dcat:Distribution ;
     rdfs:range xsd:anyURI ;
-    dcat:theme ddoc:datadoc ;
-    ddoc:conformance ddoc:optional .
+    dcat:theme ddoc:datadoc .
 
 dcterms:format a owl:ObjectProperty ;
     skos:prefLabel "format" ;
@@ -283,16 +278,14 @@ dcterms:format a owl:ObjectProperty ;
     vann:usageNote "dcat:mediaType SHOULD be used if the type of the distribution is defined by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)." ;
     rdfs:domain dcat:Distribution ;
     rdfs:range dcterms:MediaTypeOrExtent ;
-    dcat:theme ddoc:datadoc ;
-    ddoc:conformance ddoc:optional .
+    dcat:theme ddoc:datadoc .
 
 dcterms:identifier a owl:AnnotationProperty ;
     skos:prefLabel "identifier" ;
     skos:definition "URI or other unique identifier of the resource being described." ;
     vann:usageNote "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs." ;
     rdfs:domain foaf:Agent ;
-    dcat:theme ddoc:datadoc ;
-    ddoc:conformance ddoc:optional .
+    dcat:theme ddoc:datadoc .
 
 dcat:keyword a owl:AnnotationProperty ;
     skos:prefLabel "keyword" ;
@@ -312,8 +305,7 @@ dcterms:license a owl:ObjectProperty ;
     skos:definition "A licence under which the resource is made available." ;
     rdfs:domain dcat:Resource ;
     rdfs:range dcterms:LicenseDocument ;
-    dcat:theme ddoc:datadoc ;
-    ddoc:conformance ddoc:optional .
+    dcat:theme ddoc:datadoc .
 
 dcterms:rightsHolder
     dcam:rangeIncludes dcterms:Agent ;
@@ -330,15 +322,20 @@ dcterms:issued a owl:DatatypeProperty ;
     skos:definition "The date of formal issuance (e.g., publication) of the resource." ;
     rdfs:domain dcat:Resource ;
     rdfs:range xsd:dateTime ;
-    dcat:theme ddoc:datadoc ;
-    ddoc:conformance ddoc:optional .
+    dcat:theme ddoc:datadoc .
 
-:scopeNote a rdf:Property,
-        owl:AnnotationProperty ;
+skos:scopeNote a rdf:Property, owl:AnnotationProperty ;
     rdfs:label "scope note"@en ;
     rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
-    rdfs:subPropertyOf :note ;
-    :definition "A note that helps to clarify the meaning and/or the use of a concept."@en .
+    rdfs:subPropertyOf skos:note ;
+    skos:definition "A note that helps to clarify the meaning and/or the use of a concept."@en .
+
+rdfs:seeAlso a rdf:Property ;
+        rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+        rdfs:label "seeAlso" ;
+        rdfs:comment "Further information about the subject resource." ;
+        rdfs:range rdfs:Resource ;
+        rdfs:domain rdfs:Resource .
 
 rdfs:subClassOf a rdf:Property ;
         rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
@@ -352,7 +349,7 @@ dcat:theme a rdf:Property, owl:ObjectProperty ;
   rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
   rdfs:label "theme"@en ;
   rdfs:range skos:Concept ;
-  rdfs:subPropertyOf dct:subject ;
+  rdfs:subPropertyOf dcterms:subject ;
   skos:definition "A main category of the resource. A resource can have multiple themes."@en ;
   skos:editorialNote "Status: English Definition text modified by DCAT revision team, all except for Italian and Czech translations are pending."@en ;
   skos:scopeNote "The set of skos:Concepts used to categorize the resources are organized in a skos:ConceptScheme describing all the categories and their relations in the catalog."@en .
@@ -363,13 +360,43 @@ dcterms:title a owl:AnnotationProperty ;
     vann:usageNote "This property can be repeated for parallel language versions of the name." ;
     rdfs:domain dcat:Resource ;
     rdfs:range rdf:langString ;
-    dcat:theme ddoc:datadoc ;
-    ddoc:conformance ddoc:mandatory .
+    dcat:theme ddoc:datadoc .
 
 dcat:version a owl:AnnotationProperty ;
     skos:prefLabel "version" ;
     skos:definition "Version indicator (name or identifier) of a resource." ;
     vann:usageNote "DCAT does not prescribe how a version name / identifier should be specified, and refers for guidance to [DWBP]'s Best Practice 7: Provide a version indicator." ;
     rdfs:domain dcat:Resource ;
-    dcat:theme ddoc:datadoc ;
-    ddoc:conformance ddoc:optional .
+    dcat:theme ddoc:datadoc .
+
+
+### Individuals
+
+accr:CONFIDENTIAL a dcterms:RightsStatement ;
+    vann:usageNote "Disclosure of this data could cause damage to interested parties such as public administrations and businesses. It may refer to personal and professional information as well as to information in the context of business, commerce or trade."@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Information that is not disclosed."@en ;
+    skos:prefLabel "confidential"@en .
+
+accr:NON_PUBLIC a dcterms:RightsStatement ;
+    vann:usageNote "This category may include resources that contain sensitive or personal information."@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Not publicly accessible for privacy, security or other reasons."@en ;
+    skos:prefLabel "non-public"@en .
+
+accr:PUBLIC a dcterms:RightsStatement ;
+    vann:usageNote "Permissible obstacles include registration and request for API keys, as long as anyone can request such registration and/or API keys."@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Publicly accessible by everyone."@en ;
+    skos:prefLabel "public"@en .
+
+accr:RESTRICTED a dcterms:RightsStatement ;
+    vann:usageNote "This category may include resources that require payment, resources shared under non-disclosure agreements, resources for which the publisher or owner has not yet decided if they can be publicly released."@en ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Only available under certain conditions."@en ;
+    skos:prefLabel "restricted"@en .
+
+accr:SENSITIVE a dcterms:RightsStatement ;
+    rdfs:isDefinedBy <https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/access-right> ;
+    skos:definition "Sensitive non-classified (SNC) information, information whose unauthorised disclosure could cause damage to the Commission or other interested parties such as businesses, companies, intellectual property or personal data but which is not EU classified information."@en ;
+    skos:prefLabel "sensitive"@en .
