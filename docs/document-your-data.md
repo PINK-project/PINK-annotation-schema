@@ -13,7 +13,7 @@ When documenting data, we need to describe both classes (concepts of things) and
 For example, there is a difference between the concept of a pen and one specific pen.
 If I ask my child to bring me a pen, I do not care which pen she brings, but she understands the concept and brings an actual individual pen.
 
-<img src="https://pink-project.github.io/PINK-annotation-schema/docs/figs/pen_concept_individual.png" alt="Cartoon illustrating a request for a pen and the return of an individual pen" width="400"/>
+<img src="https://pink-project.github.io/PINK-annotation-schema/docs/figs/concept_pen_cartoon.png" alt="Cartoon illustrating a request for a pen and the return of an individual pen" width="400"/>
 Figure 1. Cartoon illustrating a request for a pen (concept) and the return of an individual pen. Image created partly with ChatGPT (OpenAI), 2026.
 
 Similarly, we can ask for a specific type of simulation and it can be returned.
