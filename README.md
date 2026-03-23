@@ -42,9 +42,8 @@ The example below shows how one can document a toxicity computation using the PI
 ![Paracetamol-example](docs/figs/paracetamol-example.svg)
 
 
-
-[Background]: ./docs/background.md
-[provenance]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html
+[Background]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html
+[provenance]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#provenance
 [parthood]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#parthood-relations
 [causal]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#causal-relations
 [semiotic]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#semiotic-relations
@@ -61,8 +60,8 @@ The example below shows how one can document a toxicity computation using the PI
 [Turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema.ttl
 [Inferred turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema-inferred.ttl
 
-[PINK classes]: ./docs/classes.md
-[pink_annotation_schema.ttl]: ./pink_annotation_schema.ttl
+[PINK classes]: https://pink-project.github.io/PINK-annotation-schema/docs/classes.md
+[pink_annotation_schema.ttl]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema.ttl
 [Zaccarini *et. al.*]: https://ebooks.iospress.nl/doi/10.3233/FAIA231120
 [semiotic]: https://plato.stanford.edu/entries/peirce-semiotics/
 [DCAT-AP 3.0.1]: https://semiceu.github.io/DCAT-AP/releases/3.0.1/
