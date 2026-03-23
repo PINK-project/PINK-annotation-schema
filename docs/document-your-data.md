@@ -13,14 +13,14 @@ When documenting data, we need to describe both classes (concepts of things) and
 For example, there is a difference between the concept of a pen and one specific pen.
 If I ask my child to bring me a pen, I do not care which pen she brings, but she understands the concept and brings an actual individual pen.
 
-<img src="figs/pen_concept_individual.png" alt="Cartoon illustrating a request for a pen and the return of an individual pen" width="400"/>
+<img src="https://pink-project.github.io/PINK-annotation-schema/docs/figs/pen_concept_individual.png" alt="Cartoon illustrating a request for a pen and the return of an individual pen" width="400"/>
 Figure 1. Cartoon illustrating a request for a pen (concept) and the return of an individual pen. Image created partly with ChatGPT (OpenAI), 2026.
 
 Similarly, we can ask for a specific type of simulation and it can be returned.
 Even better we can connect various concepts together and for instance create
 workflows that connects datasets and simulations.
 
-<img src="figs/connected_concepts.png" alt="Concepts of datasets and simulations can be connected together in a workflow because we have documented what the inputs and outputs of the various simulations are." width="400"/>
+<img src="https://pink-project.github.io/PINK-annotation-schema/docs/figs/connected_concepts.png" alt="Concepts of datasets and simulations can be connected together in a workflow because we have documented what the inputs and outputs of the various simulations are." width="400"/>
 Figure 2. Concepts of datasets and simulations can be connected together in a workflow because
 we have documented what the inputs and outputs of the various simulations are.  
 
@@ -42,7 +42,7 @@ How to construct the tables:
 - For both classes and individuals, there are columns for the properties that we want to document (for example, label, description, hasInput, hasOutput, etc.).
   The properties that we want to document depend on the type of resource we are documenting and the use case we have in mind.
   The Object Properties, Annotation Properties and Data Properties in the PINK Annotation Schema are a good starting point for deciding which properties to document for each resource.
-  They can be found in the [Reference Documentation of the PINK Annotation Schema].
+  They can be found in the [Reference Documentation].
   (In the google spread sheets, the columns are filled with chosen properties.)
 - The values in the table should be filled according to the definitions of the properties in the PINK Annotation Schema.
     - All annotation properties should be filled with a literal value (for example, a string or a number).
@@ -61,7 +61,7 @@ How to construct the tables:
 
 | @id | title | hasInput | hasOutput | subClassOf | @type |
 |---|---|---|---|---|---|
-| pink:activity_qsar_prediction | QSAR prediction workflow | datasettype:ToxicityDataset | datasettype:ToxicityDataset | pink:Computation | owl:Class |
+| pink:activity_qsar_prediction | QSAR prediction | datasettype:ToxicityDataset | datasettype:ToxicityDataset | pink:Computation | owl:Class |
 | pink:activity_screening | Screening workflow | datasettype:ExposureDataset | datasettype:ToxicityDataset | pink:Computation | owl:Class |
 
 ### 3. Software table (individual documentation)
@@ -86,4 +86,4 @@ How to construct the tables:
 | https://example.org/dataset/exposure-001 | pink:Dataset | My exposure dataset@en | Exposure observations collected in 2025.@en | https://example.org/org/acme-lab |
 
 
-[Reference Documentation of the PINK Annotation Schema](https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema.html)
+[Reference Documentation]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema.html
