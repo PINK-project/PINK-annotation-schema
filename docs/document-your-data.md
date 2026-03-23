@@ -62,7 +62,7 @@ How to construct the tables:
 | @id | title | hasInput | hasOutput | subClassOf | @type |
 |---|---|---|---|---|---|
 | pink:activity_qsar_prediction | QSAR prediction | datasettype:ToxicityDataset | datasettype:ToxicityDataset | pink:Computation | owl:Class |
-| pink:activity_screening | Screening workflow | datasettype:ExposureDataset | datasettype:ToxicityDataset | pink:Computation | owl:Class |
+| pink:activity_screening | Activity Screening | datasettype:ExposureDataset | datasettype:ToxicityDataset | pink:Computation | owl:Class |
 
 ### 3. Software table (individual documentation)
 
