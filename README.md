@@ -44,22 +44,22 @@ The example below shows how one can document a toxicity computation using the PI
 
 
 [Background]: ./docs/background.md
-[provenance]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html
-[parthood]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#parthood-relations
-[causal]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#causal-relations
-[semiotic]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#semiotic-relations
-[Class-level]: https://pink-project.github.io/PINK-annotation-schema/docs/background.html#class-level-documentation
-[Guiding principles]: https://pink-project.github.io/PINK-annotation-schema/docs/guiding-principles.html
-[Matter module]: https://pink-project.github.io/PINK-annotation-schema/docs/matter.html
-[Models module]: https://pink-project.github.io/PINK-annotation-schema/docs/models.html
+[provenance]: ./docs/background.html
+[parthood]: ./docs/background.html#parthood-relations
+[causal]: ./docs/background.html#causal-relations
+[semiotic]: ./docs/background.html#semiotic-relations
+[Class-level]: ./docs/background.html#class-level-documentation
+[Guiding principles]: ./docs/guiding-principles.html
+[Matter module]: ./docs/matter.html
+[Models module]: ./docs/models.html
 
-[PINK Annotation Schema]: https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html
-[Reused terms]: https://pink-project.github.io/PINK-annotation-schema/widoco-reused-terms/index-en.html
-[Matter]: https://pink-project.github.io/PINK-annotation-schema/widoco-matter/index-en.html
-[Models]: https://pink-project.github.io/PINK-annotation-schema/widoco-models/index-en.html
-[CHEMINF descriptors]: https://pink-project.github.io/PINK-annotation-schema/widoco-cheminf/index-en.html
-[Turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema.ttl
-[Inferred turtle file]: https://pink-project.github.io/PINK-annotation-schema/pink_annotation_schema-inferred.ttl
+[PINK Annotation Schema]: ./widoco/index-en.html
+[Reused terms]: ./widoco-reused-terms/index-en.html
+[Matter]: ./widoco-matter/index-en.html
+[Models]: ./widoco-models/index-en.html
+[CHEMINF descriptors]: ./widoco-cheminf/index-en.html
+[Turtle file]: ./pink_annotation_schema.ttl
+[Inferred turtle file]: ./pink_annotation_schema-inferred.ttl
 
 [PINK classes]: ./docs/classes.md
 [pink_annotation_schema.ttl]: ./pink_annotation_schema.ttl
