@@ -178,7 +178,7 @@ dcterms:creator a owl:ObjectProperty ;
     ddoc:conformance ddoc:optional .
 
 skos:definition a owl:AnnotationProperty ;
-    skos:prefLabel "description" ;
+    skos:prefLabel "definition" ;
     skos:definition "A free-text account of the resource." ;
     vann:usageNote "This property can be repeated for parallel language versions of the description." ;
     rdfs:domain dcat:Resource ;
@@ -221,6 +221,7 @@ dcterms:isReferencedBy a owl:ObjectProperty ;
 
 dcterms:issued a owl:DatatypeProperty ;
     skos:prefLabel "releaseDate" ;
+    skos:altLabel "issued" ;
     skos:definition "The date of formal issuance (e.g., publication) of the resource." ;
     rdfs:domain dcat:Resource ;
     rdfs:range xsd:dateTime ;

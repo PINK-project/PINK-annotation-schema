@@ -13,6 +13,7 @@
 @prefix pav: <http://purl.org/pav/> .
 @prefix accr: <http://publications.europa.eu/resource/authority/access-right/> .
 @prefix ddoc: <https://w3id.org/emmo/application/datadoc#> .
+@prefix dm: <https://w3id.org/emmo/domain/datamodel#> .
 @prefix pink: <https://w3id.org/pink#> .
 
 <https://w3id.org/pink/reused-terms> rdf:type owl:Ontology ;
@@ -22,38 +23,39 @@
     dcterms:abstract "Terms from standard vocabularies reused by the PINK Annotation Schema. These are not changed in PINK. When additional semantics is desired, they are subclassed to new entities in the PINK Ontology."@en .
 
 ### PROV-O annotations
-prov:category
-    a owl:AnnotationProperty ;
-    rdfs:comment "Classify prov-o terms into three categories, including 'starting-point', 'qualifed', and 'extended'. This classification is used by the prov-o html document to gently introduce prov-o terms to its users. "@en ;
-    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
 
-prov:component
-    a owl:AnnotationProperty ;
-    rdfs:comment "Classify prov-o terms into six components according to prov-dm, including 'agents-responsibility', 'alternate', 'annotations', 'collections', 'derivations', and 'entities-activities'. This classification is used so that readers of prov-o specification can find its correspondence with the prov-dm specification."@en ;
-    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+# prov:category
+#     a owl:AnnotationProperty ;
+#     rdfs:comment "Classify prov-o terms into three categories, including 'starting-point', 'qualifed', and 'extended'. This classification is used by the prov-o html document to gently introduce prov-o terms to its users. "@en ;
+#     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
 
-prov:constraints
-    a owl:AnnotationProperty ;
-    rdfs:comment "A reference to the principal section of the PROV-CONSTRAINTS document that describes this concept."@en ;
-    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-    rdfs:subPropertyOf rdfs:seeAlso .
+# prov:component
+#     a owl:AnnotationProperty ;
+#     rdfs:comment "Classify prov-o terms into six components according to prov-dm, including 'agents-responsibility', 'alternate', 'annotations', 'collections', 'derivations', and 'entities-activities'. This classification is used so that readers of prov-o specification can find its correspondence with the prov-dm specification."@en ;
+#     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
 
-prov:definition
-    a owl:AnnotationProperty ;
-    rdfs:comment "A definition quoted from PROV-DM or PROV-CONSTRAINTS that describes the concept expressed with this OWL term."@en ;
-    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
+# prov:constraints
+#     a owl:AnnotationProperty ;
+#     rdfs:comment "A reference to the principal section of the PROV-CONSTRAINTS document that describes this concept."@en ;
+#     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+#     rdfs:subPropertyOf rdfs:seeAlso .
 
-prov:dm
-    a owl:AnnotationProperty ;
-    rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
-    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-    rdfs:subPropertyOf rdfs:seeAlso .
+# prov:definition
+#     a owl:AnnotationProperty ;
+#     rdfs:comment "A definition quoted from PROV-DM or PROV-CONSTRAINTS that describes the concept expressed with this OWL term."@en ;
+#     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> .
 
-prov:n
-    a owl:AnnotationProperty ;
-    rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
-    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-    rdfs:subPropertyOf rdfs:seeAlso .
+# prov:dm
+#     a owl:AnnotationProperty ;
+#     rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
+#     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+#     rdfs:subPropertyOf rdfs:seeAlso .
+
+# prov:n
+#     a owl:AnnotationProperty ;
+#     rdfs:comment "A reference to the principal section of the PROV-DM document that describes this concept."@en ;
+#     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+#     rdfs:subPropertyOf rdfs:seeAlso .
 
 prov:used a owl:ObjectProperty ;
     rdfs:comment "A prov:Entity that was used by this prov:Activity. For example, :baking prov:used :spoon, :egg, :oven ."@en ;
@@ -203,3 +205,171 @@ dcat:Resource a owl:Class ;
     rdfs:comment "Resource published or curated by a single agent."@en ;
     rdfs:label "Resource"@en ;
     skos:scopeNote "The class of all catalogued resources, the Superclass of dcat:Dataset, dcat:DataService, dcat:Catalog and any other member of a dcat:Catalog. This class carries properties common to all catalogued resources, including datasets and data services. The instances of this class SHOULD be included in a catalog. The instances of this class SHOULD be included in a catalog. It is strongly recommended to use a more specific sub-class. When describing a resource which is not a dcat:Dataset or dcat:DataService, it is recommended to create a suitable sub-class of dcat:Resource, or use dcat:Resource with the dcterms:type property to indicate the specific type."@en .
+
+
+# -------------------------------------
+# Other reused terms (copied from ddoc)
+# -------------------------------------
+
+### Classes
+
+dcterms:LicenseDocument a owl:Class ;
+    rdfs:comment "A legal document giving official permission to do something with a resource." .
+
+
+### Properties
+
+dcterms:accessRights a owl:ObjectProperty ;
+    skos:prefLabel "accessRights" ;
+    skos:definition "Information about who can access the resource or an indication of its security status." ;
+    vann:usageNote "Access Rights may include information regarding access or restrictions based on privacy, security, or other policies. The following preferred Rights Statement individuals are defined: `accr:PUBLIC`, `accr:NON_PUBLIC`, `accr:CONFIDENTIAL`, `accr:RESTRICTED`, `accr:SENSITIVE`" ;
+    rdfs:domain dcat:Resource ;
+    rdfs:range dcterms:RightsStatement ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:accessURL a owl:ObjectProperty ;
+    skos:prefLabel "accessURL" ;
+    skos:definition "A URL that gives access to a Distribution of the Dataset. E.g. landing page, feed, SPARQL endpoint. Use for all cases except a simple download link, in which case downloadURL is preferred." ;
+    vann:usageNote "The resource at the access URL may contain information about how to get the Dataset." ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:range rdfs:Resource ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:mandatory .
+
+dcterms:creator a owl:ObjectProperty ;
+    skos:prefLabel "creator" ;
+    skos:definition "An entity responsible for producing the resource." ;
+    rdfs:domain dcat:Resource ;
+    rdfs:range foaf:Agent ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+ddoc:curator a owl:ObjectProperty ;
+    skos:prefLabel "curator" ;
+    skos:definition "The agent that curated the resource." ;
+    vann:usageNote "Use `ddoc:curationDate` to refer to the date of curation." ;
+    rdfs:domain dcat:Resource ;
+    rdfs:range foaf:Agent ;
+    dcat:theme ddoc:datadoc .
+
+#dm:datamodelIRI
+#dm:datumName
+#dm:datumType
+#dm:datumUnit
+#dm:datumShape
+#dm:datumDescription
+
+skos:definition a owl:AnnotationProperty ;
+    skos:prefLabel "definition" ;
+    skos:definition "A free-text account of the resource." ;
+    vann:usageNote "This property can be repeated for parallel language versions of the description." ;
+    rdfs:domain dcat:Resource ;
+    rdfs:range rdf:langString ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:mandatory .
+
+dcat:downloadURL a owl:DatatypeProperty ;
+    skos:prefLabel "downloadURL" ;
+    skos:definition "A URL that is a direct link to a downloadable file in a given format. The format is indicated by the distribution's 'dterms:format' and/or 'dcat:mediaType'." ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:range xsd:anyURI ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:format a owl:ObjectProperty ;
+    skos:prefLabel "format" ;
+    skos:definition "The file format of the Distribution." ;
+    vann:usageNote "dcat:mediaType SHOULD be used if the type of the distribution is defined by [IANA](https://www.w3.org/TR/vocab-dcat-3/#bib-iana-media-types)." ;
+    rdfs:domain dcat:Distribution ;
+    rdfs:range dcterms:MediaTypeOrExtent ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:identifier a owl:AnnotationProperty ;
+    skos:prefLabel "identifier" ;
+    skos:definition "URI or other unique identifier of the resource being described." ;
+    vann:usageNote "Recommended practice is to identify the resource by means of a string conforming to an identification system. Examples include International Standard Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name (URN).  Persistent identifiers should be provided as HTTP URIs." ;
+    rdfs:domain foaf:Agent ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcat:keyword a owl:AnnotationProperty ;
+    skos:prefLabel "keyword" ;
+    skos:definition "A keyword or tag describing the resource." ;
+    rdfs:range rdf:langString ;
+    dcat:theme ddoc:datadoc .
+
+rdfs:label a rdf:Property ;
+        rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+        rdfs:label "label" ;
+        rdfs:comment "A human-readable name for the subject." ;
+        rdfs:domain rdfs:Resource ;
+        rdfs:range rdfs:Literal .
+
+dcterms:license a owl:ObjectProperty ;
+    skos:prefLabel "license" ;
+    skos:definition "A licence under which the resource is made available." ;
+    rdfs:domain dcat:Resource ;
+    rdfs:range dcterms:LicenseDocument ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+dcterms:rightsHolder
+    dcam:rangeIncludes dcterms:Agent ;
+    dcterms:description "Recommended practice is to refer to the rights holder with a URI. If this is not possible or feasible, a literal value that identifies the rights holder may be provided."@en ;
+    dcterms:issued "2004-06-14"^^<http://www.w3.org/2001/XMLSchema#date> ;
+    a rdf:Property ;
+    rdfs:comment "A person or organization owning or managing rights over the resource."@en ;
+    rdfs:isDefinedBy <http://purl.org/dc/terms/> ;
+    rdfs:label "Rights Holder"@en .
+
+dcterms:issued a owl:DatatypeProperty ;
+    skos:prefLabel "releaseDate" ;
+    skos:altLabel "issued" ;
+    skos:definition "The date of formal issuance (e.g., publication) of the resource." ;
+    rdfs:domain dcat:Resource ;
+    rdfs:range xsd:dateTime ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
+
+:scopeNote a rdf:Property,
+        owl:AnnotationProperty ;
+    rdfs:label "scope note"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+    rdfs:subPropertyOf :note ;
+    :definition "A note that helps to clarify the meaning and/or the use of a concept."@en .
+
+rdfs:subClassOf a rdf:Property ;
+        rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+        rdfs:label "subClassOf" ;
+        rdfs:comment "The subject is a subclass of a class." ;
+        rdfs:range rdfs:Class ;
+        rdfs:domain rdfs:Class .
+
+dcat:theme a rdf:Property, owl:ObjectProperty ;
+  rdfs:comment "A main category of the resource. A resource can have multiple themes."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "theme"@en ;
+  rdfs:range skos:Concept ;
+  rdfs:subPropertyOf dct:subject ;
+  skos:definition "A main category of the resource. A resource can have multiple themes."@en ;
+  skos:editorialNote "Status: English Definition text modified by DCAT revision team, all except for Italian and Czech translations are pending."@en ;
+  skos:scopeNote "The set of skos:Concepts used to categorize the resources are organized in a skos:ConceptScheme describing all the categories and their relations in the catalog."@en .
+
+dcterms:title a owl:AnnotationProperty ;
+    skos:prefLabel "title" ;
+    skos:definition "A name given to the resource." ;
+    vann:usageNote "This property can be repeated for parallel language versions of the name." ;
+    rdfs:domain dcat:Resource ;
+    rdfs:range rdf:langString ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:mandatory .
+
+dcat:version a owl:AnnotationProperty ;
+    skos:prefLabel "version" ;
+    skos:definition "Version indicator (name or identifier) of a resource." ;
+    vann:usageNote "DCAT does not prescribe how a version name / identifier should be specified, and refers for guidance to [DWBP]'s Best Practice 7: Provide a version indicator." ;
+    rdfs:domain dcat:Resource ;
+    dcat:theme ddoc:datadoc ;
+    ddoc:conformance ddoc:optional .
