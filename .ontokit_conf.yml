@@ -12,7 +12,7 @@ BUILD_DIR: build
 #
 # Optional: additional reference indices for `ontokit docs`.
 REFERENCE_INDICES:
-  - ontology_file: build/pink-annotation-schema-squashed.ttl
+  - ontology_file: build/pink_annotation_schema-squashed.ttl
     title: Properties Index
     docfile: properties.rst
     # iri_regex: https://example.org/other
