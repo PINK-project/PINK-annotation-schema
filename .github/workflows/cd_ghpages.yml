@@ -185,7 +185,7 @@ jobs:
       run: |
         mkdir -p build/context
         keywords \
-            --input=build/${ONTOLOGY_NAME}.ttl \
+            --input=build/${ONTOLOGY_NAME}-squashed.ttl \
             --write-context=build/context/${ONTOLOGY_NAME}.jsonld \
             --redefine=allow \
             --set-prefix=emmo:https://w3id.org/emmo/hume# \
@@ -197,7 +197,7 @@ jobs:
       run: |
         mkdir -p build/context
         keywords \
-            --input=build/${ONTOLOGY_NAME}.ttl \
+            --input=build/${ONTOLOGY_NAME}-squashed.ttl \
             --write-kw-yaml=build/context/keywords.yaml \
             --redefine=allow \
             --set-prefix=emmo:https://w3id.org/emmo/hume# \
