@@ -179,7 +179,7 @@ jobs:
 
     - name: Include Markdown documentation on gh-pages
       run: |
-        cp -r docs build/ .
+        cp -r docs build/
 
     - name: Generate JSON-LD context
       run: |
