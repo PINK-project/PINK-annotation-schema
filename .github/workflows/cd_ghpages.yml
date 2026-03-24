@@ -1,10 +1,15 @@
 name: Deploy on GitHub Pages
 
+# Only run this workflow on push to a release branch or master
+#on: push
 on:
   push:
     branches:
+      - '[0-9]+.[0-9]+.[0-9]+'
+      - '[0-9]+.[0-9]+.[0-9]+-*'
+      - master
       - main
-      - reference_documentaiton
+      - ontokit_dev
 
 permissions:
   contents: write
@@ -17,18 +22,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: 3.13
-
-    - name: Install EMMOntoPy and tripper
-      run: |
-        pip install --upgrade pip
-        pip install \
-            "EMMOntoPy[ontodoc,ontokit] @ git+https://github.com/emmo-repo/EMMOntoPy.git@ontokit_dev" \
-            "tripper[datadoc] @ git+https://github.com/EMMC-ASBL/tripper.git@master"
 
     - name: Load ontokit configuration
       run: |
@@ -46,6 +39,17 @@ jobs:
           echo "${key}=${value}" >> "$GITHUB_ENV"
         done
 
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.13
+
+    - name: Install EMMOntoPy and tripper
+      run: |
+        pip install --upgrade pip
+        pip install \
+            "EMMOntoPy[ontodoc,ontokit] @ git+https://github.com/emmo-repo/EMMOntoPy.git@factor_out_reference_documentation" \
+            "tripper[datadoc] @ git+https://github.com/EMMC-ASBL/tripper.git@master"
 
     - name: List installed Python modules
       run: |
@@ -63,6 +67,11 @@ jobs:
     - name: Download Widoco
       run: |
         wget --quiet https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-17.jar
+
+    - name: Copy readme and license files to gh-pages
+      run: |
+        mkdir -p "${BUILD_DIR}"
+        cp README.md LICENSE "${BUILD_DIR}/."
 
     - name: Copy documentation to gh-pages
       run: |
@@ -118,10 +127,6 @@ jobs:
             -includeImportedOntologies \
             -licensius \
             -includeAnnotationProperties
-
-    - name: Include Markdown documentation on gh-pages
-      run: |
-        cp -r docs build/.
 
     - name: Generate Widoco documentation for ddoc terms
       run: |
