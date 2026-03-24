@@ -316,12 +316,12 @@ dcat:keyword a owl:AnnotationProperty ;
     skos:definition "A keyword or tag describing the resource."@en ;
     rdfs:range rdf:langString .
 
-#rdfs:label a rdf:Property ;
-#        rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
-#        rdfs:label "label" ;
-#        rdfs:comment "A human-readable name for the subject." ;
-#        rdfs:domain rdfs:Resource ;
-#        rdfs:range rdfs:Literal .
+rdfs:label a owl:AnnotationProperty ;
+        rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+        rdfs:label "label" ;
+        rdfs:comment "A human-readable name for the subject." ;
+        rdfs:domain rdfs:Resource ;
+        rdfs:range rdfs:Literal .
 
 dcterms:license a owl:ObjectProperty ;
     skos:prefLabel "license"@en ;
@@ -329,35 +329,35 @@ dcterms:license a owl:ObjectProperty ;
     rdfs:domain dcat:Resource ;
     rdfs:range dcterms:LicenseDocument .
 
-#skos:scopeNote a rdf:Property, owl:AnnotationProperty ;
-#    rdfs:label "scope note"@en ;
-#    rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
-#    rdfs:subPropertyOf skos:note ;
-#    skos:definition "A note that helps to clarify the meaning and/or the use of a concept."@en .
+skos:scopeNote a owl:AnnotationProperty ;
+    rdfs:label "scope note"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+    rdfs:subPropertyOf skos:note ;
+    skos:definition "A note that helps to clarify the meaning and/or the use of a concept."@en .
 
-#rdfs:seeAlso a rdf:Property ;
-#        rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
-#        rdfs:label "seeAlso" ;
-#        rdfs:comment "Further information about the subject resource." ;
-#        rdfs:range rdfs:Resource ;
-#        rdfs:domain rdfs:Resource .
+rdfs:seeAlso a owl:ObjectProperty ;
+        rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+        rdfs:label "seeAlso" ;
+        rdfs:comment "Further information about the subject resource." ;
+        rdfs:range rdfs:Resource ;
+        rdfs:domain rdfs:Resource .
 
-#rdfs:subClassOf a rdf:Property ;
-#        rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
-#        rdfs:label "subClassOf" ;
-#        rdfs:comment "The subject is a subclass of a class." ;
-#        rdfs:range rdfs:Class ;
-#        rdfs:domain rdfs:Class .
+rdfs:subClassOf a owl:ObjectProperty ;
+        rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+        rdfs:label "subClassOf" ;
+        rdfs:comment "The subject is a subclass of a class." ;
+        rdfs:range rdfs:Class ;
+        rdfs:domain rdfs:Class .
 
-#dcat:theme a rdf:Property, owl:ObjectProperty ;
-#  rdfs:comment "A main category of the resource. A resource can have multiple themes."@en ;
-#  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
-#  rdfs:label "theme"@en ;
-#  rdfs:range skos:Concept ;
-#  rdfs:subPropertyOf dcterms:subject ;
-#  skos:definition "A main category of the resource. A resource can have multiple themes."@en ;
-#  skos:editorialNote "Status: English Definition text modified by DCAT revision team, all except for Italian and Czech translations are pending."@en ;
-#  skos:scopeNote "The set of skos:Concepts used to categorize the resources are organized in a skos:ConceptScheme describing all the categories and their relations in the catalog."@en .
+dcat:theme a owl:ObjectProperty ;
+  rdfs:comment "A main category of the resource. A resource can have multiple themes."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/TR/vocab-dcat/> ;
+  rdfs:label "theme"@en ;
+  rdfs:range skos:Concept ;
+  rdfs:subPropertyOf dcterms:subject ;
+  skos:definition "A main category of the resource. A resource can have multiple themes."@en ;
+  skos:editorialNote "Status: English Definition text modified by DCAT revision team, all except for Italian and Czech translations are pending."@en ;
+  skos:scopeNote "The set of skos:Concepts used to categorize the resources are organized in a skos:ConceptScheme describing all the categories and their relations in the catalog."@en .
 
 dcterms:title a owl:AnnotationProperty ;
     skos:prefLabel "title"@en ;
