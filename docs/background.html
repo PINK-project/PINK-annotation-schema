@@ -1,0 +1,671 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Background &#8212; Pink_annotation_schema Ontology</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=51c7ce8c" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/background';</script>
+    <script src="../_static/toc-collapsible.js?v=769080df"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Pink_annotation_schema Ontology</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../pink_annotation_schema.html">
+    Reference Index
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/PINK-project/PINK-annotation-schema" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://w3id.org/pink" title="Ontology Homepage" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-globe fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Ontology Homepage</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://PINK-project.github.io/PINK-annotation-schema/widoco/index-en.html" title="WIDOCO Documentation" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-file-lines fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">WIDOCO Documentation</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../pink_annotation_schema.html">
+    Reference Index
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/PINK-project/PINK-annotation-schema" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://w3id.org/pink" title="Ontology Homepage" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-globe fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Ontology Homepage</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://PINK-project.github.io/PINK-annotation-schema/widoco/index-en.html" title="WIDOCO Documentation" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-file-lines fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">WIDOCO Documentation</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#provenance">Provenance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-workflows-with-spatial-and-temporal-parts">Complex workflows with spatial and temporal parts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#taxonomy">Taxonomy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relations">Relations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parthood-relations">Parthood relations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#causal-relations">Causal relations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semiotic-relations">Semiotic relations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-level-documentation">Class-level documentation</a></li>
+</ul>
+  </nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Background</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="background">
+<h1>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h1>
+<section id="provenance">
+<h2>Provenance<a class="headerlink" href="#provenance" title="Link to this heading">#</a></h2>
+<p>The provenance description in PINK is based on <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a>.</p>
+<p>For more accurate descriptions of complex workflows involving spatial and temporal parts, PINK suggests an enhanced formalism.</p>
+<p>A textual description of the provenance can be provided with <code class="docutils literal notranslate"><span class="pre">dcterms:provenance</span></code>.
+However, for a semantic provenance description <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> should be used (since <code class="docutils literal notranslate"><span class="pre">dcterms:provenance</span></code> has no agreed semantics as discussed by <a class="reference external" href="https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/solution/dcat-application-profile-implementation-guidelines/release-5">DCAT-AP</a>).</p>
+<p>The basic building block of a provenance description is a <code class="docutils literal notranslate"><span class="pre">prov:Activity</span></code> with <code class="docutils literal notranslate"><span class="pre">prov:Entity</span></code> as input and output:</p>
+<p><img alt="General activity" src="../_images/general-activity.png" /></p>
+<p>As shown in the taxonomy, this general process can be sub-categorised according to its input and output:</p>
+<p><img alt="Categorised activities" src="../_images/categorised-activities.png" /></p>
+<p>Traceability can be achieved by connecting a series (or network) of these basic building blocks.</p>
+<!-- When two or more intentionally planned processes are connected this way, we call it a *workflow*. -->
+<p>By providing additional knowledge to the various process steps we get <em>provenance</em>.
+The figure below shows an example of a simple provenance graph, that combines three processes with some additional annotations.</p>
+<p><img alt="Provenance" src="../_images/provenance.png" /></p>
+<section id="complex-workflows-with-spatial-and-temporal-parts">
+<h3>Complex workflows with spatial and temporal parts<a class="headerlink" href="#complex-workflows-with-spatial-and-temporal-parts" title="Link to this heading">#</a></h3>
+<p>An important aspect of provenance is to keep track on how a sample e.g. is cut into several specimens and how the specimens later may be joined in new configurations.
+Likewise, how a material is changed during a process or part of a process.</p>
+<p>The figure below shows a material process (<code class="docutils literal notranslate"><span class="pre">p</span></code>) that changes a material (<code class="docutils literal notranslate"><span class="pre">m</span></code>).
+The input and output of the material process are the temporal parts (<code class="docutils literal notranslate"><span class="pre">m1</span></code> and <code class="docutils literal notranslate"><span class="pre">m2</span></code>) of the material, respectively.
+The material process is driven by an agent (<code class="docutils literal notranslate"><span class="pre">a</span></code>), who’s temporal part (<code class="docutils literal notranslate"><span class="pre">a1</span></code>) is a participant (i.e. has an active role) in the process.</p>
+<p><img alt="Material process" src="../_images/material-process.png" /></p>
+<p>Concepts belonging to the PINK namespace in the figure above have been written in cursive.</p>
+<p>Given the network of <code class="docutils literal notranslate"><span class="pre">:used</span></code> and <code class="docutils literal notranslate"><span class="pre">:wasInformedBy</span></code> relations, it is possible to infer <code class="docutils literal notranslate"><span class="pre">:wasInformedBy</span></code> and <code class="docutils literal notranslate"><span class="pre">:wasDerivedFrom</span></code> relations.
+This is done by the reasoner (using <a class="reference external" href="https://www.w3.org/submissions/SWRL/">SWRL</a> rules that are added in [pink_annotation_schema.ttl]).</p>
+</section>
+</section>
+<section id="taxonomy">
+<h2>Taxonomy<a class="headerlink" href="#taxonomy" title="Link to this heading">#</a></h2>
+<p>The taxonomy below shows a basic categorisation of the main concepts (OWL classes) in the PINK Annotation Schema.
+It unifies concepts from common vocabularies, like <a class="reference external" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">Dublin Core</a>, <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a>, <a class="reference external" href="https://www.w3.org/TR/vocab-dcat-3/">DCAT</a> and <a class="reference external" href="http://xmlns.com/foaf/spec/">FOAF</a>.
+This gives the adapted terms additional context.
+However, the taxonomy is intentionally weekly axiomated in order to facilitate alignment to different popular top-level ontologies, like <a class="reference external" href="https://emmc.eu/emmo/">EMMO</a>, <a class="reference external" href="https://www.loa.istc.cnr.it/dolce/overview.html">DOLCE</a> and <a class="reference external" href="https://basic-formal-ontology.org/">BFO</a>.</p>
+<p><img alt="Taxonomy" src="../_images/taxonomy.svg" /></p>
+<p>At the top-level, the PINK Annotation Schema has the three root concepts from <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a>:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">prov:Entity</span></code></strong>: A physical, digital, conceptual, or other kind of thing with some fixed aspects.
+<a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> lacks the accuracy of nominalism and allows both real and imaginary entities.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">prov:Activity</span></code></strong>: Something that occurs over a period of time and acts upon or with entities.
+Hence, its individuals have some temporal parts (that are not of the same type as the activity itself).
+An activity may include consuming, processing, transforming, modifying, relocating, using, or generating entities.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">foaf:Agent</span></code></strong>: A thing that does stuff (like person, group, software or physical artifact).
+The <a class="reference external" href="http://xmlns.com/foaf/spec/">FOAF</a> specification of a <em>agent</em> is very loose.
+The subclass <code class="docutils literal notranslate"><span class="pre">prov:Agent</span></code> provides further context, by saying that a <code class="docutils literal notranslate"><span class="pre">prov:agent</span></code> bears some form of responsibility for an activity, the existence of an entity or the activity of another agent.</p></li>
+</ul>
+<p>See the <a class="reference external" href="https://pink-project.github.io/PINK-annotation-schema/widoco/index-en.html">reference documentation</a>, for a description of all the other concepts.</p>
+</section>
+<section id="relations">
+<h2>Relations<a class="headerlink" href="#relations" title="Link to this heading">#</a></h2>
+<p>The PINK Annotation Schema includes three types of relations: parthood relations, causal relations and semiotic relations.</p>
+<p>The The PINK Annotation Schema incorporate parthood and causal relations from <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> and  <a class="reference external" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">Dublin Core</a> and give them enhanced semantic meaning.
+This is based on the mereocausal theory by <a class="reference external" href="https://ebooks.iospress.nl/doi/10.3233/FAIA231120">Zaccarini <em>et. al.</em></a>, but is simplified and adapted to the needs of PINK.</p>
+<p>For improved semantic expressiveness and to support logical validation, the PINK Annotation Schema adds characteristics to the standard <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> object properties.
+According to the <a class="reference internal" href="guiding-principles.html"><span class="std std-doc">guiding principles</span></a>, the characteristics is added to PINK-specific subproperties of the <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> object properties.
+Such semantically enhanced subclass relations of corresponding <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> and <a class="reference external" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">Dublin Core</a> relations are written in <em>cursive</em> in the figure above.</p>
+<blockquote>
+<div><p>[!TIP]
+Object property chracteristics is explained in the <a class="reference external" href="https://protegeproject.github.io/protege/views/object-property-characteristics/">Protégé documentation</a>.</p>
+<p>Antisymmetric (not included in OWL) is a weaker form of asymmetric: if <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-&gt;</span> <span class="pre">y</span></code>, then <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">-&gt;</span> <span class="pre">x</span></code> if and only if <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code>.
+This is not the case for asymmetric relations, since they exclude the equality <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span></code>.</p>
+</div></blockquote>
+<section id="parthood-relations">
+<h3>Parthood relations<a class="headerlink" href="#parthood-relations" title="Link to this heading">#</a></h3>
+<p><img alt="Parthood relations" src="../_images/parthood-relations.png" /></p>
+<p>The above figure includes graphical illustrations of the parthood relations.
+The colour scheme in these illustrations represents activities in red, entities in blue, agents in green and unspecified nature (activity/entity/agent) in gray.
+The arrow illustrates the direction of the relation.</p>
+</section>
+<section id="causal-relations">
+<h3>Causal relations<a class="headerlink" href="#causal-relations" title="Link to this heading">#</a></h3>
+<p>Causal relations focuses on whether an individual is influenced by another.
+In <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> this is described by the fundamental relation <code class="docutils literal notranslate"><span class="pre">prov:wasInfluencedBy</span></code>.
+In PINK we introduce the toplevel subclass <code class="docutils literal notranslate"><span class="pre">:causedBy</span></code> as a subclass of <code class="docutils literal notranslate"><span class="pre">prov:wasInfluencedBy</span></code>.
+The causal relations currently included in the PINK Annotation Schema are shown in the figure below.
+Most of these relations are indirect causations mediated by an activity.
+These chains of causations have been expressed using <a class="reference external" href="https://www.w3.org/submissions/SWRL/">SWRL</a> rules.
+The relations starting with “:was” are subclasses of the corresponding relations in <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a>.
+The <code class="docutils literal notranslate"><span class="pre">:attributed</span></code> and <code class="docutils literal notranslate"><span class="pre">:wasAttributedTo</span></code> are the inverse of each other.</p>
+<p><img alt="Causal relations" src="../_images/causal-relations.png" /></p>
+</section>
+<section id="semiotic-relations">
+<h3>Semiotic relations<a class="headerlink" href="#semiotic-relations" title="Link to this heading">#</a></h3>
+<p>Semiotic relations take part in a triadic <a class="reference external" href="https://plato.stanford.edu/entries/peirce-semiotics/">semiotic</a> meaning-making process, where an ‘interpreter’ connects a ‘sign’ (e.g. a property) to an entity (called ‘referent’).
+The semiotic relations in the PINK Annotation Scheme are inspirred by EMMO, which in turn is based on the semiotic theory by Charles Sanders Peirce (1839-1914).
+Semiotic relations can be seen as shortcuts that replaces a series of complex causal interactions with a single relation.</p>
+<p><img alt="Semiotic relations" src="../_images/semiotic-relations.svg" /></p>
+<p>An important use of semiotics is to support the scientific view that a property is not an intrinsic quality of an entity, but something that is measured or determined by an interpreter.</p>
+<p>For example, to determine the toxicity of a chemical substance you have to measure (or calculate or estimate) it. And the result depends on how it is measured/calculated/estimated.</p>
+</section>
+</section>
+<section id="class-level-documentation">
+<h2>Class-level documentation<a class="headerlink" href="#class-level-documentation" title="Link to this heading">#</a></h2>
+<p>Provenance is about what has happened. <a class="reference external" href="https://www.w3.org/TR/prov-o/">PROV-O</a> is intended to describe provenance information.
+In PINK we also want to describe general workflows before they are executed.
+That is, to describe something that can happen.</p>
+<p>Since we don’t know whether the workflow actually will be executed, we can’t create individuals for it.
+Hence, what can happen must be described at class level (TBox-level).
+Thus, specific subclasses of prov:Activity are made.</p>
+<p>In Manchester syntax, this may be expressed as follows</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Class: uob:SpecificToxicityComputation
+    subClassOf: pink:Computation
+    subClassOf: pink:hasInput some uob:ToxicityComputationInput
+    subClassOf: pink:hasOutput some uob:ToxicityComputationOutput
+    subClassOf: pink:hasSoftware some uob:ToxicitySoftware
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">uob</span></code> is the prefix of the application ontology defining the computation.</p>
+<p>PINK provides tooling (based on [Tripper]) to help providing class-level documentation.
+This is done the normal way using spreadsheets, but with the <code class="docutils literal notranslate"><span class="pre">&#64;type</span></code> keyword replaced by <code class="docutils literal notranslate"><span class="pre">subClassOf</span></code> (<code class="docutils literal notranslate"><span class="pre">&#64;type</span></code> is implicit and would always be <code class="docutils literal notranslate"><span class="pre">owl:Class</span></code>).
+For example, the above declaration of a computation could provided as follows:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>&#64;id</p></th>
+<th class="head"><p>&#64;type</p></th>
+<th class="head"><p>subClassOf</p></th>
+<th class="head"><p>description</p></th>
+<th class="head"><p>hasSoftware</p></th>
+<th class="head"><p>hasInput</p></th>
+<th class="head"><p>hasOutput</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>uob:SpecificToxicityComputation</p></td>
+<td><p>owl:Class</p></td>
+<td><p>pink:Computiation</p></td>
+<td><p>…</p></td>
+<td><p>uob:ToxicitySoftware</p></td>
+<td><p>uob:ToxicityComputationInput</p></td>
+<td><p>uob:ToxicityComputationOutput</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>where the entries under <code class="docutils literal notranslate"><span class="pre">hasInput</span></code> and <code class="docutils literal notranslate"><span class="pre">hasOutput</span></code> refer to dataset subclasses.
+These dataset classes can be documented in a similar way.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>&#64;id</p></th>
+<th class="head"><p>&#64;type</p></th>
+<th class="head"><p>subClassOf</p></th>
+<th class="head"><p>description</p></th>
+<th class="head"><p>…</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>uob:ToxicityComputationInput</p></td>
+<td><p>owl:Class</p></td>
+<td><p>pink:Dataset</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>uob:ToxicityComputationOutput</p></td>
+<td><p>owl:Class</p></td>
+<td><p>pink:Dataset</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div class="sidebar-secondary-item">
+  <div class="sidebar-secondary-item__title">Reference Indices</div>
+  <ul class="nav bd-sidenav">
+      <li><a href="../pink_annotation_schema.html">Reference Index</a></li>
+      <li><a href="../properties.html">Properties Index</a></li>
+  </ul>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright https://creativecommons.org/licenses/by/4.0/legalcode.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

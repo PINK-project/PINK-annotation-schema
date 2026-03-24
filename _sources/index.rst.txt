@@ -1,0 +1,10 @@
+
+.. toctree::
+   :includehidden:
+   :hidden:
+
+   Reference Index <pink_annotation_schema.rst>
+
+.. include:: ../README.md
+   :parser: myst_parser.sphinx_
+

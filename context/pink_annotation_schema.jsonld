@@ -1,0 +1,3190 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "ddoc": "https://w3id.org/emmo/application/datadoc#",
+    "accr": "http://publications.europa.eu/resource/authority/access-right/",
+    "adms": "http://www.w3.org/ns/adms#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcatap": "http://data.europa.eu/r5r/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dctype": "http://purl.org/dc/dcmitype/",
+    "eli": "http://data.europa.eu/eli/ontology#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "iana": "https://www.iana.org/assignments/media-types/",
+    "locn": "http://www.w3.org/ns/locn#",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "stat": "http://purl.org/adms/status/",
+    "vann": "http://purl.org/vocab/vann/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "avail": "http://publications.europa.eu/resource/authority/planned-availability/",
+    "emmo": "https://w3id.org/emmo/hume#",
+    "oteio": "https://w3id.org/emmo/domain/oteio#",
+    "chameo": "https://w3id.org/emmo/domain/characterisation-methodology/chameo#",
+    "cheminf": "http://semanticscience.org/resource/",
+    "pink": "https://w3id.org/pink#",
+    "xml": "http://www.w3.org/XML/1998/namespace",
+    "brick": "https://brickschema.org/schema/Brick#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "org": "http://www.w3.org/ns/org#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "qb": "http://purl.org/linked-data/cube#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "time": "http://www.w3.org/2006/time#",
+    "void": "http://rdfs.org/ns/void#",
+    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "ns1": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns2": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns3": "http://purl.obolibrary.org/obo/",
+    "ns4": "http://www.geneontology.org/formats/oboInOwl#",
+    "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
+    "swrl": "http://www.w3.org/2003/11/swrl#",
+    "vidoco": "https://w3id.org/widoco/vocab#",
+    "accessRights": {
+      "@id": "dcterms:accessRights",
+      "@type": "@id"
+    },
+    "applicableLegislation": {
+      "@id": "dcatap:applicableLegislation",
+      "@type": "@id"
+    },
+    "conformsTo": {
+      "@id": "dcterms:conformsTo",
+      "@type": "@id"
+    },
+    "contactPoint": {
+      "@id": "dcat:contactPoint",
+      "@type": "@id"
+    },
+    "contributor": {
+      "@id": "dcterms:contributor",
+      "@type": "@id"
+    },
+    "creationDate": {
+      "@id": "dcterms:created",
+      "@type": "xsd:dateTime"
+    },
+    "creator": {
+      "@id": "dcterms:creator",
+      "@type": "@id"
+    },
+    "curationDate": {
+      "@id": "ddoc:curationDate",
+      "@type": "@id"
+    },
+    "curator": {
+      "@id": "ddoc:curator",
+      "@type": "@id"
+    },
+    "definition": {
+      "@id": "prov:definition",
+      "@language": "en"
+    },
+    "description": {
+      "@id": "dcterms:description",
+      "@language": "en"
+    },
+    "documentation": {
+      "@id": "pink:documentation",
+      "@type": "@id"
+    },
+    "hasPart": "pink:hasPart",
+    "hasVersion": {
+      "@id": "dcat:hasVersion",
+      "@type": "@id"
+    },
+    "identifier": "dcterms:identifier",
+    "isReferencedBy": {
+      "@id": "dcterms:isReferencedBy",
+      "@type": "@id"
+    },
+    "keyword": {
+      "@id": "dcat:keyword",
+      "@language": "en"
+    },
+    "landingPage": {
+      "@id": "dcat:landingPage",
+      "@type": "@id"
+    },
+    "language": {
+      "@id": "dcterms:language",
+      "@type": "xsd:string"
+    },
+    "license": {
+      "@id": "dcterms:license",
+      "@type": "@id"
+    },
+    "modificationDate": {
+      "@id": "dcterms:modified",
+      "@type": "xsd:dateTime"
+    },
+    "publisher": {
+      "@id": "dcterms:publisher",
+      "@type": "@id"
+    },
+    "qualifiedAttribution": {
+      "@id": "prov:qualifiedAttribution",
+      "@type": "@id"
+    },
+    "qualifiedRelation": {
+      "@id": "dcat:qualifiedRelation",
+      "@type": "@id"
+    },
+    "relatedResource": {
+      "@id": "dcterms:relation",
+      "@type": "@id"
+    },
+    "releaseDate": {
+      "@id": "dcterms:issued",
+      "@type": "xsd:dateTime"
+    },
+    "theme": {
+      "@id": "dcat:theme",
+      "@type": "@id"
+    },
+    "title": {
+      "@id": "dcterms:title",
+      "@language": "en"
+    },
+    "type": {
+      "@id": "dcterms:type",
+      "@type": "@id"
+    },
+    "version": "dcat:version",
+    "versionNotes": "adms:versionNotes",
+    "abstract": {
+      "@id": "dcterms:abstract",
+      "@language": "en"
+    },
+    "bibliographicCitation": "dcterms:bibliographicCitation",
+    "comment": "rdfs:comment",
+    "conceptualisation": {
+      "@id": "emmo:EMMO_31252f35_c767_4b97_a877_1235076c3e13",
+      "@language": "en"
+    },
+    "conformance": {
+      "@id": "ddoc:conformance",
+      "@type": "@id"
+    },
+    "deprecated": {
+      "@id": "owl:deprecated",
+      "@type": "xsd:boolean"
+    },
+    "domain": {
+      "@id": "rdfs:domain",
+      "@type": "@id"
+    },
+    "elucidation": {
+      "@id": "emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9",
+      "@language": "en"
+    },
+    "hiddenLabel": {
+      "@id": "skos:hiddenLabel",
+      "@language": "en"
+    },
+    "isDefinedBy": {
+      "@id": "rdfs:isDefinedBy",
+      "@type": "@id"
+    },
+    "label": "rdfs:label",
+    "prefLabel": {
+      "@id": "skos:prefLabel",
+      "@language": "en"
+    },
+    "range": {
+      "@id": "rdfs:range",
+      "@type": "@id"
+    },
+    "seeAlso": {
+      "@id": "rdfs:seeAlso",
+      "@type": "@id"
+    },
+    "statements": {
+      "@id": "oteio:statement",
+      "@type": "@json"
+    },
+    "subClassOf": {
+      "@id": "rdfs:subClassOf",
+      "@type": "@id"
+    },
+    "subPropertyOf": {
+      "@id": "rdfs:subPropertyOf",
+      "@type": "@id"
+    },
+    "usageNote": {
+      "@id": "vann:usageNote",
+      "@language": "en"
+    },
+    "ssbdSubDimension": {
+      "@id": "pink:ssbdSubDimension",
+      "@type": "xsd:string"
+    },
+    "has value": "cheminf:CHEMINF_000012",
+    "participates_in": "ns3:RO_0000056",
+    "participates in": "ns3:RO_0000056",
+    "rightsHolder": {
+      "@id": "dcterms:rightsHolder",
+      "@type": "@id"
+    },
+    "hasJunctionPart": "pink:hasJunctionPart",
+    "hasSpatialPart": "pink:hasSpatialPart",
+    "hasTemporalPart": "pink:hasTemporalPart",
+    "ssbdDimension": {
+      "@id": "pink:ssbdDimension",
+      "@type": "@id"
+    },
+    "causal": "pink:causal",
+    "equalsTo": "pink:equalsTo",
+    "hasParticipant": "pink:hasParticipant",
+    "nonOverlaps": "pink:nonOverlaps",
+    "hasDescription": {
+      "@id": "pink:hasDescription",
+      "@type": "@id"
+    },
+    "hasProperty": {
+      "@id": "pink:hasProperty",
+      "@type": "@id"
+    },
+    "isAfter": "pink:isAfter",
+    "processedFrom": "pink:processedFrom",
+    "overlaps": "pink:overlaps",
+    "parthood": "pink:parthood",
+    "semiotical": "pink:semiotical",
+    "causedBy": "pink:causedBy",
+    "isOvercrossedBy": "pink:isOvercrossedBy",
+    "hasProperPart": "pink:hasProperPart",
+    "is about": "ns3:IAO_0000136",
+    "Description": "dcterms:description",
+    "doi": "bibo:doi",
+    "preferredNamespacePrefix": "vann:preferredNamespacePrefix",
+    "preferredNamespaceUri": "vann:preferredNamespaceUri",
+    "altLabel": "skos:altLabel",
+    "example": "skos:example",
+    "category": "prov:category",
+    "component": "prov:component",
+    "constraints": "prov:constraints",
+    "dm": "prov:dm",
+    "n": "prov:n",
+    "homepage": "foaf:homepage",
+    "logo": "foaf:logo",
+    "introduction": "vidoco:introduction",
+    "scopeNote": "skos:scopeNote",
+    "distribution": {
+      "@id": "dcat:distribution",
+      "@type": "@id"
+    },
+    "frequency": {
+      "@id": "dcterms:accrualPeriodicity",
+      "@type": "@id"
+    },
+    "geographicalCoverage": {
+      "@id": "dcterms:spatial",
+      "@type": "@id"
+    },
+    "inSeries": {
+      "@id": "dcat:inSeries",
+      "@type": "@id"
+    },
+    "otherIdentifier": {
+      "@id": "adms:identifier",
+      "@type": "@id"
+    },
+    "sample": {
+      "@id": "adms:sample",
+      "@type": "@id"
+    },
+    "source": {
+      "@id": "dcterms:source",
+      "@type": "@id"
+    },
+    "spatialResolution": {
+      "@id": "dcat:spatialResolutionInMeters",
+      "@type": "xsd:decimal"
+    },
+    "temporalCoverage": {
+      "@id": "dcterms:temporal",
+      "@type": "@id"
+    },
+    "temporalResolution": {
+      "@id": "dcat:temporalResolution",
+      "@type": "xsd:duration"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "pink:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "datamodel": {
+      "@id": "oteio:hasDatamodel",
+      "@type": "@id"
+    },
+    "datamodelStorage": {
+      "@id": "oteio:hasDatamodelStorage",
+      "@type": "xsd:anyURI"
+    },
+    "hasDatum": {
+      "@id": "pink:hasDatum",
+      "@type": "@id"
+    },
+    "isDescriptionFor": {
+      "@id": "emmo:EMMO_f702bad4_fc77_41f0_a26d_79f6444fd4f3",
+      "@type": "@id"
+    },
+    "isInputOf": {
+      "@id": "emmo:EMMO_1494c1a9_00e1_40c2_a9cc_9bbf302a1cac",
+      "@type": "@id"
+    },
+    "isOutputOf": {
+      "@id": "emmo:EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461",
+      "@type": "@id"
+    },
+    "mappings": {
+      "@id": "oteio:mapping",
+      "@type": "@json"
+    },
+    "mappingURL": {
+      "@id": "oteio:mappingURL",
+      "@type": "xsd:anyURI"
+    },
+    "mappingFormat": "oteio:mappingFormat",
+    "accessService": {
+      "@id": "dcat:accessService",
+      "@type": "@id"
+    },
+    "accessURL": {
+      "@id": "dcat:accessURL",
+      "@type": "@id"
+    },
+    "availability": {
+      "@id": "dcatap:availability",
+      "@type": "@id"
+    },
+    "byteSize": {
+      "@id": "dcat:byteSize",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "checksum": {
+      "@id": "spdx:checksum",
+      "@type": "@id"
+    },
+    "compressFormat": {
+      "@id": "dcat:compressFormat",
+      "@type": "@id"
+    },
+    "downloadURL": {
+      "@id": "dcat:downloadURL",
+      "@type": "xsd:anyURI"
+    },
+    "format": "dcterms:format",
+    "generator": {
+      "@id": "oteio:generator",
+      "@type": "@id"
+    },
+    "mediaType": {
+      "@id": "dcat:mediaType",
+      "@type": "@id"
+    },
+    "packageFormat": {
+      "@id": "dcat:packageFormat",
+      "@type": "@id"
+    },
+    "parser": {
+      "@id": "oteio:parser",
+      "@type": "@id"
+    },
+    "status": {
+      "@id": "dcatap:status",
+      "@type": "@id"
+    },
+    "configuration": {
+      "@id": "oteio:hasConfiguration",
+      "@type": "@json"
+    },
+    "parserType": "oteio:parserType",
+    "generatorType": "oteio:generatorType",
+    "name": {
+      "@id": "foaf:name",
+      "@type": "xsd:string"
+    },
+    "attributed": {
+      "@id": "pink:attributed",
+      "@type": "@id"
+    },
+    "algorithm": {
+      "@id": "spdx:algorithm",
+      "@type": "@id"
+    },
+    "checksumValue": {
+      "@id": "spdx:checksumValue",
+      "@type": "xsd:hexBinary"
+    },
+    "endpointDescription": {
+      "@id": "dcat:endpointDescription",
+      "@type": "@id"
+    },
+    "endpointURL": {
+      "@id": "dcat:endpointURL",
+      "@type": "xsd:anyURI"
+    },
+    "servesDataset": {
+      "@id": "dcat:servesDataset",
+      "@type": "@id"
+    },
+    "hasAddress": "vcard:hasAddress",
+    "hasCountryName": "vcard:hasCountryName",
+    "hasEmail": "vcard:hasEmail",
+    "hasFamilyName": "vcard:hasFamilyName",
+    "hasGender": "vcard:hasGender",
+    "hasGeo": "vcard:hasGeo",
+    "hasGivenName": "vcard:hasGivenName",
+    "hasHonorificPrefix": "vcard:hasHonorificPrefix",
+    "hasHonorificSuffix": "vcard:hasHonorificSuffix",
+    "hasKey": "vcard:hasKey",
+    "hasLanguage": "vcard:hasLanguage",
+    "hasLogo": "vcard:hasLogo",
+    "hasMember": "vcard:hasMember",
+    "hasInstantMessage": "vcard:hasInstantMessage",
+    "hasName": "vcard:hasName",
+    "hasNickname": "vcard:hasNickname",
+    "hasNote": "vcard:hasNote",
+    "hasOrganizationName": "vcard:hasOrganizationName",
+    "hasOrganizationUnit": "vcard:hasOrganizationUnit",
+    "hasPhoto": "vcard:hasPhoto",
+    "hasPostalCode": "vcard:hasPostalCode",
+    "hasRegion": "vcard:hasRegion",
+    "hasStreetAddress": "vcard:hasStreetAddress",
+    "hasTelephone": "vcard:hasTelephone",
+    "hasUID": "vcard:hasUID",
+    "hasURL": "vcard:hasURL",
+    "bbox": "dcat:bbox",
+    "centroid": "dcat:centroid",
+    "geometry": {
+      "@id": "locn:geometry",
+      "@type": "@id"
+    },
+    "hasRole": {
+      "@id": "dcat:hasRole",
+      "@type": "@id"
+    },
+    "qualifiedCardinality": {
+      "@id": "owl:qualifiedCardinality",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "minQualifiedCardinality": {
+      "@id": "owl:minQualifiedCardinality",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "maxQualifiedCardinality": {
+      "@id": "owl:maxQualifiedCardinality",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "assesses": {
+      "@id": "pink:assesses",
+      "@type": "@id"
+    },
+    "hasSoftware": {
+      "@id": "pink:hasSoftware",
+      "@type": "@id"
+    },
+    "isDescriptionOf": {
+      "@id": "pink:isDescriptionOf",
+      "@type": "@id"
+    },
+    "hasSubProcess": {
+      "@id": "pink:hasSubProcess",
+      "@type": "@id"
+    },
+    "hasMeasurementUnit": "pink:hasMeasurementUnit",
+    "isPropertyOf": {
+      "@id": "pink:isPropertyOf",
+      "@type": "@id"
+    },
+    "hasDataValue": "pink:hasDataValue",
+    "isInterpretedBy": {
+      "@id": "pink:isInterpretedBy",
+      "@type": "@id"
+    },
+    "standsFor": {
+      "@id": "pink:standsFor",
+      "@type": "@id"
+    },
+    "hasAPI": {
+      "@id": "pink:hasAPI",
+      "@type": "xsd:boolean"
+    },
+    "hasGUI": {
+      "@id": "pink:hasGUI",
+      "@type": "xsd:boolean"
+    },
+    "isSubmoduleOf": {
+      "@id": "pink:isSubmoduleOf",
+      "@type": "@id"
+    },
+    "priorRelease": {
+      "@id": "pink:priorRelease",
+      "@type": "@id"
+    },
+    "implementsModel": {
+      "@id": "pink:implementsModel",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "pink:used",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "pink:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "wasInformedBy": {
+      "@id": "pink:wasInformedBy",
+      "@type": "@id"
+    },
+    "hasInput": {
+      "@id": "pink:hasInput",
+      "@type": "@id"
+    },
+    "hasOutput": {
+      "@id": "pink:hasOutput",
+      "@type": "@id"
+    },
+    "chemicalClass": {
+      "@id": "pink:chemicalClass",
+      "@type": "@id"
+    },
+    "tierLevel": {
+      "@id": "pink:tierLevel",
+      "@type": "@id"
+    },
+    "wasDerivedBy": {
+      "@id": "pink:wasDerivedBy",
+      "@type": "@id"
+    },
+    "wasAttributedTo": {
+      "@id": "pink:wasAttributedTo",
+      "@type": "@id"
+    },
+    "participatesTo": {
+      "@id": "pink:participatesTo",
+      "@type": "@id"
+    },
+    "isRepresentedBy": {
+      "@id": "pink:isRepresentedBy",
+      "@type": "@id"
+    },
+    "Resource": {
+      "@id": "dcat:Resource",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Dataset": {
+      "@id": "pink:Dataset",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Distribution": {
+      "@id": "dcat:Distribution",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Parser": {
+      "@id": "oteio:Parser",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Generator": {
+      "@id": "oteio:Generator",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Agent": {
+      "@id": "prov:Agent",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Attribution": {
+      "@id": "prov:Attribution",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Checksum": {
+      "@id": "spdx:Checksum",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChecksumAlgorithm": {
+      "@id": "spdx:ChecksumAlgorithm",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Concept": {
+      "@id": "skos:Concept",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DataService": {
+      "@id": "dcat:DataService",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DatasetSeries": {
+      "@id": "dcat:DatasetSeries",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Geometry": {
+      "@id": "locn:Geometry",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Kind": {
+      "@id": "vcard:Kind",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LicenseDocument": {
+      "@id": "dcterms:LicenseDocument",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Location": {
+      "@id": "dcterms:Location",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Relationship": {
+      "@id": "dcat:Relationship",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RightsStatement": {
+      "@id": "dcterms:RightsStatement",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LegalResource": {
+      "@id": "eli:LegalResource",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Standard": {
+      "@id": "dcterms:Standard",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MediaType": {
+      "@id": "dcterms:MediaType",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ConformanceLevel": {
+      "@id": "ddoc:ConformanceLevel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Restriction": {
+      "@id": "owl:Restriction",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Document": {
+      "@id": "foaf:Document",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "License Document": {
+      "@id": "dcterms:LicenseDocument",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomicPolarizabilitySum": {
+      "@id": "cheminf:CHEMINF_000002",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PartialPositiveSurfaceArea": {
+      "@id": "cheminf:CHEMINF_000003",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PPSAMinus2": {
+      "@id": "cheminf:CHEMINF_000004",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000006",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChargeWeightedPartialPositiveSurfaceArea": {
+      "@id": "cheminf:CHEMINF_000008",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomicOrder": {
+      "@id": "cheminf:CHEMINF_000010",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PartialNegativeSurfaceArea": {
+      "@id": "cheminf:CHEMINF_000011",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PNSAMinus2": {
+      "@id": "cheminf:CHEMINF_000015",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SMARTSDescriptor": {
+      "@id": "cheminf:CHEMINF_000019",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ZagrebIndex": {
+      "@id": "cheminf:CHEMINF_000046",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PlusStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000049",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000052",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChemicalConnectivityTable": {
+      "@id": "cheminf:CHEMINF_000055",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MOLfile": {
+      "@id": "cheminf:CHEMINF_000058",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondOrderDescriptor": {
+      "@id": "cheminf:CHEMINF_000062",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FunctionalGroupDescriptor": {
+      "@id": "cheminf:CHEMINF_000068",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NeutronCount": {
+      "@id": "cheminf:CHEMINF_000078",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ProtonCount": {
+      "@id": "cheminf:CHEMINF_000079",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CisStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000081",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TransStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000082",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomicMassDescriptor": {
+      "@id": "cheminf:CHEMINF_000084",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomicDegree": {
+      "@id": "cheminf:CHEMINF_000090",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomicValence": {
+      "@id": "cheminf:CHEMINF_000096",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomicHardnessDescriptor": {
+      "@id": "cheminf:CHEMINF_000097",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomicSoftnessDescriptor": {
+      "@id": "cheminf:CHEMINF_000099",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularQSARDescriptor": {
+      "@id": "cheminf:CHEMINF_000104",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CycleBasis": {
+      "@id": "cheminf:CHEMINF_000105",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TrivialName": {
+      "@id": "cheminf:CHEMINF_000109",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FusedCycles": {
+      "@id": "cheminf:CHEMINF_000110",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomicQSARDescriptor": {
+      "@id": "cheminf:CHEMINF_000112",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MOLfileDescriptor": {
+      "@id": "cheminf:CHEMINF_000114",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomicConnectivityIndex": {
+      "@id": "cheminf:CHEMINF_000116",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WienerPathNumber": {
+      "@id": "cheminf:CHEMINF_000117",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FormalChargeDescriptor": {
+      "@id": "cheminf:CHEMINF_000118",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PartialChargeDescriptor": {
+      "@id": "cheminf:CHEMINF_000119",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ElectronegativityDescriptor": {
+      "@id": "cheminf:CHEMINF_000122",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondMultiplicityDescriptor": {
+      "@id": "cheminf:CHEMINF_000130",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondLengthDescriptor": {
+      "@id": "cheminf:CHEMINF_000132",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WienerPolarityNumberDescriptor": {
+      "@id": "cheminf:CHEMINF_000137",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PubChemSubstanceIdentifier(SID)": {
+      "@id": "cheminf:CHEMINF_000141",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GenericSMILESDescriptor": {
+      "@id": "cheminf:CHEMINF_000149",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChargeWeightedPartialNegativeSurfaceArea": {
+      "@id": "cheminf:CHEMINF_000153",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DPSAMinus1": {
+      "@id": "cheminf:CHEMINF_000154",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DPSAMinus2": {
+      "@id": "cheminf:CHEMINF_000155",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DPSAMinus3": {
+      "@id": "cheminf:CHEMINF_000156",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FPSAMinus1": {
+      "@id": "cheminf:CHEMINF_000157",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FPSAMinus2": {
+      "@id": "cheminf:CHEMINF_000158",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FPSAMinus3": {
+      "@id": "cheminf:CHEMINF_000159",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FNSAMinus1": {
+      "@id": "cheminf:CHEMINF_000160",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FNSAMinus2": {
+      "@id": "cheminf:CHEMINF_000161",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FNSAMinus3": {
+      "@id": "cheminf:CHEMINF_000162",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WPSAMinus1": {
+      "@id": "cheminf:CHEMINF_000163",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WPSAMinus2": {
+      "@id": "cheminf:CHEMINF_000164",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WPSAMinus3": {
+      "@id": "cheminf:CHEMINF_000165",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WNSAMinus1": {
+      "@id": "cheminf:CHEMINF_000166",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WNSAMinus2": {
+      "@id": "cheminf:CHEMINF_000167",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WNSAMinus3": {
+      "@id": "cheminf:CHEMINF_000168",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RelativePositiveCharge": {
+      "@id": "cheminf:CHEMINF_000169",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RelativeNegativeCharge": {
+      "@id": "cheminf:CHEMINF_000170",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RelativePositiveChargeSurfaceArea": {
+      "@id": "cheminf:CHEMINF_000171",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RelativeNegativeChargeSurfaceArea": {
+      "@id": "cheminf:CHEMINF_000172",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "THSA": {
+      "@id": "cheminf:CHEMINF_000173",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RHSA": {
+      "@id": "cheminf:CHEMINF_000175",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RPSA": {
+      "@id": "cheminf:CHEMINF_000176",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CollectionOf3DAtomicCoordinates": {
+      "@id": "cheminf:CHEMINF_000178",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularPolarizability": {
+      "@id": "cheminf:CHEMINF_000179",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FragmentComplexityDescriptor": {
+      "@id": "cheminf:CHEMINF_000180",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "VertexAdjacencyMatrixDescriptor": {
+      "@id": "cheminf:CHEMINF_000181",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PetitjeanTopologicalShapeIndex": {
+      "@id": "cheminf:CHEMINF_000182",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PetitjeanGeometricShapeIndex": {
+      "@id": "cheminf:CHEMINF_000183",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PetitjeanNumber": {
+      "@id": "cheminf:CHEMINF_000184",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MLogPDescriptor": {
+      "@id": "cheminf:CHEMINF_000187",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MaximalRatioOfLengthToBreadthDescriptor": {
+      "@id": "cheminf:CHEMINF_000188",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MinimalRatioOfLengthToBreadthDescriptor": {
+      "@id": "cheminf:CHEMINF_000190",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IonizationEnergyDescriptor": {
+      "@id": "cheminf:CHEMINF_000191",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EccentricConnectivityIndexDescriptor": {
+      "@id": "cheminf:CHEMINF_000192",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AcidDissociationConstant": {
+      "@id": "cheminf:CHEMINF_000194",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularWeightCalculatedByPipelinePilot": {
+      "@id": "cheminf:CHEMINF_000198",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AbsoluteSMILESDescriptor": {
+      "@id": "cheminf:CHEMINF_000199",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PiMinussystemSize": {
+      "@id": "cheminf:CHEMINF_000223",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondDissociationGibbsEnergyDescriptor": {
+      "@id": "cheminf:CHEMINF_000224",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SolvationGibbsEnergyDescriptor": {
+      "@id": "cheminf:CHEMINF_000225",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondChargeDensityDescriptor": {
+      "@id": "cheminf:CHEMINF_000226",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AromaticAtomCount": {
+      "@id": "cheminf:CHEMINF_000232",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PubChemConformerIdentifier": {
+      "@id": "cheminf:CHEMINF_000234",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondAromaticityDescriptor": {
+      "@id": "cheminf:CHEMINF_000237",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FormationGibbsEnergyDescriptor": {
+      "@id": "cheminf:CHEMINF_000239",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SizeOfLargestAliphaticChain": {
+      "@id": "cheminf:CHEMINF_000240",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FormationEnthalpyDescriptor": {
+      "@id": "cheminf:CHEMINF_000241",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AromaticBondCount": {
+      "@id": "cheminf:CHEMINF_000243",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SolvationEntropyDescriptor": {
+      "@id": "cheminf:CHEMINF_000249",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SolvationEnthalpyDescriptor": {
+      "@id": "cheminf:CHEMINF_000250",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondDissociationEnthalpyDescriptor": {
+      "@id": "cheminf:CHEMINF_000252",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MeltingPointDescriptor": {
+      "@id": "cheminf:CHEMINF_000256",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FormationEntropyDescriptor": {
+      "@id": "cheminf:CHEMINF_000260",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RelativePermittivityDescriptor": {
+      "@id": "cheminf:CHEMINF_000261",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomicChargeDensityDescriptor": {
+      "@id": "cheminf:CHEMINF_000264",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondDissociationEntropyDescriptor": {
+      "@id": "cheminf:CHEMINF_000265",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EffectiveRotorCount": {
+      "@id": "cheminf:CHEMINF_000267",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ConformerVolumeDescriptor": {
+      "@id": "cheminf:CHEMINF_000269",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AlanineCount": {
+      "@id": "cheminf:CHEMINF_000271",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ArginineCount": {
+      "@id": "cheminf:CHEMINF_000272",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AsparagineCount": {
+      "@id": "cheminf:CHEMINF_000273",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AspartateCount": {
+      "@id": "cheminf:CHEMINF_000274",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CysteineCount": {
+      "@id": "cheminf:CHEMINF_000275",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PhenylalanineCount": {
+      "@id": "cheminf:CHEMINF_000276",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GlutamateCount": {
+      "@id": "cheminf:CHEMINF_000277",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GlutamineCount": {
+      "@id": "cheminf:CHEMINF_000278",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GlycineCount": {
+      "@id": "cheminf:CHEMINF_000279",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IsoleucineCount": {
+      "@id": "cheminf:CHEMINF_000281",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ProlineCount": {
+      "@id": "cheminf:CHEMINF_000282",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LeucineCount": {
+      "@id": "cheminf:CHEMINF_000283",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LysineCount": {
+      "@id": "cheminf:CHEMINF_000284",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MethionineCount": {
+      "@id": "cheminf:CHEMINF_000285",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SerineCount": {
+      "@id": "cheminf:CHEMINF_000286",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ThreonineCount": {
+      "@id": "cheminf:CHEMINF_000287",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TyrosineCount": {
+      "@id": "cheminf:CHEMINF_000288",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ValineCount": {
+      "@id": "cheminf:CHEMINF_000289",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TryptophanCount": {
+      "@id": "cheminf:CHEMINF_000290",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HighestOccupiedMolecularOrbitalEnergy": {
+      "@id": "cheminf:CHEMINF_000291",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LowestUnoccupiedMolecularOrbitalEnergy": {
+      "@id": "cheminf:CHEMINF_000292",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AcidicGroupCount": {
+      "@id": "cheminf:CHEMINF_000293",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BasicGroupCount": {
+      "@id": "cheminf:CHEMINF_000294",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HybridizationDescriptor(VSEPR)": {
+      "@id": "cheminf:CHEMINF_000296",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "InductiveAtomicHardness": {
+      "@id": "cheminf:CHEMINF_000297",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TPSA(fragments)": {
+      "@id": "cheminf:CHEMINF_000298",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "VABCVolumeDescriptor": {
+      "@id": "cheminf:CHEMINF_000299",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GenBankProteinIdentifier": {
+      "@id": "cheminf:CHEMINF_000303",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GenBankNucleotideIdentifier": {
+      "@id": "cheminf:CHEMINF_000304",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ALogPCalculatedByPipelinePilot": {
+      "@id": "cheminf:CHEMINF_000305",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PolarSurfaceAreaDescriptorCalculatedByPipelinePilot": {
+      "@id": "cheminf:CHEMINF_000308",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondAcceptorCountCalculatedByPipelinePilot": {
+      "@id": "cheminf:CHEMINF_000309",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondDonorCountCalculatedByPipelinePilot": {
+      "@id": "cheminf:CHEMINF_000310",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RotatableBondCountCalculatedByPipelinePilot": {
+      "@id": "cheminf:CHEMINF_000311",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RuleOfFiveViolationsCalculatedByPipelinePilot": {
+      "@id": "cheminf:CHEMINF_000314",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RuleOfThreePassesCalculatedByPipelinePilot": {
+      "@id": "cheminf:CHEMINF_000317",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MedchemFriendlyDescriptorCalculatedByPipelinePilot": {
+      "@id": "cheminf:CHEMINF_000319",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LogPCalculatedByACDLabsPhysChemSoftware": {
+      "@id": "cheminf:CHEMINF_000321",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LogDCalculatedAtPH7.4ByACDLabsPhysChemSoftware": {
+      "@id": "cheminf:CHEMINF_000323",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MostAcidicPKaCalculatedByACDLabsPhysChemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000324",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MostBasicPKaCalculatedByACDLabsPhysChemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000325",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularSpeciesAtPH7.4CalculatedByACDLabsPhysChemSoftware": {
+      "@id": "cheminf:CHEMINF_000327",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularWeightCalculatedByThePubchemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000334",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularFormulaCalculatedByThePubchemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000335",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TotalFormalChargeCalculatedByThePubchemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000336",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MonoisotopicMassCalculatedByThePubchemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000337",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ExactMassCalculatedByPubchemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000338",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PubchemDepositorMinussuppliedMolecularEntityName": {
+      "@id": "cheminf:CHEMINF_000339",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LogDCalculatedAtPH5.5ByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000344",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondAcceptorCountCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000345",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondDonorCountCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000346",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BoilingPointAt760MmHgPressureCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000347",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NumberOfFreelyRotatingBondsCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000348",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PolarSurfaceAreaCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000349",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularWeightOfTheCorrespondingFreeBase": {
+      "@id": "cheminf:CHEMINF_000350",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolarRefractivityCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000351",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IndexOfRefractionCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000352",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolarVolumeCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000358",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DensityCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000359",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FlashPointCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000360",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EnthalpyOfVaporizationCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000361",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "VapourPressureCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000362",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "OrganicCarbonAdsorptionCoefficientAtPH5.5CalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000363",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "OrganicCarbonAdsorptionCoefficientAtPH7.4CalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000364",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BioconcentrationFactorAtPH5.5CalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000365",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BioconcentrationFactorAtPH7.4CalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000366",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NumberOfRuleOfFiveViolationsCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000367",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SurfaceTensionCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000368",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CovalentUnitCountGeneratedByPubchemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000369",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DefinedAtomStereocenterCountGeneratedByThePubchemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000370",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DefinedBondStereocenterCountGeneratedByPubchemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000371",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IsotopeAtomCountGeneratedByPubchemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000372",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HeavyAtomCountGeneratedByPubchemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000373",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "UndefinedAtomStereocenterCountGeneratedByThePubchemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000374",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "UndefinedBondStereocenterCountGeneratedByThePubchemSoftwareLibrary": {
+      "@id": "cheminf:CHEMINF_000375",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CanonicalSmilesGeneratedByOEChem": {
+      "@id": "cheminf:CHEMINF_000376",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IsomericSMILESGeneratedByOEChem": {
+      "@id": "cheminf:CHEMINF_000379",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AromaticCycleCount": {
+      "@id": "cheminf:CHEMINF_000381",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IUPACNameGeneratedByLexiChem": {
+      "@id": "cheminf:CHEMINF_000382",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondDonorCountCalculatedByCactvs": {
+      "@id": "cheminf:CHEMINF_000387",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondAcceptorCountCalculatedByCactvs": {
+      "@id": "cheminf:CHEMINF_000388",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RotatableBondCountCalculatedByCactvs": {
+      "@id": "cheminf:CHEMINF_000389",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "StructureComplexityCalculatedByCactvs": {
+      "@id": "cheminf:CHEMINF_000390",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TautomerCountCalculatedByCactvs": {
+      "@id": "cheminf:CHEMINF_000391",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TPSACalculatedByCactvs": {
+      "@id": "cheminf:CHEMINF_000392",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Xlogp3CalculatedByTheXlogp3Software": {
+      "@id": "cheminf:CHEMINF_000395",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "InChICalculatedByLibraryVersion1.0.4": {
+      "@id": "cheminf:CHEMINF_000396",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "InChIKeyGeneratedBySoftwareVersion1.0.4": {
+      "@id": "cheminf:CHEMINF_000399",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChemicalGraph": {
+      "@id": "cheminf:CHEMINF_000400",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChemSpiderIdentifier": {
+      "@id": "cheminf:CHEMINF_000405",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DrugBankIdentifier": {
+      "@id": "cheminf:CHEMINF_000406",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChEBIIdentifier": {
+      "@id": "cheminf:CHEMINF_000407",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HMDBIdentifier": {
+      "@id": "cheminf:CHEMINF_000408",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "KEGGIdentifier": {
+      "@id": "cheminf:CHEMINF_000409",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ReactomeIdentifier": {
+      "@id": "cheminf:CHEMINF_000411",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChEMBLIdentifier": {
+      "@id": "cheminf:CHEMINF_000412",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "StructuralAlertCount": {
+      "@id": "cheminf:CHEMINF_000430",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WeightedQuantitativeEstimateOfDrugMinuslikeness": {
+      "@id": "cheminf:CHEMINF_000431",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FreezingPointDescriptor": {
+      "@id": "cheminf:CHEMINF_000432",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Henry'sLawConstant": {
+      "@id": "cheminf:CHEMINF_000433",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtmosphericOHRateConstant": {
+      "@id": "cheminf:CHEMINF_000434",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "UpperExplosiveLimitDescriptor": {
+      "@id": "cheminf:CHEMINF_000435",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LowerExplosiveLimitDescriptor": {
+      "@id": "cheminf:CHEMINF_000436",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MinimumExplosiveConcentrationDescriptor": {
+      "@id": "cheminf:CHEMINF_000437",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SpecificGravityDescriptor": {
+      "@id": "cheminf:CHEMINF_000438",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RelativeDensityDescriptor": {
+      "@id": "cheminf:CHEMINF_000439",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "VaporDensityDescriptor": {
+      "@id": "cheminf:CHEMINF_000440",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "OdorDetectionThresholdDescriptor": {
+      "@id": "cheminf:CHEMINF_000441",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PHDescriptor": {
+      "@id": "cheminf:CHEMINF_000442",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EvaporationRateDescriptor": {
+      "@id": "cheminf:CHEMINF_000443",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AutoignitionTemperatureDescriptor": {
+      "@id": "cheminf:CHEMINF_000444",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SoilHalfMinuslifeDescriptor": {
+      "@id": "cheminf:CHEMINF_000445",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CASRegistryNumber": {
+      "@id": "cheminf:CHEMINF_000446",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EuropeanCommunityNumber": {
+      "@id": "cheminf:CHEMINF_000447",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EINECSNo": {
+      "@id": "cheminf:CHEMINF_000447",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ECNumber": {
+      "@id": "cheminf:CHEMINF_000447",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MetalAtomCount": {
+      "@id": "cheminf:CHEMINF_000448",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "OxygenAtomCount": {
+      "@id": "cheminf:CHEMINF_000449",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChemSpiderUnvalidatedSynonym": {
+      "@id": "cheminf:CHEMINF_000466",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ValidatedChemicalDatabaseIdentifier": {
+      "@id": "cheminf:CHEMINF_000467",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChemSpiderTitle": {
+      "@id": "cheminf:CHEMINF_000476",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AverageMolecularWeightDescriptorCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000484",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MonoisotopicMolecularWeightDescriptorCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000485",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EnergyBandGap": {
+      "@id": "cheminf:CHEMINF_000487",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MetalElementMassDescriptor": {
+      "@id": "cheminf:CHEMINF_000488",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularFormulaCalculatedByACDLabsPhysChemSoftwareLibraryVersion12.01": {
+      "@id": "cheminf:CHEMINF_000490",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PartitionCoefficient": {
+      "@id": "cheminf:CHEMINF_000496",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NumericChemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000511",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TextualChemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000512",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChemicalSubstanceDescriptor": {
+      "@id": "cheminf:CHEMINF_000513",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GroupOfAnAtom": {
+      "@id": "cheminf:CHEMINF_000516",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NInChIDescriptor": {
+      "@id": "cheminf:CHEMINF_000517",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TUCANDescriptor": {
+      "@id": "cheminf:CHEMINF_000518",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ACDLabsIndexName": {
+      "@id": "cheminf:CHEMINF_000523",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "InChIWithFixedHLayer": {
+      "@id": "cheminf:CHEMINF_000524",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChEBIName": {
+      "@id": "cheminf:CHEMINF_000550",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DrugTradeName": {
+      "@id": "cheminf:CHEMINF_000561",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "InternationalNonMinusproprietaryName": {
+      "@id": "cheminf:CHEMINF_000562",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "UniqueIngredientIdentifier": {
+      "@id": "cheminf:CHEMINF_000563",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LipidMapsIdentifier": {
+      "@id": "cheminf:CHEMINF_000564",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NationalServiceCenterNumber": {
+      "@id": "cheminf:CHEMINF_000565",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RTECSIdentifier": {
+      "@id": "cheminf:CHEMINF_000566",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EuropeanRegistryOfMaterialsIdentifier": {
+      "@id": "cheminf:CHEMINF_000569",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SwissLipidsIdentifier": {
+      "@id": "cheminf:CHEMINF_000570",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolMeDBIdentifier": {
+      "@id": "cheminf:CHEMINF_000571",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PDBLigandIdentifier": {
+      "@id": "cheminf:CHEMINF_000572",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PDBStructureIdentifier": {
+      "@id": "cheminf:CHEMINF_000573",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NumberOfRuleOfFiveViolationsCalculatedByRDKitSoftwareLibraryVersion2015092": {
+      "@id": "cheminf:CHEMINF_000802",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondAcceptorCountCalculatedByRDKitSoftwareLibraryVersion2015092": {
+      "@id": "cheminf:CHEMINF_000803",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondDonorCountCalculatedByRDKitSoftwareLibraryVersion2015092": {
+      "@id": "cheminf:CHEMINF_000804",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LogPDescriptorCalculatedByRDKitSoftwareLibraryVersion2015092": {
+      "@id": "cheminf:CHEMINF_000805",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularFormulaCalculatedByRDKitSoftwareLibraryVersion2015092": {
+      "@id": "cheminf:CHEMINF_000806",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AverageMolecularWeightCalculatedByRDKitSoftwareLibraryVersion2015092": {
+      "@id": "cheminf:CHEMINF_000807",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TotalPolarSurfaceAreaCalculatedByRDKitSoftwareLibraryVersion2015092": {
+      "@id": "cheminf:CHEMINF_000808",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondPolarizabilities": {
+      "@id": "cheminf:CHEMINF_001100",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "OxidationState": {
+      "@id": "cheminf:CHEMINF_001101",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ConnectivitySMILESDescriptor": {
+      "@id": "cheminf:CHEMINF_001104",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BCUT": {
+      "@id": "cheminf:CHEMINF_001500",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondPartialPiCharge": {
+      "@id": "cheminf:CHEMINF_001501",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondPartialSigmaCharge": {
+      "@id": "cheminf:CHEMINF_001502",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondPartialTotalCharge": {
+      "@id": "cheminf:CHEMINF_001503",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondSigmaElectronegativity": {
+      "@id": "cheminf:CHEMINF_001504",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondsToAtom": {
+      "@id": "cheminf:CHEMINF_001505",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChiChainIndices": {
+      "@id": "cheminf:CHEMINF_001506",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChiClusterIndices": {
+      "@id": "cheminf:CHEMINF_001507",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChiPathIndices": {
+      "@id": "cheminf:CHEMINF_001508",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChiPathMinusclusterIndices": {
+      "@id": "cheminf:CHEMINF_001509",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GravitationalIndex(squareAndCubeRoots)": {
+      "@id": "cheminf:CHEMINF_001511",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AcceptorFieldAtoms(Boehm,Klebe)": {
+      "@id": "cheminf:CHEMINF_001512",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondAcceptors(Daylight)": {
+      "@id": "cheminf:CHEMINF_001513",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AcceptorsOrDonorsFieldAtoms(Boehm,Klebe)": {
+      "@id": "cheminf:CHEMINF_001514",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DonorFieldAtoms(Boehm,Klebe)": {
+      "@id": "cheminf:CHEMINF_001515",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondDonors(Daylight)": {
+      "@id": "cheminf:CHEMINF_001516",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ProtonBelongingToAnAromaticSystem": {
+      "@id": "cheminf:CHEMINF_001517",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ProtonBelongingToAPiMinussystem": {
+      "@id": "cheminf:CHEMINF_001518",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "KierHallSMARTS": {
+      "@id": "cheminf:CHEMINF_001519",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularDistanceEdge": {
+      "@id": "cheminf:CHEMINF_001520",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MomentsOfInertia": {
+      "@id": "cheminf:CHEMINF_001521",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PartialTotalCharge(MMFF94)": {
+      "@id": "cheminf:CHEMINF_001522",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PeriodOfAnAtom": {
+      "@id": "cheminf:CHEMINF_001523",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PiMinuscontactOfTwoAtoms": {
+      "@id": "cheminf:CHEMINF_001524",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ProtonTotalPartialCharge": {
+      "@id": "cheminf:CHEMINF_001525",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RDFProtonDescriptor": {
+      "@id": "cheminf:CHEMINF_001526",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TAERECONDescriptorsForAminoAcidSequences": {
+      "@id": "cheminf:CHEMINF_001527",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WeightedPath": {
+      "@id": "cheminf:CHEMINF_001528",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WHIM": {
+      "@id": "cheminf:CHEMINF_001529",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MoreauMinusBrotoAutocorrelation(charge)Descriptors": {
+      "@id": "cheminf:CHEMINF_001530",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MoreauMinusBrotoAutocorrelation(mass)Descriptors": {
+      "@id": "cheminf:CHEMINF_001531",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MoreauMinusBrotoAutocorrelation(polarizability)Descriptors": {
+      "@id": "cheminf:CHEMINF_001532",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CarbonTypes": {
+      "@id": "cheminf:CHEMINF_001533",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CarbonConnectivityIndex(order0)": {
+      "@id": "cheminf:CHEMINF_001534",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ValenceConnectivityIndex(order0)": {
+      "@id": "cheminf:CHEMINF_001535",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ValenceCarbonConnectivityIndex(order0)": {
+      "@id": "cheminf:CHEMINF_001536",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CarbonConnectivityIndex(order1)": {
+      "@id": "cheminf:CHEMINF_001537",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ValenceConnectivityIndex(order1)": {
+      "@id": "cheminf:CHEMINF_001538",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ValenceCarbonConnectivityIndex(order1)": {
+      "@id": "cheminf:CHEMINF_001539",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DistanceToAtom": {
+      "@id": "cheminf:CHEMINF_001540",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EffectivePolarizability": {
+      "@id": "cheminf:CHEMINF_001541",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HybridizationRatio": {
+      "@id": "cheminf:CHEMINF_001542",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "KierAndHallKappaMolecularShapeIndices": {
+      "@id": "cheminf:CHEMINF_001543",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PartialPiCharge": {
+      "@id": "cheminf:CHEMINF_001544",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PartialSigmaCharge": {
+      "@id": "cheminf:CHEMINF_001545",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PiElectronegativity": {
+      "@id": "cheminf:CHEMINF_001546",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AmorphousMaterial": {
+      "@id": "emmo:AmorphousMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomicInteractionModel": {
+      "@id": "emmo:AtomicInteractionModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomisticMolecularDynamics": {
+      "@id": "emmo:AtomisticMolecularDynamics",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondedAtom": {
+      "@id": "emmo:BondedAtom",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CeramicMaterial": {
+      "@id": "emmo:CeramicMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CompactMaterial": {
+      "@id": "emmo:CompactMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ContinuumModel": {
+      "@id": "emmo:ContinuumModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CrystallineMaterial": {
+      "@id": "emmo:CrystallineMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CumulativeHypergeometricTest": {
+      "@id": "emmo:CumulativeHypergeometricTest",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DataProcessing": {
+      "@id": "emmo:DataProcessing",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ElectronicModel": {
+      "@id": "emmo:ElectronicModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ElementalSubstance": {
+      "@id": "emmo:ElementalSubstance",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Gas": {
+      "@id": "emmo:Gas",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "InorganicCompound": {
+      "@id": "emmo:InorganicCompound",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Liquid": {
+      "@id": "emmo:Liquid",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ManufacturedMaterial": {
+      "@id": "emmo:ManufacturedMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MaterialByForceResponse": {
+      "@id": "emmo:MaterialByForceResponse",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MesoscopicModel": {
+      "@id": "emmo:MesoscopicModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MetallicMaterial": {
+      "@id": "emmo:MetallicMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Mixture": {
+      "@id": "emmo:Mixture",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NaturalMaterial": {
+      "@id": "emmo:NaturalMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NeutralAtom": {
+      "@id": "emmo:NeutralAtom",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "OrganicCompound": {
+      "@id": "emmo:OrganicCompound",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PhysicsEquation": {
+      "@id": "emmo:PhysicsEquation",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Plasma": {
+      "@id": "emmo:Plasma",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PolymericMaterial": {
+      "@id": "emmo:PolymericMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Powder": {
+      "@id": "emmo:Powder",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Replica": {
+      "@id": "emmo:Replica",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "StructureManipulationModel": {
+      "@id": "emmo:StructureManipulationModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AbductiveReasoningModel": {
+      "@id": "pink:AbductiveReasoningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Adaboost": {
+      "@id": "pink:Adaboost",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AdvancedMaterial": {
+      "@id": "pink:AdvancedMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AnalogicalReasoningModel": {
+      "@id": "pink:AnalogicalReasoningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Autoencoder": {
+      "@id": "pink:Autoencoder",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BehaviorModel": {
+      "@id": "pink:BehaviorModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BiocompatibleMaterial": {
+      "@id": "pink:BiocompatibleMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BooleanData": {
+      "@id": "pink:BooleanData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BulkModulusAssessment": {
+      "@id": "pink:BulkModulusAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ByteData": {
+      "@id": "pink:ByteData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Clustering": {
+      "@id": "pink:Clustering",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CollaborativeFiltering": {
+      "@id": "pink:CollaborativeFiltering",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ComputationalTool": {
+      "@id": "pink:ComputationalTool",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ContentExtraction": {
+      "@id": "pink:ContentExtraction",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ConvolutionNeuralNetwork": {
+      "@id": "pink:ConvolutionNeuralNetwork",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DateData": {
+      "@id": "pink:DateData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DateTimeData": {
+      "@id": "pink:DateTimeData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DecisionTree": {
+      "@id": "pink:DecisionTree",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DeepFeedForwardNetwork": {
+      "@id": "pink:DeepFeedForwardNetwork",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DensityAssessment": {
+      "@id": "pink:DensityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DoubleData": {
+      "@id": "pink:DoubleData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DynamicProgramming": {
+      "@id": "pink:DynamicProgramming",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EconomicDimension": {
+      "@id": "pink:EconomicDimension",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ElectronicMaterial": {
+      "@id": "pink:ElectronicMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EnergyMaterial": {
+      "@id": "pink:EnergyMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EnvironmentalDimension": {
+      "@id": "pink:EnvironmentalDimension",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ExpertSystem": {
+      "@id": "pink:ExpertSystem",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ExtraTreesClassifier": {
+      "@id": "pink:ExtraTreesClassifier",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FloatData": {
+      "@id": "pink:FloatData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GenerativeAdversarialNetwork": {
+      "@id": "pink:GenerativeAdversarialNetwork",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GlassTransitionTemperatureAssessment": {
+      "@id": "pink:GlassTransitionTemperatureAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GraphBasedLearningModel": {
+      "@id": "pink:GraphBasedLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GraphNeuralNetwork": {
+      "@id": "pink:GraphNeuralNetwork",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HeuristicLearningModel": {
+      "@id": "pink:HeuristicLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ImageClassification": {
+      "@id": "pink:ImageClassification",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ImageSegmentation": {
+      "@id": "pink:ImageSegmentation",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LargeLanguageModel": {
+      "@id": "pink:LargeLanguageModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LinearDiscriminantAnalysis": {
+      "@id": "pink:LinearDiscriminantAnalysis",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Logic": {
+      "@id": "pink:Logic",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LogisticRegressionModel": {
+      "@id": "pink:LogisticRegressionModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LowDensitySeparationModel": {
+      "@id": "pink:LowDensitySeparationModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MachineTranslation": {
+      "@id": "pink:MachineTranslation",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MacroMolecule": {
+      "@id": "pink:MacroMolecule",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MagneticMaterial": {
+      "@id": "pink:MagneticMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MaterialProcess": {
+      "@id": "pink:MaterialProcess",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Measurement": {
+      "@id": "pink:Measurement",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SmallMolecule": {
+      "@id": "pink:MicroMolecule",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MonteCarloLearningModel": {
+      "@id": "pink:MonteCarloLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NaiveBayes": {
+      "@id": "pink:NaiveBayes",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NanoComposite": {
+      "@id": "pink:NanoComposite",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NanoParticle": {
+      "@id": "pink:NanoParticle",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NanoPlate": {
+      "@id": "pink:NanoPlate",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NanoRod": {
+      "@id": "pink:NanoRod",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NanoTube": {
+      "@id": "pink:NanoTube",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NaturalLanguageClassification": {
+      "@id": "pink:NaturalLanguageClassification",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ObjectDetection": {
+      "@id": "pink:ObjectDetection",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "OpticalMaterial": {
+      "@id": "pink:OpticalMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Participant": {
+      "@id": "pink:Participant",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PlanningModel": {
+      "@id": "pink:PlanningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PoissonsRatioAssessment": {
+      "@id": "pink:PoissonsRatioAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PrincipalComponentAnalysis": {
+      "@id": "pink:PrincipalComponentAnalysis",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ProbabilityModel": {
+      "@id": "pink:ProbabilityModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Profiler": {
+      "@id": "pink:Profiler",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Protein": {
+      "@id": "pink:Protein",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "QSARSoftware": {
+      "@id": "pink:QSARSoftware",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "QuestionAnswering": {
+      "@id": "pink:QuestionAnswering",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RecurrentNeuralNetwork": {
+      "@id": "pink:RecurrentNeuralNetwork",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ReliabilityDocument": {
+      "@id": "pink:ReliabilityDocument",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SafetyDimension": {
+      "@id": "pink:SafetyDimension",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SelfTrainingModel": {
+      "@id": "pink:SelfTrainingModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SiameseNeuralNetwork": {
+      "@id": "pink:SiameseNeuralNetwork",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SocialDimension": {
+      "@id": "pink:SocialDimension",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "StepwiseRegressionModel": {
+      "@id": "pink:StepwiseRegressionModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "StructuralMaterial": {
+      "@id": "pink:StructuralMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SupportVectorMachine": {
+      "@id": "pink:SupportVectorMachine",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TDistributedStochasticNeighborEmbedding": {
+      "@id": "pink:TDistributedStochasticNeighborEmbedding",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TargetTracking": {
+      "@id": "pink:TargetTracking",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TimeData": {
+      "@id": "pink:TimeData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Toxicity": {
+      "@id": "pink:Toxicity",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "XGBoostRegressor": {
+      "@id": "pink:XGBoostRegessor",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "YoungsModulusAssessment": {
+      "@id": "pink:YoungsModulusAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Rights Statement": {
+      "@id": "dcterms:RightsStatement",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolarRefractivity": {
+      "@id": "cheminf:CHEMINF_000001",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CanonicalSMILESDescriptor": {
+      "@id": "cheminf:CHEMINF_000007",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000034",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PositionalDescriptor": {
+      "@id": "cheminf:CHEMINF_000041",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MinusStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000050",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000053",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AromaticityDescriptor": {
+      "@id": "cheminf:CHEMINF_000056",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MeltMassFlowRate": {
+      "@id": "cheminf:CHEMINF_000057",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "File": {
+      "@id": "cheminf:CHEMINF_000057",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "InChIKey": {
+      "@id": "cheminf:CHEMINF_000059",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HybridizationDescriptor": {
+      "@id": "cheminf:CHEMINF_000095",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SystematicName": {
+      "@id": "cheminf:CHEMINF_000106",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IUPACName": {
+      "@id": "cheminf:CHEMINF_000107",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PubChemCompoundIdentifier(CID)": {
+      "@id": "cheminf:CHEMINF_000140",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TopologicalSurfaceAreaDescriptor": {
+      "@id": "cheminf:CHEMINF_000146",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TopologicalPolarSurfaceAreaDescriptor": {
+      "@id": "cheminf:CHEMINF_000152",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TPSA": {
+      "@id": "cheminf:CHEMINF_000174",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CollectionOf3DCoordinates": {
+      "@id": "cheminf:CHEMINF_000177",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "XLogPDescriptor": {
+      "@id": "cheminf:CHEMINF_000186",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TautomerCount": {
+      "@id": "cheminf:CHEMINF_000202",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DefinedAtomStereocenterCount": {
+      "@id": "cheminf:CHEMINF_000206",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "UndefinedAtomStereocenterCount": {
+      "@id": "cheminf:CHEMINF_000212",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DefinedBondStereocenterCount": {
+      "@id": "cheminf:CHEMINF_000214",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "UndefinedBondStereocenterCount": {
+      "@id": "cheminf:CHEMINF_000215",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ExactMassDescriptor": {
+      "@id": "cheminf:CHEMINF_000217",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SizeOfLargestChain": {
+      "@id": "cheminf:CHEMINF_000246",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RefractiveIndexDescriptor": {
+      "@id": "cheminf:CHEMINF_000253",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BoilingPointDescriptor": {
+      "@id": "cheminf:CHEMINF_000257",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TotalFormalChargeDescriptor": {
+      "@id": "cheminf:CHEMINF_000268",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CovalentUnitCount": {
+      "@id": "cheminf:CHEMINF_000280",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HistidineCount": {
+      "@id": "cheminf:CHEMINF_000280",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ALogPDescriptor": {
+      "@id": "cheminf:CHEMINF_000295",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HeavyAtomCount": {
+      "@id": "cheminf:CHEMINF_000300",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IsotopeAtomCount": {
+      "@id": "cheminf:CHEMINF_000301",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RuleOfThreePassesDescriptor": {
+      "@id": "cheminf:CHEMINF_000315",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MedchemFriendlyDescriptor": {
+      "@id": "cheminf:CHEMINF_000318",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularSpeciesAtPH7.4Descriptor": {
+      "@id": "cheminf:CHEMINF_000326",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CycleCount": {
+      "@id": "cheminf:CHEMINF_000380",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolarVolumeDescriptor": {
+      "@id": "cheminf:CHEMINF_000415",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DensityDescriptor": {
+      "@id": "cheminf:CHEMINF_000416",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FlashPointDescriptor": {
+      "@id": "cheminf:CHEMINF_000417",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EnthalpyOfVaporizationDescriptor": {
+      "@id": "cheminf:CHEMINF_000418",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "VapourPressureDescriptor": {
+      "@id": "cheminf:CHEMINF_000419",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SurfaceTensionDescriptor": {
+      "@id": "cheminf:CHEMINF_000420",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChemSpiderValidatedSynonym": {
+      "@id": "cheminf:CHEMINF_000465",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AbsoluteConfigurationStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000519",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GravitationalIndex": {
+      "@id": "cheminf:CHEMINF_001510",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AnalogicalModel": {
+      "@id": "emmo:AnalogicalIcon",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CompositeMaterial": {
+      "@id": "emmo:CompositeMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DataBasedModel": {
+      "@id": "emmo:DataBasedModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DataProcessingSoftware": {
+      "@id": "emmo:DataProcessingSoftware",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FunctionalModel": {
+      "@id": "emmo:FunctionalIcon",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GenerativeAIModel": {
+      "@id": "emmo:GenerativeAIModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GranularMaterial": {
+      "@id": "emmo:GranularMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IonAtom": {
+      "@id": "emmo:IonAtom",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MaterialBySize": {
+      "@id": "emmo:MaterialBySize",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MesoscopicSubstance": {
+      "@id": "emmo:MesoscopicSubstance",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PhaseOfMatter": {
+      "@id": "emmo:PhaseOfMatter",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PolyAtomicEntity": {
+      "@id": "emmo:PolyAtomicEntity",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ResemblanceModel": {
+      "@id": "emmo:ResemblanceIcon",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "StatisticalModel": {
+      "@id": "emmo:StatisticalModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "StatisticalTest": {
+      "@id": "emmo:StatisticalTest",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Bagging": {
+      "@id": "pink:Bagging",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Boosting": {
+      "@id": "pink:Boosting",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EnsembleLearningModel": {
+      "@id": "pink:EnsembleLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FunctionalityDimension": {
+      "@id": "pink:FunctionalityDimension",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Information": {
+      "@id": "pink:Information",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IntData": {
+      "@id": "pink:IntData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IntegerData": {
+      "@id": "pink:IntegerData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Interpreter": {
+      "@id": "pink:Interpreter",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "KnowledgeRepresentation": {
+      "@id": "pink:KnowledgeRepresentation",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LongData": {
+      "@id": "pink:LongData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ModernGenerativeAIModel": {
+      "@id": "pink:ModernGenerativeAIModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NanoStructuredMaterial": {
+      "@id": "pink:NanoStructuredMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NaturalLanguageGeneration": {
+      "@id": "pink:NaturalLanguageGeneration",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PhysicalPropertiesAssessment": {
+      "@id": "pink:PhysicalPropertiesAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "QSARModel": {
+      "@id": "pink:QSARModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RandomForest": {
+      "@id": "pink:RandomForest",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RemommenderSystem": {
+      "@id": "pink:RecommenderSystem",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SSbDAssessment": {
+      "@id": "pink:SSbDAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ShortData": {
+      "@id": "pink:ShortData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SpecifiedAssessment": {
+      "@id": "pink:SpecifiedAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TextGeneration": {
+      "@id": "pink:TextGeneration",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ThermalPropertiesAssessment": {
+      "@id": "pink:ThermalPropertiesAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TransformerAI": {
+      "@id": "pink:TransformerAI",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "UnsupervicedLearningModel": {
+      "@id": "pink:UnsupervicedLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RSStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000005",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "StereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000027",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IsomericSMILESDescriptor": {
+      "@id": "cheminf:CHEMINF_000032",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PreferredName": {
+      "@id": "cheminf:CHEMINF_000044",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PlusMinusStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000048",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DLStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000051",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "QSARDescriptor": {
+      "@id": "cheminf:CHEMINF_000064",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CisMinustransStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000080",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "InChIDescriptor": {
+      "@id": "cheminf:CHEMINF_000113",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PetitjeanShapeIndex": {
+      "@id": "cheminf:CHEMINF_000185",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RatioOfLengthToBreadthDescriptor": {
+      "@id": "cheminf:CHEMINF_000189",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EquilibriumConstant": {
+      "@id": "cheminf:CHEMINF_000193",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PKa": {
+      "@id": "cheminf:CHEMINF_000195",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "StereocenterCount": {
+      "@id": "cheminf:CHEMINF_000203",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomStereocenterCount": {
+      "@id": "cheminf:CHEMINF_000205",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MonoisotopicMassDescriptor": {
+      "@id": "cheminf:CHEMINF_000218",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ComplexityDescriptor": {
+      "@id": "cheminf:CHEMINF_000219",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChargeDensityDescriptor": {
+      "@id": "cheminf:CHEMINF_000231",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondCount": {
+      "@id": "cheminf:CHEMINF_000233",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "VolumeDescriptor": {
+      "@id": "cheminf:CHEMINF_000242",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PubChemIdentifier": {
+      "@id": "cheminf:CHEMINF_000302",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LogDDescriptor": {
+      "@id": "cheminf:CHEMINF_000322",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "OrganicCarbonAdsorptionDescriptor": {
+      "@id": "cheminf:CHEMINF_000413",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BioconcentrationFactorDescriptor": {
+      "@id": "cheminf:CHEMINF_000414",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ArtificialMaterial": {
+      "@id": "emmo:ArtificialMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChemicalCompound": {
+      "@id": "emmo:ChemicalCompound",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MaterialByClassicalMaterialsScience": {
+      "@id": "emmo:MaterialByClassicalMaterialsScience",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MaterialByCompactness": {
+      "@id": "emmo:MaterialByCompactness",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MaterialByOrigin": {
+      "@id": "emmo:MaterialByOrigin",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MaterialByStructure": {
+      "@id": "emmo:MaterialByStructure",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NanoMaterial": {
+      "@id": "emmo:NanoMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NaturalLanguageProcessingModel": {
+      "@id": "emmo:NaturalLanguageProcessingModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PhysicsBasedModel": {
+      "@id": "emmo:PhysicsBasedModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Solid": {
+      "@id": "emmo:Solid",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "StandaloneAtom": {
+      "@id": "emmo:StandaloneAtom",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "StateOfMatter": {
+      "@id": "emmo:StateOfMatter",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ArtificialNeuralNetwork": {
+      "@id": "pink:ArtificialNeuralNetwork",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Assessment": {
+      "@id": "pink:Assessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Computation": {
+      "@id": "pink:Computation",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Datum": {
+      "@id": "pink:Datum",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Indicator": {
+      "@id": "pink:Indicator",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NanoFiber": {
+      "@id": "pink:NanoFiber",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PerceptionModel": {
+      "@id": "pink:PerceptionModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RegressionModel": {
+      "@id": "pink:RegressionModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PolyatomicEntity": {
+      "@id": "ns3:CHEBI_36357",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularFormula": {
+      "@id": "cheminf:CHEMINF_000042",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DimensionalExtentDescriptor": {
+      "@id": "cheminf:CHEMINF_000060",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MassDescriptor": {
+      "@id": "cheminf:CHEMINF_000083",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularMassDescriptor": {
+      "@id": "cheminf:CHEMINF_000088",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChargeDescriptor": {
+      "@id": "cheminf:CHEMINF_000131",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FormationEnergyDescriptor": {
+      "@id": "cheminf:CHEMINF_000207",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SolvationEnergyDescriptor": {
+      "@id": "cheminf:CHEMINF_000208",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DissociationEnergyDescriptor": {
+      "@id": "cheminf:CHEMINF_000210",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BondStereocenterCount": {
+      "@id": "cheminf:CHEMINF_000213",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RotatableBondCount": {
+      "@id": "cheminf:CHEMINF_000254",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PolarSurfaceAreaDescriptor": {
+      "@id": "cheminf:CHEMINF_000307",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RuleOfFiveViolationsDescriptor": {
+      "@id": "cheminf:CHEMINF_000312",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RelativeConfigurationStereochemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000520",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ArtificialIntelligenceModel": {
+      "@id": "emmo:ArtificialIntelligenceModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Atom": {
+      "@id": "ns3:CHEBI_33250",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomisticModel": {
+      "@id": "emmo:AtomisticModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChemicalEntity": {
+      "@id": "cheminf:CHEMINF_000000",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChemicalSubstance": {
+      "@id": "cheminf:CHEMINF_000266",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CondensedMatter": {
+      "@id": "emmo:CondensedMatter",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ContinuumSubstance": {
+      "@id": "emmo:ContinuumSubstance",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Fluid": {
+      "@id": "emmo:Fluid",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Molecule": {
+      "@id": "emmo:Molecule",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DomainOfApplicabilityStatus": {
+      "@id": "pink:DomainOfApplicabilityStatus",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FunctionalityAssessment": {
+      "@id": "pink:FunctionalityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Matter": {
+      "@id": "pink:Matter",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MechanicalPropertiesAssessment": {
+      "@id": "pink:MechanicalPropertiesAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NanoObject": {
+      "@id": "pink:NanoObject",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NumericalData": {
+      "@id": "pink:NumericalData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Object": {
+      "@id": "pink:Object",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ReinforcedLearningModel": {
+      "@id": "pink:ReinforcedLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SemiSupervicedLearningModel": {
+      "@id": "pink:SemiSupervicedLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EnergeticDescriptor": {
+      "@id": "cheminf:CHEMINF_000016",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SMILESDescriptor": {
+      "@id": "cheminf:CHEMINF_000018",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IdentifyingDescriptor": {
+      "@id": "cheminf:CHEMINF_000061",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondDonorCount": {
+      "@id": "cheminf:CHEMINF_000244",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HydrogenBondAcceptorCount": {
+      "@id": "cheminf:CHEMINF_000245",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MaterialByType": {
+      "@id": "emmo:MaterialByType",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MaterialsModel": {
+      "@id": "emmo:MaterialsModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Substance": {
+      "@id": "emmo:Substance",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ComputerVision": {
+      "@id": "pink:ComputerVision",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DimensionalityReduction": {
+      "@id": "pink:DimensionalityReduction",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Model": {
+      "@id": "pink:Model",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NaturalLanguageUnderstanding": {
+      "@id": "pink:NaturalLanguageUnderstanding",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PredictionLearningModel": {
+      "@id": "pink:PredictionLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SupervisedLearningModel": {
+      "@id": "pink:SupervisedLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TierLevel": {
+      "@id": "pink:TierLevel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AverageMolecularWeightDescriptor": {
+      "@id": "cheminf:CHEMINF_000216",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LogPDescriptor": {
+      "@id": "cheminf:CHEMINF_000251",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AtomCount": {
+      "@id": "cheminf:CHEMINF_000263",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MathematicalModel": {
+      "@id": "emmo:MathematicalModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularEntity": {
+      "@id": "ns3:CHEBI_23367",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Classification": {
+      "@id": "pink:Classification",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Process": {
+      "@id": "pink:Process",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SymbolicData": {
+      "@id": "pink:SymbolicData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChargeDelocalizationDescriptor": {
+      "@id": "cheminf:CHEMINF_000094",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Material": {
+      "@id": "emmo:Material",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Property": {
+      "@id": "pink:Property",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ConstitutionalDescriptor": {
+      "@id": "cheminf:CHEMINF_000136",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MachineLearningModel": {
+      "@id": "emmo:MachineLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MaterialByFunction": {
+      "@id": "emmo:MaterialByFunction",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CognitionAndLearningModel": {
+      "@id": "pink:CognitionAndLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Data": {
+      "@id": "pink:Data",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Sign": {
+      "@id": "pink:Sign",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SsbdDimension": {
+      "@id": "pink:SsbdDimension",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MolecularEntityName": {
+      "@id": "cheminf:CHEMINF_000043",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GeometricDescriptor": {
+      "@id": "cheminf:CHEMINF_000093",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DeepLearningModel": {
+      "@id": "pink:DeepLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Software": {
+      "@id": "pink:Software",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "StructuralDescriptor": {
+      "@id": "cheminf:CHEMINF_000085",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChemicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000123",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Activity": {
+      "@id": "prov:Activity",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CountDescriptor": {
+      "@id": "cheminf:CHEMINF_000209",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AminoAcidCount": {
+      "@id": "cheminf:CHEMINF_000270",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ChemicalDatabaseIdentifier": {
+      "@id": "cheminf:CHEMINF_000464",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Entity": {
+      "@id": "prov:Entity",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TopologicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000092",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ElectronicDescriptor": {
+      "@id": "cheminf:CHEMINF_000087",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SurfaceAreaDescriptor": {
+      "@id": "cheminf:CHEMINF_000229",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PhysicalDescriptor": {
+      "@id": "cheminf:CHEMINF_000025",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    }
+  }
+}
