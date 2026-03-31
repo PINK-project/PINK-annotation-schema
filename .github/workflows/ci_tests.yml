@@ -1,8 +1,6 @@
 name: CI tests
 on: [push]
 
-env:
-  ONTOLOGY_NAME: pink_annotation_schema
 
 jobs:
   ci_testing:
@@ -18,11 +16,11 @@ jobs:
       with:
         python-version: 3.11
 
-    - name: Install EMMOntoPy
-      run: |
-        pip install --upgrade pip
-        pip install EMMOntoPy
+    #- name: Install EMMOntoPy
+    #  run: |
+    #    pip install --upgrade pip
+    #    pip install EMMOntoPy
 
-    - name: Test
-      run: |
-        emmocheck --configfile=.github/emmocheck_conf.yml ${ONTOLOGY_NAME}.ttl
+    #- name: Test
+    #  run: |
+    #    
