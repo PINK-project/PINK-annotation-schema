@@ -295,10 +295,11 @@ context = get_context(
 
 # Choice of prefixes
 prefixes = {
-    "mw": "https://modelwave.it/ontology/",
+    "mw": "https://modelwave.it/",
     "rights": "http://publications.europa.eu/resource/authority/access-right/",
-    "datasettype": "https://w3id.org/pink/datasettype/",
-    "qsar": "https://w3id.org/pink/qsar/",
+    "datasettype": "https://pink-project.eu/datasettype/",
+    "qsar": "https://pink-project.eu/qsar/",
+    "pink": "https://pink-project.eu/",
 }
 
 # Get name of columns that can have more than one value from termdefs.
@@ -451,11 +452,11 @@ agentdocumentation = TableDoc.parse_csv(
 
 
 # Save the data to the triplstore
-# agentdocumentation.save(ts)
+agentdocumentation.save(ts)
 
 swdocumentation.save(ts)
-# compdocumentation.save(ts)
-# datasettypedocumentation.save(ts)
+compdocumentation.save(ts)
+datasettypedocumentation.save(ts)
 
 # Store the jsonlds for joh
 store_jsonld(swdocumentation, name="software_documentation")
