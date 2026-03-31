@@ -1,0 +1,85 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix pink: <https://w3id.org/pink#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+pink:ActivityShape a sh:NodeShape ;
+    sh:property [ sh:class prov:Entity ;
+            sh:path <https://w3id.org/ssbd/hasInput> ],
+        [ sh:class prov:Agent ;
+            sh:path <https://w3id.org/ssbd/wasAssociatedWith> ],
+        [ sh:class prov:Entity ;
+            sh:path prov:used ],
+        [ sh:class prov:Activity ;
+            sh:path prov:wasInformedBy ],
+        [ sh:class prov:Entity ;
+            sh:path <https://w3id.org/ssbd/used> ],
+        [ sh:class prov:Activity ;
+            sh:path <https://w3id.org/ssbd/wasInformedBy> ],
+        [ sh:class prov:Agent ;
+            sh:path prov:wasAssociatedWith ],
+        [ sh:class prov:Entity ;
+            sh:path <https://w3id.org/ssbd/hasOutput> ] ;
+    sh:targetClass prov:Activity .
+
+pink:AgentShape a sh:NodeShape ;
+    sh:property [ sh:class prov:Entity ;
+            sh:path <https://w3id.org/ssbd/attributed> ] ;
+    sh:targetClass prov:Agent .
+
+pink:LicenseDocumentShape a sh:NodeShape ;
+    sh:node pink:RightsStatementShape ;
+    sh:targetClass dcterms:LicenseDocument .
+
+pink:ResourceShape a sh:NodeShape ;
+    sh:node pink:EntityShape ;
+    sh:property [ sh:datatype xsd:dateTime ;
+            sh:path dcterms:issued ],
+        [ sh:datatype rdf:langString ;
+            sh:path skos:definition ],
+        [ sh:class foaf:Agent ;
+            sh:path dcterms:creator ],
+        [ sh:class dcterms:LicenseDocument ;
+            sh:path dcterms:license ],
+        [ sh:class foaf:Agent ;
+            sh:path <https://w3id.org/emmo/application/datadoc#curator> ],
+        [ sh:class dcterms:RightsStatement ;
+            sh:path dcterms:accessRights ],
+        [ sh:path dcat:version ],
+        [ sh:class foaf:Document ;
+            sh:path <https://w3id.org/ssbd/documentation> ],
+        [ sh:datatype rdf:langString ;
+            sh:path dcterms:title ] ;
+    sh:targetClass dcat:Resource .
+
+pink:DocumentShape a sh:NodeShape ;
+    sh:targetClass foaf:Document .
+
+pink:EntityShape a sh:NodeShape ;
+    sh:property [ sh:class prov:Entity ;
+            sh:path <https://w3id.org/ssbd/wasDerivedBy> ],
+        [ sh:class prov:Agent ;
+            sh:path prov:wasAttributedTo ],
+        [ sh:class prov:Activity ;
+            sh:path <https://w3id.org/ssbd/participatesTo> ],
+        [ sh:class prov:Activity ;
+            sh:path <https://w3id.org/ssbd/wasGeneratedBy> ],
+        [ sh:class <https://w3id.org/ssbd/TierLevel> ;
+            sh:path <https://w3id.org/ssbd/tierLevel> ],
+        [ sh:class <https://w3id.org/ssbd/Sign> ;
+            sh:path <https://w3id.org/ssbd/isRepresentedBy> ],
+        [ sh:class <https://w3id.org/ssbd/Matter> ;
+            sh:path <https://w3id.org/ssbd/chemicalClass> ],
+        [ sh:class prov:Agent ;
+            sh:path <https://w3id.org/ssbd/wasAttributedTo> ] ;
+    sh:targetClass prov:Entity .
+
+pink:RightsStatementShape a sh:NodeShape ;
+    sh:node pink:DocumentShape ;
+    sh:targetClass dcterms:RightsStatement .
+

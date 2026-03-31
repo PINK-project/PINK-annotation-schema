@@ -1,7 +1,168 @@
 {
   "@context": {
+    "altLabel": {
+      "@id": "http://www.w3.org/2004/02/skos/core#altLabel",
+      "@language": "en"
+    },
+    "issued": {
+      "@id": "http://purl.org/dc/terms/issued",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "datumDescription": {
+      "@id": "https://w3id.org/emmo/domain/datamodel#datumDescription",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "datumName": {
+      "@id": "https://w3id.org/emmo/domain/datamodel#datumName",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "datumShape": {
+      "@id": "https://w3id.org/emmo/domain/datamodel#datumShape",
+      "@type": "@json"
+    },
+    "datumType": {
+      "@id": "https://w3id.org/emmo/domain/datamodel#datumType",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "datumUnit": {
+      "@id": "https://w3id.org/emmo/domain/datamodel#datumUnit",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "has value": "http://semanticscience.org/resource/CHEMINF_000012",
+    "participates_in": "http://purl.obolibrary.org/obo/RO_0000056",
+    "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
+    "rightsHolder": {
+      "@id": "http://purl.org/dc/terms/rightsHolder",
+      "@type": "@id"
+    },
+    "hasJunctionPart": "https://w3id.org/ssbd/hasJunctionPart",
+    "hasSpatialPart": "https://w3id.org/ssbd/hasSpatialPart",
+    "hasTemporalPart": "https://w3id.org/ssbd/hasTemporalPart",
+    "causal": "https://w3id.org/ssbd/causal",
+    "equalsTo": "https://w3id.org/ssbd/equalsTo",
+    "hasParticipant": "https://w3id.org/ssbd/hasParticipant",
+    "nonOverlaps": "https://w3id.org/ssbd/nonOverlaps",
+    "hasDescription": {
+      "@id": "https://w3id.org/ssbd/hasDescription",
+      "@type": "@id"
+    },
+    "hasProperty": {
+      "@id": "https://w3id.org/ssbd/hasProperty",
+      "@type": "@id"
+    },
+    "isAfter": "https://w3id.org/ssbd/isAfter",
+    "processedFrom": "https://w3id.org/ssbd/processedFrom",
+    "overlaps": "https://w3id.org/ssbd/overlaps",
+    "parthood": "https://w3id.org/ssbd/parthood",
+    "semiotical": "https://w3id.org/ssbd/semiotical",
+    "causedBy": "https://w3id.org/ssbd/causedBy",
+    "isOvercrossedBy": "https://w3id.org/ssbd/isOvercrossedBy",
+    "hasProperPart": "https://w3id.org/ssbd/hasProperPart",
+    "is about": "http://purl.obolibrary.org/obo/IAO_0000136",
+    "doi": "http://purl.org/ontology/bibo/doi",
+    "preferredNamespacePrefix": "http://purl.org/vocab/vann/preferredNamespacePrefix",
+    "preferredNamespaceUri": "http://purl.org/vocab/vann/preferredNamespaceUri",
+    "example": "http://www.w3.org/2004/02/skos/core#example",
+    "homepage": "http://xmlns.com/foaf/0.1/homepage",
+    "logo": "http://xmlns.com/foaf/0.1/logo",
+    "introduction": "https://w3id.org/widoco/vocab#introduction",
+    "scope note": "http://www.w3.org/2004/02/skos/core#scopeNote",
+    "attributed": {
+      "@id": "https://w3id.org/ssbd/attributed",
+      "@type": "@id"
+    },
+    "hasSoftware": {
+      "@id": "https://w3id.org/ssbd/hasSoftware",
+      "@type": "@id"
+    },
     "isDescriptionOf": {
-      "@id": "https://w3id.org/pink#isDescriptionOf",
+      "@id": "https://w3id.org/ssbd/isDescriptionOf",
+      "@type": "@id"
+    },
+    "assesses": {
+      "@id": "https://w3id.org/ssbd/assesses",
+      "@type": "@id"
+    },
+    "hasSubProcess": {
+      "@id": "https://w3id.org/ssbd/hasSubProcess",
+      "@type": "@id"
+    },
+    "hasMeasurementUnit": "https://w3id.org/ssbd/hasMeasurementUnit",
+    "isPropertyOf": {
+      "@id": "https://w3id.org/ssbd/isPropertyOf",
+      "@type": "@id"
+    },
+    "isInterpretedBy": {
+      "@id": "https://w3id.org/ssbd/isInterpretedBy",
+      "@type": "@id"
+    },
+    "standsFor": {
+      "@id": "https://w3id.org/ssbd/standsFor",
+      "@type": "@id"
+    },
+    "hasDataValue": "https://w3id.org/ssbd/hasDataValue",
+    "hasAPI": {
+      "@id": "https://w3id.org/ssbd/hasAPI",
+      "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "hasGUI": {
+      "@id": "https://w3id.org/ssbd/hasGUI",
+      "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "isSubmoduleOf": {
+      "@id": "https://w3id.org/ssbd/isSubmoduleOf",
+      "@type": "@id"
+    },
+    "priorRelease": {
+      "@id": "https://w3id.org/ssbd/priorRelease",
+      "@type": "@id"
+    },
+    "implementsModel": {
+      "@id": "https://w3id.org/ssbd/implementsModel",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "https://w3id.org/ssbd/used",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "https://w3id.org/ssbd/wasAssociatedWith",
+      "@type": "@id"
+    },
+    "wasInformedBy": {
+      "@id": "https://w3id.org/ssbd/wasInformedBy",
+      "@type": "@id"
+    },
+    "hasInput": {
+      "@id": "https://w3id.org/ssbd/hasInput",
+      "@type": "@id"
+    },
+    "hasOutput": {
+      "@id": "https://w3id.org/ssbd/hasOutput",
+      "@type": "@id"
+    },
+    "chemicalClass": {
+      "@id": "https://w3id.org/ssbd/chemicalClass",
+      "@type": "@id"
+    },
+    "tierLevel": {
+      "@id": "https://w3id.org/ssbd/tierLevel",
+      "@type": "@id"
+    },
+    "wasDerivedBy": {
+      "@id": "https://w3id.org/ssbd/wasDerivedBy",
+      "@type": "@id"
+    },
+    "wasAttributedTo": {
+      "@id": "https://w3id.org/ssbd/wasAttributedTo",
+      "@type": "@id"
+    },
+    "participatesTo": {
+      "@id": "https://w3id.org/ssbd/participatesTo",
+      "@type": "@id"
+    },
+    "isRepresentedBy": {
+      "@id": "https://w3id.org/ssbd/isRepresentedBy",
       "@type": "@id"
     },
     "AtomicPolarizabilitySum": {
@@ -860,11 +1021,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ECNumber": {
+    "EINECSNo": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EINECSNo": {
+    "ECNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1252,6 +1413,10 @@
       "@id": "https://w3id.org/emmo/hume#CumulativeHypergeometricTest",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "DataBasedModel": {
+      "@id": "https://w3id.org/emmo/hume#DataBasedModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "DataProcessing": {
       "@id": "https://w3id.org/emmo/hume#DataProcessing",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -1333,323 +1498,571 @@
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "AbductiveReasoningModel": {
-      "@id": "https://w3id.org/pink#AbductiveReasoningModel",
+      "@id": "https://w3id.org/ssbd/AbductiveReasoningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AcidificationImpactCategory": {
+      "@id": "https://w3id.org/ssbd/AcidificationImpactAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AcuteToxicity?Assessment": {
+      "@id": "https://w3id.org/ssbd/AcuteToxicityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Adaboost": {
-      "@id": "https://w3id.org/pink#Adaboost",
+      "@id": "https://w3id.org/ssbd/Adaboost",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "AdvancedMaterial": {
-      "@id": "https://w3id.org/pink#AdvancedMaterial",
+      "@id": "https://w3id.org/ssbd/AdvancedMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AmbientAirQualityAssessment": {
+      "@id": "https://w3id.org/ssbd/AmbientAirQualityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "AnalogicalReasoningModel": {
-      "@id": "https://w3id.org/pink#AnalogicalReasoningModel",
+      "@id": "https://w3id.org/ssbd/AnalogicalReasoningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AquaticToxicityFreshwater": {
+      "@id": "https://w3id.org/ssbd/AquaticToxicityFreshwater",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "AquaticToxicityMarine": {
+      "@id": "https://w3id.org/ssbd/AquaticToxicityMarine",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Autoencoder": {
-      "@id": "https://w3id.org/pink#Autoencoder",
+      "@id": "https://w3id.org/ssbd/Autoencoder",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "BehaviorModel": {
-      "@id": "https://w3id.org/pink#BehaviorModel",
+      "@id": "https://w3id.org/ssbd/BehaviorModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BehaviouralImmunotoxicityAssessment": {
+      "@id": "https://w3id.org/ssbd/BehaviouralImmunotoxicityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BioaccumulationAssessment": {
+      "@id": "https://w3id.org/ssbd/BioaccumulationAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "BiocompatibleMaterial": {
-      "@id": "https://w3id.org/pink#BiocompatibleMaterial",
+      "@id": "https://w3id.org/ssbd/BiocompatibleMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BiodegradabilityAssessment": {
+      "@id": "https://w3id.org/ssbd/BiodegradabilityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "BiodiversityAssessment": {
+      "@id": "https://w3id.org/ssbd/BiodiversityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "BooleanData": {
-      "@id": "https://w3id.org/pink#BooleanData",
+      "@id": "https://w3id.org/ssbd/BooleanData",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "BulkModulusAssessment": {
-      "@id": "https://w3id.org/pink#BulkModulusAssessment",
+      "@id": "https://w3id.org/ssbd/BulkModulusAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ByteData": {
-      "@id": "https://w3id.org/pink#ByteData",
+      "@id": "https://w3id.org/ssbd/ByteData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "CarcinogenicityAssessment": {
+      "@id": "https://w3id.org/ssbd/CarcinogenicityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Clustering": {
-      "@id": "https://w3id.org/pink#Clustering",
+      "@id": "https://w3id.org/ssbd/Clustering",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "CollaborativeFiltering": {
-      "@id": "https://w3id.org/pink#CollaborativeFiltering",
+      "@id": "https://w3id.org/ssbd/CollaborativeFiltering",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ComputationalTool": {
-      "@id": "https://w3id.org/pink#ComputationalTool",
+      "@id": "https://w3id.org/ssbd/ComputationalTool",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ContentExtraction": {
-      "@id": "https://w3id.org/pink#ContentExtraction",
+      "@id": "https://w3id.org/ssbd/ContentExtraction",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ConvolutionNeuralNetwork": {
-      "@id": "https://w3id.org/pink#ConvolutionNeuralNetwork",
+      "@id": "https://w3id.org/ssbd/ConvolutionNeuralNetwork",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "DateData": {
-      "@id": "https://w3id.org/pink#DateData",
+      "@id": "https://w3id.org/ssbd/DateData",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "DateTimeData": {
-      "@id": "https://w3id.org/pink#DateTimeData",
+      "@id": "https://w3id.org/ssbd/DateTimeData",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "DecisionTree": {
-      "@id": "https://w3id.org/pink#DecisionTree",
+      "@id": "https://w3id.org/ssbd/DecisionTree",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "DeepFeedForwardNetwork": {
-      "@id": "https://w3id.org/pink#DeepFeedForwardNetwork",
+      "@id": "https://w3id.org/ssbd/DeepFeedForwardNetwork",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "DensityAssessment": {
-      "@id": "https://w3id.org/pink#DensityAssessment",
+      "@id": "https://w3id.org/ssbd/DensityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DevelopmentalNeurotoxicityAssessment": {
+      "@id": "https://w3id.org/ssbd/DevelopmentalNeurotoxicityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "DoubleData": {
-      "@id": "https://w3id.org/pink#DoubleData",
+      "@id": "https://w3id.org/ssbd/DoubleData",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "DynamicProgramming": {
-      "@id": "https://w3id.org/pink#DynamicProgramming",
+      "@id": "https://w3id.org/ssbd/DynamicProgramming",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "EconomicDimension": {
-      "@id": "https://w3id.org/pink#EconomicDimension",
+      "@id": "https://w3id.org/ssbd/EconomicDimension",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ElectronicMaterial": {
-      "@id": "https://w3id.org/pink#ElectronicMaterial",
+      "@id": "https://w3id.org/ssbd/ElectronicMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EndocrineToxicityAssessment": {
+      "@id": "https://w3id.org/ssbd/EndocrineToxicityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "EnergyMaterial": {
-      "@id": "https://w3id.org/pink#EnergyMaterial",
+      "@id": "https://w3id.org/ssbd/EnergyMaterial",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "EnvironmentalDimension": {
-      "@id": "https://w3id.org/pink#EnvironmentalDimension",
+      "@id": "https://w3id.org/ssbd/EnvironmentalDimension",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EnvironmentalExternalitiesAssessment": {
+      "@id": "https://w3id.org/ssbd/EnvironmentalExternalitiesAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ExpertSystem": {
-      "@id": "https://w3id.org/pink#ExpertSystem",
+      "@id": "https://w3id.org/ssbd/ExpertSystem",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ExposureAssessmentHumanHealth": {
+      "@id": "https://w3id.org/ssbd/ExposureAssessmentHumanHealth",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ExtraTreesClassifier": {
-      "@id": "https://w3id.org/pink#ExtraTreesClassifier",
+      "@id": "https://w3id.org/ssbd/ExtraTreesClassifier",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FairRenumerationAssessment": {
+      "@id": "https://w3id.org/ssbd/FairRenumerationAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FlammabiityAssessment": {
+      "@id": "https://w3id.org/ssbd/FlammabiityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "FloatData": {
-      "@id": "https://w3id.org/pink#FloatData",
+      "@id": "https://w3id.org/ssbd/FloatData",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FossilFuelEnergyConsumptionAssessment": {
+      "@id": "https://w3id.org/ssbd/FossilFuelEnergyConsumptionAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FreshwaterAquaticEcotoxicityImpactCategory": {
+      "@id": "https://w3id.org/ssbd/FreshwaterAquaticEcotoxicityImpactAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "FreshwaterEutrophicationImpactCategory": {
+      "@id": "https://w3id.org/ssbd/FreshwaterEutrophicationImpactAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "GenerativeAdversarialNetwork": {
-      "@id": "https://w3id.org/pink#GenerativeAdversarialNetwork",
+      "@id": "https://w3id.org/ssbd/GenerativeAdversarialNetwork",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "GlassTransitionTemperatureAssessment": {
-      "@id": "https://w3id.org/pink#GlassTransitionTemperatureAssessment",
+      "@id": "https://w3id.org/ssbd/GlassTransitionTemperatureAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "GlobalWarmingPotenial100": {
+      "@id": "https://w3id.org/ssbd/GlobalWarmingAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "GraphBasedLearningModel": {
-      "@id": "https://w3id.org/pink#GraphBasedLearningModel",
+      "@id": "https://w3id.org/ssbd/GraphBasedLearningModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "GraphNeuralNetwork": {
-      "@id": "https://w3id.org/pink#GraphNeuralNetwork",
+      "@id": "https://w3id.org/ssbd/GraphNeuralNetwork",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HHRAAir pollution": {
+      "@id": "https://w3id.org/ssbd/HHRAAirPollution",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HHRAChemicalSubstances": {
+      "@id": "https://w3id.org/ssbd/HHRAChemicalSubstances",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HHRAIndoor air pollution": {
+      "@id": "https://w3id.org/ssbd/HHRAIndoorAirPollution",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HHRA Soil pollution": {
+      "@id": "https://w3id.org/ssbd/HHRASoilPollution",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HHRAWaterPollution": {
+      "@id": "https://w3id.org/ssbd/HHRAWaterPollution",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HazardCharacterisationEnvironment": {
+      "@id": "https://w3id.org/ssbd/HazardCharacterisationEnvironment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HazardCharacterisationHumanHealth": {
+      "@id": "https://w3id.org/ssbd/HazardCharacterisationHumanHealth",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HazardIdentificationEnvironment": {
+      "@id": "https://w3id.org/ssbd/HazardIdentificationEnvironment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HepatotoxicityAssessment": {
+      "@id": "https://w3id.org/ssbd/HepatotoxicityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "HeuristicLearningModel": {
-      "@id": "https://w3id.org/pink#HeuristicLearningModel",
+      "@id": "https://w3id.org/ssbd/HeuristicLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HumanToxicityCancerImpactCategory": {
+      "@id": "https://w3id.org/ssbd/HumanToxicityCancerImpactAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HumanToxicityNonCancerImpactCategory": {
+      "@id": "https://w3id.org/ssbd/HumanToxicityNonCancerImpactAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ImageClassification": {
-      "@id": "https://w3id.org/pink#ImageClassification",
+      "@id": "https://w3id.org/ssbd/ImageClassification",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ImageSegmentation": {
-      "@id": "https://w3id.org/pink#ImageSegmentation",
+      "@id": "https://w3id.org/ssbd/ImageSegmentation",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Immunotoxicity?Assessment": {
+      "@id": "https://w3id.org/ssbd/ImmunotoxicityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Irritation And Corrosion": {
+      "@id": "https://w3id.org/ssbd/IrritationAndCorrosion",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "LargeLanguageModel": {
-      "@id": "https://w3id.org/pink#LargeLanguageModel",
+      "@id": "https://w3id.org/ssbd/LargeLanguageModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "LinearDiscriminantAnalysis": {
-      "@id": "https://w3id.org/pink#LinearDiscriminantAnalysis",
+      "@id": "https://w3id.org/ssbd/LinearDiscriminantAnalysis",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Logic": {
-      "@id": "https://w3id.org/pink#Logic",
+      "@id": "https://w3id.org/ssbd/Logic",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "LogisticRegressionModel": {
-      "@id": "https://w3id.org/pink#LogisticRegressionModel",
+      "@id": "https://w3id.org/ssbd/LogisticRegressionModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LongTermToxicityBirds": {
+      "@id": "https://w3id.org/ssbd/LongTermToxicityBirds",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "LowDensitySeparationModel": {
-      "@id": "https://w3id.org/pink#LowDensitySeparationModel",
+      "@id": "https://w3id.org/ssbd/LowDensitySeparationModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MachineTranslation": {
-      "@id": "https://w3id.org/pink#MachineTranslation",
+      "@id": "https://w3id.org/ssbd/MachineTranslation",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MacroMolecule": {
-      "@id": "https://w3id.org/pink#MacroMolecule",
+      "@id": "https://w3id.org/ssbd/MacroMolecule",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MagneticMaterial": {
-      "@id": "https://w3id.org/pink#MagneticMaterial",
+      "@id": "https://w3id.org/ssbd/MagneticMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MarineAquaticEcotoxicityImpactCategory": {
+      "@id": "https://w3id.org/ssbd/MarineAquaticEcotoxicityImpactAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MarineEutrophicationImpactCategory": {
+      "@id": "https://w3id.org/ssbd/MarineEutrophicationImpactAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MaterialProcess": {
-      "@id": "https://w3id.org/pink#MaterialProcess",
+      "@id": "https://w3id.org/ssbd/MaterialProcess",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Measurement": {
-      "@id": "https://w3id.org/pink#Measurement",
+      "@id": "https://w3id.org/ssbd/Measurement",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "SmallMolecule": {
-      "@id": "https://w3id.org/pink#MicroMolecule",
+      "@id": "https://w3id.org/ssbd/MicroMolecule",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MonteCarloLearningModel": {
-      "@id": "https://w3id.org/pink#MonteCarloLearningModel",
+      "@id": "https://w3id.org/ssbd/MonteCarloLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MutagenicityAssessment": {
+      "@id": "https://w3id.org/ssbd/MutagenicityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "NaiveBayes": {
-      "@id": "https://w3id.org/pink#NaiveBayes",
+      "@id": "https://w3id.org/ssbd/NaiveBayes",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "NanoComposite": {
-      "@id": "https://w3id.org/pink#NanoComposite",
+      "@id": "https://w3id.org/ssbd/NanoComposite",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "NanoParticle": {
-      "@id": "https://w3id.org/pink#NanoParticle",
+      "@id": "https://w3id.org/ssbd/NanoParticle",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "NanoPlate": {
-      "@id": "https://w3id.org/pink#NanoPlate",
+      "@id": "https://w3id.org/ssbd/NanoPlate",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "NanoRod": {
-      "@id": "https://w3id.org/pink#NanoRod",
+      "@id": "https://w3id.org/ssbd/NanoRod",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "NanoTube": {
-      "@id": "https://w3id.org/pink#NanoTube",
+      "@id": "https://w3id.org/ssbd/NanoTube",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "NaturalLanguageClassification": {
-      "@id": "https://w3id.org/pink#NaturalLanguageClassification",
+      "@id": "https://w3id.org/ssbd/NaturalLanguageClassification",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "NeurotoxicityAssessment": {
+      "@id": "https://w3id.org/ssbd/NeurotoxicityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Non-genotoxicCarcinogenicity Assessment": {
+      "@id": "https://w3id.org/ssbd/NonGenotoxicCarcinogenicityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ObjectDetection": {
-      "@id": "https://w3id.org/pink#ObjectDetection",
+      "@id": "https://w3id.org/ssbd/ObjectDetection",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "OccupationalNonfatalInjuriesRate": {
+      "@id": "https://w3id.org/ssbd/OccupationalNonfatalInjuriesRate",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "OpticalMaterial": {
-      "@id": "https://w3id.org/pink#OpticalMaterial",
+      "@id": "https://w3id.org/ssbd/OpticalMaterial",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "OxidisingPropetiesAssessment": {
+      "@id": "https://w3id.org/ssbd/OxidisingPropetiesAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Participant": {
-      "@id": "https://w3id.org/pink#Participant",
+      "@id": "https://w3id.org/ssbd/Participant",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PhotochemicalOzoneFormationImpactCategory": {
+      "@id": "https://w3id.org/ssbd/PhotochemicalOzoneFormationAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "PlanningModel": {
-      "@id": "https://w3id.org/pink#PlanningModel",
+      "@id": "https://w3id.org/ssbd/PlanningModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "PoissonsRatioAssessment": {
-      "@id": "https://w3id.org/pink#PoissonsRatioAssessment",
+      "@id": "https://w3id.org/ssbd/PoissonsRatioAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "PrenatalDevelopmentalToxicityAssessment": {
+      "@id": "https://w3id.org/ssbd/PrenatalDevelopmentalToxicityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "PrincipalComponentAnalysis": {
-      "@id": "https://w3id.org/pink#PrincipalComponentAnalysis",
+      "@id": "https://w3id.org/ssbd/PrincipalComponentAnalysis",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ProbabilityModel": {
-      "@id": "https://w3id.org/pink#ProbabilityModel",
+      "@id": "https://w3id.org/ssbd/ProbabilityModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Profiler": {
+      "@id": "https://w3id.org/ssbd/Profiler",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Protein": {
-      "@id": "https://w3id.org/pink#Protein",
+      "@id": "https://w3id.org/ssbd/Protein",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "QSARSoftware": {
+      "@id": "https://w3id.org/ssbd/QSARSoftware",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "QuestionAnswering": {
-      "@id": "https://w3id.org/pink#QuestionAnswering",
+      "@id": "https://w3id.org/ssbd/QuestionAnswering",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "RecurrentNeuralNetwork": {
-      "@id": "https://w3id.org/pink#RecurrentNeuralNetwork",
+      "@id": "https://w3id.org/ssbd/RecurrentNeuralNetwork",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ReliabilityDocument": {
-      "@id": "https://w3id.org/pink#ReliabilityDocument",
+      "@id": "https://w3id.org/ssbd/ReliabilityDocument",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "SafetyDimension": {
-      "@id": "https://w3id.org/pink#SafetyDimension",
+    "RenalToxicityAssessment": {
+      "@id": "https://w3id.org/ssbd/RenalToxicityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "RenewableEnergyConsumptionAssessment": {
+      "@id": "https://w3id.org/ssbd/RenewableEnergyConsumptionAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ReproductiveToxicity Assessment": {
+      "@id": "https://w3id.org/ssbd/ReproductiveToxicityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ResourceAssessmentFossilFuel": {
+      "@id": "https://w3id.org/ssbd/ResourceAssessmentFossilFuel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ResourceAssessmentLand": {
+      "@id": "https://w3id.org/ssbd/ResourceAssessmentLand",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ResourceAssessmentMinerals": {
+      "@id": "https://w3id.org/ssbd/ResourceAssessmentMinerals",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ResourceAssessmentWater": {
+      "@id": "https://w3id.org/ssbd/ResourceAssessmentWater",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SSbDAssessment": {
+      "@id": "https://w3id.org/ssbd/SSbDAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SedimentToxicity": {
+      "@id": "https://w3id.org/ssbd/SedimentToxicity",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "SelfTrainingModel": {
-      "@id": "https://w3id.org/pink#SelfTrainingModel",
+      "@id": "https://w3id.org/ssbd/SelfTrainingModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "SiameseNeuralNetwork": {
-      "@id": "https://w3id.org/pink#SiameseNeuralNetwork",
+      "@id": "https://w3id.org/ssbd/SiameseNeuralNetwork",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SkinAndRespiratorySensitisation": {
+      "@id": "https://w3id.org/ssbd/SkinAndRespiratorySensitisation",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "SocialDimension": {
-      "@id": "https://w3id.org/pink#SocialDimension",
+      "@id": "https://w3id.org/ssbd/SocialDimension",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SocialExternalitiesAssessment": {
+      "@id": "https://w3id.org/ssbd/SocialExternalitiesAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SoilQualityAssessment": {
+      "@id": "https://w3id.org/ssbd/SoilQualityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "StepwiseRegressionModel": {
-      "@id": "https://w3id.org/pink#StepwiseRegressionModel",
+      "@id": "https://w3id.org/ssbd/StepwiseRegressionModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "StratosphericOzoneLayerDepletionImpactCategory": {
+      "@id": "https://w3id.org/ssbd/StratosphericOzoneLayerDepletionAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "StructuralMaterial": {
-      "@id": "https://w3id.org/pink#StructuralMaterial",
+      "@id": "https://w3id.org/ssbd/StructuralMaterial",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "SupportVectorMachine": {
-      "@id": "https://w3id.org/pink#SupportVectorMachine",
+      "@id": "https://w3id.org/ssbd/SupportVectorMachine",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SustainabilityDimension": {
+      "@id": "https://w3id.org/ssbd/SustainabilityDimension",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "TDistributedStochasticNeighborEmbedding": {
-      "@id": "https://w3id.org/pink#TDistributedStochasticNeighborEmbedding",
+      "@id": "https://w3id.org/ssbd/TDistributedStochasticNeighborEmbedding",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "TargetTracking": {
-      "@id": "https://w3id.org/pink#TargetTracking",
+      "@id": "https://w3id.org/ssbd/TargetTracking",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TerrestrialEutrophicationImpactCategory": {
+      "@id": "https://w3id.org/ssbd/TerrestrialEutrophicationImpactAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "TerrestrialToxicity": {
+      "@id": "https://w3id.org/ssbd/TerrestrialToxicity",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "TimeData": {
-      "@id": "https://w3id.org/pink#TimeData",
+      "@id": "https://w3id.org/ssbd/TimeData",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Toxicity": {
-      "@id": "https://w3id.org/pink#Toxicity",
+      "@id": "https://w3id.org/ssbd/Toxicity",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WaterQualityAssessment": {
+      "@id": "https://w3id.org/ssbd/WaterQualityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WorkingHoursAssessment": {
+      "@id": "https://w3id.org/ssbd/WorkingHoursAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "XGBoostRegressor": {
-      "@id": "https://w3id.org/pink#XGBoostRegessor",
+      "@id": "https://w3id.org/ssbd/XGBoostRegessor",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "YoungsModulusAssessment": {
-      "@id": "https://w3id.org/pink#YoungsModulusAssessment",
+      "@id": "https://w3id.org/ssbd/YoungsModulusAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Rights Statement": {
-      "@id": "http://purl.org/dc/terms/RightsStatement",
+    "License Document": {
+      "@id": "http://purl.org/dc/terms/LicenseDocument",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MolarRefractivity": {
@@ -1680,11 +2093,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000056",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MeltMassFlowRate": {
+    "File": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "File": {
+    "MeltMassFlowRate": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1840,16 +2253,16 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_001510",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "DataModel": {
+      "@id": "https://w3id.org/emmo/domain/datamodel#DataModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "AnalogicalModel": {
       "@id": "https://w3id.org/emmo/hume#AnalogicalIcon",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "CompositeMaterial": {
       "@id": "https://w3id.org/emmo/hume#CompositeMaterial",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "DataBasedModel": {
-      "@id": "https://w3id.org/emmo/hume#DataBasedModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "DataProcessingSoftware": {
@@ -1901,95 +2314,123 @@
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Bagging": {
-      "@id": "https://w3id.org/pink#Bagging",
+      "@id": "https://w3id.org/ssbd/Bagging",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Boosting": {
-      "@id": "https://w3id.org/pink#Boosting",
+      "@id": "https://w3id.org/ssbd/Boosting",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EconomicSustainabilityAssessment": {
+      "@id": "https://w3id.org/ssbd/EconomicSustainabilityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EconomicSustainabilityDimension": {
+      "@id": "https://w3id.org/ssbd/EconomicSustainabilityDimension",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "EnsembleLearningModel": {
-      "@id": "https://w3id.org/pink#EnsembleLearningModel",
+      "@id": "https://w3id.org/ssbd/EnsembleLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EnvironmentalSustainabilityDimension": {
+      "@id": "https://w3id.org/ssbd/EnvironmentalSustainabilityDimension",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "FunctionalityDimension": {
-      "@id": "https://w3id.org/pink#FunctionalityDimension",
+      "@id": "https://w3id.org/ssbd/FunctionalityDimension",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HazardAssessmentEnvironment": {
+      "@id": "https://w3id.org/ssbd/HazardAssessmentEnvironment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Information": {
-      "@id": "https://w3id.org/pink#Information",
+      "@id": "https://w3id.org/ssbd/Information",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "IntData": {
-      "@id": "https://w3id.org/pink#IntData",
+      "@id": "https://w3id.org/ssbd/IntData",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "IntegerData": {
-      "@id": "https://w3id.org/pink#IntegerData",
+      "@id": "https://w3id.org/ssbd/IntegerData",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Interpreter": {
-      "@id": "https://w3id.org/pink#Interpreter",
+      "@id": "https://w3id.org/ssbd/Interpreter",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "KnowledgeRepresentation": {
-      "@id": "https://w3id.org/pink#KnowledgeRepresentation",
+      "@id": "https://w3id.org/ssbd/KnowledgeRepresentation",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "LongData": {
-      "@id": "https://w3id.org/pink#LongData",
+      "@id": "https://w3id.org/ssbd/LongData",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ModernGenerativeAIModel": {
-      "@id": "https://w3id.org/pink#ModernGenerativeAIModel",
+      "@id": "https://w3id.org/ssbd/ModernGenerativeAIModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "NanoStructuredMaterial": {
-      "@id": "https://w3id.org/pink#NanoStructuredMaterial",
+      "@id": "https://w3id.org/ssbd/NanoStructuredMaterial",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "NaturalLanguageGeneration": {
-      "@id": "https://w3id.org/pink#NaturalLanguageGeneration",
+      "@id": "https://w3id.org/ssbd/NaturalLanguageGeneration",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "OccupationalHealthandSafetyAssessment": {
+      "@id": "https://w3id.org/ssbd/OccupationalHealthandSafetyAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "PhysicalPropertiesAssessment": {
-      "@id": "https://w3id.org/pink#PhysicalPropertiesAssessment",
+      "@id": "https://w3id.org/ssbd/PhysicalPropertiesAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "QSARModel": {
+      "@id": "https://w3id.org/ssbd/QSARModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "RandomForest": {
-      "@id": "https://w3id.org/pink#RandomForest",
+      "@id": "https://w3id.org/ssbd/RandomForest",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "RemommenderSystem": {
-      "@id": "https://w3id.org/pink#RecommenderSystem",
+      "@id": "https://w3id.org/ssbd/RecommenderSystem",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "SSbDAssessment": {
-      "@id": "https://w3id.org/pink#SSbDAssessment",
+    "SafeWorkingConditionsAssessment": {
+      "@id": "https://w3id.org/ssbd/SafeWorkingConditionsAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SafetyDimension": {
+      "@id": "https://w3id.org/ssbd/SafetyDimension",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ShortData": {
-      "@id": "https://w3id.org/pink#ShortData",
+      "@id": "https://w3id.org/ssbd/ShortData",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "SpecifiedAssessment": {
-      "@id": "https://w3id.org/pink#SpecifiedAssessment",
+    "SocialSustainabilityDimension": {
+      "@id": "https://w3id.org/ssbd/SocialSustainabilityDimension",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "TextGeneration": {
-      "@id": "https://w3id.org/pink#TextGeneration",
+      "@id": "https://w3id.org/ssbd/TextGeneration",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ThermalPropertiesAssessment": {
-      "@id": "https://w3id.org/pink#ThermalPropertiesAssessment",
+      "@id": "https://w3id.org/ssbd/ThermalPropertiesAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "TransformerAI": {
-      "@id": "https://w3id.org/pink#TransformerAI",
+      "@id": "https://w3id.org/ssbd/TransformerAI",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "UnsupervicedLearningModel": {
-      "@id": "https://w3id.org/pink#UnsupervicedLearningModel",
+      "@id": "https://w3id.org/ssbd/UnsupervicedLearningModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "RSStereochemicalDescriptor": {
@@ -2137,27 +2578,59 @@
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ArtificialNeuralNetwork": {
-      "@id": "https://w3id.org/pink#ArtificialNeuralNetwork",
+      "@id": "https://w3id.org/ssbd/ArtificialNeuralNetwork",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Computation": {
+      "@id": "https://w3id.org/ssbd/Computation",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Datum": {
-      "@id": "https://w3id.org/pink#Datum",
+      "@id": "https://w3id.org/ssbd/Datum",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Description": {
+      "@id": "https://w3id.org/ssbd/Description",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EnergyConsumptionAssessment": {
+      "@id": "https://w3id.org/ssbd/EnergyConsumptionAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ExternalitiesAssessment": {
+      "@id": "https://w3id.org/ssbd/ExternalitiesAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HazardAssessmentHumanHealth": {
+      "@id": "https://w3id.org/ssbd/HazardAssessmentHumanHealth",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Indicator": {
-      "@id": "https://w3id.org/pink#Indicator",
+      "@id": "https://w3id.org/ssbd/Indicator",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IntrinsicChemicalHazardAssessment": {
+      "@id": "https://w3id.org/ssbd/IntrinsicChemicalHazardAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "NanoFiber": {
-      "@id": "https://w3id.org/pink#NanoFiber",
+      "@id": "https://w3id.org/ssbd/NanoFiber",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "PerceptionModel": {
-      "@id": "https://w3id.org/pink#PerceptionModel",
+      "@id": "https://w3id.org/ssbd/PerceptionModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "RegressionModel": {
-      "@id": "https://w3id.org/pink#RegressionModel",
+      "@id": "https://w3id.org/ssbd/RegressionModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SocialSustainabilityAssessment": {
+      "@id": "https://w3id.org/ssbd/SocialSustainabilityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WorkerSocialResponsibilityAssessment": {
+      "@id": "https://w3id.org/ssbd/WorkerSocialResponsibilityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "PolyatomicEntity": {
@@ -2252,36 +2725,44 @@
       "@id": "https://w3id.org/emmo/hume#Molecule",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Assessment": {
+      "@id": "https://w3id.org/ssbd/Assessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DomainOfApplicabilityStatus": {
+      "@id": "https://w3id.org/ssbd/DomainOfApplicabilityStatus",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "FunctionalityAssessment": {
-      "@id": "https://w3id.org/pink#FunctionalityAssessment",
+      "@id": "https://w3id.org/ssbd/FunctionalityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Matter": {
-      "@id": "https://w3id.org/pink#Matter",
+      "@id": "https://w3id.org/ssbd/Matter",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MechanicalPropertiesAssessment": {
-      "@id": "https://w3id.org/pink#MechanicalPropertiesAssessment",
+      "@id": "https://w3id.org/ssbd/MechanicalPropertiesAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "NanoObject": {
-      "@id": "https://w3id.org/pink#NanoObject",
+      "@id": "https://w3id.org/ssbd/NanoObject",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "NumericalData": {
-      "@id": "https://w3id.org/pink#NumericalData",
+      "@id": "https://w3id.org/ssbd/NumericalData",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Object": {
-      "@id": "https://w3id.org/pink#Object",
+      "@id": "https://w3id.org/ssbd/Object",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ReinforcedLearningModel": {
-      "@id": "https://w3id.org/pink#ReinforcedLearningModel",
+      "@id": "https://w3id.org/ssbd/ReinforcedLearningModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "SemiSupervicedLearningModel": {
-      "@id": "https://w3id.org/pink#SemiSupervicedLearningModel",
+      "@id": "https://w3id.org/ssbd/SemiSupervicedLearningModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "EnergeticDescriptor": {
@@ -2312,40 +2793,36 @@
       "@id": "https://w3id.org/emmo/hume#MaterialsModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MathematicalModel": {
-      "@id": "https://w3id.org/emmo/hume#MathematicalModel",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "Substance": {
       "@id": "https://w3id.org/emmo/hume#Substance",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ComputerVision": {
-      "@id": "https://w3id.org/pink#ComputerVision",
+      "@id": "https://w3id.org/ssbd/ComputerVision",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "DimensionalityReduction": {
-      "@id": "https://w3id.org/pink#DimensionalityReduction",
+      "@id": "https://w3id.org/ssbd/DimensionalityReduction",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Model": {
-      "@id": "https://w3id.org/pink#Model",
+      "@id": "https://w3id.org/ssbd/Model",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "NaturalLanguageUnderstanding": {
-      "@id": "https://w3id.org/pink#NaturalLanguageUnderstanding",
+      "@id": "https://w3id.org/ssbd/NaturalLanguageUnderstanding",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "PredictionLearningModel": {
-      "@id": "https://w3id.org/pink#PredictionLearningModel",
+      "@id": "https://w3id.org/ssbd/PredictionLearningModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "SupervisedLearningModel": {
-      "@id": "https://w3id.org/pink#SupervisedLearningModel",
+      "@id": "https://w3id.org/ssbd/SupervisedLearningModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "TierLevel": {
-      "@id": "https://w3id.org/pink#TierLevel",
+      "@id": "https://w3id.org/ssbd/TierLevel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "AverageMolecularWeightDescriptor": {
@@ -2365,11 +2842,23 @@
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Classification": {
-      "@id": "https://w3id.org/pink#Classification",
+      "@id": "https://w3id.org/ssbd/Classification",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "EnvironmentalRiskAssessment": {
+      "@id": "https://w3id.org/ssbd/EnvironmentalRiskAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ExposureAssessmentEnvironment": {
+      "@id": "https://w3id.org/ssbd/ExposureAssessmentEnvironment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HumanHealthRiskAssessment": {
+      "@id": "https://w3id.org/ssbd/HumanHealthRiskAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "SymbolicData": {
-      "@id": "https://w3id.org/pink#SymbolicData",
+      "@id": "https://w3id.org/ssbd/SymbolicData",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ChargeDelocalizationDescriptor": {
@@ -2378,6 +2867,26 @@
     },
     "Material": {
       "@id": "https://w3id.org/emmo/hume#Material",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MathematicalModel": {
+      "@id": "https://w3id.org/emmo/hume#MathematicalModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Process": {
+      "@id": "https://w3id.org/ssbd/Process",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Property": {
+      "@id": "https://w3id.org/ssbd/Property",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SSbDSpecifiedAssessment": {
+      "@id": "https://w3id.org/ssbd/SSbDSpecifiedAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Rights Statement": {
+      "@id": "http://purl.org/dc/terms/RightsStatement",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ConstitutionalDescriptor": {
@@ -2393,11 +2902,15 @@
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "CognitionAndLearningModel": {
-      "@id": "https://w3id.org/pink#CognitionAndLearningModel",
+      "@id": "https://w3id.org/ssbd/CognitionAndLearningModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "SsbdDimension": {
-      "@id": "https://w3id.org/pink#SsbdDimension",
+    "EnvironmentalSustainabilityAssessment": {
+      "@id": "https://w3id.org/ssbd/EnvironmentalSustainabilityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Sign": {
+      "@id": "https://w3id.org/ssbd/Sign",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MolecularEntityName": {
@@ -2408,16 +2921,44 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000093",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Data": {
+      "@id": "https://w3id.org/ssbd/Data",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "DeepLearningModel": {
-      "@id": "https://w3id.org/pink#DeepLearningModel",
+      "@id": "https://w3id.org/ssbd/DeepLearningModel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SafetyAssessment": {
+      "@id": "https://w3id.org/ssbd/SafetyAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LifeCycleAssessmentImpactCategory": {
+      "@id": "https://w3id.org/ssbd/LifeCycleImpactAssessmentCategory",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "SsbdDimension": {
+      "@id": "https://w3id.org/ssbd/SSbDDimension",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Software": {
+      "@id": "https://w3id.org/ssbd/Software",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "StructuralDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000085",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Activity": {
+      "@id": "http://www.w3.org/ns/prov#Activity",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "ChemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000123",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "HazardIdentificationHumanHealth": {
+      "@id": "https://w3id.org/ssbd/HazardIdentificationHumanHealth",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "CountDescriptor": {
@@ -2430,6 +2971,10 @@
     },
     "ChemicalDatabaseIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000464",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Entity": {
+      "@id": "http://www.w3.org/ns/prov#Entity",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "TopologicalDescriptor": {
@@ -2448,54 +2993,44 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000025",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Attribution": {
-      "@id": "http://www.w3.org/ns/prov#Attribution",
+    "JSON": {
+      "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#JSON",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ChecksumAlgorithm": {
-      "@id": "http://spdx.org/rdf/terms#ChecksumAlgorithm",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Concept": {
-      "@id": "http://www.w3.org/2004/02/skos/core#Concept",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "DatasetSeries": {
-      "@id": "http://www.w3.org/ns/dcat#DatasetSeries",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Geometry": {
-      "@id": "http://www.w3.org/ns/locn#Geometry",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "RightsStatement": {
-      "@id": "http://purl.org/dc/terms/RightsStatement",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "LegalResource": {
-      "@id": "http://data.europa.eu/eli/ontology#LegalResource",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Standard": {
-      "@id": "http://purl.org/dc/terms/Standard",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "MediaType": {
-      "@id": "http://purl.org/dc/terms/MediaType",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "ConformanceLevel": {
-      "@id": "https://w3id.org/emmo/application/datadoc#ConformanceLevel",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Document": {
-      "@id": "http://xmlns.com/foaf/0.1/Document",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
+    "xml": "http://www.w3.org/XML/1998/namespace",
+    "cheminf": "http://semanticscience.org/resource/",
+    "ssbd": "https://w3id.org/ssbd/",
+    "dm": "https://w3id.org/emmo/domain/datamodel#",
+    "widoco": "https://w3id.org/widoco/vocab#",
     "mw": "https://modelwave.it/ontology/",
     "rights": "http://publications.europa.eu/resource/authority/access-right/",
     "datasettype": "https://w3id.org/pink/datasettype/",
     "qsar": "https://w3id.org/pink/qsar/",
+    "brick": "https://brickschema.org/schema/Brick#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "org": "http://www.w3.org/ns/org#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "qb": "http://purl.org/linked-data/cube#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "time": "http://www.w3.org/2006/time#",
+    "void": "http://rdfs.org/ns/void#",
+    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
+    "bibo": "http://purl.org/ontology/bibo/",
+    "ns1": "http://purl.obolibrary.org/obo/",
+    "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns3": "http://data.europa.eu/r5r/",
+    "ns4": "http://www.geneontology.org/formats/oboInOwl#",
+    "ns5": "http://semanticscience.org/ontology/cheminf-core.owl#",
+    "ns6": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
+    "ns7": "https://w3id.org/widoco/vocab#",
+    "swrl": "http://www.w3.org/2003/11/swrl#",
     "ddoc": "https://w3id.org/emmo/application/datadoc#",
     "accr": "http://publications.europa.eu/resource/authority/access-right/",
     "adms": "http://www.w3.org/ns/adms#",
@@ -2520,36 +3055,9 @@
     "vcard": "http://www.w3.org/2006/vcard/ns#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "avail": "http://publications.europa.eu/resource/authority/planned-availability/",
-    "emmo": "https://w3id.org/emmo/hume#",
+    "emmo": "https://w3id.org/emmo#",
     "oteio": "https://w3id.org/emmo/domain/oteio#",
     "chameo": "https://w3id.org/emmo/domain/characterisation-methodology/chameo#",
-    "cheminf": "http://semanticscience.org/resource/",
-    "pink": "https://w3id.org/pink#",
-    "xml": "http://www.w3.org/XML/1998/namespace",
-    "brick": "https://brickschema.org/schema/Brick#",
-    "csvw": "http://www.w3.org/ns/csvw#",
-    "dc": "http://purl.org/dc/elements/1.1/",
-    "dcmitype": "http://purl.org/dc/dcmitype/",
-    "dcam": "http://purl.org/dc/dcam/",
-    "doap": "http://usefulinc.com/ns/doap#",
-    "geo": "http://www.opengis.net/ont/geosparql#",
-    "org": "http://www.w3.org/ns/org#",
-    "prof": "http://www.w3.org/ns/dx/prof/",
-    "qb": "http://purl.org/linked-data/cube#",
-    "sh": "http://www.w3.org/ns/shacl#",
-    "sosa": "http://www.w3.org/ns/sosa/",
-    "ssn": "http://www.w3.org/ns/ssn/",
-    "time": "http://www.w3.org/2006/time#",
-    "void": "http://rdfs.org/ns/void#",
-    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
-    "bibo": "http://purl.org/ontology/bibo/",
-    "ns1": "http://purl.obolibrary.org/obo/",
-    "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
-    "ns3": "http://semanticscience.org/ontology/cheminf-core.owl#",
-    "ns4": "http://www.geneontology.org/formats/oboInOwl#",
-    "ns5": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
-    "swrl": "http://www.w3.org/2003/11/swrl#",
-    "vidoco": "https://w3id.org/widoco/vocab#",
     "accessRights": {
       "@id": "http://purl.org/dc/terms/accessRights",
       "@type": "@id"
@@ -2587,7 +3095,7 @@
       "@type": "@id"
     },
     "definition": {
-      "@id": "http://www.w3.org/ns/prov#definition",
+      "@id": "http://www.w3.org/2004/02/skos/core#definition",
       "@language": "en"
     },
     "description": {
@@ -2595,10 +3103,13 @@
       "@language": "en"
     },
     "documentation": {
-      "@id": "https://w3id.org/pink#documentation",
+      "@id": "http://xmlns.com/foaf/0.1/page",
       "@type": "@id"
     },
-    "hasPart": "https://w3id.org/pink#hasPart",
+    "hasPart": {
+      "@id": "http://purl.org/dc/terms/hasPart",
+      "@type": "@id"
+    },
     "hasVersion": {
       "@id": "http://www.w3.org/ns/dcat#hasVersion",
       "@type": "@id"
@@ -2669,7 +3180,7 @@
     "bibliographicCitation": "http://purl.org/dc/terms/bibliographicCitation",
     "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
     "conceptualisation": {
-      "@id": "https://w3id.org/emmo/hume#EMMO_31252f35_c767_4b97_a877_1235076c3e13",
+      "@id": "https://w3id.org/emmo#EMMO_31252f35_c767_4b97_a877_1235076c3e13",
       "@language": "en"
     },
     "conformance": {
@@ -2685,7 +3196,7 @@
       "@type": "@id"
     },
     "elucidation": {
-      "@id": "https://w3id.org/emmo/hume#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9",
+      "@id": "https://w3id.org/emmo#EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9",
       "@language": "en"
     },
     "hiddenLabel": {
@@ -2725,60 +3236,6 @@
       "@id": "http://purl.org/vocab/vann/usageNote",
       "@language": "en"
     },
-    "ssbdSubDimension": {
-      "@id": "https://w3id.org/pink#ssbdSubDimension",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
-    },
-    "has value": "http://semanticscience.org/resource/CHEMINF_000012",
-    "participates_in": "http://purl.obolibrary.org/obo/RO_0000056",
-    "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
-    "rightsHolder": {
-      "@id": "http://purl.org/dc/terms/rightsHolder",
-      "@type": "@id"
-    },
-    "hasJunctionPart": "https://w3id.org/pink#hasJunctionPart",
-    "hasSpatialPart": "https://w3id.org/pink#hasSpatialPart",
-    "hasTemporalPart": "https://w3id.org/pink#hasTemporalPart",
-    "ssbdDimension": {
-      "@id": "https://w3id.org/pink#ssbdDimension",
-      "@type": "@id"
-    },
-    "causal": "https://w3id.org/pink#causal",
-    "equalsTo": "https://w3id.org/pink#equalsTo",
-    "hasParticipant": "https://w3id.org/pink#hasParticipant",
-    "nonOverlaps": "https://w3id.org/pink#nonOverlaps",
-    "hasDescription": {
-      "@id": "https://w3id.org/pink#hasDescription",
-      "@type": "@id"
-    },
-    "hasProperty": {
-      "@id": "https://w3id.org/pink#hasProperty",
-      "@type": "@id"
-    },
-    "isAfter": "https://w3id.org/pink#isAfter",
-    "processedFrom": "https://w3id.org/pink#processedFrom",
-    "overlaps": "https://w3id.org/pink#overlaps",
-    "parthood": "https://w3id.org/pink#parthood",
-    "semiotical": "https://w3id.org/pink#semiotical",
-    "causedBy": "https://w3id.org/pink#causedBy",
-    "isOvercrossedBy": "https://w3id.org/pink#isOvercrossedBy",
-    "hasProperPart": "https://w3id.org/pink#hasProperPart",
-    "is about": "http://purl.obolibrary.org/obo/IAO_0000136",
-    "Description": "http://purl.org/dc/terms/description",
-    "doi": "http://purl.org/ontology/bibo/doi",
-    "preferredNamespacePrefix": "http://purl.org/vocab/vann/preferredNamespacePrefix",
-    "preferredNamespaceUri": "http://purl.org/vocab/vann/preferredNamespaceUri",
-    "altLabel": "http://www.w3.org/2004/02/skos/core#altLabel",
-    "example": "http://www.w3.org/2004/02/skos/core#example",
-    "category": "http://www.w3.org/ns/prov#category",
-    "component": "http://www.w3.org/ns/prov#component",
-    "constraints": "http://www.w3.org/ns/prov#constraints",
-    "dm": "http://www.w3.org/ns/prov#dm",
-    "n": "http://www.w3.org/ns/prov#n",
-    "homepage": "http://xmlns.com/foaf/0.1/homepage",
-    "logo": "http://xmlns.com/foaf/0.1/logo",
-    "introduction": "https://w3id.org/widoco/vocab#introduction",
-    "scopeNote": "http://www.w3.org/2004/02/skos/core#scopeNote",
     "distribution": {
       "@id": "http://www.w3.org/ns/dcat#distribution",
       "@type": "@id"
@@ -2824,7 +3281,7 @@
       "@type": "@id"
     },
     "wasGeneratedBy": {
-      "@id": "https://w3id.org/pink#wasGeneratedBy",
+      "@id": "http://www.w3.org/ns/prov#wasGeneratedBy",
       "@type": "@id"
     },
     "datamodel": {
@@ -2836,19 +3293,19 @@
       "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
     },
     "hasDatum": {
-      "@id": "https://w3id.org/pink#hasDatum",
+      "@id": "https://w3id.org/emmo#EMMO_b19aacfc_5f73_4c33_9456_469c1e89a53e",
       "@type": "@id"
     },
     "isDescriptionFor": {
-      "@id": "https://w3id.org/emmo/hume#EMMO_f702bad4_fc77_41f0_a26d_79f6444fd4f3",
+      "@id": "https://w3id.org/emmo#EMMO_f702bad4_fc77_41f0_a26d_79f6444fd4f3",
       "@type": "@id"
     },
     "isInputOf": {
-      "@id": "https://w3id.org/emmo/hume#EMMO_1494c1a9_00e1_40c2_a9cc_9bbf302a1cac",
+      "@id": "https://w3id.org/emmo#EMMO_1494c1a9_00e1_40c2_a9cc_9bbf302a1cac",
       "@type": "@id"
     },
     "isOutputOf": {
-      "@id": "https://w3id.org/emmo/hume#EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461",
+      "@id": "https://w3id.org/emmo#EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461",
       "@type": "@id"
     },
     "mappings": {
@@ -2919,10 +3376,6 @@
       "@id": "http://xmlns.com/foaf/0.1/name",
       "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
-    "attributed": {
-      "@id": "https://w3id.org/pink#attributed",
-      "@type": "@id"
-    },
     "algorithm": {
       "@id": "http://spdx.org/rdf/terms#algorithm",
       "@type": "@id"
@@ -2991,102 +3444,12 @@
       "@id": "http://www.w3.org/2002/07/owl#maxQualifiedCardinality",
       "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
     },
-    "assesses": {
-      "@id": "https://w3id.org/pink#assesses",
-      "@type": "@id"
-    },
-    "hasSoftware": {
-      "@id": "https://w3id.org/pink#hasSoftware",
-      "@type": "@id"
-    },
-    "hasSubProcess": {
-      "@id": "https://w3id.org/pink#hasSubProcess",
-      "@type": "@id"
-    },
-    "hasMeasurementUnit": "https://w3id.org/pink#hasMeasurementUnit",
-    "isPropertyOf": {
-      "@id": "https://w3id.org/pink#isPropertyOf",
-      "@type": "@id"
-    },
-    "hasDataValue": "https://w3id.org/pink#hasDataValue",
-    "isInterpretedBy": {
-      "@id": "https://w3id.org/pink#isInterpretedBy",
-      "@type": "@id"
-    },
-    "standsFor": {
-      "@id": "https://w3id.org/pink#standsFor",
-      "@type": "@id"
-    },
-    "hasAPI": {
-      "@id": "https://w3id.org/pink#hasAPI",
-      "@type": "http://www.w3.org/2001/XMLSchema#boolean"
-    },
-    "hasGUI": {
-      "@id": "https://w3id.org/pink#hasGUI",
-      "@type": "http://www.w3.org/2001/XMLSchema#boolean"
-    },
-    "isSubmoduleOf": {
-      "@id": "https://w3id.org/pink#isSubmoduleOf",
-      "@type": "@id"
-    },
-    "priorRelease": {
-      "@id": "https://w3id.org/pink#priorRelease",
-      "@type": "@id"
-    },
-    "implementsModel": {
-      "@id": "https://w3id.org/pink#implementsModel",
-      "@type": "@id"
-    },
-    "used": {
-      "@id": "https://w3id.org/pink#used",
-      "@type": "@id"
-    },
-    "wasAssociatedWith": {
-      "@id": "https://w3id.org/pink#wasAssociatedWith",
-      "@type": "@id"
-    },
-    "wasInformedBy": {
-      "@id": "https://w3id.org/pink#wasInformedBy",
-      "@type": "@id"
-    },
-    "hasInput": {
-      "@id": "https://w3id.org/pink#hasInput",
-      "@type": "@id"
-    },
-    "hasOutput": {
-      "@id": "https://w3id.org/pink#hasOutput",
-      "@type": "@id"
-    },
-    "chemicalClass": {
-      "@id": "https://w3id.org/pink#chemicalClass",
-      "@type": "@id"
-    },
-    "tierLevel": {
-      "@id": "https://w3id.org/pink#tierLevel",
-      "@type": "@id"
-    },
-    "wasDerivedBy": {
-      "@id": "https://w3id.org/pink#wasDerivedBy",
-      "@type": "@id"
-    },
-    "wasAttributedTo": {
-      "@id": "https://w3id.org/pink#wasAttributedTo",
-      "@type": "@id"
-    },
-    "participatesTo": {
-      "@id": "https://w3id.org/pink#participatesTo",
-      "@type": "@id"
-    },
-    "isRepresentedBy": {
-      "@id": "https://w3id.org/pink#isRepresentedBy",
-      "@type": "@id"
-    },
     "Resource": {
       "@id": "http://www.w3.org/ns/dcat#Resource",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Dataset": {
-      "@id": "https://w3id.org/pink#Dataset",
+      "@id": "http://www.w3.org/ns/dcat#Dataset",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Distribution": {
@@ -3102,15 +3465,35 @@
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Agent": {
-      "@id": "http://www.w3.org/ns/prov#Agent",
+      "@id": "http://xmlns.com/foaf/0.1/Agent",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Attribution": {
+      "@id": "http://www.w3.org/ns/prov#Attribution",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Checksum": {
       "@id": "http://spdx.org/rdf/terms#Checksum",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "ChecksumAlgorithm": {
+      "@id": "http://spdx.org/rdf/terms#ChecksumAlgorithm",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Concept": {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "DataService": {
       "@id": "http://www.w3.org/ns/dcat#DataService",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "DatasetSeries": {
+      "@id": "http://www.w3.org/ns/dcat#DatasetSeries",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Geometry": {
+      "@id": "http://www.w3.org/ns/locn#Geometry",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Kind": {
@@ -3129,48 +3512,32 @@
       "@id": "http://www.w3.org/ns/dcat#Relationship",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "RightsStatement": {
+      "@id": "http://purl.org/dc/terms/RightsStatement",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LegalResource": {
+      "@id": "http://data.europa.eu/eli/ontology#LegalResource",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Standard": {
+      "@id": "http://purl.org/dc/terms/Standard",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "MediaType": {
+      "@id": "http://purl.org/dc/terms/MediaType",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "ConformanceLevel": {
+      "@id": "https://w3id.org/emmo/application/datadoc#ConformanceLevel",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "Restriction": {
       "@id": "http://www.w3.org/2002/07/owl#Restriction",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "License Document": {
-      "@id": "http://purl.org/dc/terms/LicenseDocument",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Assessment": {
-      "@id": "https://w3id.org/pink#Assessment",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Computation": {
-      "@id": "https://w3id.org/pink#Computation",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Process": {
-      "@id": "https://w3id.org/pink#Process",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Property": {
-      "@id": "https://w3id.org/pink#Property",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Data": {
-      "@id": "https://w3id.org/pink#Data",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Sign": {
-      "@id": "https://w3id.org/pink#Sign",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Software": {
-      "@id": "https://w3id.org/pink#Software",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Activity": {
-      "@id": "http://www.w3.org/ns/prov#Activity",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Entity": {
-      "@id": "http://www.w3.org/ns/prov#Entity",
+    "Document": {
+      "@id": "http://xmlns.com/foaf/0.1/Document",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     }
   },
@@ -3182,7 +3549,8 @@
       "title": "MultiCASE CASE Ultra commercial model RC2_AF4 for Rodent carcinogenicity in female mouse in vivo,\nDanish QSAR Group at DTU Food",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
@@ -3191,7 +3559,8 @@
       "title": "Tox21 HEK293T Gonadotropin-releasing Hormone (GnRH) Receptor Agonism Assay",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
@@ -3202,7 +3571,8 @@
       "title": "Carcinogenicity (genotox and nongenotox) alerts by ISS",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
@@ -3213,8 +3583,9 @@
       "title": "Boiling Point Adapted Stein and Brown Method (EPISUITE)",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation",
-        "https://w3id.org/pink#PhysicalPropertiesAssessment"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/PhysicalPropertiesAssessment",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
@@ -3224,7 +3595,8 @@
       "title": "GeneTox_detail",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
@@ -3234,7 +3606,8 @@
       "title": "Atmos. Hydroxylation Rate",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
@@ -3244,7 +3617,8 @@
       "title": "Animal Carcinogenicity prediction according to OECD Test No. 451",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
@@ -3254,7 +3628,8 @@
       "title": "Skin Reaction TDCommons",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
@@ -3265,8 +3640,8 @@
       "title": "CNR SMILES to mechanical properties workflow - molecular scale",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation",
-        "https://w3id.org/pink#FunctionalityAssessment"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/FunctionalityAssessment"
       ]
     },
     {
@@ -3277,8 +3652,8 @@
       "title": "CNR polymer builder module - molecular scale",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation",
-        "https://w3id.org/pink#FunctionalityAssessment"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/FunctionalityAssessment"
       ]
     },
     {
@@ -3289,8 +3664,8 @@
       "title": "CNR force field builder module - molecular scale",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation",
-        "https://w3id.org/pink#FunctionalityAssessment"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/FunctionalityAssessment"
       ]
     },
     {
@@ -3304,8 +3679,8 @@
       "title": "CNR bulk builder module - molecular scale",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation",
-        "https://w3id.org/pink#FunctionalityAssessment"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/FunctionalityAssessment"
       ]
     },
     {
@@ -3319,10 +3694,10 @@
       "title": "CNR Young's modulus calculator module - molecular scale",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation",
-        "https://w3id.org/pink#FunctionalityAssessment",
-        "https://w3id.org/pink#MechanicalPropertiesAssessment",
-        "https://w3id.org/pink#PhysicalPropertiesAssessment"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/FunctionalityAssessment",
+        "https://w3id.org/ssbd/MechanicalPropertiesAssessment",
+        "https://w3id.org/ssbd/PhysicalPropertiesAssessment"
       ]
     },
     {
@@ -3336,11 +3711,11 @@
       "title": "CNR mechanical properties calculator module - molecular scale",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation",
-        "https://w3id.org/pink#FunctionalityAssessment",
-        "https://w3id.org/pink#MechanicalPropertiesAssessment",
-        "https://w3id.org/pink#PhysicalPropertiesAssessment",
-        "https://w3id.org/pink#ThermalPropertiesAssessment"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/FunctionalityAssessment",
+        "https://w3id.org/ssbd/MechanicalPropertiesAssessment",
+        "https://w3id.org/ssbd/PhysicalPropertiesAssessment",
+        "https://w3id.org/ssbd/ThermalPropertiesAssessment"
       ]
     },
     {
@@ -3348,7 +3723,8 @@
       "@type": "owl:Class",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
@@ -3357,7 +3733,8 @@
       "title": "Tiered NAM-based safety testing workflow",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
@@ -3374,8 +3751,8 @@
       "title": "NWChemDFTGeometryOptimisation",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation",
-        "https://w3id.org/pink#FunctionalityAssessment"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/FunctionalityAssessment"
       ]
     },
     {
@@ -3384,8 +3761,8 @@
       "title": "Hamaker Extended tool",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation",
-        "https://w3id.org/pink#FunctionalityAssessment"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/FunctionalityAssessment"
       ]
     },
     {
@@ -3394,8 +3771,8 @@
       "title": "Zeta Predict Extended tool",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation",
-        "https://w3id.org/pink#FunctionalityAssessment"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/FunctionalityAssessment"
       ]
     },
     {
@@ -3404,8 +3781,8 @@
       "title": "NanoBioConstruct",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation",
-        "https://w3id.org/pink#FunctionalityAssessment"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/FunctionalityAssessment"
       ]
     },
     {
@@ -3414,7 +3791,8 @@
       "title": "PINK ChemInformatics Suite",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
@@ -3423,18 +3801,18 @@
       "title": "Life Cycle Impact prediction Tool",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation"
       ]
     },
     {
       "@id": "https://w3id.org/pink/activity/activity22",
       "@type": "owl:Class",
-      "hasInput": "datasettype:PhysicalQuantity",
+      "hasInput": "https://w3id.org/emmo/hume#PhysicalQuantity",
       "hasOutput": "datasettype:Energy",
       "title": "Life Cycle Inventory calculation tool (energy/material flows)",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation"
       ]
     },
     {
@@ -3445,7 +3823,8 @@
       "title": "Gene Expression assessment for an arbtitrary exposure",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
@@ -3456,7 +3835,8 @@
       "title": "Gene set enrichment to understand affected pathways from transcriptomic_example1",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
@@ -3465,33 +3845,77 @@
       "title": "Predictive Toxicogenomics Space",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
       ]
     },
     {
       "@id": "https://w3id.org/pink/activity/activity26",
       "@type": "owl:Class",
-      "title": "Automated data FAIRification, preprocessing and Tox5Score calculation",
+      "hasInput": "datasettype:RNACounts",
+      "hasOutput": "omics:transcriptPTGS-BMDoutput",
+      "title": "Predictive Toxicogenomics Space benchmark dose modelling",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation"
       ]
     },
     {
       "@id": "https://w3id.org/pink/activity/activity27",
       "@type": "owl:Class",
-      "title": "Science in Risk Assessment and Policy for nanomaterials",
+      "hasInput": "datasettype:RNACounts",
+      "title": "Predictive Toxicogenomics Space toxicity prediction",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation"
       ]
     },
     {
       "@id": "https://w3id.org/pink/activity/activity28",
       "@type": "owl:Class",
+      "hasInput": "datasettype:RNACounts",
+      "title": "Predictive Toxicogenomics Space AOP-anchored prediction of human toxicity",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/pink#Computation"
+        "https://w3id.org/ssbd/Computation"
+      ]
+    },
+    {
+      "@id": "https://w3id.org/pink/activity/activity29",
+      "@type": "owl:Class",
+      "hasInput": "datasettype:RNACounts",
+      "title": "Predictive Toxicogenomics Space grouping of chemicals/materials with similar bioactivities",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/ssbd/Computation"
+      ]
+    },
+    {
+      "@id": "https://w3id.org/pink/activity/activity30",
+      "@type": "owl:Class",
+      "title": "Automated data FAIRification, preprocessing and Tox5Score calculation",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
+      ]
+    },
+    {
+      "@id": "https://w3id.org/pink/activity/activity31",
+      "@type": "owl:Class",
+      "title": "Science in Risk Assessment and Policy for nanomaterials",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/SafetyAssessment"
+      ]
+    },
+    {
+      "@id": "https://w3id.org/pink/activity/activity32",
+      "@type": "owl:Class",
+      "subClassOf": [
+        "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/ssbd/Computation"
       ]
     }
   ]

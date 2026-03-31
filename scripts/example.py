@@ -27,15 +27,14 @@ from validation.validate import load_shapes, shacl_validate
 
 # Get pink keywords
 kw = get_keywords(theme=None)
-kw.load_yaml(
-    "https://pink-project.github.io/PINK-annotation-schema/"
-    "context/keywords.yaml",
-    redefine="allow",
-)
+#kw.load_yaml(
+#    "https://pink-project.github.io/PINK-annotation-schema/"
+#    "context/keywords.yaml",
+#    redefine="allow",
+#)
 
 context = get_context(
-    "https://pink-project.github.io/PINK-annotation-schema/"
-    "context/pink_annotation_schema.jsonld"
+    "https://w3id.org/ssbd/context/"
 )
 
 # Choice of prefixes
@@ -46,18 +45,18 @@ prefixes = {
     "qsar": "https://w3id.org/pink/qsar/",
 }
 
-
+#TODO CANNOT USE THE INFERRED ONTOLOGY BECAUSE OF MISMATCH BETWEEN CONTEXT AND ONTOLOGY PREFIXES
+#ssbd_onto= "https://raw.githubusercontent.com/ssbd-ontology/core/refs/heads/gh-pages/core-inferred.ttl"
+ssbd_onto = "https://w3id.org/ssbd/"
 # import the pink ontology for accessing labels and
 # convert to IRIs (just before storing into the triplestore)
-onto = get_ontology("pink_annotation_schema.ttl").load()
+onto = get_ontology(ssbd_onto).load()
+
 
 # create the triplestore
 ts = Triplestore("rdflib")
 # Add the reasoned ontology to the triplestore
-ts.parse(
-    "https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/"
-    "refs/heads/gh-pages/pink_annotation_schema-inferred.ttl"
-)
+ts.parse(ssbd_onto)
 
 # Get absolute current path
 root_path = Path(__file__).parent.parent.resolve()

@@ -237,14 +237,13 @@ def store_jsonld(documentation, name=None):
 
 # import the pink ontology for accessing labels and
 # convert to IRIs (just before storing into the triplestore)
-onto = get_ontology("pink_annotation_schema.ttl").load()
+onto = get_ontology("https://ssbd-ontology.github.io/core/core-inferred.ttl").load()
 
 # create the triplestore
 ts = Triplestore("rdflib")
 # Add the reasoned ontology to the triplestore
 ts.parse(
-    "https://raw.githubusercontent.com/PINK-project/PINK-annotation-schema/"
-    "refs/heads/gh-pages/pink_annotation_schema-inferred.ttl"
+    "https://ssbd-ontology.github.io/core/core-inferred.ttl"
 )
 
 
@@ -283,16 +282,15 @@ agents = pd.read_csv(AGENTS_URL)
 
 print("getting keywords")
 # Get pink keywords
-kw = get_keywords(theme=None)
-kw.load_yaml(
-    "https://pink-project.github.io/PINK-annotation-schema/"
-    "context/keywords.yaml",
-    redefine="allow",
-)
+#kw = get_keywords(theme=None)
+#kw.load_yaml(
+#    "https://pink-project.github.io/PINK-annotation-schema/"
+#    "context/keywords.yaml",
+#    redefine="allow",
+#)
 
 context = get_context(
-    "https://pink-project.github.io/PINK-annotation-schema/"
-    "context/pink_annotation_schema.jsonld"
+    "https://w3id.org/ssbd/context/"
 )
 
 # Choice of prefixes
@@ -355,7 +353,7 @@ expanded_sw.to_csv("sw_clean.csv", index=False)
 
 swdocumentation = TableDoc.parse_csv(
     "sw_clean.csv",
-    keywords=kw,
+    #keywords=kw,
     context=context,
     # baseiri='https://w3id.org/pink/',
     prefixes=prefixes,
@@ -414,7 +412,10 @@ expanded_comp.to_csv("comp_clean.csv", index=False)
 
 
 compdocumentation = TableDoc.parse_csv(
-    "comp_clean.csv", keywords=kw, context=context, prefixes=prefixes
+    "comp_clean.csv", 
+    #keywords=kw, 
+    context=context, 
+    prefixes=prefixes
 )
 
 # Datasettype
@@ -428,7 +429,7 @@ expanded_datasettypes = correct_pink_dataframes(datasettypes, onto)
 expanded_datasettypes.to_csv("datasettypes_clean.csv", index=False)
 datasettypedocumentation = TableDoc.parse_csv(
     "datasettypes_clean.csv",
-    keywords=kw,
+    #keywords=kw,
     context=context,
     prefixes=prefixes,
 )
@@ -443,7 +444,7 @@ agents_corrected = correct_pink_dataframes(agents, onto)
 agents_corrected.to_csv("agents_clean.csv", index=False)
 agentdocumentation = TableDoc.parse_csv(
     "agents_clean.csv",
-    keywords=kw,
+    #keywords=kw,
     context=context,
     prefixes=prefixes,
 )
