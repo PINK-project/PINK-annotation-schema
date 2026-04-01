@@ -1,9 +1,5 @@
 {
   "@context": {
-    "altLabel": {
-      "@id": "http://www.w3.org/2004/02/skos/core#altLabel",
-      "@language": "en"
-    },
     "issued": {
       "@id": "http://purl.org/dc/terms/issued",
       "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
@@ -3007,6 +3003,8 @@
     "datasettype": "https://pink-project.eu/datasettype/",
     "qsar": "https://pink-project.eu/qsar/",
     "pink": "https://pink-project.eu/",
+    "empa": "https://empa.ch/",
+    "empadm": "https://empa.ch/datamodel/",
     "brick": "https://brickschema.org/schema/Brick#",
     "csvw": "http://www.w3.org/ns/csvw#",
     "dc": "http://purl.org/dc/elements/1.1/",
@@ -3178,6 +3176,10 @@
       "@id": "http://purl.org/dc/terms/abstract",
       "@language": "en"
     },
+    "altLabel": {
+      "@id": "http://www.w3.org/2004/02/skos/core#altLabel",
+      "@language": "en"
+    },
     "bibliographicCitation": "http://purl.org/dc/terms/bibliographicCitation",
     "comment": "http://www.w3.org/2000/01/rdf-schema#comment",
     "conceptualisation": {
@@ -3208,7 +3210,10 @@
       "@id": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
       "@type": "@id"
     },
-    "label": "http://www.w3.org/2000/01/rdf-schema#label",
+    "label": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#label",
+      "@language": "en"
+    },
     "prefLabel": {
       "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
       "@language": "en"

@@ -300,6 +300,8 @@ prefixes = {
     "datasettype": "https://pink-project.eu/datasettype/",
     "qsar": "https://pink-project.eu/qsar/",
     "pink": "https://pink-project.eu/",
+    "empa": "https://empa.ch/",
+    "empadm": "https://empa.ch/datamodel/",
 }
 
 # Get name of columns that can have more than one value from termdefs.
