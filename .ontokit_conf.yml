@@ -1,5 +1,0 @@
-ONTOLOGY_NAME: pink_annotation_schema
-ONTOLOGY_PREFIX: pink
-ONTOLOGY_IRI: https://w3id.org/pink
-GITHUB_REPOSITORY: PINK-project/PINK-annotation-schema
-BUILD_DIR: build
