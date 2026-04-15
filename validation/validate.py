@@ -1,12 +1,12 @@
 """
 Validate JSON-LD data against SHACL shapes.
 
-Provides functions to validate JSON-LD data representing PINK resources
+Provides functions to validate JSON-LD data representing SSbD resources
 (Dataset, Software, etc.) against generated SHACL shapes.
 """
 import json
 from pathlib import Path
-from typing import Optional, Tuple, Union
+from typing import Optional, Tuple, Union, cast
 
 from pyshacl import validate as shacl_validate
 from rdflib import Graph
@@ -45,7 +45,7 @@ def validate(
     Validate JSON-LD data against SHACL shapes.
 
     Loads both auto-generated shapes (shapes.ttl) and project-specific
-    constraints (shapes-pink.ttl) for validation.
+    constraints (shapes-ssbd.ttl) for validation.
 
     Parameters:
         source: JSON-LD source — a file path (str or Path) or a Python dict.
@@ -77,16 +77,20 @@ def validate(
     shapes_graph = load_shapes(shapes_file)
 
     # Merge project-specific shapes if available
-    pink_shapes_file = Path(__file__).parent / "shapes-pink.ttl"
-    if pink_shapes_file.exists():
-        shapes_graph.parse(pink_shapes_file, format="turtle")
+    ssbd_shapes_file = Path(__file__).parent / "shapes-ssbd.ttl"
+    if ssbd_shapes_file.exists():
+        shapes_graph.parse(ssbd_shapes_file, format="turtle")
 
-    conforms, _results_graph, results_text = shacl_validate(
-        data_graph,
-        shacl_graph=shapes_graph,
-        inference="rdfs",
-        abort_on_first=False,
+    conforms, _results_graph, results_text = cast(
+        Tuple[bool, object, str],
+        shacl_validate(
+            data_graph,
+            shacl_graph=shapes_graph,
+            inference="rdfs",
+            abort_on_first=False,
+        ),
     )
+
     return conforms, results_text
 
 

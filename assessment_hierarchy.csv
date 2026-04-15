@@ -1,63 +1,63 @@
 level1,level2,level3
-Functionality Assessment,Mechanical Properties Assessment,Bulk Modulus Assessment
 Functionality Assessment,Mechanical Properties Assessment,Young's Modulus Assessment
+Functionality Assessment,Mechanical Properties Assessment,Bulk Modulus Assessment
 Functionality Assessment,Mechanical Properties Assessment,Poisson's Ratio Assessment
-Functionality Assessment,Thermal Properties Assessment,Glass Transition Temperature Assessment
 Functionality Assessment,Physical Properties Assessment,Density Assessment
-Safety Assessment,Intrinsic Chemical Hazard Assessment,Flammability  Assessment
-Safety Assessment,Intrinsic Chemical Hazard Assessment,Oxidising Properties Assessment
-Safety Assessment,Human Health Risk Assessment,HHRA Indoor Air Pollution
-Safety Assessment,Human Health Risk Assessment,HHRA Chemical Substances
-Safety Assessment,Human Health Risk Assessment,HHRA Water Pollution
-Safety Assessment,Human Health Risk Assessment,HHRA Air Pollution
-Safety Assessment,Human Health Risk Assessment,HHRA  Soil Pollution
+Functionality Assessment,Thermal Properties Assessment,Glass Transition Temperature Assessment
+Safety Assessment,Environmental Risk Assessment,Aquatic Toxicity Freshwater
 Safety Assessment,Environmental Risk Assessment,Terrestrial Toxicity
 Safety Assessment,Environmental Risk Assessment,Aquatic Toxicity Marine
 Safety Assessment,Environmental Risk Assessment,Sediment Toxicity
-Safety Assessment,Environmental Risk Assessment,Aquatic Toxicity Freshwater
-Safety Assessment,Hazard Assessment Human Health,Reproductive Toxicity Assessment
-Safety Assessment,Hazard Assessment Human Health,Hazard Characterisation Human Health
-Safety Assessment,Hazard Assessment Human Health,Hazard Identification Human Health
+Safety Assessment,Hazard Assessment Environment,Hazard Characterisation Environment
+Safety Assessment,Exposure Assessment Environment,Water Quality Assessment
+Safety Assessment,Exposure Assessment Environment,Ambient Air Quality Assessment
+Safety Assessment,Exposure Assessment Environment,Biodegradability Assessment
+Safety Assessment,Exposure Assessment Environment,Soil Quality Assessment
+Safety Assessment,Exposure Assessment Environment,Bioaccumulation Assessment
+Safety Assessment,Human Health Risk Assessment,HHRA Air Pollution
+Safety Assessment,Human Health Risk Assessment,HHRA  Soil Pollution
+Safety Assessment,Human Health Risk Assessment,HHRA Indoor Air Pollution
+Safety Assessment,Human Health Risk Assessment,HHRA Water Pollution
+Safety Assessment,Human Health Risk Assessment,HHRA Chemical Substances
+Safety Assessment,Intrinsic Chemical Hazard Assessment,Oxidising Properties Assessment
+Safety Assessment,Intrinsic Chemical Hazard Assessment,Flammability  Assessment
 Safety Assessment,Hazard Assessment Human Health,Immunotoxicity Assessment
-Safety Assessment,Hazard Assessment Human Health,Neurotoxicity Assessment
-Safety Assessment,Hazard Assessment Human Health,Non-genotoxic Carcinogenicity  Assessment
-Safety Assessment,Hazard Assessment Human Health,Acute Toxicity Assessment
-Safety Assessment,Hazard Assessment Human Health,Genotoxicity Assessment
-Safety Assessment,Hazard Assessment Human Health,Mutagenicity Assessment
 Safety Assessment,Hazard Assessment Human Health,Skin and Respiratory Sensitisation
-Safety Assessment,Hazard Assessment Human Health,Prenatal Developmental Toxicity Assessment
-Safety Assessment,Hazard Assessment Human Health,Endocrine Toxicity Assessment
 Safety Assessment,Hazard Assessment Human Health,Carcinogenicity Assessment
-Safety Assessment,Hazard Assessment Human Health,Developmental Neurotoxicity Assessment
-Safety Assessment,Hazard Assessment Human Health,Hepatotoxicity Assessment
 Safety Assessment,Hazard Assessment Human Health,Renal Toxicity Assessment
 Safety Assessment,Hazard Assessment Human Health,Irritation and Corrosion
-Safety Assessment,Exposure Assessment Environment,Soil Quality Assessment
-Safety Assessment,Exposure Assessment Environment,Ambient Air Quality Assessment
-Safety Assessment,Exposure Assessment Environment,Water Quality Assessment
-Safety Assessment,Exposure Assessment Environment,Biodegradability Assessment
-Safety Assessment,Exposure Assessment Environment,Bioaccumulation Assessment
+Safety Assessment,Hazard Assessment Human Health,Reproductive Toxicity Assessment
+Safety Assessment,Hazard Assessment Human Health,Endocrine Toxicity Assessment
+Safety Assessment,Hazard Assessment Human Health,Genotoxicity Assessment
+Safety Assessment,Hazard Assessment Human Health,Neurotoxicity Assessment
+Safety Assessment,Hazard Assessment Human Health,Hepatotoxicity Assessment
+Safety Assessment,Hazard Assessment Human Health,Acute Toxicity Assessment
+Safety Assessment,Hazard Assessment Human Health,Prenatal Developmental Toxicity Assessment
+Safety Assessment,Hazard Assessment Human Health,Developmental Neurotoxicity Assessment
+Safety Assessment,Hazard Assessment Human Health,Non-genotoxic Carcinogenicity  Assessment
+Safety Assessment,Hazard Assessment Human Health,Hazard Characterisation Human Health
+Safety Assessment,Hazard Assessment Human Health,Hazard Identification Human Health
+Safety Assessment,Hazard Assessment Human Health,Mutagenicity Assessment
 Safety Assessment,Exposure Assessment Human Health,
-Safety Assessment,Hazard Assessment Environment,Hazard Characterisation Environment
 Safety Assessment,Hazard Identification Environment,
-Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Marine Eutrophication Impact Category
-Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Terrestrial Eutrophication Impact Category
-Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Stratospheric Ozone Layer Depletion Impact Category
-Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Human Noncarcinogenic Toxicity Impact Category
 Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Acidification Impact Category
-Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Global Warming Potential (GWP 100) Impact Category
-Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Freshwater Aquatic Ecotoxicity Impact Category
 Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Marine Aquatic Ecotoxicity Impact Category
-Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Human Carcinogenic Toxicity Impact Category
-Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Photochemical ozone formation Impact Category
+Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Stratospheric Ozone Layer Depletion Impact Category
+Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Terrestrial Eutrophication Impact Category
+Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Human Noncarcinogenic Toxicity Impact Category
 Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Freshwater Eutrophication Impact Category
-Environmental Sustainability Assessment,Energy Consumption Assessment,Renewable Energy Consumption Assessment
-Environmental Sustainability Assessment,Energy Consumption Assessment,Fossil Fuel Energy Consumption Assessment
-Environmental Sustainability Assessment,Minerals Resource Assessment,
-Environmental Sustainability Assessment,Land Use,
+Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Freshwater Aquatic Ecotoxicity Impact Category
+Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Photochemical ozone formation Impact Category
+Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Human Carcinogenic Toxicity Impact Category
+Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Marine Eutrophication Impact Category
+Environmental Sustainability Assessment,Life Cycle Assessment Impact Category,Global Warming Potential (GWP 100) Impact Category
 Environmental Sustainability Assessment,Fossil Fuel Resource Scarcity,
-Environmental Sustainability Assessment,Water Resource Assessment,
 Environmental Sustainability Assessment,Biodiversity Assessment,
+Environmental Sustainability Assessment,Water Resource Assessment,
+Environmental Sustainability Assessment,Energy Consumption Assessment,Fossil Fuel Energy Consumption Assessment
+Environmental Sustainability Assessment,Energy Consumption Assessment,Renewable Energy Consumption Assessment
+Environmental Sustainability Assessment,Land Use,
+Environmental Sustainability Assessment,Minerals Resource Assessment,
 Social Sustainability Assessment,Worker Social Responsibility,Working Hours
 Social Sustainability Assessment,Worker Social Responsibility,Fair Renumeration
 Social Sustainability Assessment,Occupational Health and Safety assessment,Occupational Non-fatal Injuries Rate

@@ -17,8 +17,11 @@ from tripper.datadoc import (
     get_context,
     get_keywords,
     told,
+    search,
 )
+
 from tripper.datadoc.tabledoc import TableDoc
+import keyring
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
@@ -210,12 +213,12 @@ def correct_pink_dataframes(df, ontology):
             df[col] = df[col].apply(add_prefix, prefix="pink")
 
     # Change possible lists to lists
-    print("columns", df.columns)
+    #print("columns", df.columns)
     for col in set(list_columns).intersection(df.columns):
         df[col] = df[col].apply(split_to_list)
-    print("after split_to_list", df.columns)
+    #print("after split_to_list", df.columns)
     expanded_df = expand_df(df)
-    print("after expand_df", expanded_df.columns)
+    #print("after expand_df", expanded_df.columns)
     expanded_df = check_for_uris(expanded_df, ontology)
 
     return expanded_df
@@ -280,18 +283,18 @@ AGENTS_URL = (
 )
 agents = pd.read_csv(AGENTS_URL)
 
-print("getting keywords")
+#print("getting keywords")
 # Get pink keywords
-#kw = get_keywords(theme=None)
-#kw.load_yaml(
-#    "https://pink-project.github.io/PINK-annotation-schema/"
-#    "context/keywords.yaml",
-#    redefine="allow",
-#)
-
-context = get_context(
-    "https://w3id.org/ssbd/context/"
+kw = get_keywords(theme=None)
+kw.load_yaml(
+    "https://raw.githubusercontent.com/ssbd-ontology/core/refs/"
+    "heads/gh-pages/context/keywords.yaml",
+    redefine="allow",
 )
+
+#context = get_context(
+#    "https://w3id.org/ssbd/context/"
+#)
 
 # Choice of prefixes
 prefixes = {
@@ -319,19 +322,24 @@ property_to_iri = dict(zip(termdefs["Property"], termdefs["Tripper_keyword"]))
 
 # Create the computatations documentation dataframe,
 # and copy/move relevant columns from the software documentation dataframe.
+ssbd_cols = [col for col in sw.columns if col.startswith("SSbD Assessment")]
+
 activity_columns = [
     "inputDatasetType",
     "outputDatasetType",
-    "SsbdDimension",
-    "SsbdSubDimension",
-    "SsbdSubSubDimension",
-]
+] + ssbd_cols
 
 comp = sw[activity_columns + ["title"]]
 sw = sw.drop(columns=activity_columns)
+# Remove the Ssbd columns in sw, these are deprecated
+sw.drop(
+    columns=[col for col in sw.columns if col.startswith("Ssbd")],
+    inplace=True,
+)
 
 
-# Correct sowtare documentation dataframe
+
+# Correct software documentation dataframe
 print("PREPARING SW DOCUMENTATION")
 # Clean up the chemicalClass,
 # which is currently in three columns for easier annotation in the spreadsheet.
@@ -356,8 +364,8 @@ expanded_sw.to_csv("sw_clean.csv", index=False)
 
 swdocumentation = TableDoc.parse_csv(
     "sw_clean.csv",
-    #keywords=kw,
-    context=context,
+    keywords=kw,
+    #context=context,
     # baseiri='https://w3id.org/pink/',
     prefixes=prefixes,
 )
@@ -376,14 +384,13 @@ comp["@id"] = comp.apply(
 comp["@type"] = "owl:Class"
 
 
-def merge_ssbd_dimensions(row):
+def merge_ssbd_assessments(row):
     """
-    merge the values from the columns SsbdDimension, SsvbSubDimension and
-    SsbdSubSubDimension into a list.
+    merge the values from the columns starting with "SSbD Assessment" into a list.
     """
     values = []
-
-    for col in ["SsbdDimension", "SsbdSubDimension", "SsbdSubSubDimension"]:
+    ssbd_cols = [col for col in row.index if col.startswith("SSbD Assessment")]
+    for col in ssbd_cols:
         cell = row[col]
 
         if pd.notna(cell) and str(cell).strip() != "":
@@ -397,18 +404,16 @@ def merge_ssbd_dimensions(row):
     return values
 
 
+# Handle all the columns called SSbD Assessment ...
 comp["subClassOf"] = comp.apply(
     lambda row: ["prov:Activity", "pink:Computation"]
-    + merge_ssbd_dimensions(row),
+    + merge_ssbd_assessments(row),
     axis=1,
 )
-
-# Remove the Ssbd columns
 comp.drop(
-    columns=[col for col in comp.columns if col.startswith("Ssbd")],
+    columns=[col for col in comp.columns if col.startswith("SSbD")],
     inplace=True,
 )
-
 
 expanded_comp = correct_pink_dataframes(comp, onto)
 expanded_comp.to_csv("comp_clean.csv", index=False)
@@ -416,8 +421,8 @@ expanded_comp.to_csv("comp_clean.csv", index=False)
 
 compdocumentation = TableDoc.parse_csv(
     "comp_clean.csv", 
-    #keywords=kw, 
-    context=context, 
+    keywords=kw, 
+    #context=context, 
     prefixes=prefixes
 )
 
@@ -432,8 +437,8 @@ expanded_datasettypes = correct_pink_dataframes(datasettypes, onto)
 expanded_datasettypes.to_csv("datasettypes_clean.csv", index=False)
 datasettypedocumentation = TableDoc.parse_csv(
     "datasettypes_clean.csv",
-    #keywords=kw,
-    context=context,
+    keywords=kw,
+    #context=context,
     prefixes=prefixes,
 )
 
@@ -447,8 +452,8 @@ agents_corrected = correct_pink_dataframes(agents, onto)
 agents_corrected.to_csv("agents_clean.csv", index=False)
 agentdocumentation = TableDoc.parse_csv(
     "agents_clean.csv",
-    #keywords=kw,
-    context=context,
+    keywords=kw,
+    #context=context,
     prefixes=prefixes,
 )
 
@@ -460,6 +465,7 @@ swdocumentation.save(ts)
 compdocumentation.save(ts)
 datasettypedocumentation.save(ts)
 
+
 # Store the jsonlds for joh
 store_jsonld(swdocumentation, name="software_documentation")
 store_jsonld(datasettypedocumentation, name="datasettype_documentation")
@@ -468,8 +474,8 @@ store_jsonld(compdocumentation, name="comp_documentation")
 # Get absolute current path
 root_path = Path(__file__).parent.parent.resolve()
 validation_path = root_path / "validation"
-shacl_graph = load_shapes(validation_path / "shapes.ttl")
-shacl_graph.parse(validation_path / "shapes-pink.ttl", format="turtle")
+shacl_graph = load_shapes("https://raw.githubusercontent.com/ssbd-ontology/core/refs/heads/gh-pages/shacl/shapes.ttl")
+shacl_graph.parse("https://raw.githubusercontent.com/ssbd-ontology/core/refs/heads/gh-pages/shacl/shapes-ssbd.ttl", format="turtle")
 
 
 conforms, results_graph, report = shacl_validate(
@@ -479,8 +485,30 @@ conforms, results_graph, report = shacl_validate(
     abort_on_first=False,
 )
 
-ts.serialize("everything.ttl", format="turtle")
+ts.serialize("everything.jsonld", format="json-ld", context = "https://w3id.org/ssbd/context/")
+
 
 if not conforms:
     print("Validation failed.")
     print(report)
+
+if conforms:
+
+    # Connect to PINK KB
+    username = keyring.get_password("PINK_graphdb", "username")
+    password = keyring.get_password("PINK_graphdb", "password")
+
+    kb = Triplestore(
+        backend="sparqlwrapper", 
+        base_iri="https://graphdb.pink-project.eu/repositories/testing", 
+        username=username, 
+        password=password, 
+        update_iri="https://graphdb.pink-project.eu/repositories/testing/statements",
+        )
+    for s, p, o in ts.triples():
+        kb.add((s, p, o))
+
+    print(search(kb))
+
+
+
