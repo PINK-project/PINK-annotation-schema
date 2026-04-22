@@ -20,6 +20,8 @@ from tripper.datadoc import (
     search,
 )
 
+from dlite.table import DMTable
+
 from tripper.datadoc.tabledoc import TableDoc
 import keyring
 
@@ -157,9 +159,8 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
                 # As areal uri cannot have spaces
                 if " " in val:
                     print(
-                        f"Value '{val}' looks like a URI but contains spaces. Deleted."
+                        f"Value '{val}' looks like a URI but contains spaces. Smart to check this."
                     )
-                    return None
                 return val
         return val
 
@@ -224,31 +225,46 @@ def correct_pink_dataframes(df, ontology):
     return expanded_df
 
 
-def store_jsonld(documentation, name=None):
+def merge_ssbd_assessments(row):
     """
-    Store the TableDoc as jsonld in 'jsonld' folder with the given name.
+    merge the values from the columns starting with "SSbD Assessment" into a list.
     """
-    doc = told(
-        documentation.asdicts(),
-        context=documentation.context,
-        keywords=documentation.keywords,
-    )
+    values = []
+    ssbd_cols = [col for col in row.index if col.startswith("SSbD Assessment")]
+    for col in ssbd_cols:
+        cell = row[col]
 
-    with open(f"jsonld/{name}.json", "w", encoding="utf-8") as f:
-        json.dump(doc, f, indent=2)
+        if pd.notna(cell) and str(cell).strip() != "":
+            # Split on comma
+            parts = str(cell).split(",")
+
+            # Clean whitespace and add
+            cleaned = ["ssbd:" + p.strip() for p in parts if p.strip() != ""]
+            values.extend(cleaned)
+
+    return values
+
+
+# Choice of prefixes
+prefixes = {
+    "mw": "https://modelwave.it/",
+    "rights": "http://publications.europa.eu/resource/authority/access-right/",
+    "datasettype": "https://pink-project.eu/datasettype/",
+    "qsar": "https://pink-project.eu/qsar/",
+    "pink": "https://pink-project.eu/",
+    "empa": "https://empa.ch/",
+    "empadm": "https://empa.ch/datamodel/",
+    "oboowl": "http://www.geneontology.org/formats/oboInOwl#",
+    "obo": "http://purl.obolibrary.org/obo/",
+    "chemowl": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "omics": "http://pink-project.eu/omics/",
+}
+
 
 
 # import the pink ontology for accessing labels and
 # convert to IRIs (just before storing into the triplestore)
 onto = get_ontology("https://ssbd-ontology.github.io/core/core-inferred.ttl").load()
-
-# create the triplestore
-ts = Triplestore("rdflib")
-# Add the reasoned ontology to the triplestore
-ts.parse(
-    "https://ssbd-ontology.github.io/core/core-inferred.ttl"
-)
-
 
 # Get data from Google Sheets
 # Software documentation
@@ -275,6 +291,52 @@ DATASETTYPE_URL = (
 )
 datasettypes = pd.read_csv(DATASETTYPE_URL)
 
+# Make a datamodel dataframe from the dataset documentation, by selecting the columns that start with "Datum"
+# @id will be set to the value in column "datamodel"
+datamodels = datasettypes[
+    [col for col in datasettypes.columns if col.startswith("datum")]
+]
+
+# Set @id to the value in column "datamodel" if it exists, otherwise to the same value as in datasettypes["@id"]
+datamodels["@id"] = datasettypes.apply(
+    lambda row: row["datamodel"] if pd.notna(row["datamodel"]) and str(row["datamodel"]).strip() != "" else row["identifier"],
+    axis=1,
+)
+
+# convert datamodel @id to be an iri using the prefix mapping in prefixes
+# the @id is already written with a prefix, so we can just replace the prefix with the corresponding IRI
+def convert_to_iri(value):
+    if pd.isna(value) or str(value).strip() == "":
+        return value  # Return as is if empty or NaN
+    value = str(value).strip()
+    for prefix, iri in prefixes.items():
+        if value.startswith(prefix + ":"):
+            return value.replace(prefix + ":", iri)
+    return value   
+datamodels["@id"] = datamodels["@id"].apply(convert_to_iri)
+
+
+datamodels["description"] = datasettypes["identifier"].apply(
+    lambda x: f"This is the datamodel for {x}"
+)
+
+# Are both title and description really necessary?
+datamodels["title"] = datasettypes["identifier"].apply(
+    lambda x: f"{x}-datamodel"
+)
+
+
+
+# remove all rows that have all fields starting with "datum" empty
+datamodels = datamodels[
+    ~(datamodels.filter(regex="^datum").isna().all(axis=1))
+]
+
+# save a csv of the datamodel
+datamodels.to_csv("datamodels.csv", index=False)
+
+dmtable = DMTable.from_csv("datamodels.csv")
+
 
 AGENTS_URL = (
     "https://docs.google.com/spreadsheets/d/"
@@ -292,20 +354,9 @@ kw.load_yaml(
     redefine="allow",
 )
 
-#context = get_context(
-#    "https://w3id.org/ssbd/context/"
-#)
-
-# Choice of prefixes
-prefixes = {
-    "mw": "https://modelwave.it/",
-    "rights": "http://publications.europa.eu/resource/authority/access-right/",
-    "datasettype": "https://pink-project.eu/datasettype/",
-    "qsar": "https://pink-project.eu/qsar/",
-    "pink": "https://pink-project.eu/",
-    "empa": "https://empa.ch/",
-    "empadm": "https://empa.ch/datamodel/",
-}
+context = get_context(
+    "https://w3id.org/ssbd/context/", theme=None
+)
 
 # Get name of columns that can have more than one value from termdefs.
 # Check the column SingleValue in termdefs.
@@ -365,7 +416,7 @@ expanded_sw.to_csv("sw_clean.csv", index=False)
 swdocumentation = TableDoc.parse_csv(
     "sw_clean.csv",
     keywords=kw,
-    #context=context,
+    context=context,
     # baseiri='https://w3id.org/pink/',
     prefixes=prefixes,
 )
@@ -383,30 +434,9 @@ comp["@id"] = comp.apply(
 # querying and to avoid relying on reasoning in the triplestore.
 comp["@type"] = "owl:Class"
 
-
-def merge_ssbd_assessments(row):
-    """
-    merge the values from the columns starting with "SSbD Assessment" into a list.
-    """
-    values = []
-    ssbd_cols = [col for col in row.index if col.startswith("SSbD Assessment")]
-    for col in ssbd_cols:
-        cell = row[col]
-
-        if pd.notna(cell) and str(cell).strip() != "":
-            # Split on comma
-            parts = str(cell).split(",")
-
-            # Clean whitespace and add
-            cleaned = ["pink:" + p.strip() for p in parts if p.strip() != ""]
-            values.extend(cleaned)
-
-    return values
-
-
 # Handle all the columns called SSbD Assessment ...
 comp["subClassOf"] = comp.apply(
-    lambda row: ["prov:Activity", "pink:Computation"]
+    lambda row: ["prov:Activity", "ssbd:Computation"]
     + merge_ssbd_assessments(row),
     axis=1,
 )
@@ -422,7 +452,7 @@ expanded_comp.to_csv("comp_clean.csv", index=False)
 compdocumentation = TableDoc.parse_csv(
     "comp_clean.csv", 
     keywords=kw, 
-    #context=context, 
+    context=context, 
     prefixes=prefixes
 )
 
@@ -432,44 +462,50 @@ print("PREPARING DATASETTYPE DOCUMENTATION")
 datasettypes["@type"] = [["owl:Class"]] * len(datasettypes)
 
 datasettypes = datasettypes.drop(columns=["indicator"])
-# datasettypes['@type'] = 'owl:Class'
 expanded_datasettypes = correct_pink_dataframes(datasettypes, onto)
 expanded_datasettypes.to_csv("datasettypes_clean.csv", index=False)
 datasettypedocumentation = TableDoc.parse_csv(
     "datasettypes_clean.csv",
     keywords=kw,
-    #context=context,
+    context=context,
     prefixes=prefixes,
 )
+
+# Save the data to the triplstore
+# create the triplestore
+ts = Triplestore("rdflib")
+
+
 
 # Agents
 print("PREPARING AGENT DOCUMENTATION")
 agents["@type"] = [["prov:Agent"]] * len(agents)
 agents = agents.drop(columns=["e-mail", "affiliation.name", "affiliation.id"])
-agents = agents[~agents["identifier"].isin(ts.subjects())]
+#agents = agents[~agents["identifier"].isin(ts.subjects())]
 
 agents_corrected = correct_pink_dataframes(agents, onto)
 agents_corrected.to_csv("agents_clean.csv", index=False)
 agentdocumentation = TableDoc.parse_csv(
     "agents_clean.csv",
     keywords=kw,
-    #context=context,
+    context=context,
     prefixes=prefixes,
 )
 
 
-# Save the data to the triplstore
-agentdocumentation.save(ts)
 
-swdocumentation.save(ts)
-compdocumentation.save(ts)
-datasettypedocumentation.save(ts)
+ad = agentdocumentation.save(ts)
+sd = swdocumentation.save(ts)
+cd = compdocumentation.save(ts)
+dd = datasettypedocumentation.save(ts)
 
 
-# Store the jsonlds for joh
-store_jsonld(swdocumentation, name="software_documentation")
-store_jsonld(datasettypedocumentation, name="datasettype_documentation")
-store_jsonld(compdocumentation, name="comp_documentation")
+####
+#dmtable = DMTable.from_csv("datamodels.csv")
+
+
+####
+
 
 # Get absolute current path
 root_path = Path(__file__).parent.parent.resolve()
@@ -485,30 +521,42 @@ conforms, results_graph, report = shacl_validate(
     abort_on_first=False,
 )
 
-ts.serialize("everything.jsonld", format="json-ld", context = "https://w3id.org/ssbd/context/")
-
 
 if not conforms:
     print("Validation failed.")
     print(report)
 
 if conforms:
+    print("Validation passed")
+    print("unfortunately direct pushing is no longer possible")
+    print("making a jsonld from my graph")
+    ts.serialize("everything.ttl", format="turtle")
+    
+    graph = dict()
+
+    graph['@context'] = ad['@context']
+    graph['@graph'] = ad['@graph'] + sd['@graph'] + cd['@graph'] + dd['@graph']
+
+    # Store the jsonlds for joh
+    with open('everything.jsonld', 'wt') as f: 
+        json.dump(graph, f, indent=2)
+
+
 
     # Connect to PINK KB
-    username = keyring.get_password("PINK_graphdb", "username")
-    password = keyring.get_password("PINK_graphdb", "password")
+    #username = keyring.get_password("PINK_graphdb", "username")
+    #password = keyring.get_password("PINK_graphdb", "password")
 
-    kb = Triplestore(
-        backend="sparqlwrapper", 
-        base_iri="https://graphdb.pink-project.eu/repositories/testing", 
-        username=username, 
-        password=password, 
-        update_iri="https://graphdb.pink-project.eu/repositories/testing/statements",
-        )
-    for s, p, o in ts.triples():
-        kb.add((s, p, o))
+    #kb = Triplestore(
+    #    backend="sparqlwrapper", 
+    #    base_iri="https://graphdb.pink-project.eu/repositories/testing", 
+    #    username=username, 
+    #    password=password, 
+    #    update_iri="https://graphdb.pink-project.eu/repositories/testing/statements",
+    #    )
+    #for s, p, o in ts.triples():
+    #    kb.add((s, p, o))
 
-    print(search(kb))
-
+    #print(search(kb))
 
 
