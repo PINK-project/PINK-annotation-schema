@@ -297,7 +297,7 @@ datamodels = datasettypes[
     [col for col in datasettypes.columns if col.startswith("datum")]
 ]
 
-# Set @id to the value in column "datamodel" if it exists, otherwise to the same value as in datasettypes["@id"]
+# Set @id to the value in column "datamodel" if it exists, otherwise to the same value as in datasettypes["identifier"]
 datamodels["@id"] = datasettypes.apply(
     lambda row: row["datamodel"] if pd.notna(row["datamodel"]) and str(row["datamodel"]).strip() != "" else row["identifier"],
     axis=1,
@@ -337,13 +337,6 @@ datamodels.to_csv("datamodels.csv", index=False)
 
 dmtable = DMTable.from_csv("datamodels.csv")
 
-
-AGENTS_URL = (
-    "https://docs.google.com/spreadsheets/d/"
-    "1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&"
-    "gid=1445327120"
-)
-agents = pd.read_csv(AGENTS_URL)
 
 #print("getting keywords")
 # Get pink keywords
@@ -477,24 +470,6 @@ ts = Triplestore("rdflib")
 
 
 
-# Agents
-print("PREPARING AGENT DOCUMENTATION")
-agents["@type"] = [["prov:Agent"]] * len(agents)
-agents = agents.drop(columns=["e-mail", "affiliation.name", "affiliation.id"])
-#agents = agents[~agents["identifier"].isin(ts.subjects())]
-
-agents_corrected = correct_pink_dataframes(agents, onto)
-agents_corrected.to_csv("agents_clean.csv", index=False)
-agentdocumentation = TableDoc.parse_csv(
-    "agents_clean.csv",
-    keywords=kw,
-    context=context,
-    prefixes=prefixes,
-)
-
-
-
-ad = agentdocumentation.save(ts)
 sd = swdocumentation.save(ts)
 cd = compdocumentation.save(ts)
 dd = datasettypedocumentation.save(ts)
@@ -534,11 +509,11 @@ if conforms:
     
     graph = dict()
 
-    graph['@context'] = ad['@context']
-    graph['@graph'] = ad['@graph'] + sd['@graph'] + cd['@graph'] + dd['@graph']
+    graph['@context'] = sd['@context']
+    graph['@graph'] =sd['@graph'] + cd['@graph'] + dd['@graph']
 
     # Store the jsonlds for joh
-    with open('everything.jsonld', 'wt') as f: 
+    with open('jsonld/everything.jsonld', 'wt') as f: 
         json.dump(graph, f, indent=2)
 
 
