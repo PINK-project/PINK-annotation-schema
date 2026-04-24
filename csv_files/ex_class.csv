@@ -1,2 +1,0 @@
-@id,label,description,subClassOf,curator,@type
-datasettype:ChemicalStructureDataset,Chemical Structure Dataset,"Example data set",https://w3id.org/pink#Dataset,https://ror.org/04zaypm56,owl:Class
