@@ -1,6 +1,12 @@
 """
 Script used to parse the google spreadsheet used by the
 model and dataset providers for documentation.
+
+This script reads the cleaned csv files from the previous step 
+and converts them to RDF triples using the TableDoc class 
+from the tripper library. 
+It then validates the generated RDF against SHACL shapes and 
+saves the valid triples to a jsonlid file for later upload to the PINK KB.
 """
 
 import json

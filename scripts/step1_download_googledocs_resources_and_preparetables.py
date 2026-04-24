@@ -1,6 +1,11 @@
 """
 Script used to parse the google spreadsheet used by the
 model and dataset providers for documentation.
+
+This script downloads, parses and corrects data from the 
+google spreadsheet before it is saved to a csv file. 
+The csv files are then used in the next step to create 
+triples and save them to the triplestore.
 """
 
 import sys

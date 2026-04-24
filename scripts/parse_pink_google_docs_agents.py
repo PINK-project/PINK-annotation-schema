@@ -1,6 +1,6 @@
 """
 Script used to parse the google spreadsheet used by the
-model and dataset providers for documentation.
+model and dataset providers for documenting the PINK agents.
 """
 
 import json
