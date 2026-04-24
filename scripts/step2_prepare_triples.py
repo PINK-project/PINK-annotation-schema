@@ -11,6 +11,7 @@ from tripper import Triplestore
 from tripper.datadoc import (
     get_context,
     get_keywords,)
+from tripper.datadoc.dataset import update_context
 
 from tripper.datadoc.tabledoc import TableDoc
 
@@ -34,8 +35,16 @@ kw.load_yaml(
 context = get_context(
     "https://w3id.org/ssbd/context/", theme=None
 )
+datasettypedocumentation = TableDoc.parse_csv(
+    "datasettypes_clean.csv",
+    keywords=kw,
+    context=context,
+    prefixes=prefixes,
+)
 
-
+# Make datasettype classes known in the shared context before parsing
+# software/computation tables that reference them in hasInput/hasOutput.
+update_context(datasettypedocumentation.asdicts(), context)
 
 swdocumentation = TableDoc.parse_csv(
     "sw_clean.csv",
@@ -45,6 +54,7 @@ swdocumentation = TableDoc.parse_csv(
     prefixes=prefixes,
 )
 
+update_context(swdocumentation.asdicts(), context)
 
 compdocumentation = TableDoc.parse_csv(
     "comp_clean.csv", 
@@ -53,12 +63,8 @@ compdocumentation = TableDoc.parse_csv(
     prefixes=prefixes
 )
 
-datasettypedocumentation = TableDoc.parse_csv(
-    "datasettypes_clean.csv",
-    keywords=kw,
-    context=context,
-    prefixes=prefixes,
-)
+update_context(compdocumentation.asdicts(), context)
+
 
 # Save the data to the triplstore
 # create the triplestore

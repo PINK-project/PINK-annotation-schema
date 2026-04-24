@@ -3557,12 +3557,18 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/implementsModel"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/ssbd/StepwiseRegressionModel"
-          }
+          "owl:onProperty": "ssbd:implementsModel",
+          "owl:someValuesFrom": "ssbd:StepwiseRegressionModel"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:OrganicCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:MicroMolecule"
         }
       ],
       "title": "MultiCASE CASE Ultra commercial model RC2_AF4 for Rodent carcinogenicity in female mouse in vivo,\nDanish QSAR Group at DTU Food",
@@ -3581,11 +3587,7 @@
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
       "license": "https://qsartoolbox.org/license-agreement/",
       "version": "January 2015",
-      "curator": "https://orcid.org/0000-0002-0628-8434",
-      "chemicalClass": [
-        "https://w3id.org/emmo/hume#OrganicCompound",
-        "https://w3id.org/ssbd/MicroMolecule"
-      ]
+      "curator": "https://orcid.org/0000-0002-0628-8434"
     },
     {
       "@id": "pink:TOX21_GNRHR_HEK293_Agonist",
@@ -3594,12 +3596,8 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/implementsModel"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/emmo/hume#PhysicsBasedModel"
-          }
+          "owl:onProperty": "ssbd:implementsModel",
+          "owl:someValuesFrom": "emmo:PhysicsBasedModel"
         }
       ],
       "title": "Tox21 HEK293T Gonadotropin-releasing Hormone (GnRH) Receptor Agonism Assay",
@@ -3627,12 +3625,8 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/implementsModel"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/ssbd/DecisionTree"
-          }
+          "owl:onProperty": "ssbd:implementsModel",
+          "owl:someValuesFrom": "ssbd:DecisionTree"
         }
       ],
       "title": "Carcinogenicity (genotox and nongenotox) alerts by ISS",
@@ -3666,12 +3660,8 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/implementsModel"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/emmo/hume#MathematicalModel"
-          }
+          "owl:onProperty": "ssbd:implementsModel",
+          "owl:someValuesFrom": "emmo:MathematicalModel"
         }
       ],
       "title": "Boiling Point Adapted Stein and Brown Method (EPISUITE)",
@@ -3752,12 +3742,8 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/implementsModel"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/ssbd/RandomForest"
-          }
+          "owl:onProperty": "ssbd:implementsModel",
+          "owl:someValuesFrom": "ssbd:RandomForest"
         }
       ],
       "title": "Animal Carcinogenicity prediction according to OECD Test No. 451",
@@ -3808,12 +3794,8 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/chemicalClass"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/emmo/hume#PolymericMaterial"
-          }
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:PolymericMaterial"
         }
       ],
       "title": "CNR SMILES to mechanical properties workflow - molecular scale",
@@ -3842,21 +3824,13 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/implementsModel"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/emmo/hume#StructureManipulationModel"
-          }
+          "owl:onProperty": "ssbd:implementsModel",
+          "owl:someValuesFrom": "emmo:StructureManipulationModel"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/chemicalClass"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/emmo/hume#PolymericMaterial"
-          }
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:PolymericMaterial"
         }
       ],
       "title": "CNR polymer builder module - molecular scale",
@@ -3882,21 +3856,13 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/implementsModel"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/emmo/hume#AtomicInteractionModel"
-          }
+          "owl:onProperty": "ssbd:implementsModel",
+          "owl:someValuesFrom": "emmo:AtomicInteractionModel"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/chemicalClass"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/emmo/hume#PolymericMaterial"
-          }
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:PolymericMaterial"
         }
       ],
       "title": "CNR force field builder module - molecular scale",
@@ -3927,12 +3893,18 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/implementsModel"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/emmo/hume#AtomisticMolecularDynamics"
-          }
+          "owl:onProperty": "ssbd:implementsModel",
+          "owl:someValuesFrom": "emmo:AtomisticMolecularDynamics"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:OrganicCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:PolymericMaterial"
         }
       ],
       "title": "CNR bulk builder module - molecular scale",
@@ -3953,10 +3925,6 @@
       "curator": [
         "https://orcid.org/0000-0002-3369-4438",
         "https://orcid.org/0000-0002-4860-153X"
-      ],
-      "chemicalClass": [
-        "https://w3id.org/emmo/hume#OrganicCompound",
-        "https://w3id.org/emmo/hume#PolymericMaterial"
       ]
     },
     {
@@ -3966,21 +3934,13 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/implementsModel"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/emmo/hume#AtomisticMolecularDynamics"
-          }
+          "owl:onProperty": "ssbd:implementsModel",
+          "owl:someValuesFrom": "emmo:AtomisticMolecularDynamics"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/chemicalClass"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/emmo/hume#PolymericMaterial"
-          }
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:PolymericMaterial"
         }
       ],
       "title": "CNR Young's modulus calculator module - molecular scale",
@@ -4012,21 +3972,13 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/implementsModel"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/emmo/hume#AtomisticMolecularDynamics"
-          }
+          "owl:onProperty": "ssbd:implementsModel",
+          "owl:someValuesFrom": "emmo:AtomisticMolecularDynamics"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/chemicalClass"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/emmo/hume#PolymericMaterial"
-          }
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:PolymericMaterial"
         }
       ],
       "title": "CNR mechanical properties calculator module - molecular scale",
@@ -4059,12 +4011,8 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/chemicalClass"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/ssbd/NanoParticle"
-          }
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoParticle"
         }
       ],
       "title": "AOP 451: Interaction with lung resident cell membrane components leads to lung cancer",
@@ -4099,8 +4047,18 @@
     {
       "@id": "https://doi.org/10.1002/smll.201904749",
       "@type": [
+        "ssbd:Data",
         "ssbd:Software",
-        "ssbd:Data"
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:NanoMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:AdvancedMaterial"
+        }
       ],
       "title": "Tiered NAM-based safety testing workflow",
       "description": "Data-driven tiered safety testing workflow where structure- and exposure-based analyses feed new-generation high-throughput, high-content, and omics-technology-coupled NAMs",
@@ -4126,11 +4084,7 @@
       "creator": "https://ror.org/056d84691",
       "priorRelease": "https://doi.org/10.5281/zenodo.1486011",
       "version": "4",
-      "curator": "https://orcid.org/0000-0002-3435-7775",
-      "chemicalClass": [
-        "https://w3id.org/emmo/hume#NanoMaterial",
-        "https://w3id.org/ssbd/AdvancedMaterial"
-      ]
+      "curator": "https://orcid.org/0000-0002-3435-7775"
     },
     {
       "@id": "pink:EnalosCloud_Hamaker",
@@ -4139,12 +4093,8 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/chemicalClass"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/ssbd/NanoParticle"
-          }
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoParticle"
         }
       ],
       "title": "Hamaker Extended tool",
@@ -4174,12 +4124,8 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/chemicalClass"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/ssbd/NanoParticle"
-          }
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoParticle"
         }
       ],
       "title": "Zeta Predict Extended tool",
@@ -4205,8 +4151,18 @@
     {
       "@id": "pink:EnalosCloud_NanoBioConstruct",
       "@type": [
+        "ssbd:Data",
         "ssbd:Software",
-        "ssbd:Data"
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoParticle"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:Protein"
+        }
       ],
       "title": "NanoBioConstruct",
       "description": "This web GUI tool prioritirize human proteins based on their adsorption onto a wide range of NPs surface using the UnitedAtom approach and Debye Theory and then applies a mapping from the coarse-grained approximation of the produced NP-protein configurations to atomistic ones in order to calculate with accuracy the NP's protein corona and calculate its adsorption energy",
@@ -4221,11 +4177,7 @@
       ],
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
-      "creator": "https://ror.org/03wwn0z54",
-      "chemicalClass": [
-        "https://w3id.org/ssbd/NanoParticle",
-        "https://w3id.org/ssbd/Protein"
-      ]
+      "creator": "https://ror.org/03wwn0z54"
     },
     {
       "@id": "pink:EnalosCloud_PINK_ChemInformatics_Suite",
@@ -4234,12 +4186,8 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/chemicalClass"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/ssbd/MicroMolecule"
-          }
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:MicroMolecule"
         }
       ],
       "title": "PINK ChemInformatics Suite",
@@ -4272,21 +4220,13 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/implementsModel"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/ssbd/XGBoostRegessor"
-          }
+          "owl:onProperty": "ssbd:implementsModel",
+          "owl:someValuesFrom": "ssbd:XGBoostRegessor"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/chemicalClass"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/ssbd/MicroMolecule"
-          }
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:MicroMolecule"
         }
       ],
       "title": "Life Cycle Impact prediction Tool",
@@ -4318,12 +4258,8 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/chemicalClass"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/ssbd/MicroMolecule"
-          }
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:MicroMolecule"
         }
       ],
       "title": "Life Cycle Inventory calculation tool (energy/material flows)",
@@ -4380,8 +4316,43 @@
     {
       "@id": "pink:transcriptomic_example_step1",
       "@type": [
+        "ssbd:Data",
         "ssbd:Software",
-        "ssbd:Data"
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:CeramicMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:ChemicalCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:CompositeMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:InorganicCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:MetallicMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:OrganicCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:PolymericMaterial"
+        }
       ],
       "title": "Gene Expression assessment for an arbtitrary exposure",
       "description": "This is an example to demostrate transcriptomic screening within this spreadsheet",
@@ -4407,16 +4378,7 @@
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
       "creator": "https://ror.org/0130frc33",
-      "version": "1.50.2",
-      "chemicalClass": [
-        "https://w3id.org/emmo/hume#CeramicMaterial",
-        "https://w3id.org/emmo/hume#ChemicalCompound",
-        "https://w3id.org/emmo/hume#CompositeMaterial",
-        "https://w3id.org/emmo/hume#InorganicCompound",
-        "https://w3id.org/emmo/hume#MetallicMaterial",
-        "https://w3id.org/emmo/hume#OrganicCompound",
-        "https://w3id.org/emmo/hume#PolymericMaterial"
-      ]
+      "version": "1.50.2"
     },
     {
       "@id": "pink:transcriptomic_example_step2",
@@ -4425,12 +4387,48 @@
         "ssbd:Software",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/implementsModel"
-          },
-          "owl:someValuesFrom": {
-            "@id": "https://w3id.org/emmo/hume#CumulativeHypergeometricTest"
-          }
+          "owl:onProperty": "ssbd:implementsModel",
+          "owl:someValuesFrom": "emmo:CumulativeHypergeometricTest"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:CeramicMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:ChemicalCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:CompositeMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:InorganicCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:MetallicMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:OrganicCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:PolymericMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:Protein"
         }
       ],
       "title": "Gene set enrichment to understand affected pathways from transcriptomic_example1",
@@ -4456,23 +4454,118 @@
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
       "creator": "https://ror.org/03z77qz90",
-      "version": "0.2.4",
-      "chemicalClass": [
-        "https://w3id.org/emmo/hume#CeramicMaterial",
-        "https://w3id.org/emmo/hume#ChemicalCompound",
-        "https://w3id.org/emmo/hume#CompositeMaterial",
-        "https://w3id.org/emmo/hume#InorganicCompound",
-        "https://w3id.org/emmo/hume#MetallicMaterial",
-        "https://w3id.org/emmo/hume#OrganicCompound",
-        "https://w3id.org/emmo/hume#PolymericMaterial",
-        "https://w3id.org/ssbd/Protein"
-      ]
+      "version": "0.2.4"
     },
     {
       "@id": "pink:PTGS",
       "@type": [
+        "ssbd:Data",
         "ssbd:Software",
-        "ssbd:Data"
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:CeramicMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:ChemicalCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:CompositeMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:InorganicCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:MetallicMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:NanoMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:OrganicCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:PolymericMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:AdvancedMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:BiocompatibleMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:ElectronicMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:EnergyMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:MacroMolecule"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:MagneticMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:MicroMolecule"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoFiber"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoParticle"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoPlate"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoStructuredMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:OpticalMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:StructuralMaterial"
+        }
       ],
       "title": "Predictive Toxicogenomics Space",
       "description": "Prediction of 1) PTGS cytotoxicity score, 2) PTGS MoA/AOP analysis, 3) PTGS bioactivity-based grouping of chemicals/materials",
@@ -4489,30 +4582,7 @@
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC",
-      "curator": "https://orcid.org/0000-0002-3435-7775",
-      "chemicalClass": [
-        "https://w3id.org/emmo/hume#CeramicMaterial",
-        "https://w3id.org/emmo/hume#ChemicalCompound",
-        "https://w3id.org/emmo/hume#CompositeMaterial",
-        "https://w3id.org/emmo/hume#InorganicCompound",
-        "https://w3id.org/emmo/hume#MetallicMaterial",
-        "https://w3id.org/emmo/hume#NanoMaterial",
-        "https://w3id.org/emmo/hume#OrganicCompound",
-        "https://w3id.org/emmo/hume#PolymericMaterial",
-        "https://w3id.org/ssbd/AdvancedMaterial",
-        "https://w3id.org/ssbd/BiocompatibleMaterial",
-        "https://w3id.org/ssbd/ElectronicMaterial",
-        "https://w3id.org/ssbd/EnergyMaterial",
-        "https://w3id.org/ssbd/MacroMolecule",
-        "https://w3id.org/ssbd/MagneticMaterial",
-        "https://w3id.org/ssbd/MicroMolecule",
-        "https://w3id.org/ssbd/NanoFiber",
-        "https://w3id.org/ssbd/NanoParticle",
-        "https://w3id.org/ssbd/NanoPlate",
-        "https://w3id.org/ssbd/NanoStructuredMaterial",
-        "https://w3id.org/ssbd/OpticalMaterial",
-        "https://w3id.org/ssbd/StructuralMaterial"
-      ]
+      "curator": "https://orcid.org/0000-0002-3435-7775"
     },
     {
       "@id": "pink:PTGS-BMD",
@@ -4553,8 +4623,108 @@
     {
       "@id": "pink:ToxFAIRy",
       "@type": [
+        "ssbd:Data",
         "ssbd:Software",
-        "ssbd:Data"
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:CeramicMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:ChemicalCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:CompositeMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:InorganicCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:MetallicMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:NanoMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:OrganicCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:PolymericMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:AdvancedMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:BiocompatibleMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:ElectronicMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:EnergyMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:MacroMolecule"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:MagneticMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:MicroMolecule"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoFiber"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoParticle"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoPlate"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:OpticalMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:StructuralMaterial"
+        }
       ],
       "title": "Automated data FAIRification, preprocessing and Tox5Score calculation",
       "description": "In vitro bioactivity-based scoring, ranking and grouping",
@@ -4579,35 +4749,98 @@
       },
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
       "license": "https://github.com/ideaconsult/orange3-toxfairy/blob/main/LICENSE",
-      "curator": "https://orcid.org/0000-0002-3435-7775",
-      "chemicalClass": [
-        "https://w3id.org/emmo/hume#CeramicMaterial",
-        "https://w3id.org/emmo/hume#ChemicalCompound",
-        "https://w3id.org/emmo/hume#CompositeMaterial",
-        "https://w3id.org/emmo/hume#InorganicCompound",
-        "https://w3id.org/emmo/hume#MetallicMaterial",
-        "https://w3id.org/emmo/hume#NanoMaterial",
-        "https://w3id.org/emmo/hume#OrganicCompound",
-        "https://w3id.org/emmo/hume#PolymericMaterial",
-        "https://w3id.org/ssbd/AdvancedMaterial",
-        "https://w3id.org/ssbd/BiocompatibleMaterial",
-        "https://w3id.org/ssbd/ElectronicMaterial",
-        "https://w3id.org/ssbd/EnergyMaterial",
-        "https://w3id.org/ssbd/MacroMolecule",
-        "https://w3id.org/ssbd/MagneticMaterial",
-        "https://w3id.org/ssbd/MicroMolecule",
-        "https://w3id.org/ssbd/NanoFiber",
-        "https://w3id.org/ssbd/NanoParticle",
-        "https://w3id.org/ssbd/NanoPlate",
-        "https://w3id.org/ssbd/OpticalMaterial",
-        "https://w3id.org/ssbd/StructuralMaterial"
-      ]
+      "curator": "https://orcid.org/0000-0002-3435-7775"
     },
     {
       "@id": "pink:SciRAPnano",
       "@type": [
+        "ssbd:Data",
         "ssbd:Software",
-        "ssbd:Data"
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:CeramicMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:CompositeMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:InorganicCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:MetallicMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:NanoMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:OrganicCompound"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "emmo:PolymericMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:AdvancedMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:BiocompatibleMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:ElectronicMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:EnergyMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:MagneticMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoFiber"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoParticle"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:NanoPlate"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:OpticalMaterial"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:chemicalClass",
+          "owl:someValuesFrom": "ssbd:StructuralMaterial"
+        }
       ],
       "title": "Science in Risk Assessment and Policy for nanomaterials",
       "description": "Quality assessment of in vitro data for nanomaterials",
@@ -4633,26 +4866,7 @@
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
       "creator": "https://ror.org/056d84691",
-      "curator": "https://orcid.org/0000-0002-3435-7775",
-      "chemicalClass": [
-        "https://w3id.org/emmo/hume#CeramicMaterial",
-        "https://w3id.org/emmo/hume#CompositeMaterial",
-        "https://w3id.org/emmo/hume#InorganicCompound",
-        "https://w3id.org/emmo/hume#MetallicMaterial",
-        "https://w3id.org/emmo/hume#NanoMaterial",
-        "https://w3id.org/emmo/hume#OrganicCompound",
-        "https://w3id.org/emmo/hume#PolymericMaterial",
-        "https://w3id.org/ssbd/AdvancedMaterial",
-        "https://w3id.org/ssbd/BiocompatibleMaterial",
-        "https://w3id.org/ssbd/ElectronicMaterial",
-        "https://w3id.org/ssbd/EnergyMaterial",
-        "https://w3id.org/ssbd/MagneticMaterial",
-        "https://w3id.org/ssbd/NanoFiber",
-        "https://w3id.org/ssbd/NanoParticle",
-        "https://w3id.org/ssbd/NanoPlate",
-        "https://w3id.org/ssbd/OpticalMaterial",
-        "https://w3id.org/ssbd/StructuralMaterial"
-      ]
+      "curator": "https://orcid.org/0000-0002-3435-7775"
     },
     {
       "@id": "pink:QSARToolBox",
@@ -4718,12 +4932,8 @@
         "https://w3id.org/ssbd/SafetyAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/SMILES"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:SMILES"
         }
       ]
     },
@@ -4749,21 +4959,13 @@
         "https://w3id.org/ssbd/SafetyAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/SMILES"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:SMILES"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasOutput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/qsar/ProfilerCarcinogenicityAlertsByIss"
-          }
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:hasValue": "qsar:ProfilerOutputCarcinogenicityAlertsByIss"
         }
       ]
     },
@@ -4778,21 +4980,13 @@
         "https://w3id.org/ssbd/SafetyAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/SMILES"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:SMILES"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasOutput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/qsar/EndpointBoilingPoint"
-          }
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:hasValue": "qsar:EndpointOutputBoilingPoint"
         }
       ]
     },
@@ -4806,12 +5000,8 @@
         "https://w3id.org/ssbd/SafetyAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/SMILES"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:SMILES"
         }
       ]
     },
@@ -4826,12 +5016,8 @@
         "https://w3id.org/ssbd/SafetyAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/SMILES"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:SMILES"
         }
       ]
     },
@@ -4845,12 +5031,8 @@
         "https://w3id.org/ssbd/SafetyAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/SMILES"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:SMILES"
         }
       ]
     },
@@ -4864,12 +5046,8 @@
         "https://w3id.org/ssbd/SafetyAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/SMILES"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:SMILES"
         }
       ]
     },
@@ -4883,21 +5061,13 @@
         "https://w3id.org/ssbd/FunctionalityAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/ChemicalStructureDataset"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:ChemicalStructureDataset"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasOutput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/MechanicalPropertiesDataset"
-          }
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:hasValue": "datasettype:MechanicalPropertiesDataset"
         }
       ]
     },
@@ -4911,21 +5081,13 @@
         "https://w3id.org/ssbd/FunctionalityAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/ChemicalStructureDataset"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:ChemicalStructureDataset"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasOutput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/ChemicalStructureDataset"
-          }
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:hasValue": "datasettype:ChemicalStructureDataset"
         }
       ]
     },
@@ -4939,21 +5101,13 @@
         "https://w3id.org/ssbd/FunctionalityAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/ChemicalStructureDataset"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:ChemicalStructureDataset"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasOutput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/InteractionPotentialParameters"
-          }
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:hasValue": "datasettype:InteractionPotentialParameters"
         }
       ]
     },
@@ -4971,12 +5125,8 @@
         "https://w3id.org/ssbd/FunctionalityAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasOutput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/ChemicalStructureDataset"
-          }
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:hasValue": "datasettype:ChemicalStructureDataset"
         }
       ]
     },
@@ -4996,12 +5146,8 @@
         "https://w3id.org/ssbd/PhysicalPropertiesAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasOutput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/MechanicalPropertiesDataset"
-          }
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:hasValue": "datasettype:MechanicalPropertiesDataset"
         }
       ]
     },
@@ -5027,12 +5173,8 @@
         "https://w3id.org/ssbd/YoungsModulusAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasOutput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/MechanicalPropertiesDataset"
-          }
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:hasValue": "datasettype:MechanicalPropertiesDataset"
         }
       ]
     },
@@ -5152,12 +5294,8 @@
         "https://w3id.org/ssbd/LifeCycleImpactAssessmentCategory",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://empa.ch/EnergyCalculatorHeatingInput"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "empa:EnergyCalculatorHeatingInput"
         }
       ]
     },
@@ -5176,12 +5314,8 @@
         "https://w3id.org/ssbd/LifeCycleImpactAssessmentCategory",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://empa.ch/EnergyCalculatorCoolingInput"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "empa:EnergyCalculatorCoolingInput"
         }
       ]
     },
@@ -5197,21 +5331,13 @@
         "https://w3id.org/ssbd/SafetyAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/RNACounts"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:RNACounts"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasOutput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/differentialExpressionOutput"
-          }
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:hasValue": "datasettype:differentialExpressionOutput"
         }
       ]
     },
@@ -5227,21 +5353,13 @@
         "https://w3id.org/ssbd/SafetyAssessment",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/geneList"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:geneList"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasOutput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/geneSetEnrichmentOutput"
-          }
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:hasValue": "datasettype:geneSetEnrichmentOutput"
         }
       ]
     },
@@ -5265,21 +5383,13 @@
         "https://w3id.org/ssbd/Computation",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/RNACounts"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:RNACounts"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasOutput"
-          },
-          "owl:hasValue": {
-            "@id": "http://pink-project.eu/omics/transcriptPTGS-BMDoutput"
-          }
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:hasValue": "omics:transcriptPTGS-BMDoutput"
         }
       ]
     },
@@ -5292,12 +5402,8 @@
         "https://w3id.org/ssbd/Computation",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/RNACounts"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:RNACounts"
         }
       ]
     },
@@ -5310,12 +5416,8 @@
         "https://w3id.org/ssbd/Computation",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/RNACounts"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:RNACounts"
         }
       ]
     },
@@ -5328,12 +5430,8 @@
         "https://w3id.org/ssbd/Computation",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/ssbd/hasInput"
-          },
-          "owl:hasValue": {
-            "@id": "https://pink-project.eu/datasettype/RNACounts"
-          }
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "datasettype:RNACounts"
         }
       ]
     },
@@ -5437,12 +5535,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/04zaypm56"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/04zaypm56"
         }
       ]
     },
@@ -5478,12 +5572,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/04zaypm56"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/04zaypm56"
         }
       ]
     },
@@ -5513,12 +5603,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/04zaypm56"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/04zaypm56"
         }
       ]
     },
@@ -5580,12 +5666,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/03angcq70"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/03angcq70"
         }
       ]
     },
@@ -5607,12 +5689,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/03angcq70"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/03angcq70"
         }
       ]
     },
@@ -5637,12 +5715,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/03angcq70"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/03angcq70"
         }
       ]
     },
@@ -5668,21 +5742,13 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/02x681a42"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/02x681a42"
         },
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/domain/oteio#hasDatamodel"
-          },
-          "owl:hasValue": {
-            "@id": "https://empa.ch/datamodel/energy_calculator_heating_input"
-          }
+          "owl:onProperty": "oteio:hasDatamodel",
+          "owl:hasValue": "empadm:energy_calculator_heating_input"
         }
       ]
     },
@@ -5712,12 +5778,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/02x681a42"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/02x681a42"
         }
       ]
     },
@@ -5735,12 +5797,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/02x681a42"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/02x681a42"
         }
       ]
     },
@@ -5758,12 +5816,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/02x681a42"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/02x681a42"
         }
       ]
     },
@@ -5781,12 +5835,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/02x681a42"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/02x681a42"
         }
       ]
     },
@@ -5804,12 +5854,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/02x681a42"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/02x681a42"
         }
       ]
     },
@@ -5827,12 +5873,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/02x681a42"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/02x681a42"
         }
       ]
     },
@@ -5850,12 +5892,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/02x681a42"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/02x681a42"
         }
       ]
     },
@@ -5873,12 +5911,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/02x681a42"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/02x681a42"
         }
       ]
     },
@@ -5896,12 +5930,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/02x681a42"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/02x681a42"
         }
       ]
     },
@@ -5919,12 +5949,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/02x681a42"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/02x681a42"
         }
       ]
     },
@@ -5939,12 +5965,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/02x681a42"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/02x681a42"
         }
       ]
     },
@@ -5959,12 +5981,8 @@
         "https://w3id.org/ssbd/Dataset",
         {
           "@type": "owl:Restriction",
-          "owl:onProperty": {
-            "@id": "https://w3id.org/emmo/application/datadoc#curator"
-          },
-          "owl:hasValue": {
-            "@id": "https://ror.org/02x681a42"
-          }
+          "owl:onProperty": "ddoc:curator",
+          "owl:hasValue": "https://ror.org/02x681a42"
         }
       ]
     },
@@ -6294,12 +6312,8 @@
       "description": "missing",
       "subClassOf": {
         "@type": "owl:Restriction",
-        "owl:onProperty": {
-          "@id": "https://w3id.org/emmo/application/datadoc#curator"
-        },
-        "owl:hasValue": {
-          "@id": "https://ror.org/056d84691"
-        }
+        "owl:onProperty": "ddoc:curator",
+        "owl:hasValue": "https://ror.org/056d84691"
       }
     },
     {
