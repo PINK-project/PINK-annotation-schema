@@ -77,10 +77,10 @@ def add_prefix(value, prefix="pink"):
     """Add prefix to value if it does not already have one and is not empty.
     If the value is a list, apply the function to each element in the list and return a new list.
     """
-    if pd.isna(value) or str(value).strip() == "":
-        return value  # Return as is if empty or NaN
     if isinstance(value, list):
         return [add_prefix(v, prefix) for v in value]
+    if pd.isna(value) or str(value).strip() == "":
+        return value  # Return as is if empty or NaN
     value = str(value).strip()
     if (
         not value.startswith("http://")
@@ -104,22 +104,32 @@ def remove_extra_text(value):
     return value.strip().split(" ")[0]
 
 
-def merge_columns(row, class_cols):
+def merge_columns(row, class_cols, prefix=None):
     """
     Merge values from multiple columns into a single list.
+
+    If `prefix` is given (e.g. ``"ssbd"``), it is prepended to each value
+    that does not already contain a colon (i.e. is not already a prefixed
+    name or IRI).
     """
     values = []
 
     for col in class_cols:
         cell = row[col]
 
-        if pd.notna(cell) and str(cell).strip() != "":
-            # Split on comma
+        if isinstance(cell, list):
+            parts = cell
+
+        elif pd.isna(cell):
+            continue
+        else:
             parts = str(cell).split(",")
 
-            # Clean whitespace and add
-            cleaned = [p.strip() for p in parts if p.strip() != ""]
-            values.extend(cleaned)
+        # Clean whitespace and optionally add prefix
+        cleaned = [p.strip() for p in parts if p.strip()]
+        if prefix:
+            cleaned = add_prefix(cleaned, prefix)
+        values.extend(cleaned)
 
     return values
 
@@ -155,6 +165,7 @@ def expand_df(df: pd.DataFrame) -> pd.DataFrame:
     for col in df.columns:
         is_list_col = df[col].apply(lambda v: isinstance(v, list)).any()
         if is_list_col:
+            print('column', col, 'is a list column')
             sub = pd.DataFrame(
                 df[col]
                 .apply(lambda v: v if isinstance(v, list) and v else [None])
@@ -262,10 +273,9 @@ def correct_pink_dataframes(df, ontology):
     # Change possible lists to lists
     #print("columns", df.columns)
     for col in set(list_columns).intersection(df.columns):
+        print(col)
         df[col] = df[col].apply(split_to_list)
-    #print("after split_to_list", df.columns)
     expanded_df = expand_df(df)
-    #print("after expand_df", expanded_df.columns)
     expanded_df = check_for_uris(expanded_df, ontology)
 
     return expanded_df

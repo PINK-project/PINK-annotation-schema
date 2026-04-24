@@ -25,8 +25,6 @@ from validation.validate import load_shapes, shacl_validate
 from parseutils import (
     correct_pink_dataframes,
     PREFIXES,
-    list_columns,
-    property_iri_dict
 )
 
 # import the pink ontology for accessing labels and
@@ -68,8 +66,6 @@ agentdocumentation = TableDoc.parse_csv(
     context=context,
     prefixes=PREFIXES,
 )
-
-
 
 ad = agentdocumentation.save(ts)
 
