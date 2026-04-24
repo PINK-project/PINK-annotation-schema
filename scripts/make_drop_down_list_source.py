@@ -1,3 +1,6 @@
+"""
+This script is used to generate a csv file that can be used as the source for the drop down lists in the annotation tool. It reads the ontology and extracts the relevant classes and their labels to create a hierarchy of level 1, level 2, and level 3 classes. The resulting csv file has three columns: level1, level2, and level3, which can be used to populate the drop down lists in the annotation tool.
+"""
 from ontopy import get_ontology
 import csv
 
