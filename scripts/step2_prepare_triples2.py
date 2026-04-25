@@ -16,7 +16,7 @@ from pathlib import Path
 from tripper import Triplestore
 from tripper.datadoc import (
     get_context,
-    get_keywords,
+    #get_keywords,
     store,
 )
 from tripper.datadoc.dataset import update_context
@@ -32,12 +32,13 @@ from parseutils import (
     PREFIXES as prefixes,
 )
 
-kw = get_keywords(theme=None)
-kw.load_yaml(
-    "https://raw.githubusercontent.com/ssbd-ontology/core/refs/"
-    "heads/gh-pages/context/keywords.yaml",
-    redefine="allow",
-)
+# JF: We don't need the keywords
+#kw = get_keywords(theme=None)
+#kw.load_yaml(
+#    "https://raw.githubusercontent.com/ssbd-ontology/core/refs/"
+#    "heads/gh-pages/context/keywords.yaml",
+#    redefine="allow",
+#)
 
 
 context = get_context(
@@ -62,6 +63,7 @@ swdocumentation = TableDoc.parse_csv(
     prefixes=prefixes,
 )
 
+# JF: No need to update the context explicitly, it is done by store()
 #update_context(swdocumentation.asdicts(), context)
 
 compdocumentation = TableDoc.parse_csv(
@@ -70,13 +72,6 @@ compdocumentation = TableDoc.parse_csv(
     context=context,
     prefixes=prefixes
 )
-
-dicts = (
-    datasettypedocumentation.asdicts()
-    + swdocumentation.asdicts()
-    + compdocumentation.asdicts()
-)
-
 
 #update_context(compdocumentation.asdicts(), context)
 
@@ -89,12 +84,18 @@ ts = Triplestore("rdflib")
 #dd = datasettypedocumentation.save(ts)
 #sd = swdocumentation.save(ts)
 #cd = compdocumentation.save(ts)
-newdicts = store(ts, dicts, context=context)
+
+# JF: Join and store the tables to the triplestore.
+#     The JSON-LD returned by store() can be given to Joh
+dicts = (
+    datasettypedocumentation.asdicts()
+    + swdocumentation.asdicts()
+    + compdocumentation.asdicts()
+)
+jsonld = store(ts, dicts, context=context)
 ts.serialize("everything2.ttl")
-
-
-####
-#dmtable = DMTable.from_csv("datamodels.csv")
+with open('jsonld/pink_googlespreadsheet_resources2.jsonld', 'wt') as f:
+    json.dump(jsonld, f, indent=2)
 
 
 ####

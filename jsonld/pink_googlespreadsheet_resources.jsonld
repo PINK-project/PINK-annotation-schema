@@ -5144,6 +5144,7 @@
         "https://w3id.org/ssbd/FunctionalityAssessment",
         "https://w3id.org/ssbd/MechanicalPropertiesAssessment",
         "https://w3id.org/ssbd/PhysicalPropertiesAssessment",
+        "https://w3id.org/ssbd/YoungsModulusAssessment",
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
@@ -6008,7 +6009,7 @@
       "description": "missing",
       "keyword": [
         "alerts",
-        "carinogenicity",
+        "carcinogenicity",
         "structural"
       ],
       "format": "csv; variable in programming environment from an API call",
