@@ -40,10 +40,9 @@ from parseutils import (
 #    redefine="allow",
 #)
 
+# JF: It shouldn't be nessesary to provide theme
+context = get_context("https://w3id.org/ssbd/context/")
 
-context = get_context(
-    "https://w3id.org/ssbd/context/", theme=None
-)
 datasettypedocumentation = TableDoc.parse_csv(
     "datasettypes_clean.csv",
     #keywords=kw,
@@ -81,10 +80,6 @@ compdocumentation = TableDoc.parse_csv(
 ts = Triplestore("rdflib")
 
 
-#dd = datasettypedocumentation.save(ts)
-#sd = swdocumentation.save(ts)
-#cd = compdocumentation.save(ts)
-
 # JF: Join and store the tables to the triplestore.
 #     The JSON-LD returned by store() can be given to Joh
 dicts = (
@@ -97,8 +92,14 @@ ts.serialize("everything2.ttl")
 with open('jsonld/pink_googlespreadsheet_resources2.jsonld', 'wt') as f:
     json.dump(jsonld, f, indent=2)
 
+assert jsonld['@context']['accessURL']['@type'].endswith('anyURI')
 
-####
+############################################
+
+#ts = Triplestore("rdflib")
+#dd = datasettypedocumentation.save(ts)
+#sd = swdocumentation.save(ts)
+#cd = compdocumentation.save(ts)
 
 
 # Get absolute current path
