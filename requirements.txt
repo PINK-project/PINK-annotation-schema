@@ -8,3 +8,7 @@ pylint==3.3.4; python_version>='3.9'
 # requirements for running scripts
 EMMOntoPy[ontodoc] @ git+https://github.com/emmo-repo/EMMOntoPy.git@master
 tripper[datadoc] @ git+https://github.com/EMMC-ASBL/tripper.git@master
+dlite-python
+python-dateutil
+pandas
+pyshacl

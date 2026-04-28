@@ -1,6 +1,6 @@
 # PINK Annotation Schema (Legacy Repository)
 
-The PINK Annotation Schema has been renamed and is now maintained as the SSBD Ontology Core.
+The PINK Annotation Schema has been renamed and is now maintained as the SSBD Core Ontology.
 
 ## New Official Location
 
