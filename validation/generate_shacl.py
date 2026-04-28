@@ -77,12 +77,20 @@ def load_ontology(onto_dir: Path) -> Graph:
         Combined RDF graph with all ontology triples.
     """
     graph = Graph()
-    for ttl_file in onto_dir.glob("*.ttl"):
-        try:
-            graph.parse(ttl_file, format="turtle")
-            print(f"  Loaded: {ttl_file.name}")
-        except Exception as e:
-            print(f"  Warning: Skipping {ttl_file.name} (parse error: {e})")
+    # How we want to load ontologies should re reconsidered
+    # Adding squashed ssbd/core for now
+    #graph.parse("https://w3id.org/ssbd/inferred", format="turtle")
+    graph.parse(
+        "https://raw.githubusercontent.com/ssbd-ontology/core/refs/"
+        "heads/gh-pages/core-squashed.ttl", 
+        format="turtle"
+        )
+    #for ttl_file in onto_dir.glob("*.ttl"):
+    #    try:
+    #        graph.parse(ttl_file, format="turtle")
+    #        print(f"  Loaded: {ttl_file.name}")
+    #    except Exception as e:
+    #        print(f"  Warning: Skipping {ttl_file.name} (parse error: {e})")
     return graph
 
 
