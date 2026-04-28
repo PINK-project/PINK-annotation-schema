@@ -14,11 +14,9 @@ import sys
 from pathlib import Path
 
 from tripper import Triplestore
-from tripper.datadoc import (
-    get_context,
-    get_keywords,)
-from tripper.datadoc.dataset import update_context
+from tripper.datadoc import get_context, store
 
+# from tripper.datadoc.dataset import update_context
 from tripper.datadoc.tabledoc import TableDoc
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
@@ -30,73 +28,59 @@ from parseutils import (
     PREFIXES as prefixes,
 )
 
-kw = get_keywords(theme=None)
-kw.load_yaml(
-    "https://raw.githubusercontent.com/ssbd-ontology/core/refs/"
-    "heads/gh-pages/context/keywords.yaml",
-    redefine="allow",
-)
-
 
 context = get_context(
     "https://w3id.org/ssbd/context/", theme=None
 )
+
+# NB! This is the context created from the SSbD core ontology
+# If ontology classes that are not in this ontology are
+# referenced in the reosurces, they must be added to the 
+# context. This can be done with e.g.
+# update_context(clases, context) where classes is
+# a dict of list of dicts with classes defined. 
+
+
 datasettypedocumentation = TableDoc.parse_csv(
     "datasettypes_clean.csv",
-    keywords=kw,
     context=context,
     prefixes=prefixes,
 )
-
-# Make datasettype classes known in the shared context before parsing
-# software/computation tables that reference them in hasInput/hasOutput.
-update_context(datasettypedocumentation.asdicts(), context)
 
 swdocumentation = TableDoc.parse_csv(
     "sw_clean.csv",
-    keywords=kw,
     context=context,
-    # baseiri='https://w3id.org/pink/',
     prefixes=prefixes,
 )
 
-update_context(swdocumentation.asdicts(), context)
-
 compdocumentation = TableDoc.parse_csv(
     "comp_clean.csv", 
-    keywords=kw, 
     context=context, 
     prefixes=prefixes
 )
 
-update_context(compdocumentation.asdicts(), context)
+# Put all created resources into a list of dicts
+resources = datasettypedocumentation.asdicts() + swdocumentation.asdicts() +  compdocumentation.asdicts()
 
-
-# Save the data to the triplstore
-# create the triplestore
+# Create the local triplestore to make the graph
 ts = Triplestore("rdflib")
 
+# Store in the graph
+jsonld = store(ts, resources, context=context)
 
 
-dd = datasettypedocumentation.save(ts)
-sd = swdocumentation.save(ts)
-cd = compdocumentation.save(ts)
-
-
-####
-#dmtable = DMTable.from_csv("datamodels.csv")
-
-
-####
-
-
-# Get absolute current path
+# Get absolute current path to get the validation tool 
+# This will change once the validation is made available
+# as a package
 root_path = Path(__file__).parent.parent.resolve()
 validation_path = root_path / "validation"
+
+# Get shacl shapes the ssbd core ontology
 shacl_graph = load_shapes("https://raw.githubusercontent.com/ssbd-ontology/core/refs/heads/gh-pages/shacl/shapes.ttl")
 shacl_graph.parse("https://raw.githubusercontent.com/ssbd-ontology/core/refs/heads/gh-pages/shacl/shapes-ssbd.ttl", format="turtle")
 
 
+# Check validity of graph 
 conforms, results_graph, report = shacl_validate(
     data_graph=ts.backend.graph,
     shacl_graph=shacl_graph,
@@ -115,14 +99,10 @@ if conforms:
     print("making a jsonld from my graph")
     ts.serialize("everything.ttl", format="turtle")
     
-    graph = dict()
-
-    graph['@context'] = sd['@context']
-    graph['@graph'] =sd['@graph'] + cd['@graph'] + dd['@graph']
 
     # Store the jsonlds for joh
     with open('jsonld/pink_googlespreadsheet_resources.jsonld', 'wt') as f: 
-        json.dump(graph, f, indent=2)
+        json.dump(jsonld, f, indent=2)
 
 
 
