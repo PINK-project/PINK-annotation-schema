@@ -202,8 +202,8 @@
       "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
     "has value": "http://semanticscience.org/resource/CHEMINF_000012",
-    "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
     "participates_in": "http://purl.obolibrary.org/obo/RO_0000056",
+    "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
     "rightsHolder": {
       "@id": "http://purl.org/dc/terms/rightsHolder",
       "@type": "@id"
@@ -1502,7 +1502,7 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000446",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EINECSNo": {
+    "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1510,7 +1510,7 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EuropeanCommunityNumber": {
+    "EINECSNo": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -3512,7 +3512,6 @@
     "emmo": "https://w3id.org/emmo/hume#",
     "oteio": "https://w3id.org/emmo/domain/oteio#",
     "chameo": "https://w3id.org/emmo/domain/characterisation-methodology/chameo#",
-    "cheminf": "http://semanticscience.org/resource/",
     "ssbd": "https://w3id.org/ssbd/",
     "dm": "https://w3id.org/emmo/domain/datamodel#",
     "brick": "https://brickschema.org/schema/Brick#",
@@ -3532,9 +3531,9 @@
     "void": "http://rdfs.org/ns/void#",
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
-    "ns1": "http://www.semanticweb.org/ontologies/cheminf.owl#",
-    "ns2": "http://purl.obolibrary.org/obo/",
-    "ns3": "http://www.geneontology.org/formats/oboInOwl#",
+    "ns1": "http://www.geneontology.org/formats/oboInOwl#",
+    "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns3": "http://purl.obolibrary.org/obo/",
     "swrl": "http://www.w3.org/2003/11/swrl#",
     "widoco": "https://w3id.org/widoco/vocab#",
     "mw": "https://modelwave.it/",
@@ -3547,6 +3546,7 @@
     "oboowl": "http://www.geneontology.org/formats/oboInOwl#",
     "obo": "http://purl.obolibrary.org/obo/",
     "chemowl": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "cheminf": "http://semanticscience.org/resource/",
     "omics": "http://pink-project.eu/omics/"
   },
   "@graph": [
@@ -3582,7 +3582,7 @@
     {
       "@id": "datasettype:ChemicalStructureCoordinateDataset",
       "@type": "owl:Class",
-      "label": "missing",
+      "label": "Chemical Structure Coordinate Dataset",
       "description": "Dataset describing a three-dimensional coordinates of a structure.",
       "format": "MOL, SDF, PDB, XYZ, GRO, CIF",
       "subClassOf": "datasettype:ChemicalStructureDataset"
@@ -3736,7 +3736,7 @@
     {
       "@id": "datasettype:Ecotoxicity_ZebrafishEmbryoCells",
       "@type": "owl:Class",
-      "label": "missing",
+      "label": "Ecotoxicity_ZebrafishEmbryoCells",
       "description": "Detailed mechanistic information on impacts of PFAS alone or as mixtures on ZF4 cell viability, cell death mechanism, metabolic pathways and mitochondrial toxicity.",
       "keyword": [
         "PFAS",
@@ -3762,7 +3762,7 @@
     {
       "@id": "datasettype:SMILES",
       "@type": "owl:Class",
-      "label": "missing",
+      "label": "smiles",
       "description": "A dataset with a SMILES string.",
       "format": "SMILES",
       "subClassOf": "datasettype:ChemicalStructureDataset"
@@ -4321,33 +4321,33 @@
       "subClassOf": "qsar:Endpoint"
     },
     {
-      "@id": "datasettype:RNACounts",
+      "@id": "omics:TranscriptGeneQuantity",
       "@type": "owl:Class",
-      "label": "RNA Counts for DESeq2",
-      "description": "Dataset with RNA counts"
+      "label": "Transcriptomics Quanitification File",
+      "description": "Dataset with RNA quanity, could be fastq, bam, CEL, normalised gene counts etc from sequencing or array"
     },
     {
-      "@id": "datasettype:geneList",
+      "@id": "omics:TranscriptGeneList",
       "@type": "owl:Class",
-      "label": "List of gene names",
+      "label": "List of gene names from RNA experiment",
       "description": "List of HGNC/Ensembl gene names"
     },
     {
-      "@id": "datasettype:differentialExpressionOutput",
+      "@id": "omics:TranscriptDifferentialExpression",
       "@type": "owl:Class",
-      "label": "Output from DESeq2 analysis",
+      "label": "Differential expression analysis results",
       "description": "Statistical measures per gene"
     },
     {
-      "@id": "datasettype:geneSetEnrichmentOutput",
+      "@id": "omics:GeneEnrichmentAnalysis",
       "@type": "owl:Class",
-      "label": "Output of gProfiler",
+      "label": "Enrichment analysis for a set of genes",
       "description": "Enrichment statistics for gene annotations"
     },
     {
       "@id": "omics:transcriptPTGS-BMDoutput",
       "@type": "owl:Class",
-      "label": "missing",
+      "label": "transcriptPTGS-BMDoutput",
       "description": "missing",
       "subClassOf": {
         "@type": "owl:Restriction",
@@ -5640,7 +5640,7 @@
       "@id": "pink:Similarity_search",
       "@type": "https://w3id.org/ssbd/Software",
       "title": "Similarity_search",
-      "description": "missing again"
+      "description": "missing"
     },
     {
       "@id": "pink:Synthesizability",
@@ -5667,12 +5667,6 @@
       "description": "missing"
     },
     {
-      "@id": "pink:FLBTEST",
-      "@type": "https://w3id.org/ssbd/Software",
-      "title": "ONEWORDTITLE",
-      "description": "missing"
-    },
-    {
       "@id": "https://w3id.org/pink/activity/activity0",
       "@type": "owl:Class",
       "title": "MultiCASE CASE Ultra commercial model RC2_AF4 for Rodent carcinogenicity in female mouse in vivo,\nDanish QSAR Group at DTU Food",
@@ -5683,7 +5677,12 @@
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
-          "owl:hasValue": "datasettype:SMILES"
+          "owl:someValuesFrom": "datasettype:SMILES"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:e2078536-1427-4d94-88dc-766215ea9abb"
         }
       ]
     },
@@ -5694,7 +5693,12 @@
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/ssbd/Computation",
-        "https://w3id.org/ssbd/SafetyAssessment"
+        "https://w3id.org/ssbd/SafetyAssessment",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:TOX21_GNRHR_HEK293_Agonist"
+        }
       ]
     },
     {
@@ -5710,12 +5714,17 @@
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
-          "owl:hasValue": "datasettype:SMILES"
+          "owl:someValuesFrom": "datasettype:SMILES"
         },
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
           "owl:someValuesFrom": "qsar:ProfilerOutputCarcinogenicityAlertsByIss"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:2256b12d-5ef8-49a2-af9a-b453b3f23d96"
         }
       ]
     },
@@ -5731,12 +5740,17 @@
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
-          "owl:hasValue": "datasettype:SMILES"
+          "owl:someValuesFrom": "datasettype:SMILES"
         },
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
           "owl:someValuesFrom": "qsar:EndpointOutputBoilingPoint"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:e898dfa3-28ac-4a89-9032-deff475db152"
         }
       ]
     },
@@ -5751,7 +5765,12 @@
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
-          "owl:hasValue": "datasettype:SMILES"
+          "owl:someValuesFrom": "datasettype:SMILES"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:GeneTox_detail"
         }
       ]
     },
@@ -5767,7 +5786,12 @@
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
-          "owl:hasValue": "datasettype:SMILES"
+          "owl:someValuesFrom": "datasettype:SMILES"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:20592778"
         }
       ]
     },
@@ -5782,7 +5806,12 @@
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
-          "owl:hasValue": "datasettype:SMILES"
+          "owl:someValuesFrom": "datasettype:SMILES"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:Jaqpot_2081"
         }
       ]
     },
@@ -5797,7 +5826,12 @@
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
-          "owl:hasValue": "datasettype:SMILES"
+          "owl:someValuesFrom": "datasettype:SMILES"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:Jaqpot_2082"
         }
       ]
     },
@@ -5818,6 +5852,11 @@
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
           "owl:someValuesFrom": "datasettype:MechanicalPropertiesDataset"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "mw:bulk_polymer_mechanical_molecular"
         }
       ]
     },
@@ -5838,6 +5877,11 @@
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
           "owl:someValuesFrom": "datasettype:ChemicalStructureDataset"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "mw:polymer_builder_molecular"
         }
       ]
     },
@@ -5858,6 +5902,11 @@
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
           "owl:someValuesFrom": "datasettype:InteractionPotentialParameters"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "mw:ff_builder_molecular"
         }
       ]
     },
@@ -5883,6 +5932,11 @@
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
           "owl:someValuesFrom": "datasettype:ChemicalStructureDataset"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "mw:polymer_bulk_builder_molecular"
         }
       ]
     },
@@ -5911,6 +5965,11 @@
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
           "owl:someValuesFrom": "datasettype:MechanicalPropertiesDataset"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "mw:youngs_modulus_evaluator_molecular"
         }
       ]
     },
@@ -5944,6 +6003,11 @@
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
           "owl:someValuesFrom": "datasettype:MechanicalPropertiesDataset"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "mw:mechanical_properties_evaluator_molecular"
         }
       ]
     },
@@ -5955,7 +6019,12 @@
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/ssbd/Computation",
         "https://w3id.org/ssbd/HazardAssessmentHumanHealth",
-        "https://w3id.org/ssbd/SafetyAssessment"
+        "https://w3id.org/ssbd/SafetyAssessment",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:AOP_451"
+        }
       ]
     },
     {
@@ -5966,7 +6035,12 @@
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/ssbd/Computation",
         "https://w3id.org/ssbd/HazardAssessmentHumanHealth",
-        "https://w3id.org/ssbd/SafetyAssessment"
+        "https://w3id.org/ssbd/SafetyAssessment",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "https://doi.org/10.1002/smll.201904749"
+        }
       ]
     },
     {
@@ -5976,7 +6050,12 @@
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/ssbd/Computation",
-        "https://w3id.org/ssbd/FunctionalityAssessment"
+        "https://w3id.org/ssbd/FunctionalityAssessment",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:EnalosCloud_Hamaker"
+        }
       ]
     },
     {
@@ -5986,7 +6065,12 @@
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/ssbd/Computation",
-        "https://w3id.org/ssbd/FunctionalityAssessment"
+        "https://w3id.org/ssbd/FunctionalityAssessment",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:EnalosCloud_ZetaPredict"
+        }
       ]
     },
     {
@@ -5996,7 +6080,12 @@
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/ssbd/Computation",
-        "https://w3id.org/ssbd/FunctionalityAssessment"
+        "https://w3id.org/ssbd/FunctionalityAssessment",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:EnalosCloud_NanoBioConstruct"
+        }
       ]
     },
     {
@@ -6006,7 +6095,12 @@
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/ssbd/Computation",
-        "https://w3id.org/ssbd/SafetyAssessment"
+        "https://w3id.org/ssbd/SafetyAssessment",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:EnalosCloud_PINK_ChemInformatics_Suite"
+        }
       ]
     },
     {
@@ -6017,7 +6111,12 @@
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/ssbd/Computation",
         "https://w3id.org/ssbd/EnvironmentalSustainabilityAssessment",
-        "https://w3id.org/ssbd/LifeCycleImpactAssessmentCategory"
+        "https://w3id.org/ssbd/LifeCycleImpactAssessmentCategory",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:Smiles_to_impact-prediction-tool"
+        }
       ]
     },
     {
@@ -6093,6 +6192,11 @@
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
           "owl:someValuesFrom": "empa:FuelConsumptionOutput"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:upscaling_LCI_calculator"
         }
       ]
     },
@@ -6119,6 +6223,11 @@
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
           "owl:someValuesFrom": "empa:FuelConsumptionOutput"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:upscaling_LCI_calculator_Heating"
         }
       ]
     },
@@ -6145,6 +6254,11 @@
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
           "owl:someValuesFrom": "empa:EnergyCalculatorCoolingOutput"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:upscaling_LCI_calculator_Cooling"
         }
       ]
     },
@@ -6161,12 +6275,17 @@
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
-          "owl:someValuesFrom": "datasettype:RNACounts"
+          "owl:someValuesFrom": "omics:TranscriptGeneQuantity"
         },
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
-          "owl:someValuesFrom": "datasettype:differentialExpressionOutput"
+          "owl:someValuesFrom": "omics:TranscriptDifferentialExpression"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:transcriptomic_example_step1"
         }
       ]
     },
@@ -6183,12 +6302,17 @@
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
-          "owl:someValuesFrom": "datasettype:geneList"
+          "owl:someValuesFrom": "omics:TranscriptGeneList"
         },
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
-          "owl:someValuesFrom": "datasettype:geneSetEnrichmentOutput"
+          "owl:someValuesFrom": "omics:GeneEnrichmentAnalysis"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:transcriptomic_example_step2"
         }
       ]
     },
@@ -6200,7 +6324,12 @@
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/ssbd/Computation",
         "https://w3id.org/ssbd/HazardAssessmentHumanHealth",
-        "https://w3id.org/ssbd/SafetyAssessment"
+        "https://w3id.org/ssbd/SafetyAssessment",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:PTGS"
+        }
       ]
     },
     {
@@ -6213,12 +6342,17 @@
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
-          "owl:someValuesFrom": "datasettype:RNACounts"
+          "owl:someValuesFrom": "omics:TranscriptGeneQuantity"
         },
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasOutput",
-          "owl:someValuesFrom": "omics:transcriptPTGS-BMDoutput"
+          "owl:someValuesFrom": "omics:GeneEnrichmentAnalysis"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:PTGS-BMD"
         }
       ]
     },
@@ -6232,7 +6366,17 @@
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
-          "owl:someValuesFrom": "datasettype:RNACounts"
+          "owl:someValuesFrom": "omics:TranscriptGeneQuantity"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:someValuesFrom": "omics:GeneEnrichmentAnalysis"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:PTGS-TOX"
         }
       ]
     },
@@ -6246,7 +6390,17 @@
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
-          "owl:someValuesFrom": "datasettype:RNACounts"
+          "owl:someValuesFrom": "omics:TranscriptGeneQuantity"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:someValuesFrom": "omics:GeneEnrichmentAnalysis"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:PTGS-AOP"
         }
       ]
     },
@@ -6260,7 +6414,17 @@
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
-          "owl:someValuesFrom": "datasettype:RNACounts"
+          "owl:someValuesFrom": "omics:TranscriptGeneQuantity"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:someValuesFrom": "omics:GeneEnrichmentAnalysis"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:PTGS-Grouping"
         }
       ]
     },
@@ -6273,7 +6437,12 @@
         "https://w3id.org/ssbd/AcuteToxicityAssessment",
         "https://w3id.org/ssbd/Computation",
         "https://w3id.org/ssbd/HazardAssessmentHumanHealth",
-        "https://w3id.org/ssbd/SafetyAssessment"
+        "https://w3id.org/ssbd/SafetyAssessment",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:ToxFAIRy"
+        }
       ]
     },
     {
@@ -6283,7 +6452,12 @@
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/ssbd/Computation",
-        "https://w3id.org/ssbd/SafetyAssessment"
+        "https://w3id.org/ssbd/SafetyAssessment",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:SciRAPnano"
+        }
       ]
     },
     {
@@ -6292,7 +6466,12 @@
       "title": "QSARToolBox",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/ssbd/Computation"
+        "https://w3id.org/ssbd/Computation",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:QSARToolBox"
+        }
       ]
     },
     {
@@ -6301,7 +6480,12 @@
       "title": "Similarity_search",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/ssbd/Computation"
+        "https://w3id.org/ssbd/Computation",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:Similarity_search"
+        }
       ]
     },
     {
@@ -6310,7 +6494,12 @@
       "title": "Synthesizability",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/ssbd/Computation"
+        "https://w3id.org/ssbd/Computation",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:Synthesizability"
+        }
       ]
     },
     {
@@ -6319,7 +6508,12 @@
       "title": "Multi-objective_Process_Optimizer",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/ssbd/Computation"
+        "https://w3id.org/ssbd/Computation",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:Multi-objective_Process_Optimizer"
+        }
       ]
     },
     {
@@ -6328,7 +6522,12 @@
       "title": "GenerativeAI_GFlowNet",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/ssbd/Computation"
+        "https://w3id.org/ssbd/Computation",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:GenerativeAI_GFlowNet"
+        }
       ]
     },
     {
@@ -6337,16 +6536,12 @@
       "title": "JaqpotQSAR_XX",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/ssbd/Computation"
-      ]
-    },
-    {
-      "@id": "https://w3id.org/pink/activity/activity39",
-      "@type": "owl:Class",
-      "title": "ONEWORDTITLE",
-      "subClassOf": [
-        "http://www.w3.org/ns/prov#Activity",
-        "https://w3id.org/ssbd/Computation"
+        "https://w3id.org/ssbd/Computation",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasSoftware",
+          "owl:hasValue": "pink:JaqpotQSAR_XX"
+        }
       ]
     }
   ]

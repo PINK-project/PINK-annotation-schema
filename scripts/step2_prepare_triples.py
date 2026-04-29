@@ -47,11 +47,13 @@ datasettypedocumentation = TableDoc.parse_csv(
     prefixes=prefixes,
 )
 
+
 swdocumentation = TableDoc.parse_csv(
     "sw_clean.csv",
     context=context,
     prefixes=prefixes,
 )
+
 
 compdocumentation = TableDoc.parse_csv(
     "comp_clean.csv", 
@@ -66,7 +68,7 @@ resources = datasettypedocumentation.asdicts() + swdocumentation.asdicts() +  co
 ts = Triplestore("rdflib")
 
 # Store in the graph
-jsonld = store(ts, resources, context=context)
+jsonld = store(ts, resources, context=context, prefixes=prefixes)
 
 
 # Get absolute current path to get the validation tool 
@@ -97,7 +99,7 @@ if conforms:
     print("Validation passed")
     print("unfortunately direct pushing is no longer possible")
     print("making a jsonld from my graph")
-    ts.serialize("everything.ttl", format="turtle")
+    ts.serialize("googlespreadsheet_resources.ttl", format="turtle")
     
 
     # Store the jsonlds for joh

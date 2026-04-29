@@ -18,3 +18,5 @@ dmtable.get_datamodels()
 add_dataset(ts, get_instance('http://pink-project.eu/omics/transcriptPTGS-BMDoutput'))
 
 dmtable.to_triplestore(ts)
+
+ts.serialize('datamodels.ttl', format='turtle')
