@@ -13,10 +13,6 @@ dmtable = DMTable.from_csv("datamodels.csv")
 # Create the datamodels
 dmtable.get_datamodels()
 
-# get
-
-add_dataset(ts, get_instance('http://pink-project.eu/omics/transcriptPTGS-BMDoutput'))
-
 dmtable.to_triplestore(ts)
 
 ts.serialize('datamodels.ttl', format='turtle')
