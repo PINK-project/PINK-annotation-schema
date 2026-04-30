@@ -148,8 +148,12 @@ expanded_sw.to_csv("sw_clean.csv", index=False)
 # Correct the computations documentation dataframe
 
 #print("PREPARING COMPUTATION TYPE DOCUMENTATION")
-# Create a unique id (@id) for each activity in the comp dspreadsheet
 
+# Make sure that the activity is related to the sofware.
+# NB! ordering in dataframe cannot have changed!
+comp["hasSoftware"] = expanded_sw["@id"]
+
+# Create a unique id (@id) for each activity in the comp dspreadsheet
 comp["@id"] = comp.apply(
     lambda row: f"https://w3id.org/pink/activity/activity{row.name}", axis=1
 )

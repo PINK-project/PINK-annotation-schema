@@ -37,6 +37,7 @@ PREFIXES: dict[str, str] = {
     "oboowl": "http://www.geneontology.org/formats/oboInOwl#",
     "obo": "http://purl.obolibrary.org/obo/",
     "chemowl": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "cheminf": "http://semanticscience.org/resource/",
     "omics": "http://pink-project.eu/omics/",
 }
 
