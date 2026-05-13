@@ -144,7 +144,7 @@ All steps require a valid Python environment with dependencies installed from `r
 ### 1. **make_drop_down_list_source.py**
 
 **Purpose:** Generates a CSV file for drop-down lists in the annotation tool.
-This is just a helper script to extract the hierachy of assessment classes to be added to the Google Spreadsheet for annotation.
+This is just a helper script to extract the hierarchy of assessment classes to be added to the Google Spreadsheet for annotation.
 
 **Usage:**
 ```bash
