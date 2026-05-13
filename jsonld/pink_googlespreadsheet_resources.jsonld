@@ -202,8 +202,8 @@
       "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
     "has value": "http://semanticscience.org/resource/CHEMINF_000012",
-    "participates_in": "http://purl.obolibrary.org/obo/RO_0000056",
     "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
+    "participates_in": "http://purl.obolibrary.org/obo/RO_0000056",
     "rightsHolder": {
       "@id": "http://purl.org/dc/terms/rightsHolder",
       "@type": "@id"
@@ -1502,15 +1502,15 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000446",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "EINECSNo": {
+      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ECNumber": {
-      "@id": "http://semanticscience.org/resource/CHEMINF_000447",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "EINECSNo": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2566,11 +2566,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000056",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "File": {
+    "MeltMassFlowRate": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MeltMassFlowRate": {
+    "File": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -3531,9 +3531,9 @@
     "void": "http://rdfs.org/ns/void#",
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
-    "ns1": "http://www.geneontology.org/formats/oboInOwl#",
-    "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
-    "ns3": "http://purl.obolibrary.org/obo/",
+    "ns1": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns2": "http://purl.obolibrary.org/obo/",
+    "ns3": "http://www.geneontology.org/formats/oboInOwl#",
     "swrl": "http://www.w3.org/2003/11/swrl#",
     "widoco": "https://w3id.org/widoco/vocab#",
     "mw": "https://modelwave.it/",
@@ -4385,6 +4385,20 @@
       ],
       "title": "MultiCASE CASE Ultra commercial model RC2_AF4 for Rodent carcinogenicity in female mouse in vivo,\nDanish QSAR Group at DTU Food",
       "description": "The training set consists of non\u2010proprietary studies and is composed of data harvested from FDA approval packages and the published literature (for more details see 6.5). The model algorithm is proprietary from commercial software. The model has been created by FDA and MultiCASE based on FDA data as part of a Research Cooperation Agreement (RCA).\nThe training set was constructed using the NTP (U.S. National Toxicology Program) Rodent carcinogenicity database, the Lois Gold Carcinogen Potency Database, FDA/CDER (U.S. Food and Drug Administration / Center for Drug Evaluation and Research) archives, and the scientific literature. The model including the training data set is commercially available from MultiCASE Inc.",
+      "keyword": [
+        "QSAR",
+        "carcinogenicity",
+        "chemicals",
+        "female",
+        "fragments",
+        "in",
+        "mice",
+        "regression",
+        "stepwise",
+        "structural",
+        "vivo"
+      ],
+      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://drive.google.com/file/d/1UfVlkwcNl9NiI3T1g9D463njkqScE5Gr/view",
       "distribution": {
         "@type": [
@@ -4413,6 +4427,7 @@
       ],
       "title": "Tox21 HEK293T Gonadotropin-releasing Hormone (GnRH) Receptor Agonism Assay",
       "description": "TOX21_GNRHR_HEK293 is a cell-based, single-readout assay that uses GnRHR-expressing stably transfected HEK293, a human kidney cell line, with measurements taken at 1.25 hours after chemical dosing in a 1536-well plate. TOX21_GNRHR_HEK293_Agonist is one of 2 assay components measured in the TOX21_GNRHR_HEK293 assay. It is designed to make measurements of intracellular calcium, a form of biochemical reporter, as detected with Fluorescence intensity signals by FDSS 7000EX kinetic plate reader technology. Data from the assay component TOX21_GNRHR_HEK293_Agonist was analyzed into 2 assay endpoints. This assay endpoint, TOX21_GNRHR_HEK293_Agonist was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. Using a type of inducible reporter, gain-of-signal activity can be used to understand changes in binding. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the gpcr, where the subfamily is gonadotropin-releasing hormone receptor.",
+      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://clowder.edap-cluster.com/files/68a37cece4b02565fc7b59e4?dataset=6894f2dae4b025654d12b716&space=687e388ce4b02565bc3e28e4",
       "distribution": {
         "@type": [
@@ -4420,13 +4435,16 @@
           "dcat:Resource",
           "owl:NamedIndividual"
         ],
-        "accessURL": "https://clowder.edap-cluster.com/spaces/687e388ce4b02565bc3e28e4"
+        "accessURL": "https://clowder.edap-cluster.com/spaces/687e388ce4b02565bc3e28e4",
+        "downloadURL": "https://doi.org/10.23645/epacomptox.6062623"
       },
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+      "rightsHolder": "https://ror.org/03tns0030",
       "license": "http://www.usa.gov/publicdomain/label/1.0/",
-      "version": "August 14 2025",
+      "creator": "https://ror.org/03tns0030",
+      "version": "ToxCast Database: invitrodb version 4.3",
       "curator": "https://orcid.org/0000-0002-1849-5246"
     },
     {
@@ -4442,8 +4460,15 @@
       "title": "Carcinogenicity (genotox and nongenotox) alerts by ISS",
       "description": "This profiler is an expanded and updated version of the correspondent module originally\nimplemented in the software Toxtree. It works as a decision tree for estimating\ncarcinogenicity, based on a list of 55 structural alerts (SAs). Out of them, 35 derive from the\nToxtree module and 20 are newly derived. Most of the new SAs are relative to nongenotoxic\ncarcinogenicity, whereas the SAs in the initial list mainly coded genotoxic carcinogenicity.\nThe SAs for carcinogenicity are molecular functional groups or substructures known to be\nlinked to the carcinogenic activity of chemicals. As one or more SAs embedded in a\nmolecular structure are recognised, the system flags the potential carcinogenicity of the\nchemical. The present list of alert is relevant for the investigation of chemicals genotoxic\nand nongenotoxic carcinogenicity. Applicable to Carcinogenicity (e.g. Carcinogenicity, Summary carcinogenicity, TD50).",
       "keyword": [
+        "QSAR",
         "carcinogenicity",
-        "profiler"
+        "chemicals",
+        "fragments",
+        "genetoxic",
+        "genotoxic",
+        "non",
+        "profiler",
+        "structural"
       ],
       "tierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://drive.google.com/file/d/1A-PrNYn-XXgJyLs_c9xaiTGxbC5qHoBP/view?usp=share_link",
@@ -4605,6 +4630,7 @@
         "dynamics",
         "polymer"
       ],
+      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
@@ -4636,6 +4662,7 @@
         "SMILES",
         "polymer"
       ],
+      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
@@ -5672,12 +5699,19 @@
       "title": "MultiCASE CASE Ultra commercial model RC2_AF4 for Rodent carcinogenicity in female mouse in vivo,\nDanish QSAR Group at DTU Food",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/ssbd/CarcinogenicityAssessment",
         "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/HazardAssessmentHumanHealth",
         "https://w3id.org/ssbd/SafetyAssessment",
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
           "owl:someValuesFrom": "datasettype:SMILES"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasOutput",
+          "owl:hasValue": "qsar:CarcinogenicityPotential"
         },
         {
           "@type": "owl:Restriction",
@@ -5693,7 +5727,14 @@
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/EndocrineToxicityAssessment",
+        "https://w3id.org/ssbd/HazardAssessmentHumanHealth",
         "https://w3id.org/ssbd/SafetyAssessment",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "tox21:10kCompoundLibrary"
+        },
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasSoftware",
@@ -5707,9 +5748,12 @@
       "title": "Carcinogenicity (genotox and nongenotox) alerts by ISS",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/ssbd/CarcinogenicityAssessment",
         "https://w3id.org/ssbd/Computation",
         "https://w3id.org/ssbd/HazardAssessmentEnvironment",
+        "https://w3id.org/ssbd/HazardAssessmentHumanHealth",
         "https://w3id.org/ssbd/HumanHealthRiskAssessment",
+        "https://w3id.org/ssbd/NonGenotoxicCarcinogenicityAssessment",
         "https://w3id.org/ssbd/SafetyAssessment",
         {
           "@type": "owl:Restriction",
@@ -5841,8 +5885,12 @@
       "title": "CNR SMILES to mechanical properties workflow - molecular scale",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/ssbd/BulkModulusAssessment",
         "https://w3id.org/ssbd/Computation",
         "https://w3id.org/ssbd/FunctionalityAssessment",
+        "https://w3id.org/ssbd/MechanicalPropertiesAssessment",
+        "https://w3id.org/ssbd/PoissonsRatioAssessment",
+        "https://w3id.org/ssbd/YoungsModulusAssessment",
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
@@ -5950,7 +5998,7 @@
         "https://w3id.org/ssbd/FunctionalityAssessment",
         "https://w3id.org/ssbd/MechanicalPropertiesAssessment",
         "https://w3id.org/ssbd/PhysicalPropertiesAssessment",
-        "https://w3id.org/ssbd/YoungsModulusAssessment",
+        "https://w3id.org/ssbd/ThermalPropertiesAssessment",
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasInput",
@@ -6017,9 +6065,15 @@
       "title": "AOP 451: Interaction with lung resident cell membrane components leads to lung cancer",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/ssbd/CarcinogenicityAssessment",
         "https://w3id.org/ssbd/Computation",
         "https://w3id.org/ssbd/HazardAssessmentHumanHealth",
         "https://w3id.org/ssbd/SafetyAssessment",
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "ssbd:hasInput",
+          "owl:hasValue": "aop:effects"
+        },
         {
           "@type": "owl:Restriction",
           "owl:onProperty": "ssbd:hasSoftware",
@@ -6094,7 +6148,9 @@
       "title": "PINK ChemInformatics Suite",
       "subClassOf": [
         "http://www.w3.org/ns/prov#Activity",
+        "https://w3id.org/ssbd/AcuteToxicityAssessment",
         "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/HazardAssessmentHumanHealth",
         "https://w3id.org/ssbd/SafetyAssessment",
         {
           "@type": "owl:Restriction",

@@ -65,6 +65,9 @@ datamodels["@id"] = datasettypes.apply(
     axis=1,
 )
 
+# remove rows with empty @id
+datamodels = datamodels[datamodels["@id"].notna() & (datamodels["@id"].str.strip() != "")]
+
 # convert datamodel @id to be an iri using the prefix mapping in prefixes
 # the @id is already written with a prefix, so we can just replace the prefix with the corresponding IRI
 def convert_to_iri(value):
