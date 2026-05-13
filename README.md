@@ -9,7 +9,7 @@ In order to run scripts in the current repository a working python environment i
 Please install the python dependencies defined in `requirements.txt` with e.g.
 
 ```bash
-pip install -r requirements
+pip install -r requirements.txt
 ```
 
 ## Using the Scripts
