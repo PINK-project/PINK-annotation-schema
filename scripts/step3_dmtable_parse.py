@@ -23,4 +23,4 @@ print('finished putting into ts')
 
 print('serializing to turtle')
 ts.serialize('datamodels.ttl', format='turtle')
-print('finished seralizing to turtle')
+print('finished serializing to turtle')
