@@ -8,11 +8,19 @@ from dlite.dataset import add_dataset
 ts = Triplestore('rdflib')
 
 # Parse the csv table
-dmtable = DMTable.from_csv("datamodels.csv")
+print('parsing csv')
+dmtable = DMTable.from_csv("datamodels.csv", unit_handling="ignore")
+print('finished parsing csv')
 
 # Create the datamodels
+print('creating datamodels')
 dmtable.get_datamodels()
+print('finished creating datamodels')
 
 dmtable.to_triplestore(ts)
 
+print('finished putting into ts')
+
+print('serializing to turtle')
 ts.serialize('datamodels.ttl', format='turtle')
+print('finished serializing to turtle')
