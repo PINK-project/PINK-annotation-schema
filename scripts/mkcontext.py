@@ -32,6 +32,7 @@ from pathlib import Path
 
 from tripper import RDF, RDFS, SKOS, Session, Triplestore
 from tripper.utils import prefix_iri
+from tripper.datadoc.utils import iriname
 
 
 rootdir = Path(__file__).resolve().parent.parent
@@ -77,10 +78,12 @@ ts.bind("xsd", "http://www.w3.org/2001/XMLSchema#")
 
 def add(ctx, triples, prefixes, type=None):
     """Add `triples` to the context `ctx`."""
+    iris = set(s for s, p, o in triples)
     labels = {s: str(o) for s, p, o in triples if p == SKOS.prefLabel}
     ranges = {s: o for s, p, o in triples if p == RDFS.range}
-    for iri, label in labels.items():
-        ctx[label] = {
+    for iri in iris:
+        key = labels[iri] if iri in labels else iriname(iri)
+        ctx[key] = {
             "@id": prefix_iri(iri, prefixes),
             "@type": type if type else prefix_iri(ranges[iri], prefixes),
         }
