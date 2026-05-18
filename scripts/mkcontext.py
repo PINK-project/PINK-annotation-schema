@@ -32,7 +32,6 @@ from pathlib import Path
 
 from tripper import RDF, RDFS, SKOS, Session, Triplestore
 from tripper.utils import prefix_iri
-from tripper.datadoc.utils import iriname
 
 
 rootdir = Path(__file__).resolve().parent.parent
@@ -82,9 +81,10 @@ def add(ctx, triples, prefixes, type=None):
     labels = {s: str(o) for s, p, o in triples if p == SKOS.prefLabel}
     ranges = {s: o for s, p, o in triples if p == RDFS.range}
     for iri in iris:
-        key = labels[iri] if iri in labels else iriname(iri)
+        prefixed = prefix_iri(iri, prefixes)
+        key = labels[iri] if iri in labels else prefixed
         ctx[key] = {
-            "@id": prefix_iri(iri, prefixes),
+            "@id": prefixed,
             "@type": type if type else prefix_iri(ranges[iri], prefixes),
         }
 
@@ -103,19 +103,13 @@ def get_query(target, prefixes, isprop=True):
     return "\n".join(pf) + "\n" + f"""
 CONSTRUCT {{
   ?prop a {target} ;
-    skos:prefLabel ?label .
+    skos:prefLabel ?prefLabel .
   {range}
 }}
 WHERE {{
   ?prop a {target} .
   {range}
-  OPTIONAL {{
-    {{
-      ?prop skos:prefLabel ?label
-    }} UNION {{
-      ?prop rdfs:label ?label
-    }} .
-  }}
+  OPTIONAL {{ ?prop skos:prefLabel ?prefLabel }}
 }}
 """
 
