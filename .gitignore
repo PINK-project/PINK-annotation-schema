@@ -2,9 +2,9 @@ build/
 public/
 widoco/
 __pycache__/
+session_conf.yaml
 .venv
 .pdm-python
 pdm.lock
 widoco-*/
 widoco-1.4.25-jar-with-dependencies_JDK-17.jar
-
