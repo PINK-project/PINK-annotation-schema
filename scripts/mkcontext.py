@@ -52,25 +52,32 @@ if session_name == "MemDB":
     ts.parse("https://w3id.org/ssbd")
 
 # Define prefixes
-ts.bind("bibo", "http://purl.org/ontology/bibo/")
-ts.bind("chemowl", "http://www.semanticweb.org/ontologies/cheminf.owl#")
-ts.bind("dcat", "http://www.w3.org/ns/dcat#")
-ts.bind("dcatap", "http://data.europa.eu/r5r/")
-ts.bind("dcterms", "http://purl.org/dc/terms/")
-ts.bind("ddoc", "https://w3id.org/emmo/application/datadoc#")
-ts.bind("foaf", "http://xmlns.com/foaf/0.1/")
-ts.bind("obo", "http://purl.obolibrary.org/obo/")
-ts.bind("oboowl", "http://www.geneontology.org/formats/oboInOwl#")
-ts.bind("owl", "http://www.w3.org/2002/07/owl#")
-ts.bind("prov", "http://www.w3.org/ns/prov#")
-ts.bind("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-ts.bind("rdfs", "http://www.w3.org/2000/01/rdf-schema#")
-ts.bind("skos", "http://www.w3.org/2004/02/skos/core#")
-ts.bind("ssbd", "https://w3id.org/ssbd/")
-ts.bind("swrl", "http://www.w3.org/2003/11/swrl#")
-ts.bind("vann", "http://purl.org/vocab/vann/")
-ts.bind("widoco", "https://w3id.org/widoco/vocab#")
-ts.bind("xsd", "http://www.w3.org/2001/XMLSchema#")
+prefixes = {
+    "bibo": "http://purl.org/ontology/bibo/",
+    "cheminf": "http://semanticscience.org/resource/",
+    "chemowl": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcatap": "http://data.europa.eu/r5r/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ddoc": "https://w3id.org/emmo/application/datadoc#",
+    "dm": "https://w3id.org/emmo/domain/datamodel#",
+    "emmo": "https://w3id.org/emmo/hume#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "obo": "http://purl.obolibrary.org/obo/",
+    "oboowl": "http://www.geneontology.org/formats/oboInOwl#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "ssbd": "https://w3id.org/ssbd/",
+    "swrl": "http://www.w3.org/2003/11/swrl#",
+    "vann": "http://purl.org/vocab/vann/",
+    "widoco": "https://w3id.org/widoco/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+}
+for prefix, ns in prefixes.items():
+    ts.bind(prefix, ns)
 
 
 # Help functions
@@ -119,7 +126,6 @@ ctx = {"@version": 1.1}  # Inner context
 context = {"@context": ctx}  # Full context
 
 # Add prefixes to context
-prefixes = {prefix: str(ns) for prefix, ns in ts.namespaces.items()}
 for prefix in sorted(prefixes):
     ctx[prefix] = prefixes[prefix]
 
@@ -142,4 +148,4 @@ outdir.mkdir(exist_ok=True)
 with open(outfile, "wt", encoding="utf-8") as f:
     json.dump(context, f, indent=2)
 
-print(outfile.read_text())
+#print(outfile.read_text())
