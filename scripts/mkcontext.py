@@ -30,8 +30,9 @@ See https://emmc-asbl.github.io/tripper/latest/session/ for details.
 import json
 from pathlib import Path
 
-from tripper import RDF, RDFS, SKOS, Session, Triplestore
+from tripper import OWL, RDF, RDFS, SKOS, Session, Triplestore
 from tripper.utils import prefix_iri
+from tripper.datadoc.utils import iriname
 
 
 rootdir = Path(__file__).resolve().parent.parent
@@ -79,48 +80,6 @@ prefixes = {
 for prefix, ns in prefixes.items():
     ts.bind(prefix, ns)
 
-
-# Help functions
-
-def add(ctx, triples, prefixes, type=None):
-    """Add `triples` to the context `ctx`."""
-    iris = set(s for s, p, o in triples)
-    labels = {s: str(o) for s, p, o in triples if p == SKOS.prefLabel}
-    ranges = {s: o for s, p, o in triples if p == RDFS.range}
-    for iri in iris:
-        prefixed = prefix_iri(iri, prefixes)
-        key = labels[iri] if iri in labels else prefixed
-        ctx[key] = {
-            "@id": prefixed,
-            "@type": type if type else prefix_iri(ranges[iri], prefixes),
-        }
-
-
-def get_query(target, prefixes, isprop=True):
-    """Return SPARQL query for given target.
-
-    `target` should be one of:
-      - "owl:AnnotationProperty"
-      - "owl:ObjectProperty"
-      - "owl:DatatypeProperty"
-      - "owl:Class"
-    """
-    pf = [f"PREFIX {prefix}: <{ns}>" for prefix, ns in prefixes.items()]
-    range = "?prop rdfs:range ?range ." if isprop else ""
-    return "\n".join(pf) + "\n" + f"""
-CONSTRUCT {{
-  ?prop a {target} ;
-    skos:prefLabel ?prefLabel .
-  {range}
-}}
-WHERE {{
-  ?prop a {target} .
-  {range}
-  OPTIONAL {{ ?prop skos:prefLabel ?prefLabel }}
-}}
-"""
-
-
 # Prepare the context
 ctx = {"@version": 1.1}  # Inner context
 context = {"@context": ctx}  # Full context
@@ -129,23 +88,58 @@ context = {"@context": ctx}  # Full context
 for prefix in sorted(prefixes):
     ctx[prefix] = prefixes[prefix]
 
-# Populate the context
-q1 = get_query("owl:AnnotationProperty", prefixes)
-q2 = get_query("owl:ObjectProperty", prefixes)
-q3 = get_query("owl:DatatypeProperty", prefixes)
-q4 = get_query("owl:Class", prefixes, isprop=False)
-r1 = list(ts.query(q1))
-r2 = list(ts.query(q2))
-r3 = list(ts.query(q3))
-r4 = list(ts.query(q4))
-add(ctx, r1, prefixes)
-add(ctx, r2, prefixes, "@id")
-add(ctx, r3, prefixes)
-add(ctx, r4, prefixes, "owl:Class")
+
+# Execute SPARQL query + workaround bug that None is returned as "None"
+q = """
+SELECT ?iri ?prefLabel ?type ?range
+WHERE {
+  ?iri a ?type .
+  OPTIONAL { ?iri rdfs:range ?range } .
+  OPTIONAL { ?iri skos:prefLabel ?prefLabel } .
+  VALUES ?type { owl:AnnotationProperty owl:ObjectProperty owl:DatatypeProperty owl:Class }
+}
+"""
+r = [[x if x and x != "None" else None for x in t] for t in ts.query(q)]
+
+prefixed = {iri: prefix_iri(iri, prefixes) for iri, _, _, _ in r}
+keys = {}
+for iri, prefLabel, _, _ in r:
+    if prefLabel:
+        keys[iri] = str(prefLabel)
+    else:
+        name = iriname(iri)
+        keys[iri] = prefixed[iri] if name in keys else name
+ranges = {iri: prefix_iri(range, prefixes) for iri, _, _, range in r if range}
+results = [  # New sorted result list
+    (keys[iri], iri, type)
+    for iri, _, type, _ in sorted(r, key=lambda x: keys[x[0]])
+]
+
+# Add annotation properties to context
+for key, iri, type in results:
+    if type == OWL.AnnotationProperty:
+        pf = prefixed[iri]
+        ctx[key] = {"@id": pf, "@type": ranges[iri]} if iri in ranges else pf
+
+# Add object properties to context
+for key, iri, type in results:
+    if type == OWL.ObjectProperty:
+        ctx[key] = {"@id": prefixed[iri], "@type": "@id"}
+
+# Add data properties to context
+for key, iri, type in results:
+    if type == OWL.DatatypeProperty:
+        pf = prefixed[iri]
+        ctx[key] = {"@id": pf, "@type": ranges[iri]} if iri in ranges else pf
+
+# Add classes to context
+for key, iri, type in results:
+    if type == OWL.Class:
+        ctx[keys[iri]] = {"@id": prefixed[iri], "@type": "owl:Class"}
 
 # Write context to file
 outdir.mkdir(exist_ok=True)
 with open(outfile, "wt", encoding="utf-8") as f:
     json.dump(context, f, indent=2)
 
-#print(outfile.read_text())
+print(outfile.read_text())
