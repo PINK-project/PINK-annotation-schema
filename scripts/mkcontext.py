@@ -142,4 +142,4 @@ outdir.mkdir(exist_ok=True)
 with open(outfile, "wt", encoding="utf-8") as f:
     json.dump(context, f, indent=2)
 
-print(outfile.read_text())
+#print(outfile.read_text())
