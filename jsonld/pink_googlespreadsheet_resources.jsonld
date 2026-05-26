@@ -177,10 +177,6 @@
       "@id": "http://purl.org/vocab/vann/usageNote",
       "@language": "en"
     },
-    "issued": {
-      "@id": "http://purl.org/dc/terms/issued",
-      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-    },
     "datumDescription": {
       "@id": "https://w3id.org/emmo/domain/datamodel#datumDescription",
       "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -201,9 +197,8 @@
       "@id": "https://w3id.org/emmo/domain/datamodel#datumUnit",
       "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
-    "has value": "http://semanticscience.org/resource/CHEMINF_000012",
-    "participates in": "http://purl.obolibrary.org/obo/RO_0000056",
-    "participates_in": "http://purl.obolibrary.org/obo/RO_0000056",
+    "hasValue": "http://semanticscience.org/resource/CHEMINF_000012",
+    "participatesIn": "http://purl.obolibrary.org/obo/RO_0000056",
     "rightsHolder": {
       "@id": "http://purl.org/dc/terms/rightsHolder",
       "@type": "@id"
@@ -243,7 +238,7 @@
     },
     "isOvercrossedBy": "https://w3id.org/ssbd/isOvercrossedBy",
     "hasProperPart": "https://w3id.org/ssbd/hasProperPart",
-    "is about": "http://purl.obolibrary.org/obo/IAO_0000136",
+    "isAbout": "http://purl.obolibrary.org/obo/IAO_0000136",
     "source": {
       "@id": "http://purl.org/dc/terms/source",
       "@type": "@id"
@@ -293,7 +288,7 @@
       "@type": "http://www.w3.org/2001/XMLSchema#duration"
     },
     "wasDerivedFrom": {
-      "@id": "http://www.w3.org/ns/prov#wasDerivedFrom",
+      "@id": "https://w3id.org/ssbd/wasDerivedFrom",
       "@type": "@id"
     },
     "wasGeneratedBy": {
@@ -468,6 +463,10 @@
       "@id": "https://w3id.org/ssbd/isDescriptionOf",
       "@type": "@id"
     },
+    "outputsIndicator": {
+      "@id": "https://w3id.org/ssbd/outputsIndicator",
+      "@type": "@id"
+    },
     "assesses": {
       "@id": "https://w3id.org/ssbd/assesses",
       "@type": "@id"
@@ -476,11 +475,7 @@
       "@id": "https://w3id.org/ssbd/hasSubProcess",
       "@type": "@id"
     },
-    "hasMeasurementUnit": "https://w3id.org/ssbd/hasMeasurementUnit",
-    "isPropertyOf": {
-      "@id": "https://w3id.org/ssbd/isPropertyOf",
-      "@type": "@id"
-    },
+    "hasDataValue": "https://w3id.org/ssbd/hasDataValue",
     "isInterpretedBy": {
       "@id": "https://w3id.org/ssbd/isInterpretedBy",
       "@type": "@id"
@@ -489,7 +484,11 @@
       "@id": "https://w3id.org/ssbd/standsFor",
       "@type": "@id"
     },
-    "hasDataValue": "https://w3id.org/ssbd/hasDataValue",
+    "hasUnit": "https://w3id.org/ssbd/hasMeasurementUnit",
+    "isPropertyOf": {
+      "@id": "https://w3id.org/ssbd/isPropertyOf",
+      "@type": "@id"
+    },
     "hasAPI": {
       "@id": "https://w3id.org/ssbd/hasAPI",
       "@type": "http://www.w3.org/2001/XMLSchema#boolean"
@@ -536,10 +535,6 @@
     },
     "tierLevel": {
       "@id": "https://w3id.org/ssbd/tierLevel",
-      "@type": "@id"
-    },
-    "wasDerivedBy": {
-      "@id": "https://w3id.org/ssbd/wasDerivedBy",
       "@type": "@id"
     },
     "wasAttributedTo": {
@@ -1502,7 +1497,7 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000446",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EINECSNo": {
+    "ECNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1510,7 +1505,7 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ECNumber": {
+    "EINECSNo": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -1910,16 +1905,8 @@
       "@id": "https://w3id.org/emmo/hume#ElementalSubstance",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Gas": {
-      "@id": "https://w3id.org/emmo/hume#Gas",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "InorganicCompound": {
       "@id": "https://w3id.org/emmo/hume#InorganicCompound",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Liquid": {
-      "@id": "https://w3id.org/emmo/hume#Liquid",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ManufacturedMaterial": {
@@ -1956,10 +1943,6 @@
     },
     "PhysicsEquation": {
       "@id": "https://w3id.org/emmo/hume#PhysicsEquation",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Plasma": {
-      "@id": "https://w3id.org/emmo/hume#Plasma",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "PolymericMaterial": {
@@ -2414,10 +2397,6 @@
       "@id": "https://w3id.org/ssbd/RecurrentNeuralNetwork",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "ReliabilityDocument": {
-      "@id": "https://w3id.org/ssbd/ReliabilityDocument",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "RenalToxicityAssessment": {
       "@id": "https://w3id.org/ssbd/RenalToxicityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -2566,11 +2545,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000056",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "MeltMassFlowRate": {
+    "File": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "File": {
+    "MeltMassFlowRate": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000057",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2830,6 +2809,14 @@
       "@id": "https://w3id.org/ssbd/HazardAssessmentEnvironment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Indicator": {
+      "@id": "https://w3id.org/ssbd/Indicator",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "IndicatorAssessment": {
+      "@id": "https://w3id.org/ssbd/IndicatorAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "Information": {
       "@id": "https://w3id.org/ssbd/Information",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -3026,6 +3013,14 @@
       "@id": "https://w3id.org/emmo/hume#ChemicalCompound",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Gas": {
+      "@id": "https://w3id.org/emmo/hume#Gas",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Liquid": {
+      "@id": "https://w3id.org/emmo/hume#Liquid",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "MaterialByClassicalMaterialsScience": {
       "@id": "https://w3id.org/emmo/hume#MaterialByClassicalMaterialsScience",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -3054,8 +3049,8 @@
       "@id": "https://w3id.org/emmo/hume#PhysicsBasedModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Solid": {
-      "@id": "https://w3id.org/emmo/hume#Solid",
+    "Plasma": {
+      "@id": "https://w3id.org/emmo/hume#Plasma",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "StandaloneAtom": {
@@ -3198,16 +3193,12 @@
       "@id": "https://w3id.org/emmo/hume#ContinuumSubstance",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Fluid": {
-      "@id": "https://w3id.org/emmo/hume#Fluid",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "Molecule": {
       "@id": "https://w3id.org/emmo/hume#Molecule",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Assessment": {
-      "@id": "https://w3id.org/ssbd/Assessment",
+    "Solid": {
+      "@id": "https://w3id.org/emmo/hume#Solid",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "DomainOfApplicabilityStatus": {
@@ -3216,10 +3207,6 @@
     },
     "FunctionalityAssessment": {
       "@id": "https://w3id.org/ssbd/FunctionalityAssessment",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Indicator": {
-      "@id": "https://w3id.org/ssbd/Indicator",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Matter": {
@@ -3272,6 +3259,10 @@
     },
     "HydrogenBondAcceptorCount": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000245",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Fluid": {
+      "@id": "https://w3id.org/emmo/hume#Fluid",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "MaterialByType": {
@@ -3338,6 +3329,10 @@
       "@id": "http://purl.obolibrary.org/obo/CHEBI_23367",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Assessment": {
+      "@id": "https://w3id.org/ssbd/Assessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "Classification": {
       "@id": "https://w3id.org/ssbd/Classification",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -3370,10 +3365,6 @@
       "@id": "https://w3id.org/ssbd/Process",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Property": {
-      "@id": "https://w3id.org/ssbd/Property",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "Rights Statement": {
       "@id": "http://purl.org/dc/terms/RightsStatement",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -3398,10 +3389,6 @@
       "@id": "https://w3id.org/ssbd/EnvironmentalSustainabilityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Sign": {
-      "@id": "https://w3id.org/ssbd/Sign",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "MolecularEntityName": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000043",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -3422,12 +3409,20 @@
       "@id": "https://w3id.org/ssbd/SafetyAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "LifeCycleAssessmentImpactCategory": {
-      "@id": "https://w3id.org/ssbd/LifeCycleImpactAssessmentCategory",
+    "Sign": {
+      "@id": "https://w3id.org/ssbd/Sign",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Property": {
+      "@id": "https://w3id.org/ssbd/Property",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "SSbDDimension": {
       "@id": "https://w3id.org/ssbd/SSbDDimension",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LifeCycleAssessmentImpactCategory": {
+      "@id": "https://w3id.org/ssbd/LifeCycleImpactAssessmentCategory",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "Software": {
@@ -3462,12 +3457,12 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000464",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Entity": {
-      "@id": "http://www.w3.org/ns/prov#Entity",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "TopologicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000092",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Entity": {
+      "@id": "http://www.w3.org/ns/prov#Entity",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ElectronicDescriptor": {
@@ -3531,8 +3526,8 @@
     "void": "http://rdfs.org/ns/void#",
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
-    "ns1": "http://www.semanticweb.org/ontologies/cheminf.owl#",
-    "ns2": "http://purl.obolibrary.org/obo/",
+    "ns1": "http://purl.obolibrary.org/obo/",
+    "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
     "ns3": "http://www.geneontology.org/formats/oboInOwl#",
     "swrl": "http://www.w3.org/2003/11/swrl#",
     "widoco": "https://w3id.org/widoco/vocab#",
@@ -4470,6 +4465,7 @@
         "profiler",
         "structural"
       ],
+      "outputsIndicator": "ssbd:StructuralAlertCarcinogenicity",
       "tierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://drive.google.com/file/d/1A-PrNYn-XXgJyLs_c9xaiTGxbC5qHoBP/view?usp=share_link",
       "distribution": {
@@ -4505,6 +4501,7 @@
         "point",
         "qsar"
       ],
+      "outputsIndicator": "ssbd:StructuralAlertCarcinogenicity",
       "tierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://docs.google.com/document/d/1kbkV108TFkqF3DwtcQX4JEuVY2oPBLu2jeCH8A5luxY/edit?tab=t.0",
       "distribution": {
@@ -5167,6 +5164,10 @@
         "human",
         "transcriptomics"
       ],
+      "outputsIndicator": [
+        "omics:TranscriptGeneExpressionEffectSize",
+        "omics:TranscriptGeneExpressionStatisticalSignificance"
+      ],
       "tierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://bioconductor.org/packages/release/bioc/html/DESeq2.html",
       "distribution": {
@@ -5243,6 +5244,7 @@
         "human",
         "transcriptomics"
       ],
+      "outputsIndicator": "omics:GeneEnrichmentStatisticalSignificance",
       "tierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://biit.cs.ut.ee/gprofiler/page/r",
       "distribution": {
@@ -5380,6 +5382,7 @@
         "prediction",
         "toxicity"
       ],
+      "outputsIndicator": "omics:GeneEnrichmentStatisticalSignificance",
       "tierLevel": "https://w3id.org/ssbd/tierlevel2",
       "documentation": "https://doi.org/10.1038/ncomms15932",
       "hasAPI": true,
@@ -5391,25 +5394,29 @@
       "@id": "pink:PTGS-BMD",
       "@type": "https://w3id.org/ssbd/Software",
       "title": "Predictive Toxicogenomics Space benchmark dose modelling",
-      "description": "Prediction of bioactivity-based benchmark doses"
+      "description": "Prediction of bioactivity-based benchmark doses",
+      "outputsIndicator": "omics:GeneEnrichmentStatisticalSignificance"
     },
     {
       "@id": "pink:PTGS-TOX",
       "@type": "https://w3id.org/ssbd/Software",
       "title": "Predictive Toxicogenomics Space toxicity prediction",
-      "description": "Prediction of cytotoxicity probability"
+      "description": "Prediction of cytotoxicity probability",
+      "outputsIndicator": "omics:GeneEnrichmentStatisticalSignificance"
     },
     {
       "@id": "pink:PTGS-AOP",
       "@type": "https://w3id.org/ssbd/Software",
       "title": "Predictive Toxicogenomics Space AOP-anchored prediction of human toxicity",
-      "description": "AOP-anchored analysis and prediction of human health effects"
+      "description": "AOP-anchored analysis and prediction of human health effects",
+      "outputsIndicator": "omics:GeneEnrichmentStatisticalSignificance"
     },
     {
       "@id": "pink:PTGS-Grouping",
       "@type": "https://w3id.org/ssbd/Software",
       "title": "Predictive Toxicogenomics Space grouping of chemicals/materials with similar bioactivities",
-      "description": "Prediction of bioactivity-based grouping of chemicals/materials"
+      "description": "Prediction of bioactivity-based grouping of chemicals/materials",
+      "outputsIndicator": "omics:GeneEnrichmentStatisticalSignificance"
     },
     {
       "@id": "pink:ToxFAIRy",

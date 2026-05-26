@@ -2,9 +2,9 @@
 Script used to parse the google spreadsheet used by the
 model and dataset providers for documentation.
 
-This script downloads, parses and corrects data from the 
-google spreadsheet before it is saved to a csv file. 
-The csv files are then used in the next step to create 
+This script downloads, parses and corrects data from the
+google spreadsheet before it is saved to a csv file.
+The csv files are then used in the next step to create
 triples and save them to the triplestore.
 """
 
@@ -19,22 +19,21 @@ from tripper.datadoc import (
     get_keywords,
 )
 
-
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 
+from parseutils import PREFIXES as prefixes
 from parseutils import (
-    PREFIXES as prefixes,
     convert_to_iri,
     correct_pink_dataframes,
     merge_columns,
 )
 
-
-
 # import the pink ontology for accessing labels and
 # convert to IRIs (just before storing into the triplestore)
-onto = get_ontology("https://ssbd-ontology.github.io/core/core-inferred.ttl").load()
+onto = get_ontology(
+    "https://ssbd-ontology.github.io/core/core-inferred.ttl"
+).load()
 
 # Get data from Google Sheets
 # Software documentation
@@ -61,24 +60,33 @@ datamodels = datasettypes[
 
 # Set @id to the value in column "datamodel" if it exists, otherwise to the same value as in datasettypes["identifier"]
 datamodels["@id"] = datasettypes.apply(
-    lambda row: row["datamodel"] if pd.notna(row["datamodel"]) and str(row["datamodel"]).strip() != "" else row["identifier"],
+    lambda row: (
+        row["datamodel"]
+        if pd.notna(row["datamodel"]) and str(row["datamodel"]).strip() != ""
+        else row["identifier"]
+    ),
     axis=1,
 )
 
 # remove rows with empty @id
-datamodels = datamodels[datamodels["@id"].notna() & (datamodels["@id"].str.strip() != "")]
+datamodels = datamodels[
+    datamodels["@id"].notna() & (datamodels["@id"].str.strip() != "")
+]
+
 
 # convert datamodel @id to be an iri using the prefix mapping in prefixes
 # the @id is already written with a prefix, so we can just replace the prefix with the corresponding IRI
-def convert_to_iri(value):
+def convert_id_to_iri(value):
     if pd.isna(value) or str(value).strip() == "":
         return value  # Return as is if empty or NaN
     value = str(value).strip()
     for prefix, iri in prefixes.items():
         if value.startswith(prefix + ":"):
             return value.replace(prefix + ":", iri)
-    return value   
-datamodels["@id"] = datamodels["@id"].apply(convert_to_iri)
+    return value
+
+
+datamodels["@id"] = datamodels["@id"].apply(convert_id_to_iri)
 
 
 datamodels["description"] = datasettypes["identifier"].apply(
@@ -89,7 +97,6 @@ datamodels["description"] = datasettypes["identifier"].apply(
 datamodels["title"] = datasettypes["identifier"].apply(
     lambda x: f"{x}-datamodel"
 )
-
 
 
 # remove all rows that have all fields starting with "datum" empty
@@ -109,9 +116,7 @@ kw.load_yaml(
     redefine="allow",
 )
 
-context = get_context(
-    "https://w3id.org/ssbd/context/", theme=None
-)
+context = get_context("https://w3id.org/ssbd/context/", theme=None)
 # Create the computatations documentation dataframe,
 # and copy/move relevant columns from the software documentation dataframe.
 ssbd_cols = [col for col in sw.columns if col.startswith("SSbD Assessment")]
@@ -139,7 +144,8 @@ sw["chemicalClass"] = sw.apply(
 sw.drop(columns=chemicalclass_cols, inplace=True)
 
 # We have to decide how to handle Indicator, it is currently a class.
-sw = sw.drop(columns=["indicator"])
+if "indicator" in sw.columns:
+    sw = sw.drop(columns=["indicator"])
 
 sw["@type"] = "pink:Software"
 
@@ -150,7 +156,7 @@ expanded_sw.to_csv("sw_clean.csv", index=False)
 
 # Correct the computations documentation dataframe
 
-#print("PREPARING COMPUTATION TYPE DOCUMENTATION")
+# print("PREPARING COMPUTATION TYPE DOCUMENTATION")
 
 # Make sure that the activity is related to the sofware.
 # NB! ordering in dataframe cannot have changed!
@@ -189,5 +195,3 @@ datasettypes["@type"] = [["owl:Class"]] * len(datasettypes)
 datasettypes = datasettypes.drop(columns=["indicator"])
 expanded_datasettypes = correct_pink_dataframes(datasettypes, onto)
 expanded_datasettypes.to_csv("datasettypes_clean.csv", index=False)
-
-
