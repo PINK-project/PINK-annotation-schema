@@ -9,15 +9,8 @@ from pathlib import Path
 import dateutil
 import pandas as pd
 from ontopy.exceptions import NoSuchLabelError
-from tripper.datadoc import (
-    get_context,
-    get_keywords,
-)
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
-
-# pylint: disable=wrong-import-position,import-error
-from validation.validate import load_shapes, shacl_validate
 
 
 TERMDEF_URL = (
@@ -50,7 +43,9 @@ def _load_termdefs() -> pd.DataFrame:
 _TERMDEFS = _load_termdefs()
 
 list_columns: list[str] = [
-    *_TERMDEFS.loc[_TERMDEFS["SingleValue"] == False, "Tripper_keyword"].tolist(),
+    *_TERMDEFS.loc[
+        _TERMDEFS["SingleValue"] == False, "Tripper_keyword"
+    ].tolist(),
     "@id",
     "@type",
 ]
@@ -59,7 +54,6 @@ property_iri_dict: dict[str, str] = {
     prop: iri
     for prop, iri in zip(_TERMDEFS["Property"], _TERMDEFS["Tripper_keyword"])
 }
-
 
 
 def convert_to_iri(value, prefixes=PREFIXES):
@@ -72,7 +66,8 @@ def convert_to_iri(value, prefixes=PREFIXES):
     for prefix, iri in prefixes.items():
         if value.startswith(prefix + ":"):
             return value.replace(prefix + ":", iri)
-    return value   
+    return value
+
 
 def add_prefix(value, prefix="pink"):
     """Add prefix to value if it does not already have one and is not empty.
@@ -93,11 +88,11 @@ def add_prefix(value, prefix="pink"):
 
 
 def remove_extra_text(value):
-    """Correct the value by removing everything after 
+    """Correct the value by removing everything after
     the first space.
 
-    For pink, this is done specifically in the tierLevel column, 
-    as some curators desired explanations on the tier level, 
+    For pink, this is done specifically in the tierLevel column,
+    as some curators desired explanations on the tier level,
     which should be removed.
     """
     if pd.isna(value) or str(value).strip() == "":
@@ -166,7 +161,7 @@ def expand_df(df: pd.DataFrame) -> pd.DataFrame:
     for col in df.columns:
         is_list_col = df[col].apply(lambda v: isinstance(v, list)).any()
         if is_list_col:
-            print('column', col, 'is a list column')
+            print("column", col, "is a list column")
             sub = pd.DataFrame(
                 df[col]
                 .apply(lambda v: v if isinstance(v, list) and v else [None])
@@ -192,8 +187,32 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
     check that they exist in the ontology. If so, replace with the IRI.
     """
 
+    def case_variations(text: str) -> list[str]:
+        """Return unique case variants for ontology lookup.
+        This is a bit risky since there is not reason this will work.
+        In particular acronyms will not work."""
+        candidates = [
+            text,
+            text.lower(),
+            text.upper(),
+            text.title(),
+            text.capitalize(),
+        ]
+        # Preserve order while removing duplicates.
+        return list(dict.fromkeys(candidates))
+
     def process_value(val):
+        """
+        Do the analysis of the value to find if it corresponds to an IRI
+        in the ontology.
+        This is done only because people do not want to use the
+        IRIs directly but prefer to use rdfs:label
+        """
         if not isinstance(val, str):
+            return val
+
+        val = val.strip()
+        if not val:
             return val
 
         # Detect URI-like values
@@ -205,21 +224,31 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
             lookup_val = val
 
             # Remove prefix if not full URI
-            # OBS! vi risikerer å bruke feil prefix.
+            # Careful! We here remove the prefix and therefore risk
+            # using the wrong terms in the lookup
+            # OK, here as long as we only use one ontology
+            # Also: the ontology lookup will not always work
+            # since we are now using labels that don't exist as
+            # eny kind of labels in the ontology. rdfs:labels are
+            # preferably in lower case
             if not (val.startswith("http://") or val.startswith("https://")):
                 lookup_val = val.split(":", 1)[1]
-            try:
-                term = ontology[lookup_val]
-                print(f"Replacing {val} with IRI: {term.iri}")
-                return term.iri
-            except NoSuchLabelError:
-                # If there is a space in the value return None,
-                # As areal uri cannot have spaces
-                if " " in val:
-                    print(
-                        f"Value '{val}' looks like a URI but contains spaces. Smart to check this."
-                    )
-                return val
+
+            for candidate in case_variations(lookup_val.strip()):
+                try:
+                    term = ontology.get_by_label(candidate)
+                    print(f"Replacing {val} with IRI: {term.iri}")
+                    return term.iri
+                except (NoSuchLabelError, AttributeError):
+                    pass
+
+            # If there is a space in the value return unchanged,
+            # as a real URI cannot have spaces.
+            if " " in val:
+                print(
+                    f"Value '{val}' looks like a URI but contains spaces. Smart to check this."
+                )
+            return val
         return val
 
     df = df.map(process_value)
@@ -272,7 +301,6 @@ def correct_pink_dataframes(df, ontology):
             df[col] = df[col].apply(add_prefix, prefix="pink")
 
     # Change possible lists to lists
-    #print("columns", df.columns)
     for col in set(list_columns).intersection(df.columns):
         print(col)
         df[col] = df[col].apply(split_to_list)
