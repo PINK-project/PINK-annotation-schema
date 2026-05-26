@@ -208,6 +208,12 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
         return list(dict.fromkeys(candidates))
 
     def process_value(val):
+        """
+        Do the analysis of the value to find if it corresponds to an IRI 
+        in the ontology. 
+        This is done only because people do not want to use the 
+        IRIs directly but prefer to use rdfs:label
+        """
         if not isinstance(val, str):
             return val
 
