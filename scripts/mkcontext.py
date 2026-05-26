@@ -41,7 +41,7 @@ outfile = outdir / "pinkkb.json"
 conffile = rootdir / "session_conf.yaml"
 
 # PINKKB doesn't contain the SSbD Core Ontology yet, so we can't test.
-# For now we therefore use MemDB and populate it manyally with SSbD core.
+# For now we therefore use MemDB and populate it manually with SSbD core.
 #session_name = "PINKKB"
 session_name = "MemDB"  # to be replaced with PINKKB
 
