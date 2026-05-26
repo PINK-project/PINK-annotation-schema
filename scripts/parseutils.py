@@ -224,7 +224,13 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
             lookup_val = val
 
             # Remove prefix if not full URI
-            # OBS! vi risikerer å bruke feil prefix.
+            # Careful! We here remove the prefix and therefore risk
+            # using the wrong terms in the lookup
+            # OK, here as long as we only use one ontology
+            # Also: the ontology lookup will not always work
+            # since we are now using labels that don't exist as
+            # eny kind of labels in the ontology. rdfs:labels are
+            # preferably in lower case
             if not (val.startswith("http://") or val.startswith("https://")):
                 lookup_val = val.split(":", 1)[1]
 
