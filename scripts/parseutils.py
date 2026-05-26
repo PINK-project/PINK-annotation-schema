@@ -9,15 +9,9 @@ from pathlib import Path
 import dateutil
 import pandas as pd
 from ontopy.exceptions import NoSuchLabelError
-from tripper.datadoc import (
-    get_context,
-    get_keywords,
-)
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
-# pylint: disable=wrong-import-position,import-error
-from validation.validate import load_shapes, shacl_validate
 
 TERMDEF_URL = (
     "https://docs.google.com/spreadsheets/d/"
@@ -209,9 +203,9 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
 
     def process_value(val):
         """
-        Do the analysis of the value to find if it corresponds to an IRI 
-        in the ontology. 
-        This is done only because people do not want to use the 
+        Do the analysis of the value to find if it corresponds to an IRI
+        in the ontology.
+        This is done only because people do not want to use the
         IRIs directly but prefer to use rdfs:label
         """
         if not isinstance(val, str):
@@ -246,13 +240,6 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
                     print(f"Replacing {val} with IRI: {term.iri}")
                     return term.iri
                 except (NoSuchLabelError, AttributeError):
-                    pass
-
-                try:
-                    term = ontology[candidate]
-                    print(f"Replacing {val} with IRI: {term.iri}")
-                    return term.iri
-                except (NoSuchLabelError, KeyError, TypeError):
                     pass
 
             # If there is a space in the value return unchanged,
@@ -314,7 +301,6 @@ def correct_pink_dataframes(df, ontology):
             df[col] = df[col].apply(add_prefix, prefix="pink")
 
     # Change possible lists to lists
-    # print("columns", df.columns)
     for col in set(list_columns).intersection(df.columns):
         print(col)
         df[col] = df[col].apply(split_to_list)
