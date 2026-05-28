@@ -103,12 +103,20 @@ r = [[x if x and x != "None" else None for x in t] for t in ts.query(q)]
 
 prefixed = {iri: prefix_iri(iri, prefixes) for iri, _, _, _ in r}
 keys = {}
+used_keys = {}
+
 for iri, prefLabel, _, _ in r:
     if prefLabel:
-        keys[iri] = str(prefLabel)
+        key = str(prefLabel)
     else:
         name = iriname(iri)
-        keys[iri] = prefixed[iri] if name in keys else name
+        key = prefixed[iri] if name in used_keys else name
+
+    if key in used_keys:
+        raise ValueError(f"Duplicate context key {key!r}: {used_keys[key]} and {iri}")
+
+    keys[iri] = key
+    used_keys[key] = iri
 ranges = {iri: prefix_iri(range, prefixes) for iri, _, _, range in r if range}
 results = [  # New sorted result list
     (keys[iri], iri, type)
