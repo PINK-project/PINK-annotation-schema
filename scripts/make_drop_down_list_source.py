@@ -4,17 +4,18 @@ This script is used to generate a csv file that can be used as the source for th
 from ontopy import get_ontology
 import csv
 
-level1 = ['Functionality Assessment', 'Safety Assessment', 'Environmental Sustainability Assessment', 'Social Sustainability Assessment', 'Economic Sustainability Assessment']
+level1 = ['FunctionalityAssessment', 'SafetyAssessment', 'EnvironmentalSustainabilityAssessment', 'SocialSustainabilityAssessment', 'EconomicSustainabilityAssessment']
 
 onto = get_ontology('https://w3id.org/ssbd/').load()
 
 d = []
 
-for l in level1:
-    level2 = onto[l].subclasses()
+for lev in level1:
+    l = onto[lev].label.en[0]
+    level2 = onto[lev].subclasses()
     for k in level2:
-        k_name = k.altLabel.en[0]
-        level3 = list(m.altLabel.en[0]  for m in onto.get_descendants(k))
+        k_name = k.label.en[0]
+        level3 = list(m.label.en[0]  for m in onto.get_descendants(k))
         if len(level3) > 0:
             for n in level3:
                 d.append([l, k_name, n])

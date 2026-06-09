@@ -24,5 +24,5 @@ dmtable.to_triplestore(ts)
 print('finished putting into ts')
 
 print('serializing to turtle')
-ts.serialize('datamodels.ttl', format='turtle')
+ts.serialize('graphs/datamodels.ttl', format='turtle')
 print('finished seralizing to turtle')

@@ -207,17 +207,30 @@
       "@id": "https://w3id.org/emmo/domain/oteio#hasDatamodel",
       "@type": "@id"
     },
+    "chemicalClass": {
+      "@id": "https://w3id.org/ssbd/chemicalClass",
+      "@type": "@id"
+    },
     "hasJunctionPart": "https://w3id.org/ssbd/hasJunctionPart",
     "hasSpatialPart": "https://w3id.org/ssbd/hasSpatialPart",
     "hasTemporalPart": "https://w3id.org/ssbd/hasTemporalPart",
+    "inTierLevel": {
+      "@id": "https://w3id.org/ssbd/inTierLevel",
+      "@type": "@id"
+    },
+    "notOverlaps": "https://w3id.org/ssbd/notOverlaps",
     "performedWith": {
       "@id": "https://w3id.org/ssbd/performedWith",
+      "@type": "@id"
+    },
+    "priorRelease": {
+      "@id": "https://w3id.org/ssbd/priorRelease",
       "@type": "@id"
     },
     "causal": "https://w3id.org/ssbd/causal",
     "equalsTo": "https://w3id.org/ssbd/equalsTo",
     "hasParticipant": "https://w3id.org/ssbd/hasParticipant",
-    "nonOverlaps": "https://w3id.org/ssbd/nonOverlaps",
+    "isOvercrossedBy": "https://w3id.org/ssbd/isOvercrossedBy",
     "performedBy": {
       "@id": "https://w3id.org/ssbd/performedBy",
       "@type": "@id"
@@ -236,7 +249,11 @@
       "@id": "https://w3id.org/ssbd/hasProperty",
       "@type": "@id"
     },
-    "isOvercrossedBy": "https://w3id.org/ssbd/isOvercrossedBy",
+    "isRepresentedBy": {
+      "@id": "https://w3id.org/ssbd/isRepresentedBy",
+      "@type": "@id"
+    },
+    "properOverlaps": "https://w3id.org/ssbd/properOverlaps",
     "hasProperPart": "https://w3id.org/ssbd/hasProperPart",
     "isAbout": "http://purl.obolibrary.org/obo/IAO_0000136",
     "source": {
@@ -249,6 +266,10 @@
     "example": "http://www.w3.org/2004/02/skos/core#example",
     "homepage": "http://xmlns.com/foaf/0.1/homepage",
     "logo": "http://xmlns.com/foaf/0.1/logo",
+    "name": {
+      "@id": "http://xmlns.com/foaf/0.1/name",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
     "introduction": "https://w3id.org/widoco/vocab#introduction",
     "scopeNote": "http://www.w3.org/2004/02/skos/core#scopeNote",
     "distribution": {
@@ -303,16 +324,13 @@
       "@id": "https://w3id.org/ssbd/hasDatum",
       "@type": "@id"
     },
-    "isDescriptionFor": {
-      "@id": "https://w3id.org/emmo/hume#EMMO_f702bad4_fc77_41f0_a26d_79f6444fd4f3",
-      "@type": "@id"
-    },
+    "isDescriptionFor": "https://w3id.org/ssbd/isDescriptionFor",
     "isInputOf": {
       "@id": "https://w3id.org/emmo/hume#EMMO_1494c1a9_00e1_40c2_a9cc_9bbf302a1cac",
       "@type": "@id"
     },
     "isOutputOf": {
-      "@id": "https://w3id.org/emmo/hume#EMMO_2bb50428_568d_46e8_b8bf_59a4c5656461",
+      "@id": "https://w3id.org/ssbd/isOutputOf",
       "@type": "@id"
     },
     "mappings": {
@@ -379,10 +397,6 @@
     },
     "parserType": "https://w3id.org/emmo/domain/oteio#parserType",
     "generatorType": "https://w3id.org/emmo/domain/oteio#generatorType",
-    "name": {
-      "@id": "http://xmlns.com/foaf/0.1/name",
-      "@type": "http://www.w3.org/2001/XMLSchema#string"
-    },
     "attributed": {
       "@id": "https://w3id.org/ssbd/attributed",
       "@type": "@id"
@@ -459,10 +473,6 @@
       "@id": "https://w3id.org/ssbd/hasSoftware",
       "@type": "@id"
     },
-    "isDescriptionOf": {
-      "@id": "https://w3id.org/ssbd/isDescriptionOf",
-      "@type": "@id"
-    },
     "outputsIndicator": {
       "@id": "https://w3id.org/ssbd/outputsIndicator",
       "@type": "@id"
@@ -475,20 +485,14 @@
       "@id": "https://w3id.org/ssbd/hasSubProcess",
       "@type": "@id"
     },
-    "hasDataValue": "https://w3id.org/ssbd/hasDataValue",
     "isInterpretedBy": {
       "@id": "https://w3id.org/ssbd/isInterpretedBy",
       "@type": "@id"
     },
-    "standsFor": {
-      "@id": "https://w3id.org/ssbd/standsFor",
-      "@type": "@id"
-    },
+    "standsFor": "https://w3id.org/ssbd/standsFor",
+    "dataValue": "https://w3id.org/ssbd/dataValue",
     "hasUnit": "https://w3id.org/ssbd/hasMeasurementUnit",
-    "isPropertyOf": {
-      "@id": "https://w3id.org/ssbd/isPropertyOf",
-      "@type": "@id"
-    },
+    "isPropertyFor": "https://w3id.org/ssbd/isPropertyFor",
     "hasAPI": {
       "@id": "https://w3id.org/ssbd/hasAPI",
       "@type": "http://www.w3.org/2001/XMLSchema#boolean"
@@ -499,10 +503,6 @@
     },
     "isSubmoduleOf": {
       "@id": "https://w3id.org/ssbd/isSubmoduleOf",
-      "@type": "@id"
-    },
-    "priorRelease": {
-      "@id": "https://w3id.org/ssbd/priorRelease",
       "@type": "@id"
     },
     "implementsModel": {
@@ -529,24 +529,12 @@
       "@id": "https://w3id.org/ssbd/hasOutput",
       "@type": "@id"
     },
-    "chemicalClass": {
-      "@id": "https://w3id.org/ssbd/chemicalClass",
-      "@type": "@id"
-    },
-    "tierLevel": {
-      "@id": "https://w3id.org/ssbd/tierLevel",
-      "@type": "@id"
-    },
     "wasAttributedTo": {
       "@id": "https://w3id.org/ssbd/wasAttributedTo",
       "@type": "@id"
     },
     "participatesTo": {
       "@id": "https://w3id.org/ssbd/participatesTo",
-      "@type": "@id"
-    },
-    "isRepresentedBy": {
-      "@id": "https://w3id.org/ssbd/isRepresentedBy",
       "@type": "@id"
     },
     "Resource": {
@@ -1501,11 +1489,11 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EuropeanCommunityNumber": {
+    "EINECSNo": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "EINECSNo": {
+    "EuropeanCommunityNumber": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000447",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -2513,10 +2501,6 @@
       "@id": "https://w3id.org/ssbd/YoungsModulusAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "License Document": {
-      "@id": "http://purl.org/dc/terms/LicenseDocument",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "MolarRefractivity": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000001",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -3106,6 +3090,10 @@
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "SocialSustainabilityAssessment": {
+      "@id": "https://w3id.org/ssbd/SocialSustainabilityAssessment",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "WorkerSocialResponsibilityAssessment": {
       "@id": "https://w3id.org/ssbd/WorkerSocialResponsibilityAssessment",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
@@ -3225,10 +3213,6 @@
       "@id": "https://w3id.org/ssbd/NumericalData",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Object": {
-      "@id": "https://w3id.org/ssbd/Object",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "ReinforcedLearningModel": {
       "@id": "https://w3id.org/ssbd/ReinforcedLearningModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -3295,6 +3279,10 @@
     },
     "NaturalLanguageUnderstanding": {
       "@id": "https://w3id.org/ssbd/NaturalLanguageUnderstanding",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Object": {
+      "@id": "https://w3id.org/ssbd/Object",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "PredictionLearningModel": {
@@ -3397,10 +3385,6 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000093",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Data": {
-      "@id": "https://w3id.org/ssbd/Data",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "DeepLearningModel": {
       "@id": "https://w3id.org/ssbd/DeepLearningModel",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -3413,6 +3397,10 @@
       "@id": "https://w3id.org/ssbd/Sign",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Data": {
+      "@id": "https://w3id.org/ssbd/Data",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "Property": {
       "@id": "https://w3id.org/ssbd/Property",
       "@type": "http://www.w3.org/2002/07/owl#Class"
@@ -3421,24 +3409,24 @@
       "@id": "https://w3id.org/ssbd/SSbDDimension",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "LifeCycleAssessmentImpactCategory": {
-      "@id": "https://w3id.org/ssbd/LifeCycleImpactAssessmentCategory",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "Software": {
       "@id": "https://w3id.org/ssbd/Software",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "LifeCycleAssessmentImpactCategory": {
+      "@id": "https://w3id.org/ssbd/LifeCycleImpactAssessmentCategory",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "StructuralDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000085",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
-    "Activity": {
-      "@id": "http://www.w3.org/ns/prov#Activity",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
     "ChemicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000123",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
+    "Activity": {
+      "@id": "http://www.w3.org/ns/prov#Activity",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "HazardIdentificationHumanHealth": {
@@ -3453,16 +3441,16 @@
       "@id": "http://semanticscience.org/resource/CHEMINF_000270",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
+    "Entity": {
+      "@id": "http://www.w3.org/ns/prov#Entity",
+      "@type": "http://www.w3.org/2002/07/owl#Class"
+    },
     "ChemicalDatabaseIdentifier": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000464",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "TopologicalDescriptor": {
       "@id": "http://semanticscience.org/resource/CHEMINF_000092",
-      "@type": "http://www.w3.org/2002/07/owl#Class"
-    },
-    "Entity": {
-      "@id": "http://www.w3.org/ns/prov#Entity",
       "@type": "http://www.w3.org/2002/07/owl#Class"
     },
     "ElectronicDescriptor": {
@@ -3507,7 +3495,6 @@
     "emmo": "https://w3id.org/emmo/hume#",
     "oteio": "https://w3id.org/emmo/domain/oteio#",
     "chameo": "https://w3id.org/emmo/domain/characterisation-methodology/chameo#",
-    "ssbd": "https://w3id.org/ssbd/",
     "dm": "https://w3id.org/emmo/domain/datamodel#",
     "brick": "https://brickschema.org/schema/Brick#",
     "csvw": "http://www.w3.org/ns/csvw#",
@@ -3526,8 +3513,8 @@
     "void": "http://rdfs.org/ns/void#",
     "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
     "bibo": "http://purl.org/ontology/bibo/",
-    "ns1": "http://purl.obolibrary.org/obo/",
-    "ns2": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns1": "http://www.semanticweb.org/ontologies/cheminf.owl#",
+    "ns2": "http://purl.obolibrary.org/obo/",
     "ns3": "http://www.geneontology.org/formats/oboInOwl#",
     "swrl": "http://www.w3.org/2003/11/swrl#",
     "widoco": "https://w3id.org/widoco/vocab#",
@@ -3542,7 +3529,8 @@
     "obo": "http://purl.obolibrary.org/obo/",
     "chemowl": "http://www.semanticweb.org/ontologies/cheminf.owl#",
     "cheminf": "http://semanticscience.org/resource/",
-    "omics": "http://pink-project.eu/omics/"
+    "omics": "http://pink-project.eu/omics/",
+    "ssbd": "https://w3id.org/ssbd/"
   },
   "@graph": [
     {
@@ -4393,7 +4381,7 @@
         "structural",
         "vivo"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://drive.google.com/file/d/1UfVlkwcNl9NiI3T1g9D463njkqScE5Gr/view",
       "distribution": {
         "@type": [
@@ -4422,7 +4410,7 @@
       ],
       "title": "Tox21 HEK293T Gonadotropin-releasing Hormone (GnRH) Receptor Agonism Assay",
       "description": "TOX21_GNRHR_HEK293 is a cell-based, single-readout assay that uses GnRHR-expressing stably transfected HEK293, a human kidney cell line, with measurements taken at 1.25 hours after chemical dosing in a 1536-well plate. TOX21_GNRHR_HEK293_Agonist is one of 2 assay components measured in the TOX21_GNRHR_HEK293 assay. It is designed to make measurements of intracellular calcium, a form of biochemical reporter, as detected with Fluorescence intensity signals by FDSS 7000EX kinetic plate reader technology. Data from the assay component TOX21_GNRHR_HEK293_Agonist was analyzed into 2 assay endpoints. This assay endpoint, TOX21_GNRHR_HEK293_Agonist was analyzed in the positive analysis fitting direction relative to DMSO as the negative control and baseline of activity. Using a type of inducible reporter, gain-of-signal activity can be used to understand changes in binding. To generalize the intended target to other relatable targets, this assay endpoint is annotated to the gpcr, where the subfamily is gonadotropin-releasing hormone receptor.",
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://clowder.edap-cluster.com/files/68a37cece4b02565fc7b59e4?dataset=6894f2dae4b025654d12b716&space=687e388ce4b02565bc3e28e4",
       "distribution": {
         "@type": [
@@ -4460,13 +4448,12 @@
         "chemicals",
         "fragments",
         "genetoxic",
-        "genotoxic",
-        "non",
+        "non-genotoxic",
         "profiler",
         "structural"
       ],
       "outputsIndicator": "ssbd:StructuralAlertCarcinogenicity",
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://drive.google.com/file/d/1A-PrNYn-XXgJyLs_c9xaiTGxbC5qHoBP/view?usp=share_link",
       "distribution": {
         "@type": [
@@ -4502,7 +4489,7 @@
         "qsar"
       ],
       "outputsIndicator": "ssbd:StructuralAlertCarcinogenicity",
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://docs.google.com/document/d/1kbkV108TFkqF3DwtcQX4JEuVY2oPBLu2jeCH8A5luxY/edit?tab=t.0",
       "distribution": {
         "@type": [
@@ -4627,7 +4614,7 @@
         "dynamics",
         "polymer"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
@@ -4659,7 +4646,7 @@
         "SMILES",
         "polymer"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
@@ -4695,7 +4682,7 @@
         "polymer",
         "topology"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
@@ -4735,7 +4722,7 @@
         "molecular",
         "polymer"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
@@ -4772,7 +4759,7 @@
         "properties",
         "young's"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
@@ -4810,7 +4797,7 @@
         "ratio",
         "young's"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
@@ -5046,7 +5033,7 @@
         "LCIA",
         "impact"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://pink.sustain.list.lu/",
       "distribution": {
         "@type": [
@@ -5078,7 +5065,7 @@
         "LCI",
         "upscaling"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel3",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel3",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC",
@@ -5094,7 +5081,7 @@
         "LCI",
         "upscaling"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC",
@@ -5110,7 +5097,7 @@
         "LCI",
         "upscaling"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "hasAPI": true,
       "hasGUI": true,
       "accessRights": "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC",
@@ -5168,7 +5155,7 @@
         "omics:TranscriptGeneExpressionEffectSize",
         "omics:TranscriptGeneExpressionStatisticalSignificance"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://bioconductor.org/packages/release/bioc/html/DESeq2.html",
       "distribution": {
         "@type": [
@@ -5245,7 +5232,7 @@
         "transcriptomics"
       ],
       "outputsIndicator": "omics:GeneEnrichmentStatisticalSignificance",
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://biit.cs.ut.ee/gprofiler/page/r",
       "distribution": {
         "@type": [
@@ -5383,7 +5370,7 @@
         "toxicity"
       ],
       "outputsIndicator": "omics:GeneEnrichmentStatisticalSignificance",
-      "tierLevel": "https://w3id.org/ssbd/tierlevel2",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel2",
       "documentation": "https://doi.org/10.1038/ncomms15932",
       "hasAPI": true,
       "hasGUI": true,
@@ -5534,7 +5521,7 @@
         "screening",
         "toxicity"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel2",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel2",
       "documentation": "https://doi.org/10.1186/s13321-025-01001-8",
       "distribution": {
         "@type": [
@@ -5647,7 +5634,7 @@
         "quality",
         "vitro"
       ],
-      "tierLevel": "https://w3id.org/ssbd/tierlevel1",
+      "inTierLevel": "https://w3id.org/ssbd/tierlevel1",
       "documentation": "https://doi.org/10.3389/ftox.2023.1319985",
       "distribution": {
         "@type": [
@@ -5735,7 +5722,7 @@
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/ssbd/Computation",
         "https://w3id.org/ssbd/EndocrineToxicityAssessment",
-        "https://w3id.org/ssbd/HazardAssessmentHumanHealth",
+        "https://w3id.org/ssbd/ExposureAssessmentHumanHealth",
         "https://w3id.org/ssbd/SafetyAssessment",
         {
           "@type": "owl:Restriction",
@@ -5757,8 +5744,8 @@
         "http://www.w3.org/ns/prov#Activity",
         "https://w3id.org/ssbd/CarcinogenicityAssessment",
         "https://w3id.org/ssbd/Computation",
+        "https://w3id.org/ssbd/ExposureAssessmentHumanHealth",
         "https://w3id.org/ssbd/HazardAssessmentEnvironment",
-        "https://w3id.org/ssbd/HazardAssessmentHumanHealth",
         "https://w3id.org/ssbd/HumanHealthRiskAssessment",
         "https://w3id.org/ssbd/NonGenotoxicCarcinogenicityAssessment",
         "https://w3id.org/ssbd/SafetyAssessment",

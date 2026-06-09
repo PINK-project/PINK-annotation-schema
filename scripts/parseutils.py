@@ -32,6 +32,7 @@ PREFIXES: dict[str, str] = {
     "chemowl": "http://www.semanticweb.org/ontologies/cheminf.owl#",
     "cheminf": "http://semanticscience.org/resource/",
     "omics": "http://pink-project.eu/omics/",
+    "ssbd": "https://w3id.org/ssbd/",
 }
 
 
@@ -287,8 +288,8 @@ def correct_pink_dataframes(df, ontology):
         )
 
     # correct tier level
-    if "tierLevel" in df.columns:
-        df["tierLevel"] = df["tierLevel"].apply(remove_extra_text)
+    if "inTierLevel" in df.columns:
+        df["inTierLevel"] = df["inTierLevel"].apply(remove_extra_text)
 
     # Add prefixes to values
     if "accessRights" in df.columns:
@@ -296,9 +297,14 @@ def correct_pink_dataframes(df, ontology):
             add_prefix, prefix="rights"
         )
 
-    for col in ["tierLevel", "@id"]:
+    for col in ["inTierLevel"]:
+        if col in df.columns:
+            df[col] = df[col].apply(add_prefix, prefix="ssbd")
+
+    for col in ["@id"]:
         if col in df.columns:
             df[col] = df[col].apply(add_prefix, prefix="pink")
+
 
     # Change possible lists to lists
     for col in set(list_columns).intersection(df.columns):

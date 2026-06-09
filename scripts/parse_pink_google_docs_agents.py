@@ -92,7 +92,7 @@ if conforms:
     print("Validation passed")
     print("unfortunately direct pushing is no longer possible")
     print("making a jsonld from my graph")
-    ts.serialize("pink-agents.ttl", format="turtle")
+    ts.serialize("graphs/pink-agents.ttl", format="turtle")
     
     graph = dict()
 
