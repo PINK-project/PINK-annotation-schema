@@ -1,0 +1,64 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://orcid.org/0000-0001-8869-3718> a prov:Agent ;
+    foaf:name "Francesca Lønstad Bleken"^^xsd:string .
+
+<https://orcid.org/0000-0002-0628-8434> a prov:Agent ;
+    foaf:name "Philip Doganis"^^xsd:string .
+
+<https://orcid.org/0000-0002-0719-4907> a prov:Agent ;
+    foaf:name "Alexe Haywood"^^xsd:string .
+
+<https://orcid.org/0000-0002-1560-809X> a prov:Agent ;
+    foaf:name "Jesper Friis"^^xsd:string .
+
+<https://orcid.org/0000-0002-1849-5246> a prov:Agent ;
+    foaf:name "Thomas Exner"^^xsd:string .
+
+<https://orcid.org/0000-0002-2705-2068> a prov:Agent ;
+    foaf:name "Dominic Russ"^^xsd:string .
+
+<https://orcid.org/0000-0002-3369-4438> a prov:Agent ;
+    foaf:name "Francesco Mercuri"^^xsd:string .
+
+<https://orcid.org/0000-0002-3372-4801> a prov:Agent ;
+    foaf:name "Hui Yang"^^xsd:string .
+
+<https://orcid.org/0000-0002-3435-7775> a prov:Agent ;
+    foaf:name "Penny Nymark"^^xsd:string .
+
+<https://orcid.org/0000-0002-4860-153X> a prov:Agent ;
+    foaf:name "Andrea Lorenzoni"^^xsd:string .
+
+<https://orcid.org/0000-0002-6396-0848> a prov:Agent ;
+    foaf:name "Indrani Mahapatra"^^xsd:string .
+
+<https://ror.org/01t178j62> a prov:Agent ;
+    foaf:name "LIST"^^xsd:string .
+
+<https://ror.org/02hssy432> a prov:Agent ;
+    foaf:name "​ISS, Istituto Superiore di Sanità"^^xsd:string .
+
+<https://ror.org/02x681a42> a prov:Agent ;
+    foaf:name "EMPA"^^xsd:string .
+
+<https://ror.org/03cx6bg69> a prov:Agent ;
+    foaf:name "NTUA"^^xsd:string .
+
+<https://ror.org/03tns0030> a prov:Agent ;
+    foaf:name "United States Environmental Protection Agency (EPA), USA"^^xsd:string .
+
+<https://ror.org/03wwn0z54> a prov:Agent ;
+    foaf:name "NovaMechanics"^^xsd:string .
+
+<https://ror.org/0422tvz87> a prov:Agent ;
+    foaf:name "SINTEF"^^xsd:string .
+
+<https://ror.org/04zaypm56> a prov:Agent ;
+    foaf:name "CNR"^^xsd:string .
+
+<https://ror.org/056d84691> a prov:Agent ;
+    foaf:name "KI"^^xsd:string .
+

@@ -99,7 +99,7 @@ if conforms:
     print("Validation passed")
     print("unfortunately direct pushing is no longer possible")
     print("making a jsonld from my graph")
-    ts.serialize("googlespreadsheet_resources.ttl", format="turtle")
+    ts.serialize("graphs/googlespreadsheet_resources.ttl", format="turtle")
     
 
     # Store the jsonlds for joh
