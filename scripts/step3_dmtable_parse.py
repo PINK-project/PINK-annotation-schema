@@ -17,8 +17,6 @@ print('creating datamodels')
 dmtable.get_datamodels()
 print('finished creating datamodels')
 
-print('to rdf')
-
 dmtable.to_triplestore(ts)
 
 print('finished putting into ts')
