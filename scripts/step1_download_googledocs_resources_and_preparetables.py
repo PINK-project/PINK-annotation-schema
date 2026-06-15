@@ -42,7 +42,8 @@ SW_URL = (
     "1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&"
     "gid=1707023773"
 )
-sw = pd.read_csv(SW_URL)
+
+sw = pd.read_csv(SW_URL).loc[:, lambda df: ~df.columns.str.startswith("Unnamed:")]
 
 # Dataset documentation
 DATASETTYPE_URL = (
@@ -50,7 +51,8 @@ DATASETTYPE_URL = (
     "1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&"
     "gid=1581267372"
 )
-datasettypes = pd.read_csv(DATASETTYPE_URL)
+
+datasettypes = pd.read_csv(DATASETTYPE_URL).loc[:, lambda df: ~df.columns.str.startswith("Unnamed:")]
 
 # Make a datamodel dataframe from the dataset documentation, by selecting the columns that start with "Datum"
 # @id will be set to the value in column "datamodel"

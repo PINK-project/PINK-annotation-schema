@@ -2855,11 +2855,10 @@ datasettype:Ecotoxicity_Daphnia a owl:Class ;
             owl:hasValue <https://ror.org/03angcq70> ;
             owl:onProperty ddoc:curator ],
         ssbd:Dataset ;
-    dcat:keyword "Daphnia"@en,
+    dcat:keyword "Daphnia magna"@en,
         "acute"@en,
         "chronic"@en,
         "ecotoxicity"@en,
-        "magna"@en,
         "nanomaterials"@en .
 
 datasettype:Ecotoxicity_ZebrafishEmbryoCells a owl:Class ;
@@ -2871,14 +2870,10 @@ datasettype:Ecotoxicity_ZebrafishEmbryoCells a owl:Class ;
             owl:onProperty ddoc:curator ],
         ssbd:Dataset ;
     dcat:keyword "PFAS"@en,
-        "Zebrafish"@en,
-        "action"@en,
-        "cells"@en,
+        "PFAS mixtures"@en,
+        "Zebrafish embryo cells"@en,
         "ecotoxicity"@en,
-        "embryo"@en,
-        "mixtures"@en,
-        "mode"@en,
-        "of"@en .
+        "mode of action"@en .
 
 datasettype:OccurrenceData a owl:Class ;
     rdfs:label "Quantification of PFAS in surface and groundwater sites in UK"@en ;
@@ -2888,12 +2883,9 @@ datasettype:OccurrenceData a owl:Class ;
             owl:hasValue <https://ror.org/03angcq70> ;
             owl:onProperty ddoc:curator ],
         ssbd:Dataset ;
-    dcat:keyword "GIS-tagged"@en,
+    dcat:keyword "GIS-tagged data"@en,
         "PFAS"@en,
-        "data"@en,
-        "organic"@en,
-        "persistant"@en,
-        "pollutnats"@en .
+        "persistant organic pollutnats"@en .
 
 datasettype:chemicalExposureQuantifiedSeries a owl:Class ;
     rdfs:label "Quantity of a chemical applied in a toxicology experiment"@en ;
@@ -49539,14 +49531,14 @@ emmo1:Replica a owl:Class ;
     dcterms:title """MultiCASE CASE Ultra commercial model RC2_AF4 for Rodent carcinogenicity in female mouse in vivo,
 Danish QSAR Group at DTU Food"""@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ssbd:hasInput ;
-            owl:someValuesFrom datasettype:SMILES ],
+            owl:hasValue pink:e2078536-1427-4d94-88dc-766215ea9abb ;
+            owl:onProperty ssbd:hasSoftware ],
         [ a owl:Restriction ;
             owl:hasValue qsar:CarcinogenicityPotential ;
             owl:onProperty ssbd:hasOutput ],
         [ a owl:Restriction ;
-            owl:hasValue pink:e2078536-1427-4d94-88dc-766215ea9abb ;
-            owl:onProperty ssbd:hasSoftware ],
+            owl:onProperty ssbd:hasInput ;
+            owl:someValuesFrom datasettype:SMILES ],
         prov:Activity,
         ssbd:CarcinogenicityAssessment,
         ssbd:Computation,
@@ -49556,11 +49548,11 @@ Danish QSAR Group at DTU Food"""@en ;
 <https://w3id.org/pink/activity/activity1> a owl:Class ;
     dcterms:title "Tox21 HEK293T Gonadotropin-releasing Hormone (GnRH) Receptor Agonism Assay"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:hasValue pink:TOX21_GNRHR_HEK293_Agonist ;
-            owl:onProperty ssbd:hasSoftware ],
-        [ a owl:Restriction ;
             owl:hasValue <tox21:10kCompoundLibrary> ;
             owl:onProperty ssbd:hasInput ],
+        [ a owl:Restriction ;
+            owl:hasValue pink:TOX21_GNRHR_HEK293_Agonist ;
+            owl:onProperty ssbd:hasSoftware ],
         prov:Activity,
         ssbd:Computation,
         ssbd:EndocrineToxicityAssessment,
@@ -49570,14 +49562,14 @@ Danish QSAR Group at DTU Food"""@en ;
 <https://w3id.org/pink/activity/activity10> a owl:Class ;
     dcterms:title "CNR force field builder module - molecular scale"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ssbd:hasInput ;
+            owl:someValuesFrom datasettype:ChemicalStructureDataset ],
+        [ a owl:Restriction ;
             owl:hasValue mw:ff_builder_molecular ;
             owl:onProperty ssbd:hasSoftware ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:hasOutput ;
             owl:someValuesFrom datasettype:InteractionPotentialParameters ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:hasInput ;
-            owl:someValuesFrom datasettype:ChemicalStructureDataset ],
         prov:Activity,
         ssbd:Computation,
         ssbd:FunctionalityAssessment .
@@ -49588,14 +49580,14 @@ Danish QSAR Group at DTU Food"""@en ;
             owl:hasValue mw:polymer_bulk_builder_molecular ;
             owl:onProperty ssbd:hasSoftware ],
         [ a owl:Restriction ;
+            owl:onProperty ssbd:hasOutput ;
+            owl:someValuesFrom datasettype:ChemicalStructureDataset ],
+        [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom datasettype:ChemicalStructureDataset ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom datasettype:InteractionPotentialParameters ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:hasOutput ;
-            owl:someValuesFrom datasettype:ChemicalStructureDataset ],
         prov:Activity,
         ssbd:Computation,
         ssbd:FunctionalityAssessment .
@@ -49628,13 +49620,13 @@ Danish QSAR Group at DTU Food"""@en ;
             owl:someValuesFrom datasettype:MechanicalPropertiesDataset ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
-            owl:someValuesFrom datasettype:ChemicalStructureDataset ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom datasettype:InteractionPotentialParameters ],
         [ a owl:Restriction ;
             owl:hasValue mw:mechanical_properties_evaluator_molecular ;
             owl:onProperty ssbd:hasSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:hasInput ;
+            owl:someValuesFrom datasettype:ChemicalStructureDataset ],
         prov:Activity,
         ssbd:BulkModulusAssessment,
         ssbd:Computation,
@@ -49712,14 +49704,14 @@ Danish QSAR Group at DTU Food"""@en ;
 <https://w3id.org/pink/activity/activity2> a owl:Class ;
     dcterms:title "Carcinogenicity (genotox and nongenotox) alerts by ISS"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ssbd:hasInput ;
+            owl:someValuesFrom datasettype:SMILES ],
+        [ a owl:Restriction ;
             owl:onProperty ssbd:hasOutput ;
             owl:someValuesFrom qsar:ProfilerOutputCarcinogenicityAlertsByIss ],
         [ a owl:Restriction ;
             owl:hasValue pink:2256b12d-5ef8-49a2-af9a-b453b3f23d96 ;
             owl:onProperty ssbd:hasSoftware ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:hasInput ;
-            owl:someValuesFrom datasettype:SMILES ],
         prov:Activity,
         ssbd:CarcinogenicityAssessment,
         ssbd:Computation,
@@ -49742,47 +49734,47 @@ Danish QSAR Group at DTU Food"""@en ;
 <https://w3id.org/pink/activity/activity21> a owl:Class ;
     dcterms:title "Life Cycle Inventory calculation tool (energy/material flows)"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ssbd:hasOutput ;
+            owl:someValuesFrom empa:EnergyCalculatorCoolingOutput ],
+        [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom empa:EnergyCalculatorDryingInput ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
-            owl:someValuesFrom empa:EnergyCalculatorStirringInput ],
+            owl:someValuesFrom empa:EnergyCalculatorHeatingInput ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:hasInput ;
+            owl:someValuesFrom empa:EnergyCalculatorEnergyRecoveryTechnologyInput ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:hasOutput ;
+            owl:someValuesFrom empa:EnergyCalculatorStirringOutput ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:hasOutput ;
             owl:someValuesFrom empa:EnergyCalculatorEnergyRecoveryTechnologyOutput ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:hasOutput ;
-            owl:someValuesFrom empa:EnergyCalculatorDryingOutput ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:hasOutput ;
-            owl:someValuesFrom empa:EnergyCalculatorCoolingOutput ],
         [ a owl:Restriction ;
             owl:hasValue pink:upscaling_LCI_calculator ;
             owl:onProperty ssbd:hasSoftware ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:hasOutput ;
-            owl:someValuesFrom empa:FuelConsumptionOutput ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:hasOutput ;
             owl:someValuesFrom empa:EnergyCalculatorHeatingOutput ],
         [ a owl:Restriction ;
+            owl:onProperty ssbd:hasInput ;
+            owl:someValuesFrom empa:EnergyCalculatorStirringInput ],
+        [ a owl:Restriction ;
             owl:onProperty ssbd:hasOutput ;
-            owl:someValuesFrom empa:EnergyCalculatorStirringOutput ],
+            owl:someValuesFrom empa:FuelConsumptionOutput ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom empa:EnergyCalculatorCoolingInput ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:hasOutput ;
-            owl:someValuesFrom empa:EnergyCalculatorCrystallisationOutput ],
+            owl:someValuesFrom empa:EnergyCalculatorDryingOutput ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom empa:EnergyCalculatorCrystalisationInput ],
         [ a owl:Restriction ;
-            owl:onProperty ssbd:hasInput ;
-            owl:someValuesFrom empa:EnergyCalculatorEnergyRecoveryTechnologyInput ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:hasInput ;
-            owl:someValuesFrom empa:EnergyCalculatorHeatingInput ],
+            owl:onProperty ssbd:hasOutput ;
+            owl:someValuesFrom empa:EnergyCalculatorCrystallisationOutput ],
         prov:Activity,
         ssbd:Computation,
         ssbd:EnvironmentalSustainabilityAssessment,
@@ -49797,11 +49789,11 @@ Danish QSAR Group at DTU Food"""@en ;
             owl:onProperty ssbd:hasOutput ;
             owl:someValuesFrom empa:FuelConsumptionOutput ],
         [ a owl:Restriction ;
-            owl:hasValue pink:upscaling_LCI_calculator_Heating ;
-            owl:onProperty ssbd:hasSoftware ],
-        [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom empa:EnergyCalculatorHeatingInput ],
+        [ a owl:Restriction ;
+            owl:hasValue pink:upscaling_LCI_calculator_Heating ;
+            owl:onProperty ssbd:hasSoftware ],
         prov:Activity,
         ssbd:Computation,
         ssbd:EnvironmentalSustainabilityAssessment,
@@ -49810,11 +49802,11 @@ Danish QSAR Group at DTU Food"""@en ;
 <https://w3id.org/pink/activity/activity23> a owl:Class ;
     dcterms:title "missing"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ssbd:hasOutput ;
-            owl:someValuesFrom empa:EnergyCalculatorCoolingOutput ],
-        [ a owl:Restriction ;
             owl:hasValue pink:upscaling_LCI_calculator_Cooling ;
             owl:onProperty ssbd:hasSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:hasOutput ;
+            owl:someValuesFrom empa:EnergyCalculatorCoolingOutput ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom empa:EnergyCalculatorCoolingInput ],
@@ -49829,14 +49821,14 @@ Danish QSAR Group at DTU Food"""@en ;
 <https://w3id.org/pink/activity/activity24> a owl:Class ;
     dcterms:title "Gene Expression assessment for an arbtitrary exposure"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ssbd:hasOutput ;
+            owl:someValuesFrom omics:TranscriptDifferentialExpression ],
+        [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom omics:TranscriptGeneQuantity ],
         [ a owl:Restriction ;
             owl:hasValue pink:transcriptomic_example_step1 ;
             owl:onProperty ssbd:hasSoftware ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:hasOutput ;
-            owl:someValuesFrom omics:TranscriptDifferentialExpression ],
         prov:Activity,
         ssbd:Computation,
         ssbd:DevelopmentalNeurotoxicityAssessment,
@@ -49846,14 +49838,14 @@ Danish QSAR Group at DTU Food"""@en ;
 <https://w3id.org/pink/activity/activity25> a owl:Class ;
     dcterms:title "Gene set enrichment to understand affected pathways from transcriptomic_example1"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ssbd:hasInput ;
-            owl:someValuesFrom omics:TranscriptGeneList ],
+            owl:hasValue pink:transcriptomic_example_step2 ;
+            owl:onProperty ssbd:hasSoftware ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:hasOutput ;
             owl:someValuesFrom omics:GeneEnrichmentAnalysis ],
         [ a owl:Restriction ;
-            owl:hasValue pink:transcriptomic_example_step2 ;
-            owl:onProperty ssbd:hasSoftware ],
+            owl:onProperty ssbd:hasInput ;
+            owl:someValuesFrom omics:TranscriptGeneList ],
         prov:Activity,
         ssbd:Computation,
         ssbd:DevelopmentalNeurotoxicityAssessment,
@@ -49873,39 +49865,39 @@ Danish QSAR Group at DTU Food"""@en ;
 <https://w3id.org/pink/activity/activity27> a owl:Class ;
     dcterms:title "Predictive Toxicogenomics Space benchmark dose modelling"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty ssbd:hasOutput ;
-            owl:someValuesFrom omics:GeneEnrichmentAnalysis ],
-        [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom omics:TranscriptGeneQuantity ],
         [ a owl:Restriction ;
             owl:hasValue pink:PTGS-BMD ;
             owl:onProperty ssbd:hasSoftware ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:hasOutput ;
+            owl:someValuesFrom omics:GeneEnrichmentAnalysis ],
         prov:Activity,
         ssbd:Computation .
 
 <https://w3id.org/pink/activity/activity28> a owl:Class ;
     dcterms:title "Predictive Toxicogenomics Space toxicity prediction"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty ssbd:hasInput ;
+            owl:someValuesFrom omics:TranscriptGeneQuantity ],
+        [ a owl:Restriction ;
             owl:onProperty ssbd:hasOutput ;
             owl:someValuesFrom omics:GeneEnrichmentAnalysis ],
         [ a owl:Restriction ;
             owl:hasValue pink:PTGS-TOX ;
             owl:onProperty ssbd:hasSoftware ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:hasInput ;
-            owl:someValuesFrom omics:TranscriptGeneQuantity ],
         prov:Activity,
         ssbd:Computation .
 
 <https://w3id.org/pink/activity/activity29> a owl:Class ;
     dcterms:title "Predictive Toxicogenomics Space AOP-anchored prediction of human toxicity"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:hasValue pink:PTGS-AOP ;
-            owl:onProperty ssbd:hasSoftware ],
-        [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom omics:TranscriptGeneQuantity ],
+        [ a owl:Restriction ;
+            owl:hasValue pink:PTGS-AOP ;
+            owl:onProperty ssbd:hasSoftware ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:hasOutput ;
             owl:someValuesFrom omics:GeneEnrichmentAnalysis ],
@@ -49934,11 +49926,11 @@ Danish QSAR Group at DTU Food"""@en ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom omics:TranscriptGeneQuantity ],
         [ a owl:Restriction ;
-            owl:hasValue pink:PTGS-Grouping ;
-            owl:onProperty ssbd:hasSoftware ],
-        [ a owl:Restriction ;
             owl:onProperty ssbd:hasOutput ;
             owl:someValuesFrom omics:GeneEnrichmentAnalysis ],
+        [ a owl:Restriction ;
+            owl:hasValue pink:PTGS-Grouping ;
+            owl:onProperty ssbd:hasSoftware ],
         prov:Activity,
         ssbd:Computation .
 
@@ -50025,11 +50017,11 @@ Danish QSAR Group at DTU Food"""@en ;
 <https://w3id.org/pink/activity/activity5> a owl:Class ;
     dcterms:title "Atmos. Hydroxylation Rate"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:hasValue pink:20592778 ;
-            owl:onProperty ssbd:hasSoftware ],
-        [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom datasettype:SMILES ],
+        [ a owl:Restriction ;
+            owl:hasValue pink:20592778 ;
+            owl:onProperty ssbd:hasSoftware ],
         prov:Activity,
         ssbd:Computation,
         ssbd:ExposureAssessmentEnvironment,
@@ -50050,11 +50042,11 @@ Danish QSAR Group at DTU Food"""@en ;
 <https://w3id.org/pink/activity/activity7> a owl:Class ;
     dcterms:title "Skin Reaction TDCommons"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:hasValue pink:Jaqpot_2082 ;
-            owl:onProperty ssbd:hasSoftware ],
-        [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom datasettype:SMILES ],
+        [ a owl:Restriction ;
+            owl:hasValue pink:Jaqpot_2082 ;
+            owl:onProperty ssbd:hasSoftware ],
         prov:Activity,
         ssbd:Computation,
         ssbd:SafetyAssessment .
@@ -50081,14 +50073,14 @@ Danish QSAR Group at DTU Food"""@en ;
 <https://w3id.org/pink/activity/activity9> a owl:Class ;
     dcterms:title "CNR polymer builder module - molecular scale"@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:hasValue mw:polymer_builder_molecular ;
-            owl:onProperty ssbd:hasSoftware ],
-        [ a owl:Restriction ;
             owl:onProperty ssbd:hasInput ;
             owl:someValuesFrom datasettype:ChemicalStructureDataset ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:hasOutput ;
             owl:someValuesFrom datasettype:ChemicalStructureDataset ],
+        [ a owl:Restriction ;
+            owl:hasValue mw:polymer_builder_molecular ;
+            owl:onProperty ssbd:hasSoftware ],
         prov:Activity,
         ssbd:Computation,
         ssbd:FunctionalityAssessment .
@@ -52527,10 +52519,9 @@ mw:bulk_polymer_mechanical_molecular a [ a owl:Restriction ;
     dcterms:description "(Integrated workflow) - An integrated workflow based on atomistic molecular dynamics simulations that uses the SMILES representation of a monomer as input to automatically generate a polymer chain, construct a periodic bulk model, and perform fully atomistic simulations of mechanical properties. From the stress-strain response obtained under controlled deformation, the tool computes the key mechanical properties of the polymer, including Young’s modulus, bulk modulus, and Poisson’s ratio."@en ;
     dcterms:license <https://opensource.org/license/mit> ;
     dcterms:title "CNR SMILES to mechanical properties workflow - molecular scale"@en ;
-    dcat:keyword "Molecular"@en,
+    dcat:keyword "Molecular dynamics"@en,
         "SMILES"@en,
         "bulk"@en,
-        "dynamics"@en,
         "polymer"@en ;
     ddoc:curator <https://orcid.org/0000-0002-3369-4438>,
         <https://orcid.org/0000-0002-4860-153X> ;
@@ -52539,21 +52530,19 @@ mw:bulk_polymer_mechanical_molecular a [ a owl:Restriction ;
     ssbd:inTierLevel ssbd:tierlevel1 .
 
 mw:ff_builder_molecular a [ a owl:Restriction ;
-            owl:onProperty ssbd:implementsModel ;
-            owl:someValuesFrom emmo1:AtomicInteractionModel ],
-        [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom emmo1:PolymericMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:implementsModel ;
+            owl:someValuesFrom emmo1:AtomicInteractionModel ],
         ssbd:Software ;
     dcterms:accessRights rights:PUBLIC ;
     dcterms:creator <https://ror.org/04zaypm56> ;
     dcterms:description "(Computational module) - This module takes the polymer structure as an input and generates a molecular mechanics force field, with OPLS used as the default option and GAFF available as an alternative. The tool generates the complete molecular topology, including atom types, bonded and non-bonded parameters, partial charges, and connectivity, providing a fully parameterized polymer structure ready for subsequent MD calculations."@en ;
     dcterms:license <https://opensource.org/license/mit> ;
     dcterms:title "CNR force field builder module - molecular scale"@en ;
-    dcat:keyword "Molecular"@en,
-        "dynamics"@en,
-        "field"@en,
-        "force"@en,
+    dcat:keyword "Molecular dynamics"@en,
+        "force field"@en,
         "polymer"@en,
         "topology"@en ;
     ddoc:curator <https://orcid.org/0000-0002-3369-4438>,
@@ -52563,25 +52552,22 @@ mw:ff_builder_molecular a [ a owl:Restriction ;
     ssbd:inTierLevel ssbd:tierlevel1 .
 
 mw:mechanical_properties_evaluator_molecular a [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:PolymericMaterial ],
-        [ a owl:Restriction ;
             owl:onProperty ssbd:implementsModel ;
             owl:someValuesFrom emmo1:AtomisticMolecularDynamics ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:PolymericMaterial ],
         ssbd:Software ;
     dcterms:accessRights rights:PUBLIC ;
     dcterms:creator <https://ror.org/04zaypm56> ;
     dcterms:description "(Computational module) - This module takes the equilibrated bulk polymer model as input and prepares it for mechanical testing by replicating the simulation cell and applying a series of molecular dynamics simulations. Controlled deformations are introduced under NPT conditions to obtain stress-strain responses for different loading modes. From these trajectories, the module computes key mechanical indicators of the polymer, including Young’s modulus, bulk modulus, and Poisson’s ratio, providing a quantitative assessment of the material’s macroscopic mechanical behavior directly from atomistic simulation."@en ;
     dcterms:license <https://opensource.org/license/mit> ;
     dcterms:title "CNR mechanical properties calculator module - molecular scale"@en ;
-    dcat:keyword "bulk"@en,
-        "dynamics"@en,
-        "modulus"@en,
-        "molecular"@en,
-        "poisson"@en,
+    dcat:keyword "bulk modulus"@en,
+        "molecular dynamics"@en,
+        "poisson ratio"@en,
         "polymer"@en,
-        "ratio"@en,
-        "young's"@en ;
+        "young's modulus"@en ;
     ddoc:curator <https://orcid.org/0000-0002-3369-4438>,
         <https://orcid.org/0000-0002-4860-153X> ;
     ssbd:hasAPI true ;
@@ -52589,11 +52575,11 @@ mw:mechanical_properties_evaluator_molecular a [ a owl:Restriction ;
     ssbd:inTierLevel ssbd:tierlevel1 .
 
 mw:polymer_builder_molecular a [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:PolymericMaterial ],
-        [ a owl:Restriction ;
             owl:onProperty ssbd:implementsModel ;
             owl:someValuesFrom emmo1:StructureManipulationModel ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:PolymericMaterial ],
         ssbd:Software ;
     dcterms:accessRights rights:PUBLIC ;
     dcterms:creator <https://ror.org/04zaypm56> ;
@@ -52613,10 +52599,10 @@ mw:polymer_bulk_builder_molecular a [ a owl:Restriction ;
             owl:someValuesFrom emmo1:AtomisticMolecularDynamics ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:OrganicCompound ],
+            owl:someValuesFrom emmo1:PolymericMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:PolymericMaterial ],
+            owl:someValuesFrom emmo1:OrganicCompound ],
         ssbd:Software ;
     dcterms:accessRights rights:PUBLIC ;
     dcterms:creator <https://ror.org/04zaypm56> ;
@@ -52625,8 +52611,7 @@ mw:polymer_bulk_builder_molecular a [ a owl:Restriction ;
     dcterms:title "CNR bulk builder module - molecular scale"@en ;
     dcat:keyword "bulk"@en,
         "density"@en,
-        "dynamics"@en,
-        "molecular"@en,
+        "molecular dynamics"@en,
         "polymer"@en ;
     ddoc:curator <https://orcid.org/0000-0002-3369-4438>,
         <https://orcid.org/0000-0002-4860-153X> ;
@@ -52646,13 +52631,10 @@ mw:youngs_modulus_evaluator_molecular a [ a owl:Restriction ;
     dcterms:description "(Computational module) -This module computes the Young’s modulus of a bulk polymer system using molecular simulations. It takes as input an equilibrated polymer configuration along with the corresponding interaction parameters. The simulation cell is replicated to minimize finite-size effects and subjected to controlled uniaxial deformation within an NPT ensemble. During deformation, the stress-strain response of the system is recorded. The Young’s modulus is then determined by fitting the linear elastic region of the stress-strain curve, providing a quantitative measure of the polymer’s mechanical stiffness."@en ;
     dcterms:license <https://opensource.org/license/mit> ;
     dcterms:title "CNR Young's modulus calculator module - molecular scale"@en ;
-    dcat:keyword "dynamics"@en,
-        "mechanical"@en,
-        "modulus"@en,
-        "molecular"@en,
+    dcat:keyword "mechanical properties"@en,
+        "molecular dynamics"@en,
         "polymer"@en,
-        "properties"@en,
-        "young's"@en ;
+        "young's modulus"@en ;
     ddoc:curator <https://orcid.org/0000-0002-3369-4438>,
         <https://orcid.org/0000-0002-4860-153X> ;
     ssbd:hasAPI true ;
@@ -52793,13 +52775,10 @@ and nongenotoxic carcinogenicity. Applicable to Carcinogenicity (e.g. Carcinogen
                 dcat:Resource ;
             dcat:accessURL "https://app.jaqpot.org/dashboard/models/1842/predict"^^xsd:anyURI ] ;
     dcat:keyword "QSAR"@en,
-        "carcinogenicity"@en,
-        "chemicals"@en,
-        "fragments"@en,
-        "genetoxic"@en,
+        "chemicals profiler"@en,
+        "genetoxic carcinogenicity"@en,
         "non-genotoxic"@en,
-        "profiler"@en,
-        "structural"@en ;
+        "structural fragments"@en ;
     dcat:version """Version: 2.3
 December 2016""" ;
     ddoc:curator <https://orcid.org/0000-0002-0628-8434> ;
@@ -52825,12 +52804,10 @@ pink:AOP_451 a [ a owl:Restriction ;
     dcat:keyword "AOP"@en,
         "carcinogenicity"@en,
         "genotoxicity"@en,
-        "integrated"@en,
+        "integrated testing strategy"@en,
         "lung"@en,
         "mutagenicity"@en,
-        "nanoparticles"@en,
-        "strategy"@en,
-        "testing"@en ;
+        "nanoparticles"@en ;
     ddoc:curator <https://orcid.org/0000-0002-3435-7775> ;
     ssbd:documentation <https://doi.org/10.3389/ftox.2021.653386> ;
     ssbd:hasAPI true ;
@@ -52866,11 +52843,9 @@ pink:EnalosCloud_NanoBioConstruct a [ a owl:Restriction ;
     dcterms:description "This web GUI tool prioritirize human proteins based on their adsorption onto a wide range of NPs surface using the UnitedAtom approach and Debye Theory and then applies a mapping from the coarse-grained approximation of the produced NP-protein configurations to atomistic ones in order to calculate with accuracy the NP's protein corona and calculate its adsorption energy"@en ;
     dcterms:title "NanoBioConstruct"@en ;
     dcat:keyword "Aggregation"@en,
-        "Atomistic"@en,
-        "Calculations"@en,
+        "Atomistic Calculations"@en,
         "DLVO"@en,
-        "Inverse"@en,
-        "Mapping"@en,
+        "Inverse Mapping"@en,
         "NPs"@en ;
     ssbd:hasGUI true .
 
@@ -52974,16 +52949,7 @@ pink:Multi-objective_Process_Optimizer a ssbd:Software ;
 
 pink:PTGS a [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:StructuralMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:MetallicMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:MicroMolecule ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:NanoParticle ],
+            owl:someValuesFrom emmo1:PolymericMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom emmo1:OrganicCompound ],
@@ -52992,49 +52958,58 @@ pink:PTGS a [ a owl:Restriction ;
             owl:someValuesFrom ssbd:AdvancedMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:EnergyMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:ElectronicMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:PolymericMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:NanoStructuredMaterial ],
+            owl:someValuesFrom emmo1:ChemicalCompound ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom emmo1:CeramicMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:MagneticMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:ChemicalCompound ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:NanoFiber ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:BiocompatibleMaterial ],
+            owl:someValuesFrom ssbd:StructuralMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom ssbd:OpticalMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:InorganicCompound ],
+            owl:someValuesFrom ssbd:NanoPlate ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:MacroMolecule ],
+            owl:someValuesFrom ssbd:MicroMolecule ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:ElectronicMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:NanoStructuredMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom emmo1:CompositeMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:NanoPlate ],
+            owl:someValuesFrom emmo1:InorganicCompound ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:EnergyMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:NanoParticle ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom emmo1:NanoMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:BiocompatibleMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:MagneticMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:MetallicMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:MacroMolecule ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:NanoFiber ],
         ssbd:Software ;
     dcterms:accessRights rights:NON_PUBLIC ;
     dcterms:description "Prediction of 1) PTGS cytotoxicity score, 2) PTGS MoA/AOP analysis, 3) PTGS bioactivity-based grouping of chemicals/materials"@en ;
@@ -53043,8 +53018,7 @@ pink:PTGS a [ a owl:Restriction ;
         "bioactivity"@en,
         "grouping"@en,
         "omics"@en,
-        "prediction"@en,
-        "toxicity"@en ;
+        "toxicity prediction"@en ;
     ddoc:curator <https://orcid.org/0000-0002-3435-7775> ;
     ssbd:documentation <https://doi.org/10.1038/ncomms15932> ;
     ssbd:hasAPI true ;
@@ -53078,55 +53052,55 @@ pink:QSARToolBox a ssbd:Software ;
 
 pink:SciRAPnano a [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:AdvancedMaterial ],
+            owl:someValuesFrom ssbd:NanoParticle ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:CeramicMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:MetallicMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:StructuralMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:OrganicCompound ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:OpticalMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:CompositeMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:BiocompatibleMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:NanoFiber ],
+            owl:someValuesFrom ssbd:EnergyMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom emmo1:NanoMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:NanoPlate ],
+            owl:someValuesFrom ssbd:BiocompatibleMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:MetallicMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom emmo1:PolymericMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:OpticalMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:NanoFiber ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:AdvancedMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:StructuralMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom ssbd:ElectronicMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:InorganicCompound ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:NanoParticle ],
+            owl:someValuesFrom emmo1:CompositeMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom ssbd:MagneticMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:EnergyMaterial ],
+            owl:someValuesFrom emmo1:OrganicCompound ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:CeramicMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:NanoPlate ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:InorganicCompound ],
         ssbd:Software ;
     dcterms:accessRights rights:PUBLIC ;
     dcterms:creator <https://ror.org/056d84691> ;
@@ -53137,11 +53111,9 @@ pink:SciRAPnano a [ a owl:Restriction ;
                 dcat:Resource ;
             dcat:accessURL "https://ki.se/en/imm/scirap-science-in-risk-assessment-and-policy/scirap-tools/the-scirap-tools-for-in-vitro-studies"^^xsd:anyURI ;
             dcat:downloadURL "https://ki.se/en/imm/scirap-science-in-risk-assessment-and-policy/scirap-tools/the-scirap-tools-for-in-vitro-studies"^^xsd:anyURI ] ;
-    dcat:keyword "data"@en,
-        "in"@en,
-        "nanomaterials"@en,
-        "quality"@en,
-        "vitro"@en ;
+    dcat:keyword "data quality"@en,
+        "in vitro"@en,
+        "nanomaterials"@en ;
     ddoc:curator <https://orcid.org/0000-0002-3435-7775> ;
     ssbd:documentation <https://doi.org/10.3389/ftox.2023.1319985> ;
     ssbd:hasAPI true ;
@@ -53203,55 +53175,22 @@ pink:TOX21_GNRHR_HEK293_Agonist a [ a owl:Restriction ;
 
 pink:ToxFAIRy a [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:CeramicMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:AdvancedMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:ChemicalCompound ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:CompositeMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom ssbd:MagneticMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:OrganicCompound ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:MacroMolecule ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom ssbd:OpticalMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:NanoPlate ],
+            owl:someValuesFrom emmo1:InorganicCompound ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom ssbd:MicroMolecule ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:MetallicMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:StructuralMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom ssbd:NanoFiber ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:EnergyMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:NanoParticle ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:InorganicCompound ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:BiocompatibleMaterial ],
+            owl:someValuesFrom emmo1:MetallicMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom ssbd:ElectronicMaterial ],
@@ -53261,6 +53200,39 @@ pink:ToxFAIRy a [ a owl:Restriction ;
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom emmo1:NanoMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:BiocompatibleMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:OrganicCompound ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:ChemicalCompound ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:MacroMolecule ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:AdvancedMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:EnergyMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:CeramicMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:NanoPlate ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:StructuralMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:NanoParticle ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:CompositeMaterial ],
         ssbd:Software ;
     dcterms:accessRights rights:PUBLIC ;
     dcterms:description "In vitro bioactivity-based scoring, ranking and grouping"@en ;
@@ -53273,9 +53245,8 @@ pink:ToxFAIRy a [ a owl:Restriction ;
     dcat:keyword "NAMs"@en,
         "bioactivity"@en,
         "grouping"@en,
-        "high-throughput"@en,
+        "high-throughput screening"@en,
         "ranking"@en,
-        "screening"@en,
         "toxicity"@en ;
     ddoc:curator <https://orcid.org/0000-0002-3435-7775> ;
     ssbd:documentation <https://doi.org/10.1186/s13321-025-01001-8> ;
@@ -53314,13 +53285,13 @@ pink:ToxFAIRy a [ a owl:Restriction ;
 
 pink:e2078536-1427-4d94-88dc-766215ea9abb a [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:OrganicCompound ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom ssbd:MicroMolecule ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:implementsModel ;
             owl:someValuesFrom ssbd:StepwiseRegressionModel ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:OrganicCompound ],
         ssbd:Software ;
     dcterms:accessRights rights:PUBLIC ;
     dcterms:description """The training set consists of non‐proprietary studies and is composed of data harvested from FDA approval packages and the published literature (for more details see 6.5). The model algorithm is proprietary from commercial software. The model has been created by FDA and MultiCASE based on FDA data as part of a Research Cooperation Agreement (RCA).
@@ -53336,13 +53307,10 @@ Danish QSAR Group at DTU Food"""@en ;
         "carcinogenicity"@en,
         "chemicals"@en,
         "female"@en,
-        "fragments"@en,
-        "in"@en,
+        "in vivo"@en,
         "mice"@en,
-        "regression"@en,
-        "stepwise"@en,
-        "structural"@en,
-        "vivo"@en ;
+        "stepwise regression"@en,
+        "structural fragments"@en ;
     dcat:version "January 2015" ;
     ddoc:curator <https://orcid.org/0000-0002-0628-8434> ;
     ssbd:documentation <https://drive.google.com/file/d/1UfVlkwcNl9NiI3T1g9D463njkqScE5Gr/view> ;
@@ -53363,8 +53331,7 @@ pink:e898dfa3-28ac-4a89-9032-deff475db152 a [ a owl:Restriction ;
                 dcat:Distribution,
                 dcat:Resource ;
             dcat:accessURL "https://app.jaqpot.org/dashboard/models/1837/description"^^xsd:anyURI ] ;
-    dcat:keyword "boiling"@en,
-        "point"@en,
+    dcat:keyword "boiling point"@en,
         "qsar"@en ;
     dcat:version """QSAR Toolbox 4.7
 May 2024""" ;
@@ -53393,8 +53360,7 @@ qsar:EndpointOutputBoilingPoint a owl:Class ;
         qsar:EndpointPhysicalChemicalProperties,
         emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a ;
     skos:prefLabel "EndpointOutputBoilingPoint"@en ;
-    dcat:keyword "boiling"@en,
-        "point"@en ;
+    dcat:keyword "boiling point"@en ;
     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This is the datamodel for qsar:EndpointOutputBoilingPoint"@en ;
     oteio:hasURI "https://pink-project.eu/qsar/EndpointOutputBoilingPoint"^^xsd:anyURI .
 
@@ -53449,9 +53415,8 @@ qsar:ProfilerOutputCarcinogenicityAlertsByIss a owl:Class ;
         qsar:ProfilerEndpointSpecific,
         emmo:EMMO_194e367c_9783_4bf5_96d0_9ad597d48d9a ;
     skos:prefLabel "ProfilerOutputCarcinogenicityAlertsByIss"@en ;
-    dcat:keyword "alerts"@en,
-        "carcinogenicity"@en,
-        "structural"@en ;
+    dcat:keyword "carcinogenicity"@en,
+        "structural alerts"@en ;
     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This is the datamodel for qsar:ProfilerOutputCarcinogenicityAlertsByIss"@en ;
     ddoc:curator <https://orcid.org/0000-0002-0628-8434>,
         <https://ror.org/03cx6bg69> ;
@@ -53494,25 +53459,25 @@ qsar:ProfilerOutputCarcinogenicityAlertsByIss a owl:Class ;
 
 pink:transcriptomic_example_step1 a [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:MetallicMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:ChemicalCompound ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom emmo1:PolymericMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:OrganicCompound ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:CompositeMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom emmo1:InorganicCompound ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:MetallicMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom emmo1:CeramicMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:ChemicalCompound ],
+            owl:someValuesFrom emmo1:CompositeMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:OrganicCompound ],
         ssbd:Software ;
     dcterms:accessRights rights:PUBLIC ;
     dcterms:creator <https://ror.org/0130frc33> ;
@@ -53524,8 +53489,7 @@ pink:transcriptomic_example_step1 a [ a owl:Restriction ;
             dcat:accessURL "https://bioconductor.org/packages/release/bioc/html/DESeq2.html"^^xsd:anyURI ;
             dcat:downloadURL "https://bioconductor.org/packages/release/bioc/html/DESeq2.html"^^xsd:anyURI ] ;
     dcat:keyword "cytotoxicity"@en,
-        "health"@en,
-        "human"@en,
+        "human health"@en,
         "transcriptomics"@en ;
     dcat:version "1.50.2" ;
     ssbd:documentation <https://bioconductor.org/packages/release/bioc/html/DESeq2.html> ;
@@ -53537,32 +53501,32 @@ pink:transcriptomic_example_step1 a [ a owl:Restriction ;
         omics:TranscriptGeneExpressionStatisticalSignificance .
 
 pink:transcriptomic_example_step2 a [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:ChemicalCompound ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:CeramicMaterial ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:OrganicCompound ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:InorganicCompound ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom ssbd:Protein ],
-        [ a owl:Restriction ;
-            owl:onProperty ssbd:chemicalClass ;
-            owl:someValuesFrom emmo1:PolymericMaterial ],
+            owl:onProperty ssbd:implementsModel ;
+            owl:someValuesFrom emmo1:CumulativeHypergeometricTest ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom emmo1:MetallicMaterial ],
         [ a owl:Restriction ;
             owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:ChemicalCompound ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:InorganicCompound ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:OrganicCompound ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:PolymericMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom emmo1:CeramicMaterial ],
+        [ a owl:Restriction ;
+            owl:onProperty ssbd:chemicalClass ;
             owl:someValuesFrom emmo1:CompositeMaterial ],
         [ a owl:Restriction ;
-            owl:onProperty ssbd:implementsModel ;
-            owl:someValuesFrom emmo1:CumulativeHypergeometricTest ],
+            owl:onProperty ssbd:chemicalClass ;
+            owl:someValuesFrom ssbd:Protein ],
         ssbd:Software ;
     dcterms:accessRights rights:PUBLIC ;
     dcterms:creator <https://ror.org/03z77qz90> ;
@@ -53574,8 +53538,7 @@ pink:transcriptomic_example_step2 a [ a owl:Restriction ;
             dcat:accessURL "https://biit.cs.ut.ee/gprofiler/page/r"^^xsd:anyURI ;
             dcat:downloadURL "https://biit.cs.ut.ee/gprofiler/page/r"^^xsd:anyURI ] ;
     dcat:keyword "cytotoxicity"@en,
-        "health"@en,
-        "human"@en,
+        "human health"@en,
         "transcriptomics"@en ;
     dcat:version "0.2.4" ;
     ssbd:documentation <https://biit.cs.ut.ee/gprofiler/page/r> ;
@@ -61847,8 +61810,7 @@ foaf:Organization rdfs:subClassOf emmo:EMMO_94c663c8_1d99_45aa_a172_93d19ea95856
                 dcat:Resource ;
             dcat:accessURL "https://doi.org/10.1002/smll.201904749"^^xsd:anyURI ] ;
     dcat:keyword "NAMs"@en,
-        "safety"@en,
-        "testing"@en,
+        "safety testing"@en,
         "tiered"@en,
         "workflow"@en ;
     dcat:version "4" ;
@@ -66015,17 +65977,12 @@ datasettype:MechanicalPropertiesDataset a owl:Class ;
             owl:hasValue <https://ror.org/04zaypm56> ;
             owl:onProperty ddoc:curator ],
         ssbd:Dataset ;
-    dcat:keyword "Poisson"@en,
-        "Young’s"@en,
-        "bulk"@en,
-        "characterization"@en,
-        "constants"@en,
-        "elastic"@en,
-        "material"@en,
-        "mechanical"@en,
-        "modulus"@en,
-        "properties"@en,
-        "ratio"@en,
+    dcat:keyword "Poisson ratio"@en,
+        "Young’s modulus"@en,
+        "bulk modulus"@en,
+        "elastic constants"@en,
+        "material characterization"@en,
+        "mechanical properties"@en,
         "stress-strain"@en .
 
 <https://ror.org/03cx6bg69> a prov:Agent ;
@@ -67960,18 +67917,13 @@ datasettype:InteractionPotentialParameters a owl:Class ;
         ssbd:Dataset ;
     dcat:keyword "GAFF"@en,
         "OPLS"@en,
-        "atom"@en,
-        "bonded"@en,
-        "charges"@en,
-        "field"@en,
-        "force"@en,
-        "interaction"@en,
-        "non-bonded"@en,
-        "parameters"@en,
-        "partial"@en,
-        "potential"@en,
-        "topology"@en,
-        "types"@en .
+        "atom types"@en,
+        "bonded parameters"@en,
+        "force field"@en,
+        "interaction potential"@en,
+        "non-bonded parameters"@en,
+        "partial charges"@en,
+        "topology"@en .
 
 <https://ror.org/03wwn0z54> a prov:Agent ;
     foaf:name "NovaMechanics"^^xsd:string .
@@ -71616,7 +71568,7 @@ emmo:EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 a owl:Class ;
     rdfs:comment "A causal chain is an ordered causal sequence of entities that does not host any bifurcation within itself (a chain). A chain can only be partitioned in time."@en,
         "The class of entities that possess a temporal structure but no spatial structure."@en ;
     rdfs:isDefinedBy <https://w3id.org/emmo/foundation/mereocausality#> ;
-    rdfs:subClassOf _:n5302e7c40b35425a8bdb5238d26889c8b4674,
+    rdfs:subClassOf _:n863f1711df8c48d5b120b2ef039ed128b4674,
         emmo:EMMO_52b8a39b_e5ff_46d3_b972_65bc43077a07,
         emmo:EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d ;
     skos:altLabel "CausalChain"@en,
@@ -72264,16 +72216,12 @@ datasettype:ChemicalStructureDataset a owl:Class ;
             owl:onProperty ddoc:curator ],
         ssbd:Dataset ;
     dcat:keyword "SMILES"@en,
-        "atomistic"@en,
-        "chain"@en,
-        "chemical"@en,
+        "atomistic model"@en,
+        "chemical structure"@en,
         "coordinates"@en,
-        "model"@en,
-        "molecular"@en,
-        "periodic"@en,
-        "polymer"@en,
-        "structure"@en,
-        "system"@en,
+        "molecular structure"@en,
+        "periodic system"@en,
+        "polymer chain"@en,
         "topology"@en .
 
 emmo:EMMO_008fd3b2_4013_451f_8827_52bceab11841 a owl:Class ;
@@ -72662,7 +72610,7 @@ A collection can be partitioned in maximally connected items called members. The
 The combination of collection and item concepts is the EMMO mereocausality alternative to set theory. However, two items can be members only if they are non direct causally connected, giving some constraints to a collection definition. For example, two entities which are directly connected cannot be two distinct members, while their interiors (i.e. the entities obtained by removing the layer of parts that provides the causal contact between them) can be."""@en,
         "The class of not direct causally self-connected world entities."@en ;
     rdfs:isDefinedBy <https://w3id.org/emmo/foundation/mereocausality#> ;
-    rdfs:subClassOf _:n5302e7c40b35425a8bdb5238d26889c8b4733,
+    rdfs:subClassOf _:n863f1711df8c48d5b120b2ef039ed128b4733,
         emmo:EMMO_76bd5e44_bf5a_49f9_a517_eea5e8bcbc2d ;
     owl:disjointWith emmo:EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
     skos:example "The collection of users of a particular software, the collection of atoms that have been part of that just dissociated molecule."@en ;
@@ -72704,8 +72652,8 @@ Void regions do not exist in the EMMO. In other words there is no spacetime with
         "The class of all the OWL individuals representing world entities according to EMMO conceptualisation."@en,
         "The disjoint union of the fundamental mereocausal classes of Quantum, CausalPath, CausalSystem and Collection."@en ;
     rdfs:isDefinedBy <https://w3id.org/emmo/disciplines/isq#> ;
-    rdfs:subClassOf _:n5302e7c40b35425a8bdb5238d26889c8b4736,
-        _:n5302e7c40b35425a8bdb5238d26889c8b4737 ;
+    rdfs:subClassOf _:n863f1711df8c48d5b120b2ef039ed128b4736,
+        _:n863f1711df8c48d5b120b2ef039ed128b4737 ;
     skos:prefLabel "EMMO"@en ;
     emmo:EMMO_31252f35_c767_4b97_a877_1235076c3e13 """The EMMO conceptualises the world using the primitive concepts of causality and parthood. Parthood is about the composition of world entities starting from other more fundamental entities. Causality is about the interactions between world entities.
 The quantum is the smallest indivisible part of any world entity. Quantum individuals are the fundamental causal constituents of the universe, since it is implied that causality originates from quantum-to-quantum interactions. Quantums are no-dimensional, and their aggregation makes spacetime emerge from their causal structure. We can think of a quantum as an elementary particle after and interaction and before another interaction.
@@ -74982,7 +74930,7 @@ manufacturing: production of components"""@en .
 [] a owl:Axiom ;
     owl:annotatedProperty rdfs:subClassOf ;
     owl:annotatedSource emmo:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
-    owl:annotatedTarget _:n5302e7c40b35425a8bdb5238d26889c8b4737 ;
+    owl:annotatedTarget _:n863f1711df8c48d5b120b2ef039ed128b4737 ;
     emmo:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Every entity is made of quantum parts. This axiomatisation is the expression of the radical reductionistic approach of the EMMO."@en .
 
 [] a owl:Axiom ;
@@ -75395,7 +75343,7 @@ organization: person or group of people that has its own functions with responsi
 [] a owl:Axiom ;
     owl:annotatedProperty rdfs:subClassOf ;
     owl:annotatedSource emmo:EMMO_802d3e92_8770_4f98_a289_ccaaab7fdddf ;
-    owl:annotatedTarget _:n5302e7c40b35425a8bdb5238d26889c8b4736 ;
+    owl:annotatedTarget _:n863f1711df8c48d5b120b2ef039ed128b4736 ;
     emmo:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "All EMMO individuals are part of the most comprehensive entity which is the universe."@en .
 
 [] a owl:Axiom ;
@@ -75646,7 +75594,7 @@ This concept covers both intentional and non intentional agency."""@en .
 [] a owl:Axiom ;
     owl:annotatedProperty rdfs:subClassOf ;
     owl:annotatedSource emmo:EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 ;
-    owl:annotatedTarget _:n5302e7c40b35425a8bdb5238d26889c8b4674 ;
+    owl:annotatedTarget _:n863f1711df8c48d5b120b2ef039ed128b4674 ;
     emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9 "This axiom underlines the monodimensional nature of a causal chain, as a sequence of quanta."@en .
 
 [] a owl:Axiom ;
@@ -75864,7 +75812,7 @@ This axiom may be seen as Ockam's razor applied to causality."""@en .
 [] a owl:Axiom ;
     owl:annotatedProperty rdfs:subClassOf ;
     owl:annotatedSource emmo:EMMO_2d2ecd97_067f_4d0e_950c_d746b7700a31 ;
-    owl:annotatedTarget _:n5302e7c40b35425a8bdb5238d26889c8b4733 ;
+    owl:annotatedTarget _:n863f1711df8c48d5b120b2ef039ed128b4733 ;
     emmo:EMMO_c7b62dd7_063a_4c2a_8504_42f7264ba83f "Every collection has at least two item members, since a collection of one item is a self-connected entity (and then an item)."@en .
 
 [] a swrl:Imp ;
@@ -76532,25 +76480,25 @@ The term phase is sometimes used as a synonym for state of matter, but there can
 [] a owl:AllDisjointClasses ;
     owl:members ( ssbd:Bagging ssbd:Boosting ssbd:RandomForest ) .
 
-_:n5302e7c40b35425a8bdb5238d26889c8b5279 a owl:Class ;
+_:n863f1711df8c48d5b120b2ef039ed128b5279 a owl:Class ;
     owl:unionOf ( emmo:EMMO_0f795e3e_c602_4577_9a43_d5a231aa1360 emmo:EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 ) .
 
-_:n5302e7c40b35425a8bdb5238d26889c8b5282 owl:inverseOf emmo:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f .
+_:n863f1711df8c48d5b120b2ef039ed128b5282 owl:inverseOf emmo:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f .
 
-_:n5302e7c40b35425a8bdb5238d26889c8b4674 a owl:Restriction ;
-    owl:allValuesFrom _:n5302e7c40b35425a8bdb5238d26889c8b5279 ;
+_:n863f1711df8c48d5b120b2ef039ed128b4674 a owl:Restriction ;
+    owl:allValuesFrom _:n863f1711df8c48d5b120b2ef039ed128b5279 ;
     owl:onProperty emmo:EMMO_7afbed84_7593_4a23_bd88_9d9c6b04e8f6 .
 
-_:n5302e7c40b35425a8bdb5238d26889c8b4733 a owl:Restriction ;
+_:n863f1711df8c48d5b120b2ef039ed128b4733 a owl:Restriction ;
     owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
     owl:onClass emmo:EMMO_eb3a768e_d53e_4be9_a23b_0714833c36de ;
     owl:onProperty emmo:EMMO_6b7276a4_4b9d_440a_b577_0277539c0fc4 .
 
-_:n5302e7c40b35425a8bdb5238d26889c8b4736 a owl:Restriction ;
+_:n863f1711df8c48d5b120b2ef039ed128b4736 a owl:Restriction ;
     owl:hasValue emmo:EMMO_08cb807c_e626_447b_863f_e2835540e918 ;
-    owl:onProperty _:n5302e7c40b35425a8bdb5238d26889c8b5282 .
+    owl:onProperty _:n863f1711df8c48d5b120b2ef039ed128b5282 .
 
-_:n5302e7c40b35425a8bdb5238d26889c8b4737 a owl:Restriction ;
+_:n863f1711df8c48d5b120b2ef039ed128b4737 a owl:Restriction ;
     owl:onProperty emmo:EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f ;
     owl:someValuesFrom emmo:EMMO_3f9ae00e_810c_4518_aec2_7200e424cf68 .
 

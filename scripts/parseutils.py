@@ -143,7 +143,7 @@ def split_to_list(value):
     if pd.isna(value) or str(value).strip() == "":
         return None  # Return None if empty or NaN
     # Split on comma, semicolon, pipe, or space
-    parts = re.split(r"[,\s;|]+", value)
+    parts = re.split(r"\s*[,;|]\s*", value) 
     # Clean whitespace and remove empty strings
     cleaned = [p.strip() for p in parts if p.strip() != ""]
     return cleaned
