@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 
 import pandas as pd
-from ontopy import get_ontology
+#from ontopy import get_ontology
 from tripper import Triplestore
 from tripper.datadoc import (
     get_context,
@@ -24,16 +24,16 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 from parseutils import PREFIXES as prefixes
 from parseutils import (
-    convert_to_iri,
+    #convert_to_iri,
     correct_pink_dataframes,
     merge_columns,
 )
 
 # import the pink ontology for accessing labels and
 # convert to IRIs (just before storing into the triplestore)
-onto = get_ontology(
-    "https://ssbd-ontology.github.io/core/core-inferred.ttl"
-).load()
+#onto = get_ontology(
+#    "https://ssbd-ontology.github.io/core/core-inferred.ttl"
+#).load()
 
 # Get data from Google Sheets
 # Software documentation
@@ -151,7 +151,7 @@ if "indicator" in sw.columns:
 
 sw["@type"] = "pink:Software"
 
-expanded_sw = correct_pink_dataframes(sw, onto)
+expanded_sw = correct_pink_dataframes(sw)#, onto)
 # A bit cumbersome to write file, I am sure there are better ways
 
 expanded_sw.to_csv("sw_clean.csv", index=False)
@@ -186,7 +186,7 @@ comp.drop(
     inplace=True,
 )
 
-expanded_comp = correct_pink_dataframes(comp, onto)
+expanded_comp = correct_pink_dataframes(comp)#, onto)
 expanded_comp.to_csv("comp_clean.csv", index=False)
 
 # Datasettype
@@ -195,5 +195,5 @@ print("PREPARING DATASETTYPE DOCUMENTATION")
 datasettypes["@type"] = [["owl:Class"]] * len(datasettypes)
 
 datasettypes = datasettypes.drop(columns=["indicator"])
-expanded_datasettypes = correct_pink_dataframes(datasettypes, onto)
+expanded_datasettypes = correct_pink_dataframes(datasettypes)#, onto)
 expanded_datasettypes.to_csv("datasettypes_clean.csv", index=False)

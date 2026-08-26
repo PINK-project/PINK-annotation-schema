@@ -9,9 +9,12 @@ from pathlib import Path
 import dateutil
 import pandas as pd
 from ontopy.exceptions import NoSuchLabelError
+from tripper import Namespace
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
+
+SSBD = Namespace('https://w3id.org/ssbd/', label_annotations=True)
 
 TERMDEF_URL = (
     "https://docs.google.com/spreadsheets/d/"
@@ -32,7 +35,7 @@ PREFIXES: dict[str, str] = {
     "chemowl": "http://www.semanticweb.org/ontologies/cheminf.owl#",
     "cheminf": "http://semanticscience.org/resource/",
     "omics": "http://pink-project.eu/omics/",
-    "ssbd": "https://w3id.org/ssbd/",
+    "ssbd": SSBD,
 }
 
 
@@ -240,7 +243,7 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
                     term = ontology.get_by_label(candidate)
                     print(f"Replacing {val} with IRI: {term.iri}")
                     return term.iri
-                except (NoSuchLabelError, AttributeError):
+                except (NoSuchLabelError, AttributeError, ValueError):
                     pass
 
             # If there is a space in the value return unchanged,
@@ -256,13 +259,12 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
     return df
 
 
-def correct_pink_dataframes(df, ontology):
+def correct_pink_dataframes(df): #, ontology):
     """
     Correct the pink dataframes by:
     - Adding prefixes to values in certain columns
     - Merging class columns into a single column
     - Splitting columns with multiple values into lists
-    - Checking for URIs and replacing with IRIs from the ontology
     """
     # Remove columns that have nan as header (these are from empty columns in the spreadsheet)
     df = df.loc[:, ~df.columns.isna()]
@@ -311,6 +313,6 @@ def correct_pink_dataframes(df, ontology):
         print(col)
         df[col] = df[col].apply(split_to_list)
     expanded_df = expand_df(df)
-    expanded_df = check_for_uris(expanded_df, ontology)
+    #expanded_df = check_for_uris(expanded_df, ontology)
 
     return expanded_df
