@@ -1,9 +1,14 @@
 # PINK Annotation Schema
 
-## Purpose of This Repository
-
-This repository is now intended for usage of the SSBD ontology to document resources, including practical examples.
+This repository is intended for usage of the SSBD ontology to document resources within in the PINK project, 
+including practical examples.
 For the legacy content see below.
+
+In the SSbD Core ontology repository, [a general introduction](https://ssbd-ontology.github.io/core/docs/document-your-data.html) to documenting resources is provided.
+This includes the [expected annotations](https://ssbd-ontology.github.io/core/docs/document-your-data.html#expected-minimum-annotations-by-resource-type), 
+chosen within the PINK project. Please refer to that documentation for guidance.
+
+## Examples of scripts used for parsing documentation tables
 
 In order to run scripts in the current repository a working python environment is required.
 Please install the python dependencies defined in `requirements.txt` with e.g.
@@ -11,9 +16,6 @@ Please install the python dependencies defined in `requirements.txt` with e.g.
 ```bash
 pip install -r requirements.txt
 ```
-
-## Using the Scripts
-
 This repository contains several scripts for generating and parsing resources documented in the 
 Google Spreadsheets within the PINK project. Below is a description of each script and how to use them:
 

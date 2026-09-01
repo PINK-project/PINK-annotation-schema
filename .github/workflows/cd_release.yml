@@ -13,6 +13,7 @@ permissions:
 
 jobs:
   release_version:
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
 
     steps:
@@ -24,12 +25,9 @@ jobs:
       - name: Create and copy generated files to versions/
         run: |
           mkdir -p versions/${TAG#v}
-          cp -rf \
-              README.md \
-              keywords.md \
-              ${ONTOLOGY_NAME}.ttl \
-              ${ONTOLOGY_NAME}-inferred.ttl \
-              docs/ \
+          cp -f \
+              index.md \
+              _config.yml \
               versions/${TAG#v}/.
 
       - name: Push to gh-pages
@@ -37,5 +35,9 @@ jobs:
           git config --global user.email "${ONTOLOGY_NAME}@pink.eu"
           git config --global user.name "${ONTOLOGY_NAME}"
           git add versions/${TAG#v}
+          if git diff --cached --quiet; then
+            echo "No changes to commit for versions/${TAG#v}";
+            exit 0;
+          fi
           git commit -m "Release version ${TAG#v}"
           git push origin gh-pages
