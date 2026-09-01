@@ -1,0 +1,174 @@
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>PINK annotation schema</title>
+        <style>
+          :root {
+            color-scheme: light;
+          }
+          body {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f8fafc;
+          }
+          main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2.5rem 1.25rem 3rem;
+          }
+          h1, h2, h3 {
+            line-height: 1.25;
+            color: #0f172a;
+          }
+          code {
+            background: #e2e8f0;
+            padding: 0.12rem 0.3rem;
+            border-radius: 0.25rem;
+          }
+          pre code {
+            display: block;
+            padding: 0.9rem;
+            overflow-x: auto;
+          }
+          a {
+            color: #0b5ed7;
+          }
+          table {
+            border-collapse: collapse;
+          }
+          th, td {
+            border: 1px solid #cbd5e1;
+            padding: 0.4rem 0.6rem;
+          }
+        </style>
+      </head>
+      <body>
+        <main>
+          <h1 id="pink-annotation-schema">PINK Annotation Schema</h1>
+<p>This repository is intended for usage of the SSBD ontology to document resources within in the PINK project, 
+including practical examples.
+For the legacy content see below.</p>
+<p>In the SSbD Core ontology repository, <a href="https://ssbd-ontology.github.io/core/docs/document-your-data.html">a general introduction</a> to documenting resources is provided.
+This includes the <a href="https://ssbd-ontology.github.io/core/docs/document-your-data.html#expected-minimum-annotations-by-resource-type">expected annotations</a>, 
+chosen within the PINK project. Please refer to that documentation for guidance.</p>
+<h2 id="examples-of-scripts-used-for-parsing-documentation-tables">Examples of scripts used for parsing documentation tables</h2>
+<p>In order to run scripts in the current repository a working python environment is required.
+Please install the python dependencies defined in <code>requirements.txt</code> with e.g.</p>
+<pre><code class="language-bash">pip install -r requirements.txt
+</code></pre>
+<p>This repository contains several scripts for generating and parsing resources documented in the 
+Google Spreadsheets within the PINK project. Below is a description of each script and how to use them:</p>
+<h3 id="1-step1_download_googledocs_resources_and_preparetablespy">1. <strong>step1_download_googledocs_resources_and_preparetables.py</strong></h3>
+<p><strong>Purpose:</strong> Downloads and parses documentation data from Google Spreadsheets and prepares cleaned CSV files.</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash">python scripts/step1_download_googledocs_resources_and_preparetables.py
+</code></pre>
+<p><strong>What it does:</strong>
+- Downloads the data and performs data cleaning and correction
+- Generates activities from the software documentation spreadsheet
+- Saves cleaned data to CSV files (e.g., <code>sw_clean.csv</code>, <code>datasettypes_clean.csv</code>)
+- Prepares the tables that can be directly parsed by <code>tripper</code> and <code>dlite</code>.</p>
+<p><strong>Output files:</strong>
+- <code>sw_clean.csv</code> - Cleaned software documentation
+- <code>datasettypes_clean.csv</code> - Cleaned dataset type documentation
+- <code>comp_clean.csv</code> - Cleaned computations documentation
+- <code>datamodels.csv</code> - Cleaned datamodel definitions (prepared for DMTable parsing)</p>
+<hr />
+<h3 id="2-step2_prepare_triplespy">2. <strong>step2_prepare_triples.py</strong></h3>
+<p><strong>Purpose:</strong> Converts cleaned tables defining documented resources to RDF triples.
+It also validates and saves the generated rdf triples serialized to turtle format.</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash">python scripts/step2_prepare_triples.py
+</code></pre>
+<p><strong>What it does:</strong>
+- Reads the cleaned CSV files generated in step 1
+- Converts data to RDF triples using the TableDoc class from tripper
+- Validates the generated RDF against SHACL shapes</p>
+<p><strong>Output files:</strong>
+- <code>pink_googlespreadsheet_resources.ttl</code> - Validated RDF data in Turtle format</p>
+<p><strong>Notes:</strong>
+- Requires the SSBD core ontology context (which it pulls from the web)
+- If new ontology classes are used, they must be added to the context configuration
+- Validates against SHACL shape definitions in the <code>validation/</code> directory</p>
+<hr />
+<h3 id="3-step3_dmtable_parsepy">3. <strong>step3_dmtable_parse.py</strong></h3>
+<p><strong>Purpose:</strong> Parses data model definitions from CSV and converts them to RDF format, using <code>dlite</code>.</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash">python scripts/step3_dmtable_parse.py
+</code></pre>
+<p><strong>What it does:</strong>
+- Reads datamodel definitions from <code>datamodels.csv</code>
+- Parses CSV using DMTable to generate data models.
+- Converts datamodels to RDF triples in a triplestore
+- Serializes the result to Turtle format</p>
+<p><strong>Output files:</strong>
+- <code>datamodels.ttl</code> - Data models in RDF Turtle format</p>
+<hr />
+<h3 id="4-parse_pink_google_docs_agentspy">4. <strong>parse_pink_google_docs_agents.py</strong></h3>
+<p><strong>Purpose:</strong> Parses and documents PINK agents from Google Spreadsheets.</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash">python scripts/parse_pink_google_docs_agents.py
+</code></pre>
+<p><strong>What it does:</strong>
+- Downloads agent documentation from a shared Google Spreadsheet
+- Parses and corrects the agent data
+- Converts to RDF triples using the SSBD core ontology
+- Validates triples against SHACL shapes
+- Generates structured documentation for PINK agents</p>
+<p><strong>Output files:</strong>
+- <code>pink-agents.ttl</code> - Agent documentation in Turtle format</p>
+<hr />
+<h3 id="5-search_pink_kbpy">5. <strong>search_pink_kb.py</strong></h3>
+<p><strong>Purpose:</strong> Searches and queries the PINK Knowledge Base.</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash">python scripts/search_pink_kb.py
+</code></pre>
+<p><strong>What it does:</strong>
+- Loads data from multiple sources: SSBD ontology, EMMO ontology, agents, resources, and datamodels
+- Provides SPARQL query capabilities over the knowledge base
+- Allows searching for specific classes and their relationships
+- Returns structured query results</p>
+<p><strong>Notes:</strong>
+- Can be configured to connect to remote GraphDB endpoints with authentication
+- Currently configured for local RDF library backend
+- Includes example SPARQL queries for common searches</p>
+<hr />
+<h2 id="typical-workflow">Typical Workflow</h2>
+<p>To generate and validate all documentation:</p>
+<ol>
+<li><strong>Prepare data:</strong> Run <code>step1_download_googledocs_resources_and_preparetables.py</code> to download and clean data from Google Spreadsheets</li>
+<li><strong>Convert to RDF:</strong> Run <code>step2_prepare_triples.py</code> to convert CSV data to validated RDF triples</li>
+<li><strong>Parse datamodels:</strong> Run <code>step3_dmtable_parse.py</code> to convert datamodels to RDF format</li>
+<li><strong>Document agents:</strong> Run <code>parse_pink_google_docs_agents.py</code> to generate agent documentation</li>
+<li><strong>Query results:</strong> Use <code>search_pink_kb.py</code> to verify and search the generated knowledge base</li>
+</ol>
+<p>All steps require a valid Python environment with dependencies installed from <code>requirements.txt</code>.</p>
+<h2 id="additional-helper-scripts-are-available-in-the-scripts-directory-for-specific-tasks-related-to-data-processing-and-validation">Additional helper scripts are available in the <code>scripts/</code> directory for specific tasks related to data processing and validation.</h2>
+<h3 id="1-make_drop_down_list_sourcepy">1. <strong>make_drop_down_list_source.py</strong></h3>
+<p><strong>Purpose:</strong> Generates a CSV file for drop-down lists in the annotation tool.
+This is just a helper script to extract the hierarchy of assessment classes to be added to the Google Spreadsheet for annotation.</p>
+<p><strong>Usage:</strong></p>
+<pre><code class="language-bash">python scripts/make_drop_down_list_source.py
+</code></pre>
+<p><strong>What it does:</strong>
+- Loads the SSBD core ontology
+- Extracts assessment-related classes and their hierarchy (level 1, 2, and 3)
+- Creates a structured CSV file with three hierarchical levels
+- This CSV can be used to populate drop-down menus in annotation tools</p>
+<p><strong>Output files:</strong>
+- <code>assessment_hierarchy.csv</code> - Assessment classes organized in three hierarchy levels (level1, level2, level3)</p>
+<h1 id="pink-annotation-schema-legacy-repository">PINK Annotation Schema (Legacy Repository)</h1>
+<p>The PINK Annotation Schema has been renamed and is now maintained as the SSBD Core Ontology.</p>
+<h2 id="new-official-location">New Official Location</h2>
+<ul>
+<li>Official documentation: https://ssbd-ontology.github.io/core/</li>
+<li>GitHub repository: https://github.com/ssbd-ontology/core</li>
+</ul>
+<p>For ontology development, authoritative classes/properties, and ongoing updates, use the SSBD Ontology Core repository.</p>
+        </main>
+      </body>
+    </html>
