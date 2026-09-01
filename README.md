@@ -8,7 +8,23 @@ In the SSbD Core ontology repository, [a general introduction](https://ssbd-onto
 This includes the [expected annotations](https://ssbd-ontology.github.io/core/docs/document-your-data.html#expected-minimum-annotations-by-resource-type), 
 chosen within the PINK project. Please refer to that documentation for guidance.
 
+## Example Spreadsheets (CSV)
+
+The files in `example_spreadsheets/` provide compact examples that can be used as templates when annotating resources.
+When populated correctly, it should be possible to parse them directly with tripper:
+
+- [software_release_example.csv](example_spreadsheets/software_release_example.csv)
+- [computation_type_example.csv](example_spreadsheets/computation_type_example.csv)
+- [dataset_type_example.csv](example_spreadsheets/dataset_type_example.csv)
+
+Notes:
+- Multi-valued properties from the source sheets (for example repeated `keyword`, `chemicalClass`, `hasInput`, `hasOutput`, `subClassOf`) are represented as semicolon-separated values in a single column in these examples.
+- When documenting computation types, it is expected that which SSbD Assessemnts (check SSbD Core Ontology) they are subclasses of.
+
+
 ## Examples of scripts used for parsing documentation tables
+
+These are scripts used to parse and process the Google Spreadsheets used as initial documentation tables for the PINK project.
 
 In order to run scripts in the current repository a working python environment is required.
 Please install the python dependencies defined in `requirements.txt` with e.g.

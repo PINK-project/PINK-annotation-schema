@@ -1,0 +1,2 @@
+@id,@type,title,label,description,keyword,subClassOf
+datasettype:ChemicalStructureDataset,owl:Class,Chemical Structure Dataset,Chemical Structure Dataset,"Dataset describing chemical identity and three-dimensional structures, including coordinates and topology for modelling workflows.","chemical structure;SMILES;molecular structure;polymer chain;atomistic model;coordinates;topology;periodic system",https://w3id.org/ssbd/Dataset

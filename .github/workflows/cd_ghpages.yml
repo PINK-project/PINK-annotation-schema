@@ -33,6 +33,7 @@ jobs:
     - name: Generate documentation
       run: |
         mkdir -p public
+        mkdir -p public/example_spreadsheets
         python - <<'PY'
         from pathlib import Path
         from textwrap import dedent
@@ -106,6 +107,7 @@ jobs:
         Path("public/index.html").write_text(html, encoding="utf-8")
         Path("public/.nojekyll").write_text("", encoding="utf-8")
         PY
+  cp -f example_spreadsheets/*.csv public/example_spreadsheets/
 
 
     - name: Deploy to GitHub Pages
