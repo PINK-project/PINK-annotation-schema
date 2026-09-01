@@ -26,7 +26,7 @@ jobs:
         run: |
           mkdir -p versions/${TAG#v}
           cp -f \
-              index.md \
+              index.html \
               _config.yml \
               versions/${TAG#v}/.
 
