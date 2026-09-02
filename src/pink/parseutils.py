@@ -25,6 +25,7 @@ PREFIXES: dict[str, str] = {
     "datasettype": "https://pink-project.eu/datasettype/",
     "qsar": "https://pink-project.eu/qsar/",
     "pink": "https://pink-project.eu/",
+    "pinkag": "https://pink-project.eu/agent/",
     "empa": "https://empa.ch/",
     "empadm": "https://empa.ch/datamodel/",
     "oboowl": "http://www.geneontology.org/formats/oboInOwl#",
@@ -33,6 +34,7 @@ PREFIXES: dict[str, str] = {
     "cheminf": "http://semanticscience.org/resource/",
     "omics": "http://pink-project.eu/omics/",
     "ssbd": "https://w3id.org/ssbd/",
+    "owl": "http://www.w3.org/2002/07/owl#",
 }
 
 

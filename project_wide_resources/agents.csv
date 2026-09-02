@@ -1,4 +1,4 @@
-@id,sameAs,@type,name
+@id,owl:sameAs,@type,name
 pinkag:FrancescoMercuri,https://orcid.org/0000-0002-3369-4438,http://www.w3.org/ns/prov#Agent,Francesco Mercuri
 pinkag:PhilipDoganis,https://orcid.org/0000-0002-0628-8434,http://www.w3.org/ns/prov#Agent,Philip Doganis
 pinkag:ThomasExner,https://orcid.org/0000-0002-1849-5246,http://www.w3.org/ns/prov#Agent,Thomas Exner

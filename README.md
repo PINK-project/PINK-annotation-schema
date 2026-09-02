@@ -32,6 +32,15 @@ Please install the python dependencies defined in `requirements.txt` with e.g.
 ```bash
 pip install -r requirements.txt
 ```
+
+A few utility functions for PINK are also made available and ned to be installed with
+
+```bash
+pip install .
+```
+
+
+
 This repository contains several scripts for generating and parsing resources documented in the 
 Google Spreadsheets within the PINK project. Below is a description of each script and how to use them:
 
