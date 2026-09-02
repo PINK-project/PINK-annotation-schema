@@ -21,6 +21,19 @@ Notes:
 - Multi-valued properties from the source sheets (for example repeated `keyword`, `chemicalClass`, `hasInput`, `hasOutput`, `subClassOf`) are represented as semicolon-separated values in a single column in these examples.
 - When documenting computation types, it is expected that which SSbD Assessemnts (check SSbD Core Ontology) they are subclasses of.
 
+Tripper provides a nice tool to populate a triplestore called 'datadoc'. 
+While it is not possible to se this directly with the PINK KB, currently, it is nice to 
+use it to generate a rdf-representation, serialised in turtle that can be uploaded to the PINK KB.
+
+This can be done with `datadoc add software_release_example.csv --context=https://w3id.org/ssbd/context/ --dump=kb.ttl`
+provided that the reqriements described in `requirements.txt` are installed.
+
+Similarly, other example spreadsheets can be added to generate their RDF representations:
+```
+datadoc add computation_type_example.csv --context=https://w3id.org/ssbd/context/ --dump=kb_computation.ttl
+datadoc add dataset_type_example.csv --context=https://w3id.org/ssbd/context/ --dump=kb_dataset.ttl
+```
+
 
 ## Examples of scripts used for parsing documentation tables
 

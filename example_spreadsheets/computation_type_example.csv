@@ -1,3 +1,2 @@
 @id,@type,title,label,description,hasSoftware,hasInput,hasOutput,subClassOf[?sep=;]
 pink:activity0,owl:Class,"MultiCASE CASE Ultra commercial model RC2_AF4 for Rodent carcinogenicity in female mouse in vivo, Danish QSAR Group at DTU Food","MultiCASE CASE Ultra commercial model RC2_AF4 for Rodent carcinogenicity in female mouse in vivo, Danish QSAR Group at DTU Food","Computation type describing a carcinogenicity assessment workflow linked to a software release.",pink:e2078536-1427-4d94-88dc-766215ea9abb,datasettype:SMILES,qsar:CarcinogenicityPotential,ssbd:SafetyAssessment;ssbd:HazardAssessmentHumanHealth;ssbd:CarcinogenicityAssessment;prov:Activity;ssbd:Computation
-
