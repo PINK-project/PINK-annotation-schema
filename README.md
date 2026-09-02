@@ -8,6 +8,15 @@ In the SSbD Core ontology repository, [a general introduction](https://ssbd-onto
 This includes the [expected annotations](https://ssbd-ontology.github.io/core/docs/document-your-data.html#expected-minimum-annotations-by-resource-type), 
 chosen within the PINK project. Please refer to that documentation for guidance.
 
+
+## Project-wide resources
+
+Some resources are projectwide. One example are the agents, i.e. people and organisations that 
+prepare and own data etc. These are contained in the script file 
+`project_wide_resources/agents.csv`. Please update this file as needed.
+
+
+
 ## Example Spreadsheets (CSV)
 
 The files in `example_spreadsheets/` provide compact examples that can be used as templates when annotating resources.
@@ -125,28 +134,7 @@ python scripts/step3_dmtable_parse.py
 
 ---
 
-### 4. **parse_pink_google_docs_agents.py**
-
-**Purpose:** Parses and documents PINK agents from Google Spreadsheets.
-
-**Usage:**
-```bash
-python scripts/parse_pink_google_docs_agents.py
-```
-
-**What it does:**
-- Downloads agent documentation from a shared Google Spreadsheet
-- Parses and corrects the agent data
-- Converts to RDF triples using the SSBD core ontology
-- Validates triples against SHACL shapes
-- Generates structured documentation for PINK agents
-
-**Output files:**
-- `pink-agents.ttl` - Agent documentation in Turtle format
-
----
-
-### 5. **search_pink_kb.py**
+### 4. **search_pink_kb.py**
 
 **Purpose:** Searches and queries the PINK Knowledge Base.
 
@@ -175,8 +163,7 @@ To generate and validate all documentation:
 1. **Prepare data:** Run `step1_download_googledocs_resources_and_preparetables.py` to download and clean data from Google Spreadsheets
 2. **Convert to RDF:** Run `step2_prepare_triples.py` to convert CSV data to validated RDF triples
 3. **Parse datamodels:** Run `step3_dmtable_parse.py` to convert datamodels to RDF format
-4. **Document agents:** Run `parse_pink_google_docs_agents.py` to generate agent documentation
-5. **Query results:** Use `search_pink_kb.py` to verify and search the generated knowledge base
+4. **Query results:** Use `search_pink_kb.py` to verify and search the generated knowledge base
 
 All steps require a valid Python environment with dependencies installed from `requirements.txt`.
 
