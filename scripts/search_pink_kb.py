@@ -21,7 +21,7 @@ kb = Triplestore('rdflib')
 
 kb.parse('https://w3id.org/ssbd/')  # Ontology
 kb.parse('https://w3id.org/emmo/1.0.3')
-kb.parse('../project_wide_resources/agents.ttl') # agents
+kb.parse('project_wide_resources/agents.ttl') # agents
 kb.parse('googlespreadsheet_resources.ttl') # All the resources
 kb.parse('datamodels.ttl') # datamodels
 

@@ -48,7 +48,7 @@ _TERMDEFS = _load_termdefs()
 list_columns: list[str] = [
     *_TERMDEFS.loc[
         _TERMDEFS["SingleValue"] == False, "Tripper_keyword"
-    ].tolist(),
+    ]]#.tolist(),
 
 
 NON_LIST_COLUMNS = {
