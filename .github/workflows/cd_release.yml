@@ -25,9 +25,10 @@ jobs:
       - name: Create and copy generated files to versions/
         run: |
           mkdir -p versions/${TAG#v}
-          cp -f \
+          cp -rf \
               index.html \
               _config.yml \
+              example_spreadsheets \
               versions/${TAG#v}/.
 
       - name: Push to gh-pages
