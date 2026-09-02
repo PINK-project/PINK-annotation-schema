@@ -49,9 +49,14 @@ list_columns: list[str] = [
     *_TERMDEFS.loc[
         _TERMDEFS["SingleValue"] == False, "Tripper_keyword"
     ].tolist(),
+]
+
+NON_LIST_COLUMNS = {
     "@id",
     "@type",
-]
+    "distribution.accessURL",
+    "distribution.downloadURL",
+}
 
 property_iri_dict: dict[str, str] = {
     prop: iri
@@ -153,29 +158,39 @@ def split_to_list(value):
 
 def expand_df(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Expand the dataframe: Any column whose values are lists
-    will be expanded into multiple columns (all using the same header),
-    with blanks where the lists were shorter.
+    Normalize list-valued columns for CSV export.
+
+    Any column containing list values is kept as a single column and renamed
+    with a ``[?sep=;]`` suffix. List values are serialized as semicolon-
+    separated strings.
     """
-    # reindex
-    df = df.reset_index(drop=True)
+    out = df.reset_index(drop=True).copy()
 
-    parts = []
-    for col in df.columns:
-        is_list_col = df[col].apply(lambda v: isinstance(v, list)).any()
-        if is_list_col:
-            print("column", col, "is a list column")
-            sub = pd.DataFrame(
-                df[col]
-                .apply(lambda v: v if isinstance(v, list) and v else [None])
-                .tolist()
+    rename_map: dict[str, str] = {}
+    for col in out.columns:
+        is_list_col = out[col].apply(lambda v: isinstance(v, list)).any()
+        if not is_list_col:
+            continue
+
+        print("column", col, "is a list column")
+        if not col.endswith("[?sep=;]"):
+            rename_map[col] = f"{col}[?sep=;]"
+
+        out[col] = out[col].apply(
+            lambda v: (
+                ";".join(
+                    str(x).strip()
+                    for x in v
+                    if pd.notna(x) and str(x).strip() != ""
+                )
+                if isinstance(v, list)
+                else v
             )
-            sub.columns = [col] * sub.shape[1]
-            parts.append(sub)
-        else:
-            parts.append(df[[col]])
+        )
 
-    out = pd.concat(parts, axis=1)
+    if rename_map:
+        out = out.rename(columns=rename_map)
+
     # clean the output (not the original df)
     out = out.map(lambda x: x.strip() if isinstance(x, str) else x)
     out = out.replace(r"^\s*$", "", regex=True).fillna("")
@@ -211,6 +226,9 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
         This is done only because people do not want to use the
         IRIs directly but prefer to use rdfs:label
         """
+        if isinstance(val, list):
+            return [process_value(v) for v in val]
+
         if not isinstance(val, str):
             return val
 
@@ -310,9 +328,14 @@ def correct_pink_dataframes(df, ontology):
 
     # Change possible lists to lists
     for col in set(list_columns).intersection(df.columns):
+        if col in NON_LIST_COLUMNS:
+            continue
         print(col)
         df[col] = df[col].apply(split_to_list)
+
+    # Resolve URI-like terms before list serialization so list elements
+    # are handled one-by-one.
+    df = check_for_uris(df, ontology)
     expanded_df = expand_df(df)
-    expanded_df = check_for_uris(expanded_df, ontology)
 
     return expanded_df
