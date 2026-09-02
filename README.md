@@ -8,14 +8,11 @@ In the SSbD Core ontology repository, [a general introduction](https://ssbd-onto
 This includes the [expected annotations](https://ssbd-ontology.github.io/core/docs/document-your-data.html#expected-minimum-annotations-by-resource-type), 
 chosen within the PINK project. Please refer to that documentation for guidance.
 
-
 ## Project-wide resources
 
 Some resources are projectwide. One example are the agents, i.e. people and organisations that 
 prepare and own data etc. These are contained in the script file 
 `project_wide_resources/agents.csv`. Please update this file as needed.
-
-
 
 ## Example Spreadsheets (CSV)
 

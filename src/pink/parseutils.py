@@ -49,7 +49,7 @@ list_columns: list[str] = [
     *_TERMDEFS.loc[
         _TERMDEFS["SingleValue"] == False, "Tripper_keyword"
     ].tolist(),
-]
+
 
 NON_LIST_COLUMNS = {
     "@id",
@@ -57,6 +57,7 @@ NON_LIST_COLUMNS = {
     "distribution.accessURL",
     "distribution.downloadURL",
 }
+
 
 property_iri_dict: dict[str, str] = {
     prop: iri
@@ -226,6 +227,7 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
         This is done only because people do not want to use the
         IRIs directly but prefer to use rdfs:label
         """
+
         if isinstance(val, list):
             return [process_value(v) for v in val]
 
