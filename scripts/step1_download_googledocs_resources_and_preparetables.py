@@ -22,8 +22,8 @@ from tripper.datadoc import (
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 
-from parseutils import PREFIXES as prefixes
-from parseutils import (
+from pink.parseutils import PREFIXES as prefixes
+from pink.parseutils import (
     convert_to_iri,
     correct_pink_dataframes,
     merge_columns,

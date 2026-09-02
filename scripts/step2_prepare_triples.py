@@ -24,7 +24,7 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 # pylint: disable=wrong-import-position,import-error
 from validation.validate import load_shapes, shacl_validate
 
-from parseutils import (
+from pink.parseutils import (
     PREFIXES as prefixes,
 )
 
@@ -99,11 +99,11 @@ if conforms:
     print("Validation passed")
     print("unfortunately direct pushing is no longer possible")
     print("making a jsonld from my graph")
-    ts.serialize("graphs/googlespreadsheet_resources.ttl", format="turtle")
+    ts.serialize("googlespreadsheet_resources.ttl", format="turtle")
     
 
     # Store the jsonlds for joh
-    with open('jsonld/pink_googlespreadsheet_resources.jsonld', 'wt') as f: 
+    with open('pink_googlespreadsheet_resources.jsonld', 'wt') as f: 
         json.dump(jsonld, f, indent=2)
 
 
