@@ -15,38 +15,33 @@ from pathlib import Path
 
 from tripper import Triplestore
 from tripper.datadoc import get_context, store
-
-# from tripper.datadoc.dataset import update_context
 from tripper.datadoc.tabledoc import TableDoc
-
-sys.path.append(str(Path(__file__).resolve().parents[1]))
-
-# pylint: disable=wrong-import-position,import-error
-from validation.validate import load_shapes, shacl_validate
-
 from pink.parseutils import (
     PREFIXES as prefixes,
 )
+from pink.pinkkb import pinkkb_classes
 
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+# pylint: disable=wrong-import-position,import-error
+from validation.validate import load_shapes, shacl_validate
 
+# SSbD core context
 context = get_context(
     "https://w3id.org/ssbd/context/", theme=None
 )
 
-# NB! This is the context created from the SSbD core ontology
-# If ontology classes that are not in this ontology are
-# referenced in the reosurces, they must be added to the 
-# context. This can be done with e.g.
-# update_context(clases, context) where classes is
-# a dict of list of dicts with classes defined. 
+# Add classes that alreadt exist in the PINKKB
+classes = pinkkb_classes()
+
+context.add_context(classes)
 
 
+# Parse the tables.
 datasettypedocumentation = TableDoc.parse_csv(
     "datasettypes_clean.csv",
     context=context,
     prefixes=prefixes,
 )
-
 
 swdocumentation = TableDoc.parse_csv(
     "sw_clean.csv",
@@ -97,7 +92,7 @@ if not conforms:
 
 if conforms:
     print("Validation passed")
-    print("unfortunately direct pushing is no longer possible")
+    print("Direct pushing is not possible")
     print("making a jsonld from my graph")
     ts.serialize("googlespreadsheet_resources.ttl", format="turtle")
     
@@ -105,23 +100,4 @@ if conforms:
     # Store the jsonlds for joh
     with open('pink_googlespreadsheet_resources.jsonld', 'wt') as f: 
         json.dump(jsonld, f, indent=2)
-
-
-
-    # Connect to PINK KB
-    #username = keyring.get_password("PINK_graphdb", "username")
-    #password = keyring.get_password("PINK_graphdb", "password")
-
-    #kb = Triplestore(
-    #    backend="sparqlwrapper", 
-    #    base_iri="https://graphdb.pink-project.eu/repositories/testing", 
-    #    username=username, 
-    #    password=password, 
-    #    update_iri="https://graphdb.pink-project.eu/repositories/testing/statements",
-    #    )
-    #for s, p, o in ts.triples():
-    #    kb.add((s, p, o))
-
-    #print(search(kb))
-
 
