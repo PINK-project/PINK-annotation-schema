@@ -25,7 +25,6 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 # pylint: disable=wrong-import-position,import-error
 from validation.validate import load_shapes, shacl_validate
 
-
 # SSbD core context
 context = get_context(
     "https://w3id.org/ssbd/context/", theme=None
