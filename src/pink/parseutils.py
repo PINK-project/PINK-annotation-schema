@@ -26,6 +26,9 @@ PREFIXES: dict[str, str] = {
     "qsar": "https://pink-project.eu/qsar/",
     "pink": "https://pink-project.eu/",
     "pinkag": "https://pink-project.eu/agent/",
+    "pinksw": "https://pink-project.eu/sw/",
+    "pinkds": "https://pink-project.eu/dataset/",
+    "pinkonto": "https://pink-project.eu/onto/",
     "empa": "https://empa.ch/",
     "empadm": "https://empa.ch/datamodel/",
     "oboowl": "http://www.geneontology.org/formats/oboInOwl#",
@@ -199,9 +202,9 @@ def expand_df(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
+def check_for_uris(df: pd.DataFrame, ontology, context) -> pd.DataFrame:
     """
-    Check all values in the dataframe.
+    Check values in columns that expect an identifier.
     If they are a URI (starting with http://, https://, or prefix:),
     check that they exist in the ontology. If so, replace with the IRI.
     """
@@ -274,11 +277,29 @@ def check_for_uris(df: pd.DataFrame, ontology) -> pd.DataFrame:
             return val
         return val
 
-    df = df.map(process_value)
+    def expects_identifier(column) -> bool:
+        if column == "@id":
+            return True
+        context_column = column
+        if isinstance(column, str) and "." in column:
+            context_column = column.rsplit(".", 1)[-1]
+
+        try:
+            if context.isref(context_column):
+                return True
+            definition = context.getdef(context_column)
+        except (KeyError, ValueError, TypeError):
+            return False
+
+        return definition.get("@type") in {"@id", "xsd:anyURI"}
+
+    id_columns = [column for column in df.columns if expects_identifier(column)]
+    df = df.copy()
+    df[id_columns] = df[id_columns].map(process_value)
     return df
 
 
-def correct_pink_dataframes(df, ontology):
+def correct_pink_dataframes(df, ontology, context):
     """
     Correct the pink dataframes by:
     - Adding prefixes to values in certain columns
@@ -337,7 +358,7 @@ def correct_pink_dataframes(df, ontology):
 
     # Resolve URI-like terms before list serialization so list elements
     # are handled one-by-one.
-    df = check_for_uris(df, ontology)
+    df = check_for_uris(df, ontology, context)
     expanded_df = expand_df(df)
 
     return expanded_df

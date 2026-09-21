@@ -87,7 +87,6 @@ def convert_id_to_iri(value):
             return value.replace(prefix + ":", iri)
     return value
 
-
 datamodels["@id"] = datamodels["@id"].apply(convert_id_to_iri)
 
 
@@ -151,7 +150,7 @@ if "indicator" in sw.columns:
 
 sw["@type"] = "pink:Software"
 
-expanded_sw = correct_pink_dataframes(sw, onto)
+expanded_sw = correct_pink_dataframes(sw, onto, context)
 # A bit cumbersome to write file, I am sure there are better ways
 
 expanded_sw.to_csv("sw_clean.csv", index=False)
@@ -164,10 +163,22 @@ expanded_sw.to_csv("sw_clean.csv", index=False)
 # NB! ordering in dataframe cannot have changed!
 comp["hasSoftware"] = expanded_sw["@id"]
 
+
 # Create a unique id (@id) for each activity in the comp dspreadsheet
-comp["@id"] = comp.apply(
-    lambda row: f"https://w3id.org/pink/activity/activity{row.name}", axis=1
+# Rules:  pinksw changes to pinkonto prefix
+# The name in the IRI (last values after /) is converted to activity_{name}
+# If it is not a valid iri just add activity_ in front.
+
+values = comp["hasSoftware"].astype(str).str.replace(
+    r"^pinksw:", "pinkonto:", regex=True
 )
+
+comp["@id"] = values.str.replace(
+    r"([^/:]+)$", r"activity_\1", regex=True
+)
+
+
+
 # Add a column that defines that each activity is a prov:Activity and pink:Computation
 # Reasoning tells us that a pink:Computation is a prov:Activity, but we add both for easier
 # querying and to avoid relying on reasoning in the triplestore.
@@ -186,7 +197,7 @@ comp.drop(
     inplace=True,
 )
 
-expanded_comp = correct_pink_dataframes(comp, onto)
+expanded_comp = correct_pink_dataframes(comp, onto, context)
 expanded_comp.to_csv("comp_clean.csv", index=False)
 
 # Datasettype
@@ -195,5 +206,5 @@ print("PREPARING DATASETTYPE DOCUMENTATION")
 datasettypes["@type"] = [["owl:Class"]] * len(datasettypes)
 
 datasettypes = datasettypes.drop(columns=["indicator"])
-expanded_datasettypes = correct_pink_dataframes(datasettypes, onto)
+expanded_datasettypes = correct_pink_dataframes(datasettypes, onto, context)
 expanded_datasettypes.to_csv("datasettypes_clean.csv", index=False)
