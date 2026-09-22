@@ -150,7 +150,7 @@ if "indicator" in sw.columns:
 
 sw["@type"] = "pink:Software"
 
-expanded_sw = correct_pink_dataframes(sw, onto, context)
+expanded_sw = correct_pink_dataframes(sw, onto, context, verbose=False)
 # A bit cumbersome to write file, I am sure there are better ways
 
 expanded_sw.to_csv("sw_clean.csv", index=False)
@@ -197,7 +197,7 @@ comp.drop(
     inplace=True,
 )
 
-expanded_comp = correct_pink_dataframes(comp, onto, context)
+expanded_comp = correct_pink_dataframes(comp, onto, context, verbose=False)
 expanded_comp.to_csv("comp_clean.csv", index=False)
 
 # Datasettype
@@ -206,5 +206,5 @@ print("PREPARING DATASETTYPE DOCUMENTATION")
 datasettypes["@type"] = [["owl:Class"]] * len(datasettypes)
 
 datasettypes = datasettypes.drop(columns=["indicator"])
-expanded_datasettypes = correct_pink_dataframes(datasettypes, onto, context)
+expanded_datasettypes = correct_pink_dataframes(datasettypes, onto, context, verbose=False)
 expanded_datasettypes.to_csv("datasettypes_clean.csv", index=False)

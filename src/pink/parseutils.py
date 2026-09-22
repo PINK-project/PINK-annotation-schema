@@ -160,7 +160,7 @@ def split_to_list(value):
     return cleaned
 
 
-def expand_df(df: pd.DataFrame) -> pd.DataFrame:
+def expand_df(df: pd.DataFrame, verbose=False) -> pd.DataFrame:
     """
     Normalize list-valued columns for CSV export.
 
@@ -175,8 +175,8 @@ def expand_df(df: pd.DataFrame) -> pd.DataFrame:
         is_list_col = out[col].apply(lambda v: isinstance(v, list)).any()
         if not is_list_col:
             continue
-
-        print("column", col, "is a list column")
+        if verbose:
+            print("column", col, "is a list column")
         if not col.endswith("[?sep=;]"):
             rename_map[col] = f"{col}[?sep=;]"
 
@@ -202,7 +202,7 @@ def expand_df(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def check_for_uris(df: pd.DataFrame, ontology, context) -> pd.DataFrame:
+def check_for_uris(df: pd.DataFrame, ontology, context, verbose=False) -> pd.DataFrame:
     """
     Check values in columns that expect an identifier.
     If they are a URI (starting with http://, https://, or prefix:),
@@ -223,7 +223,7 @@ def check_for_uris(df: pd.DataFrame, ontology, context) -> pd.DataFrame:
         # Preserve order while removing duplicates.
         return list(dict.fromkeys(candidates))
 
-    def process_value(val):
+    def process_value(val, verbose=False):
         """
         Do the analysis of the value to find if it corresponds to an IRI
         in the ontology.
@@ -232,7 +232,7 @@ def check_for_uris(df: pd.DataFrame, ontology, context) -> pd.DataFrame:
         """
 
         if isinstance(val, list):
-            return [process_value(v) for v in val]
+            return [process_value(v, verbose=verbose) for v in val]
 
         if not isinstance(val, str):
             return val
@@ -263,7 +263,8 @@ def check_for_uris(df: pd.DataFrame, ontology, context) -> pd.DataFrame:
             for candidate in case_variations(lookup_val.strip()):
                 try:
                     term = ontology.get_by_label(candidate)
-                    print(f"Replacing {val} with IRI: {term.iri}")
+                    if verbose:
+                        print(f"Replacing {val} with IRI: {term.iri}")
                     return term.iri
                 except (NoSuchLabelError, AttributeError):
                     pass
@@ -277,7 +278,7 @@ def check_for_uris(df: pd.DataFrame, ontology, context) -> pd.DataFrame:
             return val
         return val
 
-    def expects_identifier(column) -> bool:
+    def expects_identifier(column, verbose=False) -> bool:
         if column == "@id":
             return True
         context_column = column
@@ -293,13 +294,16 @@ def check_for_uris(df: pd.DataFrame, ontology, context) -> pd.DataFrame:
 
         return definition.get("@type") in {"@id", "xsd:anyURI"}
 
-    id_columns = [column for column in df.columns if expects_identifier(column)]
+    id_columns = [column for column in df.columns if expects_identifier(column, verbose=verbose)]
     df = df.copy()
-    df[id_columns] = df[id_columns].map(process_value)
+    df[id_columns] = df[id_columns].map(
+        lambda value: process_value(value, verbose=verbose)
+    )
+
     return df
 
 
-def correct_pink_dataframes(df, ontology, context):
+def correct_pink_dataframes(df, ontology, context, verbose=False):
     """
     Correct the pink dataframes by:
     - Adding prefixes to values in certain columns
@@ -353,12 +357,11 @@ def correct_pink_dataframes(df, ontology, context):
     for col in set(list_columns).intersection(df.columns):
         if col in NON_LIST_COLUMNS:
             continue
-        print(col)
         df[col] = df[col].apply(split_to_list)
 
     # Resolve URI-like terms before list serialization so list elements
     # are handled one-by-one.
     df = check_for_uris(df, ontology, context)
-    expanded_df = expand_df(df)
+    expanded_df = expand_df(df, verbose=verbose)
 
     return expanded_df
