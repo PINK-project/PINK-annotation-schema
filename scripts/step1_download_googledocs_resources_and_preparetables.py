@@ -35,21 +35,20 @@ onto = get_ontology(
     "https://ssbd-ontology.github.io/core/core-inferred.ttl"
 ).load()
 
+googleurl="https://docs.google.com/spreadsheets/d/1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&"
+ 
+
 # Get data from Google Sheets
 # Software documentation
 SW_URL = (
-    "https://docs.google.com/spreadsheets/d/"
-    "1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&"
-    "gid=1707023773"
+    googleurl+"gid=1707023773"
 )
 
 sw = pd.read_csv(SW_URL).loc[:, lambda df: ~df.columns.str.startswith("Unnamed:")]
 
 # Dataset documentation
 DATASETTYPE_URL = (
-    "https://docs.google.com/spreadsheets/d/"
-    "1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&"
-    "gid=1581267372"
+    googleurl+"gid=1581267372"
 )
 
 datasettypes = pd.read_csv(DATASETTYPE_URL).loc[:, lambda df: ~df.columns.str.startswith("Unnamed:")]
