@@ -39,7 +39,7 @@ onto = get_ontology(
 # Software documentation
 SW_URL = (
     "https://docs.google.com/spreadsheets/d/"
-    "1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&"
+    "10mL8NEUN1oCV8NTZ8cMaX8nJ3Jsh-lm6VwVDBL87y-w/export?format=csv&"
     "gid=1707023773"
 )
 
@@ -48,7 +48,7 @@ sw = pd.read_csv(SW_URL).loc[:, lambda df: ~df.columns.str.startswith("Unnamed:"
 # Dataset documentation
 DATASETTYPE_URL = (
     "https://docs.google.com/spreadsheets/d/"
-    "1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&"
+    "10mL8NEUN1oCV8NTZ8cMaX8nJ3Jsh-lm6VwVDBL87y-w/export?format=csv&"
     "gid=1581267372"
 )
 
