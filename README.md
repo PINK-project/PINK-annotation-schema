@@ -8,6 +8,13 @@ In the SSbD Core ontology repository, [a general introduction](https://ssbd-onto
 This includes the [expected annotations](https://ssbd-ontology.github.io/core/docs/document-your-data.html#expected-minimum-annotations-by-resource-type), 
 chosen within the PINK project. Please refer to that documentation for guidance.
 
+
+This repository contains some utility functions that need to be installed. You can do this with
+```bash
+pip install .
+```
+Users are expected to be familiar with python (and python environments)
+
 ## Project-wide resources
 
 Some resources are projectwide. One example are the agents, i.e. people and organisations that 
@@ -108,6 +115,22 @@ python scripts/step2_prepare_triples.py
 - Requires the SSBD core ontology context (which it pulls from the web)
 - If new ontology classes are used, they must be added to the context configuration
 - Validates against SHACL shape definitions in the `validation/` directory
+
+NB! This script fetches classes from the PINKKB. In order to run it you
+must make a ~/.config/tripper/session.yaml file with the information
+about the PINKKB.
+
+example:
+```
+PINKKB:
+  backend: sparqlwrapper
+  base_iri: https://graphdb.pink-project.eu/repositories/pinkish
+  update_iri: https://graphdb.pink-project.eu/repositories/pinkish/statements
+  username: you pink kb username
+  password: KEYRING
+```
+You can also add the password in plain text, but that is not preferred.
+
 
 ---
 

@@ -58,7 +58,7 @@ agents["@type"] = [["prov:Agent"]] * len(agents)
 agents = agents.drop(columns=["e-mail", "affiliation.name", "affiliation.id"])
 #agents = agents[~agents["identifier"].isin(ts.subjects())]
 
-agents_corrected = correct_pink_dataframes(agents, onto)
+agents_corrected = correct_pink_dataframes(agents, onto, context)
 agents_corrected.to_csv("agents_clean.csv", index=False)
 agentdocumentation = TableDoc.parse_csv(
     "agents_clean.csv",
