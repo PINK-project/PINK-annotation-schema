@@ -2,10 +2,10 @@
 Script used to parse the google spreadsheet used by the
 model and dataset providers for documentation.
 
-This script reads the cleaned csv files from the previous step 
-and converts them to RDF triples using the TableDoc class 
-from the tripper library. 
-It then validates the generated RDF against SHACL shapes and 
+This script reads the cleaned csv files from the previous step
+and converts them to RDF triples using the TableDoc class
+from the tripper library.
+It then validates the generated RDF against SHACL shapes and
 saves the valid triples to a jsonlid file for later upload to the PINK KB.
 """
 
@@ -51,8 +51,8 @@ swdocumentation = TableDoc.parse_csv(
 
 
 compdocumentation = TableDoc.parse_csv(
-    "comp_clean.csv", 
-    context=context, 
+    "comp_clean.csv",
+    context=context,
     prefixes=prefixes
 )
 
@@ -66,7 +66,7 @@ ts = Triplestore("rdflib")
 jsonld = store(ts, resources, context=context, prefixes=prefixes)
 
 
-# Get absolute current path to get the validation tool 
+# Get absolute current path to get the validation tool
 # This will change once the validation is made available
 # as a package
 root_path = Path(__file__).parent.parent.resolve()
@@ -77,7 +77,7 @@ shacl_graph = load_shapes("https://raw.githubusercontent.com/ssbd-ontology/core/
 shacl_graph.parse("https://raw.githubusercontent.com/ssbd-ontology/core/refs/heads/gh-pages/shacl/shapes-ssbd.ttl", format="turtle")
 
 
-# Check validity of graph 
+# Check validity of graph
 conforms, results_graph, report = shacl_validate(
     data_graph=ts.backend.graph,
     shacl_graph=shacl_graph,
@@ -94,10 +94,9 @@ if conforms:
     print("Validation passed")
     print("Direct pushing is not possible")
     print("making a jsonld from my graph")
-    ts.serialize("googlespreadsheet_resources.ttl", format="turtle")
-    
+    ts.serialize("pink_googlespreadsheet_resources.ttl", format="turtle")
+
 
     # Store the jsonlds for joh
-    with open('pink_googlespreadsheet_resources.jsonld', 'wt') as f: 
+    with open('pink_googlespreadsheet_resources.jsonld', 'wt') as f:
         json.dump(jsonld, f, indent=2)
-
