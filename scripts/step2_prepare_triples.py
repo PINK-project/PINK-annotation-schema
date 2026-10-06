@@ -2,10 +2,10 @@
 Script used to parse the google spreadsheet used by the
 model and dataset providers for documentation.
 
-This script reads the cleaned csv files from the previous step 
-and converts them to RDF triples using the TableDoc class 
-from the tripper library. 
-It then validates the generated RDF against SHACL shapes and 
+This script reads the cleaned csv files from the previous step
+and converts them to RDF triples using the TableDoc class
+from the tripper library.
+It then validates the generated RDF against SHACL shapes and
 saves the valid triples to a jsonlid file for later upload to the PINK KB.
 """
 
@@ -15,38 +15,33 @@ from pathlib import Path
 
 from tripper import Triplestore
 from tripper.datadoc import get_context, store
-
-# from tripper.datadoc.dataset import update_context
 from tripper.datadoc.tabledoc import TableDoc
-
-sys.path.append(str(Path(__file__).resolve().parents[1]))
-
-# pylint: disable=wrong-import-position,import-error
-from validation.validate import load_shapes, shacl_validate
-
 from pink.parseutils import (
     PREFIXES as prefixes,
 )
+from pink.pinkkb import pinkkb_classes
 
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+# pylint: disable=wrong-import-position,import-error
+from validation.validate import load_shapes, shacl_validate
 
+# SSbD core context
 context = get_context(
     "https://w3id.org/ssbd/context/", theme=None
 )
 
-# NB! This is the context created from the SSbD core ontology
-# If ontology classes that are not in this ontology are
-# referenced in the reosurces, they must be added to the 
-# context. This can be done with e.g.
-# update_context(clases, context) where classes is
-# a dict of list of dicts with classes defined. 
+# Add classes that alreadt exist in the PINKKB
+classes = pinkkb_classes()
+
+context.add_context(classes)
 
 
+# Parse the tables.
 datasettypedocumentation = TableDoc.parse_csv(
     "datasettypes_clean.csv",
     context=context,
     prefixes=prefixes,
 )
-
 
 swdocumentation = TableDoc.parse_csv(
     "sw_clean.csv",
@@ -56,8 +51,8 @@ swdocumentation = TableDoc.parse_csv(
 
 
 compdocumentation = TableDoc.parse_csv(
-    "comp_clean.csv", 
-    context=context, 
+    "comp_clean.csv",
+    context=context,
     prefixes=prefixes
 )
 
@@ -71,7 +66,7 @@ ts = Triplestore("rdflib")
 jsonld = store(ts, resources, context=context, prefixes=prefixes)
 
 
-# Get absolute current path to get the validation tool 
+# Get absolute current path to get the validation tool
 # This will change once the validation is made available
 # as a package
 root_path = Path(__file__).parent.parent.resolve()
@@ -82,7 +77,7 @@ shacl_graph = load_shapes("https://raw.githubusercontent.com/ssbd-ontology/core/
 shacl_graph.parse("https://raw.githubusercontent.com/ssbd-ontology/core/refs/heads/gh-pages/shacl/shapes-ssbd.ttl", format="turtle")
 
 
-# Check validity of graph 
+# Check validity of graph
 conforms, results_graph, report = shacl_validate(
     data_graph=ts.backend.graph,
     shacl_graph=shacl_graph,
@@ -97,31 +92,11 @@ if not conforms:
 
 if conforms:
     print("Validation passed")
-    print("unfortunately direct pushing is no longer possible")
+    print("Direct pushing is not possible")
     print("making a jsonld from my graph")
-    ts.serialize("googlespreadsheet_resources.ttl", format="turtle")
-    
+    ts.serialize("pink_googlespreadsheet_resources.ttl", format="turtle")
+
 
     # Store the jsonlds for joh
-    with open('pink_googlespreadsheet_resources.jsonld', 'wt') as f: 
+    with open('pink_googlespreadsheet_resources.jsonld', 'wt') as f:
         json.dump(jsonld, f, indent=2)
-
-
-
-    # Connect to PINK KB
-    #username = keyring.get_password("PINK_graphdb", "username")
-    #password = keyring.get_password("PINK_graphdb", "password")
-
-    #kb = Triplestore(
-    #    backend="sparqlwrapper", 
-    #    base_iri="https://graphdb.pink-project.eu/repositories/testing", 
-    #    username=username, 
-    #    password=password, 
-    #    update_iri="https://graphdb.pink-project.eu/repositories/testing/statements",
-    #    )
-    #for s, p, o in ts.triples():
-    #    kb.add((s, p, o))
-
-    #print(search(kb))
-
-

@@ -1,17 +1,24 @@
 # PINK Annotation Schema
 
-This repository is intended for usage of the SSBD ontology to document resources within in the PINK project, 
+This repository is intended for usage of the SSBD ontology to document resources within in the PINK project,
 including practical examples.
 For the legacy content see below.
 
 In the SSbD Core ontology repository, [a general introduction](https://ssbd-ontology.github.io/core/docs/document-your-data.html) to documenting resources is provided.
-This includes the [expected annotations](https://ssbd-ontology.github.io/core/docs/document-your-data.html#expected-minimum-annotations-by-resource-type), 
+This includes the [expected annotations](https://ssbd-ontology.github.io/core/docs/document-your-data.html#expected-minimum-annotations-by-resource-type),
 chosen within the PINK project. Please refer to that documentation for guidance.
+
+
+This repository contains some utility functions that need to be installed. You can do this with
+```bash
+pip install .
+```
+Users are expected to be familiar with python (and python environments)
 
 ## Project-wide resources
 
-Some resources are projectwide. One example are the agents, i.e. people and organisations that 
-prepare and own data etc. These are contained in the script file 
+Some resources are projectwide. One example are the agents, i.e. people and organisations that
+prepare and own data etc. These are contained in the script file
 `project_wide_resources/agents.csv`. Please update this file as needed.
 
 ## Example Spreadsheets (CSV)
@@ -27,8 +34,8 @@ Notes:
 - Multi-valued properties from the source sheets (for example repeated `keyword`, `chemicalClass`, `hasInput`, `hasOutput`, `subClassOf`) are represented as semicolon-separated values in a single column in these examples.
 - When documenting computation types, it is expected that which SSbD Assessemnts (check SSbD Core Ontology) they are subclasses of.
 
-Tripper provides a nice tool to populate a triplestore called 'datadoc'. 
-While it is not possible to se this directly with the PINK KB, currently, it is nice to 
+Tripper provides a nice tool to populate a triplestore called 'datadoc'.
+While it is not possible to se this directly with the PINK KB, currently, it is nice to
 use it to generate a rdf-representation, serialised in turtle that can be uploaded to the PINK KB.
 
 This can be done with `datadoc add software_release_example.csv --context=https://w3id.org/ssbd/context/ --dump=kb.ttl`
@@ -60,7 +67,7 @@ pip install .
 
 
 
-This repository contains several scripts for generating and parsing resources documented in the 
+This repository contains several scripts for generating and parsing resources documented in the
 Google Spreadsheets within the PINK project. Below is a description of each script and how to use them:
 
 ### 1. **step1_download_googledocs_resources_and_preparetables.py**
@@ -108,6 +115,22 @@ python scripts/step2_prepare_triples.py
 - Requires the SSBD core ontology context (which it pulls from the web)
 - If new ontology classes are used, they must be added to the context configuration
 - Validates against SHACL shape definitions in the `validation/` directory
+
+NB! This script fetches classes from the PINKKB. In order to run it you
+must make a ~/.config/tripper/session.yaml file with the information
+about the PINKKB.
+
+example:
+```
+PINKKB:
+  backend: sparqlwrapper
+  base_iri: https://graphdb.pink-project.eu/repositories/pinkish
+  update_iri: https://graphdb.pink-project.eu/repositories/pinkish/statements
+  username: you pink kb username
+  password: KEYRING
+```
+You can also add the password in plain text, but that is not preferred.
+
 
 ---
 
@@ -197,4 +220,3 @@ The PINK Annotation Schema has been renamed and is now maintained as the SSBD Co
 - GitHub repository: https://github.com/ssbd-ontology/core
 
 For ontology development, authoritative classes/properties, and ongoing updates, use the SSBD Ontology Core repository.
-
