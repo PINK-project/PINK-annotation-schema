@@ -77,7 +77,7 @@ def create_know_datatype_table():
                ['inTierLevel', 'List[SSbDclass]', 'recommended'], # should become mandatory
                ['SSbD Assessment level 1', 'SSbDclass', 'mandatory'],
                ['SSbD Assessment level 2', 'List[SSbDclass]', 'recommended'],
-               ['SSbD Assessment level 3', 'List[SSbDclass]', 'optional'],
+               ['SSbD Assessment level 3', 'List[SSbDclass]', 'recommended'],
                ['documentation', 'IRI', 'optional'],
                ['accessURL', 'IRI', 'optional'],
                ['downloadURL', 'IRI', 'optional'],
@@ -650,6 +650,8 @@ def main():
     software_table['type'] = software_table['type'].apply(lambda x: "Error" if "Error" in x else "")
     clean = software_table[software_table['type'] != "Error"]
     failed = software_table[software_table['type'] == "Error"]
+
+    clean = clean.map(lambda x: ', '.join(str(y) for y in x) if isinstance(x, list) else x)
 
     error_table = error_table.merge(software_table['identifier'], how="left", left_on="row", right_index=True)
     error_table.insert(1, "identifer", error_table.pop("identifier"))
