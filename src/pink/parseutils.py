@@ -9,6 +9,7 @@ from pathlib import Path
 import dateutil
 import pandas as pd
 from ontopy.exceptions import NoSuchLabelError
+from tripper.errors import NamespaceError
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
@@ -38,6 +39,7 @@ PREFIXES: dict[str, str] = {
     "omics": "http://pink-project.eu/omics/",
     "ssbd": "https://w3id.org/ssbd/",
     "owl": "http://www.w3.org/2002/07/owl#",
+    "dcat": "http://www.w3.org/ns/dcat#",
 }
 
 
@@ -289,7 +291,7 @@ def check_for_uris(df: pd.DataFrame, ontology, context, verbose=False) -> pd.Dat
             if context.isref(context_column):
                 return True
             definition = context.getdef(context_column)
-        except (KeyError, ValueError, TypeError):
+        except (KeyError, ValueError, TypeError, NamespaceError):
             return False
 
         return definition.get("@type") in {"@id", "xsd:anyURI"}
