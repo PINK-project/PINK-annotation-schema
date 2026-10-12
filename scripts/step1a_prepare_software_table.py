@@ -81,8 +81,9 @@ def create_know_datatype_table():
                ['documentation', 'IRI', 'optional'],
                ['accessURL', 'IRI', 'optional'],
                ['downloadURL', 'IRI', 'optional'],
-               ['modelType', 'List[SSbDinstance]', 'optional'],
+               ['modelType', 'List[SSbDclass]', 'optional'],
                ['hasAPI', 'boolean', 'mandatory'],
+               ['APIUUID', 'string', 'optional'],
                ['hasGUI', 'boolean', 'mandatory'],
                ['accessRights', 'IRI', 'mandatory'],
                ['rightsHolder', 'List[OrgIRI]', 'optional'],
@@ -349,9 +350,12 @@ def retrieve_IRI_from_ontology(column, column_name, ontology, prefixes, error_ta
                     new_value.append(new_v)
                 else:
                     if any(iter(map(v.startswith, prefixes)))==True:
-                        error_table = add_error(error_table, i, column_name, "Warning", f'Term {v} was not found in ontology.')
+                        error_table = add_error(error_table, i, column_name, "Error", f'Term {v} was not found in ontology.')
                     else:
-                        error_table = add_error(error_table, i, column_name, "Warning", f'Prefix of {v} is not part of ontology.')
+                        if (":" in v):
+                            error_table = add_error(error_table, i, column_name, "Warning", f'Prefix of {v} is not part of ontology.')
+                        else:
+                            error_table = add_error(error_table, i, column_name, "Error", f'Term {v} is not in the ontology and not an IRI.')
                     new_value.append(v)
             column[i] = new_value
         else:
@@ -362,9 +366,12 @@ def retrieve_IRI_from_ontology(column, column_name, ontology, prefixes, error_ta
                 column[i] = new_v
             else:
                 if any(iter(map(value.startswith, prefixes)))==True:
-                    error_table = add_error(error_table, i, column_name, "Warning", f'Term {value} was not found in ontology.')
+                    error_table = add_error(error_table, i, column_name, "Error", f'Term {value} was not found in ontology.')
                 else:
-                    error_table = add_error(error_table, i, column_name, "Warning", f'Prefix of {value} is not part of ontology.')
+                    if (":" in value):
+                        error_table = add_error(error_table, i, column_name, "Warning", f'Prefix of {value} is not part of ontology.')
+                    else:
+                        error_table = add_error(error_table, i, column_name, "Error", f'Term {value} is not in the ontology and not an IRI.')
                 column[i] = value
 
     return(column, error_table)
@@ -498,7 +505,7 @@ def main():
             print(f"\nError reading Excel file: {e}\n")
             return
 
-#    software_table = software_table.head(2)  # Limit to first X rows for testing purposes, remove this line for full processing
+    software_table = software_table.head(20)  # Limit to first X rows for testing purposes, remove this line for full processing
 
     try:
         ssbd = ontopy.get_ontology("https://ssbd-ontology.github.io/core/core-inferred.ttl").load()
@@ -651,7 +658,15 @@ def main():
     clean = software_table[software_table['type'] != "Error"]
     failed = software_table[software_table['type'] == "Error"]
 
+
+    # temporary fix for preparing input to Francesca's step1
     clean = clean.map(lambda x: ', '.join(str(y) for y in x) if isinstance(x, list) else x)
+    clean = clean.map(lambda x: str(x))
+    clean = clean.map(lambda x: x.replace('nan', ''))
+    clean = clean.map(lambda x: x.replace('NaT', ''))
+    clean = clean.map(lambda x: x.replace('<NA>', ''))
+    clean = clean[profile_table['column_name'].tolist()+['type']]
+    # end of fix
 
     error_table = error_table.merge(software_table['identifier'], how="left", left_on="row", right_index=True)
     error_table.insert(1, "identifer", error_table.pop("identifier"))
@@ -673,8 +688,8 @@ def main():
         warnings.to_excel(writer, sheet_name="Warnings", index=False, best_fit=warnings.columns.tolist())
         info.to_excel(writer, sheet_name="Information", index=False, best_fit=info.columns.tolist())
 
-    clean.drop('type', axis=1).to_csv(args.output_file)
-    failed.drop('type', axis=1).to_csv(args.failed_file)
+    clean.drop('type', axis=1).to_csv(args.output_file, index=False)
+    failed.drop('type', axis=1).to_csv(args.failed_file, index=False)
     return
 
  
