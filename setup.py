@@ -17,7 +17,10 @@ requirements = [
 setup(
     name="pink-annotation-schema",
     version="0.2",
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
+    packages=find_packages(where="src") + ["validation"],
+    package_dir={"": "src", "validation": "validation"},
+    entry_points={
+        "console_scripts": ["generate-graph=pink.generate_graph:main"]
+    },
     install_requires=requirements,
 )

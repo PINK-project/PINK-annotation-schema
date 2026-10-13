@@ -35,8 +35,10 @@ onto = get_ontology(
     "https://ssbd-ontology.github.io/core/core-inferred.ttl"
 ).load()
 
-googleurl="https://docs.google.com/spreadsheets/d/18UqWYfq6AQMv7ZV-pcZJWc9yAr6VBoXarhxatwBxIWA/export?format=csv&"
- 
+# Philipps spreadsheets
+#googleurl="https://docs.google.com/spreadsheets/d/18UqWYfq6AQMv7ZV-pcZJWc9yAr6VBoXarhxatwBxIWA/export?format=csv&"
+# KI spreadsheets
+googleurl="https://docs.google.com/spreadsheets/d/1ENcdSmaOwC3xFlOLnVgUrWP4dnTvezzWZzYxM9jMzDs/export?format=csv&" 
 
 # Get data from Google Sheets
 # Software documentation
