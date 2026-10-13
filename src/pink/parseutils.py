@@ -39,6 +39,7 @@ PREFIXES: dict[str, str] = {
     "omics": "http://pink-project.eu/omics/",
     "ssbd": "https://w3id.org/ssbd/",
     "owl": "http://www.w3.org/2002/07/owl#",
+    "dcat": "http://www.w3.org/ns/dcat#",
 }
 
 
