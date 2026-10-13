@@ -93,14 +93,14 @@ python scripts/step1_download_googledocs_resources_and_preparetables.py
 
 ---
 
-### 2. **step2_prepare_triples.py**
+### 2. Prepare the graph for uploading to PINKKB
 
 **Purpose:** Converts cleaned tables defining documented resources to RDF triples.
 It also validates and saves the generated rdf triples serialized to turtle format.
 
 **Usage:**
 ```bash
-python scripts/step2_prepare_triples.py
+generate-graph datasettypes_clean.csv sw_clean.csv comp_clean.csv -o graph.ttl
 ```
 
 **What it does:**
@@ -109,9 +109,11 @@ python scripts/step2_prepare_triples.py
 - Validates the generated RDF against SHACL shapes
 
 **Output files:**
-- `pink_googlespreadsheet_resources.ttl` - Validated RDF data in Turtle format
+- `graph.ttl` - Validated RDF data in Turtle format 
 
 **Notes:**
+- Other cleaned csv's can be specified.
+- The output graph filename can be changed at will.
 - Requires the SSBD core ontology context (which it pulls from the web)
 - If new ontology classes are used, they must be added to the context configuration
 - Validates against SHACL shape definitions in the `validation/` directory
