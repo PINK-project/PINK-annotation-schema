@@ -20,6 +20,7 @@ import orcid
 import requests
 import datetime
 import dateutil.parser 
+from rfc3987 import parse
 
 def cleanDF(df):
     df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
@@ -54,6 +55,7 @@ PREFIXES: dict[str, str] = {
     "qsar": "https://pink-project.eu/qsar/",
     "pink": "https://pink-project.eu/",
     "pinkag": "https://pink-project.eu/agent/",
+    "pinksw": "https://pink-project.eu/sw/",
     "empa": "https://empa.ch/",
     "empadm": "https://empa.ch/datamodel/",
     "oboowl": "http://www.geneontology.org/formats/oboInOwl#",
@@ -67,30 +69,31 @@ PREFIXES: dict[str, str] = {
 }
 
 def create_know_datatype_table():
-    columns = [['identifier', 'string', 'mandatory'], # should become an instance of a class?
+    columns = [['identifier', 'SSbDindividual', 'mandatory'], # should become an instance of a class?
                ['title', 'string', 'mandatory'],
                ['description', 'string', 'optional'],
                ['keyword', 'List[string]', 'optional'],
-               ['inputDatasetType', 'string', 'optional'],
-               ['outputDatasetType', 'string', 'optional'],
-               ['outputsIndicator', 'string', 'optional'],
+               ['inputDatasetType', 'List[SSbDindividual]', 'optional'],
+               ['outputDatasetType', 'SSbDindividual', 'optional'],
+#               ['outputsIndicator', 'List[SSbDindividual]', 'mandatory'],
                ['inTierLevel', 'List[SSbDclass]', 'recommended'], # should become mandatory
                ['SSbD Assessment level 1', 'SSbDclass', 'mandatory'],
                ['SSbD Assessment level 2', 'List[SSbDclass]', 'recommended'],
                ['SSbD Assessment level 3', 'List[SSbDclass]', 'recommended'],
-               ['documentation', 'IRI', 'optional'],
+               ['documentation', 'List[IRI]', 'optional'],
                ['accessURL', 'IRI', 'optional'],
                ['downloadURL', 'IRI', 'optional'],
                ['modelType', 'List[SSbDclass]', 'optional'],
                ['hasAPI', 'boolean', 'mandatory'],
-               ['APIUUID', 'string', 'optional'],
+#               ['pink:APIUUID', 'string', 'optional'],
+#               ['dcterms:identifier', 'string', 'optional'],
                ['hasGUI', 'boolean', 'mandatory'],
                ['accessRights', 'IRI', 'mandatory'],
                ['rightsHolder', 'List[OrgIRI]', 'optional'],
                ['license', 'IRI', 'optional'],
-               ['creator', 'List[OrgIRI]', 'mandatory'],
+               ['creator', 'List[OrgIRI]', 'recommended'],
                ['releaseDate', 'date', 'optional'],
-               ['priorRelease', 'date', 'optional'],
+               ['priorRelease', 'string', 'optional'],
                ['version', 'string', 'optional'],
                ['chemicalClass[by type]', 'List[SSbDclass]', 'recommended'], # might become mandatory in the future
                ['chemicalClass[by size]', 'List[SSbDclass]', 'recommended'], # might become mandatory in the future
@@ -131,7 +134,7 @@ def replace_short_prefixes(column, column_name, prefixes, error_table):
                         error_table = add_error(error_table, i, column_name, "Info", f'Term {v} was resolved to full IRI {new_v}')
                     new_value.append(new_v)
                 else:
-                    error_table = add_error(error_table, i, column_name, "Warning", f'Prefix in {v} is unknown.')
+                    error_table = add_error(error_table, i, column_name, "Error", f'Prefix in {v} is unknown.')
                     new_value.append(v)
             column[i] = new_value
         else:
@@ -141,7 +144,7 @@ def replace_short_prefixes(column, column_name, prefixes, error_table):
                     error_table = add_error(error_table, i, column_name, "Info", f'Term {value} was resolved to full IRI {new_v}')
                 column[i] = new_v
             else:
-                error_table = add_error(error_table, i, column_name, "Warning", f'Prefix in {value} is unknown.')
+                error_table = add_error(error_table, i, column_name, "Error", f'Prefix in {value} is unknown.')
                 column[i] = value
 
     return(column, error_table)
@@ -254,21 +257,36 @@ def validate_OrgIRI(value, row, column, credentials, error_table):
 
 def validate_IRIexists(value, row, column, credentials, error_table):
     try:
-        query = f"https://api.ror.org/v2/organizations/{value.replace('https://ror.org/', '')}"
-        response = requests.get(value)
+        parse(value, rule='IRI')
     except Exception as e:
-        error_table = add_error(error_table, row, column, 'Error', f'Error accessing IRI {value}: {e}')
-        return error_table
+        error_table = add_error(error_table, row, column, 'Error', f'Invalid IRI format: {value}')
+        return error_table  # Return IRI is invalid
 
-    if response.status_code < 400:
-        error_table = add_error(error_table, row, column, 'Info', f'URL {value} is accessible: {response.status_code}')
-    else:
-        error_table = add_error(error_table, row, column, 'Error', f'URL {value} is not accessible: {response.status_code}')
+#    try:
+#        response = requests.get(value)
+#    except Exception as e:
+#        error_table = add_error(error_table, row, column, 'Error', f'Error accessing IRI {value}: {e}')
+#        return error_table
+
+#    if response.status_code < 400:
+#        error_table = add_error(error_table, row, column, 'Info', f'URL {value} is valid and accessible: {response.status_code}')
+#    else:
+#        error_table = add_error(error_table, row, column, 'Error', f'URL {value} is not accessible: {response.status_code}')
 
     return error_table
-   
 
-def validate_IRI(value, row, column, credentials, error_table):
+def validate_IRIvalid(value, row, column, credentials, error_table):
+    try:
+        parse(value, rule='IRI')
+    except Exception as e:
+        error_table = add_error(error_table, row, column, 'Error', f'Invalid IRI format: {value}')
+        return error_table  # Return IRI is invalid
+
+    error_table = add_error(error_table, row, column, 'Info', f'IRI {value} is valid.')
+    return error_table
+  
+
+def validate_URL(value, row, column, credentials, error_table):
     if not isinstance(value, list) and (pd.isna(value) or (isinstance(value, float) and np.isnan(value))):
         return error_table
     elif isinstance(value, list):
@@ -276,15 +294,31 @@ def validate_IRI(value, row, column, credentials, error_table):
             if isinstance(item, str) and (item.startswith("https:") or item.startswith("http:")):
                 error_table = validate_IRIexists(item, row, column, credentials, error_table)
             else:
-                error_table = add_error(error_table, row, column, 'Error', f'Invalid IRI format in list: {item} - {value}. Expected format: XXXX:XXXXX')
+                error_table = add_error(error_table, row, column, 'Error', f'Invalid URL format in list: {item} - {value}. Expected format: XXXX:XXXXX')
 
     else:
         if isinstance(value, str) and (value.startswith("https:") or value.startswith("http:")):
             error_table = validate_IRIexists(value, row, column, credentials, error_table)
         else:
-            error_table = add_error(error_table, row, column, 'Error', f'Invalid IRI format or not resolvable: {value}. Expected format: XXXX:XXXXX')
+            error_table = add_error(error_table, row, column, 'Error', f'Invalid URL format or not resolvable: {value}. Expected format: XXXX:XXXXX')
     return error_table
 
+def validate_IRI(value, row, column, credentials, error_table):
+    if not isinstance(value, list) and (pd.isna(value) or (isinstance(value, float) and np.isnan(value))):
+        return error_table
+    elif isinstance(value, list):
+        for item in value:
+            if isinstance(item, str) and (item.startswith("https:") or item.startswith("http:")):
+                error_table = validate_IRIvalid(item, row, column, credentials, error_table)
+            else:
+                error_table = add_error(error_table, row, column, 'Error', f'Invalid IRI format in list: {item} - {value}. Expected format: XXXX:XXXXX')
+
+    else:
+        if isinstance(value, str) and (value.startswith("https:") or value.startswith("http:")):
+            error_table = validate_IRIvalid(value, row, column, credentials, error_table)
+        else:
+            error_table = add_error(error_table, row, column, 'Error', f'Invalid IRI format or not resolvable: {value}. Expected format: XXXX:XXXXX')
+    return error_table
 
 # Check terms exist in SSbD ontology
 def case_variations(text: str) -> list[str]:
@@ -336,7 +370,7 @@ def process_value(val, ontology, prefixes):
     return None
 
 
-def retrieve_IRI_from_ontology(column, column_name, ontology, prefixes, error_table):
+def retrieve_IRI_from_ontology(column, column_name, ontology, prefixes, error_table, datatype):
     for i, value in column.items():
         if not isinstance(value, list) and (pd.isna(value) or (isinstance(value, float) and np.isnan(value))):
            column[i] = value
@@ -347,32 +381,46 @@ def retrieve_IRI_from_ontology(column, column_name, ontology, prefixes, error_ta
                 if (new_v is not None):
                     if (new_v != v):
                         error_table = add_error(error_table, i, column_name, "Info", f'Term {v} is in ontology and was resolved to full IRI {new_v}')
-                    new_value.append(new_v)
                 else:
+                    new_v = v
                     if any(iter(map(v.startswith, prefixes)))==True:
-                        error_table = add_error(error_table, i, column_name, "Error", f'Term {v} was not found in ontology.')
+                        if ("SSbDclass" in datatype):
+                            error_table = add_error(error_table, i, column_name, "Error", f'Term {v} was not found in ontology.')
+                        else:
+                            error_table = add_error(error_table, i, column_name, "Warning", f'Term {v} is considered an individual.')
                     else:
                         if (":" in v):
                             error_table = add_error(error_table, i, column_name, "Warning", f'Prefix of {v} is not part of ontology.')
                         else:
-                            error_table = add_error(error_table, i, column_name, "Error", f'Term {v} is not in the ontology and not an IRI.')
-                    new_value.append(v)
+                            if ("SSbDclass" in datatype):
+                                error_table = add_error(error_table, i, column_name, "Error", f'Term {v} is not in the ontology and not an IRI.')
+                            else:
+                                new_v = add_prefix(v, "ssbd")
+                                error_table = add_error(error_table, i, column_name, "Warning", f'Term {v} is considered an individua and prefix \"ssbd\" was added.')
+                new_value.append(new_v)
             column[i] = new_value
         else:
             new_v = process_value(value, ontology, prefixes)
             if (new_v is not None):
                 if (new_v != value):
                     error_table = add_error(error_table, i, column_name, "Info", f'Term {value} is in ontology and was resolved to full IRI {new_v}')
-                column[i] = new_v
             else:
+                new_v = value
                 if any(iter(map(value.startswith, prefixes)))==True:
-                    error_table = add_error(error_table, i, column_name, "Error", f'Term {value} was not found in ontology.')
+                    if ("SSbDclass" in datatype):
+                        error_table = add_error(error_table, i, column_name, "Error", f'Term {value} was not found in ontology.')
+                    else:
+                        error_table = add_error(error_table, i, column_name, "Warning", f'Term {value} is considered an individual.')
                 else:
                     if (":" in value):
                         error_table = add_error(error_table, i, column_name, "Warning", f'Prefix of {value} is not part of ontology.')
                     else:
-                        error_table = add_error(error_table, i, column_name, "Error", f'Term {value} is not in the ontology and not an IRI.')
-                column[i] = value
+                        if ("SSbDclass" in datatype):
+                            error_table = add_error(error_table, i, column_name, "Error", f'Term {value} is not in the ontology and not an IRI.')
+                        else:
+                            new_v = add_prefix(value, "ssbd")
+                            error_table = add_error(error_table, i, column_name, "Warning", f'Term {value} is considered an individua and prefix \"ssbd\" was added.')
+            column[i] = new_v
 
     return(column, error_table)
 
@@ -505,7 +553,7 @@ def main():
             print(f"\nError reading Excel file: {e}\n")
             return
 
-    software_table = software_table.head(20)  # Limit to first X rows for testing purposes, remove this line for full processing
+#    software_table = software_table.head(20)  # Limit to first X rows for testing purposes, remove this line for full processing
 
     try:
         ssbd = ontopy.get_ontology("https://ssbd-ontology.github.io/core/core-inferred.ttl").load()
@@ -609,12 +657,12 @@ def main():
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
         if (column_name in software_table.columns) and ("SSbD" in row['datatype']):
-            software_table[column_name], error_table = retrieve_IRI_from_ontology(software_table[column_name].copy(deep=True), column_name, ssbd, ["ssbd:", "emmo:", "https://w3id.org/ssbd/", "https://w3id.org/emmo/"], error_table)
+            software_table[column_name], error_table = retrieve_IRI_from_ontology(software_table[column_name].copy(deep=True), column_name, ssbd, ["ssbd:", "emmo:", "https://w3id.org/ssbd/", "https://w3id.org/emmo/"], error_table, datatype)
 
     # Replace known prefixes
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
-        if column_name in software_table.columns and ("IRI" in row['datatype']):
+        if column_name in software_table.columns and ("IRI" in row['datatype'] or "SSbD" in row['datatype']):
             software_table[column_name], error_table = replace_short_prefixes(software_table[column_name].copy(deep=True), column_name, PREFIXES, error_table)
 
 
@@ -631,15 +679,17 @@ def main():
         elif datatype == 'OrgIRI' or datatype == 'List[OrgIRI]':
             validation_function = validate_OrgIRI
         elif datatype == 'IRI' or datatype == 'List[IRI]':
-            validation_function = validate_IRI
+            validation_function = validate_URL
         elif "SSbD" in datatype: # to be implemented
-            validation_function = None
+            validation_function = validate_IRI
         elif datatype == 'boolean':
             validation_function = validate_boolean
         elif datatype == 'date':
             validation_function = validate_date
         else: 
             validation_function = None
+        
+        print(f"\nValidating column {column_name} of datatype {datatype} with condition {condition} using validation function {validation_function.__name__ if validation_function else 'None'}")
         
         for j, row2 in software_table.iterrows():
             if condition == 'mandatory' or condition == 'recommended':
@@ -658,7 +708,7 @@ def main():
     clean = software_table[software_table['type'] != "Error"]
     failed = software_table[software_table['type'] == "Error"]
 
-
+    print(clean)
     # temporary fix for preparing input to Francesca's step1
     clean = clean.map(lambda x: ', '.join(str(y) for y in x) if isinstance(x, list) else x)
     clean = clean.map(lambda x: str(x))

@@ -38,20 +38,21 @@ context.add_context(classes)
 
 # Parse the tables.
 datasettypedocumentation = TableDoc.parse_csv(
-    "datasettypes_clean.csv",
+    "./turtle/datasettypes_clean.csv",
     context=context,
     prefixes=prefixes,
 )
 
 swdocumentation = TableDoc.parse_csv(
-    "sw_clean.csv",
+    "./turtle/sw_clean.csv",
     context=context,
     prefixes=prefixes,
+    delimiter=","
 )
 
 
 compdocumentation = TableDoc.parse_csv(
-    "comp_clean.csv",
+    "./turtle/comp_clean.csv",
     context=context,
     prefixes=prefixes
 )
@@ -94,9 +95,9 @@ if conforms:
     print("Validation passed")
     print("Direct pushing is not possible")
     print("making a jsonld from my graph")
-    ts.serialize("pink_googlespreadsheet_resources.ttl", format="turtle")
+    ts.serialize("./turtle/pink_googlespreadsheet_resources.ttl", format="turtle")
 
 
     # Store the jsonlds for joh
-    with open('pink_googlespreadsheet_resources.jsonld', 'wt') as f:
+    with open('./turtle/pink_googlespreadsheet_resources.jsonld', 'wt') as f:
         json.dump(jsonld, f, indent=2)

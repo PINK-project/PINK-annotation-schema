@@ -36,10 +36,10 @@ onto = get_ontology(
 ).load()
 
 # official url
-googleurl="https://docs.google.com/spreadsheets/d/1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&"
+#googleurl="https://docs.google.com/spreadsheets/d/1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU/export?format=csv&"
 
 # testing url
-# googleurl="https://docs.google.com/spreadsheets/d/10mL8NEUN1oCV8NTZ8cMaX8nJ3Jsh-lm6VwVDBL87y-w/export?format=csv&"
+googleurl="https://docs.google.com/spreadsheets/d/10mL8NEUN1oCV8NTZ8cMaX8nJ3Jsh-lm6VwVDBL87y-w/export?format=csv&"
  
 
 # Get data from Google Sheets
@@ -109,7 +109,7 @@ datamodels = datamodels[
 ]
 
 # save a csv of the datamodel
-datamodels.to_csv("datamodels.csv", index=False)
+datamodels.to_csv("./turtle/datamodels.csv", index=False)
 
 
 # Get pink keywords
@@ -151,12 +151,12 @@ sw.drop(columns=chemicalclass_cols, inplace=True)
 if "indicator" in sw.columns:
     sw = sw.drop(columns=["indicator"])
 
-sw["@type"] = "pink:Software"
+sw["@type"] = "ssbd:Software"
 
 expanded_sw = correct_pink_dataframes(sw, onto, context, verbose=False)
 # A bit cumbersome to write file, I am sure there are better ways
 
-expanded_sw.to_csv("sw_clean.csv", index=False)
+expanded_sw.to_csv("./turtle/sw_clean.csv", index=False)
 
 # Correct the computations documentation dataframe
 
@@ -201,7 +201,7 @@ comp.drop(
 )
 
 expanded_comp = correct_pink_dataframes(comp, onto, context, verbose=False)
-expanded_comp.to_csv("comp_clean.csv", index=False)
+expanded_comp.to_csv("./turtle/comp_clean.csv", index=False)
 
 # Datasettype
 print("PREPARING DATASETTYPE DOCUMENTATION")
@@ -210,4 +210,4 @@ datasettypes["@type"] = [["owl:Class"]] * len(datasettypes)
 
 datasettypes = datasettypes.drop(columns=["indicator"])
 expanded_datasettypes = correct_pink_dataframes(datasettypes, onto, context, verbose=False)
-expanded_datasettypes.to_csv("datasettypes_clean.csv", index=False)
+expanded_datasettypes.to_csv("./turtle/datasettypes_clean.csv", index=False)
