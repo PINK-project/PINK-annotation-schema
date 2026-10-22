@@ -107,7 +107,6 @@ datamodels = datamodels[
 # save a csv of the datamodel
 datamodels.to_csv("datamodels.csv", index=False)
 
-
 # Get pink keywords
 kw = get_keywords(theme=None)
 kw.load_yaml(
