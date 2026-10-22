@@ -40,13 +40,6 @@ AGENTS_URL = (
 )
 agents = pd.read_csv(AGENTS_URL)
 
-# Get pink keywords
-#kw = get_keywords(theme=None)
-#kw.load_yaml(
-#    "https://raw.githubusercontent.com/ssbd-ontology/core/refs/"
-#    "heads/gh-pages/context/keywords.yaml",
-#    redefine="allow",
-#)
 
 context = get_context(
     "https://w3id.org/ssbd/context/", theme=None
@@ -62,7 +55,6 @@ agents_corrected = correct_pink_dataframes(agents, onto, context)
 agents_corrected.to_csv("agents_clean.csv", index=False)
 agentdocumentation = TableDoc.parse_csv(
     "agents_clean.csv",
-    #keywords=kw,
     context=context,
     prefixes=PREFIXES,
 )
