@@ -40,6 +40,7 @@ PREFIXES: dict[str, str] = {
     "ssbd": "https://w3id.org/ssbd/",
     "owl": "http://www.w3.org/2002/07/owl#",
     "dcat": "http://www.w3.org/ns/dcat#",
+    "emmo": "https://w3id.org/emmo/hume#"
 }
 
 
@@ -109,6 +110,8 @@ def remove_extra_text(value):
     as some curators desired explanations on the tier level,
     which should be removed.
     """
+    if isinstance(value, list):
+        return [remove_extra_text(v) for v in value]
     if pd.isna(value) or str(value).strip() == "":
         return value  # Return as is if empty or NaN
     return value.strip().split(" ")[0]
@@ -204,7 +207,7 @@ def expand_df(df: pd.DataFrame, verbose=False) -> pd.DataFrame:
     return out
 
 
-def check_for_uris(df: pd.DataFrame, ontology, context, verbose=False) -> pd.DataFrame:
+def check_for_individual_uri(uri: str, ontology, verbose=False) -> str:
     """
     Check values in columns that expect an identifier.
     If they are a URI (starting with http://, https://, or prefix:),
@@ -232,36 +235,16 @@ def check_for_uris(df: pd.DataFrame, ontology, context, verbose=False) -> pd.Dat
         This is done only because people do not want to use the
         IRIs directly but prefer to use rdfs:label
         """
-
-        if isinstance(val, list):
-            return [process_value(v, verbose=verbose) for v in val]
-
         if not isinstance(val, str):
-            return val
+            return None
 
         val = val.strip()
         if not val:
-            return val
+            return None
 
-        # Detect URI-like values
-        if (
-            val.startswith("http://")
-            or val.startswith("https://")
-            or ":" in val
-        ):
-            lookup_val = val
-
-            # Remove prefix if not full URI
-            # Careful! We here remove the prefix and therefore risk
-            # using the wrong terms in the lookup
-            # OK, here as long as we only use one ontology
-            # Also: the ontology lookup will not always work
-            # since we are now using labels that don't exist as
-            # eny kind of labels in the ontology. rdfs:labels are
-            # preferably in lower case
-            if not (val.startswith("http://") or val.startswith("https://")):
-                lookup_val = val.split(":", 1)[1]
-
+        # Detect URI-like values with prefixes corresponding to the chosen ontology
+        lookup_val = val
+        if ":" not in lookup_val:   # if no prefix is given, search find IRI by rdfs:label
             for candidate in case_variations(lookup_val.strip()):
                 try:
                     term = ontology.get_by_label(candidate)
@@ -270,16 +253,41 @@ def check_for_uris(df: pd.DataFrame, ontology, context, verbose=False) -> pd.Dat
                     return term.iri
                 except (NoSuchLabelError, AttributeError):
                     pass
-
-            # If there is a space in the value return unchanged,
-            # as a real URI cannot have spaces.
+        else: 
             if " " in val:
                 print(
                     f"Value '{val}' looks like a URI but contains spaces. Smart to check this."
                 )
-            return val
-        return val
+                return None
+            
+            for prefix in PREFIXES.keys():
+                if lookup_val.startswith(prefix):
+                    lookup_val = convert_to_iri(lookup_val)
+                    if lookup_val is None: 
+                        break
+                    try:
+                        term = ontology.get_by_label(lookup_val)
+                        if verbose:
+                            print(f"Replacing {val} with IRI: {term.iri}")
+                        return term.iri
+                    except (NoSuchLabelError, AttributeError):
+                        pass
+                    break
+        
+        return None
 
+    return process_value(uri, verbose=verbose)
+
+def use_uris(value, ontology, verbose=False):
+    if isinstance(value, list):
+        return [use_uris(v, ontology, verbose=verbose) for v in value]
+
+    new_value = check_for_individual_uri(value, ontology, verbose=verbose)
+    if new_value is not None:
+        return new_value
+    return value
+
+def check_for_uris(df: pd.DataFrame, ontology, context, verbose=False) -> pd.DataFrame:
     def expects_identifier(column, verbose=False) -> bool:
         if column == "@id":
             return True
@@ -299,7 +307,7 @@ def check_for_uris(df: pd.DataFrame, ontology, context, verbose=False) -> pd.Dat
     id_columns = [column for column in df.columns if expects_identifier(column, verbose=verbose)]
     df = df.copy()
     df[id_columns] = df[id_columns].map(
-        lambda value: process_value(value, verbose=verbose)
+        lambda value: check_for_individual_uri(value, ontology, verbose=verbose)
     )
 
     return df

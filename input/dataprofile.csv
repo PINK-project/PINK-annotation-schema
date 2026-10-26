@@ -1,0 +1,31 @@
+column_name,datatype,condition,comment
+identifier, IRI, mandatory,
+title, string, mandatory,
+description, string, optional,
+keyword, List[string], optional,
+inputDatasetType, List[SSbDindividual], optional,
+outputDatasetType, SSbDindividual, optional,
+outputsIndicator, List[SSbDCore], recommended, # should become mandatory
+inTierLevel, List[SSbDCore], recommended, # should become mandatory
+SSbD Assessment level 1, SSbDCore, mandatory,
+SSbD Assessment level 2, List[SSbDCore], recommended,
+SSbD Assessment level 3, List[SSbDCore], recommended,
+documentation, List[URL], optional,
+accessURL, URL, optional,
+downloadURL, URL, optional,
+modelType, List[SSbDCore], optional,
+hasAPI, boolean, mandatory,
+dcterms:identifier, string, optional,
+hasGUI, boolean, mandatory,
+accessRights, URL, mandatory,
+rightsHolder, List[OrgIRI], optional,
+license, IRI, recommended, # should become mandatory
+creator, List[OrgIRI], recommended,
+releaseDate, date, optional,
+priorRelease, string, optional,
+version, string, optional,
+chemicalClass[by type], List[SSbDCore], recommended, # might become mandatory in the future
+chemicalClass[by size], List[SSbDCore], recommended, # might become mandatory in the future
+chemicalClass[by functionality], List[SSbDCore], optional,
+curator, List[PersonIRI], recommended,
+#test, string, mandatory,
