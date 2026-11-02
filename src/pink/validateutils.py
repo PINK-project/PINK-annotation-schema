@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 import pandas as pd
 import json
+import re
 
 import requests
 import ontopy
@@ -24,6 +25,7 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 def cleanDF(df):
     df = df.map(lambda x: x.strip() if isinstance(x, str) else x)
     df = df.replace("-", "").replace("", pd.NA).fillna(value=pd.NA)
+    df = df.rename(columns=lambda x: x.strip())
     return(df)
 
 #---------- input/output handling, table setup and management ----------
@@ -39,7 +41,7 @@ def add_error(error_table, row, column, error_type, message):
 # Read input table with annotations
 def read_input_table(args):
     if (args.input_file == ""):
-        print(f"\nUsing \n\tinput IRI: {args.input_IRI}\n\tinput sheet: {args.input_sheet}\n\tcorrect entries: {args.output_file}\n\tfailed entries: {args.failed_file}\n\tlog file: {args.log_file}\n")
+        print(f"\nUsing \n\tinput IRI: {args.input_IRI}\n\tinput sheet: {args.input_sheet}\n\tcorrect entries: {args.output1_file}, {args.output2_file}\n\tfailed entries: {args.failed_file}\n\tlog file: {args.log_file}\n")
 
         googleSW_URL = "https://docs.google.com/spreadsheets/d/"+args.input_IRI+"/export?format=csv&gid="+args.input_sheet
         try:
@@ -48,7 +50,7 @@ def read_input_table(args):
             print(f"\nError reading Google Sheet: {e}\n")
             return None
     else:
-        print(f"\nUsing \n\tinput file: {args.input_file}\n\tinput tab: {args.input_tab}\n\tcorrect entries: {args.output_file}\n\tfailed entries: {args.failed_file}\n\tlog file: {args.log_file}\n")
+        print(f"\nUsing \n\tinput file: {args.input_file}\n\tinput tab: {args.input_tab}\n\tcorrect entries: {args.output1_file}, {args.output2_file}\n\tfailed entries: {args.failed_file}\n\tlog file: {args.log_file}\n")
 
         try:
             if args.input_tab == "":
@@ -172,23 +174,50 @@ def write_error_table(log_file, error_table):
 
 
 
-def write_output_tables(output_file, failed_file, annotation_table, profile_table, error_table):
+def write_output_tables(output1_file, output2_file, failed_file, annotation_table, profile_table, error_table, annotation_type):
     errors = error_table[error_table['type']=="Error"]
     failed_rows = errors['row'].unique()
     failed_entries = annotation_table.loc[annotation_table.index.isin(failed_rows)]
     successful_entries = annotation_table.loc[~annotation_table.index.isin(failed_rows)]
 
-    json_file = output_file.replace(".csv", ".json")
+    json_file = output1_file.replace(".csv", ".json")
     successful_entries.to_json(json_file, orient="records", indent=4)
     
-    successful_entries = successful_entries.map(lambda x: ', '.join(str(y) for y in x) if isinstance(x, list) else x)
+    successful_entries = successful_entries.map(lambda x: '; '.join(str(y) for y in x) if isinstance(x, list) else x)
     successful_entries = successful_entries.map(lambda x: str(x))
     successful_entries = successful_entries.map(lambda x: x.replace('nan', ''))
     successful_entries = successful_entries.map(lambda x: x.replace('NaT', ''))
     successful_entries = successful_entries.map(lambda x: x.replace('<NA>', ''))
     successful_entries = successful_entries[[x for x in profile_table['column_name'].tolist() if x in successful_entries.columns]]
+
+    outputs = ['output1']
+    outputfiles = {}
+    outputfiles['output1'] = output1_file
+    if (output2_file is not None) and (output2_file != "" and 'output2' in profile_table.columns):
+        outputs = ['output1', 'output2']
+        outputfiles['output2'] = output2_file
+
+    for output in outputs:
+        output_columns = profile_table[profile_table[output].notna()]['column_name'].tolist()
+        output_columns = [x for x in output_columns if x in successful_entries.columns]
+
+        newcolnames = profile_table[profile_table['column_name'].isin(output_columns)][output].dropna().unique()
+
+        outputdf = pd.DataFrame()
+        for colname in newcolnames:
+#            outputdf[colname] = successful_entries[[x for x in output_columns if x in profile_table[profile_table[output] == colname]['column_name'].tolist()]].agg(';'.join, axis=1)
+            outputdf[colname] = successful_entries.apply(lambda row: ';'.join([str(row[x]) for x in output_columns if x in profile_table[profile_table[output] == colname]['column_name'].tolist() and (pd.notna(row[x]) and row[x] != '')]), axis=1)
+
+# Other annotation types need to be added here, e.g. for datasets, dataset types etc.
+
+        if (output == 'output1' and annotation_type == "software"):
+            outputdf['@type'] = "ssbd:Software"
+        if (output == 'output2' and annotation_type == "software"):
+            outputdf['@type'] = "owl:Class"
+            outputdf['@id'] = outputdf['hasSoftware'].apply(lambda x: re.sub('.*[\/:]', 'pinkonto:', re.sub('([^/:]+)$', r'activity_\1', x)))
+  
+        outputdf.to_csv(outputfiles[output], index=False)
     
-    successful_entries.to_csv(output_file, index=False)
     failed_entries.to_csv(failed_file, index=False)
 
 

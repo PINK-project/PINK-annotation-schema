@@ -61,11 +61,13 @@ def main():
     parser.add_argument("-S", help="ID of the software tab in the Google sheet, e.g. 1707023773 for the PINK KB Resources", dest="input_sheet", default="1707023773")
     parser.add_argument("-i", help="Name of the Input Excel file", dest="input_file", default="")
     parser.add_argument("-s", help="Name of the software tab in the Excel file", dest="input_tab", default="")
-    parser.add_argument("-o", help="Name of the output csv file", dest="output_file", default="output/sw_clean.csv")
+    parser.add_argument("-o", help="Name of the software output csv file", dest="output1_file", default="output/sw_clean.csv")
+    parser.add_argument("-O", help="Name of the computation output csv file", dest="output2_file")
     parser.add_argument("-e", help="Name of the csv file with software failing the validation", dest="failed_file", default="output/sw_failed.csv")
     parser.add_argument("-l", help="Name of the log file documenting errors and warnings", dest="log_file", default="output/sw_log.xlsx")
     parser.add_argument("-p", help="Name of the file with the profile table", dest="profile_file", default="input/dataprofile.csv")
     parser.add_argument("-c", help="Name of the file with web service credentials", dest="credentials_file", default="credentials.json")
+    parser.add_argument("-t", help="Type of annotation", dest="annotation_type", default="software")
     args = parser.parse_args()
 
     print(f"\n --- Software annotation validation script {sys.argv[0]} ---")
@@ -140,7 +142,7 @@ def main():
     error_table = error_table.merge(software_table['identifier'], how="left", left_on="row", right_index=True)
     error_table.insert(1, "identifer", error_table.pop("identifier"))
     pink.validateutils.write_error_table(args.log_file, error_table)
-    pink.validateutils.write_output_tables(args.output_file, args.failed_file, software_table, profile_table, error_table)
+    pink.validateutils.write_output_tables(args.output1_file, args.output2_file, args.failed_file, software_table, profile_table, error_table, args.annotation_type)
 
 if __name__ == "__main__":
     main()
