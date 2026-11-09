@@ -124,6 +124,7 @@ ssbd_cols = [col for col in sw.columns if col.startswith("SSbD Assessment")]
 activity_columns = [
     "inputDatasetType",
     "outputDatasetType",
+    "outputsIndicator",
 ] + ssbd_cols
 
 comp = sw[activity_columns + ["title"]]

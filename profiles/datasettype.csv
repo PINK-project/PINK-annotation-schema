@@ -1,0 +1,13 @@
+property,condition,datatype,value_kind,guidance
+@id,mandatory,IRI,IRI,"Globally unique identifier for the resource. Use a persistent, resolvable IRI when possible."
+@type,mandatory,IRI,IRI,"Use owl:Class for classes. For individuals, the ontology class it is an instance of. More than one @type may be used for individuals."
+creator,optional,AgentIRI,Agent IRI,Agent responsible for creating or producing the resource.
+curator,mandatory,AgentIRI,Agent IRI,At least include agent(s) responsible for curating the metadata entry of the resource in the knowledge base. Also agents curating the data itself can be added.
+datamodel,recommended,IRI,Data-model IRI,"Data model describing the structure, fields, properties, units, and shapes of the data handled by the resource. The datamodel connected to a dataset is obtained from the datasettype it is an inddividual of."
+description,mandatory,string,Literal,Human-readable description of the resource.
+keyword,recommended,string,Literal,Search keyword or tag.
+label,mandatory,string,Literal,Short human-readable label.
+scopeNote,optional,string,Literal,"Clarifies the intended meaning, boundaries, or use of a resource."
+subClassOf,mandatory,IRI,Class IRI,"Parent class of the documented class. Individuals must not use subClassOf. Particularly important for computation types: the type of assessment (see SSbD core ontology, Assessments module) must be specified."
+theme,recommended,IRI,Concept IRI,Main controlled category or SSbD thematic area of the resource.
+title,optional,string,Literal,"Human-readable title of the resource. For classes, label is preferred."
