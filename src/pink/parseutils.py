@@ -282,7 +282,11 @@ def use_uris(value, ontology, verbose=False):
     if isinstance(value, list):
         return [use_uris(v, ontology, verbose=verbose) for v in value]
 
-    new_value = check_for_individual_uri(value, ontology, verbose=verbose)
+    if isinstance(value, str) and ":" in value and not value.startswith(("http://", "https://")):
+        value_without_prefix = value.split(":", 1)[1]  # as on main: look up by label, ignoring the prefix
+        new_value = check_for_individual_uri(value_without_prefix, ontology, verbose=verbose)
+    else:
+        new_value = check_for_individual_uri(value, ontology, verbose=verbose)
     if new_value is not None:
         return new_value
     return value
@@ -307,7 +311,7 @@ def check_for_uris(df: pd.DataFrame, ontology, context, verbose=False) -> pd.Dat
     id_columns = [column for column in df.columns if expects_identifier(column, verbose=verbose)]
     df = df.copy()
     df[id_columns] = df[id_columns].map(
-        lambda value: check_for_individual_uri(value, ontology, verbose=verbose)
+        lambda value: use_uris(value, ontology, verbose=verbose)
     )
 
     return df
