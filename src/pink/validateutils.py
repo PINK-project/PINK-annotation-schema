@@ -12,6 +12,7 @@ import requests
 import ontopy
 import orcid
 import datetime
+import functools
 import dateutil.parser 
 import pink.parseutils
 from rfc3987 import parse
@@ -19,6 +20,23 @@ import xlsxwriter
 
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
+
+# Cache web lookups for the current run, so that the same ORCID, ROR ID or URL
+# is only requested once (failed requests raise and are not cached).
+@functools.lru_cache(maxsize=None)
+def cached_get(url):
+    return requests.get(url)
+
+@functools.lru_cache(maxsize=None)
+def cached_orcid_record(api, orcid_id, token):
+    return api.read_record_public(orcid_id, 'person', token)
+
+@functools.lru_cache(maxsize=None)
+def cached_orcid_anonymous(orcid_id):
+    # Anonymous ORCID public API, used when no ORCID credentials are given
+    response = requests.get(f"https://pub.orcid.org/v3.0/{orcid_id}/person", headers={"Accept": "application/json"})
+    response.raise_for_status()
+    return response.json()
 
 #---------- Basic cleaning functions ----------
 
@@ -69,7 +87,7 @@ def read_input_table(args):
 # Possible datatypes are: 
 # - string 
 # - IRI
-# - URI (resolvable IRI)
+# - URL (resolvable IRI)
 # - boolean
 # - date
 # - SSbDCore (entry exist in SSbD Core ontology)
@@ -119,6 +137,9 @@ def read_ontology(turtleFile):
 
  # Read credentials for web services (e.g. ORCID)
 def read_credentials(args):
+    if not Path(args.credentials_file).exists():
+        print(f"\nNo credentials file {args.credentials_file} found. ORCIDs are looked up through the anonymous ORCID API.\n")
+        return {}
     try:
         credentials = json.load(open(args.credentials_file))
     except Exception as e:
@@ -412,13 +433,16 @@ def replace_short_prefixes(column, column_name, prefixes, error_table):
 def validate_orcid(value, row, column, credentials, error_table):
     if (('orcid' not in credentials.keys()) or ('api' not in credentials["orcid"].keys())):
         r = re.compile('https://orcid.org/.{4}-.{4}-.{4}-.{4}')
-        if len(value) == 37 and r.match(value):
-            error_table = add_error(error_table, row, column, 'Info', f'{value} has correct format but could not be checked further because of missing credentials to ORCID API.') 
-        else: 
-            error_table = add_error(error_table, row, column, 'Error', f'Invalid ORCID format in list: {value}. Expected format: https://orcid.org/XXXX-XXXX-XXXX-XXXX') 
+        if not (len(value) == 37 and r.match(value)):
+            error_table = add_error(error_table, row, column, 'Error', f'Invalid ORCID format in list: {value}. Expected format: https://orcid.org/XXXX-XXXX-XXXX-XXXX')
+            return error_table
 
     try:
-        summary = credentials["orcid"]['api'].read_record_public(value.replace("https://orcid.org/", ""), 'person', credentials["orcid"]['token'])
+        orcid_id = value.replace("https://orcid.org/", "")
+        if ('orcid' in credentials.keys()) and ('api' in credentials["orcid"].keys()):
+            summary = cached_orcid_record(credentials["orcid"]['api'], orcid_id, credentials["orcid"]['token'])
+        else:
+            summary = cached_orcid_anonymous(orcid_id)
         if summary is None:
             error_table = add_error(error_table, row, column, 'Warning', f'No information for ORCID {value}.')
         else:
@@ -452,7 +476,7 @@ def validate_PersonIRI(value, row, column, credentials, error_table):
 def validate_ror(value, row, column, credentials, error_table):
     try:
         query = f"https://api.ror.org/v2/organizations/{value.replace('https://ror.org/', '')}"
-        response = requests.get(query)
+        response = cached_get(query)
     except Exception as e:
         error_table = add_error(error_table, row, column, 'Error', f'Error validating ROR ID {value}: {e}')
         return error_table
@@ -528,7 +552,7 @@ def validate_URLexists(value, row, column, credentials, error_table):
         return error_table  # Return IRI is invalid
 
     try:
-        response = requests.get(value)
+        response = cached_get(value)
     except Exception as e:
         error_table = add_error(error_table, row, column, 'Error', f'Error accessing IRI {value}: {e}')
         return error_table
@@ -600,7 +624,7 @@ def validate_annotations(annotation_table, profile_table, credentials, error_tab
             validation_function = validate_OrgIRI
         elif datatype == 'IRI' or datatype == 'List[IRI]':
             validation_function = validate_IRI
-        elif datatype == 'URI' or datatype == 'List[URI]':
+        elif datatype == 'URL' or datatype == 'List[URL]':
             validation_function = validate_URL
         elif "SSbD" in datatype: # to be implemented
             validation_function = validate_IRI

@@ -61,14 +61,21 @@ def main():
     parser.add_argument("-S", help="ID of the software tab in the Google sheet, e.g. 1707023773 for the PINK KB Resources", dest="input_sheet", default="1707023773")
     parser.add_argument("-i", help="Name of the Input Excel file", dest="input_file", default="")
     parser.add_argument("-s", help="Name of the software tab in the Excel file", dest="input_tab", default="")
-    parser.add_argument("-o", help="Name of the software output csv file", dest="output1_file", default="output/sw_clean.csv")
+    parser.add_argument("-o", help="Name of the software output csv file", dest="output1_file", default="sw_clean.csv")
     parser.add_argument("-O", help="Name of the computation output csv file", dest="output2_file")
-    parser.add_argument("-e", help="Name of the csv file with software failing the validation", dest="failed_file", default="output/sw_failed.csv")
-    parser.add_argument("-l", help="Name of the log file documenting errors and warnings", dest="log_file", default="output/sw_log.xlsx")
+    parser.add_argument("-e", help="Name of the csv file with software failing the validation", dest="failed_file", default="sw_failed.csv")
+    parser.add_argument("-l", help="Name of the log file documenting errors and warnings", dest="log_file", default="sw_log.xlsx")
     parser.add_argument("-p", help="Name of the file with the profile table", dest="profile_file", default="input/dataprofile.csv")
-    parser.add_argument("-c", help="Name of the file with web service credentials", dest="credentials_file", default="credentials.json")
+    parser.add_argument("-c", help="Name of the file with web service credentials (optional, without it ORCIDs are looked up anonymously)", dest="credentials_file", default="credentials.json")
     parser.add_argument("-t", help="Type of annotation", dest="annotation_type", default="software")
+    parser.add_argument("-d", help="Folder for the output files given with -o, -O, -e and -l (created if missing)", dest="output_dir", default="validation_output")
     args = parser.parse_args()
+
+    # Put the output files in the output folder (absolute paths are kept as given)
+    for name in ["output1_file", "output2_file", "failed_file", "log_file"]:
+        if getattr(args, name):
+            setattr(args, name, str(Path(args.output_dir) / getattr(args, name)))
+            Path(getattr(args, name)).parent.mkdir(parents=True, exist_ok=True)
 
     print(f"\n --- Software annotation validation script {sys.argv[0]} ---")
 
