@@ -5,9 +5,23 @@ It accepts Excel files or Goole spreadsheets and validates data before it is sav
 Validation errors and warnings are saved to a log file. The csv files are then used in the next step to create
 triples and save them to the triplestore. 
 
-Validation is based on a profile in profiles/ (one per resource type, see profiles/README.md) that defines the
-expected properties, their datatypes and whether they are mandatory, recommended, conditional or optional.
-The input is a prepared table from step1, e.g. -i sw_clean.csv -p profiles/software.csv.
+Validation is based on a profile table in profiles/ (one per resource type) that defines the expected
+properties, their datatypes and whether they are mandatory, recommended, conditional or optional.
+The input can be the spreadsheet filled in by the curators (Google Sheet or Excel) or a csv file, e.g. a prepared
+table from step1 (-i sw_clean.csv -p profiles/software.csv). Spreadsheet column names are translated to the
+property names in the profile using the term definitions (as in step1).
+
+Possible datatypes are:
+- string
+- IRI
+- URL (resolvable IRI)
+- boolean
+- dateTime
+- SSbDCore (entry exist in SSbD Core ontology)
+- AgentIRI (ROR or ORCID identifier)
+- PersonIRI (ORCID identifier)
+
+Columns marked with [?sep=;] in the prepared table are lists, and each value in the list is validated.
 
 """
 
@@ -79,6 +93,11 @@ def main():
     for col in [c for c in software_table.columns if c.endswith("[?sep=;]")]:
         software_table[col] = software_table[col].apply(lambda x: [v.strip() for v in str(x).split(";")] if pd.notna(x) else x)
     software_table.columns = [c.removesuffix("[?sep=;]") for c in software_table.columns]
+
+    # Spreadsheet columns: translate column names to property names and split list columns (as in step1)
+    software_table = software_table.rename(columns=pink.parseutils.property_iri_dict)
+    for col in set(pink.parseutils.list_columns).intersection(software_table.columns):
+        software_table[col] = software_table[col].apply(pink.parseutils.split_to_list)
 
 #    software_table = software_table.head(2)  # Limit to first X rows for testing purposes, remove this line for full processing
 
