@@ -260,6 +260,12 @@ def check_for_individual_uri(uri: str, ontology, verbose=False) -> str:
                 )
                 return None
             
+            if val.startswith(("http://", "https://")):  # full IRI: look it up directly
+                try:
+                    return ontology.get_by_label(val).iri
+                except (NoSuchLabelError, AttributeError):
+                    return None
+
             for prefix in PREFIXES.keys():
                 if lookup_val.startswith(prefix):
                     lookup_val = convert_to_iri(lookup_val)

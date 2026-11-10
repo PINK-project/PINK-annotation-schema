@@ -1,0 +1,24 @@
+property,condition,datatype,value_kind,guidance
+@id,mandatory,IRI,IRI,"Globally unique identifier for the resource. Use a persistent, resolvable IRI when possible."
+@type,mandatory,IRI,IRI,"Use owl:Class for classes. For individuals, the ontology class it is an instance of. More than one @type may be used for individuals."
+accessRights,recommended,IRI,Rights statement IRI,"Information about access to the resource. One of: CONFIDENTIAL, NON_PUBLIC, PUBLIC, RESTRICTED, SENSITIVE, from EU structured vocabulary on rights."
+chemicalClass,conditional,IRI,Matter/chemical-class IRI,"Use when the software or dataset is relevant to a particular chemical, substance, material, or chemical class."
+creator,mandatory,AgentIRI,Agent IRI,Agent responsible for creating or producing the resource.
+curator,mandatory,AgentIRI,Agent IRI,At least include agent(s) responsible for curating the metadata entry of the resource in the knowledge base. Also agents curating the data itself can be added.
+description,mandatory,string,Literal,Human-readable description of the resource.
+distribution.accessURL,conditional,URL,URL,URL providing access to a distribution. Tripper converts the nested property into an annotation on a generated dcat:Distribution blank node.
+distribution.downloadURL,conditional,URL,URL,Direct link to a downloadable file. Recommended when the resource has a directly downloadable representation.
+distribution.format,optional,string,Literal,Format of the distribution. Use distribution.mediaType if format exists in IANA.
+distribution.mediaType,recommended,string,Media-type literal,"Format of the distribution, for example text/csv or application/json. Mediatype options can be found at IANA."
+distribution.releaseDate,optional,dateTime,xsd:dateTime,Date on which this particular distribution was formally issued.
+keyword,recommended,string,Literal,Search keyword or tag.
+label,optional,string,Literal,Short human-readable label.
+license,mandatory,IRI,Licence-document IRI,Licence under which the resource is made available or may be reused.
+wasDerivedFrom,conditional,IRI,Entity or dataset IRI,Upstream dataset or entity from which the dataset was processed or derived.
+publisher,recommended,AgentIRI,Agent IRI,Agent responsible for making the resource available. This may differ from its creator.
+releaseDate,recommended,dateTime,xsd:dateTime,Date of formal issuance or publication. Use an ISO 8601 value compatible with xsd:dateTime.
+rightsHolder,recommended,AgentIRI,Agent IRI,Person or organisation owning or managing rights over the resource.
+theme,recommended,IRI,Concept IRI,Main controlled category or SSbD thematic area of the resource.
+title,mandatory,string,Literal,"Human-readable title of the resource. For classes, label is preferred."
+version,recommended,string,Literal,Version name or identifier.
+wasGeneratedBy,mandatory,IRI,IRI,"The process that generated the resource (typically a dataset). Particularly important to define assessments, either as types or individuals."

@@ -5,21 +5,23 @@ It accepts Excel files or Goole spreadsheets and validates data before it is sav
 Validation errors and warnings are saved to a log file. The csv files are then used in the next step to create
 triples and save them to the triplestore. 
 
-Validation is based on a profile table that defines the expected columns (lines starting with # are ignored), their datatypes and 
-whether they are mandatory, recommended or optional.
+Validation is based on a profile table in profiles/ (one per resource type) that defines the expected
+properties, their datatypes and whether they are mandatory, recommended, conditional or optional.
+The input can be the spreadsheet filled in by the curators (Google Sheet or Excel) or a csv file, e.g. a prepared
+table from step1 (-i sw_clean.csv -p profiles/software.csv). Spreadsheet column names are translated to the
+property names in the profile using the term definitions (as in step1).
 
-Possible datatypes are: 
-- string 
+Possible datatypes are:
+- string
 - IRI
 - URL (resolvable IRI)
 - boolean
-- date
+- dateTime
 - SSbDCore (entry exist in SSbD Core ontology)
-- SSbDindividual (individual in the SSbD name space)
-- OrgIRI (ROR or ORCID identifier)
+- AgentIRI (ROR or ORCID identifier)
 - PersonIRI (ORCID identifier)
 
-All these except boolean and date can be lists defined as List[datatype] in the profile table.
+Columns marked with [?sep=;] in the prepared table are lists, and each value in the list is validated.
 
 """
 
@@ -65,7 +67,7 @@ def main():
     parser.add_argument("-O", help="Name of the computation output csv file", dest="output2_file")
     parser.add_argument("-e", help="Name of the csv file with software failing the validation", dest="failed_file", default="sw_failed.csv")
     parser.add_argument("-l", help="Name of the log file documenting errors and warnings", dest="log_file", default="sw_log.xlsx")
-    parser.add_argument("-p", help="Name of the file with the profile table", dest="profile_file", default="input/dataprofile.csv")
+    parser.add_argument("-p", help="Name of the file with the profile table", dest="profile_file", default="profiles/software.csv")
     parser.add_argument("-c", help="Name of the file with web service credentials (optional, without it ORCIDs are looked up anonymously)", dest="credentials_file", default="credentials.json")
     parser.add_argument("-t", help="Type of annotation", dest="annotation_type", default="software")
     parser.add_argument("-d", help="Folder for the output files given with -o, -O, -e and -l (created if missing)", dest="output_dir", default="validation_output")
@@ -87,6 +89,16 @@ def main():
     if (software_table is None):
         return
 
+    # Prepared tables (from step1) mark list columns with [?sep=;]: split them into lists
+    for col in [c for c in software_table.columns if c.endswith("[?sep=;]")]:
+        software_table[col] = software_table[col].apply(lambda x: [v.strip() for v in str(x).split(";")] if pd.notna(x) else x)
+    software_table.columns = [c.removesuffix("[?sep=;]") for c in software_table.columns]
+
+    # Spreadsheet columns: translate column names to property names and split list columns (as in step1)
+    software_table = software_table.rename(columns=pink.parseutils.property_iri_dict)
+    for col in set(pink.parseutils.list_columns).intersection(software_table.columns):
+        software_table[col] = software_table[col].apply(pink.parseutils.split_to_list)
+
 #    software_table = software_table.head(2)  # Limit to first X rows for testing purposes, remove this line for full processing
 
     profile_table = pink.validateutils.read_profile_table(args)
@@ -103,13 +115,9 @@ def main():
     
 #---------- Validate the columns in the software table against the profile table ----------
 
-# Script exits if mandatory columns are not present and provides the error messages in the error file.
+# Missing mandatory columns are reported as errors, and the validation continues.
 
     error_table = pink.validateutils.check_mandatory_and_recommended_columns(software_table, profile_table, error_table)
-    if (not error_table[error_table['type'] == 'Error'].empty):
-        print("\nErrors found in the annotation table. Please check the log file for details.")
-        pink.validateutils.write_error_table(args.log_file, error_table)
-        return
 
 #---------- Validate and modify simplified user input ----------
 
@@ -146,10 +154,15 @@ def main():
 #---------- Validate the individual software entries against the profile table ----------
     error_table = pink.validateutils.validate_annotations(software_table, profile_table, credentials, error_table)
 
-    error_table = error_table.merge(software_table['identifier'], how="left", left_on="row", right_index=True)
-    error_table.insert(1, "identifer", error_table.pop("identifier"))
+    id_column = "@id" if "@id" in software_table.columns else "identifier"
+    error_table = error_table.merge(software_table[id_column], how="left", left_on="row", right_index=True)
+    error_table.insert(1, id_column, error_table.pop(id_column))
     pink.validateutils.write_error_table(args.log_file, error_table)
-    pink.validateutils.write_output_tables(args.output1_file, args.output2_file, args.failed_file, software_table, profile_table, error_table, args.annotation_type)
+    # Write the failed rows
+    failed_rows = error_table[error_table['type'] == "Error"]['row'].unique()
+    if pd.isna(failed_rows).any():  # a missing mandatory column (no row number): every row fails
+        failed_rows = software_table.index
+    software_table.loc[software_table.index.isin(failed_rows)].to_csv(args.failed_file, index=False)
 
 if __name__ == "__main__":
     main()

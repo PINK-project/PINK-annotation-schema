@@ -1,0 +1,27 @@
+property,condition,datatype,value_kind,guidance
+@id,mandatory,IRI,IRI,"Globally unique identifier for the resource. Use a persistent, resolvable IRI when possible."
+@type,mandatory,IRI,IRI,"Use owl:Class for classes. For individuals, the ontology class it is an instance of. More than one @type may be used for individuals."
+accessRights,mandatory,URL,Rights statement IRI,"Information about access to the resource. One of: CONFIDENTIAL, NON_PUBLIC, PUBLIC, RESTRICTED, SENSITIVE, from EU structured vocabulary on rights."
+chemicalClass,recommended,SSbDCore,Matter/chemical-class IRI,"Use when the software or dataset is relevant to a particular chemical, substance, material, or chemical class."
+creator,recommended,AgentIRI,Agent IRI,Agent responsible for creating or producing the resource.
+curator,mandatory,PersonIRI,Agent IRI,At least include agent(s) responsible for curating the metadata entry of the resource in the knowledge base. Also agents curating the data itself can be added.
+description,mandatory,string,Literal,Human-readable description of the resource.
+distribution.accessURL,recommended,URL,URL,URL providing access to a distribution. Tripper converts the nested property into an annotation on a generated dcat:Distribution blank node.
+distribution.downloadURL,recommended,URL,URL,Direct link to a downloadable file. Recommended when the resource has a directly downloadable representation.
+distribution.releaseDate,optional,dateTime,xsd:dateTime,Date on which this particular distribution was formally issued.
+documentation,recommended,URL,Document URL,"Page or document describing how to understand or use the resource, such as a README, protocol, manual, or data paper."
+hasAPI,mandatory,boolean,xsd:boolean,Indicates whether the software provides an application programming interface. Use true or false.
+hasGUI,mandatory,boolean,xsd:boolean,Indicates whether the software provides a graphical user interface. Use true or false.
+implementsModel,recommended,SSbDCore,Model IRI,Model implemented by the software release.
+inTierLevel,recommended,SSbDCore,Tier-level IRI,"Tier level assigned to the software release according to the applicable SSbD tier scheme (ssbd:tierlevel1, ssbd:tierlevel2, ssbd:tierlevel3)."
+isSubmoduleOf,conditional,IRI,Software IRI,Use when the documented software is a module or component of another software resource.
+keyword,recommended,string,Literal,Search keyword or tag.
+label,optional,string,Literal,Short human-readable label.
+license,recommended,IRI,Licence-document IRI,Licence under which the resource is made available or may be reused.
+priorRelease,conditional,IRI,Software-release IRI,Previous software release from which the documented release follows.
+publisher,recommended,AgentIRI,Agent IRI,Agent responsible for making the resource available. This may differ from its creator.
+releaseDate,recommended,dateTime,xsd:dateTime,Date of formal issuance or publication. Use an ISO 8601 value compatible with xsd:dateTime.
+rightsHolder,recommended,AgentIRI,Agent IRI,Person or organisation owning or managing rights over the resource.
+theme,optional,IRI,Concept IRI,Main controlled category or SSbD thematic area of the resource.
+title,mandatory,string,Literal,"Human-readable title of the resource. For classes, label is preferred."
+version,mandatory,string,Literal,Version name or identifier.

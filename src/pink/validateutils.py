@@ -71,7 +71,9 @@ def read_input_table(args):
         print(f"\nUsing \n\tinput file: {args.input_file}\n\tinput tab: {args.input_tab}\n\tcorrect entries: {args.output1_file}, {args.output2_file}\n\tfailed entries: {args.failed_file}\n\tlog file: {args.log_file}\n")
 
         try:
-            if args.input_tab == "":
+            if args.input_file.endswith(".csv"):
+                annotation_table = pd.read_csv(args.input_file)
+            elif args.input_tab == "":
                 annotation_table = pd.read_excel(args.input_file)
             else:
                 annotation_table = pd.read_excel(args.input_file, sheet_name=args.input_tab)
@@ -102,6 +104,7 @@ def read_profile_table(args):
         print(f"\nError reading profile table file: {e}\n")
         return None
 
+    profile_table = profile_table.rename(columns={"property": "column_name"})  # profiles in profiles/ use "property"
     profile_table = profile_table[profile_table['column_name'].str.startswith('#') == False]
     print(f"\nValidation defined by profile table:\n")
     profile_table = cleanDF(profile_table)
@@ -333,7 +336,7 @@ def strings_to_dates(annotation_table, profile_table, error_table):
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
         if column_name in annotation_table.columns:
-            if row['datatype'] == 'date':
+            if row['datatype'] in ('date', 'dateTime'):
                 valid = annotation_table.apply(translate_string_to_date, column_name=column_name, axis=1, result_type='expand')
                 annotation_table[column_name] = valid.pop(column_name)
                 error_table = pd.concat([error_table, valid.dropna(how='all')])
@@ -617,10 +620,12 @@ def validate_annotations(annotation_table, profile_table, credentials, error_tab
         column_name = row['column_name']
         datatype = row['datatype']
         condition = row['condition']
+        if column_name not in annotation_table.columns:
+            continue  # missing columns are reported by check_mandatory_and_recommended_columns
 
         if datatype == 'PersonIRI' or datatype == 'List[PersonIRI]':
             validation_function = validate_PersonIRI
-        elif datatype == 'OrgIRI' or datatype == 'List[OrgIRI]':
+        elif datatype == 'OrgIRI' or datatype == 'List[OrgIRI]' or datatype == 'AgentIRI':
             validation_function = validate_OrgIRI
         elif datatype == 'IRI' or datatype == 'List[IRI]':
             validation_function = validate_IRI
@@ -630,7 +635,7 @@ def validate_annotations(annotation_table, profile_table, credentials, error_tab
             validation_function = validate_IRI
         elif datatype == 'boolean':
             validation_function = validate_boolean
-        elif datatype == 'date':
+        elif datatype == 'date' or datatype == 'dateTime':
             validation_function = validate_date
         elif datatype == 'string' or datatype == 'List[string]':
             validation_function = None # check for special characters need to be implemented
