@@ -9,9 +9,9 @@ ts = Triplestore('rdflib')
 
 # Parse the csv table
 print('parsing csv')
-dmtable = DMTable.from_csv("datamodels.csv", unit_handling="ignore")
+dmtable = DMTable.from_csv("./turtle/datamodels.csv", unit_handling="ignore")
 print('finished parsing csv')
-
+print(dmtable)
 # Create the datamodels
 print('creating datamodels')
 dmtable.get_datamodels()
@@ -22,5 +22,5 @@ dmtable.to_triplestore(ts)
 print('finished putting into ts')
 
 print('serializing to turtle')
-ts.serialize('datamodels.ttl', format='turtle')
+ts.serialize('./turtle/datamodels.ttl', format='turtle')
 print('finished seralizing to turtle')
