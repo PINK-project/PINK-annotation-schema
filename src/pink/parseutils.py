@@ -322,12 +322,23 @@ def check_for_uris(df: pd.DataFrame, ontology, context, verbose=False) -> pd.Dat
 
     id_columns = [column for column in df.columns if expects_identifier(column, verbose=verbose)]
     prefixes = context.get_prefixes() | PREFIXES  # e.g. prov is only in the context
-    df = df.copy()
-    df[id_columns] = df[id_columns].map(
+    new_df = df.copy()
+    new_df[id_columns] = df[id_columns].map(
         lambda value: use_uris(value, ontology, verbose=verbose, prefixes=prefixes)
     )
 
-    return df
+    # Record terms that were resolved by their label (not just by expanding the prefix),
+    # e.g. ssbd:SmallMolecule -> https://w3id.org/ssbd/MicroMolecule, so that they can be reported.
+    aslist = lambda v: v if isinstance(v, list) else [v]
+    resolved = []
+    for column in id_columns:
+        for row in df.index:
+            for old, new in zip(aslist(df.at[row, column]), aslist(new_df.at[row, column])):
+                if isinstance(old, str) and new != old and new != convert_to_iri(old, prefixes):
+                    resolved.append((row, column, old, new))
+    new_df.attrs["resolved"] = resolved
+
+    return new_df
 
 
 def correct_pink_dataframes(df, ontology, context, verbose=False):

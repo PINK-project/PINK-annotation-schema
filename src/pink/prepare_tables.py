@@ -258,6 +258,16 @@ def main(argv=None):
                     "Unknown column: not a keyword of the SSbD context. "
                     "If it is a comment for the curators, add (comment) to the column name.")
 
+        # Terms that were resolved by their label in the preparation
+        for row, column, old, new in table.attrs.get("resolved", []):
+            # Show the value as written in the spreadsheet, without a prefix added by the preparation
+            written = " ".join(str(v) for v in raw.loc[row].values)
+            if ":" in old and old not in written and old.split(":", 1)[1] in written:
+                old = old.split(":", 1)[1]
+            errors = pink.validateutils.add_error(errors, row, column, "Info", f'Term "{old}" was resolved by its label to {new}.')
+        if profile == "computation":
+            errors = pink.validateutils.check_assessment(table, onto, errors)
+
         # Rows that were dropped in the preparation, because they have no identifier
         for row in raw.index.difference(table.index):
             if raw.loc[row].notna().any():

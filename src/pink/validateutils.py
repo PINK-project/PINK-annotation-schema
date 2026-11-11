@@ -602,6 +602,18 @@ def validate_annotations(annotation_table, profile_table, credentials, error_tab
     return error_table
 
 
+# A computation must be a subclass of at least one SSbD assessment (SSbD Assessment level 1, 2 or 3)
+def check_assessment(table, ontology, error_table):
+    assessment = ontology.search_one(iri="https://w3id.org/ssbd/Assessment")
+    column = "subClassOf[?sep=;]" if "subClassOf[?sep=;]" in table.columns else "subClassOf"
+    for row, value in table[column].items():
+        parents = value.split(";") if isinstance(value, str) else (value if isinstance(value, list) else [])
+        classes = [ontology.search_one(iri=iri.strip()) for iri in parents]
+        if not any(c is not None and assessment in c.ancestors() for c in classes):
+            error_table = add_error(error_table, row, "subClassOf", "Error", "No SSbD assessment given: at least one of the SSbD Assessment levels must be filled in.")
+    return error_table
+
+
 def validate_table(table, profile_table, ontology, credentials, prefixes=None):
     """Validate a table against a profile table and return the error table.
 
