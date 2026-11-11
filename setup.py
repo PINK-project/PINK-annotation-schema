@@ -20,7 +20,10 @@ setup(
     packages=find_packages(where="src") + ["validation"],
     package_dir={"": "src", "validation": "validation"},
     entry_points={
-        "console_scripts": ["generate-graph=pink.generate_graph:main"]
+        "console_scripts": [
+            "generate-graph=pink.generate_graph:main",
+            "prepare-tables=pink.prepare_tables:main",
+        ]
     },
     install_requires=requirements,
 )
