@@ -172,8 +172,11 @@ def expand_df(df: pd.DataFrame, verbose=False) -> pd.DataFrame:
     Any column containing list values is kept as a single column and renamed
     with a ``[?sep=;]`` suffix. List values are serialized as semicolon-
     separated strings.
+
+    The index is kept, so that each row can be traced back to its row
+    in the input table.
     """
-    out = df.reset_index(drop=True).copy()
+    out = df.copy()
 
     rename_map: dict[str, str] = {}
     for col in out.columns:
@@ -284,13 +287,16 @@ def check_for_individual_uri(uri: str, ontology, verbose=False) -> str:
 
     return process_value(uri, verbose=verbose)
 
-def use_uris(value, ontology, verbose=False):
+def use_uris(value, ontology, verbose=False, prefixes=PREFIXES):
     if isinstance(value, list):
-        return [use_uris(v, ontology, verbose=verbose) for v in value]
+        return [use_uris(v, ontology, verbose=verbose, prefixes=prefixes) for v in value]
 
     if isinstance(value, str) and ":" in value and not value.startswith(("http://", "https://")):
-        value_without_prefix = value.split(":", 1)[1]  # as on main: look up by label, ignoring the prefix
+        prefix, value_without_prefix = value.split(":", 1)  # look up by label, e.g. ssbd:safety assessment
         new_value = check_for_individual_uri(value_without_prefix, ontology, verbose=verbose)
+        # A wrong prefix is not fixed: the term found must be in the namespace of the prefix
+        if new_value is not None and not new_value.startswith(prefixes.get(prefix, "\0")):
+            new_value = None
     else:
         new_value = check_for_individual_uri(value, ontology, verbose=verbose)
     if new_value is not None:
@@ -315,12 +321,24 @@ def check_for_uris(df: pd.DataFrame, ontology, context, verbose=False) -> pd.Dat
         return definition.get("@type") in {"@id", "xsd:anyURI"}
 
     id_columns = [column for column in df.columns if expects_identifier(column, verbose=verbose)]
-    df = df.copy()
-    df[id_columns] = df[id_columns].map(
-        lambda value: use_uris(value, ontology, verbose=verbose)
+    prefixes = context.get_prefixes() | PREFIXES  # e.g. prov is only in the context
+    new_df = df.copy()
+    new_df[id_columns] = df[id_columns].map(
+        lambda value: use_uris(value, ontology, verbose=verbose, prefixes=prefixes)
     )
 
-    return df
+    # Record terms that were resolved by their label (not just by expanding the prefix),
+    # e.g. ssbd:SmallMolecule -> https://w3id.org/ssbd/MicroMolecule, so that they can be reported.
+    aslist = lambda v: v if isinstance(v, list) else [v]
+    resolved = []
+    for column in id_columns:
+        for row in df.index:
+            for old, new in zip(aslist(df.at[row, column]), aslist(new_df.at[row, column])):
+                if isinstance(old, str) and new != old and new != convert_to_iri(old, prefixes):
+                    resolved.append((row, column, old, new))
+    new_df.attrs["resolved"] = resolved
+
+    return new_df
 
 
 def correct_pink_dataframes(df, ontology, context, verbose=False):

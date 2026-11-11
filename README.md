@@ -70,26 +70,61 @@ pip install .
 This repository contains several scripts for generating and parsing resources documented in the
 Google Spreadsheets within the PINK project. Below is a description of each script and how to use them:
 
-### 1. **step1_download_googledocs_resources_and_preparetables.py**
+### 1. Prepare and validate the documentation tables
 
-**Purpose:** Downloads and parses documentation data from Google Spreadsheets and prepares cleaned CSV files.
+**Purpose:** Reads the documentation spreadsheet, prepares tables that can be parsed directly
+by `tripper` (and `dlite` for the datamodels), and validates them.
 
 **Usage:**
 ```bash
-python scripts/step1_download_googledocs_resources_and_preparetables.py
+prepare-tables SOURCE [--type TYPE] [--sheet NAME] [-o FOLDER] [-c CREDENTIALS]
 ```
+`SOURCE` is the ID of a Google spreadsheet (e.g. `1o1buVRFL5wIrFxGDG6Oo7EDnA7dgxxoZRpa2JpwX0BU`
+for the PINK KB resources), an Excel file (`.xlsx`) or a CSV file.
+
+In a Google spreadsheet or Excel file, the tabs are recognised by their name:
+
+| Tab name         | Type          | Prepared tables                                  |
+|------------------|---------------|--------------------------------------------------|
+| `Software...`    | `software`    | `sw_clean.csv` and `comp_clean.csv` (computations from the software tab) |
+| `Computation...` | `computation` | `computations_clean.csv`                         |
+| `Dataset Type`   | `datasettype` | `datasettypes_clean.csv` and `datamodels.csv`    |
+| `Dataset`        | `dataset`     | `datasets_clean.csv`                             |
+
+All recognised tabs are prepared, or only the one given with `--type`.
+Another tab can be chosen with `--sheet`. For such a tab, and for a CSV file, the type is
+given with `--type` or asked for.
+Cells are read as the text shown in the spreadsheet (e.g. a version written as `January 2015`).
 
 **What it does:**
-- Downloads the data and performs data cleaning and correction
-- Generates activities from the software documentation spreadsheet
-- Saves cleaned data to CSV files (e.g., `sw_clean.csv`, `datasettypes_clean.csv`)
-- Prepares the tables that can be directly parsed by `tripper` and `dlite`.
+- Prepares the tables: translates the column names to tripper keywords (using the term
+  definitions), splits lists, adds prefixes and looks up ontology terms by their label.
+  Columns with `(comment)` in their name are left out.
+- Splits the software tab into a software table and a computation table.
+  The label, description and curator of a computation are made from its software row.
+- Validates each table against its profile in `profiles/`, which defines the expected
+  properties, their datatypes and whether they are mandatory, recommended, conditional or
+  optional. Possible datatypes are:
+  - string
+  - IRI
+  - URL (resolvable IRI; a URL that needs a login gives a warning)
+  - boolean
+  - dateTime
+  - SSbDCore (entry exists in the SSbD Core ontology)
+  - AgentIRI (ROR or ORCID identifier)
+  - PersonIRI (ORCID identifier)
+  - MediaTypeIRI (IANA media type, e.g. `iana:application/zip`)
+- Wrong prefixes are not corrected, but reported (with a hint if the term exists with another prefix).
+  Columns that are not tripper keywords are reported as errors.
+- ORCIDs are looked up anonymously, unless a credentials file is given with `-c`
+  (default `credentials.json`, if it exists).
 
-**Output files:**
-- `sw_clean.csv` - Cleaned software documentation
-- `datasettypes_clean.csv` - Cleaned dataset type documentation
-- `comp_clean.csv` - Cleaned computations documentation
-- `datamodels.csv` - Cleaned datamodel definitions (prepared for DMTable parsing)
+**Output files** (for each prepared table, e.g. `sw`):
+- `sw_clean.csv` - prepared rows without errors (rows with warnings are kept)
+- `sw_failed.csv` - rows with errors, as written in the spreadsheet, with their row number
+- `sw_log.xlsx` - errors, warnings and information, with the tab, row and column in the spreadsheet
+
+A computation is left out if its software row has errors, and a datamodel if its dataset type has errors.
 
 ---
 
@@ -104,7 +139,7 @@ generate-graph datasettypes_clean.csv sw_clean.csv comp_clean.csv -o graph.ttl
 ```
 
 **What it does:**
-- Reads the cleaned CSV files generated in step 1
+- Reads the clean CSV files made by `prepare-tables`
 - Converts data to RDF triples using the TableDoc class from tripper
 - Validates the generated RDF against SHACL shapes
 
@@ -182,8 +217,8 @@ python scripts/search_pink_kb.py
 
 To generate and validate all documentation:
 
-1. **Prepare data:** Run `step1_download_googledocs_resources_and_preparetables.py` to download and clean data from Google Spreadsheets
-2. **Convert to RDF:** Run `step2_prepare_triples.py` to convert CSV data to validated RDF triples
+1. **Prepare data:** Run `prepare-tables <Google spreadsheet ID>` to download, prepare and validate the tables, and correct the spreadsheet based on the logs
+2. **Convert to RDF:** Run `generate-graph` on the clean tables to convert them to validated RDF triples
 3. **Parse datamodels:** Run `step3_dmtable_parse.py` to convert datamodels to RDF format
 4. **Query results:** Use `search_pink_kb.py` to verify and search the generated knowledge base
 

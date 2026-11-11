@@ -8,8 +8,8 @@ import pandas as pd
 import json
 import re
 
+import numpy as np
 import requests
-import ontopy
 import orcid
 import datetime
 import functools
@@ -56,47 +56,17 @@ def add_error(error_table, row, column, error_type, message):
     new_error = pd.DataFrame({'row': [row], 'column': [column], 'type': [error_type], 'message': [message]})
     return pd.concat([error_table, new_error], ignore_index=True)
 
-# Read input table with annotations
-def read_input_table(args):
-    if (args.input_file == ""):
-        print(f"\nUsing \n\tinput IRI: {args.input_IRI}\n\tinput sheet: {args.input_sheet}\n\tcorrect entries: {args.output1_file}, {args.output2_file}\n\tfailed entries: {args.failed_file}\n\tlog file: {args.log_file}\n")
-
-        googleSW_URL = "https://docs.google.com/spreadsheets/d/"+args.input_IRI+"/export?format=csv&gid="+args.input_sheet
-        try:
-            annotation_table = pd.read_csv(googleSW_URL)
-        except Exception as e:
-            print(f"\nError reading Google Sheet: {e}\n")
-            return None
-    else:
-        print(f"\nUsing \n\tinput file: {args.input_file}\n\tinput tab: {args.input_tab}\n\tcorrect entries: {args.output1_file}, {args.output2_file}\n\tfailed entries: {args.failed_file}\n\tlog file: {args.log_file}\n")
-
-        try:
-            if args.input_file.endswith(".csv"):
-                annotation_table = pd.read_csv(args.input_file)
-            elif args.input_tab == "":
-                annotation_table = pd.read_excel(args.input_file)
-            else:
-                annotation_table = pd.read_excel(args.input_file, sheet_name=args.input_tab)
-        except Exception as e:
-            print(f"\nError reading Excel file: {e}\n")
-            return None
-
-    annotation_table = cleanDF(annotation_table)
-    print(annotation_table)
-    return(annotation_table)
-
 # Read data profile (lines starting with # are ignored)
-# Possible datatypes are: 
-# - string 
+# Possible datatypes are:
+# - string
 # - IRI
 # - URL (resolvable IRI)
 # - boolean
-# - date
+# - dateTime
 # - SSbDCore (entry exist in SSbD Core ontology)
-# - SSbDindividual (individual in the SSbD name space)
-# - OrgIRI (ROR or ORCID identifier)
+# - AgentIRI (ROR or ORCID identifier)
 # - PersonIRI (ORCID identifier)
-# All these except boolean and date can be lists defined as List[datatype] in the profile table.
+# - MediaTypeIRI (IANA media type, e.g. iana:application/zip)
 def read_profile_table(args):
     try:
         profile_table = pd.read_csv(args.profile_file)
@@ -127,16 +97,6 @@ def check_mandatory_and_recommended_columns(annotation_table, profile_table, err
     
     return error_table
 
-
-# Read ontologies using ontopy
-def read_ontology(turtleFile):
-    try:
-        ontolog = ontopy.get_ontology(turtleFile).load()
-    except Exception as e:
-            print(f"\nError reading ontology: {e}\n")
-            return
-
-    return(ontolog)
 
  # Read credentials for web services (e.g. ORCID)
 def read_credentials(args):
@@ -196,53 +156,6 @@ def write_error_table(log_file, error_table):
         worksheet3.freeze_panes(1, 0)
 
 
-
-
-def write_output_tables(output1_file, output2_file, failed_file, annotation_table, profile_table, error_table, annotation_type):
-    errors = error_table[error_table['type']=="Error"]
-    failed_rows = errors['row'].unique()
-    failed_entries = annotation_table.loc[annotation_table.index.isin(failed_rows)]
-    successful_entries = annotation_table.loc[~annotation_table.index.isin(failed_rows)]
-
-    json_file = output1_file.replace(".csv", ".json")
-    successful_entries.to_json(json_file, orient="records", indent=4)
-    
-    successful_entries = successful_entries.map(lambda x: '; '.join(str(y) for y in x) if isinstance(x, list) else x)
-    successful_entries = successful_entries.map(lambda x: str(x))
-    successful_entries = successful_entries.map(lambda x: x.replace('nan', ''))
-    successful_entries = successful_entries.map(lambda x: x.replace('NaT', ''))
-    successful_entries = successful_entries.map(lambda x: x.replace('<NA>', ''))
-    successful_entries = successful_entries[[x for x in profile_table['column_name'].tolist() if x in successful_entries.columns]]
-
-    outputs = ['output1']
-    outputfiles = {}
-    outputfiles['output1'] = output1_file
-    if (output2_file is not None) and (output2_file != "" and 'output2' in profile_table.columns):
-        outputs = ['output1', 'output2']
-        outputfiles['output2'] = output2_file
-
-    for output in outputs:
-        output_columns = profile_table[profile_table[output].notna()]['column_name'].tolist()
-        output_columns = [x for x in output_columns if x in successful_entries.columns]
-
-        newcolnames = profile_table[profile_table['column_name'].isin(output_columns)][output].dropna().unique()
-
-        outputdf = pd.DataFrame()
-        for colname in newcolnames:
-#            outputdf[colname] = successful_entries[[x for x in output_columns if x in profile_table[profile_table[output] == colname]['column_name'].tolist()]].agg(';'.join, axis=1)
-            outputdf[colname] = successful_entries.apply(lambda row: ';'.join([str(row[x]) for x in output_columns if x in profile_table[profile_table[output] == colname]['column_name'].tolist() and (pd.notna(row[x]) and row[x] != '')]), axis=1)
-
-# Other annotation types need to be added here, e.g. for datasets, dataset types etc.
-
-        if (output == 'output1' and annotation_type == "software"):
-            outputdf['@type'] = "ssbd:Software"
-        if (output == 'output2' and annotation_type == "software"):
-            outputdf['@type'] = "owl:Class"
-            outputdf['@id'] = outputdf['hasSoftware'].apply(lambda x: re.sub('.*[\/:]', 'pinkonto:', re.sub('([^/:]+)$', r'activity_\1', x)))
-  
-        outputdf.to_csv(outputfiles[output], index=False)
-    
-    failed_entries.to_csv(failed_file, index=False)
 
 
 #---------- Transform simplified user input ----------
@@ -346,6 +259,17 @@ def strings_to_dates(annotation_table, profile_table, error_table):
 
 #---------- Translates class/property terms and short IRIs into full IRIs ----------
 
+def suggest_term(value, ontology):
+    """Return a hint if a term with the same name exists in the ontology (e.g. with another prefix)."""
+    name = value.rsplit("/", 1)[-1].rsplit("#", 1)[-1] if value.startswith(("http://", "https://")) else value.split(":", 1)[-1]
+    iri = pink.parseutils.check_for_individual_uri(name, ontology, verbose=False)
+    if iri is None:
+        return ""
+    for prefix, namespace in pink.parseutils.PREFIXES.items():
+        if iri.startswith(namespace):
+            return f" Did you mean {prefix}:{iri[len(namespace):]}?"
+    return f" Did you mean {iri}?"
+
 def retrieve_IRI_from_ontology(column, column_name, ontology, prefixes, error_table, datatype):
     for i, value in column.items():
         if not isinstance(value, list) and (pd.isna(value) or (isinstance(value, float) and np.isnan(value))):
@@ -361,12 +285,15 @@ def retrieve_IRI_from_ontology(column, column_name, ontology, prefixes, error_ta
                     new_v = v
                     if any(iter(map(v.startswith, prefixes)))==True:
                         if ("SSbDCore" in datatype):
-                            error_table = add_error(error_table, i, column_name, "Error", f'Term \"{v}\" was not found in ontology.')
+                            error_table = add_error(error_table, i, column_name, "Error", f'Term \"{v}\" was not found in ontology.' + suggest_term(v, ontology))
                         else:
                             error_table = add_error(error_table, i, column_name, "Warning", f'Term \"{v}\" is considered an individual.')
                     else:
                         if (":" in v):
-                            error_table = add_error(error_table, i, column_name, "Warning", f'Prefix of \"{v}\" is not part of ontology.')
+                            if ("SSbDCore" in datatype):
+                                error_table = add_error(error_table, i, column_name, "Error", f'Prefix of \"{v}\" is not part of ontology.' + suggest_term(v, ontology))
+                            else:
+                                error_table = add_error(error_table, i, column_name, "Warning", f'Prefix of \"{v}\" is not part of ontology.')
                         else:
                             if ("SSbDCore" in datatype):
                                 error_table = add_error(error_table, i, column_name, "Error", f'Term \"{v}\" is not in the ontology and not an IRI.')
@@ -384,12 +311,15 @@ def retrieve_IRI_from_ontology(column, column_name, ontology, prefixes, error_ta
                 new_v = value
                 if any(iter(map(value.startswith, prefixes)))==True:
                     if ("SSbDCore" in datatype):
-                        error_table = add_error(error_table, i, column_name, "Error", f'Term \"{value}\" was not found in ontology.')
+                        error_table = add_error(error_table, i, column_name, "Error", f'Term \"{value}\" was not found in ontology.' + suggest_term(value, ontology))
                     else:
                         error_table = add_error(error_table, i, column_name, "Warning", f'Term \"{value}\" is considered an individual.')
                 else:
                     if (":" in value):
-                        error_table = add_error(error_table, i, column_name, "Warning", f'Prefix of \"{value}\" is not part of ontology.')
+                        if ("SSbDCore" in datatype):
+                            error_table = add_error(error_table, i, column_name, "Error", f'Prefix of \"{value}\" is not part of ontology.' + suggest_term(value, ontology))
+                        else:
+                            error_table = add_error(error_table, i, column_name, "Warning", f'Prefix of \"{value}\" is not part of ontology.')
                     else:
                         if ("SSbDCore" in datatype):
                             error_table = add_error(error_table, i, column_name, "Error", f'Term \"{value}\" is not in the ontology and not an IRI.')
@@ -536,6 +466,17 @@ def validate_IRI(value, row, column, credentials, error_table):
             error_table = add_error(error_table, row, column, 'Error', f'Invalid IRI format or not resolvable: {value}. Expected format: XXXX:XXXXX')
     return error_table
 
+# A media type must be an IANA media type IRI, e.g. iana:application/zip
+def validate_MediaTypeIRI(value, row, column, credentials, error_table):
+    for item in (value if isinstance(value, list) else [value]):
+        if not isinstance(item, str) and pd.isna(item):
+            continue
+        if isinstance(item, str) and ":" not in item:
+            error_table = add_error(error_table, row, column, 'Error', f'Media type "{item}" is not an IRI. Use an IANA media type with prefix, e.g. iana:{item}, or give a free-text format in distribution.format.')
+        else:
+            error_table = validate_IRI(item, row, column, credentials, error_table)
+    return error_table
+
 def validate_IRIvalid(value, row, column, credentials, error_table):
     try:
         parse(value, rule='IRI')
@@ -562,6 +503,8 @@ def validate_URLexists(value, row, column, credentials, error_table):
 
     if response.status_code < 400:
         error_table = add_error(error_table, row, column, 'Info', f'URL {value} is valid and accessible: {response.status_code}')
+    elif response.status_code in (401, 403):  # the URL exists, but needs a login or access rights
+        error_table = add_error(error_table, row, column, 'Warning', f'URL {value} requires login or access rights: {response.status_code}')
     else:
         error_table = add_error(error_table, row, column, 'Error', f'URL {value} is not accessible: {response.status_code}')
 
@@ -627,6 +570,8 @@ def validate_annotations(annotation_table, profile_table, credentials, error_tab
             validation_function = validate_PersonIRI
         elif datatype == 'OrgIRI' or datatype == 'List[OrgIRI]' or datatype == 'AgentIRI':
             validation_function = validate_OrgIRI
+        elif datatype == 'MediaTypeIRI':
+            validation_function = validate_MediaTypeIRI
         elif datatype == 'IRI' or datatype == 'List[IRI]':
             validation_function = validate_IRI
         elif datatype == 'URL' or datatype == 'List[URL]':
@@ -654,4 +599,86 @@ def validate_annotations(annotation_table, profile_table, credentials, error_tab
             if validation_function is not None:
                 error_table = validation_function(row2[column_name], j, column_name, credentials, error_table) if validation_function else error_table
 
+    return error_table
+
+
+# A computation must be a subclass of at least one SSbD assessment (SSbD Assessment level 1, 2 or 3)
+def check_assessment(table, ontology, error_table):
+    assessment = ontology.search_one(iri="https://w3id.org/ssbd/Assessment")
+    column = "subClassOf[?sep=;]" if "subClassOf[?sep=;]" in table.columns else "subClassOf"
+    for row, value in table[column].items():
+        parents = value.split(";") if isinstance(value, str) else (value if isinstance(value, list) else [])
+        classes = [ontology.search_one(iri=iri.strip()) for iri in parents]
+        if not any(c is not None and assessment in c.ancestors() for c in classes):
+            error_table = add_error(error_table, row, "subClassOf", "Error", "No SSbD assessment given: at least one of the SSbD Assessment levels must be filled in.")
+    return error_table
+
+
+def validate_table(table, profile_table, ontology, credentials, prefixes=None):
+    """Validate a table against a profile table and return the error table.
+
+    The columns of `table` are property names (as in the prepared tables).
+    The table itself is not changed.
+    `prefixes` maps known prefixes to IRIs (default: the PINK prefixes).
+    """
+    if prefixes is None:
+        prefixes = pink.parseutils.PREFIXES
+    table = table.copy()
+    table = table.mask(table == "")  # empty cells in the prepared tables are missing values
+    error_table = create_error_table()
+
+    # Prepared tables mark list columns with [?sep=;]: split them into lists
+    for col in [c for c in table.columns if c.endswith("[?sep=;]")]:
+        table[col] = table[col].apply(lambda x: [v.strip() for v in str(x).split(";")] if pd.notna(x) else x)
+    table.columns = [c.removesuffix("[?sep=;]") for c in table.columns]
+
+    # Missing mandatory columns are reported as errors, and the validation continues.
+    error_table = check_mandatory_and_recommended_columns(table, profile_table, error_table)
+
+    # Validate and modify simplified user input
+    # Simplifications include
+    # - semicolon-separated lists
+    # - Yes/No for boolean columns
+    # - date columns in various formats
+    # - no prefix in columns SSbD Assessment levels and, accessRights
+    table = create_list_columns(table, profile_table)
+    table, error_table = strings_to_bools(table, profile_table, error_table)
+    table, error_table = strings_to_dates(table, profile_table, error_table)
+
+    # Add prefix to specific columns and remove extra content
+    if "accessRights" in table.columns:
+        table["accessRights"] = table["accessRights"].apply(pink.parseutils.add_prefix, prefix="rights")
+
+    if "inTierLevel" in table.columns:
+        table["inTierLevel"] = table["inTierLevel"].apply(pink.parseutils.remove_extra_text)
+
+    # Check ontology - currently only SSbD including the relevant EMMO parts
+    for i, row in profile_table.iterrows():
+        column_name = row['column_name']
+        datatype = row['datatype']
+        if (column_name in table.columns) and ("SSbD" in row['datatype']):
+            table[column_name], error_table = retrieve_IRI_from_ontology(table[column_name].copy(deep=True), column_name, ontology, ["ssbd:", "emmo:", "https://w3id.org/ssbd/", "https://w3id.org/emmo/"], error_table, datatype)
+
+    # IRI columns may refer to terms outside the ontology. But a prefixed term that is not
+    # in the ontology, while the same name is (e.g. datasettype:Dataset for ssbd:Dataset),
+    # probably has a wrong prefix: warn about it.
+    for i, row in profile_table.iterrows():
+        column_name = row['column_name']
+        if column_name in table.columns and row['datatype'] in ('IRI', 'List[IRI]') and ontology is not None:
+            for j, value in table[column_name].items():
+                for v in (value if isinstance(value, list) else [value]):
+                    if (isinstance(v, str) and ":" in v and not v.startswith(("http://", "https://"))
+                            and pink.parseutils.check_for_individual_uri(v, ontology) is None):
+                        hint = suggest_term(v, ontology)
+                        if hint:
+                            error_table = add_error(error_table, j, column_name, "Warning", f'Term "{v}" is not in the ontology.' + hint)
+
+    # Replace known prefixes
+    for i, row in profile_table.iterrows():
+        column_name = row['column_name']
+        if column_name in table.columns and ("IRI" in row['datatype'] or "URL" in row['datatype'] or "SSbD" in row['datatype']):
+            table[column_name], error_table = replace_short_prefixes(table[column_name].copy(deep=True), column_name, prefixes, error_table)
+
+    # Validate the individual entries against the profile table
+    error_table = validate_annotations(table, profile_table, credentials, error_table)
     return error_table
