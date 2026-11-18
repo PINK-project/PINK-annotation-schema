@@ -7,6 +7,7 @@ into a graph that can be uploaded to the PINK knowledge base.
 **Documentation: <https://pink-project.github.io/PINK-annotation-schema/>**
 
 - [Annotating resources](https://pink-project.github.io/PINK-annotation-schema/annotating.html) - project-wide resources and example spreadsheets
+- [Validation profiles](https://pink-project.github.io/PINK-annotation-schema/profiles.html) - what is expected for each type of resource, and how it is validated
 - [Scripts](https://pink-project.github.io/PINK-annotation-schema/scripts.html) - preparing and validating the documentation tables, and generating the graph
 
 ## Quick start

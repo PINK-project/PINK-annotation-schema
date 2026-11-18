@@ -37,7 +37,7 @@ Cells are read as the text shown in the spreadsheet (e.g. a version written as `
   The label, description and curator of a computation are made from its software row.
 - Validates each table against its profile in `profiles/`, which defines the expected
   properties, their datatypes and whether they are mandatory, recommended, conditional or
-  optional. Possible datatypes are:
+  optional. See [Validation profiles](profiles.md) for the profiles and how they are used. Possible datatypes are:
   - string
   - IRI
   - URL (resolvable IRI; a URL that needs a login gives a warning)

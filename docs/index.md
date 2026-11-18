@@ -12,6 +12,8 @@ chosen within the PINK project. Please refer to that documentation for guidance.
 ## Contents
 
 - [Annotating resources](annotating.md) - project-wide resources and example spreadsheets
+- [Validation profiles](profiles.md) - what is expected for each type of resource,
+  how the profiles were made from the SSbD Core documentation, and where to find them
 - [Scripts](scripts.md) - preparing and validating the documentation tables, generating the graph,
   and other helper scripts
 
@@ -19,6 +21,7 @@ chosen within the PINK project. Please refer to that documentation for guidance.
 :hidden:
 
 annotating
+profiles
 scripts
 ```
 
