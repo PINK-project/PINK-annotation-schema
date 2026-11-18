@@ -30,7 +30,9 @@ in the SSbD Core ontology documentation, which was agreed within the PINK projec
 Each column of that matrix (Software release, Computation type, Dataset type, Dataset and Agent)
 matches one profile:
 
-- The **property**, **value kind** and **guidance** are taken from the matrix.
+- The **property** and **guidance** are taken from the matrix.
+  The *value kind* of the matrix is not a separate column: it is covered by the datatype and range,
+  and where it says more (e.g. that a license is given as the IRI of the licence document), this is added to the guidance.
 - The **condition** starts from the entry of the matrix for that resource type, where *Required* is written as `mandatory`.
   For some properties PINK is stricter than the matrix, e.g. `hasAPI` is mandatory for software
   and `title` is mandatory for computation types.
@@ -50,7 +52,6 @@ the profiles must be updated accordingly.
 | `condition` | `mandatory`, `recommended`, `conditional` or `optional`. |
 | `datatype` | The kind of value: text, true/false, a date or an IRI (see below). |
 | `range` | For IRIs: which IRIs are accepted (see below). Empty for other datatypes. |
-| `value_kind` | The kind of value expected, as described in the SSbD Core documentation. |
 | `guidance` | How to fill in the property. |
 
 The **condition** decides what happens when a value is missing:
