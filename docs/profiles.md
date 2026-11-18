@@ -2,7 +2,7 @@
 
 The documentation tables are validated against a *profile* for each type of resource.
 A profile lists the properties that are expected for that type of resource,
-whether each one must be given, and what kind of value it takes.
+whether each one must be given, what kind of value it takes and, for IRIs, which IRIs are accepted.
 The profiles are used by `prepare-tables` (see [Scripts](scripts.md)).
 
 ## Where to find them
@@ -34,7 +34,10 @@ matches one profile:
 - The **condition** starts from the entry of the matrix for that resource type, where *Required* is written as `mandatory`.
   For some properties PINK is stricter than the matrix, e.g. `hasAPI` is mandatory for software
   and `title` is mandatory for computation types.
-- The **datatype** is added for PINK, to tell the validation how a value is checked (see below).
+- The **datatype** and **range** are added for PINK, to tell the validation how a value is checked (see below).
+  The range of a property is the same in all profiles, except for `curator`
+  (only ORCIDs for software, ORCIDs or ROR IDs otherwise) and `subClassOf`
+  (SSbD Core terms for computation types, any IRI for dataset types).
 
 The profiles are maintained by hand: if the expected annotations in the SSbD Core documentation change,
 the profiles must be updated accordingly.
@@ -45,7 +48,8 @@ the profiles must be updated accordingly.
 |--------|---------|
 | `property` | The tripper keyword of the property, as used in the column name of the prepared table. |
 | `condition` | `mandatory`, `recommended`, `conditional` or `optional`. |
-| `datatype` | How a value is checked (see below). |
+| `datatype` | The kind of value: text, true/false, a date or an IRI (see below). |
+| `range` | For IRIs: which IRIs are accepted (see below). Empty for other datatypes. |
 | `value_kind` | The kind of value expected, as described in the SSbD Core documentation. |
 | `guidance` | How to fill in the property. |
 
@@ -60,19 +64,48 @@ The **condition** decides what happens when a value is missing:
 
 Rows with errors are left out of the clean tables (and of the graph); rows with warnings are kept.
 
-The **datatype** decides how a given value is checked, whatever the condition:
+The **datatype** says what kind of value is given, and how it is checked, whatever the condition:
 
-| Datatype | Check |
-|----------|-------|
-| `string` | Any text. |
-| `IRI` | A valid IRI (with a known prefix). |
-| `URL` | A resolvable IRI. A URL that needs a login gives a warning. |
-| `boolean` | `true` or `false`. |
-| `dateTime` | A date, or a date and time. |
-| `SSbDCore` | An entry that exists in the SSbD Core ontology. It may be given by its label. |
-| `AgentIRI` | A ROR or ORCID identifier. |
-| `PersonIRI` | An ORCID identifier. |
-| `MediaTypeIRI` | An IANA media type, e.g. `iana:application/zip`. |
+| Datatype | Value | Check |
+|----------|-------|-------|
+| `xsd:string` | Text. | None. |
+| `xsd:boolean` | `true` or `false`. | `yes` and `no` are also accepted, and translated. |
+| `xsd:date`, `xsd:dateTime` | A date, or a date and time. | Must be readable as a date. |
+| `IRI` | A link to a resource. | Must be a valid IRI, and in the range (see below). Known prefixes are expanded. |
+
+The **range** says which IRIs are accepted for an `IRI` property.
+It is one or more of the names below, separated by `|`.
+A value is accepted if it is in one of them; an empty range accepts any valid IRI.
+
+| Range | Accepts | Check |
+|-------|---------|-------|
+| `orcid` | An ORCID, `https://orcid.org/XXXX-XXXX-XXXX-XXXX`. | Looked up at orcid.org. |
+| `ror` | A ROR ID, `https://ror.org/XXXXXXXXX`. | Looked up at ror.org. |
+| `ssbd` | A term in the SSbD Core ontology, including the terms it takes from other ontologies (see below). | Looked up in the ontology; it may be given by its full IRI, with a prefix, or by its label. |
+| `rights` | An access right from the [EU vocabulary on access rights](http://publications.europa.eu/resource/authority/access-right): `rights:PUBLIC`, `rights:RESTRICTED`, `rights:NON_PUBLIC`, `rights:CONFIDENTIAL` or `rights:SENSITIVE`. | Must be one of these. The prefix `rights:` may be left out. |
+| `iana` | An IANA media type, e.g. `iana:application/zip`. | Must be an IRI. |
+| `url` | A web address. | Must resolve. A URL that needs a login gives a warning. |
+
+The SSbD Core ontology does not only contain terms in its own namespace (`ssbd:`).
+It also includes terms from other ontologies, which keep their original IRIs,
+e.g. `emmo:DataProcessing` from EMMO, `cheminf:CHEMINF_000159` from CHEMINF and `obo:CHEBI_23367` from ChEBI.
+These are all accepted for the range `ssbd`, so the range means *in the SSbD Core ontology*,
+not *in the `ssbd:` namespace*. Use the IRI that the term has in the ontology:
+e.g. `emmo:DataProcessing`, not `ssbd:DataProcessing`. If the prefix is wrong, the error message suggests the right one.
+
+For example, the curator of software must be a person, so its range is `orcid`,
+while the creator may be a person or an organisation, so its range is `orcid | ror`:
+
+```
+property,condition,datatype,range,...
+curator,mandatory,IRI,orcid,...
+creator,recommended,IRI,orcid | ror,...
+```
+
+A ROR ID as curator of software gives an error, while it is accepted as creator.
+
+To accept another kind of IRI, e.g. a new identifier scheme, a range is added to `RANGES`
+in `src/pink/validateutils.py`, with a function that checks it.
 
 ## The profiles
 
