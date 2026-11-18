@@ -27,7 +27,11 @@ jobs:
           mkdir -p versions/${TAG#v}
           cp -rf \
               *.html \
-              example_spreadsheets \
+              _static \
+              _downloads \
+              _sources \
+              searchindex.js \
+              objects.inv \
               versions/${TAG#v}/.
 
       - name: Push to gh-pages

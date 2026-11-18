@@ -15,6 +15,13 @@ chosen within the PINK project. Please refer to that documentation for guidance.
 - [Scripts](scripts.md) - preparing and validating the documentation tables, generating the graph,
   and other helper scripts
 
+```{toctree}
+:hidden:
+
+annotating
+scripts
+```
+
 ## Installation
 
 Users are expected to be familiar with Python (and Python environments).

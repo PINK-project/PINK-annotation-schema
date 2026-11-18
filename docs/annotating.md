@@ -12,9 +12,9 @@ Please update this file as needed.
 The files in `example_spreadsheets/` provide compact examples that can be used as templates when annotating resources.
 When populated correctly, it should be possible to parse them directly with tripper:
 
-- [software_release_example.csv](example_spreadsheets/software_release_example.csv)
-- [computation_type_example.csv](example_spreadsheets/computation_type_example.csv)
-- [dataset_type_example.csv](example_spreadsheets/dataset_type_example.csv)
+- [software_release_example.csv](../example_spreadsheets/software_release_example.csv)
+- [computation_type_example.csv](../example_spreadsheets/computation_type_example.csv)
+- [dataset_type_example.csv](../example_spreadsheets/dataset_type_example.csv)
 
 Notes:
 

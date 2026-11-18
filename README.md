@@ -24,8 +24,8 @@ The documentation is written in Markdown in [`docs/`](docs/) and published to Gi
 on every push to `main`. To preview it locally:
 
 ```bash
-pip install markdown
-python docs/build_pages.py public   # then open public/index.html
+pip install -r docs/requirements.txt
+sphinx-build -b html docs public   # then open public/index.html
 ```
 
 ## Legacy
