@@ -104,16 +104,20 @@ Cells are read as the text shown in the spreadsheet (e.g. a version written as `
   The label, description and curator of a computation are made from its software row.
 - Validates each table against its profile in `profiles/`, which defines the expected
   properties, their datatypes and whether they are mandatory, recommended, conditional or
-  optional. Possible datatypes are:
-  - string
-  - IRI
-  - URL (resolvable IRI; a URL that needs a login gives a warning)
-  - boolean
-  - dateTime
-  - SSbDCore (entry exists in the SSbD Core ontology)
-  - AgentIRI (ROR or ORCID identifier)
-  - PersonIRI (ORCID identifier)
-  - MediaTypeIRI (IANA media type, e.g. `iana:application/zip`)
+  optional. The datatype of a property is one or more of the following, separated by `|`
+  (a value is accepted if it is one of them, e.g. `orcid | ror`):
+  - predefined datatypes, written in lower case:
+    - `string`, `boolean`, `date`, `dateTime` (literals; cannot be combined with others)
+    - `iri` (any valid IRI)
+    - `url` (resolvable IRI; a URL that needs a login gives a warning)
+    - `orcid` (ORCID identifier), `ror` (ROR identifier)
+    - `ssbd` (a term in the SSbD Core ontology, including the terms it takes from other ontologies, e.g. `emmo:`)
+    - `rights` (access right from the EU vocabulary, e.g. `rights:PUBLIC`)
+    - `iana` (IANA media type, e.g. `iana:application/zip`)
+  - an ontology class with a known prefix, e.g. `ssbd:Model`: the value must be that class, a subclass
+    of it, or an individual of one of them. This is looked up in the SSbD Core ontology, or for
+    resources documented in the same spreadsheet (e.g. a software release in `hasSoftware`) in
+    their `@type` and `subClassOf`.
 - Wrong prefixes are not corrected, but reported (with a hint if the term exists with another prefix).
   Columns that are not tripper keywords are reported as errors.
 - ORCIDs are looked up anonymously, unless a credentials file is given with `-c`
