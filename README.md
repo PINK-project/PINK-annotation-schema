@@ -103,10 +103,10 @@ Cells are read as the text shown in the spreadsheet (e.g. a version written as `
 - Splits the software tab into a software table and a computation table.
   The label, description and curator of a computation are made from its software row.
 - Validates each table against its profile in `profiles/`, which defines the expected
-  properties, their datatypes and whether they are mandatory, recommended, conditional or
-  optional. The datatype of a property is one or more of the following, separated by `|`
+  properties, their range (the column `range`) and whether they are mandatory, recommended,
+  conditional or optional. The range of a property is one or more of the following, separated by `|`
   (a value is accepted if it is one of them, e.g. `orcid | ror`):
-  - predefined datatypes, written in lower case:
+  - predefined ranges, written in lower case:
     - `string`, `boolean`, `date`, `dateTime` (literals; cannot be combined with others)
     - `iri` (any valid IRI)
     - `url` (resolvable IRI; a URL that needs a login gives a warning)

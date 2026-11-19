@@ -242,7 +242,7 @@ def main(argv=None):
     out = Path(args.output)
     out.mkdir(parents=True, exist_ok=True)
     failed = {}
-    # Resources documented in this spreadsheet, for datatypes that are ontology classes (e.g. hasSoftware)
+    # Resources documented in this spreadsheet, for ranges that are ontology classes (e.g. hasSoftware)
     known = pink.validateutils.known_resources([table for *_, table in prepared], prefixes)
     for name, profile, tab, raw, table in prepared:
         print(f"\nVALIDATING {name} against profile {profile}")

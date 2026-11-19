@@ -58,25 +58,25 @@ def add_error(error_table, row, column, error_type, message):
     return pd.concat([error_table, new_error], ignore_index=True)
 
 # Read data profile (lines starting with # are ignored)
-# The datatype of a property is one or more of the following, separated by "|"
+# The range of a property is one or more of the following, separated by "|"
 # (a value is accepted if it is one of them):
-# - a predefined datatype, written in lower case (see LITERALS and RANGES below):
+# - a predefined range, written in lower case (see LITERALS and RANGES below):
 #   string, boolean, date, dateTime, iri, orcid, ror, ssbd, rights, iana, url
 # - an ontology class with a known prefix, e.g. ssbd:Model: the value must be that class,
 #   a subclass of it, or an individual of one of them
 LITERALS = ("string", "boolean", "date", "dateTime")
 
-def get_datatypes(row):
-    """Return the alternatives of the datatype of a profile row, e.g. ["orcid", "ror"]."""
-    return [d.strip() for d in str(row["datatype"]).split("|") if d.strip()]
+def get_ranges(row):
+    """Return the alternatives of the range of a profile row, e.g. ["orcid", "ror"]."""
+    return [d.strip() for d in str(row['range']).split("|") if d.strip()]
 
-def is_class_datatype(datatype):
-    """Whether a datatype alternative is an ontology class (prefix:Name), not a predefined one."""
-    return ":" in datatype
+def is_class_range(name):
+    """Whether a range alternative is an ontology class (prefix:Name), not a predefined one."""
+    return ":" in name
 
-def is_iri_datatype(row):
-    """Whether the values of a profile row are IRIs (all datatypes except the literals)."""
-    return not any(d in LITERALS for d in get_datatypes(row))
+def is_iri_range(row):
+    """Whether the values of a profile row are IRIs (all ranges except the literals)."""
+    return not any(d in LITERALS for d in get_ranges(row))
 
 def read_profile_table(args, prefixes=None):
     """Read a profile. `prefixes` are the prefixes allowed for classes (default: the PINK prefixes)."""
@@ -91,17 +91,17 @@ def read_profile_table(args, prefixes=None):
     profile_table = profile_table.rename(columns={"property": "column_name"})  # profiles in profiles/ use "property"
     profile_table = profile_table[profile_table['column_name'].str.startswith('#') == False]
     for _, row in profile_table.iterrows():
-        datatypes = get_datatypes(row)
-        for d in datatypes:
-            if is_class_datatype(d):
+        ranges = get_ranges(row)
+        for d in ranges:
+            if is_class_range(d):
                 if d.split(":", 1)[0] not in prefixes:
-                    raise ValueError(f"{args.profile_file}: unknown prefix in datatype {d!r} of {row['column_name']}")
+                    raise ValueError(f"{args.profile_file}: unknown prefix in range {d!r} of {row['column_name']}")
             elif d not in LITERALS and d not in RANGES and d != "iri":
-                raise ValueError(f"{args.profile_file}: unknown datatype {d!r} of {row['column_name']}. "
+                raise ValueError(f"{args.profile_file}: unknown range {d!r} of {row['column_name']}. "
                                  f"Use one of {', '.join(LITERALS + ('iri',) + tuple(RANGES))} or an ontology class, e.g. ssbd:Model")
-        if len(datatypes) > 1 and any(d in LITERALS for d in datatypes):
-            raise ValueError(f"{args.profile_file}: {row['datatype']!r} of {row['column_name']}: "
-                             f"{', '.join(LITERALS)} cannot be combined with other datatypes")
+        if len(ranges) > 1 and any(d in LITERALS for d in ranges):
+            raise ValueError(f"{args.profile_file}: {row['range']!r} of {row['column_name']}: "
+                             f"{', '.join(LITERALS)} cannot be combined with other ranges")
     print(f"\nValidation defined by profile table:\n")
     profile_table = cleanDF(profile_table)
     print(profile_table)
@@ -191,7 +191,7 @@ def create_list_columns(annotation_table, profile_table):
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
         if column_name in annotation_table.columns:
-            if row['datatype'].startswith('List'):
+            if row['range'].startswith('List'):
                 annotation_table[column_name] = annotation_table[column_name].apply(
                     lambda x: str(x).replace(',', ';') if (pd.notna(x) and (';' not in str(x))) else x
                 )
@@ -235,7 +235,7 @@ def strings_to_bools(annotation_table, profile_table, error_table):
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
         if column_name in annotation_table.columns:
-            if row['datatype'] == 'boolean':
+            if row['range'] == 'boolean':
                 valid = annotation_table.apply(correct_boolean, column_name=column_name, axis=1, result_type='expand')
                 annotation_table[column_name] = valid.pop(column_name)
                 valid.dropna(how='all', inplace=True)
@@ -275,7 +275,7 @@ def strings_to_dates(annotation_table, profile_table, error_table):
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
         if column_name in annotation_table.columns:
-            if row['datatype'] in ('date', 'dateTime'):
+            if row['range'] in ('date', 'dateTime'):
                 valid = annotation_table.apply(translate_string_to_date, column_name=column_name, axis=1, result_type='expand')
                 annotation_table[column_name] = valid.pop(column_name)
                 error_table = pd.concat([error_table, valid.dropna(how='all')])
@@ -392,7 +392,7 @@ def replace_short_prefixes(column, column_name, prefixes, error_table):
 #---------- Validate the individual software entries against the profile table ----------
 # 
 # Check if the ORCID is valid by querying the API. If valid, report the name of the person. If not valid, return an error message.
-# Used for the datatype "orcid" (see RANGES).
+# Used for the range "orcid" (see RANGES).
 def validate_orcid(value, row, column, credentials, error_table):
     if (('orcid' not in credentials.keys()) or ('api' not in credentials["orcid"].keys())):
         r = re.compile('https://orcid.org/.{4}-.{4}-.{4}-.{4}')
@@ -417,7 +417,7 @@ def validate_orcid(value, row, column, credentials, error_table):
 
 
 # Check if the ROR ID is valid by querying the API. If valid, report the name of the organisation. If not valid, return an error message.
-# Used for the datatype "ror" (see RANGES).
+# Used for the range "ror" (see RANGES).
 def validate_ror(value, row, column, credentials, error_table):
     try:
         query = f"https://api.ror.org/v2/organizations/{value.replace('https://ror.org/', '')}"
@@ -541,7 +541,7 @@ def validate_rights(value, row, column, credentials, error_table):
     return error_table
 
 
-# The predefined datatypes for IRIs (besides "iri", any valid IRI).
+# The predefined ranges for IRIs (besides "iri", any valid IRI).
 # For each: whether a value belongs to it, the function that checks it, and the expected format.
 Range = collections.namedtuple("Range", "matches check expected")
 RANGES = {
@@ -560,7 +560,7 @@ RANGES = {
 }
 
 
-#---------- Ontology classes as datatype ----------
+#---------- Ontology classes as range ----------
 
 OWL_CLASS = "http://www.w3.org/2002/07/owl#Class"
 
@@ -627,16 +627,16 @@ def compact(iri, prefixes):
     return max(matches)[1] if matches else iri
 
 
-def validate_datatype(value, row, column, credentials, error_table, datatypes, ontology, known, prefixes):
-    """Check that each IRI in `value` is of one of the `datatypes` (predefined or ontology classes)."""
-    classes = [d for d in datatypes if is_class_datatype(d)]
+def validate_range(value, row, column, credentials, error_table, ranges, ontology, known, prefixes):
+    """Check that each IRI in `value` is of one of the `ranges` (predefined or ontology classes)."""
+    classes = [d for d in ranges if is_class_range(d)]
     for item in (value if isinstance(value, list) else [value]):
         if not isinstance(item, str):
             if pd.isna(item):
                 continue
             item = str(item)
-        # Predefined datatypes, e.g. orcid or ror
-        for name in datatypes:
+        # Predefined ranges, e.g. orcid or ror
+        for name in ranges:
             if name in RANGES and RANGES[name].matches(item):
                 error_table = RANGES[name].check(item, row, column, credentials, error_table)
                 break
@@ -657,9 +657,9 @@ def validate_datatype(value, row, column, credentials, error_table, datatypes, o
                                         f'{compact(item, prefixes)} was not found in the ontology or in the spreadsheet '
                                         f'(it must be a {" or ".join(classes)}).' + hint)
             else:
-                expected = " or ".join(RANGES[name].expected for name in datatypes if name in RANGES)
+                expected = " or ".join(RANGES[name].expected for name in ranges if name in RANGES)
                 error_table = add_error(error_table, row, column, 'Error',
-                                        f'{item} is not of the datatype of {column} ({" | ".join(datatypes)}). Expected {expected}.')
+                                        f'{item} is not in the range of {column} ({" | ".join(ranges)}). Expected {expected}.')
     return error_table
 
 
@@ -667,23 +667,23 @@ def validate_annotations(annotation_table, profile_table, credentials, error_tab
 
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
-        datatype = row['datatype']
+        range_ = row['range']
         condition = row['condition']
         if column_name not in annotation_table.columns:
             continue  # missing columns are reported by check_mandatory_and_recommended_columns
 
-        if is_iri_datatype(row):
-            validation_function = functools.partial(validate_datatype, datatypes=get_datatypes(row), ontology=ontology,
+        if is_iri_range(row):
+            validation_function = functools.partial(validate_range, ranges=get_ranges(row), ontology=ontology,
                                                     known=known or {}, prefixes=prefixes or pink.parseutils.PREFIXES)
-            validation_function.__name__ = f"validate_datatype({datatype})"
-        elif datatype == 'boolean':
+            validation_function.__name__ = f"validate_range({range_})"
+        elif range_ == 'boolean':
             validation_function = validate_boolean
-        elif datatype in ('date', 'dateTime'):
+        elif range_ in ('date', 'dateTime'):
             validation_function = validate_date
         else:  # string: check for special characters need to be implemented
             validation_function = None
 
-        print(f"\nValidating column {column_name} of datatype {datatype} with condition {condition} using validation function {validation_function.__name__ if validation_function else 'None'}")
+        print(f"\nValidating column {column_name} with range {range_} with condition {condition} using validation function {validation_function.__name__ if validation_function else 'None'}")
         
         for j, row2 in annotation_table.iterrows():
             if condition == 'mandatory' or condition == 'recommended':
@@ -749,7 +749,7 @@ def validate_table(table, profile_table, ontology, credentials, prefixes=None, k
     The table itself is not changed.
     `prefixes` maps known prefixes to IRIs (default: the PINK prefixes).
     `known` are the resources documented in the same spreadsheet (see `known_resources`),
-    used for datatypes that are ontology classes.
+    used for ranges that are ontology classes.
     """
     if prefixes is None:
         prefixes = pink.parseutils.PREFIXES
@@ -787,13 +787,13 @@ def validate_table(table, profile_table, ontology, credentials, prefixes=None, k
     in_ontology = ontology_namespaces(ontology, prefixes) if ontology is not None else []
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
-        datatypes = get_datatypes(row)
+        ranges = get_ranges(row)
         if column_name not in table.columns or ontology is None:
             continue
-        if "ssbd" in datatypes:
-            # Only SSbD Core terms are accepted if that is the only datatype
-            table[column_name], error_table = retrieve_IRI_from_ontology(table[column_name].copy(deep=True), column_name, ontology, in_ontology, error_table, strict=(datatypes == ["ssbd"]))
-        elif any(is_class_datatype(d) for d in datatypes):
+        if "ssbd" in ranges:
+            # Only SSbD Core terms are accepted if that is the only range
+            table[column_name], error_table = retrieve_IRI_from_ontology(table[column_name].copy(deep=True), column_name, ontology, in_ontology, error_table, strict=(ranges == ["ssbd"]))
+        elif any(is_class_range(d) for d in ranges):
             table[column_name], error_table = resolve_labels(table[column_name].copy(deep=True), column_name, ontology, error_table)
 
     # IRI columns may refer to terms outside the ontology. But a prefixed term that is not
@@ -801,7 +801,7 @@ def validate_table(table, profile_table, ontology, credentials, prefixes=None, k
     # probably has a wrong prefix: warn about it.
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
-        if column_name in table.columns and get_datatypes(row) == ['iri'] and ontology is not None:
+        if column_name in table.columns and get_ranges(row) == ['iri'] and ontology is not None:
             for j, value in table[column_name].items():
                 for v in (value if isinstance(value, list) else [value]):
                     if (isinstance(v, str) and ":" in v and not v.startswith(("http://", "https://"))
@@ -813,7 +813,7 @@ def validate_table(table, profile_table, ontology, credentials, prefixes=None, k
     # Replace known prefixes
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
-        if column_name in table.columns and is_iri_datatype(row):
+        if column_name in table.columns and is_iri_range(row):
             table[column_name], error_table = replace_short_prefixes(table[column_name].copy(deep=True), column_name, prefixes, error_table)
 
     # Validate the individual entries against the profile table

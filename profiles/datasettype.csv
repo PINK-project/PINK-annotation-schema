@@ -1,4 +1,4 @@
-property,condition,datatype,guidance
+property,condition,range,guidance
 @id,mandatory,iri,"Globally unique identifier for the resource. Use a persistent, resolvable IRI when possible."
 @type,mandatory,iri,"Use owl:Class for classes. For individuals, the ontology class it is an instance of. More than one @type may be used for individuals."
 creator,optional,orcid | ror,Agent responsible for creating or producing the resource.
