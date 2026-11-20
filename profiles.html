@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Validation profiles &#8212; PINK Annotation Schema</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=066159fd" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
+
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="_static/design-tabs.js?v=fcb327ea"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'profiles';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="_static/toc-collapsible.js?v=608593b7"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Scripts" href="scripts.html" />
+    <link rel="prev" title="Annotating resources" href="annotating.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">PINK Annotation Schema</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotating.html">
+    Annotating resources
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#" aria-current="page">
+    Validation profiles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="scripts.html">
+    Scripts
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/PINK-project/PINK-annotation-schema" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://ssbd-ontology.github.io/core/" title="SSbD Core Ontology" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-globe fa-lg" aria-hidden="true"></i><span class="visually-hidden">SSbD Core Ontology</span></a>
+        </li>
+</ul></div>
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotating.html">
+    Annotating resources
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#" aria-current="page">
+    Validation profiles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="scripts.html">
+    Scripts
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/PINK-project/PINK-annotation-schema" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://ssbd-ontology.github.io/core/" title="SSbD Core Ontology" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-globe fa-lg" aria-hidden="true"></i><span class="visually-hidden">SSbD Core Ontology</span></a>
+        </li>
+</ul></div>
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-find-them">Where to find them</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-they-were-made">How they were made</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-columns-mean">What the columns mean</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#predefined-ranges">Predefined ranges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ontology-classes">Ontology classes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prefixes">Prefixes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-profiles">The profiles</a></li>
+</ul>
+  </nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Validation profiles</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="validation-profiles">
+<h1>Validation profiles<a class="headerlink" href="#validation-profiles" title="Link to this heading">#</a></h1>
+<p>The documentation tables are validated against a <em>profile</em> for each type of resource.
+A profile lists the properties that are expected for that type of resource,
+whether each one must be given, and which values it accepts (its <em>range</em>).
+The profiles are used by <code class="docutils literal notranslate"><span class="pre">prepare-tables</span></code> (see <a class="reference internal" href="scripts.html"><span class="std std-doc">Scripts</span></a>).</p>
+<section id="where-to-find-them">
+<h2>Where to find them<a class="headerlink" href="#where-to-find-them" title="Link to this heading">#</a></h2>
+<p>The profiles are CSV files in the
+<a class="reference external" href="https://github.com/PINK-project/PINK-annotation-schema/tree/main/profiles"><code class="docutils literal notranslate"><span class="pre">profiles/</span></code></a> folder of the repository,
+one file for each resource type:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Profile</p></th>
+<th class="head"><p>Resource type</p></th>
+<th class="head"><p>Used for</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/PINK-project/PINK-annotation-schema/blob/main/profiles/software.csv"><code class="docutils literal notranslate"><span class="pre">software.csv</span></code></a></p></td>
+<td><p>Software release (individual)</p></td>
+<td><p>the software tab</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/PINK-project/PINK-annotation-schema/blob/main/profiles/computation.csv"><code class="docutils literal notranslate"><span class="pre">computation.csv</span></code></a></p></td>
+<td><p>Computation type (class)</p></td>
+<td><p>the computation tab, and the computations made from the software tab</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/PINK-project/PINK-annotation-schema/blob/main/profiles/datasettype.csv"><code class="docutils literal notranslate"><span class="pre">datasettype.csv</span></code></a></p></td>
+<td><p>Dataset type (class)</p></td>
+<td><p>the dataset type tab</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/PINK-project/PINK-annotation-schema/blob/main/profiles/dataset.csv"><code class="docutils literal notranslate"><span class="pre">dataset.csv</span></code></a></p></td>
+<td><p>Dataset (individual)</p></td>
+<td><p>the dataset tab</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/PINK-project/PINK-annotation-schema/blob/main/profiles/agent.csv"><code class="docutils literal notranslate"><span class="pre">agent.csv</span></code></a></p></td>
+<td><p>Agent (individual)</p></td>
+<td><p>people and organisations</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The current content of each profile is shown <a class="reference internal" href="#the-profiles">at the bottom of this page</a>.
+Another folder with profiles can be given to <code class="docutils literal notranslate"><span class="pre">prepare-tables</span></code> with <code class="docutils literal notranslate"><span class="pre">--profiles</span></code>.</p>
+</section>
+<section id="how-they-were-made">
+<h2>How they were made<a class="headerlink" href="#how-they-were-made" title="Link to this heading">#</a></h2>
+<p>The profiles are based on the matrix of
+<a class="reference external" href="https://ssbd-ontology.github.io/core/docs/document-your-data.html#expected-annotations-by-resource-type">expected annotations by resource type</a>
+in the SSbD Core ontology documentation, which was agreed within the PINK project.
+Each column of that matrix (Software release, Computation type, Dataset type, Dataset and Agent)
+matches one profile:</p>
+<ul class="simple">
+<li><p>The <strong>property</strong> and <strong>guidance</strong> are taken from the matrix.
+The <em>value kind</em> of the matrix is not a separate column. It is covered by the range, and where
+it says more (e.g. that a licence is given as the IRI of the licence document), this is added to the guidance.</p></li>
+<li><p>The <strong>condition</strong> starts from the entry of the matrix for that resource type, where <em>Required</em> is written as <code class="docutils literal notranslate"><span class="pre">mandatory</span></code>.
+For some properties PINK is stricter than the matrix, e.g. <code class="docutils literal notranslate"><span class="pre">hasAPI</span></code> is mandatory for software
+and <code class="docutils literal notranslate"><span class="pre">title</span></code> is mandatory for computation types.</p></li>
+<li><p>The <strong>range</strong> is added for PINK, to tell the validation which values are accepted (see below).
+The range of a property is the same in all profiles, except for <code class="docutils literal notranslate"><span class="pre">curator</span></code>
+(only ORCIDs for software, ORCIDs or ROR IDs otherwise) and <code class="docutils literal notranslate"><span class="pre">subClassOf</span></code>
+(SSbD Core terms for computation types, any IRI for dataset types).</p></li>
+</ul>
+<p>The profiles are maintained by hand: if the expected annotations in the SSbD Core documentation change,
+the profiles must be updated accordingly.</p>
+</section>
+<section id="what-the-columns-mean">
+<h2>What the columns mean<a class="headerlink" href="#what-the-columns-mean" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">property</span></code></p></td>
+<td><p>The tripper keyword of the property, as used in the column name of the prepared table.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">condition</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mandatory</span></code>, <code class="docutils literal notranslate"><span class="pre">recommended</span></code>, <code class="docutils literal notranslate"><span class="pre">conditional</span></code> or <code class="docutils literal notranslate"><span class="pre">optional</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">range</span></code></p></td>
+<td><p>Which values are accepted (see below).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">guidance</span></code></p></td>
+<td><p>How to fill in the property.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <strong>condition</strong> decides what happens when a value is missing:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Condition</p></th>
+<th class="head"><p>Missing column</p></th>
+<th class="head"><p>Empty cell</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mandatory</span></code></p></td>
+<td><p>Error (every row fails)</p></td>
+<td><p>Error (the row fails)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">recommended</span></code></p></td>
+<td><p>Warning</p></td>
+<td><p>Warning</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">conditional</span></code></p></td>
+<td><p>not checked</p></td>
+<td><p>not checked</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">optional</span></code></p></td>
+<td><p>not checked</p></td>
+<td><p>not checked</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Rows with errors are left out of the clean tables (and of the graph); rows with warnings are kept.</p>
+<p>The <strong>range</strong> decides which values are accepted, whatever the condition.
+It is one or more of the following, separated by <code class="docutils literal notranslate"><span class="pre">|</span></code>.
+A value is accepted if it is in one of them, e.g. <code class="docutils literal notranslate"><span class="pre">orcid</span> <span class="pre">|</span> <span class="pre">ror</span></code> accepts an ORCID or a ROR ID.</p>
+<section id="predefined-ranges">
+<h3>Predefined ranges<a class="headerlink" href="#predefined-ranges" title="Link to this heading">#</a></h3>
+<p>The predefined ranges are written in lower case.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Range</p></th>
+<th class="head"><p>Accepted values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>Any text.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Yes</span></code> or <code class="docutils literal notranslate"><span class="pre">No</span></code> (in any case), or a true/false cell.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">date</span></code>, <code class="docutils literal notranslate"><span class="pre">dateTime</span></code></p></td>
+<td><p>A date, or a date and time, in a common format (e.g. <code class="docutils literal notranslate"><span class="pre">2025-08-18</span></code> or <code class="docutils literal notranslate"><span class="pre">January</span> <span class="pre">2015</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">iri</span></code></p></td>
+<td><p>Any valid IRI. A prefix must be known (see below).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">url</span></code></p></td>
+<td><p>A resolvable <code class="docutils literal notranslate"><span class="pre">http://</span></code> or <code class="docutils literal notranslate"><span class="pre">https://</span></code> URL. A URL that needs a login gives a warning.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">orcid</span></code></p></td>
+<td><p>An ORCID, <code class="docutils literal notranslate"><span class="pre">https://orcid.org/XXXX-XXXX-XXXX-XXXX</span></code>, that exists. It is looked up at ORCID.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ror</span></code></p></td>
+<td><p>A ROR ID, <code class="docutils literal notranslate"><span class="pre">https://ror.org/XXXXXXXXX</span></code>, that exists. It is looked up at ROR.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ssbd</span></code></p></td>
+<td><p>A term in the SSbD Core ontology, including the terms it takes from other ontologies (e.g. <code class="docutils literal notranslate"><span class="pre">emmo:</span></code>). It may be given by its label.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rights</span></code></p></td>
+<td><p>An access right from the <a class="reference external" href="http://publications.europa.eu/resource/authority/access-right">EU vocabulary on access rights</a>: <code class="docutils literal notranslate"><span class="pre">PUBLIC</span></code>, <code class="docutils literal notranslate"><span class="pre">NON_PUBLIC</span></code>, <code class="docutils literal notranslate"><span class="pre">RESTRICTED</span></code>, <code class="docutils literal notranslate"><span class="pre">CONFIDENTIAL</span></code> or <code class="docutils literal notranslate"><span class="pre">SENSITIVE</span></code>. The prefix <code class="docutils literal notranslate"><span class="pre">rights:</span></code> is added if it is left out.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">iana</span></code></p></td>
+<td><p>An IANA media type, e.g. <code class="docutils literal notranslate"><span class="pre">iana:application/zip</span></code>. Use <code class="docutils literal notranslate"><span class="pre">distribution.format</span></code> for a free-text format.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">boolean</span></code>, <code class="docutils literal notranslate"><span class="pre">date</span></code> and <code class="docutils literal notranslate"><span class="pre">dateTime</span></code> are literals: they cannot be combined with other ranges.</p>
+</section>
+<section id="ontology-classes">
+<h3>Ontology classes<a class="headerlink" href="#ontology-classes" title="Link to this heading">#</a></h3>
+<p>A range can also be an ontology class with a known prefix, e.g. <code class="docutils literal notranslate"><span class="pre">ssbd:Model</span></code>.
+A value is then accepted if it is that class, a subclass of it, or an individual of one of them.
+For example, <code class="docutils literal notranslate"><span class="pre">emmo:Molecule</span></code> is accepted for <code class="docutils literal notranslate"><span class="pre">chemicalClass</span></code> (range <code class="docutils literal notranslate"><span class="pre">ssbd:Matter</span></code>),
+since in the SSbD Core ontology it is a subclass of <code class="docutils literal notranslate"><span class="pre">emmo:MolecularEntity</span></code>, <code class="docutils literal notranslate"><span class="pre">emmo:ChemicalEntity</span></code> and <code class="docutils literal notranslate"><span class="pre">ssbd:Matter</span></code>.
+It is not accepted for <code class="docutils literal notranslate"><span class="pre">implementsModel</span></code> (range <code class="docutils literal notranslate"><span class="pre">ssbd:Model</span></code>), where e.g. <code class="docutils literal notranslate"><span class="pre">ssbd:RandomForest</span></code> is.</p>
+<ul class="simple">
+<li><p>The value is looked up in the SSbD Core ontology, including the terms it takes from other ontologies.</p></li>
+<li><p>A resource documented in the same spreadsheet is checked through its <code class="docutils literal notranslate"><span class="pre">&#64;type</span></code> (an individual)
+or its <code class="docutils literal notranslate"><span class="pre">subClassOf</span></code> (a class). This is how a software release in the software tab
+is accepted for <code class="docutils literal notranslate"><span class="pre">hasSoftware</span></code> (range <code class="docutils literal notranslate"><span class="pre">ssbd:Software</span></code>).</p></li>
+<li><p>A value may be given by its label, e.g. <code class="docutils literal notranslate"><span class="pre">Random</span> <span class="pre">forest</span></code> for <code class="docutils literal notranslate"><span class="pre">ssbd:RandomForest</span></code>.</p></li>
+<li><p>A value of the wrong class, or a value that is neither in the ontology nor in the spreadsheet,
+is an error. For a value that is not found, a term with the same name but another prefix is suggested,
+if there is one.</p></li>
+</ul>
+<p>The classes used in the profiles are <code class="docutils literal notranslate"><span class="pre">ssbd:Matter</span></code> (<code class="docutils literal notranslate"><span class="pre">chemicalClass</span></code>), <code class="docutils literal notranslate"><span class="pre">ssbd:Model</span></code> (<code class="docutils literal notranslate"><span class="pre">implementsModel</span></code>),
+<code class="docutils literal notranslate"><span class="pre">ssbd:Property</span></code> (<code class="docutils literal notranslate"><span class="pre">outputsIndicator</span></code>), <code class="docutils literal notranslate"><span class="pre">ssbd:Software</span></code> (<code class="docutils literal notranslate"><span class="pre">hasSoftware</span></code>) and <code class="docutils literal notranslate"><span class="pre">ssbd:TierLevel</span></code> (<code class="docutils literal notranslate"><span class="pre">inTierLevel</span></code>).</p>
+</section>
+<section id="prefixes">
+<h3>Prefixes<a class="headerlink" href="#prefixes" title="Link to this heading">#</a></h3>
+<p>The known prefixes are those of the <a class="reference external" href="https://w3id.org/ssbd/context/">SSbD context</a> and the PINK prefixes
+(e.g. <code class="docutils literal notranslate"><span class="pre">pink:</span></code>, <code class="docutils literal notranslate"><span class="pre">pinksw:</span></code>, <code class="docutils literal notranslate"><span class="pre">datasettype:</span></code>). A value with an unknown prefix is an error.
+A profile with an unknown range, a class with an unknown prefix, or a literal combined with another range
+is reported when <code class="docutils literal notranslate"><span class="pre">prepare-tables</span></code> starts.</p>
+</section>
+</section>
+<section id="the-profiles">
+<h2>The profiles<a class="headerlink" href="#the-profiles" title="Link to this heading">#</a></h2>
+<p>The tables below are read directly from the files in <code class="docutils literal notranslate"><span class="pre">profiles/</span></code>.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label aria-controls="sd-tab-item-0-content" class="sd-tab-label" for="sd-tab-item-0">
+Software</label><div class="sd-tab-content docutils" id="sd-tab-item-0-content">
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>property</p></th>
+<th class="head"><p>condition</p></th>
+<th class="head"><p>range</p></th>
+<th class="head"><p>guidance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&#64;id</p></td>
+<td><p>mandatory</p></td>
+<td><p>iri</p></td>
+<td><p>Globally unique identifier for the resource. Use a persistent, resolvable IRI when possible.</p></td>
+</tr>
+<tr class="row-odd"><td><p>&#64;type</p></td>
+<td><p>mandatory</p></td>
+<td><p>iri</p></td>
+<td><p>Use owl:Class for classes. For individuals, the ontology class it is an instance of. More than one &#64;type may be used for individuals.</p></td>
+</tr>
+<tr class="row-even"><td><p>accessRights</p></td>
+<td><p>mandatory</p></td>
+<td><p>rights</p></td>
+<td><p>Information about access to the resource. One of: CONFIDENTIAL, NON_PUBLIC, PUBLIC, RESTRICTED, SENSITIVE, from EU structured vocabulary on rights.</p></td>
+</tr>
+<tr class="row-odd"><td><p>chemicalClass</p></td>
+<td><p>recommended</p></td>
+<td><p>ssbd:Matter</p></td>
+<td><p>Use when the software or dataset is relevant to a particular chemical, substance, material, or chemical class. Give the IRI of the chemical, substance, material or chemical class.</p></td>
+</tr>
+<tr class="row-even"><td><p>creator</p></td>
+<td><p>recommended</p></td>
+<td><p>orcid | ror</p></td>
+<td><p>Agent responsible for creating or producing the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>curator</p></td>
+<td><p>mandatory</p></td>
+<td><p>orcid</p></td>
+<td><p>At least include agent(s) responsible for curating the metadata entry of the resource in the knowledge base. Also agents curating the data itself can be added.</p></td>
+</tr>
+<tr class="row-even"><td><p>description</p></td>
+<td><p>mandatory</p></td>
+<td><p>string</p></td>
+<td><p>Human-readable description of the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>distribution.accessURL</p></td>
+<td><p>recommended</p></td>
+<td><p>url</p></td>
+<td><p>URL providing access to a distribution. Tripper converts the nested property into an annotation on a generated dcat:Distribution blank node.</p></td>
+</tr>
+<tr class="row-even"><td><p>distribution.downloadURL</p></td>
+<td><p>recommended</p></td>
+<td><p>url</p></td>
+<td><p>Direct link to a downloadable file. Recommended when the resource has a directly downloadable representation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>distribution.releaseDate</p></td>
+<td><p>optional</p></td>
+<td><p>dateTime</p></td>
+<td><p>Date on which this particular distribution was formally issued.</p></td>
+</tr>
+<tr class="row-even"><td><p>documentation</p></td>
+<td><p>recommended</p></td>
+<td><p>url</p></td>
+<td><p>Page or document describing how to understand or use the resource, such as a README, protocol, manual, or data paper.</p></td>
+</tr>
+<tr class="row-odd"><td><p>hasAPI</p></td>
+<td><p>mandatory</p></td>
+<td><p>boolean</p></td>
+<td><p>Indicates whether the software provides an application programming interface. Use true or false.</p></td>
+</tr>
+<tr class="row-even"><td><p>hasGUI</p></td>
+<td><p>mandatory</p></td>
+<td><p>boolean</p></td>
+<td><p>Indicates whether the software provides a graphical user interface. Use true or false.</p></td>
+</tr>
+<tr class="row-odd"><td><p>implementsModel</p></td>
+<td><p>recommended</p></td>
+<td><p>ssbd:Model</p></td>
+<td><p>Model implemented by the software release.</p></td>
+</tr>
+<tr class="row-even"><td><p>inTierLevel</p></td>
+<td><p>recommended</p></td>
+<td><p>ssbd:TierLevel</p></td>
+<td><p>Tier level assigned to the software release according to the applicable SSbD tier scheme (ssbd:tierlevel1, ssbd:tierlevel2, ssbd:tierlevel3).</p></td>
+</tr>
+<tr class="row-odd"><td><p>isSubmoduleOf</p></td>
+<td><p>conditional</p></td>
+<td><p>iri</p></td>
+<td><p>Use when the documented software is a module or component of another software resource. Give the IRI of that software.</p></td>
+</tr>
+<tr class="row-even"><td><p>keyword</p></td>
+<td><p>recommended</p></td>
+<td><p>string</p></td>
+<td><p>Search keyword or tag.</p></td>
+</tr>
+<tr class="row-odd"><td><p>label</p></td>
+<td><p>optional</p></td>
+<td><p>string</p></td>
+<td><p>Short human-readable label.</p></td>
+</tr>
+<tr class="row-even"><td><p>license</p></td>
+<td><p>recommended</p></td>
+<td><p>iri</p></td>
+<td><p>Licence under which the resource is made available or may be reused. Give the IRI of the licence document.</p></td>
+</tr>
+<tr class="row-odd"><td><p>priorRelease</p></td>
+<td><p>conditional</p></td>
+<td><p>iri</p></td>
+<td><p>Previous software release from which the documented release follows.</p></td>
+</tr>
+<tr class="row-even"><td><p>publisher</p></td>
+<td><p>recommended</p></td>
+<td><p>orcid | ror</p></td>
+<td><p>Agent responsible for making the resource available. This may differ from its creator.</p></td>
+</tr>
+<tr class="row-odd"><td><p>releaseDate</p></td>
+<td><p>recommended</p></td>
+<td><p>dateTime</p></td>
+<td><p>Date of formal issuance or publication. Use an ISO 8601 value compatible with xsd:dateTime.</p></td>
+</tr>
+<tr class="row-even"><td><p>rightsHolder</p></td>
+<td><p>recommended</p></td>
+<td><p>orcid | ror</p></td>
+<td><p>Person or organisation owning or managing rights over the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>theme</p></td>
+<td><p>optional</p></td>
+<td><p>iri</p></td>
+<td><p>Main controlled category or SSbD thematic area of the resource. Give the IRI of a concept in a controlled vocabulary.</p></td>
+</tr>
+<tr class="row-even"><td><p>title</p></td>
+<td><p>mandatory</p></td>
+<td><p>string</p></td>
+<td><p>Human-readable title of the resource. For classes, label is preferred.</p></td>
+</tr>
+<tr class="row-odd"><td><p>version</p></td>
+<td><p>mandatory</p></td>
+<td><p>string</p></td>
+<td><p>Version name or identifier.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label aria-controls="sd-tab-item-1-content" class="sd-tab-label" for="sd-tab-item-1">
+Computation</label><div class="sd-tab-content docutils" id="sd-tab-item-1-content">
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>property</p></th>
+<th class="head"><p>condition</p></th>
+<th class="head"><p>range</p></th>
+<th class="head"><p>guidance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&#64;id</p></td>
+<td><p>mandatory</p></td>
+<td><p>iri</p></td>
+<td><p>Globally unique identifier for the resource. Use a persistent, resolvable IRI when possible.</p></td>
+</tr>
+<tr class="row-odd"><td><p>&#64;type</p></td>
+<td><p>mandatory</p></td>
+<td><p>iri</p></td>
+<td><p>Use owl:Class for classes. For individuals, the ontology class it is an instance of. More than one &#64;type may be used for individuals.</p></td>
+</tr>
+<tr class="row-even"><td><p>creator</p></td>
+<td><p>optional</p></td>
+<td><p>orcid | ror</p></td>
+<td><p>Agent responsible for creating or producing the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>curator</p></td>
+<td><p>mandatory</p></td>
+<td><p>orcid | ror</p></td>
+<td><p>At least include agent(s) responsible for curating the metadata entry of the resource in the knowledge base. Also agents curating the data itself can be added.</p></td>
+</tr>
+<tr class="row-even"><td><p>description</p></td>
+<td><p>mandatory</p></td>
+<td><p>string</p></td>
+<td><p>Human-readable description of the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>hasInput</p></td>
+<td><p>recommended</p></td>
+<td><p>iri</p></td>
+<td><p>Type of entity or dataset accepted as input by the computation.</p></td>
+</tr>
+<tr class="row-even"><td><p>hasOutput</p></td>
+<td><p>recommended</p></td>
+<td><p>iri</p></td>
+<td><p>Type of entity or dataset produced by the computation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>outputsIndicator</p></td>
+<td><p>recommended</p></td>
+<td><p>ssbd:Property</p></td>
+<td><p>Indicator(s) produced by the computation.</p></td>
+</tr>
+<tr class="row-even"><td><p>hasSoftware</p></td>
+<td><p>mandatory</p></td>
+<td><p>ssbd:Software</p></td>
+<td><p>Software implemenitiation that can perform the computation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>keyword</p></td>
+<td><p>recommended</p></td>
+<td><p>string</p></td>
+<td><p>Search keyword or tag.</p></td>
+</tr>
+<tr class="row-even"><td><p>label</p></td>
+<td><p>mandatory</p></td>
+<td><p>string</p></td>
+<td><p>Short human-readable label.</p></td>
+</tr>
+<tr class="row-odd"><td><p>scopeNote</p></td>
+<td><p>optional</p></td>
+<td><p>string</p></td>
+<td><p>Clarifies the intended meaning, boundaries, or use of a resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>subClassOf</p></td>
+<td><p>mandatory</p></td>
+<td><p>ssbd</p></td>
+<td><p>Parent class of the documented class. Individuals must not use subClassOf. Particularly important for computation types: the type of assessment (see SSbD core ontology, Assessments module) must be specified.</p></td>
+</tr>
+<tr class="row-odd"><td><p>theme</p></td>
+<td><p>optional</p></td>
+<td><p>iri</p></td>
+<td><p>Main controlled category or SSbD thematic area of the resource. Give the IRI of a concept in a controlled vocabulary.</p></td>
+</tr>
+<tr class="row-even"><td><p>title</p></td>
+<td><p>mandatory</p></td>
+<td><p>string</p></td>
+<td><p>Human-readable title of the resource. For classes, label is preferred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label aria-controls="sd-tab-item-2-content" class="sd-tab-label" for="sd-tab-item-2">
+Dataset type</label><div class="sd-tab-content docutils" id="sd-tab-item-2-content">
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>property</p></th>
+<th class="head"><p>condition</p></th>
+<th class="head"><p>range</p></th>
+<th class="head"><p>guidance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&#64;id</p></td>
+<td><p>mandatory</p></td>
+<td><p>iri</p></td>
+<td><p>Globally unique identifier for the resource. Use a persistent, resolvable IRI when possible.</p></td>
+</tr>
+<tr class="row-odd"><td><p>&#64;type</p></td>
+<td><p>mandatory</p></td>
+<td><p>iri</p></td>
+<td><p>Use owl:Class for classes. For individuals, the ontology class it is an instance of. More than one &#64;type may be used for individuals.</p></td>
+</tr>
+<tr class="row-even"><td><p>creator</p></td>
+<td><p>optional</p></td>
+<td><p>orcid | ror</p></td>
+<td><p>Agent responsible for creating or producing the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>curator</p></td>
+<td><p>mandatory</p></td>
+<td><p>orcid | ror</p></td>
+<td><p>At least include agent(s) responsible for curating the metadata entry of the resource in the knowledge base. Also agents curating the data itself can be added.</p></td>
+</tr>
+<tr class="row-even"><td><p>datamodel</p></td>
+<td><p>recommended</p></td>
+<td><p>iri</p></td>
+<td><p>Data model describing the structure, fields, properties, units, and shapes of the data handled by the resource. The datamodel connected to a dataset is obtained from the datasettype it is an inddividual of.</p></td>
+</tr>
+<tr class="row-odd"><td><p>description</p></td>
+<td><p>mandatory</p></td>
+<td><p>string</p></td>
+<td><p>Human-readable description of the resource.</p></td>
+</tr>
+<tr class="row-even"><td><p>keyword</p></td>
+<td><p>recommended</p></td>
+<td><p>string</p></td>
+<td><p>Search keyword or tag.</p></td>
+</tr>
+<tr class="row-odd"><td><p>label</p></td>
+<td><p>mandatory</p></td>
+<td><p>string</p></td>
+<td><p>Short human-readable label.</p></td>
+</tr>
+<tr class="row-even"><td><p>scopeNote</p></td>
+<td><p>optional</p></td>
+<td><p>string</p></td>
+<td><p>Clarifies the intended meaning, boundaries, or use of a resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>subClassOf</p></td>
+<td><p>mandatory</p></td>
+<td><p>iri</p></td>
+<td><p>Parent class of the documented class. Individuals must not use subClassOf. Particularly important for computation types: the type of assessment (see SSbD core ontology, Assessments module) must be specified.</p></td>
+</tr>
+<tr class="row-even"><td><p>theme</p></td>
+<td><p>recommended</p></td>
+<td><p>iri</p></td>
+<td><p>Main controlled category or SSbD thematic area of the resource. Give the IRI of a concept in a controlled vocabulary.</p></td>
+</tr>
+<tr class="row-odd"><td><p>title</p></td>
+<td><p>optional</p></td>
+<td><p>string</p></td>
+<td><p>Human-readable title of the resource. For classes, label is preferred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
+<label aria-controls="sd-tab-item-3-content" class="sd-tab-label" for="sd-tab-item-3">
+Dataset</label><div class="sd-tab-content docutils" id="sd-tab-item-3-content">
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>property</p></th>
+<th class="head"><p>condition</p></th>
+<th class="head"><p>range</p></th>
+<th class="head"><p>guidance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&#64;id</p></td>
+<td><p>mandatory</p></td>
+<td><p>iri</p></td>
+<td><p>Globally unique identifier for the resource. Use a persistent, resolvable IRI when possible.</p></td>
+</tr>
+<tr class="row-odd"><td><p>&#64;type</p></td>
+<td><p>mandatory</p></td>
+<td><p>iri</p></td>
+<td><p>Use owl:Class for classes. For individuals, the ontology class it is an instance of. More than one &#64;type may be used for individuals.</p></td>
+</tr>
+<tr class="row-even"><td><p>accessRights</p></td>
+<td><p>recommended</p></td>
+<td><p>rights</p></td>
+<td><p>Information about access to the resource. One of: CONFIDENTIAL, NON_PUBLIC, PUBLIC, RESTRICTED, SENSITIVE, from EU structured vocabulary on rights.</p></td>
+</tr>
+<tr class="row-odd"><td><p>chemicalClass</p></td>
+<td><p>conditional</p></td>
+<td><p>ssbd:Matter</p></td>
+<td><p>Use when the software or dataset is relevant to a particular chemical, substance, material, or chemical class. Give the IRI of the chemical, substance, material or chemical class.</p></td>
+</tr>
+<tr class="row-even"><td><p>creator</p></td>
+<td><p>mandatory</p></td>
+<td><p>orcid | ror</p></td>
+<td><p>Agent responsible for creating or producing the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>curator</p></td>
+<td><p>mandatory</p></td>
+<td><p>orcid | ror</p></td>
+<td><p>At least include agent(s) responsible for curating the metadata entry of the resource in the knowledge base. Also agents curating the data itself can be added.</p></td>
+</tr>
+<tr class="row-even"><td><p>description</p></td>
+<td><p>mandatory</p></td>
+<td><p>string</p></td>
+<td><p>Human-readable description of the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>distribution.accessURL</p></td>
+<td><p>conditional</p></td>
+<td><p>url</p></td>
+<td><p>URL providing access to a distribution. Tripper converts the nested property into an annotation on a generated dcat:Distribution blank node.</p></td>
+</tr>
+<tr class="row-even"><td><p>distribution.downloadURL</p></td>
+<td><p>conditional</p></td>
+<td><p>url</p></td>
+<td><p>Direct link to a downloadable file. Recommended when the resource has a directly downloadable representation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>distribution.format</p></td>
+<td><p>optional</p></td>
+<td><p>string</p></td>
+<td><p>Format of the distribution. Use distribution.mediaType if format exists in IANA.</p></td>
+</tr>
+<tr class="row-even"><td><p>distribution.mediaType</p></td>
+<td><p>recommended</p></td>
+<td><p>iana</p></td>
+<td><p>Format of the distribution as an IANA media type, for example iana:text/csv or iana:application/json. Mediatype options can be found at IANA. Use distribution.format for a free-text format.</p></td>
+</tr>
+<tr class="row-odd"><td><p>distribution.releaseDate</p></td>
+<td><p>optional</p></td>
+<td><p>dateTime</p></td>
+<td><p>Date on which this particular distribution was formally issued.</p></td>
+</tr>
+<tr class="row-even"><td><p>keyword</p></td>
+<td><p>recommended</p></td>
+<td><p>string</p></td>
+<td><p>Search keyword or tag.</p></td>
+</tr>
+<tr class="row-odd"><td><p>label</p></td>
+<td><p>optional</p></td>
+<td><p>string</p></td>
+<td><p>Short human-readable label.</p></td>
+</tr>
+<tr class="row-even"><td><p>license</p></td>
+<td><p>mandatory</p></td>
+<td><p>iri</p></td>
+<td><p>Licence under which the resource is made available or may be reused. Give the IRI of the licence document.</p></td>
+</tr>
+<tr class="row-odd"><td><p>wasDerivedFrom</p></td>
+<td><p>conditional</p></td>
+<td><p>iri</p></td>
+<td><p>Upstream dataset or entity from which the dataset was processed or derived.</p></td>
+</tr>
+<tr class="row-even"><td><p>publisher</p></td>
+<td><p>recommended</p></td>
+<td><p>orcid | ror</p></td>
+<td><p>Agent responsible for making the resource available. This may differ from its creator.</p></td>
+</tr>
+<tr class="row-odd"><td><p>releaseDate</p></td>
+<td><p>recommended</p></td>
+<td><p>dateTime</p></td>
+<td><p>Date of formal issuance or publication. Use an ISO 8601 value compatible with xsd:dateTime.</p></td>
+</tr>
+<tr class="row-even"><td><p>rightsHolder</p></td>
+<td><p>recommended</p></td>
+<td><p>orcid | ror</p></td>
+<td><p>Person or organisation owning or managing rights over the resource.</p></td>
+</tr>
+<tr class="row-odd"><td><p>theme</p></td>
+<td><p>recommended</p></td>
+<td><p>iri</p></td>
+<td><p>Main controlled category or SSbD thematic area of the resource. Give the IRI of a concept in a controlled vocabulary.</p></td>
+</tr>
+<tr class="row-even"><td><p>title</p></td>
+<td><p>mandatory</p></td>
+<td><p>string</p></td>
+<td><p>Human-readable title of the resource. For classes, label is preferred.</p></td>
+</tr>
+<tr class="row-odd"><td><p>version</p></td>
+<td><p>recommended</p></td>
+<td><p>string</p></td>
+<td><p>Version name or identifier.</p></td>
+</tr>
+<tr class="row-even"><td><p>wasGeneratedBy</p></td>
+<td><p>mandatory</p></td>
+<td><p>iri</p></td>
+<td><p>The process that generated the resource (typically a dataset). Particularly important to define assessments, either as types or individuals.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-0" type="radio">
+<label aria-controls="sd-tab-item-4-content" class="sd-tab-label" for="sd-tab-item-4">
+Agent</label><div class="sd-tab-content docutils" id="sd-tab-item-4-content">
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>property</p></th>
+<th class="head"><p>condition</p></th>
+<th class="head"><p>range</p></th>
+<th class="head"><p>guidance</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&#64;id</p></td>
+<td><p>mandatory</p></td>
+<td><p>iri</p></td>
+<td><p>Globally unique identifier for the resource. Use a persistent, resolvable IRI when possible.</p></td>
+</tr>
+<tr class="row-odd"><td><p>&#64;type</p></td>
+<td><p>mandatory</p></td>
+<td><p>iri</p></td>
+<td><p>Use owl:Class for classes. For individuals, the ontology class it is an instance of. More than one &#64;type may be used for individuals.</p></td>
+</tr>
+<tr class="row-even"><td><p>label</p></td>
+<td><p>optional</p></td>
+<td><p>string</p></td>
+<td><p>Short human-readable label.</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>mandatory</p></td>
+<td><p>string</p></td>
+<td><p>Human-readable name of the person, organisation, or other agent.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, PINK project.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.2.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
