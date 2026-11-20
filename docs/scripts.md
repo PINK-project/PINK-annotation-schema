@@ -36,17 +36,9 @@ Cells are read as the text shown in the spreadsheet (e.g. a version written as `
 - Splits the software tab into a software table and a computation table.
   The label, description and curator of a computation are made from its software row.
 - Validates each table against its profile in `profiles/`, which defines the expected
-  properties, their datatypes and whether they are mandatory, recommended, conditional or
-  optional. See [Validation profiles](profiles.md) for the profiles and how they are used. Possible datatypes are:
-  - string
-  - IRI
-  - URL (resolvable IRI; a URL that needs a login gives a warning)
-  - boolean
-  - dateTime
-  - SSbDCore (entry exists in the SSbD Core ontology)
-  - AgentIRI (ROR or ORCID identifier)
-  - PersonIRI (ORCID identifier)
-  - MediaTypeIRI (IANA media type, e.g. `iana:application/zip`)
+  properties, their range (which values are accepted) and whether they are mandatory, recommended,
+  conditional or optional. See [Validation profiles](profiles.md) for the profiles, the possible ranges
+  and how they are checked.
 - Wrong prefixes are not corrected, but reported (with a hint if the term exists with another prefix).
   Columns that are not tripper keywords are reported as errors.
 - ORCIDs are looked up anonymously, unless a credentials file is given with `-c`
