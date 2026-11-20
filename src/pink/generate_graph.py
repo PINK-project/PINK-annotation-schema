@@ -37,6 +37,9 @@ def is_datamodel_table(csv_file):
 def add_datamodels(ts, csv_file):
     """Add the datamodels in `csv_file` to the triplestore `ts`, using dlite."""
     from dlite.table import DMTable
+    from pink.validateutils import save_namespace_caches_at_exit
+
+    save_namespace_caches_at_exit()  # avoids a traceback from tripper at exit
 
     with open(csv_file, newline="", encoding="utf-8") as f:
         table = list(csv.reader(f))

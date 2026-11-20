@@ -12,6 +12,7 @@ import numpy as np
 import requests
 import orcid
 import datetime
+import atexit
 import functools
 import collections
 import dateutil.parser 
@@ -842,6 +843,28 @@ def validate_table(table, profile_table, ontology, credentials, prefixes=None, k
 
 #---------- Datamodels (the datum columns of the dataset type tab) ----------
 
+def save_namespace_caches_at_exit():
+    """Save the IRI caches of tripper namespaces while Python can still do it.
+
+    The unit lookup of dlite fills the cache of tripper's EMMO namespace. tripper saves it
+    in Namespace.__del__, which runs when Python shuts down and prints an ImportError
+    traceback (a bug in tripper). So the caches are saved at exit instead, and emptied so
+    that __del__ has nothing left to save.
+    """
+    import gc
+    from tripper import Namespace
+
+    def save():
+        for ns in gc.get_objects():
+            if isinstance(ns, Namespace) and ns._iris:
+                ns._save_cache()
+                ns._iris = {}
+
+    if not getattr(save_namespace_caches_at_exit, "registered", False):
+        atexit.register(save)
+        save_namespace_caches_at_exit.registered = True
+
+
 # A datum name is used in the IRI of the datum (<datamodel IRI>#<name>)
 DATUM_NAME = re.compile(r"[A-Za-z_][A-Za-z0-9_]*")
 
@@ -862,6 +885,7 @@ def validate_datamodels(datamodels, prefixes):
     import warnings
     import dlite
     from dlite.dataset import MissingUnitError, get_unit_iri
+    save_namespace_caches_at_exit()
     from dlite.table import DMTable
 
     error_table = create_error_table()
