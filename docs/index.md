@@ -40,9 +40,8 @@ pip install .
 To generate and validate all documentation:
 
 1. **Prepare data:** Run `prepare-tables <Google spreadsheet ID>` to download, prepare and validate the tables, and correct the spreadsheet based on the logs
-2. **Convert to RDF:** Run `generate-graph` on the clean tables to convert them to validated RDF triples
-3. **Parse datamodels:** Run `step3_dmtable_parse.py` to convert datamodels to RDF format
-4. **Query results:** Use `search_pink_kb.py` to verify and search the generated knowledge base
+2. **Convert to RDF:** Run `generate-graph` on the clean tables, including the datamodels, to convert them to validated RDF triples
+3. **Query results:** Use `search_pink_kb.py` to verify and search the generated knowledge base
 
 See [Scripts](scripts.md) for the details of each step.
 
