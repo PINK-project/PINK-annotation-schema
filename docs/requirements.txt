@@ -1,0 +1,5 @@
+# Requirements for building the documentation (same setup as `ontokit docs` in EMMOntoPy)
+sphinx>=8
+myst-parser>=4
+sphinx-design>=0.6
+pydata-sphinx-theme>=0.16
