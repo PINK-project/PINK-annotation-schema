@@ -8,13 +8,14 @@ SOURCE is the ID of a Google spreadsheet, an Excel file or a CSV file.
 In a Google spreadsheet or Excel file, the tabs are recognised by their name:
     Software...    -> software     (sw_clean.csv and comp_clean.csv)
     Computation... -> computation  (computations_clean.csv)
-    Dataset Type   -> datasettype  (datasettypes_clean.csv and datamodels.csv)
+    Dataset Type   -> datasettype  (datasettypes_clean.csv and datamodels_clean.csv)
     Dataset        -> dataset      (datasets_clean.csv)
 All recognised tabs are prepared, or only the one given with --type.
 Another tab can be used with --sheet, and a CSV file has no tabs.
 In these cases the type is given with --type, or asked for.
 
-Each prepared table is validated against its profile in profiles/.
+Each prepared table is validated against its profile in profiles/,
+and the datamodels (the datum columns of the dataset type tab) are read and checked with dlite.
 Rows with errors are left out of <name>_clean.csv and written to <name>_failed.csv,
 and all messages are written to <name>_log.xlsx, with the tab, row and column
 in the spreadsheet.
@@ -234,6 +235,7 @@ def main(argv=None):
             prepared.append(("computations", "computation", tab, raw, prepare_computations(raw, onto, context)))
         elif table_type == "datasettype":
             datamodels = prepare_datamodels(raw)
+            datamodels_tab, datamodels_raw = tab, raw
             prepared.append(("datasettypes", "datasettype", tab, raw, prepare_datasettypes(raw, onto, context)))
         elif table_type == "dataset":
             prepared.append(("datasets", "dataset", tab, raw, prepare_datasets(raw, onto, context)))
@@ -244,6 +246,9 @@ def main(argv=None):
     failed = {}
     # Resources documented in this spreadsheet, for ranges that are ontology classes (e.g. hasSoftware)
     known = pink.validateutils.known_resources([table for *_, table in prepared], prefixes)
+    if datamodels is not None:
+        datamodel_errors = pink.validateutils.validate_datamodels(datamodels, prefixes)
+        datamodel_failed = set(datamodel_errors.loc[datamodel_errors["type"] == "Error", "row"].dropna().astype(int))
     for name, profile, tab, raw, table in prepared:
         print(f"\nVALIDATING {name} against profile {profile}")
         profile_table = pink.validateutils.read_profile_table(
@@ -278,6 +283,11 @@ def main(argv=None):
         if name == "comp":
             for row in table.index.intersection(failed.get("sw", [])):
                 errors = pink.validateutils.add_error(errors, row, "hasSoftware", "Error", "The software in this row has errors: the computation is left out.")
+        # The dataset type is kept if its datamodel has errors, but the datamodel is left out
+        if name == "datasettypes" and datamodels is not None:
+            for row in sorted(datamodel_failed):
+                errors = pink.validateutils.add_error(errors, row, "datamodel", "Warning",
+                                                      "The datamodel of this dataset type has errors (see datamodels_log.xlsx): the datamodel is left out.")
 
         log = report(errors, tab, raw, table, source_columns(name, raw))
         pink.validateutils.write_error_table(out / f"{name}_log.xlsx", log)
@@ -294,8 +304,21 @@ def main(argv=None):
         print(f"{name}: {len(table.index.difference(failed[name]))} rows in {name}_clean.csv, "
               f"{len(failed[name])} rows with errors in {name}_failed.csv, messages in {name}_log.xlsx")
 
-    if datamodels is not None:  # leave out the datamodels of dataset types with errors
-        datamodels.drop(index=datamodels.index.intersection(failed["datasettypes"])).to_csv(out / "datamodels.csv", index=False)
+    if datamodels is not None:
+        # A datamodel is left out if it has errors, or if its dataset type has errors
+        errors = datamodel_errors
+        for row in datamodels.index.intersection(failed["datasettypes"]):
+            errors = pink.validateutils.add_error(errors, row, "@id", "Error", "The dataset type in this row has errors: the datamodel is left out.")
+        columns = {c: c for c in datamodels.columns} | {"@id": "datamodel (or identifier)"}
+        log = report(errors, datamodels_tab, datamodels_raw, datamodels, columns)
+        pink.validateutils.write_error_table(out / "datamodels_log.xlsx", log)
+        failed_rows = datamodels.index.intersection(errors.loc[errors["type"] == "Error", "row"].dropna().astype(int).unique())
+        failed_table = datamodels_raw.loc[failed_rows, [c for c in datamodels_raw.columns if c in ("identifier", "datamodel") or c.startswith("datum")]]
+        failed_table.insert(0, "row", failed_table.index + 2)
+        failed_table.to_csv(out / "datamodels_failed.csv", index=False)
+        datamodels.drop(index=failed_rows).to_csv(out / "datamodels_clean.csv", index=False)
+        print(f"datamodels: {len(datamodels.index.difference(failed_rows))} rows in datamodels_clean.csv, "
+              f"{len(failed_rows)} rows with errors in datamodels_failed.csv, messages in datamodels_log.xlsx")
     print(f"Prepared tables written to {out}")
     return 0
 

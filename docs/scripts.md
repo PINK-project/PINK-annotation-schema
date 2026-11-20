@@ -21,7 +21,7 @@ In a Google spreadsheet or Excel file, the tabs are recognised by their name:
 |------------------|---------------|--------------------------------------------------|
 | `Software...`    | `software`    | `sw_clean.csv` and `comp_clean.csv` (computations from the software tab) |
 | `Computation...` | `computation` | `computations_clean.csv`                         |
-| `Dataset Type`   | `datasettype` | `datasettypes_clean.csv` and `datamodels.csv`    |
+| `Dataset Type`   | `datasettype` | `datasettypes_clean.csv` and `datamodels_clean.csv` |
 | `Dataset`        | `dataset`     | `datasets_clean.csv`                             |
 
 All recognised tabs are prepared, or only the one given with `--type`.
@@ -39,6 +39,14 @@ Cells are read as the text shown in the spreadsheet (e.g. a version written as `
   properties, their range (which values are accepted) and whether they are mandatory, recommended,
   conditional or optional. See [Validation profiles](profiles.md) for the profiles, the possible ranges
   and how they are checked.
+- Reads the datamodels (the `datum...` columns of the dataset type tab) with dlite, as `generate-graph` does,
+  and checks them:
+  - dlite reports a datum with an unknown or missing type.
+  - Each datum must have a name, which may only contain letters, digits and `_`, and not start with a digit
+    (it is used in the IRI of the datum). The names in a datamodel must be different.
+  - A datamodel must have at least one datum.
+  - `datumMapping` must be an IRI with a known prefix.
+  - A unit that is not found in EMMO gives a warning, and is left out of the datamodel.
 - Wrong prefixes are not corrected, but reported (with a hint if the term exists with another prefix).
   Columns that are not tripper keywords are reported as errors.
 - ORCIDs are looked up anonymously, unless a credentials file is given with `-c`
@@ -49,7 +57,11 @@ Cells are read as the text shown in the spreadsheet (e.g. a version written as `
 - `sw_failed.csv` - rows with errors, as written in the spreadsheet, with their row number
 - `sw_log.xlsx` - errors, warnings and information, with the tab, row and column in the spreadsheet
 
-A computation is left out if its software row has errors, and a datamodel if its dataset type has errors.
+The datamodels get the same three files (`datamodels_clean.csv`, `datamodels_failed.csv`, `datamodels_log.xlsx`),
+with the row and column in the dataset type tab.
+
+A computation is left out if its software row has errors. A datamodel is left out if it has errors or if its
+dataset type has errors. A dataset type is kept if only its datamodel has errors (with a warning).
 
 ---
 
@@ -60,12 +72,14 @@ It also validates and saves the generated rdf triples serialized to turtle forma
 
 **Usage:**
 ```bash
-generate-graph datasettypes_clean.csv sw_clean.csv comp_clean.csv -o graph.ttl
+generate-graph datasettypes_clean.csv sw_clean.csv comp_clean.csv datamodels_clean.csv -o graph.ttl
 ```
 
 **What it does:**
 - Reads the clean CSV files made by `prepare-tables`
 - Converts data to RDF triples using the TableDoc class from tripper
+- Converts the datamodels (a table with `datum...` columns, such as `datamodels_clean.csv`) to RDF using dlite,
+  so that the dataset types and their datamodels are in the same graph
 - Validates the generated RDF against SHACL shapes
 
 **Output files:**
@@ -96,27 +110,7 @@ You can also add the password in plain text, but that is not preferred.
 
 ---
 
-## 3. `step3_dmtable_parse.py`
-
-**Purpose:** Parses data model definitions from CSV and converts them to RDF format, using `dlite`.
-
-**Usage:**
-```bash
-python scripts/step3_dmtable_parse.py
-```
-
-**What it does:**
-- Reads datamodel definitions from `datamodels.csv`
-- Parses CSV using DMTable to generate data models.
-- Converts datamodels to RDF triples in a triplestore
-- Serializes the result to Turtle format
-
-**Output files:**
-- `datamodels.ttl` - Data models in RDF Turtle format
-
----
-
-## 4. `search_pink_kb.py`
+## 3. `search_pink_kb.py`
 
 **Purpose:** Searches and queries the PINK Knowledge Base.
 
