@@ -13,6 +13,7 @@ import requests
 import orcid
 import datetime
 import functools
+import collections
 import dateutil.parser 
 import pink.parseutils
 from rfc3987 import parse
@@ -57,17 +58,30 @@ def add_error(error_table, row, column, error_type, message):
     return pd.concat([error_table, new_error], ignore_index=True)
 
 # Read data profile (lines starting with # are ignored)
-# Possible datatypes are:
-# - string
-# - IRI
-# - URL (resolvable IRI)
-# - boolean
-# - dateTime
-# - SSbDCore (entry exist in SSbD Core ontology)
-# - AgentIRI (ROR or ORCID identifier)
-# - PersonIRI (ORCID identifier)
-# - MediaTypeIRI (IANA media type, e.g. iana:application/zip)
-def read_profile_table(args):
+# The range of a property is one or more of the following, separated by "|"
+# (a value is accepted if it is one of them):
+# - a predefined range, written in lower case (see LITERALS and RANGES below):
+#   string, boolean, date, dateTime, iri, orcid, ror, ssbd, rights, iana, url
+# - an ontology class with a known prefix, e.g. ssbd:Model: the value must be that class,
+#   a subclass of it, or an individual of one of them
+LITERALS = ("string", "boolean", "date", "dateTime")
+
+def get_ranges(row):
+    """Return the alternatives of the range of a profile row, e.g. ["orcid", "ror"]."""
+    return [d.strip() for d in str(row['range']).split("|") if d.strip()]
+
+def is_class_range(name):
+    """Whether a range alternative is an ontology class (prefix:Name), not a predefined one."""
+    return ":" in name
+
+def is_iri_range(row):
+    """Whether the values of a profile row are IRIs (all ranges except the literals)."""
+    return not any(d in LITERALS for d in get_ranges(row))
+
+def read_profile_table(args, prefixes=None):
+    """Read a profile. `prefixes` are the prefixes allowed for classes (default: the PINK prefixes)."""
+    if prefixes is None:
+        prefixes = pink.parseutils.PREFIXES
     try:
         profile_table = pd.read_csv(args.profile_file)
     except Exception as e:
@@ -76,6 +90,18 @@ def read_profile_table(args):
 
     profile_table = profile_table.rename(columns={"property": "column_name"})  # profiles in profiles/ use "property"
     profile_table = profile_table[profile_table['column_name'].str.startswith('#') == False]
+    for _, row in profile_table.iterrows():
+        ranges = get_ranges(row)
+        for d in ranges:
+            if is_class_range(d):
+                if d.split(":", 1)[0] not in prefixes:
+                    raise ValueError(f"{args.profile_file}: unknown prefix in range {d!r} of {row['column_name']}")
+            elif d not in LITERALS and d not in RANGES and d != "iri":
+                raise ValueError(f"{args.profile_file}: unknown range {d!r} of {row['column_name']}. "
+                                 f"Use one of {', '.join(LITERALS + ('iri',) + tuple(RANGES))} or an ontology class, e.g. ssbd:Model")
+        if len(ranges) > 1 and any(d in LITERALS for d in ranges):
+            raise ValueError(f"{args.profile_file}: {row['range']!r} of {row['column_name']}: "
+                             f"{', '.join(LITERALS)} cannot be combined with other ranges")
     print(f"\nValidation defined by profile table:\n")
     profile_table = cleanDF(profile_table)
     print(profile_table)
@@ -165,7 +191,7 @@ def create_list_columns(annotation_table, profile_table):
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
         if column_name in annotation_table.columns:
-            if row['datatype'].startswith('List'):
+            if row['range'].startswith('List'):
                 annotation_table[column_name] = annotation_table[column_name].apply(
                     lambda x: str(x).replace(',', ';') if (pd.notna(x) and (';' not in str(x))) else x
                 )
@@ -209,7 +235,7 @@ def strings_to_bools(annotation_table, profile_table, error_table):
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
         if column_name in annotation_table.columns:
-            if row['datatype'] == 'boolean':
+            if row['range'] == 'boolean':
                 valid = annotation_table.apply(correct_boolean, column_name=column_name, axis=1, result_type='expand')
                 annotation_table[column_name] = valid.pop(column_name)
                 valid.dropna(how='all', inplace=True)
@@ -249,7 +275,7 @@ def strings_to_dates(annotation_table, profile_table, error_table):
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
         if column_name in annotation_table.columns:
-            if row['datatype'] in ('date', 'dateTime'):
+            if row['range'] in ('date', 'dateTime'):
                 valid = annotation_table.apply(translate_string_to_date, column_name=column_name, axis=1, result_type='expand')
                 annotation_table[column_name] = valid.pop(column_name)
                 error_table = pd.concat([error_table, valid.dropna(how='all')])
@@ -270,7 +296,11 @@ def suggest_term(value, ontology):
             return f" Did you mean {prefix}:{iri[len(namespace):]}?"
     return f" Did you mean {iri}?"
 
-def retrieve_IRI_from_ontology(column, column_name, ontology, prefixes, error_table, datatype):
+def retrieve_IRI_from_ontology(column, column_name, ontology, prefixes, error_table, strict):
+    """Resolve the terms in `column` to IRIs in the ontology.
+
+    If `strict` is true, a term that is not in the ontology is an error, otherwise a warning.
+    """
     for i, value in column.items():
         if not isinstance(value, list) and (pd.isna(value) or (isinstance(value, float) and np.isnan(value))):
            column[i] = value
@@ -284,18 +314,18 @@ def retrieve_IRI_from_ontology(column, column_name, ontology, prefixes, error_ta
                 else:
                     new_v = v
                     if any(iter(map(v.startswith, prefixes)))==True:
-                        if ("SSbDCore" in datatype):
+                        if strict:
                             error_table = add_error(error_table, i, column_name, "Error", f'Term \"{v}\" was not found in ontology.' + suggest_term(v, ontology))
                         else:
                             error_table = add_error(error_table, i, column_name, "Warning", f'Term \"{v}\" is considered an individual.')
                     else:
                         if (":" in v):
-                            if ("SSbDCore" in datatype):
+                            if strict:
                                 error_table = add_error(error_table, i, column_name, "Error", f'Prefix of \"{v}\" is not part of ontology.' + suggest_term(v, ontology))
                             else:
                                 error_table = add_error(error_table, i, column_name, "Warning", f'Prefix of \"{v}\" is not part of ontology.')
                         else:
-                            if ("SSbDCore" in datatype):
+                            if strict:
                                 error_table = add_error(error_table, i, column_name, "Error", f'Term \"{v}\" is not in the ontology and not an IRI.')
                             else:
                                 new_v = pink.parseutils.add_prefix(v, "ssbd")
@@ -310,18 +340,18 @@ def retrieve_IRI_from_ontology(column, column_name, ontology, prefixes, error_ta
             else:
                 new_v = value
                 if any(iter(map(value.startswith, prefixes)))==True:
-                    if ("SSbDCore" in datatype):
+                    if strict:
                         error_table = add_error(error_table, i, column_name, "Error", f'Term \"{value}\" was not found in ontology.' + suggest_term(value, ontology))
                     else:
                         error_table = add_error(error_table, i, column_name, "Warning", f'Term \"{value}\" is considered an individual.')
                 else:
                     if (":" in value):
-                        if ("SSbDCore" in datatype):
+                        if strict:
                             error_table = add_error(error_table, i, column_name, "Error", f'Prefix of \"{value}\" is not part of ontology.' + suggest_term(value, ontology))
                         else:
                             error_table = add_error(error_table, i, column_name, "Warning", f'Prefix of \"{value}\" is not part of ontology.')
                     else:
-                        if ("SSbDCore" in datatype):
+                        if strict:
                             error_table = add_error(error_table, i, column_name, "Error", f'Term \"{value}\" is not in the ontology and not an IRI.')
                         else:
                             new_v = pink.parseutils.add_prefix(value, "ssbd")
@@ -361,8 +391,8 @@ def replace_short_prefixes(column, column_name, prefixes, error_table):
 
 #---------- Validate the individual software entries against the profile table ----------
 # 
-# Check if the person ID is valid by querying the API. If valid, return the name of the person. If not valid, return an error message.
-# Currently only ORCIDs are supported as PersonIRI, but this can be extended to other identifiers in the future.
+# Check if the ORCID is valid by querying the API. If valid, report the name of the person. If not valid, return an error message.
+# Used for the range "orcid" (see RANGES).
 def validate_orcid(value, row, column, credentials, error_table):
     if (('orcid' not in credentials.keys()) or ('api' not in credentials["orcid"].keys())):
         r = re.compile('https://orcid.org/.{4}-.{4}-.{4}-.{4}')
@@ -386,26 +416,8 @@ def validate_orcid(value, row, column, credentials, error_table):
     return error_table
 
 
-def validate_PersonIRI(value, row, column, credentials, error_table):
-    if not isinstance(value, list) and (pd.isna(value) or (isinstance(value, float) and np.isnan(value))):
-        return error_table
-    elif isinstance(value, list):
-        for item in value:
-            if isinstance(item, str) and item.startswith("https://orcid.org/"):
-                error_table = validate_orcid(item, row, column, credentials, error_table)
-            else:
-                error_table = add_error(error_table, row, column, 'Error', f'Invalid PersonIRI format in list: {item} - {value}. Expected format: https://orcid.org/XXXX-XXXX-XXXX-XXXX')
-
-    else:
-        if isinstance(value, str) and value.startswith("https://orcid.org/"):
-            error_table = validate_orcid(value, row, column, credentials, error_table)
-        else:
-            error_table = add_error(error_table, row, column, 'Error', f'Invalid PersonIRI format: {value}. Expected format: https://orcid.org/XXXX-XXXX-XXXX-XXXX')
- 
-    return error_table
-
-# Check if the organisation ID is valid by querying the API. If valid, return the name of the organization. If not valid, return an error message.
-# Currently only ROR IDs are supported as OrgIRI, but this can be extended to other identifiers in the future.
+# Check if the ROR ID is valid by querying the API. If valid, report the name of the organisation. If not valid, return an error message.
+# Used for the range "ror" (see RANGES).
 def validate_ror(value, row, column, credentials, error_table):
     try:
         query = f"https://api.ror.org/v2/organizations/{value.replace('https://ror.org/', '')}"
@@ -423,29 +435,6 @@ def validate_ror(value, row, column, credentials, error_table):
         error_table = add_error(error_table, row, column, 'Error', f'ROR ID {value} is invalid: {response.status_code}')
 
     return error_table
-
-def validate_OrgIRI(value, row, column, credentials, error_table):
-    if not isinstance(value, list) and (pd.isna(value) or (isinstance(value, float) and np.isnan(value))):
-        return error_table
-    elif isinstance(value, list):
-        for item in value:
-            if isinstance(item, str) and item.startswith("https://ror.org/"):
-                error_table = validate_ror(item, row, column, credentials, error_table)
-            elif isinstance(item, str) and item.startswith("https://orcid.org/"):
-                error_table = validate_orcid(item, row, column, credentials, error_table)
-            else:
-                error_table = add_error(error_table, row, column, 'Error', f'Invalid OrgIRI format in list: {item} - {value}. Expected format: https://ror.org/XXXXXXXXXX or https://orcid.org/XXXX-XXXX-XXXX-XXXX')
-
-    else:
-        if isinstance(value, str) and value.startswith("https://ror.org/"):
-            error_table = validate_ror(value, row, column, credentials, error_table)
-        elif isinstance(value, str) and value.startswith("https://orcid.org/"):
-            error_table = validate_orcid(value, row, column, credentials, error_table)
-        else:
-            error_table = add_error(error_table, row, column, 'Error', f'Invalid OrgIRI format: {value}. Expected format: https://ror.org/XXXXXXXXXX or https://orcid.org/XXXX-XXXX-XXXX-XXXX')
- 
-    return error_table
-
 
 # Validate correctness of IRIs and URLs, including checking if the latter are resolvable. 
 
@@ -511,23 +500,6 @@ def validate_URLexists(value, row, column, credentials, error_table):
     return error_table
 
 
-def validate_URL(value, row, column, credentials, error_table):
-    if not isinstance(value, list) and (pd.isna(value) or (isinstance(value, float) and np.isnan(value))):
-        return error_table
-    elif isinstance(value, list):
-        for item in value:
-            if isinstance(item, str) and (item.startswith("https:") or item.startswith("http:")):
-                error_table = validate_URLexists(item, row, column, credentials, error_table)
-            else:
-                error_table = add_error(error_table, row, column, 'Error', f'Invalid URL format in list: {item} - {value}. Expected format: XXXX:XXXXX')
-
-    else:
-        if isinstance(value, str) and (value.startswith("https:") or value.startswith("http:")):
-            error_table = validate_URLexists(value, row, column, credentials, error_table)
-        else:
-            error_table = add_error(error_table, row, column, 'Error', f'Invalid URL format or not resolvable: {value}. Expected format: XXXX:XXXXX')
-    return error_table
-
 # Check that entry is boolean or a list of booleans. If not, add an error to the error table.
 def validate_boolean(value, row, column, credentials, error_table):
     if not isinstance(value, list) and (pd.isna(value) or (isinstance(value, float) and np.isnan(value))):
@@ -557,37 +529,161 @@ def validate_date(value, row, column, credentials, error_table):
     return error_table
 
 
-def validate_annotations(annotation_table, profile_table, credentials, error_table):
+# Access rights from the EU vocabulary on access rights (prefix "rights")
+RIGHTS = "http://publications.europa.eu/resource/authority/access-right/"
+ACCESS_RIGHTS = ("CONFIDENTIAL", "NON_PUBLIC", "PUBLIC", "RESTRICTED", "SENSITIVE")
+
+def validate_rights(value, row, column, credentials, error_table):
+    if value[len(RIGHTS):] in ACCESS_RIGHTS:
+        error_table = add_error(error_table, row, column, 'Info', f'Access rights {value} is valid.')
+    else:
+        error_table = add_error(error_table, row, column, 'Error', f'Access rights {value} is not one of {", ".join(ACCESS_RIGHTS)}.')
+    return error_table
+
+
+# The predefined ranges for IRIs (besides "iri", any valid IRI).
+# For each: whether a value belongs to it, the function that checks it, and the expected format.
+Range = collections.namedtuple("Range", "matches check expected")
+RANGES = {
+    "orcid": Range(lambda v: v.startswith("https://orcid.org/"), validate_orcid,
+                   "an ORCID (https://orcid.org/XXXX-XXXX-XXXX-XXXX)"),
+    "ror": Range(lambda v: v.startswith("https://ror.org/"), validate_ror,
+                 "a ROR ID (https://ror.org/XXXXXXXXX)"),
+    "ssbd": Range(lambda v: True, validate_IRI,  # looked up in the ontology in validate_table
+                  "a term in the SSbD Core ontology"),
+    "rights": Range(lambda v: v.startswith(RIGHTS), validate_rights,
+                    f"an access right ({', '.join('rights:' + r for r in ACCESS_RIGHTS)})"),
+    "iana": Range(lambda v: True, validate_MediaTypeIRI,
+                  "an IANA media type (e.g. iana:application/zip)"),
+    "url": Range(lambda v: v.startswith(("http://", "https://")), validate_URLexists,
+                 "a resolvable URL (http:// or https://)"),
+}
+
+
+#---------- Ontology classes as range ----------
+
+OWL_CLASS = "http://www.w3.org/2002/07/owl#Class"
+
+def as_list(value):
+    """Return the values of a cell as a list (cells may be lists, ;-separated strings or missing)."""
+    if isinstance(value, list):
+        return [v for v in value if isinstance(v, str) and v.strip()]
+    if isinstance(value, str):
+        return [v.strip() for v in value.split(";") if v.strip()]
+    return []
+
+
+def known_resources(tables, prefixes):
+    """Return the resources described in the prepared `tables`, as {IRI: (types, parents)}.
+
+    Used to check properties that refer to resources documented in the same spreadsheet,
+    e.g. `hasSoftware` (a software release).
+    """
+    expand = lambda v: pink.parseutils.convert_to_iri(v, prefixes) or v
+    known = {}
+    for table in tables:
+        columns = {c.removesuffix("[?sep=;]"): c for c in table.columns}
+        if "@id" not in columns:
+            continue
+        for _, row in table.iterrows():
+            for iri in as_list(row[columns["@id"]]):
+                types = [expand(t) for t in as_list(row[columns["@type"]])] if "@type" in columns else []
+                parents = [expand(p) for p in as_list(row[columns["subClassOf"]])] if "subClassOf" in columns else []
+                known[expand(iri)] = (types, parents)
+    return known
+
+
+def is_a(iri, class_iri, ontology, known, seen=()):
+    """Whether `iri` is the class `class_iri`, a subclass of it, or an individual of one of them.
+
+    Returns None if this cannot be decided: `iri` is neither in the ontology nor in `known`.
+    """
+    if iri == class_iri:
+        return True
+    if iri in seen:
+        return None
+    entity = ontology.search_one(iri=iri) if ontology is not None else None
+    if entity is not None:
+        cls = ontology.search_one(iri=class_iri)
+        if cls is None:
+            return False
+        if hasattr(entity, "ancestors"):  # a class
+            return cls in entity.ancestors()
+        return any(cls in c.ancestors() for c in entity.is_a if hasattr(c, "ancestors"))
+    if iri in known:
+        types, parents = known[iri]
+        # A class is checked through its parents, an individual through its types
+        candidates = parents if OWL_CLASS in types else types
+        answers = [is_a(c, class_iri, ontology, known, seen + (iri,)) for c in candidates]
+        if any(answers):
+            return True
+        return False if any(a is False for a in answers) else None
+    return None
+
+
+def compact(iri, prefixes):
+    """Return `iri` with a prefix, e.g. ssbd:Model, if one of `prefixes` fits."""
+    matches = [(len(ns), f"{prefix}:{iri[len(ns):]}") for prefix, ns in prefixes.items() if prefix and iri.startswith(ns)]
+    return max(matches)[1] if matches else iri
+
+
+def validate_range(value, row, column, credentials, error_table, ranges, ontology, known, prefixes):
+    """Check that each IRI in `value` is of one of the `ranges` (predefined or ontology classes)."""
+    classes = [d for d in ranges if is_class_range(d)]
+    for item in (value if isinstance(value, list) else [value]):
+        if not isinstance(item, str):
+            if pd.isna(item):
+                continue
+            item = str(item)
+        # Predefined ranges, e.g. orcid or ror
+        for name in ranges:
+            if name in RANGES and RANGES[name].matches(item):
+                error_table = RANGES[name].check(item, row, column, credentials, error_table)
+                break
+            if name == "iri":
+                error_table = validate_IRI(item, row, column, credentials, error_table)
+                break
+        else:
+            # Ontology classes: the value must be the class, a subclass or an individual of it
+            answers = [is_a(item, pink.parseutils.convert_to_iri(c, prefixes) or c, ontology, known) for c in classes]
+            hint = suggest_term(item, ontology) if ontology is not None else ""
+            if any(answers):
+                error_table = validate_IRIvalid(item, row, column, credentials, error_table)
+            elif classes and all(a is False for a in answers):
+                error_table = add_error(error_table, row, column, 'Error',
+                                        f'{compact(item, prefixes)} is not a {" or ".join(classes)}.')
+            elif classes:
+                error_table = add_error(error_table, row, column, 'Error',
+                                        f'{compact(item, prefixes)} was not found in the ontology or in the spreadsheet '
+                                        f'(it must be a {" or ".join(classes)}).' + hint)
+            else:
+                expected = " or ".join(RANGES[name].expected for name in ranges if name in RANGES)
+                error_table = add_error(error_table, row, column, 'Error',
+                                        f'{item} is not in the range of {column} ({" | ".join(ranges)}). Expected {expected}.')
+    return error_table
+
+
+def validate_annotations(annotation_table, profile_table, credentials, error_table, ontology=None, known=None, prefixes=None):
 
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
-        datatype = row['datatype']
+        range_ = row['range']
         condition = row['condition']
         if column_name not in annotation_table.columns:
             continue  # missing columns are reported by check_mandatory_and_recommended_columns
 
-        if datatype == 'PersonIRI' or datatype == 'List[PersonIRI]':
-            validation_function = validate_PersonIRI
-        elif datatype == 'OrgIRI' or datatype == 'List[OrgIRI]' or datatype == 'AgentIRI':
-            validation_function = validate_OrgIRI
-        elif datatype == 'MediaTypeIRI':
-            validation_function = validate_MediaTypeIRI
-        elif datatype == 'IRI' or datatype == 'List[IRI]':
-            validation_function = validate_IRI
-        elif datatype == 'URL' or datatype == 'List[URL]':
-            validation_function = validate_URL
-        elif "SSbD" in datatype: # to be implemented
-            validation_function = validate_IRI
-        elif datatype == 'boolean':
+        if is_iri_range(row):
+            validation_function = functools.partial(validate_range, ranges=get_ranges(row), ontology=ontology,
+                                                    known=known or {}, prefixes=prefixes or pink.parseutils.PREFIXES)
+            validation_function.__name__ = f"validate_range({range_})"
+        elif range_ == 'boolean':
             validation_function = validate_boolean
-        elif datatype == 'date' or datatype == 'dateTime':
+        elif range_ in ('date', 'dateTime'):
             validation_function = validate_date
-        elif datatype == 'string' or datatype == 'List[string]':
-            validation_function = None # check for special characters need to be implemented
-        else: 
+        else:  # string: check for special characters need to be implemented
             validation_function = None
-        
-        print(f"\nValidating column {column_name} of datatype {datatype} with condition {condition} using validation function {validation_function.__name__ if validation_function else 'None'}")
+
+        print(f"\nValidating column {column_name} with range {range_} with condition {condition} using validation function {validation_function.__name__ if validation_function else 'None'}")
         
         for j, row2 in annotation_table.iterrows():
             if condition == 'mandatory' or condition == 'recommended':
@@ -597,7 +693,7 @@ def validate_annotations(annotation_table, profile_table, credentials, error_tab
                     continue
             
             if validation_function is not None:
-                error_table = validation_function(row2[column_name], j, column_name, credentials, error_table) if validation_function else error_table
+                error_table = validation_function(row2[column_name], j, column_name, credentials, error_table)
 
     return error_table
 
@@ -614,12 +710,46 @@ def check_assessment(table, ontology, error_table):
     return error_table
 
 
-def validate_table(table, profile_table, ontology, credentials, prefixes=None):
+def ontology_namespaces(ontology, prefixes):
+    """Return the namespaces of the terms in `ontology`, and the prefixes (with ":") for them.
+
+    SSbD Core includes terms from other ontologies with their own IRIs (EMMO, CHEMINF, ChEBI, ...).
+    Used to tell a term that is missing from the ontology from a term with a prefix
+    that is not part of the ontology.
+    """
+    namespaces = set()
+    for entity in list(ontology.classes()) + list(ontology.properties()) + list(ontology.individuals()):
+        iri = entity.iri
+        namespaces.add(iri[:max(iri.rfind("#"), iri.rfind("/")) + 1])
+    namespaces.discard("")
+    known = [f"{prefix}:" for prefix, namespace in prefixes.items() if prefix and namespace in namespaces]
+    return known + sorted(namespaces)
+
+
+def resolve_labels(column, column_name, ontology, error_table):
+    """Replace terms given by their label (no prefix, not an IRI) with their IRI in the ontology."""
+    for i, value in column.items():
+        values = value if isinstance(value, list) else [value]
+        new_values = []
+        for v in values:
+            if isinstance(v, str) and ":" not in v:
+                iri = pink.parseutils.check_for_individual_uri(v, ontology, verbose=False)
+                if iri is not None and iri != v:
+                    error_table = add_error(error_table, i, column_name, "Info", f'Term "{v}" is in ontology and was resolved to full IRI "{iri}"')
+                    v = iri
+            new_values.append(v)
+        column[i] = new_values if isinstance(value, list) else new_values[0]
+    return column, error_table
+
+
+def validate_table(table, profile_table, ontology, credentials, prefixes=None, known=None):
     """Validate a table against a profile table and return the error table.
 
     The columns of `table` are property names (as in the prepared tables).
     The table itself is not changed.
     `prefixes` maps known prefixes to IRIs (default: the PINK prefixes).
+    `known` are the resources documented in the same spreadsheet (see `known_resources`),
+    used for ranges that are ontology classes.
     """
     if prefixes is None:
         prefixes = pink.parseutils.PREFIXES
@@ -652,19 +782,26 @@ def validate_table(table, profile_table, ontology, credentials, prefixes=None):
     if "inTierLevel" in table.columns:
         table["inTierLevel"] = table["inTierLevel"].apply(pink.parseutils.remove_extra_text)
 
-    # Check ontology - currently only SSbD including the relevant EMMO parts
+    # Check ontology - the SSbD Core ontology, including the terms it takes from other
+    # ontologies with their own IRIs (EMMO, CHEMINF, ChEBI, ...)
+    in_ontology = ontology_namespaces(ontology, prefixes) if ontology is not None else []
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
-        datatype = row['datatype']
-        if (column_name in table.columns) and ("SSbD" in row['datatype']):
-            table[column_name], error_table = retrieve_IRI_from_ontology(table[column_name].copy(deep=True), column_name, ontology, ["ssbd:", "emmo:", "https://w3id.org/ssbd/", "https://w3id.org/emmo/"], error_table, datatype)
+        ranges = get_ranges(row)
+        if column_name not in table.columns or ontology is None:
+            continue
+        if "ssbd" in ranges:
+            # Only SSbD Core terms are accepted if that is the only range
+            table[column_name], error_table = retrieve_IRI_from_ontology(table[column_name].copy(deep=True), column_name, ontology, in_ontology, error_table, strict=(ranges == ["ssbd"]))
+        elif any(is_class_range(d) for d in ranges):
+            table[column_name], error_table = resolve_labels(table[column_name].copy(deep=True), column_name, ontology, error_table)
 
     # IRI columns may refer to terms outside the ontology. But a prefixed term that is not
     # in the ontology, while the same name is (e.g. datasettype:Dataset for ssbd:Dataset),
     # probably has a wrong prefix: warn about it.
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
-        if column_name in table.columns and row['datatype'] in ('IRI', 'List[IRI]') and ontology is not None:
+        if column_name in table.columns and get_ranges(row) == ['iri'] and ontology is not None:
             for j, value in table[column_name].items():
                 for v in (value if isinstance(value, list) else [value]):
                     if (isinstance(v, str) and ":" in v and not v.startswith(("http://", "https://"))
@@ -676,9 +813,9 @@ def validate_table(table, profile_table, ontology, credentials, prefixes=None):
     # Replace known prefixes
     for i, row in profile_table.iterrows():
         column_name = row['column_name']
-        if column_name in table.columns and ("IRI" in row['datatype'] or "URL" in row['datatype'] or "SSbD" in row['datatype']):
+        if column_name in table.columns and is_iri_range(row):
             table[column_name], error_table = replace_short_prefixes(table[column_name].copy(deep=True), column_name, prefixes, error_table)
 
     # Validate the individual entries against the profile table
-    error_table = validate_annotations(table, profile_table, credentials, error_table)
+    error_table = validate_annotations(table, profile_table, credentials, error_table, ontology, known, prefixes)
     return error_table

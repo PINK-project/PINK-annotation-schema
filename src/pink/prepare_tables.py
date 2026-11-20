@@ -242,11 +242,13 @@ def main(argv=None):
     out = Path(args.output)
     out.mkdir(parents=True, exist_ok=True)
     failed = {}
+    # Resources documented in this spreadsheet, for ranges that are ontology classes (e.g. hasSoftware)
+    known = pink.validateutils.known_resources([table for *_, table in prepared], prefixes)
     for name, profile, tab, raw, table in prepared:
         print(f"\nVALIDATING {name} against profile {profile}")
         profile_table = pink.validateutils.read_profile_table(
-            SimpleNamespace(profile_file=str(Path(args.profiles) / f"{profile}.csv")))
-        errors = pink.validateutils.validate_table(table, profile_table, onto, credentials, prefixes)
+            SimpleNamespace(profile_file=str(Path(args.profiles) / f"{profile}.csv")), prefixes)
+        errors = pink.validateutils.validate_table(table, profile_table, onto, credentials, prefixes, known)
 
         # Columns that tripper does not know make generate-graph fail for the whole table
         for header in table.columns:
