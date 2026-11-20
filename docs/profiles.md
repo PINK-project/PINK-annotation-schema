@@ -91,8 +91,9 @@ The predefined ranges are written in lower case.
 
 A range can also be an ontology class with a known prefix, e.g. `ssbd:Model`.
 A value is then accepted if it is that class, a subclass of it, or an individual of one of them.
-For example, `ssbd:RandomForest` is accepted for `implementsModel` (range `ssbd:Model`),
-but `emmo:Molecule` is not.
+For example, `emmo:Molecule` is accepted for `chemicalClass` (range `ssbd:Matter`),
+since in the SSbD Core ontology it is a subclass of `emmo:MolecularEntity`, `emmo:ChemicalEntity` and `ssbd:Matter`.
+It is not accepted for `implementsModel` (range `ssbd:Model`), where e.g. `ssbd:RandomForest` is.
 
 - The value is looked up in the SSbD Core ontology, including the terms it takes from other ontologies.
 - A resource documented in the same spreadsheet is checked through its `@type` (an individual)
