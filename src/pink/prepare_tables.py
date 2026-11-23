@@ -1,7 +1,7 @@
 """Command line tool: prepare and validate documentation tables for generate-graph.
 
 Usage:
-    prepare-tables SOURCE [--type TYPE] [--sheet NAME] [-o FOLDER]
+    prepare-tables SOURCE [--profile PROFILE] [--sheet NAME] [-o FOLDER]
 
 SOURCE is the ID of a Google spreadsheet, an Excel file or a CSV file.
 
@@ -10,9 +10,9 @@ In a Google spreadsheet or Excel file, the tabs are recognised by their name:
     Computation... -> computation  (computations_clean.csv)
     Dataset Type   -> datasettype  (datasettypes_clean.csv and datamodels_clean.csv)
     Dataset        -> dataset      (datasets_clean.csv)
-All recognised tabs are prepared, or only the one given with --type.
+All recognised tabs are prepared, or only the one given with --profile.
 Another tab can be used with --sheet, and a CSV file has no tabs.
-In these cases the type is given with --type, or asked for.
+In these cases the profile is given with --profile, or asked for.
 
 Each prepared table is validated against its profile in profiles/,
 and the datamodels (the datum columns of the dataset type tab) are read and checked with dlite.
@@ -32,7 +32,7 @@ import openpyxl
 import pandas as pd
 import requests
 
-TYPES = ("software", "computation", "datasettype", "dataset")
+PROFILES = ("software", "computation", "datasettype", "dataset")
 
 GOOGLE_XLSX = "https://docs.google.com/spreadsheets/d/{}/export?format=xlsx"
 
@@ -122,11 +122,11 @@ def select_tables(sheets, table_type=None, sheet=None):
     if sheet is not None:
         if sheet not in sheets:
             sys.exit(f"No tab '{sheet}'. The tabs are: {', '.join(sheets)}")
-        table_type = table_type or ask(f"Which type of table is tab '{sheet}'?", TYPES)
+        table_type = table_type or ask(f"Which type of table is tab '{sheet}'?", PROFILES)
         return {table_type: (sheet, sheets[sheet])}
 
     if None in sheets:  # CSV file
-        table_type = table_type or ask("Which type of table is the CSV file?", TYPES)
+        table_type = table_type or ask("Which type of table is the CSV file?", PROFILES)
         return {table_type: (None, sheets[None])}
 
     found = {tab_type(name): name for name in sheets if tab_type(name)}
@@ -178,7 +178,7 @@ def main(argv=None):
         description="Prepare and validate documentation tables for generate-graph.",
     )
     parser.add_argument("source", help="Google spreadsheet ID, Excel file or CSV file.")
-    parser.add_argument("--type", choices=TYPES, help="Type of table.")
+    parser.add_argument("--profile", choices=PROFILES, help="Profile for the table.")
     parser.add_argument("--sheet", help="Name of the tab to use.")
     parser.add_argument("-o", "--output", default=".", help="Output folder (default: current folder).")
     parser.add_argument("-c", "--credentials", default="credentials.json",
@@ -188,7 +188,7 @@ def main(argv=None):
     args = parser.parse_args(argv)
 
     sheets = read_source(args.source)
-    tables = select_tables(sheets, args.type, args.sheet)
+    tables = select_tables(sheets, args.profile, args.sheet)
     for table_type, (name, _) in tables.items():
         print(f"{table_type}: {'CSV file' if name is None else 'tab ' + repr(name)}")
 
@@ -225,6 +225,7 @@ def main(argv=None):
     # Prepare: (name of the output, profile, tab, rows of the tab, prepared table)
     prepared = []
     datamodels = None
+    datamodel_fallback_rows = []
     for table_type, (tab, raw) in tables.items():
         raw = raw.loc[:, ~raw.columns.astype(str).str.startswith("Unnamed:")]
         if table_type == "software":
@@ -236,7 +237,15 @@ def main(argv=None):
         elif table_type == "datasettype":
             datamodels = prepare_datamodels(raw)
             datamodels_tab, datamodels_raw = tab, raw
-            prepared.append(("datasettypes", "datasettype", tab, raw, prepare_datasettypes(raw, onto, context)))
+            datasettypes = prepare_datasettypes(raw, onto, context)
+            for row in datamodels.index.intersection(datasettypes.index):
+                value = raw.at[row, "datamodel"] if "datamodel" in raw.columns else None
+                if pd.isna(value) or str(value).strip() == "":
+                    if "datamodel" not in datasettypes.columns:
+                        datasettypes["datamodel"] = None
+                    datasettypes.at[row, "datamodel"] = datamodels.at[row, "@id"]
+                    datamodel_fallback_rows.append(row)
+            prepared.append(("datasettypes", "datasettype", tab, raw, datasettypes))
         elif table_type == "dataset":
             prepared.append(("datasets", "dataset", tab, raw, prepare_datasets(raw, onto, context)))
 
@@ -248,6 +257,11 @@ def main(argv=None):
     known = pink.validateutils.known_resources([table for *_, table in prepared], prefixes)
     if datamodels is not None:
         datamodel_errors = pink.validateutils.validate_datamodels(datamodels, prefixes)
+        for row in datamodel_fallback_rows:
+            datamodel_errors = pink.validateutils.add_error(
+                datamodel_errors, row, "@id", "Info",
+                "No datamodel IRI was given; the dataset type IRI is used.",
+            )
         datamodel_failed = set(datamodel_errors.loc[datamodel_errors["type"] == "Error", "row"].dropna().astype(int))
     for name, profile, tab, raw, table in prepared:
         print(f"\nVALIDATING {name} against profile {profile}")
