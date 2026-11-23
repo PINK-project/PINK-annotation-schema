@@ -1,0 +1,5 @@
+property,condition,range,guidance
+@id,mandatory,iri,"Globally unique identifier for the resource. Use a persistent, resolvable IRI when possible."
+@type,mandatory,iri,"Use owl:Class for classes. For individuals, the ontology class it is an instance of. More than one @type may be used for individuals."
+label,optional,string,Short human-readable label.
+name,mandatory,string,"Human-readable name of the person, organisation, or other agent."

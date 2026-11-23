@@ -1,0 +1,16 @@
+property,condition,range,guidance
+@id,mandatory,iri,"Globally unique identifier for the resource. Use a persistent, resolvable IRI when possible."
+@type,mandatory,iri,"Use owl:Class for classes. For individuals, the ontology class it is an instance of. More than one @type may be used for individuals."
+creator,optional,orcid | ror,Agent responsible for creating or producing the resource.
+curator,mandatory,orcid | ror,At least include agent(s) responsible for curating the metadata entry of the resource in the knowledge base. Also agents curating the data itself can be added.
+description,mandatory,string,Human-readable description of the resource.
+hasInput,recommended,iri,Type of entity or dataset accepted as input by the computation.
+hasOutput,recommended,iri,Type of entity or dataset produced by the computation.
+outputsIndicator,recommended,ssbd:Property,Indicator(s) produced by the computation.
+hasSoftware,mandatory,ssbd:Software,Software implemenitiation that can perform the computation.
+keyword,recommended,string,Search keyword or tag.
+label,mandatory,string,Short human-readable label.
+scopeNote,optional,string,"Clarifies the intended meaning, boundaries, or use of a resource."
+subClassOf,mandatory,ssbd,"Parent class of the documented class. Individuals must not use subClassOf. Particularly important for computation types: the type of assessment (see SSbD core ontology, Assessments module) must be specified."
+theme,optional,iri,Main controlled category or SSbD thematic area of the resource. Give the IRI of a concept in a controlled vocabulary.
+title,mandatory,string,"Human-readable title of the resource. For classes, label is preferred."

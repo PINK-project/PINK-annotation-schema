@@ -1,0 +1,86 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pinkag: <https://pink-project.eu/agent/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+pinkag:AlexeHaywood a prov:Agent ;
+    owl:sameAs "https://orcid.org/0000-0002-0719-4907" ;
+    foaf:name "Alexe Haywood"^^xsd:string .
+
+pinkag:AndreaLorenzoni a prov:Agent ;
+    owl:sameAs "https://orcid.org/0000-0002-4860-153X" ;
+    foaf:name "Andrea Lorenzoni"^^xsd:string .
+
+pinkag:CNR a prov:Agent ;
+    owl:sameAs "https://ror.org/04zaypm56" ;
+    foaf:name "CNR"^^xsd:string .
+
+pinkag:DominicRuss a prov:Agent ;
+    owl:sameAs "https://orcid.org/0000-0002-2705-2068" ;
+    foaf:name "Dominic Russ"^^xsd:string .
+
+pinkag:EMPA a prov:Agent ;
+    owl:sameAs "https://ror.org/02x681a42" ;
+    foaf:name "EMPA"^^xsd:string .
+
+pinkag:FrancescaLBleken a prov:Agent ;
+    owl:sameAs "https://orcid.org/0000-0001-8869-3718" ;
+    foaf:name "Francesca Lønstad Bleken"^^xsd:string .
+
+pinkag:FrancescoMercuri a prov:Agent ;
+    owl:sameAs "https://orcid.org/0000-0002-3369-4438" ;
+    foaf:name "Francesco Mercuri"^^xsd:string .
+
+pinkag:HuiYang a prov:Agent ;
+    owl:sameAs "https://orcid.org/0000-0002-3372-4801" ;
+    foaf:name "Hui Yang"^^xsd:string .
+
+pinkag:ISS a prov:Agent ;
+    owl:sameAs "https://ror.org/02hssy432" ;
+    foaf:name "​ISS, Istituto Superiore di Sanità"^^xsd:string .
+
+pinkag:IndraniMahapatra a prov:Agent ;
+    owl:sameAs "https://orcid.org/0000-0002-6396-0848" ;
+    foaf:name "Indrani Mahapatra"^^xsd:string .
+
+pinkag:JesperFriis a prov:Agent ;
+    owl:sameAs "https://orcid.org/0000-0002-1560-809X" ;
+    foaf:name "Jesper Friis"^^xsd:string .
+
+pinkag:KI a prov:Agent ;
+    owl:sameAs "https://ror.org/056d84691" ;
+    foaf:name "KI"^^xsd:string .
+
+pinkag:LIST a prov:Agent ;
+    owl:sameAs "https://ror.org/01t178j62" ;
+    foaf:name "LIST"^^xsd:string .
+
+pinkag:NTUA a prov:Agent ;
+    owl:sameAs "https://ror.org/03cx6bg69" ;
+    foaf:name "NTUA"^^xsd:string .
+
+pinkag:NovaMechanics a prov:Agent ;
+    owl:sameAs "https://ror.org/03wwn0z54" ;
+    foaf:name "NovaMechanics"^^xsd:string .
+
+pinkag:PennyNymark a prov:Agent ;
+    owl:sameAs "https://orcid.org/0000-0002-3435-7775" ;
+    foaf:name "Penny Nymark"^^xsd:string .
+
+pinkag:PhilipDoganis a prov:Agent ;
+    owl:sameAs "https://orcid.org/0000-0002-0628-8434" ;
+    foaf:name "Philip Doganis"^^xsd:string .
+
+pinkag:SINTEF a prov:Agent ;
+    owl:sameAs "https://ror.org/0422tvz87" ;
+    foaf:name "SINTEF"^^xsd:string .
+
+pinkag:ThomasExner a prov:Agent ;
+    owl:sameAs "https://orcid.org/0000-0002-1849-5246" ;
+    foaf:name "Thomas Exner"^^xsd:string .
+
+pinkag:US_EPA a prov:Agent ;
+    owl:sameAs "https://ror.org/03tns0030" ;
+    foaf:name "United States Environmental Protection Agency (EPA), USA"^^xsd:string .
+

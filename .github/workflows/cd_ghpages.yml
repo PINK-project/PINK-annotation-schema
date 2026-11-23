@@ -4,13 +4,15 @@ on:
   push:
     branches:
       - main
+      - fix-gh-pages
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   deploy-on-ghpages:
-    #concurrency: ci-${{ github.ref }}  # Recommended if you intend to make multiple deployments in quick succession.
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
 
     steps:
@@ -22,19 +24,15 @@ jobs:
       with:
         python-version: 3.13
 
-    - name: Install EMMOntoPy and tripper
+    - name: Install Sphinx
       run: |
         pip install --upgrade pip
-        pip install \
-            "EMMOntoPy[ontodoc,ontokit] @ git+https://github.com/emmo-repo/EMMOntoPy.git@ontokit_dev" \
-            "tripper[datadoc] @ git+https://github.com/EMMC-ASBL/tripper.git@master"
+        pip install -r docs/requirements.txt
 
     - name: Generate documentation
       run: |
-        mkdir -p public
-        cp README.md public/index.md
-        cp _config.yml public/_config.yml
-
+        sphinx-build -b html docs public
+        touch public/.nojekyll
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
@@ -42,4 +40,5 @@ jobs:
         folder: public
         branch: gh-pages
         clean: true
+        clean-exclude: versions
         single-commit: true

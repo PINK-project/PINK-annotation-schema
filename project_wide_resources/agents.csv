@@ -1,0 +1,22 @@
+@id,owl:sameAs,@type,name
+pinkag:FrancescoMercuri,https://orcid.org/0000-0002-3369-4438,http://www.w3.org/ns/prov#Agent,Francesco Mercuri
+pinkag:PhilipDoganis,https://orcid.org/0000-0002-0628-8434,http://www.w3.org/ns/prov#Agent,Philip Doganis
+pinkag:ThomasExner,https://orcid.org/0000-0002-1849-5246,http://www.w3.org/ns/prov#Agent,Thomas Exner
+pinkag:AndreaLorenzoni,https://orcid.org/0000-0002-4860-153X,http://www.w3.org/ns/prov#Agent,Andrea Lorenzoni
+pinkag:FrancescaLBleken,https://orcid.org/0000-0001-8869-3718,http://www.w3.org/ns/prov#Agent,Francesca Lønstad Bleken
+pinkag:PennyNymark,https://orcid.org/0000-0002-3435-7775,http://www.w3.org/ns/prov#Agent,Penny Nymark
+pinkag:JesperFriis,https://orcid.org/0000-0002-1560-809X,http://www.w3.org/ns/prov#Agent,Jesper Friis
+pinkag:NTUA,https://ror.org/03cx6bg69,http://www.w3.org/ns/prov#Agent,NTUA
+pinkag:CNR,https://ror.org/04zaypm56,http://www.w3.org/ns/prov#Agent,CNR
+pinkag:SINTEF,https://ror.org/0422tvz87,http://www.w3.org/ns/prov#Agent,SINTEF
+pinkag:KI,https://ror.org/056d84691,http://www.w3.org/ns/prov#Agent,KI
+pinkag:NovaMechanics,https://ror.org/03wwn0z54,http://www.w3.org/ns/prov#Agent,NovaMechanics
+pinkag:LIST,https://ror.org/01t178j62,http://www.w3.org/ns/prov#Agent,LIST
+pinkag:EMPA,https://ror.org/02x681a42,http://www.w3.org/ns/prov#Agent,EMPA
+pinkag:US_EPA,https://ror.org/03tns0030,http://www.w3.org/ns/prov#Agent,"United States Environmental Protection Agency (EPA), USA"
+pinkag:ISS,https://ror.org/02hssy432,http://www.w3.org/ns/prov#Agent,"​ISS, Istituto Superiore di Sanità"
+pinkag:DominicRuss,https://orcid.org/0000-0002-2705-2068,http://www.w3.org/ns/prov#Agent,Dominic Russ
+pinkag:AlexeHaywood,https://orcid.org/0000-0002-0719-4907,http://www.w3.org/ns/prov#Agent,Alexe Haywood
+pinkag:IndraniMahapatra,https://orcid.org/0000-0002-6396-0848,http://www.w3.org/ns/prov#Agent,Indrani Mahapatra
+pinkag:HuiYang,https://orcid.org/0000-0002-3372-4801,http://www.w3.org/ns/prov#Agent,Hui Yang
+

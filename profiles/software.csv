@@ -1,0 +1,27 @@
+property,condition,range,guidance
+@id,mandatory,iri,"Globally unique identifier for the resource. Use a persistent, resolvable IRI when possible."
+@type,mandatory,iri,"Use owl:Class for classes. For individuals, the ontology class it is an instance of. More than one @type may be used for individuals."
+accessRights,mandatory,rights,"Information about access to the resource. One of: CONFIDENTIAL, NON_PUBLIC, PUBLIC, RESTRICTED, SENSITIVE, from EU structured vocabulary on rights."
+chemicalClass,recommended,ssbd:Matter,"Use when the software or dataset is relevant to a particular chemical, substance, material, or chemical class. Give the IRI of the chemical, substance, material or chemical class."
+creator,recommended,orcid | ror,Agent responsible for creating or producing the resource.
+curator,mandatory,orcid,At least include agent(s) responsible for curating the metadata entry of the resource in the knowledge base. Also agents curating the data itself can be added.
+description,mandatory,string,Human-readable description of the resource.
+distribution.accessURL,recommended,url,URL providing access to a distribution. Tripper converts the nested property into an annotation on a generated dcat:Distribution blank node.
+distribution.downloadURL,recommended,url,Direct link to a downloadable file. Recommended when the resource has a directly downloadable representation.
+distribution.releaseDate,optional,dateTime,Date on which this particular distribution was formally issued.
+documentation,recommended,url,"Page or document describing how to understand or use the resource, such as a README, protocol, manual, or data paper."
+hasAPI,mandatory,boolean,Indicates whether the software provides an application programming interface. Use true or false.
+hasGUI,mandatory,boolean,Indicates whether the software provides a graphical user interface. Use true or false.
+implementsModel,recommended,ssbd:Model,Model implemented by the software release.
+inTierLevel,recommended,ssbd:TierLevel,"Tier level assigned to the software release according to the applicable SSbD tier scheme (ssbd:tierlevel1, ssbd:tierlevel2, ssbd:tierlevel3)."
+isSubmoduleOf,conditional,iri,Use when the documented software is a module or component of another software resource. Give the IRI of that software.
+keyword,recommended,string,Search keyword or tag.
+label,optional,string,Short human-readable label.
+license,recommended,iri,Licence under which the resource is made available or may be reused. Give the IRI of the licence document.
+priorRelease,conditional,iri,Previous software release from which the documented release follows.
+publisher,recommended,orcid | ror,Agent responsible for making the resource available. This may differ from its creator.
+releaseDate,recommended,dateTime,Date of formal issuance or publication. Use an ISO 8601 value compatible with xsd:dateTime.
+rightsHolder,recommended,orcid | ror,Person or organisation owning or managing rights over the resource.
+theme,optional,iri,Main controlled category or SSbD thematic area of the resource. Give the IRI of a concept in a controlled vocabulary.
+title,mandatory,string,"Human-readable title of the resource. For classes, label is preferred."
+version,mandatory,string,Version name or identifier.
