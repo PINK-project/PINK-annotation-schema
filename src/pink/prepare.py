@@ -132,8 +132,8 @@ def prepare_datamodels(datasettypes):
     # Set @id to the value in column "datamodel" if it exists, otherwise to the same value as in datasettypes["identifier"]
     datamodels["@id"] = datasettypes.apply(
         lambda row: (
-            row["datamodel"]
-            if pd.notna(row["datamodel"]) and str(row["datamodel"]).strip() != ""
+            row.get("datamodel")
+            if pd.notna(row.get("datamodel")) and str(row.get("datamodel")).strip() != ""
             else row["identifier"]
         ),
         axis=1,

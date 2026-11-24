@@ -78,9 +78,9 @@ The predefined ranges are written in lower case.
 | `boolean` | `Yes` or `No` (in any case), or a true/false cell. |
 | `date`, `dateTime` | A date, or a date and time, in a common format (e.g. `2025-08-18` or `January 2015`). |
 | `iri` | Any valid IRI. A prefix must be known (see below). |
-| `url` | A resolvable `http://` or `https://` URL. A URL that needs a login gives a warning. |
-| `orcid` | An ORCID, `https://orcid.org/XXXX-XXXX-XXXX-XXXX`, that exists. It is looked up at ORCID. |
-| `ror` | A ROR ID, `https://ror.org/XXXXXXXXX`, that exists. It is looked up at ROR. |
+| `url` | A resolvable `http://` or `https://` URL. A URL that needs a login gives a warning. So does a server error (5xx) or a server that doesn't answer within 30 seconds, since the URL may well be correct. |
+| `orcid` | An ORCID, `https://orcid.org/XXXX-XXXX-XXXX-XXXX`, that exists. It is looked up at ORCID (a warning if ORCID doesn't answer). |
+| `ror` | A ROR ID, `https://ror.org/XXXXXXXXX`, that exists. It is looked up at ROR (a warning if ROR doesn't answer). |
 | `ssbd` | A term in the SSbD Core ontology, including the terms it takes from other ontologies (e.g. `emmo:`). It may be given by its label. |
 | `rights` | An access right from the [EU vocabulary on access rights](http://publications.europa.eu/resource/authority/access-right): `PUBLIC`, `NON_PUBLIC`, `RESTRICTED`, `CONFIDENTIAL` or `SENSITIVE`. The prefix `rights:` is added if it is left out. |
 | `iana` | An IANA media type, e.g. `iana:application/zip`. Use `distribution.format` for a free-text format. |
